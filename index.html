@@ -1,0 +1,90 @@
+Here’s a clean, scalable `index.html` setup for your dark fantasy steampunk alignment quiz. This version:
+
+* loads ALL CSS files
+* loads ALL JS modules
+* creates the app shell
+* supports dynamic component loading
+* is ready for short/deep quiz routing
+* includes a loading screen container
+* includes navigation support
+* works without fonts/images/audio
+
+You can paste this directly into `index.html`.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>D&D Alignment Quiz</title>
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/themes.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+
+    <!-- BASIC THEME COLOR -->
+    <meta name="theme-color" content="#111111" />
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen"></div>
+
+    <!-- MAIN APPLICATION -->
+    <div id="app">
+
+        <!-- NAVIGATION -->
+        <nav id="navigation"></nav>
+
+        <!-- MAIN CONTENT -->
+        <main id="content">
+
+            <!-- DYNAMIC CONTENT LOADS HERE -->
+            <section id="view-container"></section>
+
+        </main>
+
+    </div>
+
+    <!-- ================================= -->
+    <!-- DATA FILES -->
+    <!-- ================================= -->
+
+    <script type="module" src="./data/alignments.js"></script>
+    <script type="module" src="./data/classes.js"></script>
+    <script type="module" src="./data/questions-short.js"></script>
+    <script type="module" src="./data/questions-deep.js"></script>
+    <script type="module" src="./data/outcomes.js"></script>
+    <script type="module" src="./data/world-lore.js"></script>
+
+    <!-- ================================= -->
+    <!-- CORE APPLICATION -->
+    <!-- ================================= -->
+
+    <script type="module" src="./js/state.js"></script>
+    <script type="module" src="./js/storage.js"></script>
+    <script type="module" src="./js/scoring.js"></script>
+
+    <!-- ================================= -->
+    <!-- UI / ROUTING -->
+    <!-- ================================= -->
+
+    <script type="module" src="./js/router.js"></script>
+    <script type="module" src="./js/ui.js"></script>
+    <script type="module" src="./js/transitions.js"></script>
+
+    <!-- ================================= -->
+    <!-- MAIN APP CONTROLLER -->
+    <!-- LOAD LAST -->
+    <!-- ================================= -->
+
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
+```
