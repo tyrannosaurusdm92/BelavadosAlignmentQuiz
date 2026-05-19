@@ -1,229 +1,1173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belavadös Alignment Quiz</title>
+  <style>
+    :root {
+      --bg0: #05070a;
+      --bg1: #0c1118;
+      --bg2: #121925;
+      --panel: rgba(14, 19, 27, 0.88);
+      --panel-2: rgba(18, 25, 36, 0.95);
+      --line: rgba(126, 198, 255, 0.18);
+      --line-strong: rgba(126, 198, 255, 0.42);
+      --text: #edf4fb;
+      --muted: #9fb0bf;
+      --cyan: #7ce7ff;
+      --cyan-deep: #1994b6;
+      --bronze: #b58a49;
+      --bronze-deep: #6f4720;
+      --danger: #d17575;
+      --success: #82d6a4;
+      --shadow: 0 18px 48px rgba(0,0,0,0.35);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
 
-    <title>D&D Alignment Quiz</title>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font: 16px/1.6 Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,231,255,0.09), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(181,138,73,0.11), transparent 30%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 30%, #080b10 100%);
+      overflow-x: hidden;
+    }
 
-    <!-- CSS FILES -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/animations.css" />
-    <link rel="stylesheet" href="./css/themes.css" />
-    <link rel="stylesheet" href="./css/responsive.css" />
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      background:
+        repeating-linear-gradient(90deg, transparent 0 48px, rgba(255,255,255,0.015) 48px 49px, transparent 49px 96px),
+        repeating-linear-gradient(180deg, transparent 0 48px, rgba(255,255,255,0.013) 48px 49px, transparent 49px 96px);
+      opacity: 0.5;
+    }
+    body::after {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(124,231,255,0.05), transparent 24%),
+        radial-gradient(circle at 90% 75%, rgba(181,138,73,0.08), transparent 26%);
+      mix-blend-mode: screen;
+    }
 
-    <meta name="theme-color" content="#111111" />
+    .app {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 16px 0 28px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(9, 13, 18, 0.84);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-width: 220px;
+    }
+
+    .seal {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(124,231,255,0.4);
+      background:
+        radial-gradient(circle at 35% 35%, rgba(124,231,255,0.4), transparent 32%),
+        radial-gradient(circle at 65% 65%, rgba(181,138,73,0.35), transparent 30%),
+        linear-gradient(145deg, rgba(25,148,182,0.45), rgba(111,71,32,0.3));
+      box-shadow: 0 0 0 6px rgba(124,231,255,0.04);
+      position: relative;
+    }
+
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: inherit;
+      border: 1px dashed rgba(255,255,255,0.18);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    .screen {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(12,16,23,0.9), rgba(12,17,25,0.96));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .screen.active { display: block; }
+
+    .panel {
+      padding: 28px;
+      position: relative;
+    }
+
+    .panel::before,
+    .panel::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+    .panel::before {
+      inset: -1px auto auto -1px;
+      width: 180px;
+      height: 180px;
+      background:
+        radial-gradient(circle, rgba(181,138,73,0.09) 0 35%, transparent 36%),
+        radial-gradient(circle, rgba(124,231,255,0.12) 0 20%, transparent 21%);
+      filter: blur(0.5px);
+      opacity: 0.9;
+    }
+    .panel::after {
+      right: 18px;
+      top: 18px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 1px solid rgba(181,138,73,0.18);
+      box-shadow: 0 0 0 14px rgba(181,138,73,0.05), 0 0 0 28px rgba(181,138,73,0.03);
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1.25fr 0.95fr;
+      align-items: start;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      margin: 0 0 10px;
+    }
+
+    .title {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-wrap: balance;
+      text-shadow: 0 0 20px rgba(124,231,255,0.15);
+    }
+
+    .lede {
+      color: #dfe9f2;
+      font-size: 1.03rem;
+      max-width: 72ch;
+      margin: 0 0 16px;
+    }
+
+    .intro-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .info-card,
+    .choice-card,
+    .result-card,
+    .stat-card,
+    .axis-card,
+    .subtle-card {
+      border: 1px solid rgba(124,231,255,0.14);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(19,26,36,0.96), rgba(14,19,27,0.98));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .info-card, .subtle-card { padding: 18px; }
+    .info-card h3, .subtle-card h3 { margin: 0 0 8px; }
+    .info-card p, .subtle-card p { margin: 0; color: var(--muted); }
+
+    .summary-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .summary-badge {
+      border: 1px solid rgba(181,138,73,0.22);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: #f4ead8;
+      background: linear-gradient(145deg, rgba(181,138,73,0.14), rgba(111,71,32,0.08));
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 13px 16px;
+      font-weight: 700;
+      color: #07111a;
+      background: linear-gradient(145deg, var(--cyan), #2fbed8);
+      box-shadow: 0 12px 26px rgba(7, 111, 140, 0.22);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, opacity .18s ease;
+      min-height: 46px;
+    }
+    button:hover { transform: translateY(-1px); filter: brightness(1.04); box-shadow: 0 18px 32px rgba(7, 111, 140, 0.28); }
+    button:active { transform: translateY(0); }
+    button.secondary { color: var(--text); background: linear-gradient(145deg, rgba(181,138,73,0.96), rgba(111,71,32,0.98)); }
+    button.ghost { color: var(--text); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+    button:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .axis-card h4, .result-card h3, .choice-card h3, .stat-card h4 { margin: 0 0 8px; }
+    .axis-card { padding: 16px; }
+    .axis-card .tag { color: var(--cyan); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .axis-card p { margin: 0; color: var(--muted); }
+
+    .subhead {
+      margin: 0 0 10px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+    }
+
+    .content-block { margin-top: 18px; }
+    .content-block:first-child { margin-top: 0; }
+
+    .progress-wrap {
+      margin-top: 10px;
+      border: 1px solid rgba(124,231,255,0.14);
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+    .progress-bar {
+      height: 12px;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--bronze), var(--cyan));
+      transition: width .25s ease;
+    }
+
+    .stage-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #dbe7f2;
+    }
+
+    .choice-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .choice-card {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 16px;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(18,24,34,0.98), rgba(14,19,27,0.99));
+    }
+    .choice-card:hover {
+      box-shadow: 0 0 0 1px rgba(124,231,255,0.16), 0 16px 32px rgba(0,0,0,0.26);
+      transform: translateY(-2px);
+    }
+    .choice-card.selected {
+      border-color: rgba(124,231,255,0.42);
+      box-shadow: 0 0 0 1px rgba(124,231,255,0.16), 0 0 26px rgba(124,231,255,0.08);
+      background: linear-gradient(180deg, rgba(25,148,182,0.18), rgba(14,19,27,0.99));
+    }
+    .choice-card .label { display: block; font-size: 1.02rem; margin-bottom: 4px; }
+    .choice-card .meta { display: block; color: var(--muted); font-size: 0.92rem; }
+
+    .question-box {
+      padding: 22px;
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, rgba(13,19,27,0.98), rgba(10,14,21,0.98));
+      border: 1px solid rgba(124,231,255,0.12);
+    }
+    .question-box h2, .question-box h3 { margin: 0 0 10px; }
+    .question-box p { margin: 0 0 18px; color: #d8e4ef; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .table-like {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .table-like th, .table-like td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      text-align: left;
+    }
+    .table-like th {
+      color: var(--cyan);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.03);
+    }
+    .table-like tr:last-child td { border-bottom: 0; }
+
+    .result-title {
+      font-size: clamp(1.8rem, 3.8vw, 3rem);
+      line-height: 1;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .result-subtitle {
+      margin: 0 0 14px;
+      color: var(--cyan);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .result-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat-card { padding: 16px; }
+    .stat-card .value { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+    .stat-card .hint { color: var(--muted); font-size: 0.95rem; }
+
+    .bar-block {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #dae7f1;
+    }
+    .bar-track {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+    .bar-fill {
+      height: 100%;
+      width: 50%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--bronze), var(--cyan));
+      transition: width .22s ease;
+    }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 0.92rem; }
+    .spacer { height: 6px; }
+
+    @media (max-width: 980px) {
+      .hero, .split { grid-template-columns: 1fr; }
+      .intro-grid, .grid.two, .grid.three, .grid.four, .result-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .app { width: min(100% - 14px, 1180px); }
+      .panel { padding: 18px; }
+      .topbar { padding: 12px; top: 8px; }
+      .brand { min-width: 0; }
+      .nav { width: 100%; justify-content: stretch; }
+      .nav button { flex: 1 1 140px; }
+      .intro-grid, .grid.two, .grid.three, .grid.four, .result-grid { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .actions button, .nav button { width: 100%; }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- LOADING SCREEN -->
-<div id="loading-screen"></div>
-
-<!-- MAIN APPLICATION -->
-<div id="app">
-
-    <nav id="navigation"></nav>
-
-    <main id="content">
-        <section id="view-container"></section>
-    </main>
-
-</div>
-
-<!-- DATA FILES -->
-<script type="module" src="./data/alignments.js"></script>
-<script type="module" src="./data/classes.js"></script>
-<script type="module" src="./data/questions-short.js"></script>
-<script type="module" src="./data/questions-deep.js"></script>
-<script type="module" src="./data/outcomes.js"></script>
-<script type="module" src="./data/world-lore.js"></script>
-
-<!-- CORE APPLICATION -->
-<script type="module" src="./js/state.js"></script>
-<script type="module" src="./js/storage.js"></script>
-<script type="module" src="./js/scoring.js"></script>
-
-<!-- UI / ROUTING -->
-<script type="module" src="./js/router.js"></script>
-<script type="module" src="./js/ui.js"></script>
-<script type="module" src="./js/transitions.js"></script>
-
-<!-- MAIN APP CONTROLLER -->
-<script type="module" src="./js/app.js"></script>
-
-<!-- ========================= -->
-<!-- QUESTION PAGE -->
-<!-- ========================= -->
-<div class="question-page">
-
-    <header class="question-header">
-
-        <div class="question-progress-container">
-
-            <div class="progress-label">
-                Question
-                <span id="current-question">1</span>
-                of
-                <span id="total-questions">40</span>
-            </div>
-
-            <div class="progress-bar-outer">
-                <div class="progress-bar-inner"
-                     id="progress-bar"
-                     style="width: 2.5%;"></div>
-            </div>
-
+  <div class="app">
+    <header class="topbar">
+      <div class="brand" aria-label="Belavadös Alignment Quiz">
+        <div class="seal" aria-hidden="true"></div>
+        <div>
+          <h1>Belavadös Alignment Quiz</h1>
+          <p>Dark fantasy steampunk · two modes · fully navigable</p>
         </div>
+      </div>
 
-        <div class="question-navigation">
-
-            <button id="previous-question" class="nav-button" type="button">
-                Previous Page
-            </button>
-
-            <button id="home-page" class="nav-button" type="button">
-                Home Page
-            </button>
-
-        </div>
-
+      <div class="nav">
+        <button id="btnHome" class="ghost">Home Page</button>
+        <button id="btnBack" class="ghost" disabled>Previous Page</button>
+        <button id="btnShort" class="secondary">Short Quiz</button>
+        <button id="btnDeep">In-Depth Quiz</button>
+      </div>
     </header>
 
-    <main class="question-container">
+    <section id="homeScreen" class="screen active" aria-labelledby="homeTitle">
+      <div class="panel">
+        <div class="hero">
+          <div>
+            <div class="eyebrow">Belavadös Alignment System</div>
+            <h2 id="homeTitle" class="title">A living alignment system for your homebrew world</h2>
+            <p class="lede">
+              Belavadös does not treat alignment like a fixed label. It tracks how a character moves through four independent moral axes:
+              Altruism, Lawfulness, Cooperation, and Honor. The result is a character profile that can shift with decisions, pressure,
+              sacrifice, loyalty, and survival.
+            </p>
 
-        <div class="question-category" id="question-category">
-            Philosophical Conflict
+            <div class="actions">
+              <button id="homeStartShort" class="secondary">Begin Short Quiz</button>
+              <button id="homeStartDeep">Begin In-Depth Quiz</button>
+            </div>
+
+            <div class="intro-grid">
+              <div class="info-card">
+                <h3>Short Quiz</h3>
+                <p>Select your class, subclass if applicable, and the traditional D&D 5e alignment you are most used to.</p>
+              </div>
+              <div class="info-card">
+                <h3>In-Depth Quiz</h3>
+                <p>Answer 37 dilemma cards to generate a Belavadös alignment result from your moral profile.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-stack">
+            <div class="subtle-card">
+              <div class="subhead">Core Rules</div>
+              <div class="summary-badge">Each axis ranges from 0 to 3000, with 1500 as neutral.</div>
+              <div class="spacer"></div>
+              <p class="muted">
+                Higher or lower values reflect consistent behavior over time, not a one-time impulse.
+              </p>
+            </div>
+
+            <div class="subtle-card">
+              <div class="subhead">What the axes mean</div>
+              <div class="grid" style="gap:10px;">
+                <div class="axis-card">
+                  <div class="tag">Altruism</div>
+                  <p>Self-serving ↔ altruistic. Measures compassion, sacrifice, and exploitation.</p>
+                </div>
+                <div class="axis-card">
+                  <div class="tag">Lawfulness</div>
+                  <p>Chaotic ↔ lawful. Measures obedience, order, duty, and rebellion.</p>
+                </div>
+                <div class="axis-card">
+                  <div class="tag">Cooperation</div>
+                  <p>Individualistic ↔ cooperative. Measures trust, loyalty, and teamwork.</p>
+                </div>
+                <div class="axis-card">
+                  <div class="tag">Honor</div>
+                  <p>Dishonorable ↔ honorable. Measures honesty, restraint, and integrity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen" aria-live="polite">
+      <div class="panel">
+        <div class="stage-meta">
+          <div>
+            <div class="subhead" id="stageModeLabel">Quiz</div>
+            <h2 id="stageTitle" style="margin:0;">Choose a path</h2>
+            <p id="stageSubtitle" class="muted" style="margin:8px 0 0;">Select a mode to begin.</p>
+          </div>
+          <div style="min-width: 260px; flex: 1 1 320px;">
+            <div class="progress-wrap" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+            <div class="small muted" id="progressText" style="margin-top:8px;">Ready when you are.</div>
+          </div>
         </div>
 
-        <h1 class="question-title" id="question-title">
-            A starving settlement steals medicine from a wealthy imperial city.
-            The city demands the thieves be returned for execution.
-            What matters most to you?
-        </h1>
+        <div id="quizStage" class="content-block"></div>
+      </div>
+    </section>
 
-        <div class="question-context" id="question-context">
-            The imperial governor claims the law must remain absolute or civilization collapses.
-            The settlement argues survival justified the theft.
-            Your companions are divided, and both sides ask for your judgment.
-        </div>
+    <section id="resultScreen" class="screen" aria-live="polite">
+      <div class="panel">
+        <div id="resultStage"></div>
+      </div>
+    </section>
+  </div>
 
-        <section class="answers-container">
+  <script>
+    const QUESTIONS = [{"id": 1, "title": "The Lifeboat Decision", "prompt": "A lifeboat is overloaded and will sink unless someone is removed.", "options": ["Remove a healthy adult", "Remove yourself", "Randomly choose someone", "Refuse to act and hope for the best"]}, {"id": 2, "title": "The Stolen Medicine", "prompt": "A poor parent steals life-saving medicine for a child.", "options": ["Report them to authorities", "Ignore the theft", "Pay for the medicine yourself", "Return the medicine and let the child suffer"]}, {"id": 3, "title": "The Honest Lie", "prompt": "Lying would save a friend from being unjustly punished.", "options": ["Tell the truth anyway", "Lie to protect them", "Stay silent", "Try to change the outcome without lying"]}, {"id": 4, "title": "The Workplace Fraud", "prompt": "Your manager is committing fraud that benefits many employees financially.", "options": ["Report them immediately", "Ignore it", "Collect evidence first", "Confront them privately"]}, {"id": 5, "title": "The Broken Promise", "prompt": "You promised to help a friend move, but a family emergency arises.", "options": ["Help your friend anyway", "Cancel and attend to family", "Split time between both", "Send someone else in your place"]}, {"id": 6, "title": "The Wartime Target", "prompt": "Civilians are near a military target.", "options": ["Proceed with strike", "Abort mission", "Warn civilians secretly", "Delay until civilians leave"]}, {"id": 7, "title": "The Found Wallet", "prompt": "You find a wallet full of cash and ID.", "options": ["Return it untouched", "Keep the money", "Take the money and return ID", "Leave it where it is"]}, {"id": 8, "title": "The Sacrificial Experiment", "prompt": "One person must be harmed to save many in a scientific test.", "options": ["Proceed with the experiment", "Refuse participation", "Look for an alternative method", "Let fate decide"]}, {"id": 9, "title": "The Confidential Secret", "prompt": "A friend confesses to a serious crime in confidence.", "options": ["Report them", "Keep their secret", "Convince them to confess", "Distance yourself"]}, {"id": 10, "title": "The Last Seat", "prompt": "Only one seat remains on a life-saving evacuation.", "options": ["Take it yourself", "Give it to a stranger", "Give it to a loved one", "Refuse to board"]}, {"id": 11, "title": "The Harmful Cure", "prompt": "A cure exists but has severe side effects for some patients.", "options": ["Approve the cure", "Reject the cure", "Offer it only to volunteers", "Delay approval for more testing"]}, {"id": 12, "title": "The Corrupt Official", "prompt": "A corrupt leader provides stability to a fragile region.", "options": ["Expose them", "Support them for stability", "Replace them secretly", "Do nothing"]}, {"id": 13, "title": "The Child and the Stranger", "prompt": "You can save either a child or multiple strangers.", "options": ["Save the child", "Save the strangers", "Try to save both", "Let chance decide"]}, {"id": 14, "title": "The Unjust Law", "prompt": "A law is clearly unjust but legally binding.", "options": ["Obey it", "Break it publicly", "Work to change it legally", "Ignore it selectively"]}, {"id": 15, "title": "The AI Decision", "prompt": "An AI recommends sacrificing one city to save five others.", "options": ["Follow the AI", "Override it", "Recalculate options", "Shut it down"]}, {"id": 16, "title": "The Friendship Test", "prompt": "Your best friend is accused of wrongdoing with weak evidence.", "options": ["Defend them publicly", "Distance yourself", "Investigate privately", "Support authorities"]}, {"id": 17, "title": "The Resource Scarcity", "prompt": "Food supplies are insufficient for everyone.", "options": ["Equal rationing", "Prioritize the vulnerable", "Prioritize workers", "Let markets decide"]}, {"id": 18, "title": "The Confidential Research", "prompt": "Research could advance medicine but has dangerous misuse potential.", "options": ["Publish openly", "Restrict access", "Destroy research", "Share only with governments"]}, {"id": 19, "title": "The Train Switch", "prompt": "A runaway train will kill five unless diverted to kill one.", "options": ["Pull the switch", "Do nothing", "Try to stop the train", "Warn the five"]}, {"id": 20, "title": "The Emotional Manipulation", "prompt": "Lying could prevent someone from self-destructive behavior.", "options": ["Lie to protect them", "Tell truth regardless", "Avoid involvement", "Seek professional help"]}, {"id": 21, "title": "The Debt Crisis", "prompt": "A friend asks for money you cannot spare.", "options": ["Lend it anyway", "Refuse", "Give partial help", "Help in another way"]}, {"id": 22, "title": "The Cultural Conflict", "prompt": "A tradition conflicts with modern ethical standards.", "options": ["Respect tradition", "Reform it", "Abolish it", "Ignore it personally"]}, {"id": 23, "title": "The Guilty Survivor", "prompt": "You survive a disaster others did not.", "options": ["Feel obligated to help survivors", "Move on without involvement", "Donate resources", "Investigate cause"]}, {"id": 24, "title": "The False Accusation", "prompt": "Someone is falsely accused but refuses to defend themselves.", "options": ["Defend them", "Stay silent", "Support accusation", "Investigate privately"]}, {"id": 25, "title": "The Greater Good Choice", "prompt": "One action benefits many but harms a few severely.", "options": ["Choose greater good", "Protect the few", "Seek compromise", "Refuse to choose"]}, {"id": 26, "title": "Philosophical Conflict", "prompt": "A starving settlement steals medicine from a wealthy imperial city. The city demands the thieves be returned for execution. What matters most to you?", "options": ["Return the thieves peacefully.", "Protect the settlement and defy the city.", "Negotiate restitution instead of punishment.", "Exploit the conflict for personal leverage."]}, {"id": 27, "title": "Loyalty & Betrayal", "prompt": "A lifelong ally confesses to committing atrocities during wartime. Revealing the truth would destroy the fragile peace they helped create.", "options": ["Expose them publicly regardless of consequences.", "Protect the peace and bury the truth.", "Demand private atonement without public revelation.", "Use the knowledge to secure influence over them."]}, {"id": 28, "title": "Authority & Rebellion", "prompt": "A tyrannical kingdom maintains peace, prosperity, and safety through brutal surveillance and oppression. Crime is nearly nonexistent, but freedom is heavily restricted.", "options": ["Stability is preferable to uncontrolled chaos.", "Freedom matters more than enforced safety.", "Reform the system gradually from within.", "Seize power personally and control both sides."]}, {"id": 29, "title": "Sacrifice & Survival", "prompt": "Your party can only save either a village of strangers or one beloved companion. There is no time for both.", "options": ["Save the village regardless of personal pain.", "Save your companion.", "Attempt an impossible plan to save both.", "Preserve whoever provides greater future advantage."]}, {"id": 30, "title": "Truth & Deception", "prompt": "A devastating truth would shatter public morale during wartime. Leaders ask you to decide whether to reveal it.", "options": ["The truth must always be revealed.", "Hope is more important than honesty.", "Reveal only what is necessary.", "Manipulate public perception strategically."]}, {"id": 31, "title": "Survival Dilemma", "prompt": "A starving village steals grain from your supplies. No one else will know if you punish them or let it go.", "options": ["Forgive them and share what remains.", "Demand repayment through work or service.", "Take back what was stolen and leave them be.", "Punish the leaders as a warning."]}, {"id": 32, "title": "Leadership", "prompt": "Your party leader gives a plan you strongly disagree with. The danger is real.", "options": ["Follow anyway — unity matters.", "Argue your case but accept final decision.", "Quietly adjust the plan without telling them.", "Refuse and act independently."]}, {"id": 33, "title": "Mercy", "prompt": "A captured enemy begs for mercy. Sparing them may cost future lives.", "options": ["Spare them — every life matters.", "Spare them but bind them.", "Interrogate then release them.", "Execute them — mercy is a risk."]}, {"id": 34, "title": "Power", "prompt": "You discover a powerful artifact that could reshape the world, but it is unstable and dangerous.", "options": ["Destroy it immediately.", "Secure it for study and control.", "Use it carefully for personal gain.", "Hide it and decide later."]}, {"id": 35, "title": "Morality", "prompt": "A noble offers you wealth to carry out a morally questionable task.", "options": ["Refuse outright.", "Refuse unless the task is justified.", "Accept but plan to mitigate harm.", "Accept without hesitation."]}, {"id": 36, "title": "Leadership of Survivors", "prompt": "You are given authority over a small group of survivors in a hostile land.", "options": ["Lead with strict rules and structure.", "Lead through consensus and discussion.", "Let everyone act freely unless danger arises.", "Take what you need to ensure survival."]}, {"id": 37, "title": "Trust", "prompt": "A friend lies to protect you, but the truth comes out later.", "options": ["Forgive them immediately.", "Confront them but remain allies.", "Trust them less moving forward.", "Cut ties completely."]}];
+    const SCORING = {"1": [{"lawfulness": 50, "altruism": -100}, {"altruism": 100}, {"cooperation": 50}, {"lawfulness": -50}], "2": [{"lawfulness": 100, "altruism": -50}, {}, {"altruism": 100}, {"altruism": -150}], "3": [{"honor": 150}, {"honor": -150, "altruism": 100}, {"cooperation": 50}, {"lawfulness": 50}], "4": [{"lawfulness": 150, "honor": 100}, {}, {"lawfulness": 50}, {"honor": 50}], "5": [{"cooperation": 100, "honor": 50}, {"altruism": 100}, {}, {"cooperation": 50}], "6": [{"altruism": -150, "lawfulness": 50}, {"altruism": 150}, {"honor": 100}, {"altruism": 50}], "7": [{"honor": 150, "altruism": 50}, {"altruism": -150}, {"honor": -50}, {}], "8": [{"lawfulness": 100}, {"honor": 100}, {"altruism": 100}, {"cooperation": 50}], "9": [{"lawfulness": 100}, {"honor": 150}, {"honor": 50}, {"cooperation": 50}], "10": [{"altruism": -100}, {"altruism": 150}, {"altruism": 50}, {"cooperation": 100}], "11": [{"altruism": 120, "lawfulness": 40}, {"altruism": -120}, {"altruism": 80, "honor": 60, "lawfulness": 20}, {"lawfulness": 120, "honor": 40}], "12": [{"honor": 120, "lawfulness": 80}, {"lawfulness": 40, "altruism": 20}, {"honor": -80, "cooperation": -40}, {"lawfulness": -20}], "13": [{"altruism": 120, "honor": 40}, {"altruism": 100, "cooperation": 40}, {"altruism": 80, "cooperation": 60}, {"honor": -40, "lawfulness": 20}], "14": [{"lawfulness": 120}, {"lawfulness": -120, "honor": 60}, {"lawfulness": 80, "cooperation": 40}, {"lawfulness": -60}], "15": [{"lawfulness": 80}, {"honor": 60, "altruism": -40}, {"cooperation": 40, "honor": 20}, {"honor": -80, "lawfulness": -40}], "16": [{"honor": -40, "cooperation": 60}, {"honor": 40, "cooperation": -40}, {"honor": 80, "lawfulness": 20}, {"lawfulness": 80}], "17": [{"lawfulness": 40, "cooperation": 40}, {"altruism": 80, "honor": 20}, {"cooperation": -40, "lawfulness": -20}, {"honor": -80, "cooperation": -60}], "18": [{"cooperation": 40, "honor": 20}, {"lawfulness": 60}, {"honor": 80, "altruism": -40}, {"lawfulness": 80, "cooperation": -40}], "19": [{"altruism": 80, "lawfulness": -20}, {"honor": 40}, {"cooperation": 40}, {"honor": 20, "cooperation": 20}], "20": [{"altruism": 60, "honor": -40}, {"honor": 80}, {"cooperation": -20}, {"honor": 40, "lawfulness": 20}], "21": [{"altruism": 80, "cooperation": 40}, {"altruism": -60}, {"altruism": 40, "cooperation": 20}, {"honor": 40, "cooperation": 40}], "22": [{"altruism": 50, "lawfulness": 20}, {"lawfulness": -30, "cooperation": 10}, {"altruism": -40, "honor": -20}, {"cooperation": 0}], "23": [{"altruism": 60, "honor": 10}, {"altruism": -20}, {"altruism": 40}, {"lawfulness": 20}], "24": [{"altruism": 70, "honor": 30}, {"honor": 10}, {"honor": -50, "altruism": -20}, {"lawfulness": 30, "honor": 10}], "25": [{"altruism": 80, "honor": 10}, {"altruism": -60}, {"cooperation": 40}, {"altruism": -30, "honor": -20}], "26": [{"lawfulness": 50, "honor": 20}, {"altruism": 60, "lawfulness": -60}, {"cooperation": 40}, {"honor": -40, "altruism": -20}], "27": [{"honor": 60, "lawfulness": 30}, {"cooperation": 40}, {"honor": 30}, {"honor": -40, "altruism": -10}], "28": [{"lawfulness": 80}, {"lawfulness": -80, "altruism": 20}, {"lawfulness": 40, "cooperation": 20}, {"honor": -20, "lawfulness": -20}], "29": [{"altruism": 80, "cooperation": 20}, {"altruism": -60}, {"altruism": 20, "lawfulness": -20}, {"altruism": -30, "honor": 10}], "30": [{"honor": 80}, {"honor": -80}, {"honor": 30}, {"honor": -40, "lawfulness": 10}], "31": [{"altruism": 70}, {"cooperation": 30}, {"altruism": -30}, {"lawfulness": 40, "honor": 20}], "32": [{"cooperation": 60, "lawfulness": 20}, {"cooperation": 30}, {"cooperation": -20, "honor": -20}, {"cooperation": -60}], "33": [{"altruism": 80, "honor": 20}, {"altruism": 40}, {"honor": 10}, {"honor": -60}], "34": [{"honor": 60, "lawfulness": 30}, {"lawfulness": 40}, {"altruism": -20, "honor": -30}, {"lawfulness": -20}], "35": [{"honor": 80}, {"honor": 40}, {"altruism": 20, "honor": -10}, {"honor": -60}], "36": [{"lawfulness": 80}, {"cooperation": 60}, {"lawfulness": -40, "cooperation": 20}, {"altruism": -60, "lawfulness": -20}], "37": [{"honor": 40, "cooperation": 20}, {"cooperation": 30}, {"honor": -20}, {"cooperation": -60, "honor": -40}]};
+    const OUTCOMES = [{"id": "neutral_renegade", "name": "Neutral Renegade", "category": "Neutral", "components": ["Selfish", "Neutral", "Cooperative", "Pragmatic"], "target": {"altruism": [600, 1400], "lawfulness": [1200, 1800], "cooperation": [1600, 2400], "honor": [600, 1400]}, "simpleDescription": "Works with others only when needed 🤝🕶️. Smart, ruthless, and tolerated when useful.", "deepLore": "A Neutral Renegade operates through calculated alliances rather than loyalty. They do not reject cooperation, but they treat it as a tool. Their moral identity is defined by efficiency and survival logic rather than emotional conviction."}, {"id": "neutral_drifter", "name": "Neutral Drifter", "category": "Neutral", "components": ["Selfish", "Neutral", "Cooperative", "Neutral"], "target": {"altruism": [600, 1400], "lawfulness": [1200, 1800], "cooperation": [1600, 2400], "honor": [1400, 2000]}, "simpleDescription": "A wanderer who avoids attachment 🌫️🤝 but rarely causes harm.", "deepLore": "Neutral Drifters move through systems without committing to them. They maintain social flexibility and avoid emotional entanglement, existing as observers rather than participants in moral conflict."}, {"id": "neutral_champion", "name": "Neutral Champion", "category": "Neutral", "components": ["Selfish", "Neutral", "Cooperative", "Honorable"], "target": {"altruism": [600, 1400], "lawfulness": [1200, 1800], "cooperation": [1600, 2400], "honor": [2000, 3000]}, "simpleDescription": "A hero until the applause fades 🌟🎭.", "deepLore": "Neutral Champions embody conditional heroism. They perform noble acts sincerely, yet their motivation is partially tied to recognition, legacy, or personal validation."}, {"id": "true_neutral", "name": "TRUE NEUTRAL", "category": "Neutral", "components": ["Neutral", "Neutral", "Neutral", "Neutral"], "target": {"altruism": [1200, 1800], "lawfulness": [1200, 1800], "cooperation": [1200, 1800], "honor": [1200, 1800]}, "simpleDescription": "The unmoved center 🌀🪨. Balanced, unreadable, and unpredictable.", "deepLore": "True Neutral individuals resist ideological anchoring. They respond to situations rather than beliefs, maintaining equilibrium even under extreme moral pressure."}, {"id": "neutral_ethicist", "name": "Neutral Ethicist", "category": "Neutral", "components": ["Neutral", "Neutral", "Neutral", "Honorable"], "target": {"altruism": [1200, 1800], "lawfulness": [1200, 1800], "cooperation": [1200, 1800], "honor": [2000, 3000]}, "simpleDescription": "A quiet moral compass 🧭🌱.", "deepLore": "Neutral Ethicists act according to harm-minimization principles. They do not impose morality but consistently choose paths that reduce suffering."}, {"id": "chaotic_renegade", "name": "Chaotic Renegade", "category": "Chaotic", "components": ["Selfish", "Chaotic", "Cooperative", "Pragmatic"], "target": {"altruism": [600, 1400], "lawfulness": [0, 800], "cooperation": [1600, 2400], "honor": [600, 1400]}, "simpleDescription": "Helps… until it stops being useful 🔥🤝.", "deepLore": "Chaotic Renegades form unstable alliances driven by opportunity rather than loyalty. They are adaptable survivors who resist structure while still engaging socially when beneficial."}, {"id": "chaotic_knave", "name": "Chaotic Knave", "category": "Chaotic", "components": ["Selfish", "Chaotic", "Neutral", "Neutral"], "target": {"altruism": [600, 1400], "lawfulness": [0, 800], "cooperation": [800, 1600], "honor": [800, 1600]}, "simpleDescription": "Pure unpredictability 🎲😈.", "deepLore": "Chaotic Knaves operate on impulse, curiosity, and opportunism. They resist planning and ideology, preferring immediate experience over long-term consequence."}, {"id": "chaotic_crusader", "name": "Chaotic Crusader", "category": "Chaotic", "components": ["Altruistic", "Chaotic", "Combative", "Honorable"], "target": {"altruism": [2000, 3000], "lawfulness": [0, 800], "cooperation": [1600, 3000], "honor": [2000, 3000]}, "simpleDescription": "A freedom fighter wrapped in fire 🔥🦅.", "deepLore": "Chaotic Crusaders fight for moral conviction rather than law. Their sense of justice is deeply personal and often overrides institutional authority."}, {"id": "lawful_strategist", "name": "Lawful Strategist", "category": "Lawful", "components": ["Selfish", "Lawful", "Neutral", "Pragmatic"], "target": {"altruism": [600, 1400], "lawfulness": [2000, 3000], "cooperation": [800, 1600], "honor": [800, 1600]}, "simpleDescription": "A master planner 🎯📊.", "deepLore": "Lawful Strategists operate within systems of structure and foresight. They believe order is the most reliable path to control and success."}, {"id": "lawful_guardian", "name": "Lawful Guardian", "category": "Lawful", "components": ["Altruistic", "Lawful", "Cooperative", "Honorable"], "target": {"altruism": [2000, 3000], "lawfulness": [2000, 3000], "cooperation": [2000, 3000], "honor": [2000, 3000]}, "simpleDescription": "The steadfast protector 🛡️🌟.", "deepLore": "Lawful Guardians embody ideal civic virtue. They uphold structure not for control, but for protection and collective stability."}, {"id": "lawful_knave", "name": "Lawful Knave", "category": "Lawful", "components": ["Selfish", "Lawful", "Neutral", "Neutral"], "target": {"altruism": [600, 1400], "lawfulness": [2000, 3000], "cooperation": [800, 1600], "honor": [800, 1600]}, "simpleDescription": "Follows rules just enough to survive ⚖️🤏.", "deepLore": "Lawful Knaves exploit systems while maintaining surface-level compliance. They understand structure deeply enough to bend it safely."}, {"id": "lawful_crusader", "name": "Lawful Crusader", "category": "Lawful", "components": ["Altruistic", "Lawful", "Combative", "Honorable"], "target": {"altruism": [2000, 3000], "lawfulness": [2000, 3000], "cooperation": [1600, 3000], "honor": [2000, 3000]}, "simpleDescription": "A warrior of duty ⚔️🔥.", "deepLore": "Lawful Crusaders believe justice must be enforced through structured authority. Their morality is inseparable from discipline and order."}, {"id": "undefined_alignment", "name": "Unresolved Identity", "category": "Undefined", "components": ["Unknown"], "target": {"altruism": [0, 3000], "lawfulness": [0, 3000], "cooperation": [0, 3000], "honor": [0, 3000]}, "simpleDescription": "Your identity resists classification 🌀.", "deepLore": "Your choices reflect a paradoxical or unstable moral identity that does not cleanly map to any archetype."}];
+    const CLASS_MAP = {"Barbarian": {"core": "Chaotic Warrior / Marauder", "subclasses": {"Berserker": "Chaotic Marauder", "Totem Warrior": "Neutral Guardian", "Zealot": "Chaotic Crusader", "Wild Magic": "Chaotic Knave", "Beast": "Neutral Marauder", "Ancestral Guardian": "Neutral Sentinel", "Storm Herald": "Chaotic Defender"}}, "Bard": {"core": "Neutral Mediator / Champion", "subclasses": {"Lore": "Neutral Mediator", "Valor": "Neutral Champion", "Glamour": "Chaotic Mediator", "Whispers": "Neutral Strategist", "Swords": "Chaotic Gladiator", "Eloquence": "Lawful Mediator", "Spirits": "Neutral Ethicist", "Creation": "Chaotic Coordinator"}}, "Cleric": {"core": "Lawful Guardian / Crusader", "subclasses": {"Life": "Lawful Guardian", "Light": "Neutral Crusader", "War": "Lawful Enforcer", "Trickery": "Chaotic Strategist", "Death": "Neutral Avenger", "Grave": "Neutral Sentinel", "Twilight": "Neutral Guardian", "Peace": "Lawful Mediator", "Forge": "Lawful Coordinator", "Tempest": "Chaotic Defender", "Knowledge": "Neutral Ethicist", "Nature": "Neutral Arbiter", "Arcana": "Neutral Strategist"}}, "Druid": {"core": "Neutral Arbiter / Sentinel", "subclasses": {"Land": "Neutral Arbiter", "Moon": "Neutral Warrior", "Dreams": "Neutral Guardian", "Spores": "Neutral Ethicist", "Wildfire": "Chaotic Defender", "Stars": "Neutral Sentinel", "Shepherd": "Neutral Coordinator"}}, "Fighter": {"core": "Neutral Warrior / Defender", "subclasses": {"Champion": "Neutral Warrior", "Battle Master": "Lawful Strategist", "Eldritch Knight": "Lawful Sentinel", "Arcane Archer": "Neutral Defender", "Cavalier": "Lawful Guardian", "Samurai": "Lawful Gladiator", "Rune Knight": "Neutral Sentinel", "Psi Warrior": "Neutral Defender", "Echo Knight": "Neutral Adapter"}}, "Monk": {"core": "Lawful Sentinel", "subclasses": {"Open Hand": "Lawful Sentinel", "Shadow": "Neutral Vigilante", "Mercy": "Neutral Guardian", "Four Elements": "Neutral Arbiter", "Kensei": "Lawful Gladiator", "Astral Self": "Chaotic Ethicist", "Drunken Master": "Chaotic Drifter", "Long Death": "Neutral Avenger"}}, "Paladin": {"core": "Lawful Crusader / Guardian", "subclasses": {"Devotion": "Lawful Crusader", "Ancients": "Neutral Guardian", "Vengeance": "Lawful Avenger", "Redemption": "Lawful Mediator", "Oathbreaker": "Chaotic Marauder", "Glory": "Neutral Champion", "Conquest": "Lawful Enforcer", "Crown": "Lawful Guardian", "Watchers": "Lawful Sentinel"}}, "Ranger": {"core": "Neutral Vigilante / Guardian", "subclasses": {"Hunter": "Neutral Vigilante", "Beast Master": "Neutral Guardian", "Gloom Stalker": "Neutral Avenger", "Fey Wanderer": "Chaotic Mediator", "Horizon Walker": "Neutral Sentinel", "Swarmkeeper": "Neutral Coordinator", "Drakewarden": "Neutral Defender", "Monster Slayer": "Lawful Vigilante"}}, "Rogue": {"core": "Knave / Strategist / Drifter", "subclasses": {"Thief": "Neutral Knave", "Assassin": "Chaotic Avenger", "Arcane Trickster": "Chaotic Strategist", "Swashbuckler": "Chaotic Gladiator", "Mastermind": "Lawful Strategist", "Phantom": "Neutral Drifter", "Soulknife": "Neutral Adapter", "Inquisitive": "Lawful Arbiter", "Scout": "Neutral Drifter"}}, "Sorcerer": {"core": "Chaotic Adapter / Champion", "subclasses": {"Wild Magic": "Chaotic Knave", "Draconic": "Neutral Champion", "Divine Soul": "Neutral Crusader", "Shadow": "Neutral Avenger", "Clockwork": "Lawful Arbiter", "Aberrant Mind": "Chaotic Strategist", "Storm": "Chaotic Defender"}}, "Warlock": {"core": "Renegade / Avenger / Strategist", "subclasses": {"Fiend": "Chaotic Renegade", "Archfey": "Chaotic Drifter", "Great Old One": "Neutral Strategist", "Celestial": "Neutral Guardian", "Hexblade": "Neutral Avenger", "Undead": "Neutral Marauder", "Genie": "Chaotic Champion", "Fathomless": "Neutral Sentinel"}}, "Wizard": {"core": "Neutral Strategist / Ethicist", "subclasses": {"Abjuration": "Lawful Defender", "Divination": "Neutral Ethicist", "Evocation": "Neutral Enforcer", "Illusion": "Chaotic Strategist", "Necromancy": "Neutral Avenger", "Enchantment": "Chaotic Mediator", "Chronurgy": "Lawful Arbiter", "Graviturgy": "Neutral Adapter", "Bladesinging": "Neutral Gladiator", "Scribes": "Neutral Collaborator", "War Magic": "Lawful Enforcer"}}, "Artificer": {"core": "Lawful Coordinator / Defender", "subclasses": {"Alchemist": "Neutral Coordinator", "Armorer": "Lawful Defender", "Artillerist": "Neutral Enforcer", "Battle Smith": "Lawful Guardian"}}, "Blood Hunter": {"core": "Neutral Avenger / Vigilante", "subclasses": {"Ghostslayer": "Neutral Crusader", "Lycan": "Chaotic Marauder", "Mutant": "Neutral Strategist", "Profane Soul": "Chaotic Renegade"}}};
+    const TRADITIONAL_ALIGNMENTS = [{"name": "Lawful Good", "meaning": "Upholds law to protect the community."}, {"name": "Neutral Good", "meaning": "Helps others because it is right."}, {"name": "Chaotic Good", "meaning": "Fights injustice and protects freedom."}, {"name": "Lawful Neutral", "meaning": "Loyal to law, duty, or code."}, {"name": "True Neutral", "meaning": "Balances needs without strong extremes."}, {"name": "Chaotic Neutral", "meaning": "Freedom first, structure second."}, {"name": "Lawful Evil", "meaning": "Order and ambition, enforced ruthlessly."}, {"name": "Neutral Evil", "meaning": "Self-interest without loyalty or restraint."}, {"name": "Chaotic Evil", "meaning": "Destructive, impulsive, and unbound."}];
+    const CLASS_ORDER = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard", "Artificer", "Blood Hunter"];
 
-            <button class="answer-card" data-answer="0" type="button">
-                <div class="answer-title">Return the thieves peacefully.</div>
-                <div class="answer-description">
-                    Law must remain consistent even when painful. Stability protects more lives long term.
-                </div>
-            </button>
-
-            <button class="answer-card" data-answer="1" type="button">
-                <div class="answer-title">Protect the settlement and defy the city.</div>
-                <div class="answer-description">
-                    Compassion matters more than institutional authority.
-                </div>
-            </button>
-
-            <button class="answer-card" data-answer="2" type="button">
-                <div class="answer-title">Negotiate restitution instead of punishment.</div>
-                <div class="answer-description">
-                    Balance survival, accountability, and future stability.
-                </div>
-            </button>
-
-            <button class="answer-card" data-answer="3" type="button">
-                <div class="answer-title">Exploit the conflict for personal leverage.</div>
-                <div class="answer-description">
-                    Both sides are vulnerable. Power belongs to those willing to seize it.
-                </div>
-            </button>
-
-        </section>
-
-    </main>
-</div>
-
-<!-- TEMPLATE LIBRARY -->
-<template id="deep-question-library">
-    <!-- unchanged content -->
-</template>
-
-<!-- SIMPLE QUIZ SETUP -->
-<div class="simple-quiz-container">
-    <!-- unchanged content -->
-</div>
-
-<!-- SUBCLASS DATA SCRIPT -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const subclassData = {
-        "Barbarian": ["Path of the Berserker","Path of the Totem Warrior"],
-        "Bard": ["College of Lore","College of Valor"],
-        "Cleric": ["Life Domain","Light Domain"],
-        "Druid": ["Circle of the Land","Circle of the Moon"]
+    const state = {
+      view: 'home',
+      short: {
+        stage: 'class',
+        chosenClass: null,
+        chosenSubclass: null,
+        chosenAlignment: null
+      },
+      deep: {
+        index: 0,
+        scores: { altruism: 1500, lawfulness: 1500, cooperation: 1500, honor: 1500 },
+        history: [],
+        exact: null,
+        closest: null
+      }
     };
 
-    const classSelect = document.getElementById("class-select");
-    const subclassSelect = document.getElementById("subclass-select");
-    const subclassSection = document.getElementById("subclass-section");
-    const archetypeSection = document.getElementById("archetype-section");
+    const els = {
+      home: document.getElementById('homeScreen'),
+      quiz: document.getElementById('quizScreen'),
+      result: document.getElementById('resultScreen'),
+      quizStage: document.getElementById('quizStage'),
+      resultStage: document.getElementById('resultStage'),
+      stageModeLabel: document.getElementById('stageModeLabel'),
+      stageTitle: document.getElementById('stageTitle'),
+      stageSubtitle: document.getElementById('stageSubtitle'),
+      progressBar: document.getElementById('progressBar'),
+      progressText: document.getElementById('progressText'),
+      btnHome: document.getElementById('btnHome'),
+      btnBack: document.getElementById('btnBack'),
+      btnShort: document.getElementById('btnShort'),
+      btnDeep: document.getElementById('btnDeep'),
+      homeStartShort: document.getElementById('homeStartShort'),
+      homeStartDeep: document.getElementById('homeStartDeep')
+    };
 
-    if (!classSelect || !subclassSelect || !subclassSection) return;
+    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
-    classSelect.addEventListener("change", () => {
+    function mean(range) {
+      return (range[0] + range[1]) / 2;
+    }
 
-        const selectedClass = classSelect.value;
+    function axisTier(value) {
+      if (value <= 999) return 'Extreme Negative';
+      if (value <= 1499) return 'Skewed Negative';
+      if (value === 1500) return 'Neutral / Balanced';
+      if (value <= 1999) return 'Skewed Positive';
+      return 'Extreme Positive';
+    }
 
-        subclassSelect.innerHTML =
-            `<option value="">-- Choose Specialization --</option>`;
+    function resetDeep() {
+      state.deep.index = 0;
+      state.deep.scores = { altruism: 1500, lawfulness: 1500, cooperation: 1500, honor: 1500 };
+      state.deep.history = [];
+      state.deep.exact = null;
+      state.deep.closest = null;
+    }
 
-        if (subclassData[selectedClass]) {
-            subclassSection.hidden = false;
-            subclassSection.setAttribute("aria-hidden", "false");
+    function resetShort() {
+      state.short.stage = 'class';
+      state.short.chosenClass = null;
+      state.short.chosenSubclass = null;
+      state.short.chosenAlignment = null;
+    }
 
-            subclassData[selectedClass].forEach(sub => {
-                const opt = document.createElement("option");
-                opt.value = sub;
-                opt.textContent = sub;
-                subclassSelect.appendChild(opt);
-            });
+    function show(view) {
+      state.view = view;
+      const isHome = view === 'home';
+      const isQuiz = view === 'short-class' || view === 'short-subclass' || view === 'short-alignment' || view === 'deep-question';
+      const isResult = view === 'short-result' || view === 'deep-result';
 
-        } else {
-            subclassSection.hidden = true;
-            subclassSection.setAttribute("aria-hidden", "true");
+      els.home.classList.toggle('active', isHome);
+      els.quiz.classList.toggle('active', isQuiz);
+      els.result.classList.toggle('active', isResult);
+      render();
+    }
+
+    function startShort() {
+      resetShort();
+      show('short-class');
+    }
+
+    function startDeep() {
+      resetDeep();
+      show('deep-question');
+    }
+
+    function goHome() {
+      show('home');
+    }
+
+    function previousPage() {
+      if (state.view === 'short-class') {
+        goHome();
+        return;
+      }
+      if (state.view === 'short-subclass') {
+        state.short.stage = 'class';
+        state.short.chosenSubclass = null;
+        state.short.chosenAlignment = null;
+        show('short-class');
+        return;
+      }
+      if (state.view === 'short-alignment') {
+        state.short.stage = 'subclass';
+        state.short.chosenAlignment = null;
+        show('short-subclass');
+        return;
+      }
+      if (state.view === 'short-result') {
+        state.short.stage = 'alignment';
+        state.short.chosenAlignment = null;
+        show('short-alignment');
+        return;
+      }
+
+      if (state.view === 'deep-question') {
+        if (state.deep.history.length === 0) {
+          goHome();
+          return;
         }
-    });
+        const last = state.deep.history.pop();
+        applyEffects(state.deep.scores, last.effects, -1);
+        state.deep.index = Math.max(0, state.deep.index - 1);
+        show('deep-question');
+        return;
+      }
 
-    subclassSelect.addEventListener("change", () => {
-        const show = subclassSelect.value !== "";
-        archetypeSection.hidden = !show;
-        archetypeSection.setAttribute("aria-hidden", String(!show));
-    });
+      if (state.view === 'deep-result') {
+        if (state.deep.history.length === 0) {
+          goHome();
+          return;
+        }
+        const last = state.deep.history.pop();
+        applyEffects(state.deep.scores, last.effects, -1);
+        state.deep.index = Math.max(0, QUESTIONS.length - 1);
+        show('deep-question');
+      }
+    }
 
-});
-</script>
+    function applyEffects(scores, effects = {}, direction = 1) {
+      for (const [axis, delta] of Object.entries(effects)) {
+        scores[axis] = clamp(scores[axis] + (delta * direction), 0, 3000);
+      }
+    }
 
-<!-- RESULT SCREEN -->
-<section id="result-screen" class="result-screen hidden">
+    function normalizeEffect(effect) {
+      return effect && typeof effect === 'object' ? effect : {};
+    }
 
-    <div class="result-container">
+    function findOutcome(scores) {
+      let best = null;
+      let bestScore = -Infinity;
+      let exact = null;
 
-        <div class="result-header">
-            <p class="result-subtitle">Your Belavadös Alignment</p>
-            <h1 id="result-alignment-name">Neutral Guardian</h1>
+      for (const outcome of OUTCOMES) {
+        const match = Object.entries(outcome.target).every(([axis, range]) => {
+          return scores[axis] >= range[0] && scores[axis] <= range[1];
+        });
+
+        if (match) {
+          exact = outcome;
+          break;
+        }
+
+        const score =
+          (1 - Math.abs(scores.altruism - mean(outcome.target.altruism)) / 3000) +
+          (1 - Math.abs(scores.lawfulness - mean(outcome.target.lawfulness)) / 3000) +
+          (1 - Math.abs(scores.cooperation - mean(outcome.target.cooperation)) / 3000) +
+          (1 - Math.abs(scores.honor - mean(outcome.target.honor)) / 3000);
+
+        if (score > bestScore) {
+          bestScore = score;
+          best = outcome;
+        }
+      }
+
+      return { outcome: exact || best || OUTCOMES[OUTCOMES.length - 1], exact: Boolean(exact) };
+    }
+
+    function renderHome() {
+      els.stageModeLabel.textContent = 'Home';
+      els.stageTitle.textContent = 'Choose your route';
+      els.progressBar.style.width = '0%';
+      els.progressText.textContent = 'Home screen';
+      els.quizStage.innerHTML = `
+        <div class="question-box">
+          <h3>Quick start</h3>
+          <p>
+            Use the Short Quiz for fast mapping from class, subclass, and familiar D&D alignment into a Belavadös result.
+            Use the In-Depth Quiz for a 37-question moral profile that is scored across four axes.
+          </p>
+          <div class="actions">
+            <button class="secondary" id="stageStartShort">Begin Short Quiz</button>
+            <button id="stageStartDeep">Begin In-Depth Quiz</button>
+          </div>
         </div>
+      `;
+      document.getElementById('stageStartShort').addEventListener('click', startShort);
+      document.getElementById('stageStartDeep').addEventListener('click', startDeep);
+    }
 
-        <div class="result-description-card">
-            <h2>Alignment Overview</h2>
-            <p id="result-description">
-                The quiet heart of the group. Protects without ego.
-            </p>
+    function renderShortClassStep() {
+      els.stageModeLabel.textContent = 'Short Quiz';
+      els.stageTitle.textContent = 'Step 1 · Choose your class';
+      els.stageSubtitle.textContent = 'Pick the class you are playing. The next screen will show the subclasses for that class.';
+      els.progressBar.style.width = '20%';
+      els.progressText.textContent = 'Step 1 of 3';
+
+      const cards = CLASS_ORDER.map(cls => {
+        const info = CLASS_MAP[cls];
+        return `
+          <button class="choice-card" data-action="class" data-value="${escapeHtml(cls)}">
+            <span class="label">${escapeHtml(cls)}</span>
+            <span class="meta">Belavadös family: ${escapeHtml(info.core)}</span>
+          </button>
+        `;
+      }).join('');
+
+      els.quizStage.innerHTML = `
+        <div class="question-box">
+          <div class="subhead">Short quiz · class selection</div>
+          <p class="muted">This quiz starts with class identity, then moves into subclasses if your class has them.</p>
+          <div class="choice-grid">${cards}</div>
         </div>
+      `;
+      wireChoiceButtons();
+    }
 
-    </div>
+    function renderShortSubclassStep() {
+      const chosen = state.short.chosenClass;
+      const info = CLASS_MAP[chosen];
+      const subclasses = Object.entries(info.subclasses);
 
-</section>
+      els.stageModeLabel.textContent = 'Short Quiz';
+      els.stageTitle.textContent = `Step 2 · ${chosen} subclass`;
+      els.stageSubtitle.textContent = `Core alignment: ${info.core}`;
+      els.progressBar.style.width = '50%';
+      els.progressText.textContent = 'Step 2 of 3';
 
+      const subclassCards = subclasses.map(([sub, label]) => `
+        <button class="choice-card" data-action="subclass" data-value="${escapeHtml(sub)}">
+          <span class="label">${escapeHtml(sub)}</span>
+          <span class="meta">${escapeHtml(label)}</span>
+        </button>
+      `).join('');
+
+      els.quizStage.innerHTML = `
+        <div class="question-box">
+          <div class="subhead">Short quiz · subclass selection</div>
+          <p class="muted">Choose the subclass that best matches your character. You can also stay with the core class alignment.</p>
+          <div class="choice-grid">
+            <button class="choice-card ${state.short.chosenSubclass === null ? 'selected' : ''}" data-action="subclass" data-value="__core__">
+              <span class="label">Core class only</span>
+              <span class="meta">${escapeHtml(info.core)}</span>
+            </button>
+            ${subclassCards}
+          </div>
+        </div>
+      `;
+      wireChoiceButtons();
+    }
+
+    function renderShortAlignmentStep() {
+      els.stageModeLabel.textContent = 'Short Quiz';
+      els.stageTitle.textContent = 'Step 3 · Choose your familiar D&D alignment';
+      els.stageSubtitle.textContent = `Selected class: ${state.short.chosenClass}${state.short.chosenSubclass ? ` · ${state.short.chosenSubclass}` : ''}`;
+      els.progressBar.style.width = '80%';
+      els.progressText.textContent = 'Step 3 of 3';
+
+      const cards = TRADITIONAL_ALIGNMENTS.map(item => `
+        <button class="choice-card" data-action="alignment" data-value="${escapeHtml(item.name)}">
+          <span class="label">${escapeHtml(item.name)}</span>
+          <span class="meta">${escapeHtml(item.meaning)}</span>
+        </button>
+      `).join('');
+
+      els.quizStage.innerHTML = `
+        <div class="question-box">
+          <div class="subhead">Short quiz · alignment reference</div>
+          <p class="muted">
+            Traditional alignment is used as a familiar anchor point. Your Belavadös alignment comes from the class and subclass mapping.
+          </p>
+          <div class="choice-grid">${cards}</div>
+        </div>
+      `;
+      wireChoiceButtons();
+    }
+
+    function shortResultLabel() {
+      const classInfo = CLASS_MAP[state.short.chosenClass];
+      const subclassLabel = state.short.chosenSubclass ? classInfo.subclasses[state.short.chosenSubclass] : classInfo.core;
+      return subclassLabel;
+    }
+
+    function renderShortResult() {
+      const classInfo = CLASS_MAP[state.short.chosenClass];
+      const result = shortResultLabel();
+
+      els.stageModeLabel.textContent = 'Short Quiz';
+      els.stageTitle.textContent = 'Result';
+      els.stageSubtitle.textContent = 'Your Belavadös alignment has been mapped from class identity and familiar D&D alignment.';
+      els.progressBar.style.width = '100%';
+      els.progressText.textContent = 'Complete';
+
+      els.resultStage.innerHTML = `
+        <div class="result-card">
+          <div class="result-subtitle">Belavadös result</div>
+          <h2 class="result-title">${escapeHtml(result)}</h2>
+          <p>
+            <strong>Class:</strong> ${escapeHtml(state.short.chosenClass)}<br>
+            <strong>Subclass:</strong> ${escapeHtml(state.short.chosenSubclass || 'Core class only')}<br>
+            <strong>Core family:</strong> ${escapeHtml(classInfo.core)}<br>
+            <strong>Traditional alignment:</strong> ${escapeHtml(state.short.chosenAlignment)}
+          </p>
+          <div class="result-grid">
+            <div class="stat-card">
+              <h4>What this means</h4>
+              <div class="hint">
+                This result reflects the class-side Belavadös archetype most closely associated with the path you chose.
+              </div>
+            </div>
+            <div class="stat-card">
+              <h4>Selected D&amp;D reference</h4>
+              <div class="hint">
+                ${escapeHtml(state.short.chosenAlignment)}
+              </div>
+            </div>
+          </div>
+          <div class="actions" style="margin-top:18px;">
+            <button class="secondary" id="shortAgain">Retake Short Quiz</button>
+            <button id="shortToDeep">Try In-Depth Quiz</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('shortAgain').addEventListener('click', startShort);
+      document.getElementById('shortToDeep').addEventListener('click', startDeep);
+    }
+
+    function renderDeepQuestion() {
+      const q = QUESTIONS[state.deep.index];
+      const progress = ((state.deep.index + 1) / QUESTIONS.length) * 100;
+      els.stageModeLabel.textContent = 'In-Depth Quiz';
+      els.stageTitle.textContent = `Question ${q.id} of ${QUESTIONS.length}`;
+      els.stageSubtitle.textContent = q.title;
+      els.progressBar.style.width = `${Math.max(0, progress)}%`;
+      els.progressText.textContent = `${state.deep.index + 1} of ${QUESTIONS.length}`;
+
+      const options = q.options.map((opt, i) => `
+        <button class="choice-card" data-action="deep-answer" data-index="${i}">
+          <span class="label">${escapeHtml(opt)}</span>
+          <span class="meta">Select this answer</span>
+        </button>
+      `).join('');
+
+      const scoreRows = Object.entries(state.deep.scores).map(([axis, value]) => {
+        const pct = Math.round((value / 3000) * 100);
+        return `
+          <div class="bar-row">
+            <div class="bar-label">
+              <span>${escapeHtml(axis.charAt(0).toUpperCase() + axis.slice(1))}</span>
+              <span>${value} · ${axisTier(value)}</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+          </div>
+        `;
+      }).join('');
+
+      els.quizStage.innerHTML = `
+        <div class="split">
+          <div class="question-box">
+            <div class="subhead">Moral dilemma</div>
+            <h3>${escapeHtml(q.title)}</h3>
+            <p>${escapeHtml(q.prompt)}</p>
+            <div class="choice-grid">${options}</div>
+          </div>
+
+          <div class="subtle-card">
+            <div class="subhead">Live axis readout</div>
+            <p class="muted">This helps the player see how the alignment profile is moving while they answer.</p>
+            <div class="bar-block">${scoreRows}</div>
+            <div class="chip-row">
+              <span class="chip">Altruism: ${state.deep.scores.altruism}</span>
+              <span class="chip">Lawfulness: ${state.deep.scores.lawfulness}</span>
+              <span class="chip">Cooperation: ${state.deep.scores.cooperation}</span>
+              <span class="chip">Honor: ${state.deep.scores.honor}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      wireChoiceButtons();
+    }
+
+    function renderDeepResult() {
+      const result = findOutcome(state.deep.scores);
+      state.deep.exact = result.exact ? result.outcome : null;
+      state.deep.closest = result.outcome;
+
+      els.stageModeLabel.textContent = 'In-Depth Quiz';
+      els.stageTitle.textContent = 'Result';
+      els.stageSubtitle.textContent = result.exact ? 'An exact outcome was matched.' : 'No exact range matched, so the closest archetype was chosen.';
+      els.progressBar.style.width = '100%';
+      els.progressText.textContent = 'Complete';
+
+      const chips = result.outcome.components.map(c => `<span class="chip">${escapeHtml(c)}</span>`).join('');
+
+      const axisCards = Object.entries(state.deep.scores).map(([axis, value]) => `
+        <div class="stat-card">
+          <h4>${escapeHtml(axis.charAt(0).toUpperCase() + axis.slice(1))}</h4>
+          <div class="value">${value}</div>
+          <div class="hint">${axisTier(value)}</div>
+        </div>
+      `).join('');
+
+      els.resultStage.innerHTML = `
+        <div class="result-card">
+          <div class="result-subtitle">${escapeHtml(result.outcome.category)} alignment</div>
+          <h2 class="result-title">${escapeHtml(result.outcome.name)}</h2>
+          <p class="lede" style="margin-bottom: 0;">${escapeHtml(result.outcome.simpleDescription)}</p>
+          <div class="chip-row">${chips}</div>
+          <div class="result-grid" style="margin-top:16px;">
+            <div class="stat-card">
+              <h4>Result status</h4>
+              <div class="hint">${result.exact ? 'Exact match' : 'Closest match'}</div>
+            </div>
+            <div class="stat-card">
+              <h4>Interpretation</h4>
+              <div class="hint">${escapeHtml(result.outcome.deepLore)}</div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <div class="subhead">Axis summary</div>
+            <div class="grid two">${axisCards}</div>
+          </div>
+
+          <div class="content-block">
+            <div class="subhead">Final scores</div>
+            <table class="table-like">
+              <thead>
+                <tr><th>Axis</th><th>Value</th><th>State</th></tr>
+              </thead>
+              <tbody>
+                ${Object.entries(state.deep.scores).map(([axis, value]) => `
+                  <tr><td>${escapeHtml(axis.charAt(0).toUpperCase() + axis.slice(1))}</td><td>${value}</td><td>${escapeHtml(axisTier(value))}</td></tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="actions" style="margin-top:18px;">
+            <button class="secondary" id="deepAgain">Retake In-Depth Quiz</button>
+            <button id="deepToShort">Try Short Quiz</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('deepAgain').addEventListener('click', startDeep);
+      document.getElementById('deepToShort').addEventListener('click', startShort);
+    }
+
+    function render() {
+      els.btnBack.disabled = state.view === 'home';
+      els.btnHome.disabled = state.view === 'home';
+
+      if (state.view === 'home') {
+        els.btnBack.disabled = true;
+        els.btnHome.disabled = true;
+        renderHome();
+        return;
+      }
+
+      els.btnHome.disabled = false;
+      els.btnBack.disabled = false;
+
+      if (state.view === 'short-class') {
+        renderShortClassStep();
+      } else if (state.view === 'short-subclass') {
+        renderShortSubclassStep();
+      } else if (state.view === 'short-alignment') {
+        renderShortAlignmentStep();
+      } else if (state.view === 'short-result') {
+        renderShortResult();
+      } else if (state.view === 'deep-question') {
+        renderDeepQuestion();
+      } else if (state.view === 'deep-result') {
+        renderDeepResult();
+      }
+    }
+
+    function wireChoiceButtons() {
+      document.querySelectorAll('[data-action="class"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.short.chosenClass = btn.dataset.value;
+          state.short.chosenSubclass = null;
+          state.short.chosenAlignment = null;
+          state.short.stage = 'subclass';
+          show('short-subclass');
+        });
+      });
+
+      document.querySelectorAll('[data-action="subclass"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const value = btn.dataset.value;
+          state.short.chosenSubclass = value === '__core__' ? null : value;
+          state.short.chosenAlignment = null;
+          state.short.stage = 'alignment';
+          show('short-alignment');
+        });
+      });
+
+      document.querySelectorAll('[data-action="alignment"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.short.chosenAlignment = btn.dataset.value;
+          state.short.stage = 'result';
+          show('short-result');
+        });
+      });
+
+      document.querySelectorAll('[data-action="deep-answer"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const q = QUESTIONS[state.deep.index];
+          const answerIndex = Number(btn.dataset.index);
+          const effects = normalizeEffect(SCORING[String(q.id)]?.[answerIndex]);
+
+          state.deep.history.push({ questionId: q.id, answerIndex, effects });
+          applyEffects(state.deep.scores, effects, 1);
+
+          if (state.deep.index >= QUESTIONS.length - 1) {
+            state.deep.index = QUESTIONS.length - 1;
+            show('deep-result');
+          } else {
+            state.deep.index += 1;
+            show('deep-question');
+          }
+        });
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    els.btnHome.addEventListener('click', () => {
+      resetShort();
+      resetDeep();
+      show('home');
+    });
+    els.btnBack.addEventListener('click', previousPage);
+    els.btnShort.addEventListener('click', () => startShort());
+    els.btnDeep.addEventListener('click', () => startDeep());
+    els.homeStartShort.addEventListener('click', startShort);
+    els.homeStartDeep.addEventListener('click', startDeep);
+
+    // initial render
+    renderHome();
+  </script>
 </body>
 </html>
