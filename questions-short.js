@@ -1,221 +1,460 @@
-// /data/questions-short.js
+// merged-quiz.js
+// Belavadös DnD 5e Homebrew Alignment Quiz (Merged Version)
 
-export const questionsShort = {
-  version: "short",
+document.addEventListener("DOMContentLoaded", () => {
 
-  metaQuestions: [
-    {
-      id: "class_selection",
-      type: "single_choice",
-      prompt:
-        "Before the gears of fate turn… what kind of adventurer are you most aligned with?",
-      options: [
-        { text: "Barbarian — instinct and fury guide me", class: "barbarian" },
-        { text: "Bard — I shape the world through voice and charm", class: "bard" },
-        { text: "Cleric — I serve something greater than myself", class: "cleric" },
-        { text: "Fighter — discipline and steel define me", class: "fighter" },
-        { text: "Rogue — I survive through wit and shadow", class: "rogue" },
-        { text: "Wizard — knowledge is the only true power", class: "wizard" },
-        { text: "Warlock — power is a contract I understand", class: "warlock" },
-        { text: "Ranger — I walk alone, but not aimlessly", class: "ranger" },
-        { text: "Paladin — my oath is my spine", class: "paladin" },
-        { text: "Druid — balance speaks louder than law", class: "druid" }
-      ]
-    },
+    // =========================
+    // DOM ELEMENTS
+    // =========================
+    const currentQuestionEl = document.getElementById("current-question");
+    const totalQuestionsEl = document.getElementById("total-questions");
+    const progressBar = document.getElementById("progress-bar");
 
-    {
-      id: "familiar_alignment",
-      type: "single_choice",
-      prompt:
-        "Which philosophy most closely resembles how you’ve played or imagined your past characters?",
-      options: [
-        { text: "Lawful Good — duty and compassion must coexist" },
-        { text: "Neutral Good — do what helps, ignore the rest" },
-        { text: "Chaotic Good — freedom first, but kindness matters" },
-        { text: "Lawful Neutral — order matters more than morality" },
-        { text: "True Neutral — balance above all else" },
-        { text: "Chaotic Neutral — I follow no path but my own" },
-        { text: "Lawful Evil — structure is a tool for control" },
-        { text: "Neutral Evil — I take what benefits me" },
-        { text: "Chaotic Evil — destruction is its own language" }
-      ]
+    const categoryEl = document.getElementById("question-category");
+    const titleEl = document.getElementById("question-title");
+    const contextEl = document.getElementById("question-context");
+
+    const answerButtons = document.querySelectorAll(".answer-card");
+
+    const prevButton = document.getElementById("previous-question");
+    const homeButton = document.getElementById("home-page");
+
+    // =========================
+    // AXIS TRACKING
+    // =========================
+    const scores = {
+        altruism: 0,
+        lawfulness: 0,
+        cooperation: 0,
+        honor: 0
+    };
+
+    // =========================
+    // ORIGINAL SHORT QUESTIONS
+    // =========================
+    const baseQuestions = [
+        {
+            category: "Philosophical Conflict",
+            title: `A starving settlement steals medicine from a wealthy imperial city.
+The city demands the thieves be returned for execution.
+What matters most to you?`,
+            context: `The imperial governor claims the law must remain absolute or civilization collapses.
+The settlement argues survival justified the theft.
+Your companions are divided, and both sides ask for your judgment.`,
+            answers: [
+                {
+                    text: "Return the thieves peacefully.",
+                    desc: "Law must remain consistent even when painful. Stability protects more lives long term.",
+                    effect: { altruism: 0, lawfulness: 2, cooperation: 1, honor: 1 }
+                },
+                {
+                    text: "Protect the settlement and defy the city.",
+                    desc: "Compassion matters more than institutional authority.",
+                    effect: { altruism: 2, lawfulness: -2, cooperation: 1, honor: 0 }
+                },
+                {
+                    text: "Negotiate restitution instead of punishment.",
+                    desc: "Balance survival, accountability, and future stability.",
+                    effect: { altruism: 1, lawfulness: 1, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Exploit the conflict for personal leverage.",
+                    desc: "Both sides are vulnerable. Power belongs to those willing to seize it.",
+                    effect: { altruism: -2, lawfulness: -1, cooperation: -1, honor: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Loyalty & Betrayal",
+            title: `A lifelong ally confesses to committing atrocities during wartime.
+Revealing the truth would destroy the fragile peace they helped create.`,
+            context: `You alone hold the truth. The ally asks for silence, claiming it is necessary for stability.`,
+            answers: [
+                {
+                    text: "Expose them publicly regardless of consequences.",
+                    desc: "Truth must be absolute.",
+                    effect: { altruism: 1, lawfulness: 2, cooperation: -1, honor: 2 }
+                },
+                {
+                    text: "Protect the peace and bury the truth.",
+                    desc: "Stability matters more than revelation.",
+                    effect: { altruism: 1, lawfulness: -2, cooperation: 2, honor: -1 }
+                },
+                {
+                    text: "Demand private atonement without public revelation.",
+                    desc: "Justice without collapse.",
+                    effect: { altruism: 1, lawfulness: 1, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Use the knowledge to secure influence over them.",
+                    desc: "Truth is power.",
+                    effect: { altruism: -1, lawfulness: -1, cooperation: -2, honor: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Authority & Rebellion",
+            title: `A tyrannical kingdom maintains peace, prosperity, and safety through brutal surveillance and oppression.`,
+            context: `Crime is nearly nonexistent, but freedom is heavily restricted.`,
+            answers: [
+                {
+                    text: "Stability is preferable to uncontrolled chaos.",
+                    desc: "Order is worth the cost.",
+                    effect: { altruism: 0, lawfulness: 2, cooperation: 1, honor: 1 }
+                },
+                {
+                    text: "Freedom matters more than enforced safety.",
+                    desc: "Oppression cannot be justified.",
+                    effect: { altruism: 2, lawfulness: -2, cooperation: 0, honor: 1 }
+                },
+                {
+                    text: "Reform the system gradually from within.",
+                    desc: "Change without collapse.",
+                    effect: { altruism: 1, lawfulness: 1, cooperation: 2, honor: 2 }
+                },
+                {
+                    text: "Seize power personally and control both sides.",
+                    desc: "Only strength ensures order.",
+                    effect: { altruism: -1, lawfulness: 1, cooperation: -1, honor: 0 }
+                }
+            ]
+        },
+
+        {
+            category: "Sacrifice & Survival",
+            title: `Your party can only save either a village of strangers or one beloved companion.`,
+            context: `There is no time for both. The decision must be immediate.`,
+            answers: [
+                {
+                    text: "Save the village regardless of personal pain.",
+                    desc: "Many lives outweigh one.",
+                    effect: { altruism: 2, lawfulness: 1, cooperation: 1, honor: 1 }
+                },
+                {
+                    text: "Save your companion.",
+                    desc: "Personal bonds define meaning.",
+                    effect: { altruism: -1, lawfulness: 0, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Attempt an impossible plan to save both.",
+                    desc: "Refuse to accept loss.",
+                    effect: { altruism: 1, lawfulness: -1, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Preserve whoever provides greater future advantage.",
+                    desc: "Survival is strategic.",
+                    effect: { altruism: -2, lawfulness: 0, cooperation: -1, honor: -1 }
+                }
+            ]
+        },
+
+        {
+            category: "Truth & Deception",
+            title: `A devastating truth would shatter public morale during wartime.`,
+            context: `Leaders ask you to decide whether to reveal it.`,
+            answers: [
+                {
+                    text: "The truth must always be revealed.",
+                    desc: "Honesty is non-negotiable.",
+                    effect: { altruism: 1, lawfulness: 2, cooperation: -1, honor: 2 }
+                },
+                {
+                    text: "Hope is more important than honesty.",
+                    desc: "Morale is survival.",
+                    effect: { altruism: 1, lawfulness: -2, cooperation: 2, honor: -1 }
+                },
+                {
+                    text: "Reveal only what is necessary.",
+                    desc: "Controlled truth preserves balance.",
+                    effect: { altruism: 1, lawfulness: 1, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Manipulate public perception strategically.",
+                    desc: "Truth is a tool.",
+                    effect: { altruism: -1, lawfulness: -1, cooperation: -1, honor: -2 }
+                }
+            ]
+        }
+    ];
+
+    // =========================
+    // SECOND QUESTION SET (NORMALIZED)
+    // =========================
+    const extraQuestions = [
+        {
+            category: "Survival Dilemma",
+            title: "A starving village steals grain from your supplies. No one else will know if you punish them… or let it go.",
+            context: "",
+            answers: [
+                {
+                    text: "Forgive them and share what remains",
+                    desc: "",
+                    effect: { altruism: 3, lawfulness: -1, cooperation: 1, honor: 2 }
+                },
+                {
+                    text: "Demand repayment through work or service",
+                    desc: "",
+                    effect: { altruism: 1, lawfulness: 2, cooperation: 1, honor: 1 }
+                },
+                {
+                    text: "Take back what was stolen and leave them be",
+                    desc: "",
+                    effect: { altruism: -2, lawfulness: 2, cooperation: -1, honor: 0 }
+                },
+                {
+                    text: "Punish the leaders as a warning",
+                    desc: "",
+                    effect: { altruism: -2, lawfulness: 3, cooperation: -2, honor: -1 }
+                }
+            ]
+        },
+
+        {
+            category: "Leadership",
+            title: "Your party leader gives a plan you strongly disagree with. The danger is real.",
+            context: "",
+            answers: [
+                {
+                    text: "Follow anyway — unity matters",
+                    desc: "",
+                    effect: { cooperation: 3, lawfulness: 2, honor: 1 }
+                },
+                {
+                    text: "Argue your case but accept final decision",
+                    desc: "",
+                    effect: { cooperation: 2, honor: 2, lawfulness: 1 }
+                },
+                {
+                    text: "Quietly adjust the plan without telling them",
+                    desc: "",
+                    effect: { cooperation: -1, honor: -2, lawfulness: 1 }
+                },
+                {
+                    text: "Refuse and act independently",
+                    desc: "",
+                    effect: { cooperation: -3, lawfulness: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Mercy",
+            title: "A captured enemy begs for mercy. Sparing them may cost future lives.",
+            context: "",
+            answers: [
+                {
+                    text: "Spare them — every life matters",
+                    desc: "",
+                    effect: { altruism: 3, honor: 2 }
+                },
+                {
+                    text: "Spare them but bind them",
+                    desc: "",
+                    effect: { altruism: 2, lawfulness: 2, honor: 1 }
+                },
+                {
+                    text: "Interrogate then release them",
+                    desc: "",
+                    effect: { altruism: 0, lawfulness: 1, honor: -1 }
+                },
+                {
+                    text: "Execute them — mercy is a risk",
+                    desc: "",
+                    effect: { altruism: -3, lawfulness: 2, honor: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Power",
+            title: "You discover a powerful artifact that could reshape the world… but it is unstable and dangerous.",
+            context: "",
+            answers: [
+                {
+                    text: "Destroy it immediately",
+                    desc: "",
+                    effect: { altruism: 2, lawfulness: 3, honor: 2 }
+                },
+                {
+                    text: "Secure it for study and control",
+                    desc: "",
+                    effect: { lawfulness: 2, cooperation: 1, honor: 1 }
+                },
+                {
+                    text: "Use it carefully for personal gain",
+                    desc: "",
+                    effect: { altruism: -2, honor: -2, lawfulness: -1 }
+                },
+                {
+                    text: "Hide it and decide later",
+                    desc: "",
+                    effect: { cooperation: -1, lawfulness: -1, honor: -1 }
+                }
+            ]
+        },
+
+        {
+            category: "Morality",
+            title: "A noble offers you wealth to carry out a morally questionable task.",
+            context: "",
+            answers: [
+                {
+                    text: "Refuse outright",
+                    desc: "",
+                    effect: { honor: 3, altruism: 2 }
+                },
+                {
+                    text: "Refuse unless the task is justified",
+                    desc: "",
+                    effect: { honor: 2, lawfulness: 1 }
+                },
+                {
+                    text: "Accept but plan to mitigate harm",
+                    desc: "",
+                    effect: { honor: 0, altruism: 1 }
+                },
+                {
+                    text: "Accept without hesitation",
+                    desc: "",
+                    effect: { altruism: -2, honor: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Leadership of Survivors",
+            title: "You are given authority over a small group of survivors in a hostile land.",
+            context: "",
+            answers: [
+                {
+                    text: "Lead with strict rules and structure",
+                    desc: "",
+                    effect: { lawfulness: 3, cooperation: 2, honor: 1 }
+                },
+                {
+                    text: "Lead through consensus and discussion",
+                    desc: "",
+                    effect: { cooperation: 3, altruism: 2 }
+                },
+                {
+                    text: "Let everyone act freely unless danger arises",
+                    desc: "",
+                    effect: { lawfulness: -2, cooperation: -1 }
+                },
+                {
+                    text: "Take what you need to ensure survival",
+                    desc: "",
+                    effect: { altruism: -3, honor: -2 }
+                }
+            ]
+        },
+
+        {
+            category: "Trust",
+            title: "A friend lies to protect you, but the truth comes out later.",
+            context: "",
+            answers: [
+                {
+                    text: "Forgive them immediately",
+                    desc: "",
+                    effect: { cooperation: 3, honor: 2, altruism: 1 }
+                },
+                {
+                    text: "Confront them but remain allies",
+                    desc: "",
+                    effect: { honor: 2, cooperation: 2 }
+                },
+                {
+                    text: "Trust them less moving forward",
+                    desc: "",
+                    effect: { cooperation: -1 }
+                },
+                {
+                    text: "Cut ties completely",
+                    desc: "",
+                    effect: { cooperation: -3, honor: -2 }
+                }
+            ]
+        }
+    ];
+
+    // =========================
+    // MERGED QUESTIONS
+    // =========================
+    const questions = [...baseQuestions, ...extraQuestions];
+
+    // =========================
+    // STATE
+    // =========================
+    let currentIndex = 0;
+    totalQuestionsEl.textContent = questions.length;
+
+    function loadQuestion(index) {
+        const q = questions[index];
+
+        categoryEl.textContent = q.category;
+        titleEl.textContent = q.title;
+        contextEl.textContent = q.context || "";
+
+        answerButtons.forEach((btn, i) => {
+            const answer = q.answers[i];
+            btn.querySelector(".answer-title").textContent = answer.text;
+            btn.querySelector(".answer-description").textContent = answer.desc || "";
+
+            btn.onclick = () => selectAnswer(answer.effect);
+        });
+
+        currentQuestionEl.textContent = index + 1;
+
+        const progress = ((index + 1) / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
     }
-  ],
 
-  questions: [
-    {
-      id: "q1",
-      type: "scenario",
-      prompt:
-        "A starving village steals grain from your supplies. No one else will know if you punish them… or let it go.",
-      options: [
-        {
-          text: "Forgive them and share what remains",
-          effects: { altruism: 3, lawfulness: -1, cooperation: 1, honor: 2 }
-        },
-        {
-          text: "Demand repayment through work or service",
-          effects: { altruism: 1, lawfulness: 2, cooperation: 1, honor: 1 }
-        },
-        {
-          text: "Take back what was stolen and leave them be",
-          effects: { altruism: -2, lawfulness: 2, cooperation: -1, honor: 0 }
-        },
-        {
-          text: "Punish the leaders as a warning",
-          effects: { altruism: -2, lawfulness: 3, cooperation: -2, honor: -1 }
-        }
-      ]
-    },
+    function selectAnswer(effect) {
+        scores.altruism += effect.altruism || 0;
+        scores.lawfulness += effect.lawfulness || 0;
+        scores.cooperation += effect.cooperation || 0;
+        scores.honor += effect.honor || 0;
 
-    {
-      id: "q2",
-      type: "scenario",
-      prompt:
-        "Your party leader gives a plan you strongly disagree with. The danger is real.",
-      options: [
-        {
-          text: "Follow anyway — unity matters",
-          effects: { cooperation: 3, lawfulness: 2, honor: 1 }
-        },
-        {
-          text: "Argue your case but accept final decision",
-          effects: { cooperation: 2, honor: 2, lawfulness: 1 }
-        },
-        {
-          text: "Quietly adjust the plan without telling them",
-          effects: { cooperation: -1, honor: -2, lawfulness: 1 }
-        },
-        {
-          text: "Refuse and act independently",
-          effects: { cooperation: -3, lawfulness: -2, altruism: 0 }
-        }
-      ]
-    },
-
-    {
-      id: "q3",
-      type: "scenario",
-      prompt:
-        "A captured enemy begs for mercy. Sparing them may cost future lives.",
-      options: [
-        {
-          text: "Spare them — every life matters",
-          effects: { altruism: 3, honor: 2, lawfulness: 0 }
-        },
-        {
-          text: "Spare them but bind them",
-          effects: { altruism: 2, lawfulness: 2, honor: 1 }
-        },
-        {
-          text: "Interrogate then release them",
-          effects: { altruism: 0, lawfulness: 1, honor: -1 }
-        },
-        {
-          text: "Execute them — mercy is a risk",
-          effects: { altruism: -3, lawfulness: 2, honor: -2 }
-        }
-      ]
-    },
-
-    {
-      id: "q4",
-      type: "scenario",
-      prompt:
-        "You discover a powerful artifact that could reshape the world… but it is unstable and dangerous.",
-      options: [
-        {
-          text: "Destroy it immediately",
-          effects: { altruism: 2, lawfulness: 3, honor: 2 }
-        },
-        {
-          text: "Secure it for study and control",
-          effects: { lawfulness: 2, cooperation: 1, honor: 1 }
-        },
-        {
-          text: "Use it carefully for personal gain",
-          effects: { altruism: -2, honor: -2, lawfulness: -1 }
-        },
-        {
-          text: "Hide it and decide later",
-          effects: { cooperation: -1, lawfulness: -1, honor: -1 }
-        }
-      ]
-    },
-
-    {
-      id: "q5",
-      type: "scenario",
-      prompt:
-        "A noble offers you wealth to carry out a morally questionable task.",
-      options: [
-        {
-          text: "Refuse outright",
-          effects: { honor: 3, altruism: 2 }
-        },
-        {
-          text: "Refuse unless the task is justified",
-          effects: { honor: 2, lawfulness: 1 }
-        },
-        {
-          text: "Accept but plan to mitigate harm",
-          effects: { honor: 0, altruism: 1 }
-        },
-        {
-          text: "Accept without hesitation",
-          effects: { altruism: -2, honor: -2, lawfulness: 0 }
-        }
-      ]
-    },
-
-    {
-      id: "q6",
-      type: "scenario",
-      prompt:
-        "You are given authority over a small group of survivors in a hostile land.",
-      options: [
-        {
-          text: "Lead with strict rules and structure",
-          effects: { lawfulness: 3, cooperation: 2, honor: 1 }
-        },
-        {
-          text: "Lead through consensus and discussion",
-          effects: { cooperation: 3, altruism: 2, lawfulness: 0 }
-        },
-        {
-          text: "Let everyone act freely unless danger arises",
-          effects: { lawfulness: -2, cooperation: -1 }
-        },
-        {
-          text: "Take what you need to ensure survival",
-          effects: { altruism: -3, honor: -2 }
-        }
-      ]
-    },
-
-    {
-      id: "q7",
-      type: "scenario",
-      prompt:
-        "A friend lies to protect you, but the truth comes out later.",
-      options: [
-        {
-          text: "Forgive them immediately",
-          effects: { cooperation: 3, honor: 2, altruism: 1 }
-        },
-        {
-          text: "Confront them but remain allies",
-          effects: { honor: 2, cooperation: 2 }
-        },
-        {
-          text: "Trust them less moving forward",
-          effects: { cooperation: -1, honor: 0 }
-        },
-        {
-          text: "Cut ties completely",
-          effects: { cooperation: -3, honor: -2 }
-        }
-      ]
+        nextQuestion();
     }
-  ]
-};
+
+    function nextQuestion() {
+        if (currentIndex < questions.length - 1) {
+            currentIndex++;
+            loadQuestion(currentIndex);
+        } else {
+            showResults();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            loadQuestion(currentIndex);
+        }
+    }
+
+    prevButton.addEventListener("click", prevQuestion);
+
+    homeButton.addEventListener("click", () => {
+        window.location.href = "index.html";
+    });
+
+    function showResults() {
+        categoryEl.textContent = "Evaluation Complete";
+        titleEl.textContent = "Your alignment has been calculated.";
+
+        contextEl.textContent =
+            `Altruism: ${scores.altruism}
+Lawfulness: ${scores.lawfulness}
+Cooperation: ${scores.cooperation}
+Honor: ${scores.honor}`;
+
+        document.querySelector(".answers-container").style.display = "none";
+    }
+
+    loadQuestion(currentIndex);
+});
