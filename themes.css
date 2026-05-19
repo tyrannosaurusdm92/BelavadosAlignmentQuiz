@@ -1,0 +1,869 @@
+/* =========================================================
+   BELAVADÖS ALIGNMENT QUIZ
+   themes.css
+   Dark Fantasy + Steampunk Theme System
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL THEME VARIABLES
+   ========================================================= */
+
+:root {
+    color-scheme: dark;
+
+    /* Backgrounds */
+    --bg-primary: #0d0b0a;
+    --bg-secondary: #161210;
+    --bg-tertiary: #221a16;
+    --bg-elevated: #2d221d;
+    --bg-overlay: rgba(0, 0, 0, 0.82);
+
+    /* Metallic */
+    --metal-dark: #3f3128;
+    --metal-mid: #70533d;
+    --metal-light: #b58863;
+    --metal-bright: #ddb98b;
+
+    /* Text */
+    --text-primary: #f2e8dc;
+    --text-secondary: #ccb8a2;
+    --text-muted: #9c8978;
+    --text-disabled: #706255;
+
+    /* Accent */
+    --accent-primary: #c17b42;
+    --accent-secondary: #e0a96d;
+    --accent-hover: #f0bc7d;
+    --accent-danger: #bb4f4f;
+    --accent-success: #5f9b72;
+
+    /* Alignment Themes */
+    --lawful-color: #5fa3d9;
+    --neutral-color: #a0a0a0;
+    --chaotic-color: #d96b4c;
+
+    --altruistic-color: #72c79a;
+    --selfish-color: #b04d4d;
+
+    --honorable-color: #e6d18b;
+    --pragmatic-color: #9d7fd8;
+
+    --cooperative-color: #7fc9d6;
+    --combative-color: #d87070;
+
+    /* Borders */
+    --border-primary: #4f3a2f;
+    --border-secondary: #6a4b3c;
+    --border-highlight: #b98a62;
+
+    /* Shadows */
+    --shadow-dark: rgba(0, 0, 0, 0.55);
+    --shadow-bronze: rgba(193, 123, 66, 0.24);
+    --shadow-blue: rgba(95, 163, 217, 0.18);
+    --shadow-red: rgba(217, 107, 76, 0.18);
+
+    /* UI */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    --glass-blur: blur(10px);
+
+    --page-max-width: 1500px;
+
+    --gradient-bronze:
+        linear-gradient(
+            135deg,
+            #1b1410 0%,
+            #2d2018 50%,
+            #1a120f 100%
+        );
+
+    --gradient-panel:
+        linear-gradient(
+            180deg,
+            rgba(54, 38, 28, 0.96),
+            rgba(20, 14, 11, 0.96)
+        );
+
+    --gradient-button:
+        linear-gradient(
+            180deg,
+            #b67b46 0%,
+            #8a5d34 100%
+        );
+
+    --gradient-button-hover:
+        linear-gradient(
+            180deg,
+            #d69b63 0%,
+            #9e693d 100%
+        );
+
+    --gradient-lawful:
+        linear-gradient(
+            135deg,
+            rgba(95, 163, 217, 0.22),
+            rgba(30, 48, 72, 0.16)
+        );
+
+    --gradient-neutral:
+        linear-gradient(
+            135deg,
+            rgba(160, 160, 160, 0.16),
+            rgba(58, 58, 58, 0.12)
+        );
+
+    --gradient-chaotic:
+        linear-gradient(
+            135deg,
+            rgba(217, 107, 76, 0.22),
+            rgba(70, 22, 22, 0.16)
+        );
+}
+
+/* =========================================================
+   BODY THEMES
+   ========================================================= */
+
+body.theme-dark-fantasy {
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(95, 65, 45, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(150, 70, 40, 0.12),
+            transparent 30%
+        ),
+        var(--bg-primary);
+
+    color: var(--text-primary);
+}
+
+/* =========================================================
+   QUIZ MODE THEMES
+   ========================================================= */
+
+body.short-quiz-mode {
+    --page-max-width: 950px;
+}
+
+body.deep-quiz-mode {
+    --page-max-width: 1400px;
+}
+
+/* =========================================================
+   PANEL THEMES
+   ========================================================= */
+
+.theme-panel {
+    background: var(--gradient-panel);
+
+    border:
+        1px solid var(--border-primary);
+
+    box-shadow:
+        0 10px 25px var(--shadow-dark),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+
+    backdrop-filter: var(--glass-blur);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-panel::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.015),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.theme-panel-bronze {
+    border-color: var(--metal-mid);
+
+    box-shadow:
+        0 0 20px var(--shadow-bronze),
+        0 10px 30px var(--shadow-dark);
+}
+
+.theme-panel-lawful {
+    background: var(--gradient-lawful);
+    border-color: rgba(95, 163, 217, 0.45);
+}
+
+.theme-panel-neutral {
+    background: var(--gradient-neutral);
+    border-color: rgba(170, 170, 170, 0.35);
+}
+
+.theme-panel-chaotic {
+    background: var(--gradient-chaotic);
+    border-color: rgba(217, 107, 76, 0.45);
+}
+
+/* =========================================================
+   HOMEPAGE THEMES
+   ========================================================= */
+
+.homepage-theme {
+    position: relative;
+    isolation: isolate;
+}
+
+.homepage-theme::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(193,123,66,0.08),
+            transparent 55%
+        );
+
+    z-index: -1;
+}
+
+.home-title {
+    color: var(--text-primary);
+
+    text-shadow:
+        0 0 12px rgba(221,185,139,0.18),
+        0 0 28px rgba(0,0,0,0.6);
+}
+
+.home-subtitle {
+    color: var(--text-secondary);
+}
+
+/* =========================================================
+   BUTTON THEMES
+   ========================================================= */
+
+.theme-button {
+    background: var(--gradient-button);
+
+    color: #f8f2ea;
+
+    border:
+        1px solid rgba(240, 193, 145, 0.38);
+
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.theme-button:hover,
+.theme-button:focus-visible {
+    background: var(--gradient-button-hover);
+
+    box-shadow:
+        0 0 20px rgba(221,185,139,0.28),
+        0 8px 22px rgba(0,0,0,0.55);
+
+    transform: translateY(-2px);
+}
+
+.theme-button:active {
+    transform: translateY(1px);
+}
+
+.theme-button.secondary {
+    background:
+        linear-gradient(
+            180deg,
+            #3a2b23,
+            #241a16
+        );
+
+    border-color: rgba(180, 130, 90, 0.28);
+}
+
+.theme-button.danger {
+    background:
+        linear-gradient(
+            180deg,
+            #9f4545,
+            #6a2a2a
+        );
+}
+
+.theme-button.success {
+    background:
+        linear-gradient(
+            180deg,
+            #5f9b72,
+            #40684d
+        );
+}
+
+/* =========================================================
+   QUESTION CARD THEMES
+   ========================================================= */
+
+.question-theme {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(44, 30, 22, 0.96),
+            rgba(18, 12, 10, 0.98)
+        );
+
+    border:
+        1px solid rgba(171, 126, 84, 0.22);
+
+    position: relative;
+}
+
+.question-theme::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(221,185,139,0.4),
+            transparent
+        );
+}
+
+.question-title {
+    color: var(--text-primary);
+}
+
+.question-description {
+    color: var(--text-secondary);
+}
+
+/* =========================================================
+   ANSWER OPTION THEMES
+   ========================================================= */
+
+.answer-option-theme {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(46, 33, 26, 0.92),
+            rgba(26, 18, 15, 0.92)
+        );
+
+    border:
+        1px solid rgba(120, 88, 65, 0.35);
+
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.answer-option-theme:hover {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(60, 42, 32, 0.96),
+            rgba(35, 24, 19, 0.96)
+        );
+
+    border-color:
+        rgba(221,185,139,0.42);
+
+    box-shadow:
+        0 0 18px rgba(193,123,66,0.18);
+
+    transform: translateY(-2px);
+}
+
+.answer-option-theme.selected {
+    border-color: var(--accent-secondary);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(93, 63, 42, 0.96),
+            rgba(45, 30, 20, 0.96)
+        );
+
+    box-shadow:
+        0 0 24px rgba(193,123,66,0.28);
+}
+
+/* =========================================================
+   ALIGNMENT RESULT THEMES
+   ========================================================= */
+
+.result-lawful {
+    background: var(--gradient-lawful);
+
+    border-color:
+        rgba(95,163,217,0.5);
+
+    box-shadow:
+        0 0 22px var(--shadow-blue);
+}
+
+.result-neutral {
+    background: var(--gradient-neutral);
+
+    border-color:
+        rgba(160,160,160,0.42);
+}
+
+.result-chaotic {
+    background: var(--gradient-chaotic);
+
+    border-color:
+        rgba(217,107,76,0.5);
+
+    box-shadow:
+        0 0 22px var(--shadow-red);
+}
+
+/* =========================================================
+   AXIS COLORS
+   ========================================================= */
+
+.axis-altruism {
+    color: var(--altruistic-color);
+}
+
+.axis-selfish {
+    color: var(--selfish-color);
+}
+
+.axis-lawful {
+    color: var(--lawful-color);
+}
+
+.axis-chaotic {
+    color: var(--chaotic-color);
+}
+
+.axis-cooperative {
+    color: var(--cooperative-color);
+}
+
+.axis-combative {
+    color: var(--combative-color);
+}
+
+.axis-honorable {
+    color: var(--honorable-color);
+}
+
+.axis-pragmatic {
+    color: var(--pragmatic-color);
+}
+
+/* =========================================================
+   PROGRESS BAR THEMES
+   ========================================================= */
+
+.progress-theme {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(30,22,18,0.9),
+            rgba(16,12,10,0.95)
+        );
+
+    border:
+        1px solid rgba(100,72,54,0.35);
+}
+
+.progress-fill-theme {
+    background:
+        linear-gradient(
+            90deg,
+            #7f5332,
+            #d09b64,
+            #7f5332
+        );
+
+    box-shadow:
+        0 0 12px rgba(208,155,100,0.3);
+}
+
+/* =========================================================
+   NAVIGATION THEMES
+   ========================================================= */
+
+.navigation-theme {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(22,16,13,0.95),
+            rgba(10,8,7,0.98)
+        );
+
+    border-top:
+        1px solid rgba(150,110,80,0.18);
+}
+
+/* =========================================================
+   LOADING SCREEN THEMES
+   ========================================================= */
+
+.loading-theme {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(193,123,66,0.12),
+            transparent 45%
+        ),
+        #0b0908;
+}
+
+.loading-spinner-theme {
+    border:
+        4px solid rgba(255,255,255,0.08);
+
+    border-top-color:
+        var(--accent-secondary);
+
+    box-shadow:
+        0 0 20px rgba(193,123,66,0.24);
+}
+
+/* =========================================================
+   TOOLTIP THEMES
+   ========================================================= */
+
+.tooltip-theme {
+    background:
+        rgba(18, 13, 11, 0.96);
+
+    border:
+        1px solid rgba(193,123,66,0.35);
+
+    color:
+        var(--text-secondary);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.55);
+}
+
+/* =========================================================
+   SCROLLBAR THEMES
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background:
+        rgba(15,11,10,0.95);
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #6f4f38,
+            #9e734f
+        );
+
+    border-radius: 999px;
+
+    border:
+        2px solid rgba(20,14,12,1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #9f724b,
+            #c6925f
+        );
+}
+
+/* =========================================================
+   INPUT THEMES
+   ========================================================= */
+
+input,
+select,
+textarea {
+    background:
+        rgba(20,15,12,0.92);
+
+    color:
+        var(--text-primary);
+
+    border:
+        1px solid rgba(120,88,65,0.38);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+
+    border-color:
+        rgba(221,185,139,0.55);
+
+    box-shadow:
+        0 0 0 3px rgba(193,123,66,0.16);
+}
+
+/* =========================================================
+   CARD VARIANTS
+   ========================================================= */
+
+.card-lawful {
+    border-left:
+        5px solid var(--lawful-color);
+}
+
+.card-neutral {
+    border-left:
+        5px solid var(--neutral-color);
+}
+
+.card-chaotic {
+    border-left:
+        5px solid var(--chaotic-color);
+}
+
+.card-honorable {
+    border-left:
+        5px solid var(--honorable-color);
+}
+
+.card-pragmatic {
+    border-left:
+        5px solid var(--pragmatic-color);
+}
+
+/* =========================================================
+   RESULT RARITY THEMES
+   ========================================================= */
+
+.result-common {
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.04);
+}
+
+.result-rare {
+    box-shadow:
+        0 0 18px rgba(95,163,217,0.22);
+}
+
+.result-epic {
+    box-shadow:
+        0 0 24px rgba(193,123,66,0.32);
+}
+
+.result-legendary {
+    box-shadow:
+        0 0 36px rgba(221,185,139,0.44);
+}
+
+/* =========================================================
+   TABLE THEMES
+   ========================================================= */
+
+table {
+    background:
+        rgba(20,15,12,0.82);
+
+    border:
+        1px solid rgba(110,78,58,0.28);
+}
+
+thead {
+    background:
+        rgba(45,30,22,0.95);
+}
+
+th {
+    color:
+        var(--text-primary);
+
+    border-bottom:
+        1px solid rgba(180,130,90,0.25);
+}
+
+td {
+    color:
+        var(--text-secondary);
+
+    border-bottom:
+        1px solid rgba(80,58,45,0.2);
+}
+
+tr:hover {
+    background:
+        rgba(255,255,255,0.03);
+}
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+
+.status-good {
+    color: var(--accent-success);
+}
+
+.status-warning {
+    color: var(--accent-secondary);
+}
+
+.status-danger {
+    color: var(--accent-danger);
+}
+
+/* =========================================================
+   OVERLAY THEMES
+   ========================================================= */
+
+.modal-overlay-theme {
+    background:
+        rgba(0,0,0,0.82);
+
+    backdrop-filter:
+        blur(6px);
+}
+
+/* =========================================================
+   DIVIDER THEMES
+   ========================================================= */
+
+.theme-divider {
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(221,185,139,0.4),
+            transparent
+        );
+}
+
+/* =========================================================
+   TEXT GLOW THEMES
+   ========================================================= */
+
+.text-glow-bronze {
+    text-shadow:
+        0 0 12px rgba(193,123,66,0.35);
+}
+
+.text-glow-lawful {
+    text-shadow:
+        0 0 12px rgba(95,163,217,0.3);
+}
+
+.text-glow-chaotic {
+    text-shadow:
+        0 0 12px rgba(217,107,76,0.3);
+}
+
+/* =========================================================
+   DEEP QUIZ SPECIAL THEMES
+   ========================================================= */
+
+.deep-analysis-theme {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(28,20,16,0.95),
+            rgba(12,9,8,0.98)
+        );
+
+    border:
+        1px solid rgba(160,110,72,0.22);
+}
+
+.deep-axis-panel {
+    background:
+        rgba(255,255,255,0.02);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+}
+
+/* =========================================================
+   SHORT QUIZ SPECIAL THEMES
+   ========================================================= */
+
+.short-quiz-card {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(36,26,20,0.96),
+            rgba(18,14,12,0.96)
+        );
+
+    border:
+        1px solid rgba(193,123,66,0.22);
+}
+
+/* =========================================================
+   FADE OVERLAY
+   ========================================================= */
+
+.theme-fade-top::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 80px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.45),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   END OF FILE
+   ========================================================= */
