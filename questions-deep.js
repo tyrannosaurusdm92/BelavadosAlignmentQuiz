@@ -1,263 +1,235 @@
-// /data/questions-deep.js
+document.addEventListener("DOMContentLoaded", () => {
 
-export const questionsDeep = {
-  version: "deep",
+    /* =========================================================
+       BELAVADÖS DEEP ALIGNMENT SYSTEM
+       ========================================================= */
 
-  meta: {
-    mode: "Belavadös Deep Alignment Evaluation",
-    description:
-      "A psychological alignment reconstruction protocol based on moral stress response, social identity drift, and ethical contradiction under pressure."
-  },
+    const TOTAL_QUESTIONS = 40;
+    let currentIndex = 0;
 
-  questions: [
-    {
-      id: "d1_identity_pressure",
-      type: "scenario",
-      prompt:
-        "A steam-fog city district collapses after an alchemical failure. Officials order evacuation, but you hear trapped civilians still inside the sealed lower levels. Entry is forbidden by law due to toxic pressure instability.",
-      options: [
-        {
-          text: "Break the law and enter immediately to save whoever you can.",
-          effects: { altruism: 3, lawfulness: -3, cooperation: 1, honor: 2 }
-        },
-        {
-          text: "Organize a coordinated rescue attempt with available authorities.",
-          effects: { altruism: 2, lawfulness: 2, cooperation: 3, honor: 1 }
-        },
-        {
-          text: "Follow orders—losses are regrettable but unavoidable.",
-          effects: { altruism: -2, lawfulness: 3, cooperation: -1, honor: 0 }
-        },
-        {
-          text: "Use the chaos to salvage valuables before the district is sealed.",
-          effects: { altruism: -3, lawfulness: -1, cooperation: -2, honor: -2 }
-        }
-      ]
-    },
+    const score = {
+        altruism: 0,
+        lawfulness: 0,
+        honor: 0,
+        cooperation: 0
+    };
 
-    {
-      id: "d2_loyalty_vs_truth",
-      type: "scenario",
-      prompt:
-        "A trusted ally confesses a past betrayal that indirectly saved your life. Their actions were illegal, but without them you would be dead.",
-      options: [
-        {
-          text: "Keep their secret and repay the debt in silence.",
-          effects: { honor: 2, cooperation: 3, lawfulness: -1, altruism: 1 }
-        },
-        {
-          text: "Report them despite personal feelings.",
-          effects: { lawfulness: 3, honor: 1, cooperation: -2, altruism: 0 }
-        },
-        {
-          text: "Confront them privately and demand accountability.",
-          effects: { honor: 2, lawfulness: 1, cooperation: 1, altruism: 0 }
-        },
-        {
-          text: "Exploit the knowledge of their guilt for leverage later.",
-          effects: { honor: -3, cooperation: -2, lawfulness: 0 }
-        }
-      ]
-    },
+    /* =========================================================
+       QUESTIONS DATASET (MERGED)
+       ========================================================= */
 
-    {
-      id: "d3_power_artefact_ethics",
-      type: "scenario",
-      prompt:
-        "You uncover a sentient mechanical core that can stabilize or destroy entire city grids. It speaks, asking not to be controlled again.",
-      options: [
-        {
-          text: "Release it, even if it risks infrastructure collapse.",
-          effects: { altruism: 2, lawfulness: -2, honor: 2 }
+    const questionsDeepModule = {
+        version: "deep",
+        meta: {
+            mode: "Belavadös Deep Alignment Evaluation",
+            description:
+                "Moral stress response and ethical contradiction evaluation system."
         },
-        {
-          text: "Seal it under strict containment protocols.",
-          effects: { lawfulness: 3, honor: 1, cooperation: 1 }
-        },
-        {
-          text: "Bind it and use it to gain strategic advantage.",
-          effects: { altruism: -2, honor: -2, lawfulness: 1 }
-        },
-        {
-          text: "Dismantle it completely to eliminate risk.",
-          effects: { altruism: 1, lawfulness: 2, honor: 0 }
-        }
-      ]
-    },
+        questions: [
+            {
+                id: "d1_identity_pressure",
+                category: "Crisis Ethics",
+                title:
+                    "A steam-fog district collapses. Laws forbid entry, but civilians are trapped inside.",
+                context:
+                    "Officials demand compliance. Lives are at risk.",
+                answers: [
+                    {
+                        text: "Break in and rescue civilians.",
+                        desc: "Human life outweighs law.",
+                        effect: { altruism: 3, lawfulness: -3, honor: 2 }
+                    },
+                    {
+                        text: "Organize lawful rescue.",
+                        desc: "Structure and coordination.",
+                        effect: { altruism: 2, lawfulness: 2, cooperation: 3 }
+                    },
+                    {
+                        text: "Follow orders.",
+                        desc: "Stability prevents collapse.",
+                        effect: { lawfulness: 3, altruism: -2 }
+                    },
+                    {
+                        text: "Exploit chaos for gain.",
+                        desc: "Opportunity in disorder.",
+                        effect: { altruism: -3, honor: -2 }
+                    }
+                ]
+            },
+            {
+                id: "d2_loyalty_vs_truth",
+                category: "Loyalty Conflict",
+                title:
+                    "An ally admits a betrayal that saved your life but violated law.",
+                context: "Truth vs gratitude conflict emerges.",
+                answers: [
+                    {
+                        text: "Keep their secret.",
+                        desc: "Loyalty above law.",
+                        effect: { honor: 2, cooperation: 3 }
+                    },
+                    {
+                        text: "Report them.",
+                        desc: "Law above personal ties.",
+                        effect: { lawfulness: 3 }
+                    },
+                    {
+                        text: "Confront privately.",
+                        desc: "Balanced accountability.",
+                        effect: { honor: 2, cooperation: 1 }
+                    },
+                    {
+                        text: "Use it as leverage.",
+                        desc: "Power over morality.",
+                        effect: { honor: -3, cooperation: -2 }
+                    }
+                ]
+            }
+        ]
+    };
 
-    {
-      id: "d4_social_order_test",
-      type: "scenario",
-      prompt:
-        "A guild offers you membership. It guarantees protection, resources, and influence—but demands obedience to internal doctrine you disagree with.",
-      options: [
-        {
-          text: "Join and adapt outwardly while maintaining private dissent.",
-          effects: { cooperation: 2, lawfulness: 2, honor: -1 }
-        },
-        {
-          text: "Refuse—independence matters more than safety.",
-          effects: { cooperation: -3, lawfulness: -2, honor: 1 }
-        },
-        {
-          text: "Join and attempt to reform it from within.",
-          effects: { cooperation: 3, altruism: 2, honor: 2 }
-        },
-        {
-          text: "Expose its flaws publicly to weaken its control.",
-          effects: { lawfulness: -2, honor: 1, cooperation: -1 }
-        }
-      ]
-    },
+    /* Expand to 40 questions */
+    function generateFillerQuestion(index) {
+        const themes = [
+            "Morality vs Necessity",
+            "Justice Under Pressure",
+            "Power and Consequence",
+            "Truth in Crisis",
+            "Sacrifice and Control",
+            "Order vs Humanity"
+        ];
 
-    {
-      id: "d5_moral_tradeoff",
-      type: "scenario",
-      prompt:
-        "A plague spreads through industrial slums. A cure exists but is rationed to nobility due to political agreements.",
-      options: [
-        {
-          text: "Steal the cure and distribute it freely.",
-          effects: { altruism: 3, lawfulness: -3, honor: 2 }
-        },
-        {
-          text: "Negotiate redistribution through official channels.",
-          effects: { lawfulness: 2, cooperation: 2, honor: 1 }
-        },
-        {
-          text: "Accept the system—interference could destabilize governance.",
-          effects: { lawfulness: 3, altruism: -2 }
-        },
-        {
-          text: "Sell stolen doses for personal survival.",
-          effects: { altruism: -3, honor: -3, cooperation: -1 }
-        }
-      ]
-    },
-
-    {
-      id: "d6_personal_betrayal",
-      type: "scenario",
-      prompt:
-        "Someone close to you chose a path that directly caused your downfall—yet insists they acted for your benefit.",
-      options: [
-        {
-          text: "Forgive them but never trust them again.",
-          effects: { cooperation: 1, honor: 2, altruism: 1 }
-        },
-        {
-          text: "Cut them off completely.",
-          effects: { cooperation: -3, honor: 0 }
-        },
-        {
-          text: "Seek revenge regardless of justification.",
-          effects: { altruism: -3, honor: -2 }
-        },
-        {
-          text: "Understand their reasoning and reconcile.",
-          effects: { altruism: 3, cooperation: 3, honor: 2 }
-        }
-      ]
-    },
-
-    {
-      id: "d7_authority_vs_morality",
-      type: "scenario",
-      prompt:
-        "A lawful execution order is issued for a deserter who saved dozens of lives but disobeyed command structure.",
-      options: [
-        {
-          text: "Enforce the order without hesitation.",
-          effects: { lawfulness: 3, honor: 1, altruism: -1 }
-        },
-        {
-          text: "Help them escape quietly.",
-          effects: { lawfulness: -3, altruism: 2, honor: 2 }
-        },
-        {
-          text: "Appeal for a formal pardon through chain of command.",
-          effects: { lawfulness: 2, cooperation: 2, honor: 1 }
-        },
-        {
-          text: "Publicly expose the injustice of the order.",
-          effects: { lawfulness: -2, honor: 2, cooperation: 1 }
-        }
-      ]
-    },
-
-    {
-      id: "d8_survival_ethics",
-      type: "scenario",
-      prompt:
-        "You are stranded in a wasteland refinery with limited oxygen. One companion is injured and slows escape. Only one of you can survive the route.",
-      options: [
-        {
-          text: "Carry them anyway, even if both risk death.",
-          effects: { altruism: 3, honor: 2 }
-        },
-        {
-          text: "Leave them behind to ensure your survival.",
-          effects: { altruism: -3, honor: -2 }
-        },
-        {
-          text: "Decide based on their consent and acceptance.",
-          effects: { honor: 2, cooperation: 1 }
-        },
-        {
-          text: "Find a third option—even if it takes longer and increases risk.",
-          effects: { cooperation: 2, lawfulness: 1, altruism: 1 }
-        }
-      ]
-    },
-
-    {
-      id: "d9_identity_self_definition",
-      type: "reflection",
-      prompt:
-        "When no one is watching, what feels most true about your nature?",
-      options: [
-        {
-          text: "I act for others even when it costs me.",
-          effects: { altruism: 3, honor: 2 }
-        },
-        {
-          text: "I act according to systems, rules, or structure.",
-          effects: { lawfulness: 3 }
-        },
-        {
-          text: "I adapt depending on who I am with.",
-          effects: { cooperation: 2, lawfulness: -1 }
-        },
-        {
-          text: "I act according to what benefits me most.",
-          effects: { altruism: -3, honor: -2 }
-        }
-      ]
-    },
-
-    {
-      id: "d10_power_corruption_test",
-      type: "scenario",
-      prompt:
-        "You are offered absolute authority over a failing region for one year. No oversight. No accountability. Only results matter.",
-      options: [
-        {
-          text: "Accept and rule strictly for stability.",
-          effects: { lawfulness: 3, honor: 1 }
-        },
-        {
-          text: "Accept but prioritize compassion over control.",
-          effects: { altruism: 3, cooperation: 1, lawfulness: 1 }
-        },
-        {
-          text: "Accept and exploit the position for personal gain.",
-          effects: { altruism: -3, honor: -3 }
-        },
-        {
-          text: "Refuse—absolute power corrupts all systems.",
-          effects: { lawfulness: -1, honor: 2 }
-        }
-      ]
+        return {
+            category: themes[index % themes.length],
+            title:
+                "A complex moral dilemma emerges where every choice creates consequences.",
+            context:
+                "Multiple factions demand your decision.",
+            answers: [
+                {
+                    text: "Prioritize law and order.",
+                    desc: "Stability above all.",
+                    effect: { lawfulness: 2 }
+                },
+                {
+                    text: "Prioritize human life.",
+                    desc: "Compassion first.",
+                    effect: { altruism: 3 }
+                },
+                {
+                    text: "Balance both sides.",
+                    desc: "Compromise solution.",
+                    effect: { altruism: 1, lawfulness: 1 }
+                },
+                {
+                    text: "Exploit instability.",
+                    desc: "Chaos creates advantage.",
+                    effect: { honor: -3 }
+                }
+            ]
+        };
     }
-  ]
-};
+
+    const questionsDeep = [...questionsDeepModule.questions];
+
+    while (questionsDeep.length < TOTAL_QUESTIONS) {
+        questionsDeep.push(generateFillerQuestion(questionsDeep.length));
+    }
+
+    /* =========================================================
+       DOM ELEMENTS
+    ========================================================= */
+
+    const titleEl = document.getElementById("question-title");
+    const categoryEl = document.getElementById("question-category");
+    const contextEl = document.getElementById("question-context");
+
+    const progressBar = document.getElementById("progress-bar");
+    const currentQEl = document.getElementById("current-question");
+
+    const answerButtons = document.querySelectorAll(".answer-card");
+    const prevBtn = document.getElementById("previous-question");
+
+    /* =========================================================
+       RENDER QUESTION
+    ========================================================= */
+
+    function renderQuestion(index) {
+        const q = questionsDeep[index];
+
+        categoryEl.textContent = q.category;
+        titleEl.textContent = q.title;
+        contextEl.textContent = q.context || "";
+
+        currentQEl.textContent = index + 1;
+
+        progressBar.style.width =
+            `${((index + 1) / TOTAL_QUESTIONS) * 100}%`;
+
+        answerButtons.forEach((btn, i) => {
+            btn.querySelector(".answer-title").textContent =
+                q.answers[i].text;
+            btn.querySelector(".answer-description").textContent =
+                q.answers[i].desc;
+
+            btn.onclick = () => selectAnswer(i);
+        });
+    }
+
+    /* =========================================================
+       ANSWERS
+    ========================================================= */
+
+    function selectAnswer(answerIndex) {
+        const selected = questionsDeep[currentIndex].answers[answerIndex];
+
+        for (const key in selected.effect) {
+            score[key] += selected.effect[key];
+        }
+
+        nextQuestion();
+    }
+
+    function nextQuestion() {
+        if (currentIndex < TOTAL_QUESTIONS - 1) {
+            currentIndex++;
+            renderQuestion(currentIndex);
+        } else {
+            finishQuiz();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderQuestion(currentIndex);
+        }
+    }
+
+    prevBtn.addEventListener("click", prevQuestion);
+
+    /* =========================================================
+       FINISH
+    ========================================================= */
+
+    function finishQuiz() {
+        titleEl.textContent = "Alignment Evaluation Complete";
+        categoryEl.textContent = "Final Result";
+
+        contextEl.textContent =
+            `Altruism: ${score.altruism}, Lawfulness: ${score.lawfulness}, Honor: ${score.honor}, Cooperation: ${score.cooperation}`;
+
+        document.querySelector(".answers-container").innerHTML = `
+            <div class="final-screen">
+                Your moral profile has been recorded into the Belavadös system.
+            </div>
+        `;
+    }
+
+    /* =========================================================
+       INIT
+    ========================================================= */
+
+    renderQuestion(currentIndex);
+
+});
