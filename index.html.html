@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belavadös Alignment Quiz</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg2: #101b2f;
+      --card: rgba(12, 20, 36, 0.88);
+      --card-2: rgba(18, 28, 48, 0.92);
+      --text: #f3f7ff;
+      --muted: #b7c3dc;
+      --line: rgba(255,255,255,0.12);
+      --accent: #8cc7ff;
+      --accent2: #c88cff;
+      --good: #66e3a4;
+      --warn: #ffd166;
+      --bad: #ff8b8b;
+      --shadow: 0 30px 90px rgba(0,0,0,0.45);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(200,140,255,0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(140,199,255,0.18), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 40px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main { padding: 26px; }
+    .hero-side { padding: 20px; }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 68ch;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .stat .v { font-size: 20px; font-weight: 800; margin-top: 6px; }
+
+    .meter {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .meter .bar {
+      flex: 1;
+      min-width: 240px;
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .meter .bar > span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(140,199,255,0.95), rgba(200,140,255,0.95));
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 240ms ease;
+    }
+    .meter .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .quiz, .sidebar { padding: 22px; }
+
+    .stepper {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .step {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255,255,255,0.04);
+    }
+    .step.active {
+      color: #fff;
+      border-color: rgba(140,199,255,0.5);
+      background: rgba(140,199,255,0.16);
+    }
+    .step.done {
+      color: #def6e9;
+      border-color: rgba(102,227,164,0.4);
+      background: rgba(102,227,164,0.12);
+    }
+
+    .qtitle {
+      font-size: 28px;
+      line-height: 1.08;
+      margin: 0 0 10px;
+    }
+    .qdesc {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      max-width: 70ch;
+    }
+
+    .choices {
+      display: grid;
+      gap: 12px;
+    }
+    .choice {
+      width: 100%;
+      text-align: left;
+      padding: 16px 16px 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .choice:hover { transform: translateY(-1px); border-color: rgba(140,199,255,0.35); background: rgba(255,255,255,0.08); }
+    .choice .name { font-size: 18px; font-weight: 750; }
+    .choice .hint { color: var(--muted); font-size: 13px; margin-top: 6px; line-height: 1.5; }
+    .choice .tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #dbe7ff;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(140,199,255,0.28), rgba(200,140,255,0.28));
+      border-color: rgba(140,199,255,0.35);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .side-block {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 14px;
+    }
+    .side-title {
+      margin: 0 0 10px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    .remaining {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .remaining .count { font-size: 38px; font-weight: 900; }
+    .remaining .label { color: var(--muted); font-size: 13px; }
+    .mini-list {
+      display: grid;
+      gap: 8px;
+    }
+    .mini {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      font-size: 13px;
+      color: #e8efff;
+      line-height: 1.45;
+    }
+    .mini strong { color: white; }
+
+    .hidden { display: none !important; }
+
+    .result {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+    .result h2 { margin: 0 0 8px; font-size: 32px; }
+    .result .subtitle { color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .title-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(140,199,255,0.12);
+      border: 1px solid rgba(140,199,255,0.25);
+      color: #e9f4ff;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .axis-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .axis-card .a { color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .axis-card .b { font-size: 20px; font-weight: 850; margin-top: 6px; }
+    .axis-card .c { color: var(--muted); margin-top: 6px; line-height: 1.5; font-size: 13px; }
+    .result-actions { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .final-note {
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .hero, .layout { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="panel hero-main">
+        <div class="eyebrow">Belavadös Alignment System</div>
+        <h1>Define the one alignment that fits.</h1>
+        <p class="sub">
+          This quiz uses the system’s four independent axes — Altruism, Lawfulness, Cooperation, and Honor — and narrows the pool after every answer until only one alignment remains.
+          The axes begin from a neutral midpoint, and the result is a live reputation snapshot rather than a rigid moral box.
+        </p>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="k">Axes tracked</div>
+            <div class="v">4</div>
+          </div>
+          <div class="stat">
+            <div class="k">Starting point</div>
+            <div class="v">1500 neutral</div>
+          </div>
+        </div>
+        <div class="meter" aria-hidden="true">
+          <div class="bar"><span id="meterFill"></span></div>
+          <div class="meta" id="meterText">Question 1 of 4</div>
+        </div>
+      </div>
+      <div class="panel hero-side">
+        <div class="side-block">
+          <div class="side-title">How it works</div>
+          <div class="mini-list">
+            <div class="mini"><strong>1.</strong> Answer each axis question honestly.</div>
+            <div class="mini"><strong>2.</strong> The quiz removes every alignment that conflicts with that answer.</div>
+            <div class="mini"><strong>3.</strong> After the fourth answer, one exact Belavadös alignment remains.</div>
+          </div>
+        </div>
+        <div class="side-block">
+          <div class="side-title">Live pool</div>
+          <div class="remaining"><div class="count" id="remainingCount">81</div><div class="label">possible alignments left</div></div>
+          <div class="mini" id="poolHint">No answers yet — all combinations remain on the table.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel quiz">
+        <div id="quizView">
+          <div class="stepper" id="stepper"></div>
+          <h2 class="qtitle" id="questionTitle"></h2>
+          <div class="qdesc" id="questionDesc"></div>
+          <div class="choices" id="choices"></div>
+          <div class="nav">
+            <button class="btn" id="backBtn">Back</button>
+            <button class="btn primary" id="restartBtn">Restart</button>
+          </div>
+        </div>
+
+        <div id="resultView" class="hidden">
+          <div class="result">
+            <div class="title-chip" id="resultChip">Result</div>
+            <h2 id="resultTitle"></h2>
+            <div class="subtitle" id="resultSubtitle"></div>
+            <div class="grid-4" id="axisCards"></div>
+            <div class="result-actions">
+              <button class="btn primary" id="playAgainBtn">Take the quiz again</button>
+              <button class="btn" id="copyBtn">Copy result</button>
+            </div>
+            <div class="final-note">
+              The quiz uses exact axis-state elimination, so the final alignment is deterministic: each answer locks one axis and removes every candidate that no longer matches the remaining pool.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel sidebar">
+        <div class="side-block">
+          <div class="side-title">Current elimination</div>
+          <div class="mini" id="eliminationText">Pick an answer to start eliminating mismatched alignments.</div>
+        </div>
+        <div class="side-block">
+          <div class="side-title">Axes already set</div>
+          <div class="mini-list" id="lockedAxes"></div>
+        </div>
+        <div class="side-block">
+          <div class="side-title">Result preview</div>
+          <div class="mini" id="previewText">Your final alignment title will appear here once all four axes are locked.</div>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+<script>
+  const AXES = {
+    altruism: [
+      { key: 'selfish', label: 'Selfish', short: 'Selfish', representative: 500, blurb: 'You prioritize leverage, survival, or gain over sacrifice.' },
+      { key: 'neutral', label: 'Neutral', short: 'Neutral', representative: 1500, blurb: 'You decide case by case, balancing self and others.' },
+      { key: 'altruistic', label: 'Altruistic', short: 'Altruistic', representative: 2500, blurb: 'You protect, support, and uplift others first.' },
+    ],
+    lawfulness: [
+      { key: 'chaotic', label: 'Chaotic', short: 'Chaotic', representative: 500, blurb: 'Freedom, instinct, or rebellion beats structure.' },
+      { key: 'neutral', label: 'Neutral', short: 'Neutral', representative: 1500, blurb: 'You can work with rules or against them when needed.' },
+      { key: 'lawful', label: 'Lawful', short: 'Lawful', representative: 2500, blurb: 'Duty, order, contracts, and structure matter to you.' },
+    ],
+    cooperation: [
+      { key: 'combative', label: 'Combative', short: 'Combative', representative: 500, blurb: 'You lean toward independence, rivalry, or hard edges.' },
+      { key: 'neutral', label: 'Neutral', short: 'Neutral', representative: 1500, blurb: 'You cooperate when useful, but do not live for the group.' },
+      { key: 'cooperative', label: 'Cooperative', short: 'Cooperative', representative: 2500, blurb: 'Teamwork, loyalty, and group harmony come naturally.' },
+    ],
+    honor: [
+      { key: 'pragmatic', label: 'Pragmatic', short: 'Pragmatic', representative: 500, blurb: 'You bend truth and rules when the outcome justifies it.' },
+      { key: 'neutral', label: 'Neutral', short: 'Neutral', representative: 1500, blurb: 'You are flexible, neither bound to strict code nor deceit.' },
+      { key: 'honorable', label: 'Honorable', short: 'Honorable', representative: 2500, blurb: 'Truth, integrity, and keeping your word matter deeply.' },
+    ],
+  };
+
+  const QUESTIONS = [
+    {
+      axis: 'altruism',
+      title: 'When helping others costs you something, what usually wins?',
+      desc: 'This locks the Altruism axis and removes every alignment that leans too far in the opposite direction.',
+      options: [
+        { state: 'altruistic', tag: 'Altruistic', name: 'I help, even at a cost', hint: 'Sacrifice and compassion matter more than personal gain.' },
+        { state: 'neutral', tag: 'Neutral', name: 'It depends on the situation', hint: 'You help when it makes sense, but you are not a martyr.' },
+        { state: 'selfish', tag: 'Selfish', name: 'I protect my own interests first', hint: 'Survival, leverage, or advantage comes before self-sacrifice.' },
+      ]
+    },
+    {
+      axis: 'lawfulness',
+      title: 'When rules clash with your instincts, which do you trust?',
+      desc: 'This locks the Lawfulness axis and filters out alignments that cannot coexist with your relationship to structure.',
+      options: [
+        { state: 'lawful', tag: 'Lawful', name: 'Rules and duty', hint: 'Order, hierarchy, promises, and procedure are your default.' },
+        { state: 'neutral', tag: 'Neutral', name: 'The context', hint: 'You can honor structure or break it depending on the moment.' },
+        { state: 'chaotic', tag: 'Chaotic', name: 'Freedom and impulse', hint: 'You resist being boxed in by laws, ranks, or expectations.' },
+      ]
+    },
+    {
+      axis: 'cooperation',
+      title: 'How do you behave inside a team you care about?',
+      desc: 'This locks the Cooperation axis and narrows the pool to candidates that match your social style.',
+      options: [
+        { state: 'cooperative', tag: 'Cooperative', name: 'I build with the group', hint: 'You share, coordinate, and protect team cohesion.' },
+        { state: 'neutral', tag: 'Neutral', name: 'I participate when useful', hint: 'You can work with others, but you remain independent.' },
+        { state: 'combative', tag: 'Combative', name: 'I prefer to stand apart', hint: 'You are self-directed, competitive, or difficult to bind.' },
+      ]
+    },
+    {
+      axis: 'honor',
+      title: 'What happens when honesty is inconvenient?',
+      desc: 'This locks the Honor axis and separates principled characters from pragmatic ones.',
+      options: [
+        { state: 'honorable', tag: 'Honorable', name: 'The truth still matters', hint: 'Integrity, promises, and clean conduct are non-negotiable.' },
+        { state: 'neutral', tag: 'Neutral', name: 'I choose the least harmful path', hint: 'You value outcomes and context more than ritual purity.' },
+        { state: 'pragmatic', tag: 'Pragmatic', name: 'I bend the line if needed', hint: 'You will lie, manipulate, or compromise if the result is worth it.' },
+      ]
+    },
+  ];
+
+  const nounMap = {
+    selfish: {
+      cooperative: { pragmatic: 'Renegade', neutral: 'Drifter', honorable: 'Champion' },
+      neutral: { pragmatic: 'Strategist', neutral: 'Knave', honorable: 'Avenger' },
+      combative: { pragmatic: 'Mercenary', neutral: 'Marauder', honorable: 'Gladiator' },
+    },
+    neutral: {
+      cooperative: { pragmatic: 'Operator', neutral: 'Collaborator', honorable: 'Harmonizer' },
+      neutral: { pragmatic: 'Adapter', neutral: 'True Neutral', honorable: 'Ethicist' },
+      combative: { pragmatic: 'Ravager', neutral: 'Scoundrel', honorable: 'Warrior' },
+    },
+    altruistic: {
+      cooperative: { pragmatic: 'Coordinator', neutral: 'Mediator', honorable: 'Guardian' },
+      neutral: { pragmatic: 'Defender', neutral: 'Arbiter', honorable: 'Sentinel' },
+      combative: { pragmatic: 'Enforcer', neutral: 'Vigilante', honorable: 'Crusader' },
+    }
+  };
+
+  const stateOrder = {
+    altruism: ['selfish', 'neutral', 'altruistic'],
+    lawfulness: ['chaotic', 'neutral', 'lawful'],
+    cooperation: ['combative', 'neutral', 'cooperative'],
+    honor: ['pragmatic', 'neutral', 'honorable'],
+  };
+
+  const stateLabels = {
+    selfish: 'Selfish', neutral: 'Neutral', altruistic: 'Altruistic',
+    chaotic: 'Chaotic', lawful: 'Lawful', cooperative: 'Cooperative', combative: 'Combative',
+    pragmatic: 'Pragmatic', honorable: 'Honorable'
+  };
+
+  const axisFriendly = {
+    altruism: 'Altruism', lawfulness: 'Lawfulness', cooperation: 'Cooperation', honor: 'Honor'
+  };
+
+  const app = {
+    index: 0,
+    answers: {},
+    history: [],
+    candidates: [],
+  };
+
+  function generateCandidates() {
+    const list = [];
+    for (const a of AXES.altruism) {
+      for (const l of AXES.lawfulness) {
+        for (const c of AXES.cooperation) {
+          for (const h of AXES.honor) {
+            list.push({
+              altruism: a.key,
+              lawfulness: l.key,
+              cooperation: c.key,
+              honor: h.key,
+              title: buildTitle(a.key, l.key, c.key, h.key),
+              summary: buildSummary(a.key, l.key, c.key, h.key),
+            });
+          }
+        }
+      }
+    }
+    return list;
+  }
+
+  function buildTitle(a, l, c, h) {
+    if (a === 'neutral' && l === 'neutral' && c === 'neutral' && h === 'neutral') {
+      return 'True Neutral';
+    }
+    const prefix = l.charAt(0).toUpperCase() + l.slice(1);
+    const noun = nounMap[a][c][h];
+    return `${prefix} ${noun}`;
+  }
+
+  function buildSummary(a, l, c, h) {
+    const parts = [];
+    parts.push(`${stateLabels[a]} across Altruism`);
+    parts.push(`${stateLabels[l]} across Lawfulness`);
+    parts.push(`${stateLabels[c]} across Cooperation`);
+    parts.push(`${stateLabels[h]} across Honor`);
+    return parts.join(' • ');
+  }
+
+  function getCurrentQuestion() {
+    return QUESTIONS[app.index];
+  }
+
+  function filterCandidates() {
+    app.candidates = generateCandidates().filter(candidate => {
+      return Object.entries(app.answers).every(([axis, state]) => candidate[axis] === state);
+    });
+  }
+
+  function makeRemainingHint() {
+    const total = app.candidates.length;
+    if (!Object.keys(app.answers).length) {
+      return 'No answers yet — all combinations remain on the table.';
+    }
+    if (total === 1) {
+      return `Only one alignment remains: ${app.candidates[0].title}.`;
+    }
+    if (app.index < QUESTIONS.length) {
+      const axis = QUESTIONS[app.index].axis;
+      const chosen = app.answers[axis];
+      return `${axisFriendly[axis]} is now locked to ${stateLabels[chosen]}. ${total} alignments still fit the answers you have given.`;
+    }
+    return `${total} alignments still fit.`;
+  }
+
+  function renderStepper() {
+    const stepper = document.getElementById('stepper');
+    stepper.innerHTML = '';
+    QUESTIONS.forEach((q, i) => {
+      const el = document.createElement('div');
+      el.className = 'step';
+      if (i < app.index) el.classList.add('done');
+      if (i === app.index) el.classList.add('active');
+      el.textContent = `${i + 1}. ${axisFriendly[q.axis]}`;
+      stepper.appendChild(el);
+    });
+  }
+
+  function renderQuestion() {
+    const q = getCurrentQuestion();
+    document.getElementById('questionTitle').textContent = q.title;
+    document.getElementById('questionDesc').textContent = q.desc;
+    const choices = document.getElementById('choices');
+    choices.innerHTML = '';
+
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.innerHTML = `
+        <div>
+          <div class="name">${opt.name}</div>
+          <div class="hint">${opt.hint}</div>
+        </div>
+        <div class="tag">${opt.tag}</div>
+      `;
+      btn.addEventListener('click', () => selectOption(opt.state));
+      choices.appendChild(btn);
+    });
+
+    document.getElementById('backBtn').disabled = app.index === 0;
+    document.getElementById('remainingCount').textContent = app.candidates.length || 81;
+    document.getElementById('poolHint').textContent = makeRemainingHint();
+    document.getElementById('eliminationText').textContent = app.index === 0
+      ? 'Pick an answer to start eliminating mismatched alignments.'
+      : buildEliminationText();
+    renderLockedAxes();
+    renderPreview();
+    const completed = app.index;
+    const pct = Math.min(completed / QUESTIONS.length, 1);
+    document.getElementById('meterFill').style.transform = `scaleX(${pct})`;
+    document.getElementById('meterText').textContent = `Question ${app.index + 1} of ${QUESTIONS.length}`;
+    renderStepper();
+  }
+
+  function buildEliminationText() {
+    const q = QUESTIONS[app.index - 1];
+    const chosen = app.answers[q.axis];
+    const count = app.candidates.length;
+    return `Your last answer locked ${axisFriendly[q.axis]} to ${stateLabels[chosen]}. Every alignment that does not match that axis state was removed. ${count} candidates remain.`;
+  }
+
+  function renderLockedAxes() {
+    const container = document.getElementById('lockedAxes');
+    container.innerHTML = '';
+    const entries = Object.entries(app.answers);
+    if (!entries.length) {
+      container.innerHTML = '<div class="mini">No axes are locked yet.</div>';
+      return;
+    }
+    const order = ['altruism', 'lawfulness', 'cooperation', 'honor'];
+    order.forEach(axis => {
+      if (!app.answers[axis]) return;
+      const div = document.createElement('div');
+      div.className = 'mini';
+      div.innerHTML = `<strong>${axisFriendly[axis]}:</strong> ${stateLabels[app.answers[axis]]}`;
+      container.appendChild(div);
+    });
+  }
+
+  function renderPreview() {
+    const preview = document.getElementById('previewText');
+    if (app.candidates.length === 1) {
+      preview.textContent = `Likely final alignment: ${app.candidates[0].title}.`;
+      return;
+    }
+    if (app.candidates.length > 1 && app.index < QUESTIONS.length) {
+      preview.textContent = `Current pool example: ${app.candidates[0].title}, ${app.candidates[1]?.title || ''}${app.candidates[2] ? ', ' + app.candidates[2].title : ''}.`;
+      return;
+    }
+    preview.textContent = 'Answer the remaining axis questions to resolve the final title.';
+  }
+
+  function selectOption(state) {
+    const q = getCurrentQuestion();
+    app.answers[q.axis] = state;
+    app.history.push({ axis: q.axis, state });
+    filterCandidates();
+    app.index++;
+    if (app.index >= QUESTIONS.length || app.candidates.length === 1) {
+      showResult();
+    } else {
+      renderQuestion();
+    }
+  }
+
+  function goBack() {
+    if (!app.history.length) return;
+    app.index = Math.max(0, app.index - 1);
+    const last = app.history.pop();
+    delete app.answers[last.axis];
+    filterCandidates();
+    renderQuestion();
+  }
+
+  function restart() {
+    app.index = 0;
+    app.answers = {};
+    app.history = [];
+    app.candidates = generateCandidates();
+    document.getElementById('quizView').classList.remove('hidden');
+    document.getElementById('resultView').classList.add('hidden');
+    renderQuestion();
+  }
+
+  function showResult() {
+    filterCandidates();
+    const winner = app.candidates[0] || inferWinner();
+    document.getElementById('quizView').classList.add('hidden');
+    document.getElementById('resultView').classList.remove('hidden');
+
+    const chip = document.getElementById('resultChip');
+    chip.textContent = winner.title;
+    document.getElementById('resultTitle').textContent = winner.title;
+    document.getElementById('resultSubtitle').textContent = `${winner.summary}. The quiz reduced the alignment pool to this single remaining result.`;
+
+    const axisCards = document.getElementById('axisCards');
+    axisCards.innerHTML = '';
+    const axes = [
+      ['altruism', 'Altruism'],
+      ['lawfulness', 'Lawfulness'],
+      ['cooperation', 'Cooperation'],
+      ['honor', 'Honor'],
+    ];
+    axes.forEach(([axis, label]) => {
+      const state = app.answers[axis];
+      const meta = AXES[axis].find(x => x.key === state);
+      const card = document.createElement('div');
+      card.className = 'axis-card';
+      card.innerHTML = `
+        <div class="a">${label}</div>
+        <div class="b">${stateLabels[state]}</div>
+        <div class="c">${meta.blurb}<br><br>Representative placement: ${meta.representative}/3000.</div>
+      `;
+      axisCards.appendChild(card);
+    });
+
+    document.getElementById('remainingCount').textContent = 1;
+    document.getElementById('poolHint').textContent = `Final alignment resolved: ${winner.title}.`;
+    document.getElementById('eliminationText').textContent = 'All mismatched alignments have been eliminated.';
+    document.getElementById('previewText').textContent = `Resolved title: ${winner.title}`;
+    document.getElementById('meterFill').style.transform = 'scaleX(1)';
+    document.getElementById('meterText').textContent = 'Resolved';
+    renderLockedAxes();
+
+    document.getElementById('copyBtn').onclick = async () => {
+      const text = `I got ${winner.title} in the Belavadös Alignment Quiz — ${winner.summary}.`;
+      try {
+        await navigator.clipboard.writeText(text);
+        document.getElementById('copyBtn').textContent = 'Copied';
+        setTimeout(() => (document.getElementById('copyBtn').textContent = 'Copy result'), 1200);
+      } catch (err) {
+        alert(text);
+      }
+    };
+  }
+
+  function inferWinner() {
+    // Fallback: pick the first candidate if the quiz is complete but something odd happens.
+    if (app.candidates[0]) return app.candidates[0];
+    const fallback = generateCandidates().find(c =>
+      c.altruism === app.answers.altruism &&
+      c.lawfulness === app.answers.lawfulness &&
+      c.cooperation === app.answers.cooperation &&
+      c.honor === app.answers.honor
+    );
+    return fallback || { title: 'True Neutral', summary: 'No result could be inferred' };
+  }
+
+  document.getElementById('backBtn').addEventListener('click', goBack);
+  document.getElementById('restartBtn').addEventListener('click', restart);
+  document.getElementById('playAgainBtn').addEventListener('click', restart);
+
+  app.candidates = generateCandidates();
+  renderQuestion();
+</script>
+</body>
+</html>
