@@ -9,149 +9,913 @@
   --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mL2YxNmUyZWY3LTBiN2ItNDE5Yi1iMDU3LTFiZDE5YTIyODlmNS9kMWlvMHdjLWM1MTY1NTUwLThjMDEtNDg3Zi04NjUxLTE0NmUxZTE0ZTExMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
   --bg-quick:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
   --bg-deep:url("https://wallpapers.com/images/hd/minimalist-skyrim-dual-monitor-ph022pgi8ftp32nv.jpg");
-  --text:#f3e9db; --muted:#d4c6b6; --teal:#3d9fa0; --teal2:#8de0dc; --bronze:#b07a3a; --bronze2:#d7aa63; --plum:#4d3658;
+  --text:#f3e9db;
+  --muted:#d4c6b6;
+  --teal:#3d9fa0;
+  --teal2:#8de0dc;
+  --bronze:#b07a3a;
+  --bronze2:#d7aa63;
+  --plum:#4d3658;
 }
+
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{font:16px/1.5 Georgia,serif;color:var(--text);background:#07090a fixed center/cover no-repeat;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:var(--bg);background-size:cover;background-position:center;background-repeat:no-repeat;filter:saturate(1.05)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.44)),radial-gradient(circle at top,rgba(255,255,255,.06),transparent 28%)}
-body.homepage{--bg:linear-gradient(rgba(5,8,9,.34),rgba(5,8,9,.58)),var(--bg-home)}
-body.quick-quiz{--bg:linear-gradient(rgba(6,10,12,.42),rgba(6,10,12,.66)),var(--bg-quick)}
-body.deep-quiz{--bg:linear-gradient(rgba(6,3,8,.50),rgba(6,3,8,.72)),var(--bg-deep)}
-body.results{--bg:linear-gradient(rgba(5,8,9,.38),rgba(5,8,9,.62)),var(--bg-home)}
-.app{width:min(1180px,calc(100% - 24px));margin:0 auto;padding:18px 0 26px;position:relative;z-index:1}
-.topbar{position:sticky;top:12px;z-index:20;display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:12px 14px;margin-bottom:16px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(9,13,18,.84);backdrop-filter:blur(14px)}
-.brand{display:flex;gap:12px;align-items:center}
-.seal{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%, rgba(124,231,255,.4), transparent 32%), linear-gradient(145deg, rgba(25,148,182,.45), rgba(111,71,32,.3));border:1px solid rgba(124,231,255,.4)}
-.brand h1{margin:0;font-size:clamp(1.1rem,2vw,1.5rem);text-transform:uppercase;letter-spacing:.08em}
-.brand p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
-.nav{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
-button{border:0;border-radius:14px;padding:13px 16px;min-height:46px;min-width:46px;font-weight:700;cursor:pointer;background:linear-gradient(145deg,var(--teal2),#2fbed8);color:#07111a;box-shadow:0 12px 26px rgba(7,111,140,.22)}
-button.secondary{background:linear-gradient(145deg,rgba(181,138,73,.96),rgba(111,71,32,.98));color:#fff}
-button.ghost{background:rgba(255,255,255,.05);color:var(--text);border:1px solid rgba(255,255,255,.08);box-shadow:none}
-button:disabled{opacity:.45;cursor:not-allowed}
-.screen{display:none;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(12,16,23,.92);box-shadow:0 12px 30px rgba(0,0,0,.35);overflow:hidden}
-.screen.active{display:block}
-.panel{padding:24px}
-.hero{display:grid;gap:24px;grid-template-columns:1.25fr .95fr}
-.title{margin:0 0 14px;font-size:clamp(2rem,4vw,4rem);line-height:.98;text-transform:uppercase;letter-spacing:.03em}
-.lede{margin:0 0 16px;color:#dfe9f2;max-width:72ch}
-.actions,.results-actions,.question-actions,.nav,.stage-footer,.chip-row,.selection-list{display:flex;gap:10px;flex-wrap:wrap}
-.intro-grid,.result-grid,.form-grid{display:grid;gap:14px}
-.intro-grid,.result-grid,.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.card,.choice-card,.mini-panel,.axis-card,.info-card,.subtle-card{border:1px solid rgba(124,231,255,.14);border-radius:18px;background:linear-gradient(180deg,rgba(19,26,36,.96),rgba(14,19,27,.98));box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.card,.info-card,.subtle-card,.mini-panel{padding:18px}
-.info-card h3,.subtle-card h3,.mini-panel h3{margin:0 0 8px}
-.info-card p,.subtle-card p,.mini-panel p{margin:0;color:var(--muted)}
-.stage-meta{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:18px}
-.progress-wrap{margin-top:10px;border:1px solid rgba(124,231,255,.14);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.04)}
-.progress-bar{height:12px;width:0;background:linear-gradient(90deg,var(--bronze),var(--teal));transition:width .2s ease}
-.choice-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.choice-card{display:block;width:100%;text-align:left;padding:16px;color:var(--text);background:linear-gradient(180deg,rgba(18,24,34,.98),rgba(14,19,27,.99))}
-.choice-card.selected{border-color:rgba(124,231,255,.42);background:linear-gradient(180deg,rgba(25,148,182,.18),rgba(14,19,27,.99))}
-.choice-card .label{display:block;font-size:1.02rem;margin-bottom:4px}
-.choice-card .meta{display:block;color:var(--muted);font-size:.92rem}
-.question-box{padding:22px;border-radius:20px;background:linear-gradient(180deg,rgba(13,19,27,.98),rgba(10,14,21,.98));border:1px solid rgba(124,231,255,.12)}
-.split{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-.result-title{margin:0;font-size:clamp(1.8rem,3.8vw,3rem);text-transform:uppercase;letter-spacing:.04em}
-.result-subtitle{margin:8px 0 14px;color:var(--teal2);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
-.muted{color:var(--muted)}
-.small{font-size:.92rem}
-.filter-input,.select-input{width:100%;border-radius:14px;border:1px solid rgba(124,231,255,.18);background:rgba(5,8,12,.8);color:var(--text);padding:12px 14px;min-height:46px}
-.search-row{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:14px}
-.mode-pill{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;border:1px solid rgba(124,231,255,.16);background:rgba(255,255,255,.04);font-size:.9rem}
-.axis-track{position:relative;height:16px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
-.axis-track::after{content:"";position:absolute;top:-1px;bottom:-1px;left:50%;width:2px;background:rgba(255,255,255,.18)}
-.axis-fill{height:100%;width:50%;border-radius:inherit;background:linear-gradient(90deg,var(--bronze),var(--teal));transition:width .2s ease}
-body.deep-quiz .axis-fill{background:linear-gradient(90deg,var(--plum),#c1a0ff)}
-.axis-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-size:.7rem;color:var(--muted);margin-top:4px}
-.axis-legend span{padding:4px 6px;border-radius:999px;background:rgba(255,255,255,.03);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.axis-phase{margin-top:6px;font-size:.75rem;color:#f2eadb}
-.result-rank{display:inline-block;margin-bottom:12px;padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,var(--bronze2),var(--bronze));color:#1b1209;font-weight:800}
-body.results .result-rank{background:linear-gradient(180deg,var(--teal2),var(--teal));color:#061113}
-.result-description{max-width:66ch;margin:0 auto 16px}
-.hidden{display:none !important}
-@media (max-width: 1100px){.hero,.split{grid-template-columns:1fr}}
-@media (max-width: 900px){.intro-grid,.result-grid,.form-grid{grid-template-columns:1fr}.nav{width:100%;justify-content:stretch}.nav button{flex:1 1 140px}}
-@media (max-width: 720px){.app{width:calc(100% - 14px)}.panel{padding:18px}.topbar{top:8px;padding:12px}.actions,.results-actions{flex-direction:column}.actions button,.results-actions button,.nav button{width:100%}.choice-grid{grid-template-columns:1fr}}
+
+html,body{
+  margin:0;
+  min-height:100%;
+}
+
+body{
+  font:16px/1.5 Georgia,serif;
+  color:var(--text);
+  background:#07090a fixed center/cover no-repeat;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:var(--bg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:saturate(1.05);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.44)),
+    radial-gradient(circle at top,rgba(255,255,255,.06),transparent 28%);
+}
+
+body.homepage{
+  --bg:linear-gradient(rgba(5,8,9,.34),rgba(5,8,9,.58)),var(--bg-home);
+}
+
+body.quick-quiz{
+  --bg:linear-gradient(rgba(6,10,12,.42),rgba(6,10,12,.66)),var(--bg-quick);
+}
+
+body.deep-quiz{
+  --bg:linear-gradient(rgba(6,3,8,.50),rgba(6,3,8,.72)),var(--bg-deep);
+}
+
+body.results{
+  --bg:linear-gradient(rgba(5,8,9,.38),rgba(5,8,9,.62)),var(--bg-home);
+}
+
+.app{
+  width:min(1180px,calc(100% - 24px));
+  margin:0 auto;
+  padding:18px 0 26px;
+  position:relative;
+  z-index:1;
+}
+
+.topbar{
+  position:sticky;
+  top:12px;
+  z-index:20;
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:12px 14px;
+  margin-bottom:16px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(9,13,18,.84);
+  backdrop-filter:blur(14px);
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.seal{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(124,231,255,.4), transparent 32%),
+    linear-gradient(145deg, rgba(25,148,182,.45), rgba(111,71,32,.3));
+  border:1px solid rgba(124,231,255,.4);
+}
+
+.brand h1{
+  margin:0;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.brand p{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.nav,
+.actions,
+.results-actions,
+.question-actions,
+.stage-footer,
+.chip-row,
+.selection-list,
+.doc-actions,
+.toolbar-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.nav{
+  margin-left:auto;
+}
+
+button{
+  border:0;
+  border-radius:14px;
+  padding:13px 16px;
+  min-height:46px;
+  min-width:46px;
+  font-weight:700;
+  cursor:pointer;
+  background:linear-gradient(145deg,var(--teal2),#2fbed8);
+  color:#07111a;
+  box-shadow:0 12px 26px rgba(7,111,140,.22);
+}
+
+button.secondary,
+a.secondary{
+  background:linear-gradient(145deg,rgba(181,138,73,.96),rgba(111,71,32,.98));
+  color:#fff;
+  border:0;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 16px;
+  min-height:46px;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 12px 26px rgba(7,111,140,.22);
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+button.ghost{
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:none;
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+a.secondary:visited{
+  color:#fff;
+}
+
+
+.screen{
+  display:none;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(12,16,23,.92);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+
+.screen.active{
+  display:block;
+}
+
+.panel{
+  padding:24px;
+}
+
+.hero{
+  display:grid;
+  gap:24px;
+  grid-template-columns:1.25fr .95fr;
+}
+
+.title{
+  margin:0 0 14px;
+  font-size:clamp(2rem,4vw,4rem);
+  line-height:.98;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+
+.lede{
+  margin:0 0 16px;
+  color:#dfe9f2;
+  max-width:72ch;
+}
+
+.intro-grid,
+.result-grid,
+.form-grid,
+.docs-grid{
+  display:grid;
+  gap:14px;
+}
+
+.intro-grid,
+.result-grid,
+.form-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.docs-grid{
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+.card,
+.choice-card,
+.mini-panel,
+.axis-card,
+.info-card,
+.subtle-card,
+.doc-card{
+  border:1px solid rgba(124,231,255,.14);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(19,26,36,.96),rgba(14,19,27,.98));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.card,
+.info-card,
+.subtle-card,
+.mini-panel,
+.doc-card{
+  padding:18px;
+}
+
+.doc-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.doc-card h3{
+  margin:0 0 8px;
+  font-size:1.02rem;
+}
+
+.doc-actions{
+  margin-top:14px;
+}
+
+.doc-actions a,
+.doc-actions button,
+.toolbar-actions a,
+.toolbar-actions button{
+  text-decoration:none;
+}
+
+.info-card h3,
+.subtle-card h3,
+.mini-panel h3{
+  margin:0 0 8px;
+}
+
+.info-card p,
+.subtle-card p,
+.mini-panel p{
+  margin:0;
+  color:var(--muted);
+}
+
+.stage-meta{
+  display:flex;
+  gap:12px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.progress-wrap{
+  margin-top:10px;
+  border:1px solid rgba(124,231,255,.14);
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+}
+
+.progress-bar{
+  height:12px;
+  width:0;
+  background:linear-gradient(90deg,var(--bronze),var(--teal));
+  transition:width .2s ease;
+}
+
+.choice-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.choice-card{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:16px;
+  color:var(--text);
+  background:linear-gradient(180deg,rgba(18,24,34,.98),rgba(14,19,27,.99));
+}
+
+.choice-card.selected{
+  border-color:rgba(124,231,255,.42);
+  background:linear-gradient(180deg,rgba(25,148,182,.18),rgba(14,19,27,.99));
+}
+
+.choice-card .label{
+  display:block;
+  font-size:1.02rem;
+  margin-bottom:4px;
+}
+
+.choice-card .meta{
+  display:block;
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.question-box{
+  padding:22px;
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(13,19,27,.98),rgba(10,14,21,.98));
+  border:1px solid rgba(124,231,255,.12);
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+}
+
+.result-title{
+  margin:0;
+  font-size:clamp(1.8rem,3.8vw,3rem);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.result-subtitle{
+  margin:8px 0 14px;
+  color:var(--teal2);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.82rem;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.small{
+  font-size:.92rem;
+}
+
+.filter-input,
+.select-input{
+  width:100%;
+  border-radius:14px;
+  border:1px solid rgba(124,231,255,.18);
+  background:rgba(5,8,12,.8);
+  color:var(--text);
+  padding:12px 14px;
+  min-height:46px;
+}
+
+.search-row{
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.mode-pill{
+  display:inline-flex;
+  align-items:center;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid rgba(124,231,255,.16);
+  background:rgba(255,255,255,.04);
+  font-size:.9rem;
+}
+
+.axis-track{
+  position:relative;
+  height:16px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.axis-track::after{
+  content:"";
+  position:absolute;
+  top:-1px;
+  bottom:-1px;
+  left:50%;
+  width:2px;
+  background:rgba(255,255,255,.18);
+}
+
+.axis-fill{
+  height:100%;
+  width:50%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--bronze),var(--teal));
+  transition:width .2s ease;
+}
+
+body.deep-quiz .axis-fill{
+  background:linear-gradient(90deg,var(--plum),#c1a0ff);
+}
+
+.axis-legend{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+  font-size:.7rem;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.axis-legend span{
+  padding:4px 6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+  text-align:center;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.axis-phase{
+  margin-top:6px;
+  font-size:.75rem;
+  color:#f2eadb;
+}
+
+.result-rank{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--bronze2),var(--bronze));
+  color:#1b1209;
+  font-weight:800;
+}
+
+body.results .result-rank{
+  background:linear-gradient(180deg,var(--teal2),var(--teal));
+  color:#061113;
+}
+
+.result-description{
+  max-width:66ch;
+  margin:0 auto 16px;
+}
+
+.hidden{
+  display:none !important;
+}
+
+/* DOCUMENT MODAL */
+
+.doc-modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:9999;
+}
+
+.doc-modal.open{
+  display:block;
+}
+
+.doc-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.68);
+}
+
+.doc-dialog{
+  position:relative;
+  width:min(1200px,94vw);
+  height:min(90vh,920px);
+  margin:4vh auto 0;
+  background:#0f1115;
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+  display:flex;
+  flex-direction:column;
+}
+
+.doc-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+}
+
+.toolbar-actions{
+  align-items:center;
+}
+
+.doc-viewer{
+  flex:1;
+  overflow:auto;
+  background:#111;
+}
+
+.doc-viewer iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  transform-origin:top left;
+}
+
+@media (max-width:1100px){
+  .hero,
+  .split{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:900px){
+  .intro-grid,
+  .result-grid,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    width:100%;
+    justify-content:stretch;
+  }
+
+  .nav button{
+    flex:1 1 140px;
+  }
+}
+
+@media (max-width:720px){
+  .app{
+    width:calc(100% - 14px);
+  }
+
+  .panel{
+    padding:18px;
+  }
+
+  .topbar{
+    top:8px;
+    padding:12px;
+  }
+
+  .actions,
+  .results-actions{
+    flex-direction:column;
+  }
+
+  .actions button,
+  .results-actions button,
+  .nav button{
+    width:100%;
+  }
+
+  .choice-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
-<body class="homepage">
+<body>
 <div class="app">
-  <header class="topbar">
+  <div class="topbar">
     <div class="brand">
-      <div class="seal"></div>
+      <div class="seal" aria-hidden="true"></div>
       <div>
         <h1>Belavadös Alignment Quiz</h1>
-        <p>Two paths through the same world</p>
+        <p>Choose a path, then return home anytime.</p>
       </div>
     </div>
+
     <div class="nav">
-      <button id="btnHome" class="ghost hidden" type="button">Home Page</button>
-      <button id="btnBack" class="ghost hidden" type="button">Previous Page</button>
-      <button id="btnToggleQuiz" class="secondary" type="button">Begin Short Quiz</button>
+      <button id="btnHome" class="ghost" type="button">Home</button>
+      <button id="btnBack" class="ghost" type="button">Previous</button>
+      <button id="btnToggleQuiz" class="secondary" type="button">Begin Quick Quiz</button>
     </div>
-  </header>
+  </div>
 
-  <section id="homeScreen" class="screen active">
-    <div class="panel">
-      <div class="hero">
-        <div>
-          <div class="subhead" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">Created By William Saville AKA The Transgender T-Rex #TheTransgenderTRex</div>
-          <h2 class="title">A living alignment system for the world of Belavadös</h2>
-          <p class="lede">
-            Pick the path that fits your character for the expansive homebrew world of Belavadös.
-            The quick quiz lets you choose a race, exactly two traditional DnD alignments, and a class plus subclass.
-            The in-depth quiz walks through 27 moral dilemmas, one page at a time, with undo and home navigation built in.
-          </p>
-          <div class="actions">
-            <button id="homeStartShort" class="secondary" type="button">Begin Short Quiz</button>
-            <button id="homeStartDeep" type="button">Begin In-Depth Quiz</button>
+<section id="homeScreen" class="screen active">
+  <div class="panel">
+    <div class="hero">
+      <div>
+        <div class="subhead" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">
+          Created By William Saville AKA The Transgender T-Rex #TheTransgenderTRex
+        </div>
+
+        <h2 class="title">A living alignment system for the world of Belavadös</h2>
+
+        <p class="lede">
+          Pick the path that fits your character for the expansive homebrew world of Belavadös.
+          The quick quiz lets you choose a race, exactly two traditional DnD alignments, and a class plus subclass.
+          The in-depth quiz walks through 27 moral dilemmas, one page at a time, with undo and home navigation built in.
+        </p>
+
+        <div class="actions">
+          <button id="homeStartShort" class="secondary" type="button">
+            Begin Short Quiz
+          </button>
+
+          <button id="homeStartDeep" type="button">
+            Begin In-Depth Quiz
+          </button>
+        </div>
+
+        <div class="intro-grid" style="margin-top:18px">
+          <div class="info-card">
+            <h3>Short Quiz</h3>
+            <p>Select one race, two traditional alignments, then a class and subclass.</p>
           </div>
-          <div class="intro-grid" style="margin-top:18px">
-            <div class="info-card">
-              <h3>Short Quiz</h3>
-              <p>Select one race, two traditional alignments, then a class and subclass.</p>
-            </div>
-            <div class="info-card">
-              <h3>In-Depth Quiz</h3>
-              <p>Answer 27 dilemmas to generate a four-axis Belavadös profile.</p>
-            </div>
+
+          <div class="info-card">
+            <h3>In-Depth Quiz</h3>
+            <p>Answer 27 dilemmas to generate a four-axis Belavadös profile.</p>
           </div>
         </div>
-        <div class="subtle-card">
-          <div class="subhead" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">Core Structure</div>
-          <div class="card" style="margin-bottom:12px"><strong>Four axes</strong><div class="muted">Altruism, Lawfulness, Cooperation, Honor.</div></div>
-          <div class="card">
-            <div class="subhead" style="margin:0 0 6px;color:var(--teal2)">How to read the result</div>
-            <div class="muted">Each axis is scored on a 0–3000 scale with 1500 as the center.</div>
+
+        <!-- DOCUMENTS SECTION -->
+        <div class="docs-panel" style="margin-top:22px">
+
+          <div class="subhead" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">
+            Belavadös Documents
+          </div>
+
+          <div class="docs-grid">
+
+            <!-- WORLD SUMMARY -->
+            <div class="doc-card">
+              <h3>Belavadös: A Unified Summary of the World and Campaign</h3>
+
+              <p class="muted">
+                Read the full world and campaign summary in a zoomable viewer.
+              </p>
+
+              <div class="doc-actions">
+
+                <button
+                  class="secondary"
+                  type="button"
+                  onclick="openDocViewer(
+                    'https://drive.google.com/file/d/1gJ44gLcpbaf2Ubv6q1Ub9g2ZIyH8UE9-/view?usp=sharing',
+                    'Belavadös: A Unified Summary of the World and Campaign'
+                  )"
+                >
+                  View In Window
+                </button>
+
+                <a
+                  class="secondary"
+                  href="https://drive.google.com/file/d/1gJ44gLcpbaf2Ubv6q1Ub9g2ZIyH8UE9-/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open External Window
+                </a>
+
+              </div>
+            </div>
+
+            <!-- CHARACTER SHEET -->
+            <div class="doc-card">
+              <h3>Belavadös Custom Character Sheet</h3>
+
+              <p class="muted">
+                Open the character sheet in a readable viewer or a new tab.
+              </p>
+
+              <div class="doc-actions">
+
+                <button
+                  class="secondary"
+                  type="button"
+                  onclick="openDocViewer(
+                    'https://drive.google.com/file/d/1lvsTy9LGuEq-wab_zZZ5enHwG3QV8DTX/view?usp=sharing',
+                    'Belavadös Custom Character Sheet'
+                  )"
+                >
+                  View In Window
+                </button>
+
+                <a
+                  class="secondary"
+                  href="https://drive.google.com/file/d/1lvsTy9LGuEq-wab_zZZ5enHwG3QV8DTX/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open External Window
+                </a>
+
+              </div>
+            </div>
+
           </div>
         </div>
+        <!-- END DOCUMENTS SECTION -->
+
+      </div>
+
+      <div class="subtle-card">
+
+        <div class="subhead" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">
+          Core Structure
+        </div>
+
+        <div class="card" style="margin-bottom:12px">
+          <strong>Four axes</strong>
+          <div class="muted">
+            Altruism, Lawfulness, Cooperation, Honor.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="subhead" style="margin:0 0 6px;color:var(--teal2)">
+            How to read the result
+          </div>
+
+          <div class="muted">
+            Each axis is scored on a 0–3000 scale with 1500 as the center.
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="quizScreen" class="screen" aria-live="polite">
-    <div class="panel">
-      <div class="stage-meta">
-        <div>
-          <div class="subhead" id="stageModeLabel" style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px">Quiz</div>
-          <h2 id="stageTitle" style="margin:0">Choose a path</h2>
-          <p id="stageSubtitle" class="muted" style="margin:8px 0 0">Select a mode to begin.</p>
+<!-- QUIZ SCREEN -->
+<section id="quizScreen" class="screen" aria-live="polite">
+  <div class="panel">
+
+    <div class="stage-meta">
+
+      <div>
+        <div
+          class="subhead"
+          id="stageModeLabel"
+          style="color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 10px"
+        >
+          Quiz
         </div>
-        <div style="min-width:260px;flex:1 1 320px">
-          <div class="progress-wrap"><div id="progressBar" class="progress-bar"></div></div>
-          <div id="progressText" class="small muted" style="margin-top:8px">Ready when you are.</div>
+
+        <h2 id="stageTitle" style="margin:0">
+          Choose a path
+        </h2>
+
+        <p id="stageSubtitle" class="muted" style="margin:8px 0 0">
+          Select a mode to begin.
+        </p>
+      </div>
+
+      <div style="min-width:260px;flex:1 1 320px">
+        <div class="progress-wrap">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="progressText" class="small muted" style="margin-top:8px">
+          Ready when you are.
         </div>
       </div>
-      <div id="quizStage"></div>
-    </div>
-  </section>
 
-  <section id="resultScreen" class="screen" aria-live="polite">
-    <div class="panel"><div id="resultStage"></div></div>
-  </section>
+    </div>
+
+    <div id="quizStage"></div>
+
+  </div>
+</section>
+
+<!-- RESULT SCREEN -->
+<section id="resultScreen" class="screen" aria-live="polite">
+  <div class="panel">
+    <div id="resultStage"></div>
+  </div>
+</section>
+
+</div>
+
+<!-- DOCUMENT MODAL -->
+<div id="docModal" class="doc-modal" aria-hidden="true">
+
+  <div class="doc-backdrop" onclick="closeDocViewer()"></div>
+
+  <div
+    class="doc-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="docTitle"
+  >
+
+    <div class="doc-toolbar">
+
+      <div>
+        <div id="docTitle" style="font-weight:700">
+          Document Viewer
+        </div>
+
+        <div class="small muted">
+          Use the zoom controls to enlarge or shrink the page.
+        </div>
+      </div>
+
+      <div class="toolbar-actions">
+
+        <button
+          type="button"
+          class="secondary"
+          onclick="zoomDoc(-0.15)"
+        >
+          −
+        </button>
+
+        <span
+          id="zoomLabel"
+          class="small muted"
+          style="min-width:62px;text-align:center"
+        >
+          100%
+        </span>
+
+        <button
+          type="button"
+          class="secondary"
+          onclick="zoomDoc(0.15)"
+        >
+          +
+        </button>
+
+        <a
+          id="externalDocLink"
+          class="secondary"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Externally
+        </a>
+
+        <button
+          type="button"
+          class="secondary"
+          onclick="closeDocViewer()"
+        >
+          Close
+        </button>
+
+      </div>
+    </div>
+
+    <div id="docViewer" class="doc-viewer">
+
+      <iframe
+        id="docFrame"
+        title="Belavadös document viewer"
+        loading="lazy"
+      ></iframe>
+
+    </div>
+  </div>
 </div>
 
 <script>
@@ -4786,754 +5550,840 @@ const DATA = {"axisNames": ["altruism", "lawfulness", "cooperation", "honor"], "
     }
   ],
 "belavadosAlignments": [{"name": "Lawful Coordinator", "description": "Lawful alignment with a coordinator temperament. A mission-first peacemaker who keeps people moving in the same direction.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Extremely Lawful", "cooperation": "Very Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Lawful Mediator", "description": "Lawful alignment with a mediator temperament. A fair voice in the storm who restores peace without ego.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Very Lawful", "cooperation": "Extremely Cooperative", "honor": "Slightly Neutral"}}, {"name": "Lawful Guardian", "description": "Lawful alignment with a guardian temperament. A steadfast protector who lifts others and inspires trust.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Extremely Lawful", "cooperation": "Very Cooperative", "honor": "Extremely Honorable"}}, {"name": "Lawful Defender", "description": "Lawful alignment with a defender temperament. A shield with purpose who protects what matters without wasting time.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Very Lawful", "cooperation": "Slightly Neutral", "honor": "Moderately Pragmatic"}}, {"name": "Lawful Arbiter", "description": "Lawful alignment with a arbiter temperament. A detached judge who seeks justice without bias.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Extremely Lawful", "cooperation": "Extremely Neutral", "honor": "Slightly Honorable"}}, {"name": "Lawful Sentinel", "description": "Lawful alignment with a sentinel temperament. A silent watcher whose loyalty is unwavering.", "profile": {"altruism": "Very Altruistic", "lawfulness": "Extremely Lawful", "cooperation": "Slightly Neutral", "honor": "Extremely Honorable"}}, {"name": "Lawful Enforcer", "description": "Lawful alignment with a enforcer temperament. A hard-handed protector who uses force efficiently and without hesitation.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Very Lawful", "cooperation": "Moderately Combative", "honor": "Moderately Pragmatic"}}, {"name": "Lawful Vigilante", "description": "Lawful alignment with a vigilante temperament. A shadowed protector who trusts fists over courts.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Slightly Lawful", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Lawful Crusader", "description": "Lawful alignment with a crusader temperament. A warrior of principle who burns away evil in service of righteousness.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Very Lawful", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "Lawful Renegade", "description": "Lawful alignment with a renegade temperament. A rebel in formal clothing who bends the rules for advantage.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Extremely Lawful", "cooperation": "Moderately Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Lawful Drifter", "description": "Lawful alignment with a drifter temperament. A ghost with a code who moves through life without staying long.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Very Lawful", "cooperation": "Slightly Cooperative", "honor": "Extremely Neutral"}}, {"name": "Lawful Champion", "description": "Lawful alignment with a champion temperament. A glory-seeker who can still inspire loyalty through disciplined excellence.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Very Lawful", "cooperation": "Very Cooperative", "honor": "Slightly Honorable"}}, {"name": "Lawful Strategist", "description": "Lawful alignment with a strategist temperament. A master planner of long games, logistics, and controlled sacrifice.", "profile": {"altruism": "Very Selfish", "lawfulness": "Extremely Lawful", "cooperation": "Slightly Neutral", "honor": "Very Pragmatic"}}, {"name": "Lawful Knave", "description": "Lawful alignment with a knave temperament. A slippery operator who keeps just enough structure to stay standing.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Slightly Lawful", "cooperation": "Extremely Neutral", "honor": "Slightly Neutral"}}, {"name": "Lawful Avenger", "description": "Lawful alignment with a avenger temperament. A wrath-bent judge who turns grievance into sacred ritual.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Very Lawful", "cooperation": "Moderately Neutral", "honor": "Very Honorable"}}, {"name": "Lawful Mercenary", "description": "Lawful alignment with a mercenary temperament. A contract-bound fighter who values reliability more than innocence.", "profile": {"altruism": "Very Selfish", "lawfulness": "Extremely Lawful", "cooperation": "Slightly Combative", "honor": "Moderately Pragmatic"}}, {"name": "Lawful Marauder", "description": "Lawful alignment with a marauder temperament. A brutal climber who treats civilization like a ladder to be overrun.", "profile": {"altruism": "Extremely Selfish", "lawfulness": "Very Lawful", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Lawful Gladiator", "description": "Lawful alignment with a gladiator temperament. A performance-driven warrior who lives for worthy battles and remembered victories.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Moderately Lawful", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "Neutral Coordinator", "description": "A mission-first peacemaker who keeps people moving in the same direction.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Slightly Neutral", "cooperation": "Very Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Neutral Mediator", "description": "A fair voice in the storm who restores peace without ego.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Extremely Neutral", "cooperation": "Extremely Cooperative", "honor": "Slightly Neutral"}}, {"name": "Neutral Guardian", "description": "A steadfast protector who lifts others and inspires trust.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Slightly Neutral", "cooperation": "Very Cooperative", "honor": "Extremely Honorable"}}, {"name": "Neutral Defender", "description": "A shield with purpose who protects what matters without wasting time.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Extremely Neutral", "cooperation": "Slightly Neutral", "honor": "Moderately Pragmatic"}}, {"name": "Neutral Arbiter", "description": "A detached judge who seeks justice without bias.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Slightly Neutral", "cooperation": "Extremely Neutral", "honor": "Slightly Honorable"}}, {"name": "Neutral Sentinel", "description": "A silent watcher whose loyalty is unwavering.", "profile": {"altruism": "Very Altruistic", "lawfulness": "Extremely Neutral", "cooperation": "Slightly Neutral", "honor": "Extremely Honorable"}}, {"name": "Neutral Enforcer", "description": "A hard-handed protector who uses force efficiently and without hesitation.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Moderately Neutral", "cooperation": "Moderately Combative", "honor": "Moderately Pragmatic"}}, {"name": "Neutral Vigilante", "description": "A shadowed protector who trusts fists over courts.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Slightly Neutral", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Neutral Crusader", "description": "A warrior of principle who burns away evil in service of righteousness.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Slightly Neutral", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "Neutral Renegade", "description": "A rebel in formal clothing who bends the rules for advantage.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Extremely Neutral", "cooperation": "Moderately Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Neutral Drifter", "description": "A ghost with a code who moves through life without staying long.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Slightly Neutral", "cooperation": "Slightly Cooperative", "honor": "Extremely Neutral"}}, {"name": "Neutral Champion", "description": "A glory-seeker who can still inspire loyalty through disciplined excellence.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Slightly Neutral", "cooperation": "Very Cooperative", "honor": "Slightly Honorable"}}, {"name": "Neutral Strategist", "description": "A master planner of long games, logistics, and controlled sacrifice.", "profile": {"altruism": "Very Selfish", "lawfulness": "Moderately Neutral", "cooperation": "Slightly Neutral", "honor": "Very Pragmatic"}}, {"name": "Neutral Knave", "description": "A slippery operator who keeps just enough structure to stay standing.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Extremely Neutral", "cooperation": "Extremely Neutral", "honor": "Slightly Neutral"}}, {"name": "Neutral Avenger", "description": "A wrath-bent judge who turns grievance into sacred ritual.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Slightly Neutral", "cooperation": "Moderately Neutral", "honor": "Very Honorable"}}, {"name": "Neutral Mercenary", "description": "A contract-bound fighter who values reliability more than innocence.", "profile": {"altruism": "Very Selfish", "lawfulness": "Extremely Neutral", "cooperation": "Slightly Combative", "honor": "Moderately Pragmatic"}}, {"name": "Neutral Marauder", "description": "A brutal climber who treats civilization like a ladder to be overrun.", "profile": {"altruism": "Extremely Selfish", "lawfulness": "Moderately Neutral", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Neutral Gladiator", "description": "A performance-driven warrior who lives for worthy battles and remembered victories.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Extremely Neutral", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "Chaotic Coordinator", "description": "Chaotic alignment with a coordinator temperament. A mission-first peacemaker who keeps people moving in the same direction.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Very Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Chaotic Mediator", "description": "Chaotic alignment with a mediator temperament. A fair voice in the storm who restores peace without ego.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Very Chaotic", "cooperation": "Extremely Cooperative", "honor": "Slightly Neutral"}}, {"name": "Chaotic Guardian", "description": "Chaotic alignment with a guardian temperament. A steadfast protector who lifts others and inspires trust.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Very Cooperative", "honor": "Extremely Honorable"}}, {"name": "Chaotic Defender", "description": "Chaotic alignment with a defender temperament. A shield with purpose who protects what matters without wasting time.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Very Chaotic", "cooperation": "Slightly Neutral", "honor": "Moderately Pragmatic"}}, {"name": "Chaotic Arbiter", "description": "Chaotic alignment with a arbiter temperament. A detached judge who seeks justice without bias.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Extremely Neutral", "honor": "Slightly Honorable"}}, {"name": "Chaotic Sentinel", "description": "Chaotic alignment with a sentinel temperament. A silent watcher whose loyalty is unwavering.", "profile": {"altruism": "Very Altruistic", "lawfulness": "Very Chaotic", "cooperation": "Slightly Neutral", "honor": "Extremely Honorable"}}, {"name": "Chaotic Enforcer", "description": "Chaotic alignment with a enforcer temperament. A hard-handed protector who uses force efficiently and without hesitation.", "profile": {"altruism": "Slightly Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Moderately Combative", "honor": "Moderately Pragmatic"}}, {"name": "Chaotic Vigilante", "description": "Chaotic alignment with a vigilante temperament. A shadowed protector who trusts fists over courts.", "profile": {"altruism": "Moderately Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Chaotic Crusader", "description": "Chaotic alignment with a crusader temperament. A warrior of principle who burns away evil in service of righteousness.", "profile": {"altruism": "Extremely Altruistic", "lawfulness": "Extremely Chaotic", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "Chaotic Renegade", "description": "Chaotic alignment with a renegade temperament. A rebel in formal clothing who bends the rules for advantage.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Moderately Cooperative", "honor": "Moderately Pragmatic"}}, {"name": "Chaotic Drifter", "description": "Chaotic alignment with a drifter temperament. A ghost with a code who moves through life without staying long.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Very Chaotic", "cooperation": "Slightly Cooperative", "honor": "Extremely Neutral"}}, {"name": "Chaotic Champion", "description": "Chaotic alignment with a champion temperament. A glory-seeker who can still inspire loyalty through disciplined excellence.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Very Cooperative", "honor": "Slightly Honorable"}}, {"name": "Chaotic Strategist", "description": "Chaotic alignment with a strategist temperament. A master planner of long games, logistics, and controlled sacrifice.", "profile": {"altruism": "Very Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Slightly Neutral", "honor": "Very Pragmatic"}}, {"name": "Chaotic Knave", "description": "Chaotic alignment with a knave temperament. A slippery operator who keeps just enough structure to stay standing.", "profile": {"altruism": "Moderately Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Extremely Neutral", "honor": "Slightly Neutral"}}, {"name": "Chaotic Avenger", "description": "Chaotic alignment with a avenger temperament. A wrath-bent judge who turns grievance into sacred ritual.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Very Chaotic", "cooperation": "Moderately Neutral", "honor": "Very Honorable"}}, {"name": "Chaotic Mercenary", "description": "Chaotic alignment with a mercenary temperament. A contract-bound fighter who values reliability more than innocence.", "profile": {"altruism": "Very Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Slightly Combative", "honor": "Moderately Pragmatic"}}, {"name": "Chaotic Marauder", "description": "Chaotic alignment with a marauder temperament. A brutal climber who treats civilization like a ladder to be overrun.", "profile": {"altruism": "Extremely Selfish", "lawfulness": "Extremely Chaotic", "cooperation": "Moderately Combative", "honor": "Slightly Neutral"}}, {"name": "Chaotic Gladiator", "description": "Chaotic alignment with a gladiator temperament. A performance-driven warrior who lives for worthy battles and remembered victories.", "profile": {"altruism": "Slightly Selfish", "lawfulness": "Very Chaotic", "cooperation": "Extremely Combative", "honor": "Extremely Honorable"}}, {"name": "True Neutral", "description": "The unmoved center. Neither swayed by passion nor principle.", "profile": {"altruism": "Extremely Neutral", "lawfulness": "Extremely Neutral", "cooperation": "Extremely Neutral", "honor": "Extremely Neutral"}}]};
+  const AXES = DATA.axisNames;
+  const MID = DATA.axisMidpoint;
+  const MIN = DATA.axisMin;
+  const MAX = DATA.axisMax;
+  const BAND_NAMES = DATA.bandNames;
 
+  const els = {
+    body: document.body,
+    homeScreen: document.getElementById("homeScreen"),
+    quizScreen: document.getElementById("quizScreen"),
+    resultScreen: document.getElementById("resultScreen"),
+    quizStage: document.getElementById("quizStage"),
+    resultStage: document.getElementById("resultStage"),
+    stageModeLabel: document.getElementById("stageModeLabel"),
+    stageTitle: document.getElementById("stageTitle"),
+    stageSubtitle: document.getElementById("stageSubtitle"),
+    progressBar: document.getElementById("progressBar"),
+    progressText: document.getElementById("progressText"),
+    btnHome: document.getElementById("btnHome"),
+    btnBack: document.getElementById("btnBack"),
+    btnToggleQuiz: document.getElementById("btnToggleQuiz"),
+    homeStartShort: document.getElementById("homeStartShort"),
+    homeStartDeep: document.getElementById("homeStartDeep"),
 
-const AXES = DATA.axisNames;
-const MID = DATA.axisMidpoint;
-const MIN = DATA.axisMin;
-const MAX = DATA.axisMax;
-const BAND_NAMES = DATA.bandNames;
-
-const els = {
-  body: document.body,
-  homeScreen: document.getElementById("homeScreen"),
-  quizScreen: document.getElementById("quizScreen"),
-  resultScreen: document.getElementById("resultScreen"),
-  quizStage: document.getElementById("quizStage"),
-  resultStage: document.getElementById("resultStage"),
-  stageModeLabel: document.getElementById("stageModeLabel"),
-  stageTitle: document.getElementById("stageTitle"),
-  stageSubtitle: document.getElementById("stageSubtitle"),
-  progressBar: document.getElementById("progressBar"),
-  progressText: document.getElementById("progressText"),
-  btnHome: document.getElementById("btnHome"),
-  btnBack: document.getElementById("btnBack"),
-  btnToggleQuiz: document.getElementById("btnToggleQuiz"),
-  homeStartShort: document.getElementById("homeStartShort"),
-  homeStartDeep: document.getElementById("homeStartDeep"),
-};
-
-const state = {
-  view: "home",
-  mode: null,
-  short: { step: 0, race: null, alignments: [], class: null, subclass: null, raceQuery: "" },
-  deep: { index: 0, scores: baseScores(), history: [], choices: [] },
-  result: null
-};
-
-function baseScores() {
-  return { altruism: MID, lawfulness: MID, cooperation: MID, honor: MID };
-}
-
-function clamp(value, min = MIN, max = MAX) {
-  return Math.max(min, Math.min(max, Number.isFinite(value) ? value : min));
-}
-
-function deepClone(value) {
-  return JSON.parse(JSON.stringify(value));
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function bandIndex(score) {
-  return Math.max(0, Math.min(11, Math.floor(clamp(score) / 250)));
-}
-
-function bandCenter(index) {
-  const start = index * 250;
-  return index === 11 ? 2875 : start + 125;
-}
-
-function bandRangeText(index) {
-  const start = index * 250;
-  const end = index === 11 ? 3000 : ((index + 1) * 250 - 1);
-  return `${start}–${end}`;
-}
-
-function scorePercent(score) {
-  return Math.round((clamp(score) / MAX) * 100);
-}
-
-function bandName(axis, score) {
-  return BAND_NAMES[axis][bandIndex(score)];
-}
-
-function bandFamilyFromIndex(index) {
-  if (index <= 3) return "negative";
-  if (index <= 7) return "neutral";
-  return "positive";
-}
-
-function scoreFamily(axis, score) {
-  return bandFamilyFromIndex(bandIndex(score));
-}
-
-function profileIndex(axis, label) {
-  return (BAND_NAMES[axis] || []).indexOf(label);
-}
-
-function profileFamily(axis, label) {
-  return bandFamilyFromIndex(profileIndex(axis, label));
-}
-
-function familyLabel(axis, family) {
-  return {
-    altruism: { negative: "Selfish", neutral: "Neutral", positive: "Altruistic" },
-    lawfulness: { negative: "Chaotic", neutral: "Neutral", positive: "Lawful" },
-    cooperation: { negative: "Combative", neutral: "Neutral", positive: "Cooperative" },
-    honor: { negative: "Pragmatic", neutral: "Neutral", positive: "Honorable" },
-  }[axis][family];
-}
-
-function compatibleFamilies(scoreFam) {
-  if (scoreFam === "neutral") return ["neutral"];
-  if (scoreFam === "negative") return ["negative", "neutral"];
-  return ["positive", "neutral"];
-}
-
-function addScores(scores, delta = {}, direction = 1) {
-  AXES.forEach(axis => {
-    scores[axis] = clamp(scores[axis] + ((Number(delta[axis]) || 0) * direction));
-  });
-  return scores;
-}
-
-function computeQuickScores() {
-  const scores = baseScores();
-  if (state.short.race) addScores(scores, state.short.race.effects);
-  state.short.alignments.forEach(value => {
-    const item = DATA.dndAlignments.find(x => x.value === value);
-    if (item) addScores(scores, item.effects);
-  });
-  if (state.short.class) {
-    const cls = DATA.classes.find(x => x.value === state.short.class);
-    if (cls) addScores(scores, cls.effects);
-    const sub = cls?.subclasses?.find(x => x.value === state.short.subclass);
-    if (sub) addScores(scores, sub.effects);
-  }
-  return scores;
-}
-
-function renderPhaseChips(axis, score) {
-  const current = bandIndex(score);
-  return `
-    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-top:10px">
-      ${BAND_NAMES[axis].map((label, index) => {
-        const active = index === current;
-        return `
-          <span style="
-            padding:5px 6px;
-            border-radius:10px;
-            text-align:center;
-            font-size:.66rem;
-            line-height:1.15;
-            background:${active ? "rgba(141,224,220,.18)" : "rgba(255,255,255,.03)"};
-            border:1px solid ${active ? "rgba(141,224,220,.38)" : "rgba(255,255,255,.08)"};
-            color:${active ? "#fff" : "var(--muted)"};
-          ">
-            ${escapeHtml(label)}<br><span style="opacity:.9">${bandRangeText(index)}</span>
-          </span>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
-
-function renderAxisCard(axis, score, previousScore = null) {
-  const delta = previousScore === null || previousScore === undefined ? null : score - previousScore;
-  const phase = bandName(axis, score);
-  const deltaText = delta === null ? "" : `${delta > 0 ? "+" : ""}${delta}`;
-  return `
-    <div class="axis-card">
-      <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline">
-        <strong style="text-transform:uppercase;letter-spacing:.06em">${escapeHtml(axis)}</strong>
-        <span class="muted">${score} / 3000${delta === null ? "" : ` • ${deltaText}`}</span>
-      </div>
-      <div class="axis-phase">${escapeHtml(phase)} (${bandRangeText(bandIndex(score))})</div>
-      <div class="axis-track"><div class="axis-fill" style="width:${scorePercent(score)}%"></div></div>
-      ${renderPhaseChips(axis, score)}
-    </div>
-  `;
-}
-
-function renderTracker(scores, title = "Live Axis Tracker", previousScores = null) {
-  return `
-    <div class="mini-panel">
-      <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">${escapeHtml(title)}</div>
-      <div style="display:grid;gap:10px">
-        ${AXES.map(axis => renderAxisCard(axis, scores[axis], previousScores ? previousScores[axis] : null)).join("")}
-      </div>
-    </div>
-  `;
-}
-
-function resolveAlignment(scores) {
-  const scored = DATA.belavadosAlignments.map((alignment, index) => {
-    let totalPenalty = 0;
-    let exactMatches = 0;
-    let comparisons = [];
-    let impossible = false;
-
-    for (const axis of AXES) {
-      const target = alignment.profile[axis];
-      const targetIndex = profileIndex(axis, target);
-      const targetFamily = profileFamily(axis, target);
-      const scoreIdx = bandIndex(scores[axis]);
-      const scoreFam = scoreFamily(axis, scores[axis]);
-      const allowed = compatibleFamilies(scoreFam);
-
-      if (!allowed.includes(targetFamily)) {
-        impossible = true;
-        break;
-      }
-
-      const sameFamily = targetFamily === scoreFam;
-      const familyPenalty = sameFamily ? 0 : 18;
-      const bandPenalty = Math.abs(scoreIdx - targetIndex) * 7;
-      const pointPenalty = Math.abs(scores[axis] - bandCenter(targetIndex)) / 140;
-
-      totalPenalty += familyPenalty + bandPenalty + pointPenalty;
-      if (scoreIdx === targetIndex) exactMatches += 1;
-      comparisons.push({
-        axis,
-        target,
-        targetFamily,
-        score: scores[axis],
-        scoreLabel: bandName(axis, scores[axis]),
-        scoreFamily: familyLabel(axis, scoreFam),
-        allowed,
-        exact: scoreIdx === targetIndex
-      });
-    }
-
-    if (impossible) return null;
-    return { alignment, index, totalPenalty, exactMatches, comparisons };
-  }).filter(Boolean);
-
-  const pool = scored.length ? scored : DATA.belavadosAlignments.map((alignment, index) => ({
-    alignment,
-    index,
-    totalPenalty: Number.POSITIVE_INFINITY,
-    exactMatches: 0,
-    comparisons: AXES.map(axis => ({
-      axis,
-      target: alignment.profile[axis],
-      targetFamily: profileFamily(axis, alignment.profile[axis]),
-      score: scores[axis],
-      scoreLabel: bandName(axis, scores[axis]),
-      scoreFamily: familyLabel(axis, scoreFamily(axis, scores[axis])),
-      allowed: compatibleFamilies(scoreFamily(axis, scores[axis])).includes(profileFamily(axis, alignment.profile[axis])),
-      exact: bandIndex(scores[axis]) === profileIndex(axis, alignment.profile[axis])
-    }))
-  }));
-
-  pool.sort((a, b) => {
-    if (a.totalPenalty !== b.totalPenalty) return a.totalPenalty - b.totalPenalty;
-    if (a.exactMatches !== b.exactMatches) return b.exactMatches - a.exactMatches;
-    return a.index - b.index;
-  });
-
-  const best = pool[0] || DATA.belavadosAlignments[0];
-  return {
-    alignment: best.alignment,
-    exactMatches: best.exactMatches ?? 0,
-    comparisons: best.comparisons ?? [],
-    penalty: best.totalPenalty ?? 0
+    docModal: document.getElementById("docModal"),
+    docFrame: document.getElementById("docFrame"),
+    docTitle: document.getElementById("docTitle"),
+    zoomLabel: document.getElementById("zoomLabel"),
+    externalDocLink: document.getElementById("externalDocLink"),
   };
-}
 
-function setPage(mode) {
-  els.body.classList.remove("homepage", "quick-quiz", "deep-quiz", "results");
-  els.body.classList.add(mode);
-  state.view = mode;
-  updateButtons();
-}
-
-function updateButtons() {
-  els.btnHome.classList.toggle("hidden", state.view === "homepage");
-  els.btnBack.classList.toggle("hidden", !(state.view === "quick-quiz" || state.view === "deep-quiz"));
-  if (state.view === "quick-quiz") els.btnToggleQuiz.textContent = "Try Deep Quiz";
-  else if (state.view === "deep-quiz") els.btnToggleQuiz.textContent = "Try Quick Quiz";
-  else if (state.view === "results") els.btnToggleQuiz.textContent = state.mode === "deep" ? "Try Quick Quiz" : "Try Deep Quiz";
-  else els.btnToggleQuiz.textContent = "Begin Quick Quiz";
-}
-
-function showHome() {
-  state.mode = null;
-  state.result = null;
-  setPage("homepage");
-  els.homeScreen.classList.add("active");
-  els.quizScreen.classList.remove("active");
-  els.resultScreen.classList.remove("active");
-  els.quizStage.innerHTML = "";
-  els.resultStage.innerHTML = "";
-  els.progressBar.style.width = "0%";
-  els.progressText.textContent = "Ready when you are.";
-  els.stageModeLabel.textContent = "Quiz";
-  els.stageTitle.textContent = "Choose a path";
-  els.stageSubtitle.textContent = "Select a mode to begin.";
-}
-
-function startQuickQuiz() {
-  state.mode = "quick";
-  state.short = { step: 0, race: null, alignments: [], class: null, subclass: null, raceQuery: "" };
-  state.result = null;
-  setPage("quick-quiz");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.add("active");
-  els.resultScreen.classList.remove("active");
-  renderQuickStep();
-}
-
-function startDeepQuiz() {
-  state.mode = "deep";
-  state.deep = { index: 0, scores: baseScores(), history: [], choices: [] };
-  state.result = null;
-  setPage("deep-quiz");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.add("active");
-  els.resultScreen.classList.remove("active");
-  renderDeepStep();
-}
-
-function renderQuickStep() {
-  setPage("quick-quiz");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.add("active");
-  els.resultScreen.classList.remove("active");
-  updateButtons();
-
-  const step = state.short.step;
-  const currentClass = DATA.classes.find(x => x.value === state.short.class) || null;
-  const subclassOptions = currentClass?.subclasses || [];
-
-  els.stageModeLabel.textContent = "Short Quiz";
-  els.progressBar.style.width = `${((step + 1) / 3) * 100}%`;
-  els.progressText.textContent = `Step ${step + 1} of 3`;
-
-  if (step === 0) {
-    els.stageTitle.textContent = "Choose one race";
-    els.stageSubtitle.textContent = "Search the race list, then pick the one that fits your character best.";
-    const query = state.short.raceQuery.toLowerCase().trim();
-    const races = DATA.races.filter(r => !query || r.label.toLowerCase().includes(query) || r.description.toLowerCase().includes(query));
-
-    els.quizStage.innerHTML = `
-      <div class="stack">
-        <div class="search-row">
-          <div><div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 1</div><div class="muted">Pick one race. You can search by name or description.</div></div>
-          <input class="filter-input" id="raceFilter" type="search" placeholder="Search races..." value="${escapeHtml(state.short.raceQuery)}" />
-        </div>
-        <form id="raceForm">
-          <div class="choice-grid">
-            ${races.map(r => `
-              <button type="submit" class="choice-card ${state.short.race?.value === r.value ? "selected" : ""}" data-value="${escapeHtml(r.value)}">
-                <span class="label">${escapeHtml(r.label)}</span>
-                <span class="meta">${escapeHtml(r.description)}</span>
-              </button>
-            `).join("")}
-          </div>
-        </form>
-        <div class="stage-footer">
-          <div class="chip-row">${state.short.race ? `<span class="chip">Selected: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">No race selected yet</span>`}</div>
-          <button type="button" class="secondary" data-action="quick-next" ${state.short.race ? "" : "disabled"}>Continue</button>
-        </div>
-      </div>
-    `;
-
-    document.getElementById("raceFilter")?.addEventListener("input", e => {
-      state.short.raceQuery = e.target.value;
-      renderQuickStep();
-      setTimeout(() => document.getElementById("raceFilter")?.focus(), 0);
-    });
-
-    document.getElementById("raceForm")?.addEventListener("submit", e => {
-      e.preventDefault();
-      const value = e.submitter?.dataset.value;
-      state.short.race = DATA.races.find(x => x.value === value) || null;
-      renderQuickStep();
-    });
-    return;
-  }
-
-  if (step === 1) {
-    els.stageTitle.textContent = "Choose exactly two traditional DnD alignments";
-    els.stageSubtitle.textContent = "Pick two anchors, then continue.";
-    els.quizStage.innerHTML = `
-      <div class="stack">
-        <div class="search-row">
-          <div><div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 2</div><div class="muted">Choose two. The order does not matter.</div></div>
-          <div class="mode-pill">${state.short.alignments.length}/2 selected</div>
-        </div>
-        <div class="choice-grid">
-          ${DATA.dndAlignments.map(a => `
-            <button type="button" class="choice-card ${state.short.alignments.includes(a.value) ? "selected" : ""}" data-action="toggle-alignment" data-value="${escapeHtml(a.value)}">
-              <span class="label">${escapeHtml(a.label)}</span>
-              <span class="meta">${escapeHtml(a.value)}</span>
-            </button>
-          `).join("")}
-        </div>
-        <div class="stage-footer">
-          <div class="chip-row">${state.short.alignments.length ? state.short.alignments.map(v => `<span class="chip">${escapeHtml(v)}</span>`).join("") : `<span class="chip">Pick two alignments</span>`}</div>
-          <button type="button" class="secondary" data-action="quick-next" ${state.short.alignments.length === 2 ? "" : "disabled"}>Continue</button>
-        </div>
-      </div>
-    `;
-    return;
-  }
-
-  els.stageTitle.textContent = "Choose a class and subclass";
-  els.stageSubtitle.textContent = "Your final short-quiz result blends race, alignments, class, and subclass.";
-  els.quizStage.innerHTML = `
-    <div class="stack">
-      <div class="search-row">
-        <div><div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 3</div><div class="muted">Choose one class and then one subclass.</div></div>
-        <div class="mode-pill">${state.short.class && state.short.subclass ? "Ready to resolve" : "Choose both"}</div>
-      </div>
-      <div class="form-grid">
-        <div class="card">
-          <label for="classSelect" style="display:block;margin-bottom:8px;font-weight:700">Class</label>
-          <select id="classSelect" class="select-input">
-            <option value="">Select a class</option>
-            ${DATA.classes.map(cls => `<option value="${escapeHtml(cls.value)}" ${state.short.class === cls.value ? "selected" : ""}>${escapeHtml(cls.label)}</option>`).join("")}
-          </select>
-          <div class="muted" style="margin-top:8px">${currentClass ? escapeHtml(currentClass.description) : "Pick a class to reveal its subclasses."}</div>
-        </div>
-        <div class="card">
-          <label for="subclassSelect" style="display:block;margin-bottom:8px;font-weight:700">Subclass</label>
-          <select id="subclassSelect" class="select-input" ${currentClass ? "" : "disabled"}>
-            <option value="">{currentClass ? "Select a subclass" : "Choose a class first"}</option>
-            ${subclassOptions.map(sub => `<option value="${escapeHtml(sub.value)}" ${state.short.subclass === sub.value ? "selected" : ""}>${escapeHtml(sub.label)}</option>`).join("")}
-          </select>
-          <div class="muted" style="margin-top:8px">${state.short.subclass && currentClass ? escapeHtml((currentClass.subclasses.find(s => s.value === state.short.subclass) || {}).description || "") : "Subclasses adjust your final axis profile."}</div>
-        </div>
-      </div>
-      <div class="result-grid">
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Selections</div>
-          <div class="selection-list">
-            ${state.short.race ? `<span class="chip">Race: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">Race not chosen</span>`}
-            ${state.short.alignments.length ? state.short.alignments.map(a => `<span class="chip">${escapeHtml(a)}</span>`).join("") : `<span class="chip">No alignments chosen</span>`}
-            ${currentClass ? `<span class="chip">Class: ${escapeHtml(currentClass.label)}</span>` : `<span class="chip">Class not chosen</span>`}
-            ${state.short.subclass ? `<span class="chip">Subclass: ${escapeHtml(state.short.subclass)}</span>` : `<span class="chip">Subclass not chosen</span>`}
-          </div>
-        </div>
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Preview</div>
-          ${renderTracker(computeQuickScores(), "Current short-quiz signal")}
-        </div>
-      </div>
-      <div class="stage-footer">
-        <div class="chip-row"><span class="chip">Short quiz result will be one Belavadös Alignment</span></div>
-        <button type="button" class="secondary" data-action="quick-finish" ${state.short.race && state.short.alignments.length === 2 && state.short.class && state.short.subclass ? "" : "disabled"}>See Result</button>
-      </div>
-    </div>
-  `;
-
-  document.getElementById("classSelect")?.addEventListener("change", e => {
-    state.short.class = e.target.value || null;
-    state.short.subclass = null;
-    renderQuickStep();
-  });
-
-  document.getElementById("subclassSelect")?.addEventListener("change", e => {
-    state.short.subclass = e.target.value || null;
-    renderQuickStep();
-  });
-}
-
-function getQuestionOptions(question) {
-  return question?.options || question?.answers || [];
-}
-
-function renderDeepStep() {
-  setPage("deep-quiz");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.add("active");
-  els.resultScreen.classList.remove("active");
-  updateButtons();
-
-  const q = DATA.deepQuestions[state.deep.index];
-  if (!q) return finishDeepQuiz();
-
-  const options = getQuestionOptions(q);
-
-  els.stageModeLabel.textContent = "In-Depth Quiz";
-  els.stageTitle.textContent = `Question ${state.deep.index + 1}`;
-  els.stageSubtitle.textContent = "Answer one dilemma at a time. Use Previous Page to undo.";
-  els.progressBar.style.width = `${(state.deep.index / DATA.deepQuestions.length) * 100}%`;
-  els.progressText.textContent = `Question ${state.deep.index + 1} of ${DATA.deepQuestions.length}`;
-
-  const previousScores = state.deep.history[state.deep.history.length - 1]?.scores || null;
-
-  els.quizStage.innerHTML = `
-    <div class="split">
-      <div class="question-box">
-        <div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Dilemma ${state.deep.index + 1}</div>
-        <h3 style="margin:0 0 10px;font-size:1.4rem;line-height:1.2">${escapeHtml(q.prompt || "")}</h3>
-        <p class="muted" style="margin:0 0 16px">${escapeHtml(q.sub || q.description || "")}</p>
-        <form id="deepForm">
-          <div class="choice-grid">
-            ${options.map((option, index) => `
-              <button type="submit" class="choice-card" data-index="${index}">
-                <span class="label">${escapeHtml(option.label)}</span>
-                <span class="meta">Submit answer</span>
-              </button>
-            `).join("")}
-          </div>
-        </form>
-        <div class="question-actions" style="margin-top:16px">
-          <div class="chip-row"><span class="chip">Undo available after each answer</span></div>
-          <button type="button" class="ghost" data-action="deep-back" ${state.deep.index > 0 ? "" : "disabled"}>Previous Page</button>
-        </div>
-      </div>
-      <div class="stack">
-        ${renderTracker(state.deep.scores, "Live Axis Tracker", previousScores)}
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Progress</div>
-          <p class="muted" style="margin:0 0 10px">You are answering 27 dilemmas, one at a time. The result resolves only at the end.</p>
-          <div class="selection-list">
-            <span class="chip">Altruism 0–3000</span><span class="chip">Lawfulness 0–3000</span><span class="chip">Cooperation 0–3000</span><span class="chip">Honor 0–3000</span>
-          </div>
-        </div>
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Answered</div>
-          <div class="selection-list">
-            ${state.deep.choices.length ? state.deep.choices.map(choice => `<span class="chip">${escapeHtml(choice.answer)}</span>`).join("") : `<span class="chip">No answers yet</span>`}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById("deepForm")?.addEventListener("submit", e => {
-    e.preventDefault();
-    const selected = options[Number(e.submitter?.dataset.index)];
-    if (!selected) return;
-    state.deep.history.push({
-      index: state.deep.index,
-      scores: deepClone(state.deep.scores),
-      choices: deepClone(state.deep.choices)
-    });
-    addScores(state.deep.scores, selected.effects || selected.delta || {});
-    state.deep.choices.push({ question: q.prompt, answer: selected.label });
-    state.deep.index += 1;
-    renderDeepStep();
-  });
-}
-
-function previousPage() {
-  if (state.mode === "deep") {
-    const last = state.deep.history.pop();
-    if (last) {
-      state.deep.index = last.index;
-      state.deep.scores = last.scores;
-      state.deep.choices = last.choices;
-      renderDeepStep();
-    }
-    return;
-  }
-
-  if (state.mode === "quick") {
-    if (state.short.step === 0) return showHome();
-    if (state.short.step === 1) {
-      state.short = { step: 0, race: null, alignments: [], class: null, subclass: null, raceQuery: "" };
-      renderQuickStep();
-      return;
-    }
-    if (state.short.step === 2) {
-      state.short.step = 1;
-      state.short.alignments = [];
-      renderQuickStep();
-      return;
-    }
-    if (state.short.step === 3) {
-      state.short.step = 2;
-      state.short.class = null;
-      state.short.subclass = null;
-      renderQuickStep();
-    }
-  }
-}
-
-function quickNext() {
-  if (state.short.step === 0 && state.short.race) {
-    state.short.step = 1;
-    renderQuickStep();
-  } else if (state.short.step === 1 && state.short.alignments.length === 2) {
-    state.short.step = 2;
-    renderQuickStep();
-  }
-}
-
-function finishQuickQuiz() {
-  if (!(state.short.race && state.short.alignments.length === 2 && state.short.class && state.short.subclass)) return;
-  state.mode = "quick";
-  const scores = computeQuickScores();
-  const match = resolveAlignment(scores);
-  state.result = {
-    mode: "quick",
-    scores,
-    alignment: match.alignment,
-    match
+  const state = {
+    view: "home",
+    mode: null,
+    short: {
+      step: 0,
+      race: null,
+      alignments: [],
+      class: null,
+      subclass: null,
+      raceQuery: ""
+    },
+    deep: {
+      index: 0,
+      scores: baseScores(),
+      history: [],
+      choices: []
+    },
+    result: null
   };
-  setPage("results");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.remove("active");
-  els.resultScreen.classList.add("active");
-  renderResult();
-}
 
-function finishDeepQuiz() {
-  state.mode = "deep";
-  const scores = state.deep.scores;
-  const match = resolveAlignment(scores);
-  state.result = {
-    mode: "deep",
-    scores,
-    alignment: match.alignment,
-    match
-  };
-  setPage("results");
-  els.homeScreen.classList.remove("active");
-  els.quizScreen.classList.remove("active");
-  els.resultScreen.classList.add("active");
-  renderResult();
-}
+  let currentDocZoom = 1;
+  let currentDocUrl = "";
 
-function renderMatchNotes(match) {
-  if (!match?.comparisons?.length) return "";
-  return `
-    <div class="mini-panel">
-      <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Why this match</div>
-      <div style="display:grid;gap:8px">
-        ${match.comparisons.map(item => `
-          <div class="card" style="padding:12px">
-            <strong style="display:block;margin-bottom:4px;text-transform:uppercase">${escapeHtml(item.axis)}</strong>
-            <div class="muted small">${escapeHtml(item.scoreLabel)} versus ${escapeHtml(item.target)}</div>
-            <div class="small" style="margin-top:4px">${item.exact ? "Exact band match." : `Closest compatible band within the ${escapeHtml(item.scoreFamily)} side.`}</div>
-          </div>
-        `).join("")}
-      </div>
-    </div>
-  `;
-}
+  function baseScores() {
+    return { altruism: MID, lawfulness: MID, cooperation: MID, honor: MID };
+  }
 
-function renderResult() {
-  const result = state.result;
-  if (!result) return;
+  function clamp(value, min = MIN, max = MAX) {
+    return Math.max(min, Math.min(max, Number.isFinite(value) ? value : min));
+  }
 
-  const alignment = result.alignment;
-  const summary = AXES.map(axis => {
-    const score = result.scores[axis];
+  function deepClone(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function bandIndex(score) {
+    return Math.max(0, Math.min(11, Math.floor(clamp(score) / 250)));
+  }
+
+  function bandCenter(index) {
+    const start = index * 250;
+    return index === 11 ? 2875 : start + 125;
+  }
+
+  function bandRangeText(index) {
+    const start = index * 250;
+    const end = index === 11 ? 3000 : ((index + 1) * 250 - 1);
+    return `${start}–${end}`;
+  }
+
+  function scorePercent(score) {
+    return Math.round((clamp(score) / MAX) * 100);
+  }
+
+  function bandName(axis, score) {
+    return BAND_NAMES[axis][bandIndex(score)];
+  }
+
+  function bandFamilyFromIndex(index) {
+    if (index <= 3) return "negative";
+    if (index <= 7) return "neutral";
+    return "positive";
+  }
+
+  function scoreFamily(axis, score) {
+    return bandFamilyFromIndex(bandIndex(score));
+  }
+
+  function profileIndex(axis, label) {
+    return (BAND_NAMES[axis] || []).indexOf(label);
+  }
+
+  function profileFamily(axis, label) {
+    return bandFamilyFromIndex(profileIndex(axis, label));
+  }
+
+  function familyLabel(axis, family) {
+    return {
+      altruism: { negative: "Selfish", neutral: "Neutral", positive: "Altruistic" },
+      lawfulness: { negative: "Chaotic", neutral: "Neutral", positive: "Lawful" },
+      cooperation: { negative: "Combative", neutral: "Neutral", positive: "Cooperative" },
+      honor: { negative: "Pragmatic", neutral: "Neutral", positive: "Honorable" },
+    }[axis][family];
+  }
+
+  function compatibleFamilies(scoreFam) {
+    if (scoreFam === "neutral") return ["neutral"];
+    if (scoreFam === "negative") return ["negative", "neutral"];
+    return ["positive", "neutral"];
+  }
+
+  function addScores(scores, delta = {}, direction = 1) {
+    AXES.forEach(axis => {
+      scores[axis] = clamp(scores[axis] + ((Number(delta[axis]) || 0) * direction));
+    });
+    return scores;
+  }
+
+  function computeQuickScores() {
+    const scores = baseScores();
+    if (state.short.race) addScores(scores, state.short.race.effects);
+    state.short.alignments.forEach(value => {
+      const item = DATA.dndAlignments.find(x => x.value === value);
+      if (item) addScores(scores, item.effects);
+    });
+    if (state.short.class) {
+      const cls = DATA.classes.find(x => x.value === state.short.class);
+      if (cls) addScores(scores, cls.effects);
+      const sub = cls?.subclasses?.find(x => x.value === state.short.subclass);
+      if (sub) addScores(scores, sub.effects);
+    }
+    return scores;
+  }
+
+  function renderPhaseChips(axis, score) {
+    const current = bandIndex(score);
     return `
-      <div class="card">
-        <h3 style="margin:0 0 8px">${escapeHtml(axis.charAt(0).toUpperCase() + axis.slice(1))}</h3>
-        <p style="margin:0 0 6px"><strong>${score}</strong> points</p>
-        <p class="muted" style="margin:0 0 8px">${escapeHtml(bandName(axis, score))} (${bandRangeText(bandIndex(score))})</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-top:10px">
+        ${BAND_NAMES[axis].map((label, index) => {
+          const active = index === current;
+          return `
+            <span style="
+              padding:5px 6px;
+              border-radius:10px;
+              text-align:center;
+              font-size:.66rem;
+              line-height:1.15;
+              background:${active ? "rgba(141,224,220,.18)" : "rgba(255,255,255,.03)"};
+              border:1px solid ${active ? "rgba(141,224,220,.38)" : "rgba(255,255,255,.08)"};
+              color:${active ? "#fff" : "var(--muted)"};
+            ">
+              ${escapeHtml(label)}<br><span style="opacity:.9">${bandRangeText(index)}</span>
+            </span>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderAxisCard(axis, score, previousScore = null) {
+    const delta = previousScore === null || previousScore === undefined ? null : score - previousScore;
+    const phase = bandName(axis, score);
+    const deltaText = delta === null ? "" : `${delta > 0 ? "+" : ""}${delta}`;
+    return `
+      <div class="axis-card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline">
+          <strong style="text-transform:uppercase;letter-spacing:.06em">${escapeHtml(axis)}</strong>
+          <span class="muted">${score} / 3000${delta === null ? "" : ` • ${deltaText}`}</span>
+        </div>
+        <div class="axis-phase">${escapeHtml(phase)} (${bandRangeText(bandIndex(score))})</div>
+        <div class="axis-track"><div class="axis-fill" style="width:${scorePercent(score)}%"></div></div>
         ${renderPhaseChips(axis, score)}
       </div>
     `;
-  }).join("");
+  }
 
-  const previousScores = result.mode === "deep" && state.deep.history.length ? state.deep.history[state.deep.history.length - 1].scores : null;
+  function renderTracker(scores, title = "Live Axis Tracker", previousScores = null) {
+    return `
+      <div class="mini-panel">
+        <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">${escapeHtml(title)}</div>
+        <div style="display:grid;gap:10px">
+          ${AXES.map(axis => renderAxisCard(axis, scores[axis], previousScores ? previousScores[axis] : null)).join("")}
+        </div>
+      </div>
+    `;
+  }
 
-  els.resultStage.innerHTML = `
-    <div style="text-align:center">
-      <div class="result-rank">${result.mode === "deep" ? "In-Depth Result" : "Short Result"}</div>
-      <h2 class="result-title">${escapeHtml(alignment.name)}</h2>
-      <div class="result-subtitle">${escapeHtml(alignment.profile.altruism)} • ${escapeHtml(alignment.profile.lawfulness)} • ${escapeHtml(alignment.profile.cooperation)} • ${escapeHtml(alignment.profile.honor)}</div>
-      <p class="result-description">${escapeHtml(alignment.description)}</p>
-      <div class="result-grid">${summary}</div>
-      <div class="result-grid" style="margin-top:14px">
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Alignment Profile</div>
-          <div class="selection-list">
-            <span class="chip">Altruism: ${escapeHtml(alignment.profile.altruism)}</span>
-            <span class="chip">Lawfulness: ${escapeHtml(alignment.profile.lawfulness)}</span>
-            <span class="chip">Cooperation: ${escapeHtml(alignment.profile.cooperation)}</span>
-            <span class="chip">Honor: ${escapeHtml(alignment.profile.honor)}</span>
+  function resolveAlignment(scores) {
+    const scored = DATA.belavadosAlignments.map((alignment, index) => {
+      let totalPenalty = 0;
+      let exactMatches = 0;
+      let comparisons = [];
+      let impossible = false;
+
+      for (const axis of AXES) {
+        const target = alignment.profile[axis];
+        const targetIndex = profileIndex(axis, target);
+        const targetFamily = profileFamily(axis, target);
+        const scoreIdx = bandIndex(scores[axis]);
+        const scoreFam = scoreFamily(axis, scores[axis]);
+        const allowed = compatibleFamilies(scoreFam);
+
+        if (!allowed.includes(targetFamily)) {
+          impossible = true;
+          break;
+        }
+
+        const sameFamily = targetFamily === scoreFam;
+        const familyPenalty = sameFamily ? 0 : 18;
+        const bandPenalty = Math.abs(scoreIdx - targetIndex) * 7;
+        const pointPenalty = Math.abs(scores[axis] - bandCenter(targetIndex)) / 140;
+
+        totalPenalty += familyPenalty + bandPenalty + pointPenalty;
+        if (scoreIdx === targetIndex) exactMatches += 1;
+        comparisons.push({
+          axis,
+          target,
+          targetFamily,
+          score: scores[axis],
+          scoreLabel: bandName(axis, scores[axis]),
+          scoreFamily: familyLabel(axis, scoreFam),
+          allowed,
+          exact: scoreIdx === targetIndex
+        });
+      }
+
+      if (impossible) return null;
+      return { alignment, index, totalPenalty, exactMatches, comparisons };
+    }).filter(Boolean);
+
+    const pool = scored.length ? scored : DATA.belavadosAlignments.map((alignment, index) => ({
+      alignment,
+      index,
+      totalPenalty: Number.POSITIVE_INFINITY,
+      exactMatches: 0,
+      comparisons: AXES.map(axis => ({
+        axis,
+        target: alignment.profile[axis],
+        targetFamily: profileFamily(axis, alignment.profile[axis]),
+        score: scores[axis],
+        scoreLabel: bandName(axis, scores[axis]),
+        scoreFamily: familyLabel(axis, scoreFamily(axis, scores[axis])),
+        allowed: compatibleFamilies(scoreFamily(axis, scores[axis])).includes(profileFamily(axis, alignment.profile[axis])),
+        exact: bandIndex(scores[axis]) === profileIndex(axis, alignment.profile[axis])
+      }))
+    }));
+
+    pool.sort((a, b) => {
+      if (a.totalPenalty !== b.totalPenalty) return a.totalPenalty - b.totalPenalty;
+      if (a.exactMatches !== b.exactMatches) return b.exactMatches - a.exactMatches;
+      return a.index - b.index;
+    });
+
+    const best = pool[0] || DATA.belavadosAlignments[0];
+    return {
+      alignment: best.alignment,
+      exactMatches: best.exactMatches ?? 0,
+      comparisons: best.comparisons ?? [],
+      penalty: best.totalPenalty ?? 0
+    };
+  }
+
+  function setPage(mode) {
+    els.body.classList.remove("homepage", "quick-quiz", "deep-quiz", "results");
+    els.body.classList.add(mode);
+    state.view = mode;
+    updateButtons();
+  }
+
+  function updateButtons() {
+    els.btnHome.classList.toggle("hidden", state.view === "homepage");
+    els.btnBack.classList.toggle("hidden", !(state.view === "quick-quiz" || state.view === "deep-quiz"));
+    if (state.view === "quick-quiz") els.btnToggleQuiz.textContent = "Try Deep Quiz";
+    else if (state.view === "deep-quiz") els.btnToggleQuiz.textContent = "Try Quick Quiz";
+    else if (state.view === "results") els.btnToggleQuiz.textContent = state.mode === "deep" ? "Try Quick Quiz" : "Try Deep Quiz";
+    else els.btnToggleQuiz.textContent = "Begin Quick Quiz";
+  }
+
+  function showHome() {
+    state.mode = null;
+    state.result = null;
+    setPage("homepage");
+    els.homeScreen.classList.add("active");
+    els.quizScreen.classList.remove("active");
+    els.resultScreen.classList.remove("active");
+    els.quizStage.innerHTML = "";
+    els.resultStage.innerHTML = "";
+    els.progressBar.style.width = "0%";
+    els.progressText.textContent = "Ready when you are.";
+    els.stageModeLabel.textContent = "Quiz";
+    els.stageTitle.textContent = "Choose a path";
+    els.stageSubtitle.textContent = "Select a mode to begin.";
+  }
+
+  function startQuickQuiz() {
+    state.mode = "quick";
+    state.short = { step: 0, race: null, alignments: [], class: null, subclass: null, raceQuery: "" };
+    state.result = null;
+    setPage("quick-quiz");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.add("active");
+    els.resultScreen.classList.remove("active");
+    renderQuickStep();
+  }
+
+  function startDeepQuiz() {
+    state.mode = "deep";
+    state.deep = { index: 0, scores: baseScores(), history: [], choices: [] };
+    state.result = null;
+    setPage("deep-quiz");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.add("active");
+    els.resultScreen.classList.remove("active");
+    renderDeepStep();
+  }
+
+  function renderQuickStep() {
+    setPage("quick-quiz");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.add("active");
+    els.resultScreen.classList.remove("active");
+    updateButtons();
+
+    const step = state.short.step;
+    const currentClass = DATA.classes.find(x => x.value === state.short.class) || null;
+    const subclassOptions = currentClass?.subclasses || [];
+
+    els.stageModeLabel.textContent = "Short Quiz";
+    els.progressBar.style.width = `${((step + 1) / 3) * 100}%`;
+    els.progressText.textContent = `Step ${step + 1} of 3`;
+
+    if (step === 0) {
+      els.stageTitle.textContent = "Choose one race";
+      els.stageSubtitle.textContent = "Search the race list, then pick the one that fits your character best.";
+      const query = state.short.raceQuery.toLowerCase().trim();
+      const races = DATA.races.filter(r => !query || r.label.toLowerCase().includes(query) || r.description.toLowerCase().includes(query));
+
+      els.quizStage.innerHTML = `
+        <div class="stack">
+          <div class="search-row">
+            <div>
+              <div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 1</div>
+              <div class="muted">Pick one race. You can search by name or description.</div>
+            </div>
+            <input class="filter-input" id="raceFilter" type="search" placeholder="Search races..." value="${escapeHtml(state.short.raceQuery)}" />
+          </div>
+          <form id="raceForm">
+            <div class="choice-grid">
+              ${races.map(r => `
+                <button type="submit" class="choice-card ${state.short.race?.value === r.value ? "selected" : ""}" data-value="${escapeHtml(r.value)}">
+                  <span class="label">${escapeHtml(r.label)}</span>
+                  <span class="meta">${escapeHtml(r.description)}</span>
+                </button>
+              `).join("")}
+            </div>
+          </form>
+          <div class="stage-footer">
+            <div class="chip-row">
+              ${state.short.race ? `<span class="chip">Selected: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">No race selected yet</span>`}
+            </div>
+            <button type="button" class="secondary" data-action="quick-next" ${state.short.race ? "" : "disabled"}>Continue</button>
           </div>
         </div>
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Final Tracker</div>
-          ${renderTracker(result.scores, "Belavadös Axis Totals", previousScores)}
+      `;
+
+      document.getElementById("raceFilter")?.addEventListener("input", e => {
+        state.short.raceQuery = e.target.value;
+        renderQuickStep();
+        setTimeout(() => document.getElementById("raceFilter")?.focus(), 0);
+      });
+
+      document.getElementById("raceForm")?.addEventListener("submit", e => {
+        e.preventDefault();
+        const value = e.submitter?.dataset.value;
+        state.short.race = DATA.races.find(x => x.value === value) || null;
+        renderQuickStep();
+      });
+      return;
+    }
+
+    if (step === 1) {
+      els.stageTitle.textContent = "Choose exactly two traditional DnD alignments";
+      els.stageSubtitle.textContent = "Pick two anchors, then continue.";
+      els.quizStage.innerHTML = `
+        <div class="stack">
+          <div class="search-row">
+            <div>
+              <div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 2</div>
+              <div class="muted">Choose two. The order does not matter.</div>
+            </div>
+            <div class="mode-pill">${state.short.alignments.length}/2 selected</div>
+          </div>
+          <div class="choice-grid">
+            ${DATA.dndAlignments.map(a => `
+              <button type="button" class="choice-card ${state.short.alignments.includes(a.value) ? "selected" : ""}" data-action="toggle-alignment" data-value="${escapeHtml(a.value)}">
+                <span class="label">${escapeHtml(a.label)}</span>
+                <span class="meta">${escapeHtml(a.value)}</span>
+              </button>
+            `).join("")}
+          </div>
+          <div class="stage-footer">
+            <div class="chip-row">
+              ${state.short.alignments.length ? state.short.alignments.map(v => `<span class="chip">${escapeHtml(v)}</span>`).join("") : `<span class="chip">Pick two alignments</span>`}
+            </div>
+            <button type="button" class="secondary" data-action="quick-next" ${state.short.alignments.length === 2 ? "" : "disabled"}>Continue</button>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    els.stageTitle.textContent = "Choose a class and subclass";
+    els.stageSubtitle.textContent = "Your final short-quiz result blends race, alignments, class, and subclass.";
+    els.quizStage.innerHTML = `
+      <div class="stack">
+        <div class="search-row">
+          <div>
+            <div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Step 3</div>
+            <div class="muted">Choose one class and then one subclass.</div>
+          </div>
+          <div class="mode-pill">${state.short.class && state.short.subclass ? "Ready to resolve" : "Choose both"}</div>
+        </div>
+        <div class="form-grid">
+          <div class="card">
+            <label for="classSelect" style="display:block;margin-bottom:8px;font-weight:700">Class</label>
+            <select id="classSelect" class="select-input">
+              <option value="">Select a class</option>
+              ${DATA.classes.map(cls => `<option value="${escapeHtml(cls.value)}" ${state.short.class === cls.value ? "selected" : ""}>${escapeHtml(cls.label)}</option>`).join("")}
+            </select>
+            <div class="muted" style="margin-top:8px">${currentClass ? escapeHtml(currentClass.description) : "Pick a class to reveal its subclasses."}</div>
+          </div>
+          <div class="card">
+            <label for="subclassSelect" style="display:block;margin-bottom:8px;font-weight:700">Subclass</label>
+            <select id="subclassSelect" class="select-input" ${currentClass ? "" : "disabled"}>
+              <option value="">${currentClass ? "Select a subclass" : "Choose a class first"}</option>
+              ${subclassOptions.map(sub => `<option value="${escapeHtml(sub.value)}" ${state.short.subclass === sub.value ? "selected" : ""}>${escapeHtml(sub.label)}</option>`).join("")}
+            </select>
+            <div class="muted" style="margin-top:8px">
+              ${state.short.subclass && currentClass ? escapeHtml((currentClass.subclasses.find(s => s.value === state.short.subclass) || {}).description || "") : "Subclasses adjust your final axis profile."}
+            </div>
+          </div>
+        </div>
+        <div class="result-grid">
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Selections</div>
+            <div class="selection-list">
+              ${state.short.race ? `<span class="chip">Race: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">Race not chosen</span>`}
+              ${state.short.alignments.length ? state.short.alignments.map(a => `<span class="chip">${escapeHtml(a)}</span>`).join("") : `<span class="chip">No alignments chosen</span>`}
+              ${currentClass ? `<span class="chip">Class: ${escapeHtml(currentClass.label)}</span>` : `<span class="chip">Class not chosen</span>`}
+              ${state.short.subclass ? `<span class="chip">Subclass: ${escapeHtml(state.short.subclass)}</span>` : `<span class="chip">Subclass not chosen</span>`}
+            </div>
+          </div>
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Preview</div>
+            ${renderTracker(computeQuickScores(), "Current short-quiz signal")}
+          </div>
+        </div>
+        <div class="stage-footer">
+          <div class="chip-row">
+            <span class="chip">Short quiz result will be one Belavadös Alignment</span>
+          </div>
+          <button type="button" class="secondary" data-action="quick-finish" ${state.short.race && state.short.alignments.length === 2 && state.short.class && state.short.subclass ? "" : "disabled"}>See Result</button>
         </div>
       </div>
-      <div class="result-grid" style="margin-top:14px">
-        ${renderMatchNotes(result.match)}
-        <div class="mini-panel">
-          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Selections</div>
-          <div class="selection-list">
-            ${state.short.race ? `<span class="chip">Race: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">Race not chosen</span>`}
-            ${state.short.alignments.length ? state.short.alignments.map(a => `<span class="chip">${escapeHtml(a)}</span>`).join("") : `<span class="chip">No alignments chosen</span>`}
-            ${state.short.class ? `<span class="chip">Class: ${escapeHtml(state.short.class)}</span>` : `<span class="chip">Class not chosen</span>`}
-            ${state.short.subclass ? `<span class="chip">Subclass: ${escapeHtml(state.short.subclass)}</span>` : `<span class="chip">Subclass not chosen</span>`}
+    `;
+
+    document.getElementById("classSelect")?.addEventListener("change", e => {
+      state.short.class = e.target.value || null;
+      state.short.subclass = null;
+      renderQuickStep();
+    });
+
+    document.getElementById("subclassSelect")?.addEventListener("change", e => {
+      state.short.subclass = e.target.value || null;
+      renderQuickStep();
+    });
+  }
+
+  function getQuestionOptions(question) {
+    return question?.options || question?.answers || [];
+  }
+
+  function renderDeepStep() {
+    setPage("deep-quiz");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.add("active");
+    els.resultScreen.classList.remove("active");
+    updateButtons();
+
+    const q = DATA.deepQuestions[state.deep.index];
+    if (!q) return finishDeepQuiz();
+
+    const options = getQuestionOptions(q);
+
+    els.stageModeLabel.textContent = "In-Depth Quiz";
+    els.stageTitle.textContent = `Question ${state.deep.index + 1}`;
+    els.stageSubtitle.textContent = "Answer one dilemma at a time. Use Previous Page to undo.";
+    els.progressBar.style.width = `${(state.deep.index / DATA.deepQuestions.length) * 100}%`;
+    els.progressText.textContent = `Question ${state.deep.index + 1} of ${DATA.deepQuestions.length}`;
+
+    const previousScores = state.deep.history[state.deep.history.length - 1]?.scores || null;
+
+    els.quizStage.innerHTML = `
+      <div class="split">
+        <div class="question-box">
+          <div class="subhead" style="margin-bottom:6px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Dilemma ${state.deep.index + 1}</div>
+          <h3 style="margin:0 0 10px;font-size:1.4rem;line-height:1.2">${escapeHtml(q.prompt || "")}</h3>
+          <p class="muted" style="margin:0 0 16px">${escapeHtml(q.sub || q.description || "")}</p>
+          <form id="deepForm">
+            <div class="choice-grid">
+              ${options.map((option, index) => `
+                <button type="submit" class="choice-card" data-index="${index}">
+                  <span class="label">${escapeHtml(option.label)}</span>
+                  <span class="meta">Submit answer</span>
+                </button>
+              `).join("")}
+            </div>
+          </form>
+          <div class="question-actions" style="margin-top:16px">
+            <div class="chip-row"><span class="chip">Undo available after each answer</span></div>
+            <button type="button" class="ghost" data-action="deep-back" ${state.deep.index > 0 ? "" : "disabled"}>Previous Page</button>
+          </div>
+        </div>
+        <div class="stack">
+          ${renderTracker(state.deep.scores, "Live Axis Tracker", previousScores)}
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Progress</div>
+            <p class="muted" style="margin:0 0 10px">You are answering 27 dilemmas, one at a time. The result resolves only at the end.</p>
+            <div class="selection-list">
+              <span class="chip">Altruism 0–3000</span>
+              <span class="chip">Lawfulness 0–3000</span>
+              <span class="chip">Cooperation 0–3000</span>
+              <span class="chip">Honor 0–3000</span>
+            </div>
+          </div>
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Answered</div>
+            <div class="selection-list">
+              ${state.deep.choices.length ? state.deep.choices.map(choice => `<span class="chip">${escapeHtml(choice.answer)}</span>`).join("") : `<span class="chip">No answers yet</span>`}
+            </div>
           </div>
         </div>
       </div>
-      <div class="results-actions" style="justify-content:center;margin-top:16px">
-        <button type="button" class="secondary" id="resultTryOtherBtn">${result.mode === "deep" ? "Try Quick Quiz" : "Try Deep Quiz"}</button>
-        <button type="button" class="ghost" id="resultHomeBtn">Home Page</button>
+    `;
+
+    document.getElementById("deepForm")?.addEventListener("submit", e => {
+      e.preventDefault();
+      const selected = options[Number(e.submitter?.dataset.index)];
+      if (!selected) return;
+      state.deep.history.push({
+        index: state.deep.index,
+        scores: deepClone(state.deep.scores),
+        choices: deepClone(state.deep.choices)
+      });
+      addScores(state.deep.scores, selected.effects || selected.delta || {});
+      state.deep.choices.push({ question: q.prompt, answer: selected.label });
+      state.deep.index += 1;
+      renderDeepStep();
+    });
+  }
+
+  function previousPage() {
+    if (state.mode === "deep") {
+      const last = state.deep.history.pop();
+      if (last) {
+        state.deep.index = last.index;
+        state.deep.scores = last.scores;
+        state.deep.choices = last.choices;
+        renderDeepStep();
+      }
+      return;
+    }
+
+    if (state.mode === "quick") {
+      if (state.short.step === 0) return showHome();
+      if (state.short.step === 1) {
+        state.short = { step: 0, race: null, alignments: [], class: null, subclass: null, raceQuery: "" };
+        renderQuickStep();
+        return;
+      }
+      if (state.short.step === 2) {
+        state.short.step = 1;
+        state.short.alignments = [];
+        renderQuickStep();
+        return;
+      }
+      if (state.short.step === 3) {
+        state.short.step = 2;
+        state.short.class = null;
+        state.short.subclass = null;
+        renderQuickStep();
+      }
+    }
+  }
+
+  function quickNext() {
+    if (state.short.step === 0 && state.short.race) {
+      state.short.step = 1;
+      renderQuickStep();
+    } else if (state.short.step === 1 && state.short.alignments.length === 2) {
+      state.short.step = 2;
+      renderQuickStep();
+    }
+  }
+
+  function finishQuickQuiz() {
+    if (!(state.short.race && state.short.alignments.length === 2 && state.short.class && state.short.subclass)) return;
+    state.mode = "quick";
+    const scores = computeQuickScores();
+    const match = resolveAlignment(scores);
+    state.result = {
+      mode: "quick",
+      scores,
+      alignment: match.alignment,
+      match
+    };
+    setPage("results");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.remove("active");
+    els.resultScreen.classList.add("active");
+    renderResult();
+  }
+
+  function finishDeepQuiz() {
+    state.mode = "deep";
+    const scores = state.deep.scores;
+    const match = resolveAlignment(scores);
+    state.result = {
+      mode: "deep",
+      scores,
+      alignment: match.alignment,
+      match
+    };
+    setPage("results");
+    els.homeScreen.classList.remove("active");
+    els.quizScreen.classList.remove("active");
+    els.resultScreen.classList.add("active");
+    renderResult();
+  }
+
+  function renderMatchNotes(match) {
+    if (!match?.comparisons?.length) return "";
+    return `
+      <div class="mini-panel">
+        <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Why this match</div>
+        <div style="display:grid;gap:8px">
+          ${match.comparisons.map(item => `
+            <div class="card" style="padding:12px">
+              <strong style="display:block;margin-bottom:4px;text-transform:uppercase">${escapeHtml(item.axis)}</strong>
+              <div class="muted small">${escapeHtml(item.scoreLabel)} versus ${escapeHtml(item.target)}</div>
+              <div class="small" style="margin-top:4px">${item.exact ? "Exact band match." : `Closest compatible band within the ${escapeHtml(item.scoreFamily)} side.`}</div>
+            </div>
+          `).join("")}
+        </div>
       </div>
-    </div>
-  `;
-
-  document.getElementById("resultTryOtherBtn")?.addEventListener("click", () => result.mode === "deep" ? startQuickQuiz() : startDeepQuiz());
-  document.getElementById("resultHomeBtn")?.addEventListener("click", showHome);
-}
-
-function handleStageClick(event) {
-  const button = event.target.closest("button");
-  if (!button) return;
-  const action = button.dataset.action;
-
-  if (action === "toggle-alignment") {
-    const value = button.dataset.value;
-    const set = new Set(state.short.alignments);
-    if (set.has(value)) set.delete(value);
-    else if (set.size < 2) set.add(value);
-    state.short.alignments = Array.from(set);
-    renderQuickStep();
-    return;
+    `;
   }
 
-  if (action === "quick-next") return quickNext();
-  if (action === "quick-finish") return finishQuickQuiz();
-  if (action === "deep-back") return previousPage();
-}
+  function renderResult() {
+    const result = state.result;
+    if (!result) return;
 
-function handleStageInput(event) {
-  if (event.target.id === "classSelect") {
-    state.short.class = event.target.value || null;
-    state.short.subclass = null;
-    renderQuickStep();
+    const alignment = result.alignment;
+    const summary = AXES.map(axis => {
+      const score = result.scores[axis];
+      return `
+        <div class="card">
+          <h3 style="margin:0 0 8px">${escapeHtml(axis.charAt(0).toUpperCase() + axis.slice(1))}</h3>
+          <p style="margin:0 0 6px"><strong>${score}</strong> points</p>
+          <p class="muted" style="margin:0 0 8px">${escapeHtml(bandName(axis, score))} (${bandRangeText(bandIndex(score))})</p>
+          ${renderPhaseChips(axis, score)}
+        </div>
+      `;
+    }).join("");
+
+    const previousScores = result.mode === "deep" && state.deep.history.length ? state.deep.history[state.deep.history.length - 1].scores : null;
+
+    els.resultStage.innerHTML = `
+      <div style="text-align:center">
+        <div class="result-rank">${result.mode === "deep" ? "In-Depth Result" : "Short Result"}</div>
+        <h2 class="result-title">${escapeHtml(alignment.name)}</h2>
+        <div class="result-subtitle">${escapeHtml(alignment.profile.altruism)} • ${escapeHtml(alignment.profile.lawfulness)} • ${escapeHtml(alignment.profile.cooperation)} • ${escapeHtml(alignment.profile.honor)}</div>
+        <p class="result-description">${escapeHtml(alignment.description)}</p>
+        <div class="result-grid">${summary}</div>
+        <div class="result-grid" style="margin-top:14px">
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Alignment Profile</div>
+            <div class="selection-list">
+              <span class="chip">Altruism: ${escapeHtml(alignment.profile.altruism)}</span>
+              <span class="chip">Lawfulness: ${escapeHtml(alignment.profile.lawfulness)}</span>
+              <span class="chip">Cooperation: ${escapeHtml(alignment.profile.cooperation)}</span>
+              <span class="chip">Honor: ${escapeHtml(alignment.profile.honor)}</span>
+            </div>
+          </div>
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Final Tracker</div>
+            ${renderTracker(result.scores, "Belavadös Axis Totals", previousScores)}
+          </div>
+        </div>
+        <div class="result-grid" style="margin-top:14px">
+          ${renderMatchNotes(result.match)}
+          <div class="mini-panel">
+            <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Selections</div>
+            <div class="selection-list">
+              ${state.short.race ? `<span class="chip">Race: ${escapeHtml(state.short.race.label)}</span>` : `<span class="chip">Race not chosen</span>`}
+              ${state.short.alignments.length ? state.short.alignments.map(a => `<span class="chip">${escapeHtml(a)}</span>`).join("") : `<span class="chip">No alignments chosen</span>`}
+              ${state.short.class ? `<span class="chip">Class: ${escapeHtml(state.short.class)}</span>` : `<span class="chip">Class not chosen</span>`}
+              ${state.short.subclass ? `<span class="chip">Subclass: ${escapeHtml(state.short.subclass)}</span>` : `<span class="chip">Subclass not chosen</span>`}
+            </div>
+          </div>
+        </div>
+        <div class="results-actions" style="justify-content:center;margin-top:16px">
+          <button type="button" class="secondary" id="resultTryOtherBtn">${result.mode === "deep" ? "Try Quick Quiz" : "Try Deep Quiz"}</button>
+          <button type="button" class="ghost" id="resultHomeBtn">Home Page</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("resultTryOtherBtn")?.addEventListener("click", () => result.mode === "deep" ? startQuickQuiz() : startDeepQuiz());
+    document.getElementById("resultHomeBtn")?.addEventListener("click", showHome);
   }
-  if (event.target.id === "subclassSelect") {
-    state.short.subclass = event.target.value || null;
-    renderQuickStep();
+
+  function handleStageClick(event) {
+    const button = event.target.closest("button");
+    if (!button) return;
+    const action = button.dataset.action;
+
+    if (action === "toggle-alignment") {
+      const value = button.dataset.value;
+      const set = new Set(state.short.alignments);
+      if (set.has(value)) set.delete(value);
+      else if (set.size < 2) set.add(value);
+      state.short.alignments = Array.from(set);
+      renderQuickStep();
+      return;
+    }
+
+    if (action === "quick-next") return quickNext();
+    if (action === "quick-finish") return finishQuickQuiz();
+    if (action === "deep-back") return previousPage();
   }
-}
 
-els.quizStage.addEventListener("click", handleStageClick);
-els.quizStage.addEventListener("input", handleStageInput);
-els.btnHome.addEventListener("click", showHome);
-els.btnBack.addEventListener("click", previousPage);
-els.btnToggleQuiz.addEventListener("click", () => {
-  if (state.view === "quick-quiz") startDeepQuiz();
-  else if (state.view === "deep-quiz") startQuickQuiz();
-  else startQuickQuiz();
-});
-els.homeStartShort.addEventListener("click", startQuickQuiz);
-els.homeStartDeep.addEventListener("click", startDeepQuiz);
+  function handleStageInput(event) {
+    if (event.target.id === "classSelect") {
+      state.short.class = event.target.value || null;
+      state.short.subclass = null;
+      renderQuickStep();
+    }
+    if (event.target.id === "subclassSelect") {
+      state.short.subclass = event.target.value || null;
+      renderQuickStep();
+    }
+  }
 
-showHome();
+  function toPreviewUrl(url) {
+    return url.replace("/view?usp=sharing", "/preview");
+  }
+
+  function openDocViewer(url, title) {
+    currentDocUrl = url;
+    currentDocZoom = 1;
+
+    if (!els.docModal || !els.docFrame || !els.docTitle || !els.zoomLabel || !els.externalDocLink) return;
+
+    els.docTitle.textContent = title;
+    els.externalDocLink.href = url;
+    els.docFrame.src = toPreviewUrl(url);
+    els.docFrame.style.transform = "scale(1)";
+    els.docFrame.style.width = "100%";
+    els.docFrame.style.height = "100%";
+    els.zoomLabel.textContent = "100%";
+
+    els.docModal.classList.add("open");
+    els.docModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDocViewer() {
+    if (!els.docModal || !els.docFrame) return;
+
+    els.docModal.classList.remove("open");
+    els.docModal.setAttribute("aria-hidden", "true");
+    els.docFrame.src = "";
+    document.body.style.overflow = "";
+  }
+
+  function zoomDoc(delta) {
+    currentDocZoom = Math.max(0.5, Math.min(2.5, +(currentDocZoom + delta).toFixed(2)));
+
+    if (!els.docFrame || !els.zoomLabel) return;
+
+    els.docFrame.style.transform = `scale(${currentDocZoom})`;
+    els.docFrame.style.width = `${100 / currentDocZoom}%`;
+    els.docFrame.style.height = `${100 / currentDocZoom}%`;
+    els.zoomLabel.textContent = `${Math.round(currentDocZoom * 100)}%`;
+  }
+
+  els.quizStage.addEventListener("click", handleStageClick);
+  els.quizStage.addEventListener("input", handleStageInput);
+  els.btnHome.addEventListener("click", showHome);
+  els.btnBack.addEventListener("click", previousPage);
+  els.btnToggleQuiz.addEventListener("click", () => {
+    if (state.view === "quick-quiz") startDeepQuiz();
+    else if (state.view === "deep-quiz") startQuickQuiz();
+    else startQuickQuiz();
+  });
+  els.homeStartShort.addEventListener("click", startQuickQuiz);
+  els.homeStartDeep.addEventListener("click", startDeepQuiz);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeDocViewer();
+  });
+
+  showHome();
 </script>
 </body>
 </html>
