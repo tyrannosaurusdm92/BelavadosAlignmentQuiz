@@ -395,6 +395,29 @@ a.secondary:visited{
   font-size:.92rem;
 }
 
+.export-panel{
+  margin-top:14px;
+  border:1px solid rgba(124,231,255,.14);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(19,26,36,.96),rgba(14,19,27,.98));
+  padding:18px;
+}
+
+.export-json{
+  width:100%;
+  min-height:220px;
+  resize:vertical;
+  border-radius:14px;
+  border:1px solid rgba(124,231,255,.18);
+  background:rgba(5,8,12,.86);
+  color:var(--text);
+  padding:12px 14px;
+  margin-top:10px;
+  font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  white-space:pre;
+  overflow:auto;
+}
+
 .filter-input,
 .select-input{
   width:100%;
@@ -6228,6 +6251,119 @@ const DATA = {"axisNames": ["altruism", "lawfulness", "cooperation", "honor"], "
     `;
   }
 
+  function buildAlignmentExportPayload() {
+    const result = state.result;
+    if (!result) return null;
+
+    const axisPhaseData = AXES.map(axis => {
+      const score = result.scores[axis];
+      const selectedIndex = bandIndex(score);
+      const selectedLabel = bandName(axis, score);
+      const profileLabel = result.alignment?.profile?.[axis] || null;
+      const profileSelectedIndex = profileLabel ? profileIndex(axis, profileLabel) : null;
+      const phaseMin = selectedIndex * 250;
+      const phaseMax = selectedIndex === 11 ? 3000 : ((selectedIndex + 1) * 250 - 1);
+
+      return {
+        axis,
+        score,
+        scorePercent: scorePercent(score),
+        scoreBandIndex: selectedIndex,
+        scoreBandLabel: selectedLabel,
+        scoreRange: { min: phaseMin, max: phaseMax },
+        profileLabel,
+        profileBandIndex: profileSelectedIndex,
+        profileFamily: profileLabel ? profileFamily(axis, profileLabel) : null,
+        scoreFamily: scoreFamily(axis, score),
+        selectedButtonIndex: selectedIndex,
+        selectedButtonLabel: selectedLabel,
+        buttons: BAND_NAMES[axis].map((label, index) => ({
+          index,
+          label,
+          range: {
+            min: index * 250,
+            max: index === 11 ? 3000 : ((index + 1) * 250 - 1)
+          },
+          selected: index === selectedIndex
+        }))
+      };
+    });
+
+    return {
+      schema: "belavados.alignment-export/v1",
+      generatedAt: new Date().toISOString(),
+      app: "Belavadös Alignment Quiz",
+      mode: result.mode,
+      alignment: {
+        name: result.alignment.name,
+        description: result.alignment.description,
+        profile: result.alignment.profile
+      },
+      axisPhaseData,
+      scoreTotals: deepClone(result.scores),
+      match: {
+        exactMatches: result.match?.exactMatches ?? 0,
+        penalty: result.match?.penalty ?? null
+      },
+      sourceSelections: {
+        quick: {
+          race: state.short.race ? {
+            value: state.short.race.value,
+            label: state.short.race.label
+          } : null,
+          alignments: deepClone(state.short.alignments),
+          class: state.short.class,
+          subclass: state.short.subclass
+        },
+        deep: {
+          answerCount: state.deep.choices.length,
+          choices: deepClone(state.deep.choices)
+        }
+      },
+      autofill: {
+        alignmentNameField: result.alignment.name,
+        alignmentDescriptionField: result.alignment.description,
+        axisSelections: Object.fromEntries(axisPhaseData.map(item => [item.axis, {
+          selectedButtonIndex: item.selectedButtonIndex,
+          selectedButtonLabel: item.selectedButtonLabel
+        }]))
+      }
+    };
+  }
+
+  function stringifyAlignmentExport(payload) {
+    return JSON.stringify(payload, null, 2);
+  }
+
+  function downloadTextFile(filename, content, mimeType = "application/json;charset=utf-8") {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function copyAlignmentExport(payloadText) {
+    try {
+      await navigator.clipboard.writeText(payloadText);
+      return true;
+    } catch {
+      const textarea = document.getElementById("alignmentExportJson");
+      if (!textarea) return false;
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } catch {
+        return false;
+      }
+    }
+  }
+
   function renderResult() {
     const result = state.result;
     if (!result) return;
@@ -6269,6 +6405,19 @@ const DATA = {"axisNames": ["altruism", "lawfulness", "cooperation", "honor"], "
             ${renderTracker(result.scores, "Belavadös Axis Totals", previousScores)}
           </div>
         </div>
+
+        <div class="export-panel" aria-label="Export alignment data">
+          <div class="subhead" style="margin-bottom:8px;color:var(--teal2);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem">Export for Character Sheet Builder</div>
+          <p class="muted" style="margin:0">
+            Copy or download a machine-readable JSON payload containing the alignment name, alignment description, and axis phase data.
+          </p>
+          <textarea id="alignmentExportJson" class="export-json" readonly spellcheck="false"></textarea>
+          <div class="results-actions" style="justify-content:flex-start;margin-top:12px">
+            <button type="button" class="secondary" id="copyExportBtn">Copy JSON</button>
+            <button type="button" class="ghost" id="downloadExportBtn">Download JSON</button>
+          </div>
+        </div>
+
         <div class="result-grid" style="margin-top:14px">
           ${renderMatchNotes(result.match)}
           <div class="mini-panel">
@@ -6287,6 +6436,27 @@ const DATA = {"axisNames": ["altruism", "lawfulness", "cooperation", "honor"], "
         </div>
       </div>
     `;
+
+    const exportPayload = buildAlignmentExportPayload();
+    const exportJson = exportPayload ? stringifyAlignmentExport(exportPayload) : "";
+
+    const exportField = document.getElementById("alignmentExportJson");
+    if (exportField) exportField.value = exportJson;
+
+    document.getElementById("copyExportBtn")?.addEventListener("click", async () => {
+      const ok = await copyAlignmentExport(exportJson);
+      const button = document.getElementById("copyExportBtn");
+      if (button) {
+        const original = button.textContent;
+        button.textContent = ok ? "Copied" : "Copy Failed";
+        setTimeout(() => { button.textContent = original; }, 1400);
+      }
+    });
+
+    document.getElementById("downloadExportBtn")?.addEventListener("click", () => {
+      const filename = `belavados-alignment-export-${result.mode}.json`;
+      downloadTextFile(filename, exportJson);
+    });
 
     document.getElementById("resultTryOtherBtn")?.addEventListener("click", () => result.mode === "deep" ? startQuickQuiz() : startDeepQuiz());
     document.getElementById("resultHomeBtn")?.addEventListener("click", showHome);
