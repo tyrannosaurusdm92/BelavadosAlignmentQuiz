@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Belavadös Custom 5e Sheet</title>
+<style>
+:root{
+  --ink:#171717; --soft:#f7f5ef; --paper:#fffdf7; --line:#1e1e1e; --muted:#666; --panel:#ffffff;
+  --bronze:#b97836; --steel:#5f717a; --violet:#6d4c8d; --green:#668f5a; --red:#943f35; --gold:#d1a748;
+  --shadow:0 3px 12px rgba(0,0,0,.12); --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#242424;color:var(--ink);font-family:Georgia,"Times New Roman",serif;}
+body{padding:18px}
+button,input,textarea,select{font:inherit;color:inherit}
+.toolbar{position:sticky;top:0;z-index:20;background:#181818;color:#fff;border-radius:16px;padding:12px;margin:0 auto 18px;max-width:1120px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.toolbar h1{font-size:18px;margin:0 10px 0 0;letter-spacing:.03em}.toolbar button,.toolbar label.filebtn{background:#f3ece0;color:#151515;border:1px solid #66543d;border-radius:999px;padding:8px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}.toolbar button:hover,.toolbar label.filebtn:hover{filter:brightness(.96)}.toolbar input[type=file]{display:none}.hint{font-size:12px;color:#ddd;max-width:1120px;margin:0 auto 10px;line-height:1.35}.sheet{max-width:1120px;margin:auto}.page{background:var(--paper);width:100%;min-height:1420px;margin:0 auto 22px;padding:28px;box-shadow:0 0 0 1px #ddd, var(--shadow);border-radius:12px;position:relative;overflow:hidden}.page:before{content:"";position:absolute;inset:12px;border:2px solid #222;border-radius:18px;pointer-events:none}.page-title{display:flex;justify-content:space-between;gap:14px;align-items:end;border-bottom:4px double #111;margin:0 0 18px;padding-bottom:10px}.page-title h2{margin:0;font-size:28px;text-transform:uppercase;letter-spacing:.08em}.subtle{font-size:12px;color:#555}.grid{display:grid;gap:12px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-6{grid-template-columns:repeat(6,minmax(0,1fr))}.panel{background:rgba(255,255,255,.72);border:2px solid var(--line);border-radius:var(--radius);padding:12px;box-shadow:0 2px 0 rgba(0,0,0,.1);position:relative}.panel h3{margin:0 0 8px;text-transform:uppercase;letter-spacing:.07em;font-size:14px;border-bottom:1px solid #222;padding-bottom:4px}.field{display:flex;flex-direction:column;gap:3px}.field label,.tinylabel{text-transform:uppercase;letter-spacing:.06em;font-size:10px;color:#333;font-weight:bold}.field input,.field textarea,.field select,.lineinput{width:100%;border:0;border-bottom:1px solid #333;background:transparent;padding:6px 4px;min-height:28px}.field textarea{border:1px solid #333;border-radius:8px;min-height:75px;resize:vertical;background:rgba(255,255,255,.45)}.stat-card{text-align:center;border:2px solid #222;border-radius:18px;padding:9px 6px;background:linear-gradient(180deg,#fff,#f1eee8)}.stat-card label{display:block;font-weight:bold;text-transform:uppercase;font-size:11px}.stat-card input.score{font-size:26px;text-align:center;border:0;background:transparent;width:100%;font-weight:bold}.stat-card input.mod{width:58px;border:1px solid #222;border-radius:50%;height:38px;text-align:center;background:#fff}.checkrow{display:flex;gap:7px;align-items:center;margin:3px 0}.bubble{width:14px;height:14px;border:1px solid #111;border-radius:50%;display:inline-block;flex:0 0 auto}.checkrow input[type=checkbox]{width:14px;height:14px}.mini{font-size:12px}.smallinput{max-width:80px;text-align:center}.weapon-row,.spell-row,.inventory-row,.relationship-row{display:grid;gap:7px;align-items:start;margin-bottom:7px}.weapon-row{grid-template-columns:1.4fr .7fr 1fr 1.2fr}.spell-row{grid-template-columns:1.1fr 1.8fr 1fr}.inventory-row{grid-template-columns:1.4fr 1fr .7fr .7fr 1.7fr}.relationship-row{grid-template-columns:.8fr 1fr .8fr 1fr 1fr .75fr 1.4fr}.language-row{display:grid;grid-template-columns:1fr 2fr;gap:8px;align-items:center;margin:8px 0}.fluency{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;background:linear-gradient(90deg,#6f3c35,#b97836,#d1a748,#668f5a,#4c83a0);border:1px solid #222;border-radius:999px;padding:3px;position:relative}.fluency label{font-size:9px;text-align:center;color:#fff;text-shadow:0 1px 1px #000;padding:4px 2px;border-radius:999px;cursor:pointer}.fluency input{display:none}.fluency input:checked+span{outline:2px solid #fff;background:rgba(0,0,0,.33)}.fluency span{display:block;border-radius:999px;padding:3px 1px}.axis{display:grid;grid-template-columns:190px 1fr 86px;gap:10px;align-items:center;margin:10px 0}.axis input[type=range]{width:100%;accent-color:#7c4f9c}.phasebar{height:26px;border-radius:999px;background:linear-gradient(90deg,#6f3131 0 33.3%,#b49b63 33.3% 66.6%,#4f8a6d 66.6% 100%);border:1px solid #222;position:relative;overflow:hidden}.phasebar:after{content:attr(data-phase);position:absolute;inset:0;text-align:center;line-height:24px;font-size:11px;color:#fff;text-shadow:0 1px 2px #000;font-weight:bold}.dicegrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.diebox{border:1px solid #222;border-radius:12px;padding:7px;background:#fff}.diebox strong{display:block;text-align:center}.diebox select{width:48%;font-size:12px}.diebox button{width:100%;margin-top:4px;border:1px solid #222;border-radius:8px;background:#eee;padding:4px}.roll-log{height:110px;overflow:auto;border:1px solid #222;border-radius:8px;background:#fff;padding:6px;font-size:12px}.artgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.artslot{height:260px;border:2px dashed #555;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f2eee6;text-align:center}.artslot img{width:100%;height:100%;object-fit:cover}.tabnote{font-size:11px;color:#444;margin-top:6px}.etc-item{border:1px solid #333;border-radius:10px;padding:8px;margin:7px 0;background:#fff}.pill{display:inline-block;border:1px solid #333;border-radius:999px;padding:2px 7px;background:#f7f2e8;font-size:11px}.slots{display:grid;grid-template-columns:repeat(9,1fr);gap:5px}.slotbox{border:1px solid #222;border-radius:8px;padding:5px;text-align:center}.slotbox input{width:100%;text-align:center;border:0;border-bottom:1px solid #222;background:transparent}.footer-note{position:absolute;bottom:10px;left:28px;right:28px;text-align:center;font-size:10px;color:#555}.no-print{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.death-save-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.death-buttons{display:flex;gap:8px;margin-top:5px}
+.death-btn{width:34px;height:34px;border:2px solid #222;border-radius:50%;background:#fff;cursor:pointer;font-weight:bold}
+.death-btn.active{background:#222;color:#fff;box-shadow:0 0 0 3px rgba(185,120,54,.35)}
+.language-row{display:grid;grid-template-columns:1fr 2.6fr 90px;gap:8px;align-items:center;margin:10px 0}
+.lang-gradient-wrap{display:grid;gap:4px}
+.lang-gradient-wrap input[type=range]{width:100%;accent-color:#668f5a}
+.lang-phasebar{height:28px;border-radius:999px;background:linear-gradient(90deg,#6f3c35 0 20%,#b97836 20% 40%,#d1a748 40% 60%,#668f5a 60% 80%,#4c83a0 80% 100%);border:1px solid #222;position:relative;overflow:hidden}
+.lang-phasebar:after{content:attr(data-phase);position:absolute;inset:0;text-align:center;line-height:26px;font-size:11px;color:#fff;text-shadow:0 1px 2px #000;font-weight:bold}
+.lang-labels{display:grid;grid-template-columns:repeat(5,1fr);font-size:9px;text-align:center;color:#333}
+.dicegrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.diebox{border:2px solid #222;border-radius:14px;padding:9px;background:#fff;display:grid;gap:6px}
+.die-title{display:flex;align-items:center;justify-content:center;gap:5px;font-weight:bold;font-size:17px}
+.die-icon{width:34px;height:34px}
+.die-controls{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.diebox label{font-size:10px;text-transform:uppercase;font-weight:bold}
+.diebox select{width:100%;font-size:15px;min-height:32px;border:1px solid #222;border-radius:8px;background:#fff}
+.diebox button{width:100%;margin-top:2px;border:1px solid #222;border-radius:9px;background:#eee;padding:7px;font-weight:bold}
+.spell-page .page-title{margin-bottom:10px}
+.spell-level-panel{height:calc(100% - 10px)}
+.spell-card{display:grid;grid-template-columns:1fr 2.2fr 1.2fr;gap:8px;align-items:stretch;margin-bottom:8px;border-bottom:1px dotted #999;padding-bottom:7px}
+.spell-card input,.spell-card textarea{width:100%;border:1px solid #333;border-radius:8px;background:#fff;padding:6px}
+.spell-card textarea{min-height:82px;resize:vertical}
+.spell-card .spell-name{min-height:42px}
+.selected-move-controls{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin:8px 0;padding:8px;border:1px solid #333;border-radius:10px;background:#fff}
+
+.appearance-layout .artslot{height:410px}
+.relationship-entry{border:1px solid #333;border-radius:12px;padding:8px;margin-bottom:8px;background:rgba(255,255,255,.55);display:grid;gap:7px;break-inside:avoid}
+.relationship-entry input,.relationship-entry select{width:100%;border:0;border-bottom:1px solid #333;background:transparent;padding:6px 4px;min-height:28px}
+.rel-top{display:grid;grid-template-columns:.8fr 1.25fr .9fr 1.35fr;gap:8px;align-items:end}
+.rel-bottom{display:grid;grid-template-columns:1fr .8fr 2.4fr;gap:8px;align-items:end}
+.rel-field{display:flex;flex-direction:column;gap:3px}
+.rel-field label{text-transform:uppercase;letter-spacing:.06em;font-size:9px;color:#333;font-weight:bold}
+/* First-page dice roller */
+.main-dice-focus{margin-top:12px;min-height:250px}
+.main-dice-focus .dicegrid{grid-template-columns:repeat(6,1fr);gap:12px}
+.main-dice-focus .diebox{min-height:120px}
+.main-dice-focus .roll-log{height:190px;margin-top:10px;font-size:13px}
+
+@media (max-width:850px){body{padding:8px}.page{padding:18px}.grid-2,.grid-3,.grid-4,.grid-6,.weapon-row,.spell-row,.inventory-row,.relationship-row,.rel-top,.rel-bottom,.axis{grid-template-columns:1fr}.dicegrid{grid-template-columns:repeat(2,1fr)}.page-title{display:block}.page-title h2{font-size:20px}}@media print{body{background:white;padding:0}.toolbar,.hint{display:none}.sheet{max-width:none}.page{box-shadow:none;border-radius:0;margin:0;page-break-after:always;min-height:100vh}.page:before{inset:8px}.field textarea{min-height:70px}button{display:none}}
+
+/* Responsive cleanup: desktop, tablet, and mobile */
+@media screen{
+  body{
+    padding:clamp(8px,2vw,18px);
+  }
+  .toolbar,.hint,.sheet{
+    width:min(100%,1120px);
+  }
+  .sheet{
+    max-width:1120px;
+  }
+  .page{
+    min-height:0;
+    height:auto;
+    overflow:visible;
+    padding:clamp(16px,2.5vw,28px);
+    margin-bottom:clamp(14px,2vw,22px);
+  }
+  .page:before{
+    inset:clamp(7px,1.2vw,12px);
+  }
+  .footer-note{
+    position:static;
+    margin-top:12px;
+  }
+  .panel{
+    min-width:0;
+  }
+  input,select,textarea,button{
+    max-width:100%;
+  }
+  textarea{
+    resize:vertical;
+  }
+  .page-title{
+    gap:10px;
+  }
+  .main-dice-focus{
+    min-height:0;
+  }
+  .main-dice-focus .roll-log{
+    min-height:130px;
+  }
+}
+
+/* Desktop: full sheet width with balanced multi-column pages */
+@media screen and (min-width:1101px){
+  .sheet,.toolbar,.hint{
+    max-width:1120px;
+  }
+  .page{
+    border-radius:12px;
+  }
+  .grid-2{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .grid-3{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .grid-4{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .main-dice-focus .dicegrid{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .spell-card{
+    grid-template-columns:1fr 2.2fr 1.2fr;
+  }
+}
+
+/* Tablet: reduce wide rows and prevent overflow */
+@media screen and (min-width:701px) and (max-width:1100px){
+  .toolbar{
+    align-items:flex-start;
+  }
+  .toolbar h1{
+    flex-basis:100%;
+  }
+  .page-title h2{
+    font-size:clamp(22px,3vw,26px);
+  }
+  .grid-4,
+  .grid-3{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .grid-6{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .main-dice-focus .dicegrid,
+  .dicegrid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .weapon-row{
+    grid-template-columns:1.1fr .7fr 1fr 1fr;
+  }
+  .inventory-row{
+    grid-template-columns:1.2fr 1fr .7fr .7fr;
+  }
+  .inventory-row input:nth-child(5),
+  .inventory-row .field:nth-child(5){
+    grid-column:1 / -1;
+  }
+  .language-row{
+    grid-template-columns:1fr;
+  }
+  .rel-top{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .rel-bottom{
+    grid-template-columns:1fr 1fr;
+  }
+  .rel-bottom .rel-field:last-child{
+    grid-column:1 / -1;
+  }
+  .spell-card{
+    grid-template-columns:1fr 1.3fr;
+  }
+  .spell-card textarea:last-child{
+    grid-column:1 / -1;
+  }
+  .appearance-layout .artslot{
+    height:320px;
+  }
+  .artgrid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Mobile: single-column app-like sheet */
+@media screen and (max-width:700px){
+  body{
+    padding:6px;
+  }
+  .toolbar{
+    position:static;
+    border-radius:12px;
+    padding:10px;
+    gap:8px;
+  }
+  .toolbar h1{
+    width:100%;
+    font-size:16px;
+    margin:0;
+  }
+  .toolbar button,
+  .toolbar label.filebtn{
+    width:100%;
+    justify-content:center;
+    border-radius:12px;
+    padding:10px;
+  }
+  .hint{
+    font-size:11px;
+    padding:0 4px;
+  }
+  .page{
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:12px;
+  }
+  .page:before{
+    inset:6px;
+    border-radius:12px;
+  }
+  .page-title{
+    display:block;
+    margin-bottom:12px;
+    padding-bottom:8px;
+  }
+  .page-title h2{
+    font-size:19px;
+    letter-spacing:.04em;
+    line-height:1.15;
+  }
+  .subtle{
+    display:block;
+    margin-top:5px;
+  }
+  .grid,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-6,
+  .weapon-row,
+  .spell-row,
+  .inventory-row,
+  .relationship-row,
+  .rel-top,
+  .rel-bottom,
+  .axis,
+  .language-row,
+  .selected-move-controls{
+    grid-template-columns:1fr !important;
+  }
+  .panel{
+    padding:10px;
+    border-radius:12px;
+  }
+  .field input,
+  .field textarea,
+  .field select,
+  .lineinput,
+  .relationship-entry input,
+  .relationship-entry select{
+    min-height:36px;
+    font-size:16px;
+  }
+  .field label,
+  .tinylabel,
+  .rel-field label{
+    font-size:9px;
+  }
+  .stat-card input.score{
+    font-size:23px;
+  }
+  .stat-card input.mod{
+    width:52px;
+    height:34px;
+  }
+  .death-save-grid{
+    grid-template-columns:1fr;
+  }
+  .death-btn{
+    width:38px;
+    height:38px;
+  }
+  .main-dice-focus .dicegrid,
+  .dicegrid{
+    grid-template-columns:1fr 1fr !important;
+    gap:8px;
+  }
+  .main-dice-focus .diebox,
+  .diebox{
+    min-height:0;
+    padding:8px;
+  }
+  .die-title{
+    font-size:15px;
+  }
+  .die-icon{
+    width:28px;
+    height:28px;
+  }
+  .die-controls{
+    grid-template-columns:1fr;
+  }
+  .diebox select{
+    min-height:36px;
+    font-size:16px;
+  }
+  .main-dice-focus .roll-log{
+    height:150px;
+  }
+  .artgrid{
+    grid-template-columns:1fr;
+  }
+  .appearance-layout .artslot,
+  .artslot{
+    height:260px;
+  }
+  .spell-card{
+    grid-template-columns:1fr !important;
+  }
+  .spell-card textarea{
+    min-height:120px;
+  }
+  .slots{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  textarea[style]{
+    min-height:160px;
+  }
+}
+
+/* Very narrow phones */
+@media screen and (max-width:420px){
+  .main-dice-focus .dicegrid,
+  .dicegrid,
+  .slots{
+    grid-template-columns:1fr !important;
+  }
+  .page{
+    padding:12px;
+  }
+  .panel h3{
+    font-size:12px;
+  }
+}
+
+
+
+
+:root{
+  --ink:#f3ead9;
+  --ink-dark:#27180f;
+  --soft:#f8ecd2;
+  --paper:#ead7ad;
+  --paper-deep:#caa96e;
+  --line:#5b351b;
+  --muted:#8f7a5f;
+  --panel:rgba(49,31,22,.86);
+  --bronze:#c58442;
+  --steel:#7d9197;
+  --violet:#8b65a9;
+  --green:#8fb170;
+  --red:#9e342e;
+  --gold:#e2b866;
+  --shadow:0 18px 46px rgba(0,0,0,.38),0 2px 0 rgba(255,255,255,.04) inset;
+  --radius:18px;
+  --focus:0 0 0 3px rgba(226,184,102,.36);
+}
+html,body{
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 18% 0%,rgba(165,92,41,.23),transparent 35%),
+    radial-gradient(circle at 87% 18%,rgba(101,64,133,.18),transparent 32%),
+    linear-gradient(135deg,#100d0b 0%,#1d1513 48%,#0d1112 100%);
+  font-family:Georgia,"Times New Roman",serif;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.14;
+  background-image:
+    linear-gradient(30deg,rgba(255,255,255,.035) 12%,transparent 12.5%,transparent 87%,rgba(255,255,255,.035) 87.5%,rgba(255,255,255,.035)),
+    linear-gradient(150deg,rgba(255,255,255,.035) 12%,transparent 12.5%,transparent 87%,rgba(255,255,255,.035) 87.5%,rgba(255,255,255,.035));
+  background-size:54px 94px;
+}
+.toolbar{
+  background:linear-gradient(180deg,rgba(43,28,21,.98),rgba(22,18,18,.98));
+  border:1px solid rgba(226,184,102,.55);
+  box-shadow:var(--shadow);
+}
+.toolbar h1{
+  color:#f9e6bd;
+  text-shadow:0 2px 0 #000;
+}
+.toolbar button,.toolbar label.filebtn{
+  background:linear-gradient(180deg,#f3dec0,#b8864e);
+  color:#21140d;
+  border:1px solid #f1c97a;
+  box-shadow:0 2px 0 rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.45);
+  font-weight:bold;
+}
+.toolbar button:hover,.toolbar label.filebtn:hover{filter:brightness(1.08)}
+.hint{color:#e8d9bd;background:rgba(25,18,15,.6);border:1px solid rgba(226,184,102,.25);border-radius:12px;padding:10px 12px}
+.page{
+  color:var(--ink-dark);
+  background:
+    radial-gradient(circle at 12% 12%,rgba(255,255,255,.34),transparent 20%),
+    radial-gradient(circle at 90% 18%,rgba(116,68,22,.18),transparent 32%),
+    radial-gradient(circle at 10% 88%,rgba(63,39,18,.16),transparent 28%),
+    linear-gradient(120deg,rgba(255,255,255,.2),transparent 25%,rgba(90,48,18,.1) 52%,transparent 75%),
+    linear-gradient(180deg,#f3e2bb,#d3b77d 48%,#e8d2a3);
+  border:1px solid rgba(67,38,20,.9);
+  box-shadow:0 22px 55px rgba(0,0,0,.45),0 0 0 6px rgba(36,23,16,.75),inset 0 0 80px rgba(76,39,16,.18);
+}
+.page:before{
+  border:0;
+  background:
+    linear-gradient(#6f3a1e,#6f3a1e) top left/70px 3px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) top left/3px 70px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) top right/70px 3px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) top right/3px 70px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) bottom left/70px 3px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) bottom left/3px 70px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) bottom right/70px 3px no-repeat,
+    linear-gradient(#6f3a1e,#6f3a1e) bottom right/3px 70px no-repeat;
+  box-shadow:inset 0 0 0 1px rgba(111,58,30,.55), inset 0 0 0 8px rgba(255,247,219,.16);
+}
+.page-title{
+  align-items:center;
+  border-bottom:0;
+  background:linear-gradient(90deg,rgba(50,29,18,.92),rgba(94,48,22,.72),rgba(50,29,18,.92));
+  color:#fff3d8;
+  border:1px solid rgba(248,209,132,.58);
+  border-radius:16px;
+  padding:12px 16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.12);
+}
+.page-title h2{
+  font-size:clamp(21px,2.4vw,30px);
+  text-shadow:0 2px 0 rgba(0,0,0,.7);
+}
+.subtle{color:#f0d9af;line-height:1.3}
+.panel{
+  color:#f5e8cc;
+  background:
+    linear-gradient(180deg,rgba(63,41,29,.94),rgba(34,24,20,.94)),
+    linear-gradient(90deg,rgba(226,184,102,.12),transparent);
+  border:1px solid rgba(226,184,102,.48);
+  box-shadow:var(--shadow);
+}
+.panel:after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid rgba(255,232,185,.11);
+  border-radius:calc(var(--radius) - 6px);
+  pointer-events:none;
+}
+.panel h3{
+  color:#ffe7b8;
+  border-bottom:1px solid rgba(226,184,102,.45);
+  padding-bottom:7px;
+  margin-bottom:12px;
+  text-shadow:0 1px 1px #000;
+}
+.field{gap:6px;min-width:0}
+.field label,.tinylabel,.rel-field label,.diebox label{
+  color:#f3d89f;
+  line-height:1.2;
+  letter-spacing:.08em;
+}
+.field input,.field textarea,.field select,.lineinput,
+.relationship-entry input,.relationship-entry select,
+.spell-card input,.spell-card textarea,
+textarea[style], .diebox select, .slotbox input,
+.weapon-row input,.inventory-row input,.language-row input{
+  color:#27180f;
+  background:linear-gradient(180deg,rgba(255,249,232,.96),rgba(232,211,167,.95));
+  border:1px solid rgba(83,48,25,.78);
+  border-radius:9px;
+  padding:8px 9px;
+  box-shadow:inset 0 1px 4px rgba(51,27,12,.15);
+}
+.field input:focus,.field textarea:focus,.field select:focus,
+.relationship-entry input:focus,.relationship-entry select:focus,
+.spell-card input:focus,.spell-card textarea:focus,
+textarea:focus,input:focus,select:focus{
+  outline:none;
+  box-shadow:var(--focus), inset 0 1px 4px rgba(51,27,12,.15);
+}
+.field textarea, textarea[style], .spell-card textarea{line-height:1.35}
+.stat-card{
+  background:
+    radial-gradient(circle at top,rgba(255,255,255,.45),transparent 42%),
+    linear-gradient(180deg,#f4e2b9,#c7a566);
+  border:1px solid #6f3a1e;
+  box-shadow:0 6px 16px rgba(0,0,0,.24),inset 0 0 0 4px rgba(255,250,228,.22);
+}
+.stat-card label{color:#3c2113;line-height:1.15}
+.stat-card input.score,.stat-card input.mod{color:#21140d;background:rgba(255,250,230,.68);border:1px solid rgba(83,48,25,.55)}
+.checkrow{
+  color:#f4e4c5;
+  gap:8px;
+  padding:4px 0;
+  align-items:center;
+}
+.checkrow input[type=checkbox]{accent-color:#c58442;flex:0 0 auto}
+.checkrow input:not([type=checkbox]){min-width:72px}
+.weapon-row,.inventory-row,.relationship-entry,.etc-item,.diebox,.slotbox{
+  background:rgba(255,246,220,.09);
+  border-color:rgba(226,184,102,.38);
+}
+.relationship-entry{box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.language-row{align-items:end}
+.lang-phasebar,.phasebar{
+  border-color:rgba(255,230,178,.7);
+  box-shadow:inset 0 1px 6px rgba(0,0,0,.35),0 1px rgba(255,255,255,.08);
+}
+.lang-labels{color:#f3d89f;gap:4px}
+input[type=range]{accent-color:#c58442}
+.diebox{
+  position:relative;
+  overflow:hidden;
+  color:#f6e6c7;
+  background:radial-gradient(circle at 50% 0%,rgba(226,184,102,.2),transparent 48%),linear-gradient(180deg,rgba(52,34,25,.96),rgba(24,19,18,.96));
+  border:1px solid rgba(226,184,102,.5);
+}
+.diebox button{
+  color:#20130c;
+  background:linear-gradient(180deg,#f5deb3,#bd8345);
+  border:1px solid #f0c87a;
+  box-shadow:0 2px 0 rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.35);
+}
+.die-title{color:#ffe2a2;text-shadow:0 2px 0 #000}
+.die-icon{filter:drop-shadow(0 3px 4px rgba(0,0,0,.42));transform-origin:50% 50%}
+.die-icon polygon{fill:#f8e6bd;stroke:#5f351c}
+.die-icon text{fill:#2b180f}
+.diebox.rolling .die-icon{animation:dieTumble .62s cubic-bezier(.2,.8,.25,1)}
+.diebox.rolling{box-shadow:0 0 0 3px rgba(226,184,102,.25),0 12px 28px rgba(0,0,0,.4)}
+.result-burst{
+  position:absolute;
+  right:10px;
+  top:9px;
+  min-width:34px;
+  height:34px;
+  padding:0 8px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:radial-gradient(circle,#fff1bf,#d89a47);
+  color:#20130c;
+  border:1px solid #fff0b7;
+  font-weight:bold;
+  box-shadow:0 6px 16px rgba(0,0,0,.4);
+  animation:resultPop .75s ease both;
+}
+.roll-log{
+  color:#24150d;
+  background:linear-gradient(180deg,#fff4d6,#dcc18a);
+  border:1px solid rgba(83,48,25,.76);
+  box-shadow:inset 0 1px 6px rgba(51,27,12,.16);
+}
+.roll-log div{
+  padding:5px 7px;
+  border-bottom:1px dotted rgba(83,48,25,.35);
+}
+.artslot{
+  color:#e9d5aa;
+  background:linear-gradient(135deg,rgba(33,24,20,.95),rgba(73,45,28,.8)),repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);
+  border:1px dashed rgba(226,184,102,.65);
+  box-shadow:inset 0 0 35px rgba(0,0,0,.36);
+}
+.pill{background:#ebc786;color:#26160e;border-color:#7b4823;font-weight:bold}
+.footer-note{color:#634221}
+::placeholder{color:#725638;opacity:.85}
+@keyframes dieTumble{
+  0%{transform:rotate(0deg) scale(1)}
+  22%{transform:rotate(-28deg) scale(1.18) translateY(-5px)}
+  52%{transform:rotate(405deg) scale(.94) translateY(3px)}
+  78%{transform:rotate(690deg) scale(1.08)}
+  100%{transform:rotate(720deg) scale(1)}
+}
+@keyframes resultPop{
+  0%{opacity:0;transform:translateY(8px) scale(.55)}
+  45%{opacity:1;transform:translateY(-3px) scale(1.08)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@media print{
+  html,body{background:white;color:#111}
+  body:before{display:none}
+  .page{box-shadow:none;background:#fffdf7;color:#111;border:0}
+  .panel{background:#fffdf7;color:#111;border:2px solid #222;box-shadow:none}
+  .panel h3,.field label,.tinylabel,.rel-field label,.diebox label{color:#111;text-shadow:none}
+  .page-title{background:#fffdf7;color:#111;border:0;border-bottom:4px double #111;box-shadow:none}
+  .field input,.field textarea,.field select,.lineinput,.relationship-entry input,.relationship-entry select,.spell-card input,.spell-card textarea,textarea[style],.diebox select,.slotbox input,.weapon-row input,.inventory-row input,.language-row input{background:#fff;color:#111}
+}
+
+
+
+.phasebar{
+  background:linear-gradient(90deg,#d83a3a 0%,#f07b2f 14%,#f1d54a 28%,#52b769 42%,#3bbec5 56%,#407fe0 70%,#7b48c7 84%,#d752a9 100%) !important;
+}
+.lang-phasebar{
+  background:linear-gradient(90deg,#d83a3a 0%,#f07b2f 16%,#f1d54a 32%,#52b769 50%,#3bbec5 66%,#407fe0 82%,#7b48c7 100%) !important;
+}
+.die-icon{width:41px !important;height:41px !important;}
+.die-title{font-size:19px;}
+.diebox{min-width:0;}
+.main-dice-focus .diebox{min-height:128px;}
+@media screen and (max-width:700px){.die-icon{width:34px !important;height:34px !important}.die-title{font-size:16px}.main-dice-focus .diebox{min-height:0}}
+
+
+
+/* Belavadös final contrast, rainbow sliders, and black animated dice */
+.page, .stat-card, .slotbox input, .roll-log, .field input, .field textarea, .field select, .lineinput,
+.relationship-entry input, .relationship-entry select, .spell-card input, .spell-card textarea,
+textarea[style], .diebox select, .weapon-row input, .inventory-row input, .language-row input{
+  color:#27180f;
+}
+.panel, .toolbar, .diebox{color:#f8eed8;}
+.panel h3, .field label, .tinylabel, .rel-field label, .diebox label, .lang-labels{color:#fff0c8;}
+.phasebar{
+  min-height:32px;
+  background:linear-gradient(90deg,#c51f30 0%,#f06a21 14%,#ffd93a 28%,#4dbb5f 42%,#20b8c6 56%,#3577db 70%,#7d45c6 84%,#d747a4 100%) !important;
+}
+.phasebar:after{line-height:30px;font-size:12px;color:#fff;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #000;}
+.lang-phasebar{
+  min-height:32px;
+  background:linear-gradient(90deg,#c51f30 0%,#f06a21 16%,#ffd93a 32%,#4dbb5f 50%,#20b8c6 66%,#3577db 82%,#7d45c6 100%) !important;
+}
+.lang-phasebar:after{line-height:30px;font-size:12px;color:#fff;font-weight:800;text-shadow:0 1px 3px #000,0 0 4px #000;}
+.lang-labels span{background:rgba(0,0,0,.28);border-radius:999px;padding:2px 4px;color:#fff7df;text-shadow:0 1px 2px #000;}
+.axis-labels{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;font-size:8px;line-height:1.05;color:#fff3cf;text-align:center;margin-top:3px;}
+.axis-labels span{background:rgba(0,0,0,.28);border-radius:7px;padding:3px 2px;min-height:24px;display:flex;align-items:center;justify-content:center;text-shadow:0 1px 2px #000;}
+.dicegrid{grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+.main-dice-focus .dicegrid{grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+.die-icon{width:41px !important;height:41px !important;}
+.die-title{font-size:19px;}
+.die-icon polygon{fill:#050505 !important;stroke:#ffffff !important;stroke-width:5 !important;}
+.die-icon text{fill:#ffffff !important;font-family:Arial,Helvetica,sans-serif !important;font-weight:900 !important;}
+.diebox.rolling .die-icon{animation:dieTumble .72s cubic-bezier(.2,.8,.25,1);}
+.main-dice-focus .diebox{min-height:128px;overflow:hidden;}
+@media screen and (max-width:700px){
+  .dicegrid,.main-dice-focus .dicegrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .die-icon{width:34px !important;height:34px !important;}
+  .die-title{font-size:16px;}
+}
+@media screen and (max-width:420px){.dicegrid,.main-dice-focus .dicegrid{grid-template-columns:1fr !important;}}
+
+
+
+/* Final requested contrast fixes and original design features */
+:root{
+  --belavados-brown:#2f1b10;
+  --belavados-deep-brown:#1f120b;
+  --belavados-cream:#fff3d4;
+  --belavados-parchment:#ead2a0;
+}
+
+/* Light parchment areas: labels and controls must be black/brown */
+#page-main > .grid > .field label,
+#page-appearance > .grid > .field label,
+#page-spell-index > .grid > .field label,
+#page-spell-index .grid.grid-4 > .field label,
+#page-etc .selected-move-controls label,
+.death-save-grid .tinylabel,
+.death-btn,
+.selected-move-controls select,
+.selected-move-controls select option,
+.selected-move-controls button{
+  color:var(--belavados-brown) !important;
+  text-shadow:none !important;
+}
+
+.death-btn{
+  background:linear-gradient(180deg,#fff8e7,#d7b879) !important;
+  border:2px solid #3b2112 !important;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:900;
+}
+.death-btn.active{
+  background:linear-gradient(180deg,#3b2112,#130a05) !important;
+  color:#fff7df !important;
+  border-color:#f1d69a !important;
+}
+.selected-move-controls{
+  background:linear-gradient(180deg,#fff2cf,#d9bc7e) !important;
+  border:1px solid #5d351b !important;
+}
+.selected-move-controls select,
+.selected-move-controls button{
+  background:linear-gradient(180deg,#fffaf0,#e1c386) !important;
+  border:1px solid #4c2a16 !important;
+  font-weight:800;
+}
+.selected-move-controls button:hover{filter:brightness(1.05)}
+
+/* Dark panels: helper/instruction copy must stay cream/white */
+.panel .tabnote,
+.panel .mini,
+#page-bio .tabnote,
+#page-etc .mini{
+  color:var(--belavados-cream) !important;
+  text-shadow:0 1px 2px #000;
+}
+
+/* Replace flat dark-cream feel with layered parchment texture made only from CSS gradients. */
+.page{
+  background:
+    radial-gradient(circle at 10% 16%,rgba(255,255,255,.42),transparent 18%),
+    radial-gradient(circle at 88% 9%,rgba(105,57,22,.18),transparent 28%),
+    radial-gradient(circle at 22% 92%,rgba(82,44,17,.14),transparent 24%),
+    repeating-linear-gradient(8deg,rgba(83,49,20,.055) 0 2px,transparent 2px 9px),
+    repeating-linear-gradient(96deg,rgba(255,255,255,.08) 0 1px,transparent 1px 7px),
+    linear-gradient(180deg,#f7e5bd 0%,#d9b979 48%,#efd6a5 100%) !important;
+}
+.page > *{position:relative;z-index:2;}
+.page:before{z-index:1;}
+.page:after{
+  content:"";
+  position:absolute;
+  right:22px;
+  bottom:18px;
+  width:min(34vw,280px);
+  height:min(20vw,150px);
+  pointer-events:none;
+  opacity:.09;
+  z-index:0;
+  background:
+    radial-gradient(ellipse at 54% 55%,#1d0f08 0 11%,transparent 12%),
+    radial-gradient(ellipse at 39% 49%,#1d0f08 0 7%,transparent 8%),
+    radial-gradient(ellipse at 67% 49%,#1d0f08 0 7%,transparent 8%),
+    linear-gradient(23deg,transparent 0 35%,#1d0f08 36% 45%,transparent 46%),
+    linear-gradient(-23deg,transparent 0 35%,#1d0f08 36% 45%,transparent 46%),
+    conic-gradient(from 235deg at 38% 55%,transparent 0 18deg,#1d0f08 19deg 70deg,transparent 71deg),
+    conic-gradient(from 55deg at 62% 55%,transparent 0 18deg,#1d0f08 19deg 70deg,transparent 71deg);
+  filter:blur(.1px);
+}
+.page-title{
+  position:relative;
+  overflow:hidden;
+}
+.page-title:after{
+  content:"";
+  flex:0 0 auto;
+  width:78px;
+  height:34px;
+  margin-left:auto;
+  opacity:.58;
+  background:
+    radial-gradient(ellipse at 50% 58%,#fff1c2 0 10%,transparent 11%),
+    linear-gradient(24deg,transparent 0 30%,#fff1c2 31% 45%,transparent 46%),
+    linear-gradient(-24deg,transparent 0 30%,#fff1c2 31% 45%,transparent 46%),
+    conic-gradient(from 235deg at 36% 54%,transparent 0 20deg,#fff1c2 21deg 72deg,transparent 73deg),
+    conic-gradient(from 55deg at 64% 54%,transparent 0 20deg,#fff1c2 21deg 72deg,transparent 73deg);
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.65));
+}
+
+/* Keep black animated dice with white Arial text visible while rolling. */
+.die-icon polygon{fill:#000 !important;stroke:#fff !important;stroke-width:5 !important;}
+.die-icon text{fill:#fff !important;font-family:Arial, Helvetica, sans-serif !important;font-weight:900 !important;}
+.diebox.rolling .die-icon{animation:dieTumble .72s cubic-bezier(.2,.8,.25,1) !important;}
+
+
+/* Hard final fix: Monk top-row labels sit on light parchment, so they must be brown/black. */
+html body #page-monk > .grid.grid-3 > .field > label,
+html body #page-monk > div.grid.grid-3 > div.field > label,
+html body section#page-monk .page-title + .grid.grid-3 .field label,
+html body section#page-monk .grid.grid-3:first-of-type .field label{
+  color:#2f1b10 !important;
+  text-shadow:none !important;
+  background:rgba(255,244,214,.72);
+  border:1px solid rgba(76,42,22,.28);
+  border-radius:999px;
+  padding:3px 7px;
+  display:inline-block;
+  width:max-content;
+  max-width:100%;
+}
+
+/* Make the art boxes visibly interactive and keyboard-focusable once JS attaches behavior. */
+html body .artslot{
+  cursor:pointer;
+  user-select:none;
+}
+html body .artslot:focus,
+html body .artslot:hover{
+  outline:3px solid rgba(255,232,185,.75);
+  outline-offset:3px;
+  filter:brightness(1.06);
+}
+html body .artslot::before{
+  content:"Click to upload JPG, PNG, or GIF";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  padding:6px 8px;
+  border-radius:999px;
+  background:rgba(20,12,7,.72);
+  color:#fff3d4;
+  font-size:11px;
+  line-height:1.1;
+  text-align:center;
+  opacity:.9;
+  pointer-events:none;
+}
+html body .artslot:has(img)::before{
+  content:"Click to replace image";
+}
+
+
+/* Alignment phase spectrum */
+.art-file-input{display:none !important;}
+#alignmentAxes{display:grid;gap:18px;margin-top:14px;}
+.alignment-axis{
+  display:grid;
+  gap:8px;
+  padding:10px;
+  border:1px solid rgba(226,184,102,.45);
+  border-radius:16px;
+  background:rgba(255,246,220,.08);
+}
+.axis-heading{
+  display:grid;
+  grid-template-columns:minmax(160px,1fr) minmax(180px,1.25fr) auto;
+  gap:10px;
+  align-items:center;
+}
+.axis-heading strong{
+  color:#ffe7b8;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-size:13px;
+  text-shadow:0 1px 2px #000;
+}
+.axis-heading span{
+  color:#fff3d4;
+  font-size:12px;
+  text-align:center;
+  text-shadow:0 1px 2px #000;
+}
+.axis-heading output{
+  color:#2f1b10;
+  background:linear-gradient(180deg,#fff8e7,#d7b879);
+  border:1px solid #5d351b;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:900;
+  min-width:128px;
+  text-align:center;
+}
+.axis-track-wrap{position:relative;min-height:84px;}
+.alignment-phasebar{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:0;
+  width:100%;
+  min-height:58px;
+  border:1px solid rgba(255,230,178,.85);
+  border-radius:18px;
+  overflow:hidden;
+  background:none !important;
+  box-shadow:inset 0 1px 6px rgba(0,0,0,.35),0 1px rgba(255,255,255,.08);
+}
+.alignment-phasebar:after{content:none !important;}
+.phase-cell{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:58px;
+  padding:5px 4px 14px;
+  color:#fff;
+  font-size:8px;
+  line-height:1.05;
+  text-align:center;
+  text-shadow:0 1px 3px #000,0 0 4px #000;
+  border-right:1px solid rgba(255,255,255,.42);
+  user-select:none;
+  cursor:pointer;
+  box-shadow:inset 0 18px 22px rgba(255,255,255,.12), inset 0 -18px 22px rgba(0,0,0,.18);
+}
+.phase-cell:last-child{border-right:0;}
+.phase-cell[data-zone="low"],.phase-cell[data-zone="neutral"],.phase-cell[data-zone="high"]{background:var(--phase-color,#2E3133);}
+.phase-cell.active{
+  outline:3px solid #fff8cf;
+  outline-offset:-4px;
+  box-shadow:inset 0 0 0 2px #2f1b10, inset 0 0 24px rgba(255,255,255,.32);
+  z-index:2;
+}
+.phase-cell.active:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:3px;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:7px solid transparent;
+  border-right:7px solid transparent;
+  border-top:12px solid #fff8cf;
+  filter:drop-shadow(0 1px 2px #000);
+}
+.phase-cell.active:after{
+  content:"◆";
+  position:absolute;
+  left:50%;
+  bottom:1px;
+  transform:translateX(-50%);
+  color:#fff8cf;
+  font-size:14px;
+  line-height:1;
+  text-shadow:0 1px 3px #000,0 0 4px #000;
+}
+.axis-range{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:28px;
+  margin:0;
+  background:transparent;
+  accent-color:#fff8cf;
+  cursor:grab;
+}
+.axis-range:active{cursor:grabbing;}
+.axis-range::-webkit-slider-runnable-track{height:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,230,178,.75);border-radius:999px;}
+.axis-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:#fff8cf;border:3px solid #2f1b10;box-shadow:0 0 0 2px rgba(255,255,255,.7),0 2px 7px rgba(0,0,0,.8);}
+.axis-range::-moz-range-track{height:8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,230,178,.75);border-radius:999px;}
+.axis-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff8cf;border:3px solid #2f1b10;box-shadow:0 0 0 2px rgba(255,255,255,.7),0 2px 7px rgba(0,0,0,.8);}
+.axis-pole-labels{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  color:#fff3d4;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  text-align:center;
+  text-shadow:0 1px 2px #000;
+}
+@media screen and (max-width:700px){
+  .axis-heading{grid-template-columns:1fr;}
+  .axis-heading span{text-align:left;}
+  .axis-heading output{width:max-content;max-width:100%;}
+  .alignment-phasebar{grid-template-columns:repeat(3,minmax(0,1fr));border-radius:14px;}
+  .phase-cell{min-height:46px;font-size:9px;padding-bottom:13px;}
+  .axis-track-wrap{min-height:230px;}
+  .axis-range{bottom:-2px;}
+}
+
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+  <h1>Belavadös Custom 5e Sheet</h1>
+  <label class="filebtn">Upload alignment JSON<input id="alignmentUpload" type="file" accept="application/json,.json"></label>
+  <button onclick="saveJSON()">Download data JSON</button><button onclick="window.print()">Print / Save PDF</button><button onclick="resetSheet()">Reset Sheet</button>
+</div>
+<input class="art-file-input" id="art1" type="file" accept="image/jpeg,image/jpg,image/png,image/gif,.jpg,.jpeg,.png,.gif">
+<input class="art-file-input" id="art2" type="file" accept="image/jpeg,image/jpg,image/png,image/gif,.jpg,.jpeg,.png,.gif">
+<p class="hint no-print">Belavadös Custom 5e Sheet created by William Saville AKA The Transgender T-Rex #TheTransgenderTRex. Click character art boxes to add JPG, PNG, or GIF images. Upload alignment JSON results, download sheet data, print or save as PDF, and move unmatched notes manually on the “Extra Information (Not Otherwise Specified)” page.</p>
+<div class="sheet" id="sheet">
+<section class="page" id="page-main"><div class="page-title"><h2>Character Sheet</h2><span class="subtle">Belavadös Custom 5e Sheet created by William Saville AKA The Transgender T-Rex #TheTransgenderTRex</span></div>
+<div class="grid grid-3"><div class="field"><label>Character Name</label><input data-key="character name" id="characterName"></div><div class="field"><label>Character Pronouns</label><input data-key="character pronouns"></div><div class="field"><label>Player Name</label><input data-key="player name"></div><div class="field"><label>Player Pronouns</label><input data-key="player pronouns"></div><div class="field"><label>Race</label><input data-key="race"></div><div class="field"><label>Background</label><input data-key="background"></div><div class="field"><label>Primary Class & Level</label><input data-key="primary class level"></div><div class="field"><label>Secondary Class & Level</label><input data-key="secondary class level"></div><div class="field"><label>Experience Points</label><input data-key="experience points"></div></div>
+<div class="grid grid-2" style="margin-top:12px"><div class="panel"><h3>Core Numbers</h3><div class="grid grid-3"><div class="field"><label>Armor Class</label><input data-key="armor class"></div><div class="field"><label>Initiative</label><input data-key="initiative"></div><div class="field"><label>Speed</label><input data-key="speed"></div><div class="field"><label>Proficiency Bonus</label><input data-key="proficiency bonus"></div><div class="field"><label>Passive Perception</label><input data-key="passive wisdom perception"></div><div class="field"><label>Inspiration</label><input data-key="inspiration"></div></div></div><div class="panel"><h3>Hit Points</h3><div class="grid grid-2"><div class="field"><label>HP Maximum</label><input data-key="hit point maximum"></div><div class="field"><label>Current HP</label><input data-key="current hit points"></div><div class="field"><label>Temporary HP</label><input data-key="temporary hit points"></div><div class="field"><label>Hit Dice</label><input data-key="hit dice"></div></div><div class="death-save-grid"><div><span class="tinylabel">Death Save Successes</span><div class="death-buttons" id="deathSuccesses"><button type="button" class="death-btn" data-save="success" data-index="1" onclick="toggleDeathSave(this)">1</button><button type="button" class="death-btn" data-save="success" data-index="2" onclick="toggleDeathSave(this)">2</button><button type="button" class="death-btn" data-save="success" data-index="3" onclick="toggleDeathSave(this)">3</button></div><input type="hidden" data-key="death save successes" id="deathSaveSuccessValue" value="0"></div><div><span class="tinylabel">Death Save Failures</span><div class="death-buttons" id="deathFailures"><button type="button" class="death-btn" data-save="failure" data-index="1" onclick="toggleDeathSave(this)">1</button><button type="button" class="death-btn" data-save="failure" data-index="2" onclick="toggleDeathSave(this)">2</button><button type="button" class="death-btn" data-save="failure" data-index="3" onclick="toggleDeathSave(this)">3</button></div><input type="hidden" data-key="death save failures" id="deathSaveFailureValue" value="0"></div></div></div></div>
+<div class="grid grid-3" style="margin-top:12px"><div class="panel"><h3>Ability Scores</h3><div class="grid grid-2" id="stats"></div></div><div class="panel"><h3>Saving Throws</h3><div id="saves"></div></div><div class="panel"><h3>Skills</h3><div id="skills"></div></div></div>
+<div class="panel" style="margin-top:12px"><h3>Belavadös Alignment</h3><div class="grid grid-2"><div class="field"><label>Belavadös Alignment Name</label><input data-key="alignment name" id="alignmentName"></div><div class="field"><label>Alignment Description</label><textarea data-key="alignment description" id="alignmentDescription"></textarea></div></div><div id="alignmentAxes"></div></div><div class="panel main-dice-focus"><h3>Dice Roller</h3><div class="dicegrid" id="diceGrid"></div><div class="roll-log" id="rollLog" aria-live="polite"></div></div><div class="footer-note">Expanded non-commercial character record sheet. Dark parchment theme uses CSS/SVG decoration only.</div></section>
+<section class="page" id="page-appearance"><div class="page-title"><h2>Appearance & Art</h2><span class="subtle">Character art, physical details, and appearance notes kept together</span></div><div class="grid grid-3"><div class="field"><label>Age</label><input data-key="age"></div><div class="field"><label>Height</label><input data-key="height"></div><div class="field"><label>Weight</label><input data-key="weight"></div><div class="field"><label>Eyes</label><input data-key="eyes"></div><div class="field"><label>Skin</label><input data-key="skin"></div><div class="field"><label>Hair</label><input data-key="hair"></div></div><div class="grid grid-2 appearance-layout" style="margin-top:12px"><div class="panel"><h3>Character Art</h3><div class="artgrid"><div class="artslot" id="artSlot1">Art 1</div><div class="artslot" id="artSlot2">Art 2</div></div></div><div class="panel"><h3>Character Appearance</h3><textarea data-key="character appearance" style="width:100%;min-height:410px" placeholder="Face, build, clothing, scars, tattoos, gear style, aura, movement, and other visual details..."></textarea></div></div></section>
+<section class="page" id="page-character-notes"><div class="page-title"><h2>Personality, Features, Weapons</h2><span class="subtle">Personality notes, traits, features, and combat options</span></div><div class="grid grid-2"><div class="panel"><h3>Personality</h3><div class="field"><label>Personality Traits</label><textarea data-key="personality traits"></textarea></div><div class="field"><label>Ideals</label><textarea data-key="ideals"></textarea></div><div class="field"><label>Bonds</label><textarea data-key="bonds"></textarea></div><div class="field"><label>Flaws</label><textarea data-key="flaws"></textarea></div></div><div class="panel"><h3>Features & Traits</h3><textarea data-key="features traits" style="width:100%;min-height:420px;border:1px solid #222;border-radius:8px;background:#fff" placeholder="Race, class, background, feat, homebrew, and campaign features..."></textarea></div></div><div class="panel" style="margin-top:12px"><h3>Weapons and Attacks</h3><div class="weapon-row tinylabel"><span>Name</span><span>Attack Bonus</span><span>Damage / Type</span><span>Notes / Range</span></div><div id="weapons"></div></div><div class="grid grid-2" style="margin-top:12px"><div class="panel"><h3>Equipment</h3><textarea data-key="equipment" style="width:100%;min-height:180px;border:1px solid #222;border-radius:8px;background:#fff" placeholder="Equipped armor, shields, tools, worn gear, packs, ammunition, and quick-use items..."></textarea></div><div class="panel"><h3>Attacks &amp; Spellcasting</h3><textarea data-key="attacks spellcasting" style="width:100%;min-height:180px;border:1px solid #222;border-radius:8px;background:#fff" placeholder="Attack routines, spellcasting notes, prepared combat options, save DCs, special damage, and action economy reminders..."></textarea></div></div><div class="panel" style="margin-top:12px"><h3>Other Proficiencies</h3><textarea data-key="other proficiencies" style="width:100%;min-height:145px;border:1px solid #222;border-radius:8px;background:#fff" placeholder="Armor, weapon, tool, vehicle, gaming set, language, class, race, background, and homebrew proficiencies..."></textarea></div></section>
+<section class="page" id="page-bio"><div class="page-title"><h2>Languages, Relationships, Backstory</h2></div><div class="grid grid-2"><div class="panel"><h3>Languages and Fluency</h3><div id="languages"></div><p class="tabnote">Each language uses an alignment-style gradient slider: understand, speak, read, write, fully fluent.</p></div><div class="panel"><h3>Character Backstory</h3><textarea data-key="character backstory" style="width:100%;min-height:390px" placeholder="Origin, family, history, turning points, secrets, goals, fears, and campaign hooks..."></textarea></div></div><div class="panel" style="margin-top:12px"><h3>Relationships, Allies, and Organizations</h3><p class="tabnote">Each entry uses two lines so status and notes have enough room and do not overflow.</p><div id="relationships"></div></div></section>
+<section class="page" id="page-inventory"><div class="page-title"><h2>Inventory</h2><span class="subtle">Full-page item tracking</span></div><div class="grid grid-5"></div><div class="panel"><h3>Currency</h3><div class="grid grid-5" style="grid-template-columns:repeat(5,1fr)"><div class="field"><label>CP</label><input data-key="cp"></div><div class="field"><label>SP</label><input data-key="sp"></div><div class="field"><label>EP</label><input data-key="ep"></div><div class="field"><label>GP</label><input data-key="gp"></div><div class="field"><label>PP</label><input data-key="pp"></div></div></div><div class="panel" style="margin-top:12px"><h3>Inventory Items</h3><div class="inventory-row tinylabel"><span>Item</span><span>Location</span><span>Cost</span><span>Weight</span><span>Notes</span></div><div id="inventory"></div></div><div class="panel" style="margin-top:12px"><h3>Treasure</h3><textarea data-key="treasure" style="width:100%;min-height:190px;border:1px solid #222;border-radius:8px;background:#fff" placeholder="Coins, gems, art objects, valuables, magic items, trophies, rewards, and stored wealth..."></textarea></div></section>
+<section class="page" id="page-spell-index"><div class="page-title"><h2>Spellcasting Overview</h2></div><div class="grid grid-4"><div class="field"><label>Spellcasting Class 1</label><input data-key="spellcasting class 1"></div><div class="field"><label>Ability 1</label><input data-key="spellcasting ability 1"></div><div class="field"><label>Save DC 1</label><input data-key="spell save dc 1"></div><div class="field"><label>Attack Bonus 1</label><input data-key="spell attack bonus 1"></div><div class="field"><label>Spellcasting Class 2</label><input data-key="spellcasting class 2"></div><div class="field"><label>Ability 2</label><input data-key="spellcasting ability 2"></div><div class="field"><label>Save DC 2</label><input data-key="spell save dc 2"></div><div class="field"><label>Attack Bonus 2</label><input data-key="spell attack bonus 2"></div></div><div class="panel" style="margin-top:12px"><h3>Spell Slots</h3><div class="slots" id="slots"></div></div><div class="panel" style="margin-top:12px"><h3>Spell Notes</h3><textarea data-key="spell notes" style="width:100%;min-height:650px"></textarea></div></section>
+<div id="spellPages"></div>
+<section class="page" id="page-monk"><div class="page-title"><h2>Monk Ki / Focus Points</h2><span class="subtle">For 2014 5e monk Ki tracking, adaptable for homebrew Focus/Discipline points</span></div><div class="grid grid-3"><div class="field"><label>Monk Subclass / Tradition</label><input data-key="monk subclass"></div><div class="field"><label>Monk Level</label><input data-key="monk level" id="monkLevel" type="number" min="0" max="20"></div><div class="field"><label>Ki / Focus Point Maximum</label><input data-key="ki maximum" id="kiMax"></div><div class="field"><label>Current Ki / Focus Points</label><input data-key="current ki"></div><div class="field"><label>Ki / Focus Save DC</label><input data-key="ki save dc"></div><div class="field"><label>Martial Arts Die</label><input data-key="martial arts die"></div></div><div class="panel" style="margin-top:12px"><h3>How to Track</h3><p>In the 2014 5e monk rules, Ki / Focus points become available at monk level 2. Spent Ki / Focus returns after a short or long rest, provided the monk spends at least 30 minutes meditating during the rest. Ki / Focus save DC is normally 8 + proficiency bonus + Wisdom modifier.</p><div class="grid grid-2"><div class="field"><label>Rest / Recovery Notes</label><textarea data-key="monk rest recovery"></textarea></div><div class="field"><label>Subclass Resource Notes</label><textarea data-key="monk subclass notes"></textarea></div></div></div><div class="panel" style="margin-top:12px"><h3>Common Ki / Focus Uses</h3><div class="grid grid-2"><div><strong>Flurry of Blows</strong><p class="mini">After taking the Attack action, spend 1 point to make two unarmed strikes as a bonus action.</p></div><div><strong>Patient Defense</strong><p class="mini">Spend 1 point to take Dodge as a bonus action.</p></div><div><strong>Step of the Wind</strong><p class="mini">Spend 1 point to take Dash or Disengage as a bonus action; jump distance doubles for the turn.</p></div><div><strong>Stunning Strike</strong><p class="mini">When you hit with a melee weapon attack, spend 1 point to force a Constitution save against being stunned until your next turn.</p></div></div></div><div class="panel" style="margin-top:12px"><h3>Monk Stat Tracking</h3><div class="grid grid-4"><div class="field"><label>Unarmored Movement</label><input data-key="unarmored movement"></div><div class="field"><label>Unarmored AC</label><input data-key="unarmored ac"></div><div class="field"><label>Wisdom Modifier</label><input data-key="wisdom modifier"></div><div class="field"><label>Dexterity Modifier</label><input data-key="dexterity modifier"></div></div><textarea data-key="monk techniques" style="width:100%;min-height:335px;margin-top:12px" placeholder="Subclass techniques, discipline features, reactions, bonus actions, and special limits..."></textarea></div></section>
+<section class="page" id="page-etc"><div class="page-title"><h2>Extra Information (Not Otherwise Specified)</h2><span class="subtle">Manual placement queue and freeform notes</span></div><div class="panel"><h3>Manual Placement Queue</h3><p class="mini">Imported values that did not reach a 90% field-label match appear here. Highlight only the text you want to place, choose the destination, then click Move Selected Text. Only your highlighted text will move.</p><div class="selected-move-controls"><select id="selectedTextDestination"><option value="">Choose destination field for selected text</option></select><button type="button" onclick="moveSelectedEtcText()">Move Selected Text</button></div><div id="etcQueue"></div></div><div class="panel" style="margin-top:12px"><h3>Freeform Notes</h3><textarea data-key="extra information" style="width:100%;min-height:740px"></textarea></div></section>
+</div>
+<script>
+const stats=['Strength','Dexterity','Constitution','Intelligence','Wisdom','Charisma'];
+const skills=['Acrobatics (Dex)','Animal Handling (Wis)','Arcana (Int)','Athletics (Str)','Deception (Cha)','History (Int)','Insight (Wis)','Intimidation (Cha)','Investigation (Int)','Medicine (Wis)','Nature (Int)','Perception (Wis)','Performance (Cha)','Persuasion (Cha)','Religion (Int)','Sleight of Hand (Dex)','Stealth (Dex)','Survival (Wis)'];
+const dice=[4,6,8,10,20];
+const axisDefs={
+  altruism:['selfish-neutral-altruistic',['extremely selfish','very selfish','moderately selfish','slightly selfish','moderately neutral','extremely neutral','very neutral','slightly neutral','slightly altruistic','moderately altruistic','very altruistic','extremely altruistic'],'Altruism Axis',['Selfish','Neutral','Altruistic']],
+  lawfulness:['chaotic-neutral-lawful',['extremely chaotic','very chaotic','moderately chaotic','slightly chaotic','moderately neutral','extremely neutral','very neutral','slightly neutral','slightly lawful','moderately lawful','very lawful','extremely lawful'],'Lawfulness Axis',['Chaotic','Neutral','Lawful']],
+  cooperation:['combative-neutral-cooperative',['extremely combative','very combative','moderately combative','slightly combative','moderately neutral','extremely neutral','very neutral','slightly neutral','slightly cooperative','moderately cooperative','very cooperative','extremely cooperative'],'Cooperation Axis',['Combative','Neutral','Cooperative']],
+  honor:['pragmatic-neutral-honorable',['extremely pragmatic','very pragmatic','moderately pragmatic','slightly pragmatic','moderately neutral','extremely neutral','very neutral','slightly neutral','slightly honorable','moderately honorable','very honorable','extremely honorable'],'Honor Axis',['Pragmatic','Neutral','Honorable']]
+};
+const axisPhaseColors={
+  altruism:{low:['#3A0B0B','#6E1515','#A91F1F','#FF4D4D'],neutral:['#2E3133','#55595C','#8A8D91','#D5D7DA'],high:['#08363B','#126C74','#26C6DA','#00FFFF']},
+  lawfulness:{low:['#1F083F','#4614A3','#7B2EFF','#C084FF'],neutral:['#2E3133','#55595C','#8A8D91','#D5D7DA'],high:['#0B1540','#1B2C8A','#304FFE','#7FA2FF']},
+  cooperation:{low:['#3B1400','#7A2A00','#C74400','#FF8A33'],neutral:['#2E3133','#55595C','#8A8D91','#D5D7DA'],high:['#3D3300','#8A7400','#D6B600','#FFF27A']},
+  honor:{low:['#232A14','#475528','#6B7A3D','#AFC77A'],neutral:['#2E3133','#55595C','#8A8D91','#D5D7DA'],high:['#2B3442','#55657D','#90A4C1','#D9E7FF']}
+};
+function phaseColorForAxis(id,idx){
+  const palette=axisPhaseColors[id]||axisPhaseColors.altruism;
+  if(idx<4) return palette.low[idx];
+  if(idx<8) return palette.neutral[idx-4];
+  return palette.high[idx-8];
+}
+function phaseTextColor(hex){
+  const c=String(hex||'').replace('#','');
+  const r=parseInt(c.slice(0,2),16), g=parseInt(c.slice(2,4),16), b=parseInt(c.slice(4,6),16);
+  return (r*299+g*587+b*114)/1000 > 176 ? '#1f120b' : '#ffffff';
+}
+function phaseCellStyle(id,idx){
+  const color=phaseColorForAxis(id,idx);
+  const textColor=phaseTextColor(color);
+  const shadow=textColor==='#1f120b'?'none':'0 1px 3px #000,0 0 4px #000';
+  return `background:${color};color:${textColor};text-shadow:${shadow};`;
+}
+function cleanKey(s){return String(s||'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,' ').trim()}
+function register(){window.fields=[...document.querySelectorAll('[data-key]')].map(el=>({key:cleanKey(el.dataset.key),raw:el.dataset.key,el}));}
+function makeInput(key,ph=''){return `<input data-key="${key}" placeholder="${ph}">`}
+function init(){document.getElementById('stats').innerHTML=stats.map(s=>`<div class="stat-card"><label>${s}</label><input class="score" data-key="${s} score"><input class="mod" data-key="${s} modifier" placeholder="mod"></div>`).join('');
+ document.getElementById('saves').innerHTML=stats.map(s=>`<label class="checkrow"><input type="checkbox" data-key="${s} saving throw proficient"><span>${s}</span>${makeInput(s+' saving throw','bonus')}</label>`).join('');
+ document.getElementById('skills').innerHTML=skills.map(s=>`<label class="checkrow"><input type="checkbox" data-key="${s} proficient"><span>${s}</span>${makeInput(s,'bonus')}</label>`).join('');
+ document.getElementById('weapons').innerHTML=Array.from({length:6},(_,i)=>`<div class="weapon-row">${makeInput('weapon '+(i+1)+' name')}${makeInput('weapon '+(i+1)+' attack bonus')}${makeInput('weapon '+(i+1)+' damage type')}${makeInput('weapon '+(i+1)+' notes')}</div>`).join('');
+ document.getElementById('languages').innerHTML=Array.from({length:7},(_,i)=>`<div class="language-row"><input data-key="language ${i+1}" placeholder="Language ${i+1}"><div class="lang-gradient-wrap"><input type="range" min="0" max="4" step="1" value="0" data-key="language ${i+1} fluency" id="langFluency${i}" oninput="updateLanguageFluency(${i})"><div class="lang-phasebar" id="langPhase${i}" data-phase="understand"></div><div class="lang-labels"><span>understand</span><span>speak</span><span>read</span><span>write</span><span>fully fluent</span></div></div><input data-key="language ${i+1} notes" placeholder="notes"></div>`).join('');
+ document.getElementById('relationships').innerHTML=Array.from({length:20},(_,i)=>`<div class="relationship-entry"><div class="rel-top"><div class="rel-field"><label>Type</label><select data-key="relationship ${i+1} type"><option></option><option>Person</option><option>Ally</option><option>Organization</option><option>Faction</option><option>Enemy</option><option>Other</option></select></div><div class="rel-field"><label>Name</label>${makeInput('relationship '+(i+1)+' name')}</div><div class="rel-field"><label>Pronouns</label>${makeInput('relationship '+(i+1)+' pronouns')}</div><div class="rel-field"><label>Relationship / Role</label>${makeInput('relationship '+(i+1)+' relationship role')}</div></div><div class="rel-bottom"><div class="rel-field"><label>Location</label>${makeInput('relationship '+(i+1)+' location')}</div><div class="rel-field"><label>Status</label><select data-key="relationship ${i+1} status"><option></option><option>Living</option><option>Deceased</option><option>Active</option><option>Inactive</option><option>Unknown</option></select></div><div class="rel-field"><label>Notes</label>${makeInput('relationship '+(i+1)+' notes')}</div></div></div>`).join('');
+ document.getElementById('inventory').innerHTML=Array.from({length:35},(_,i)=>`<div class="inventory-row">${makeInput('inventory '+(i+1)+' item')}${makeInput('inventory '+(i+1)+' location')}${makeInput('inventory '+(i+1)+' cost')}${makeInput('inventory '+(i+1)+' weight')}${makeInput('inventory '+(i+1)+' notes')}</div>`).join('');
+ document.getElementById('slots').innerHTML=Array.from({length:9},(_,i)=>`<div class="slotbox"><b>${i+1}</b><input data-key="level ${i+1} slots total" placeholder="total"><input data-key="level ${i+1} slots expended" placeholder="used"></div>`).join('');
+ document.getElementById('diceGrid').innerHTML=dice.map(d=>`<div class="diebox"><div class="die-title">${dieIcon(d)}<span>d${d}</span></div><div class="die-controls"><label>Number<select id="numd${d}">${Array.from({length:20},(_,i)=>`<option>${i+1}</option>`).join('')}</select></label><label>Modifier<select id="modd${d}">${Array.from({length:61},(_,i)=>i-30).map(n=>`<option ${n===0?'selected':''}>${n}</option>`).join('')}</select></label></div><button type="button" onclick="rollDie(${d})">Roll d${d}</button></div>`).join('');
+ const axes=document.getElementById('alignmentAxes'); axes.innerHTML=Object.entries(axisDefs).map(([id,[label,phases,title,poles]])=>`<div class="alignment-axis" data-axis="${id}"><div class="axis-heading"><strong>${title}</strong><span>${label}</span><output id="axisOut-${id}">extremely neutral</output></div><div class="axis-track-wrap"><div class="phasebar alignment-phasebar" id="phase-${id}" data-phase="extremely neutral">${phases.map((phase,idx)=>`<button type="button" class="phase-cell" data-axis="${id}" data-index="${idx}" data-zone="${idx<4?'low':idx<8?'neutral':'high'}" title="${phase}" style="${phaseCellStyle(id,idx)}">${phase}</button>`).join('')}</div><input class="axis-range" type="range" min="0" max="2750" step="250" value="1250" data-key="${id} points" id="axis-${id}" aria-label="${title}"></div><div class="axis-pole-labels"><span>${poles[0]}</span><span>${poles[1]}</span><span>${poles[2]}</span></div></div>`).join(''); Object.keys(axisDefs).forEach(id=>{document.getElementById('axis-'+id).addEventListener('input',()=>updateAxis(id)); document.querySelectorAll(`.phase-cell[data-axis="${id}"]`).forEach(cell=>cell.addEventListener('click',()=>{document.getElementById('axis-'+id).value=Number(cell.dataset.index)*250; updateAxis(id);}));});
+ const spellLevels=['Cantrips','1st Level Spells','2nd Level Spells','3rd Level Spells','4th Level Spells','5th Level Spells','6th Level Spells','7th Level Spells','8th Level Spells','9th Level Spells'];
+ document.getElementById('spellPages').innerHTML=spellLevels.map((name,pi)=>`<section class="page spell-page"><div class="page-title"><h2>${name}</h2><span class="subtle">10 spell entries with description and dice-roll instructions</span></div><div class="panel spell-level-panel"><h3>${name}</h3><div class="spell-card tinylabel"><span>Name</span><span>Description</span><span>How to Roll / Dice</span></div>${Array.from({length:10},(_,i)=>`<div class="spell-card"><input class="spell-name" data-key="${name} ${i+1} name" placeholder="Spell ${i+1} name"><textarea data-key="${name} ${i+1} description" placeholder="Range, components, duration, effect, scaling, notes..."></textarea><textarea data-key="${name} ${i+1} how to roll" placeholder="Attack roll, save DC, damage dice, healing dice, conditions..."></textarea></div>`).join('')}</div></section>`).join('');
+ register(); populateDestinationDropdowns(); Object.keys(axisDefs).forEach(updateAxis); for(let i=0;i<7;i++) updateLanguageFluency(i); bindUploads();}
+function snapAxisValue(value){
+  const n=Number(value);
+  if(!Number.isFinite(n)) return 1250;
+  return Math.max(0,Math.min(2750,Math.round(n/250)*250));
+}
+function axisIndexFromPoints(points){return Math.max(0,Math.min(11,Math.round(snapAxisValue(points)/250)));}
+function phaseFromPoints(id,points){
+  const phases=axisDefs[id][1];
+  return phases[axisIndexFromPoints(points)]||phases[5];
+}
+function updateAxis(id){
+  const r=document.getElementById('axis-'+id), p=document.getElementById('phase-'+id), out=document.getElementById('axisOut-'+id);
+  if(!r||!p) return;
+  const snapped=snapAxisValue(r.value);
+  if(String(r.value)!==String(snapped)) r.value=snapped;
+  const idx=axisIndexFromPoints(snapped);
+  const phase=phaseFromPoints(id,snapped);
+  p.dataset.phase=phase;
+  p.querySelectorAll('.phase-cell').forEach((cell,i)=>{
+    const active=i===idx;
+    cell.classList.toggle('active',active);
+    cell.setAttribute('aria-pressed',active?'true':'false');
+  });
+  if(out) out.textContent=phase;
+}
+
+function dieIcon(d){const points={4:'50,8 88,78 12,78',6:'18,18 82,18 82,82 18,82',8:'50,7 88,50 50,93 12,50',10:'50,6 86,30 75,86 25,86 14,30',20:'50,6 90,35 75,88 25,88 10,35'}[d]||'50,8 88,78 12,78'; return `<svg class="die-icon" viewBox="0 0 100 100" aria-hidden="true"><polygon points="${points}" fill="#050505" stroke="#ffffff" stroke-width="5"/><text x="50" y="59" text-anchor="middle" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="900" fill="#ffffff">${d}</text></svg>`;}
+function updateLanguageFluency(i){const phases=['understand','speak','read','write','fully fluent']; const r=document.getElementById('langFluency'+i), p=document.getElementById('langPhase'+i); if(r&&p)p.dataset.phase=phases[Number(r.value)||0];}
+function toggleDeathSave(btn){const type=btn.dataset.save; const group=[...document.querySelectorAll(`.death-btn[data-save="${type}"]`)]; const current=group.filter(b=>b.classList.contains('active')).length; let count=Number(btn.dataset.index); if(btn.classList.contains('active')&&current===count)count=count-1; group.forEach(b=>b.classList.toggle('active',Number(b.dataset.index)<=count)); document.getElementById(type==='success'?'deathSaveSuccessValue':'deathSaveFailureValue').value=count;}
+function populateDestinationDropdowns(){const select=document.getElementById('selectedTextDestination'); if(!select)return; select.innerHTML='<option value="">Choose destination field for selected text</option>'+fields.map((f,i)=>`<option value="${i}">${f.raw}</option>`).join('');}
+function moveSelectedEtcText(){const sel=window.getSelection(); const text=sel?sel.toString():''; const etc=document.getElementById('page-etc'); if(!text.trim()){alert('Highlight the exact text you want to move first.'); return;} if(sel.rangeCount && !etc.contains(sel.anchorNode)){alert('Please highlight text from the Extra Information page.'); return;} const idx=document.getElementById('selectedTextDestination').value; if(idx===''){alert('Choose a destination field first.'); return;} assign(fields[idx].el,text.trim()); sel.deleteFromDocument(); sel.removeAllRanges();}
+function resetSheet(){if(!confirm('Clear every field, uploaded art preview, death save, dice log, and manual placement queue?'))return; document.querySelectorAll('input, textarea, select').forEach(el=>{if(el.type==='checkbox'||el.type==='radio')el.checked=false; else if(el.type==='range')el.value=el.id&&el.id.startsWith('axis-')?1250:0; else if(el.type==='file')el.value=''; else el.value='';}); document.querySelectorAll('.death-btn').forEach(b=>b.classList.remove('active')); document.getElementById('deathSaveSuccessValue').value=0; document.getElementById('deathSaveFailureValue').value=0; document.getElementById('rollLog').innerHTML=''; document.getElementById('etcQueue').innerHTML=''; document.getElementById('artSlot1').textContent='Art 1'; document.getElementById('artSlot1').classList.remove('has-art'); document.getElementById('artSlot2').textContent='Art 2'; document.getElementById('artSlot2').classList.remove('has-art'); Object.keys(axisDefs).forEach(updateAxis); for(let i=0;i<7;i++) updateLanguageFluency(i);}
+
+function randomIntInclusive(min,max){
+  min=Math.ceil(min); max=Math.floor(max);
+  const range=max-min+1;
+  const cryptoObj=window.crypto||window.msCrypto;
+  if(cryptoObj&&cryptoObj.getRandomValues){
+    const maxUint=0xFFFFFFFF;
+    const limit=maxUint-(maxUint%range);
+    const a=new Uint32Array(1);
+    do{cryptoObj.getRandomValues(a);}while(a[0]>=limit);
+    return min+(a[0]%range);
+  }
+  return Math.floor(Math.random()*range)+min;
+}
+function rollDie(d){const n=+document.getElementById('numd'+d).value, mod=+document.getElementById('modd'+d).value; const vals=[]; const diebox=document.getElementById('numd'+d)?.closest('.diebox'); if(diebox){diebox.classList.remove('rolling'); void diebox.offsetWidth; diebox.classList.add('rolling'); diebox.querySelectorAll('.result-burst').forEach(x=>x.remove());} for(let i=0;i<n;i++){vals.push(randomIntInclusive(1,d));} const sum=vals.reduce((a,b)=>a+b,0)+mod; if(diebox){setTimeout(()=>{diebox.classList.remove('rolling'); const burst=document.createElement('div'); burst.className='result-burst'; burst.textContent=sum; diebox.appendChild(burst); setTimeout(()=>burst.remove(),3200);},720);} const stamp=new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); const line=document.createElement('div'); line.innerHTML=`<strong>${stamp}</strong> • ${n}d${d}${mod>=0?'+':''}${mod}: [${vals.join(', ')}] ${mod?`modifier ${mod>=0?'+':''}${mod} `:''}= <strong>${sum}</strong>`; document.getElementById('rollLog').prepend(line);}
+function bindUploads(){
+  ['art1','art2'].forEach((id,idx)=>{
+    const input=document.getElementById(id);
+    const slot=document.getElementById('artSlot'+(idx+1));
+    if(input){
+      input.setAttribute('accept','image/jpeg,image/jpg,image/png,image/gif,.jpg,.jpeg,.png,.gif');
+      input.addEventListener('change',e=>loadArt(e.target.files[0],idx+1));
+    }
+    if(slot && input){
+      slot.setAttribute('role','button');
+      slot.setAttribute('tabindex','0');
+      slot.setAttribute('aria-label','Upload character art '+(idx+1)+' as JPG, PNG, or GIF');
+      slot.title='Click to upload JPG, PNG, or GIF';
+      slot.addEventListener('click',()=>input.click());
+      slot.addEventListener('keydown',e=>{
+        if(e.key==='Enter'||e.key===' '){
+          e.preventDefault();
+          input.click();
+        }
+      });
+    }
+  });
+  document.getElementById('alignmentUpload').addEventListener('change',e=>readJSON(e.target.files[0],applyAlignment));
+}
+function loadArt(file,n){
+  if(!file)return;
+  const allowed=['image/jpeg','image/jpg','image/png','image/gif'];
+  const nameOk=/\.(jpe?g|png|gif)$/i.test(file.name||'');
+  if(!allowed.includes(file.type) && !nameOk){
+    addEtc('Unsupported character art file',`"${file.name||'Selected file'}" was not loaded. Please choose a JPG, JPEG, PNG, or GIF image.`);
+    return;
+  }
+  const r=new FileReader();
+  r.onload=()=>{
+    const slot=document.getElementById('artSlot'+n);
+    if(slot){
+      slot.innerHTML=`<img alt="Character art ${n}" src="${r.result}">`;
+      slot.classList.add('has-art');
+    }
+  };
+  r.readAsDataURL(file);
+}
+function readJSON(file,cb){if(!file)return; const r=new FileReader(); r.onload=()=>{try{cb(JSON.parse(r.result))}catch(e){addEtc('JSON import error',String(e.message))}}; r.readAsText(file);}
+function applyAlignment(j){if(j.alignmentName||j.name)setValue('alignment name',j.alignmentName||j.name); if(j.alignmentDescription||j.description)setValue('alignment description',j.alignmentDescription||j.description); const axes=j.axes||j.axis||j; Object.keys(axisDefs).forEach(id=>{let v=axes[id]??axes[id+'Points']??axes[axisDefs[id][0]]; if(typeof v==='object')v=v.points||v.score||v.value; if(v!==undefined){const r=document.getElementById('axis-'+id); r.value=snapAxisValue(v); updateAxis(id);}});}
+function setValue(label,value){const f=bestField(label); if(f&&f.score>=.9){assign(f.el,value); return true;} return false;}
+function assign(el,value){if(el.type==='checkbox')el.checked=!!value; else if(el.type==='radio'){const group=[...document.getElementsByName(el.name)]; const match=group.find(r=>cleanKey(r.value)===cleanKey(value)); if(match)match.checked=true;} else if(el.type==='range'&&el.id&&el.id.startsWith('langFluency')){const phases=['understand','speak','read','write','fully fluent']; const idx=phases.findIndex(v=>cleanKey(v)===cleanKey(value)); el.value=idx>=0?idx:(Number(value)||0); updateLanguageFluency(Number(el.id.replace('langFluency','')));} else if(el.type==='range'&&el.id&&el.id.startsWith('axis-')){el.value=snapAxisValue(value); updateAxis(el.id.replace('axis-',''));} else el.value=Array.isArray(value)?value.join(', '):(value??''); if(el.id&&el.id.startsWith('axis-')) updateAxis(el.id.replace('axis-',''));}
+function lev(a,b){const m=[]; for(let i=0;i<=b.length;i++)m[i]=[i]; for(let j=0;j<=a.length;j++)m[0][j]=j; for(let i=1;i<=b.length;i++)for(let j=1;j<=a.length;j++)m[i][j]=b.charAt(i-1)==a.charAt(j-1)?m[i-1][j-1]:Math.min(m[i-1][j-1]+1,m[i][j-1]+1,m[i-1][j]+1); return m[b.length][a.length];}
+function sim(a,b){a=cleanKey(a);b=cleanKey(b); if(!a||!b)return 0; if(a===b)return 1; if(a.includes(b)||b.includes(a))return Math.min(a.length,b.length)/Math.max(a.length,b.length)+.08; return 1-lev(a,b)/Math.max(a.length,b.length);}
+function bestField(label){let best=null; fields.forEach(f=>{const score=sim(label,f.key); if(!best||score>best.score)best={...f,score};}); return best;}
+function addEtc(label,value){const box=document.createElement('div'); box.className='etc-item'; box.innerHTML=`<b>${label}</b> <span class="pill">unmatched</span><p contenteditable="true">${String(value).slice(0,1200)}</p>`; document.getElementById('etcQueue').appendChild(box);}
+function saveJSON(){const data={}; fields.forEach(f=>{if(f.el.type==='checkbox')data[f.raw]=f.el.checked; else if(f.el.type==='radio'){if(f.el.checked)data[f.raw]=f.el.value;} else data[f.raw]=f.el.value;}); const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(document.getElementById('characterName').value||'character')+'-sheet-data.json'; a.click(); URL.revokeObjectURL(a.href);}
+init();
+</script>
+</body>
+</html>
