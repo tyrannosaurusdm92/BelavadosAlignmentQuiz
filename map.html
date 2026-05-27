@@ -305,7 +305,7 @@
     <section class="hero">
       <div class="eyebrow">World Map Directory</div>
       <h1>Belavadös Province & Settlement Hosting Site</h1>
-      <p>Open province PDFs and settlement map pages from one self-contained index. Place this file in the same folder as the settlement HTML files, then keep settlement pages named as <strong>SettlementName_ProvinceName.html</strong>.</p>
+      <p>Open province PDFs and settlement map pages from one self-contained index. Place this file in the same folder as the settlement HTML files. Settlement page links use <strong>SettlementName_ProvinceName.html</strong>, with spaces converted to underscores, apostrophes removed, and accented letters converted to standard Latin characters.</p>
       <div class="stats" aria-label="Directory statistics">
         <div class="stat"><strong id="provinceCount">0</strong><span>Provinces</span></div>
         <div class="stat"><strong id="settlementCount">0</strong><span>Settlement pages</span></div>
@@ -420,28 +420,28 @@
     "culturalNote": "This isolated island feels ideal for contemplative or cosmic cultures. The races here trend toward scholarly, spiritual, aerial, or extraplanar societies.",
     "settlements": [
       {
-        "name": "Aelshoreth",
-        "description": "A coastal settlement built into steep sea cliffs connected by suspended bridges and aerial docks. Aarakocra wind-riders dominate the skies here, guiding travelers safely through Astraevos’ dangerous ocean currents."
-      },
-      {
-        "name": "Caelmyros",
-        "description": "A tranquil island settlement renowned for philosophy, art, music, and celestial meditation gardens. Many wandering mystics, dragon sages, and traveling scholars eventually settle within Caelmyros during old age."
-      },
-      {
-        "name": "Cyralune",
-        "description": "A luminous forest settlement surrounded by glowing flora and ancient moonstone ruins. Cyralune is especially important to moon elves, lumas, and aasimar spiritual circles."
+        "name": "Vaelunthir",
+        "description": "A vast cliffside observatory-city overlooking the northern sea. Vaelunthir serves as the intellectual heart of Astraevos, housing immense celestial libraries, astral archives, and star-mapping towers maintained primarily by astral elves and owlin scholars."
       },
       {
         "name": "Mythalora",
         "description": "A secluded island sanctuary hidden among perpetual silver fogbanks. Known for its sacred moon temples and prophetic rituals, Mythalora is considered one of the most spiritually powerful locations in the kingdom."
       },
       {
+        "name": "Aelshoreth",
+        "description": "A coastal settlement built into steep sea cliffs connected by suspended bridges and aerial docks. Aarakocra wind-riders dominate the skies here, guiding travelers safely through Astraevos’ dangerous ocean currents."
+      },
+      {
+        "name": "Cyralune",
+        "description": "A luminous forest settlement surrounded by glowing flora and ancient moonstone ruins. Cyralune is especially important to moon elves, lumas, and aasimar spiritual circles."
+      },
+      {
         "name": "Orithalune",
         "description": "A massive monastic fortress-city carved directly into a mountain overlooking the eastern sea. Kalashtar dream monks and human ascetics gather here to pursue enlightenment, psionic mastery, and cosmic balance."
       },
       {
-        "name": "Vaelunthir",
-        "description": "A vast cliffside observatory-city overlooking the northern sea. Vaelunthir serves as the intellectual heart of Astraevos, housing immense celestial libraries, astral archives, and star-mapping towers maintained primarily by astral elves and owlin scholars."
+        "name": "Caelmyros",
+        "description": "A tranquil island settlement renowned for philosophy, art, music, and celestial meditation gardens. Many wandering mystics, dragon sages, and traveling scholars eventually settle within Caelmyros during old age."
       }
     ]
   },
@@ -486,16 +486,16 @@
     "culturalNote": "This is a wealthy maritime trade culture.",
     "settlements": [
       {
+        "name": "Gildri",
+        "description": "A major coastal trade city built around luminous reefs, known for its wealth, pearl markets, and dragon-blessed shipping guilds."
+      },
+      {
         "name": "Cindrau",
         "description": "A fortified harbor-city positioned on volcanic coral formations, serving as a strategic naval and defensive stronghold."
       },
       {
-        "name": "Faelith",
-        "description": "A forest-coast hybrid settlement where fairy-folk and sea elves maintain sacred shoreline groves and ocean temples."
-      },
-      {
-        "name": "Gildri",
-        "description": "A major coastal trade city built around luminous reefs, known for its wealth, pearl markets, and dragon-blessed shipping guilds."
+        "name": "Turyne",
+        "description": "A vibrant multicultural port known for its massive floating markets and constant influx of merchant fleets."
       },
       {
         "name": "Qov'ei",
@@ -506,12 +506,8 @@
         "description": "A reef-city partially built underwater, famous for its dril’thar engineering, submerged trade routes, and coral architecture."
       },
       {
-        "name": "Scalori",
-        "description": "A major shipping nexus controlling key coastal currents and reef highways, functioning as one of the most important logistics centers in Ceulrithan."
-      },
-      {
-        "name": "Turyne",
-        "description": "A vibrant multicultural port known for its massive floating markets and constant influx of merchant fleets."
+        "name": "Faelith",
+        "description": "A forest-coast hybrid settlement where fairy-folk and sea elves maintain sacred shoreline groves and ocean temples."
       }
     ]
   },
@@ -523,12 +519,16 @@
     "culturalNote": "This region feels harsher and more survival-oriented than #1. Tribal alliances and frontier cultures dominate.",
     "settlements": [
       {
-        "name": "Fenwyrd",
-        "description": "A fog-covered woodland settlement hidden among rivers and deep forest trails. Shifter clans and elven rangers maintain strong influence throughout Fenwyrd’s surrounding territories."
-      },
-      {
         "name": "Grimvald",
         "description": "A massive timber fortress-city built along a strategic river crossing. Grimvald serves as one of the primary defensive strongholds of Drakmorren and is famous for its warrior lodges, hunting guilds, and fortified palisades."
+      },
+      {
+        "name": "Vorakmar",
+        "description": "A militarized hobgoblin-controlled fortress settlement renowned for disciplined worg cavalry and highly organized frontier defense forces. Many regional treaties are negotiated within Vorakmar’s heavily guarded halls."
+      },
+      {
+        "name": "Fenwyrd",
+        "description": "A fog-covered woodland settlement hidden among rivers and deep forest trails. Shifter clans and elven rangers maintain strong influence throughout Fenwyrd’s surrounding territories."
       },
       {
         "name": "Kharrowfen",
@@ -539,8 +539,32 @@
         "description": "A brutal frontier settlement bordering black dragon territory and monster-infested marshlands. Survival in Morvakar requires constant vigilance, making its people among the toughest in the region."
       },
       {
-        "name": "Vorakmar",
-        "description": "A militarized hobgoblin-controlled fortress settlement renowned for disciplined worg cavalry and highly organized frontier defense forces. Many regional treaties are negotiated within Vorakmar’s heavily guarded halls."
+        "name": "Earrorim",
+        "description": "A mapped settlement page in Drakmorren, linked from the Belavadös province and settlement directory."
+      },
+      {
+        "name": "Glattonica",
+        "description": "A dense merchant metropolis known for high-volume trade, guild influence, and tightly regulated harbor districts."
+      },
+      {
+        "name": "Iciarene",
+        "description": "A diplomatic coastal city where treaties, trade agreements, and maritime law are negotiated under bronze dragon oversight."
+      },
+      {
+        "name": "Wagriolyn",
+        "description": "A sprawling dock-city specializing in long-distance shipping, naval provisioning, and ocean-route coordination."
+      },
+      {
+        "name": "Ullunor",
+        "description": "A mixed inland-coastal settlement where land caravans and sea trade intersect, forming a major logistical hub."
+      },
+      {
+        "name": "Obriasos",
+        "description": "A fortified harbor-city built for defense against piracy, sea beasts, and rival port coalitions."
+      },
+      {
+        "name": "Wrasserah",
+        "description": "A culturally diverse floating city known for its night markets, multilingual districts, and shifting district platforms."
       }
     ]
   },
@@ -560,16 +584,16 @@
         "description": "A diplomatic coastal city where treaties, trade agreements, and maritime law are negotiated under bronze dragon oversight."
       },
       {
-        "name": "Obriasos",
-        "description": "A fortified harbor-city built for defense against piracy, sea beasts, and rival port coalitions."
+        "name": "Wagriolyn",
+        "description": "A sprawling dock-city specializing in long-distance shipping, naval provisioning, and ocean-route coordination."
       },
       {
         "name": "Ullunor",
         "description": "A mixed inland-coastal settlement where land caravans and sea trade intersect, forming a major logistical hub."
       },
       {
-        "name": "Wagriolyn",
-        "description": "A sprawling dock-city specializing in long-distance shipping, naval provisioning, and ocean-route coordination."
+        "name": "Obriasos",
+        "description": "A fortified harbor-city built for defense against piracy, sea beasts, and rival port coalitions."
       },
       {
         "name": "Wrasserah",
@@ -582,7 +606,7 @@
     "region": "The River Kingdom",
     "pdf": "https://drive.google.com/file/d/1QCg3sngj6pLaMdg7Aq31y_rFfEeGlOL7/view?usp=sharing",
     "environment": "Major inland river crossing and fertile plains.",
-    "culturalNote": "This is one of the major political and trade centers of the continent.",
+    "culturalNote": "This is one of the major political and trade centers of the continent. Also called El'dravire.",
     "settlements": [
       {
         "name": "Lorangriel",
@@ -597,12 +621,12 @@
         "description": "A heavily fortified river-crossing metropolis controlling one of the most strategically important inland trade routes in all of Belavadös. Known for its massive bridge-fortresses and merchant taxation courts."
       },
       {
-        "name": "Veloraskkis",
-        "description": "A militarized river stronghold positioned at a major floodplain junction, specializing in border defense, river patrol fleets, and draconic oath-bound knight orders."
-      },
-      {
         "name": "Yi’vanyr",
         "description": "A mystical river-delta city where swamp elves and dril’thar communities maintain ancient water rituals, spirit pacts, and ecological governance traditions."
+      },
+      {
+        "name": "Veloraskkis",
+        "description": "A militarized river stronghold positioned at a major floodplain junction, specializing in border defense, river patrol fleets, and draconic oath-bound knight orders."
       }
     ]
   },
@@ -614,24 +638,8 @@
     "culturalNote": "This is one of the most peaceful agricultural woodland regions on the continent.",
     "settlements": [
       {
-        "name": "Aelgrove",
-        "description": "A peaceful druidic settlement surrounded by ancient sacred trees and hidden glades. Wood elves and hedges maintain strong influence throughout the region."
-      },
-      {
-        "name": "Cloverfen",
-        "description": "A fertile wetland farming community where jerbeens and gnomes cultivate rare herbs, medicinal plants, and unusually productive farmland."
-      },
-      {
-        "name": "Faelmere",
-        "description": "A beautiful lakeside settlement known for faerie dragon activity, floating lantern festivals, and elaborate seasonal celebrations."
-      },
-      {
-        "name": "Lunebriar",
-        "description": "A quiet moonlit village famous for herbal medicine, astronomy traditions, and sacred pegasus migration grounds."
-      },
-      {
-        "name": "Mossvale",
-        "description": "A tranquil woodland valley settlement renowned for music, storytelling, craftsmanship, and some of the oldest communal halls in Eldermere."
+        "name": "Sylvanreach",
+        "description": "A grand woodland trade settlement built where several major forest roads converge. Sylvanreach serves as one of Eldermere’s primary cultural and commercial centers."
       },
       {
         "name": "Oakenshire",
@@ -642,8 +650,24 @@
         "description": "A lively riverside trade settlement filled with markets, mills, barges, and traveling merchants moving goods throughout the basin."
       },
       {
-        "name": "Sylvanreach",
-        "description": "A grand woodland trade settlement built where several major forest roads converge. Sylvanreach serves as one of Eldermere’s primary cultural and commercial centers."
+        "name": "Aelgrove",
+        "description": "A peaceful druidic settlement surrounded by ancient sacred trees and hidden glades. Wood elves and hedges maintain strong influence throughout the region."
+      },
+      {
+        "name": "Cloverfen",
+        "description": "A fertile wetland farming community where jerbeens and gnomes cultivate rare herbs, medicinal plants, and unusually productive farmland."
+      },
+      {
+        "name": "Mossvale",
+        "description": "A tranquil woodland valley settlement renowned for music, storytelling, craftsmanship, and some of the oldest communal halls in Eldermere."
+      },
+      {
+        "name": "Faelmere",
+        "description": "A beautiful lakeside settlement known for faerie dragon activity, floating lantern festivals, and elaborate seasonal celebrations."
+      },
+      {
+        "name": "Lunebriar",
+        "description": "A quiet moonlit village famous for herbal medicine, astronomy traditions, and sacred pegasus migration grounds."
       }
     ]
   },
@@ -655,6 +679,10 @@
     "culturalNote": "This area naturally becomes militarized due to geography.",
     "settlements": [
       {
+        "name": "Nellvaris",
+        "description": "A heavily fortified mountain settlement positioned at a key pass intersection, known for its defensive architecture and long history of resisting invasions."
+      },
+      {
         "name": "Brokharn",
         "description": "A dwarven stronghold carved deep into the mountain core, serving as one of the most secure fortress-cities in the entire pass system."
       },
@@ -665,10 +693,6 @@
       {
         "name": "Lithvar",
         "description": "A cliffside fortress-city built into vertical rock walls, known for its aerial defenses and proximity to wyvern-controlled skies."
-      },
-      {
-        "name": "Nellvaris",
-        "description": "A heavily fortified mountain settlement positioned at a key pass intersection, known for its defensive architecture and long history of resisting invasions."
       }
     ]
   },
@@ -680,10 +704,6 @@
     "culturalNote": "This region feels deeply tied to ancient dragon empires and draconic history.",
     "settlements": [
       {
-        "name": "Bleosianys",
-        "description": "A sacred draconic enclave where aasimar cults preserve ancient relics, maintaining temples carved directly into black volcanic stone."
-      },
-      {
         "name": "Sleakitika",
         "description": "A chaotic cliffside port-city built into fractured basalt formations, known for its dense dragonborn population and layered fortress architecture."
       },
@@ -694,6 +714,10 @@
       {
         "name": "Wrobetopia",
         "description": "A high-altitude cliff settlement dominated by dwarven and goliath engineering, featuring sky-bridges and wyvern landing terraces."
+      },
+      {
+        "name": "Bleosianys",
+        "description": "A sacred draconic enclave where aasimar cults preserve ancient relics, maintaining temples carved directly into black volcanic stone."
       }
     ]
   },
@@ -705,20 +729,20 @@
     "culturalNote": "This isolated volcanic region works perfectly for darker and more feared peoples.",
     "settlements": [
       {
-        "name": "Bleasacia",
-        "description": "A shadow-market port built on fractured basalt shores, known for its changeling-controlled trade networks and illicit magical exchanges."
-      },
-      {
-        "name": "Leammipa",
-        "description": "A tiefling stronghold of infernal craftsmanship and arcane experimentation, deeply tied to volcanic crystal forges and blood-bound magic traditions."
-      },
-      {
         "name": "Mostrerah",
         "description": "A massive volcanic fortress-city carved into a caldera wall, serving as one of the primary political centers of the Isles."
       },
       {
+        "name": "Bleasacia",
+        "description": "A shadow-market port built on fractured basalt shores, known for its changeling-controlled trade networks and illicit magical exchanges."
+      },
+      {
         "name": "Streccea",
         "description": "A fire-genasi dominated settlement constructed around geothermal vents, where magma flows are harnessed for industry and ritual power."
+      },
+      {
+        "name": "Leammipa",
+        "description": "A tiefling stronghold of infernal craftsmanship and arcane experimentation, deeply tied to volcanic crystal forges and blood-bound magic traditions."
       }
     ]
   },
@@ -730,20 +754,8 @@
     "culturalNote": "This region leans heavily toward primal swamp civilizations and darker mysticism.",
     "settlements": [
       {
-        "name": "Ish’voryk",
-        "description": "A boundary settlement marking the transition between safer wetlands and the deeper, more corrupted swamp interior."
-      },
-      {
-        "name": "Li’mioreimn",
-        "description": "A submerged ruin-city partially reclaimed by civilization, serving as both archaeological site and living settlement."
-      },
-      {
         "name": "Mossirueth",
         "description": "A sprawling reed-city built among towering mangroves and floating root platforms, known for its dril’thar navigation guilds and swamp trade routes."
-      },
-      {
-        "name": "Rnzeuluun",
-        "description": "A deep wetland stronghold built around blackwater channels, known for yuan-ti influence and serpent cult remnants."
       },
       {
         "name": "Utch’myrith",
@@ -752,6 +764,18 @@
       {
         "name": "Yire’thaulor",
         "description": "A fey-influenced enclave where reality shifts unpredictably, blending eladrin courts with living swamp terrain."
+      },
+      {
+        "name": "Li’mioreimn",
+        "description": "A submerged ruin-city partially reclaimed by civilization, serving as both archaeological site and living settlement."
+      },
+      {
+        "name": "Rnzeuluun",
+        "description": "A deep wetland stronghold built around blackwater channels, known for yuan-ti influence and serpent cult remnants."
+      },
+      {
+        "name": "Ish’voryk",
+        "description": "A boundary settlement marking the transition between safer wetlands and the deeper, more corrupted swamp interior."
       }
     ]
   },
@@ -784,28 +808,24 @@
     "culturalNote": "This region serves as a contested frontier between civilization and wilderness.",
     "settlements": [
       {
-        "name": "Bloodmire",
-        "description": "A swamp-border settlement known for brutal conflicts, toxic terrain, and frequent territorial disputes."
-      },
-      {
         "name": "Dorghalun",
         "description": "A heavily fortified war-town built on contested ground, frequently changing hands between rival factions. Known for mercenary markets and siegecraft industries."
       },
       {
-        "name": "Draskminn",
-        "description": "A hardened mining and supply town built into rocky foothills, essential for war material production."
+        "name": "Rivenwild",
+        "description": "A broken frontier settlement straddling fractured forest and open plains, constantly rebuilt after repeated conflicts."
       },
       {
-        "name": "Greybriar",
-        "description": "A mist-covered frontier town built within dense thorn forests, known for intelligence networks and covert operations."
+        "name": "Zarveng",
+        "description": "A militarized stronghold built around an ancient battlefield, now serving as a strategic command center for regional warbands."
       },
       {
-        "name": "Heths’ther",
-        "description": "A remote outpost on the edge of controlled territory, often the first to fall during major invasions."
+        "name": "Pokbith",
+        "description": "A rough trading outpost known for illegal arms trade, mercenary recruitment, and unstable local governance."
       },
       {
-        "name": "Ironwood",
-        "description": "A heavily militarized forest stronghold known for disciplined ranger orders and anti-wyvern defenses."
+        "name": "Th’oyndor",
+        "description": "A ruined-but-living settlement partially rebuilt within ancient stone structures, frequently occupied by shifting clans and wandering forces."
       },
       {
         "name": "Kharzund",
@@ -816,32 +836,36 @@
         "description": "A frontier town serving as a rare diplomatic neutral ground between competing factions and clans."
       },
       {
-        "name": "Pokbith",
-        "description": "A rough trading outpost known for illegal arms trade, mercenary recruitment, and unstable local governance."
-      },
-      {
-        "name": "Rivenwild",
-        "description": "A broken frontier settlement straddling fractured forest and open plains, constantly rebuilt after repeated conflicts."
-      },
-      {
         "name": "Skarnfell",
         "description": "A cliffside settlement overlooking wyvern nesting grounds, used as both lookout post and hunting base."
       },
       {
-        "name": "Th’oyndor",
-        "description": "A ruined-but-living settlement partially rebuilt within ancient stone structures, frequently occupied by shifting clans and wandering forces."
+        "name": "Bloodmire",
+        "description": "A swamp-border settlement known for brutal conflicts, toxic terrain, and frequent territorial disputes."
       },
       {
-        "name": "Thornbreak",
-        "description": "A fortified settlement surrounded by defensive hedgerows, traps, and layered fortifications."
+        "name": "Draskminn",
+        "description": "A hardened mining and supply town built into rocky foothills, essential for war material production."
       },
       {
         "name": "Wildsunder",
         "description": "A nomadic-leaning settlement zone that frequently relocates due to conflict pressure and predator migration."
       },
       {
-        "name": "Zarveng",
-        "description": "A militarized stronghold built around an ancient battlefield, now serving as a strategic command center for regional warbands."
+        "name": "Thornbreak",
+        "description": "A fortified settlement surrounded by defensive hedgerows, traps, and layered fortifications."
+      },
+      {
+        "name": "Ironwood",
+        "description": "A heavily militarized forest stronghold known for disciplined ranger orders and anti-wyvern defenses."
+      },
+      {
+        "name": "Heths’ther",
+        "description": "A remote outpost on the edge of controlled territory, often the first to fall during major invasions."
+      },
+      {
+        "name": "Greybriar",
+        "description": "A mist-covered frontier town built within dense thorn forests, known for intelligence networks and covert operations."
       }
     ]
   },
@@ -853,12 +877,12 @@
     "culturalNote": "The mountains naturally attract dwarves and goliaths, while dragonborn and kobolds gather around ancient draconic strongholds.",
     "settlements": [
       {
-        "name": "Khazovar",
-        "description": "A vast mountain city carved directly into sheer cliff faces and interconnected underground halls. Khazovar is considered one of the oldest surviving dwarven strongholds in Belavadös and serves as a center of engineering, stonecraft, and ancient draconic scholarship. Suspended bridges connect massive towers carved into the mountainside, while deep beneath the surface lie sacred vaults, ancient temples, and forgotten dragon chambers."
-      },
-      {
         "name": "Vorathûn",
         "description": "An immense subterranean fortress-city carved beneath a volcanic mountain deep within the northern range. Vorathûn serves as one of Khorvaak’s greatest military and industrial centers, renowned for its colossal forge halls, magma foundries, and dragonborn war clans. Massive stone gates protect the city’s entrances, while entire districts descend through layered cavern systems far beneath the mountain itself."
+      },
+      {
+        "name": "Khazovar",
+        "description": "A vast mountain city carved directly into sheer cliff faces and interconnected underground halls. Khazovar is considered one of the oldest surviving dwarven strongholds in Belavadös and serves as a center of engineering, stonecraft, and ancient draconic scholarship. Suspended bridges connect massive towers carved into the mountainside, while deep beneath the surface lie sacred vaults, ancient temples, and forgotten dragon chambers."
       }
     ]
   },
@@ -870,24 +894,24 @@
     "culturalNote": "A relaxed but highly maritime island culture fits naturally here.",
     "settlements": [
       {
-        "name": "Auralisthra (Deep Sea)",
+        "name": "Auralisthra",
         "description": "A submerged city of coral architecture and glowing reef spires, home to tritons, sea genasi, and deep-water dril’thars."
       },
       {
-        "name": "Neruvéa (Deep Sea)",
-        "description": "A mysterious abyss-adjacent settlement built along submerged trenches, associated with ancient sea serpent paths and forgotten ocean ruins."
-      },
-      {
-        "name": "Seralun (Inland / Reef-Hinterland)",
+        "name": "Seralun",
         "description": "A dual-layer settlement spanning both jungle island and reef shallows, functioning as a cultural and trade bridge between land and sea societies."
       },
       {
-        "name": "Sylmaris (Inland)",
+        "name": "Vireluna",
+        "description": "A vibrant shoreline port where fairy-folk, tabaxi, and tortle pilgrims gather during seasonal tides and ocean festivals."
+      },
+      {
+        "name": "Sylmaris",
         "description": "A tranquil jungle-heart settlement surrounded by sacred groves and dril’thar waterways, known for spiritual retreats and druidic harmony."
       },
       {
-        "name": "Vireluna (Coastal)",
-        "description": "A vibrant shoreline port where fairy-folk, tabaxi, and tortle pilgrims gather during seasonal tides and ocean festivals."
+        "name": "Neruvéa",
+        "description": "A mysterious abyss-adjacent settlement built along submerged trenches, associated with ancient sea serpent paths and forgotten ocean ruins."
       }
     ]
   },
@@ -899,8 +923,28 @@
     "culturalNote": "This acts as a rugged maritime trade frontier where sailors, fisherfolk, and explorers intermingle.",
     "settlements": [
       {
+        "name": "Stormharrow",
+        "description": "A massive storm-battered harbor city built directly into towering black cliffs. Stormharrow serves as the military and naval center of Marrowynd, famous for its enormous sea walls, dragon-watch towers, and heavily armed fleets."
+      },
+      {
         "name": "Blacktide Reach",
         "description": "A dangerous frontier port known for deep fogbanks, monster hunting expeditions, and black-market maritime trade. Many sailors consider Blacktide Reach both cursed and indispensable."
+      },
+      {
+        "name": "Thalmerrow",
+        "description": "One of the largest commercial ports in the western seas, Thalmerrow thrives through trade, shipbuilding, and long-distance exploration. Merchants from across Belavadös gather here year-round."
+      },
+      {
+        "name": "Seawynd Hollow",
+        "description": "A quieter coastal settlement nestled between pine forests and sheltered coves. Tortle fishing communities and sea genasi tidecallers maintain strong influence here."
+      },
+      {
+        "name": "Myrkwake",
+        "description": "A cold northern harbor surrounded by perpetual mist and dangerous reefs. Ghost stories, missing ships, and supernatural sightings are deeply tied to Myrkwake’s reputation."
+      },
+      {
+        "name": "Vaelshore",
+        "description": "A scenic cliffside city known for lighthouse monasteries, oceanic scholarship, and maritime navigation schools. Ravenfolk and kenku messenger guilds are especially prominent here."
       },
       {
         "name": "Cindervale Coast",
@@ -909,26 +953,6 @@
       {
         "name": "Kharrowport",
         "description": "A rough but lively trade settlement infamous for smugglers, mercenary crews, gambling dens, and treasure hunters seeking ancient ruins beneath the sea."
-      },
-      {
-        "name": "Myrkwake",
-        "description": "A cold northern harbor surrounded by perpetual mist and dangerous reefs. Ghost stories, missing ships, and supernatural sightings are deeply tied to Myrkwake’s reputation."
-      },
-      {
-        "name": "Seawynd Hollow",
-        "description": "A quieter coastal settlement nestled between pine forests and sheltered coves. Tortle fishing communities and sea genasi tidecallers maintain strong influence here."
-      },
-      {
-        "name": "Stormharrow",
-        "description": "A massive storm-battered harbor city built directly into towering black cliffs. Stormharrow serves as the military and naval center of Marrowynd, famous for its enormous sea walls, dragon-watch towers, and heavily armed fleets."
-      },
-      {
-        "name": "Thalmerrow",
-        "description": "One of the largest commercial ports in the western seas, Thalmerrow thrives through trade, shipbuilding, and long-distance exploration. Merchants from across Belavadös gather here year-round."
-      },
-      {
-        "name": "Vaelshore",
-        "description": "A scenic cliffside city known for lighthouse monasteries, oceanic scholarship, and maritime navigation schools. Ravenfolk and kenku messenger guilds are especially prominent here."
       }
     ]
   },
@@ -940,36 +964,36 @@
     "culturalNote": "This area supports amphibious coexistence and lake-based cultures.",
     "settlements": [
       {
-        "name": "Balmire",
-        "description": "A low-lying marsh settlement famous for its healing waters, medicinal alchemy, and restorative mud baths used across Nalvessir."
-      },
-      {
-        "name": "Bentharys",
-        "description": "A deep-water marsh city built partially submerged, known for its complex canal systems and dril’thar navigation networks."
-      },
-      {
         "name": "Briarwater",
         "description": "A dense marsh-city built among thorned reeds and floating platforms, known for trade in herbal goods, poisons, and wetland medicines."
-      },
-      {
-        "name": "Frostfen",
-        "description": "A rare colder-region wetland settlement where mist freezes over reed beds during seasonal shifts, creating crystalline marsh landscapes."
-      },
-      {
-        "name": "Greenmire",
-        "description": "A sprawling wetland hub built across multiple floating landmasses, known for its amphibious marketplaces and interspecies diplomacy."
       },
       {
         "name": "Palevanna",
         "description": "A tranquil lake-settlement surrounded by pale reeds and misty waters, serving as a cultural and spiritual center for marsh elf traditions."
       },
       {
-        "name": "Pellavess",
-        "description": "A historic lake settlement tied to ancient turtle migration routes, often considered one of the oldest continuous habitation sites in Nalvessir."
+        "name": "Greenmire",
+        "description": "A sprawling wetland hub built across multiple floating landmasses, known for its amphibious marketplaces and interspecies diplomacy."
       },
       {
         "name": "Porthelis",
         "description": "A major trade port at the intersection of lake and river systems, functioning as the primary gateway between inland wetland regions and external trade routes."
+      },
+      {
+        "name": "Balmire",
+        "description": "A low-lying marsh settlement famous for its healing waters, medicinal alchemy, and restorative mud baths used across Nalvessir."
+      },
+      {
+        "name": "Frostfen",
+        "description": "A rare colder-region wetland settlement where mist freezes over reed beds during seasonal shifts, creating crystalline marsh landscapes."
+      },
+      {
+        "name": "Bentharys",
+        "description": "A deep-water marsh city built partially submerged, known for its complex canal systems and dril’thar navigation networks."
+      },
+      {
+        "name": "Pellavess",
+        "description": "A historic lake settlement tied to ancient turtle migration routes, often considered one of the oldest continuous habitation sites in Nalvessir."
       }
     ]
   },
@@ -981,12 +1005,12 @@
     "culturalNote": "This is a major aquatic trade civilization.",
     "settlements": [
       {
-        "name": "Belynthar",
-        "description": "A major administrative and diplomatic city built across layered islands, serving as a central council hub for lake-wide negotiations."
-      },
-      {
         "name": "Fensylth",
         "description": "A mist-drenched island trade hub known for its shifting marketplaces and seasonal merchant flotillas that anchor and depart with the currents."
+      },
+      {
+        "name": "Belynthar",
+        "description": "A major administrative and diplomatic city built across layered islands, serving as a central council hub for lake-wide negotiations."
       },
       {
         "name": "Gavaryn",
@@ -1006,16 +1030,12 @@
     "culturalNote": "This region is extremely fey-aligned and old-growth oriented. Firbolgs, wood elves, and mandrakes naturally form the spiritual backbone, while satyrs and eladrin reinforce a mystical and celebratory forest culture.",
     "settlements": [
       {
-        "name": "Aelmyrwald",
-        "description": "A sprawling woodland trade settlement connecting multiple migration paths and canopy routes. Jaspeys & Ratatosk couriers, tabaxi caravans, and satyr performers make Aelmyrwald one of the liveliest cities in the kingdom."
+        "name": "Vaelthyros",
+        "description": "A colossal canopy-city suspended among impossibly ancient trees deep within the western forest interior. Known for its elevated bridges, glowing lantern groves, and powerful eladrin houses, Vaelthyros serves as one of the primary magical centers of the kingdom."
       },
       {
         "name": "Elaravosk",
         "description": "A mist-covered coastal settlement built into sea cliffs and evergreen fjords. Elaravosk is famous for spirit-lighthouses, tortle fishing enclaves, and dense ocean fog believed to be controlled by ancient fey tidesingers."
-      },
-      {
-        "name": "Lethyrvos",
-        "description": "A northern settlement nestled among ancient pine valleys and colossal standing stones. Bearfolk clans and firbolg spiritual orders maintain strong influence here."
       },
       {
         "name": "Myrvaelûn",
@@ -1030,12 +1050,16 @@
         "description": "A powerful woodland stronghold bordering dangerous untamed wild regions where green dragons are most active. Rangers, dragon-speakers, and beast wardens are heavily concentrated here."
       },
       {
-        "name": "Vaelthyros",
-        "description": "A colossal canopy-city suspended among impossibly ancient trees deep within the western forest interior. Known for its elevated bridges, glowing lantern groves, and powerful eladrin houses, Vaelthyros serves as one of the primary magical centers of the kingdom."
-      },
-      {
         "name": "Vaerundell",
         "description": "A quieter river settlement known for botanical scholarship, herbal medicine, and living gardens cultivated by mandrakes and hedges. Many of Sylvavéryn’s greatest alchemists originate from Vaerundell."
+      },
+      {
+        "name": "Lethyrvos",
+        "description": "A northern settlement nestled among ancient pine valleys and colossal standing stones. Bearfolk clans and firbolg spiritual orders maintain strong influence here."
+      },
+      {
+        "name": "Aelmyrwald",
+        "description": "A sprawling woodland trade settlement connecting multiple migration paths and canopy routes. Jaspeys & Ratatosk couriers, tabaxi caravans, and satyr performers make Aelmyrwald one of the liveliest cities in the kingdom."
       }
     ]
   },
@@ -1047,40 +1071,40 @@
     "culturalNote": "This region is ocean-dominated and politically unstable.",
     "settlements": [
       {
-        "name": "Abyrros",
-        "description": "A haunting island settlement surrounded by perpetual storms and ship graveyards. Many believe Abyrros sits above an ancient abyssal gateway beneath the sea."
+        "name": "Skulltide Expanse",
+        "description": "A massive pirate metropolis built across interconnected ships, floating docks, and fortified island ruins. In Skulltide Expanse, virtually all crime is legal so long as one possesses the strength to defend their claims. Mercenary fleets, smugglers, assassins, monster hunters, black markets, and criminal syndicates dominate the city’s chaotic politics."
       },
       {
         "name": "Blackwake Isles",
         "description": "A dangerous chain of volcanic islands filled with hidden coves, pirate dens, sea caves, and dragon turtle shrines. Many captains use the Blackwake Isles as staging grounds for raids and smuggling operations."
       },
       {
-        "name": "Dreadcurrent",
-        "description": "A heavily fortified maritime stronghold overlooking one of the most dangerous whirlpool regions in the eastern seas. Constant naval warfare and sea monster attacks define life within Dreadcurrent."
-      },
-      {
-        "name": "Grimwater Reach",
-        "description": "A lawless frontier port where pirates, mercenaries, monster hunters, and wandering traders gather before venturing into the dangerous outer seas."
-      },
-      {
-        "name": "Leviamor",
-        "description": "A colossal abyssal city constructed within deep ocean trenches far beneath the surface. Leviamor is one of the most mysterious settlements in Thalryss and is rumored to maintain direct contact with leviathans and ancient sea dragons."
-      },
-      {
         "name": "Ocevaruun",
         "description": "A vast underwater city illuminated by glowing coral towers and bioluminescent reef structures. Ocevaruun serves as one of the largest triton and sea elf population centers within Thalryss."
       },
       {
-        "name": "Skulltide Expanse",
-        "description": "A massive pirate metropolis built across interconnected ships, floating docks, and fortified island ruins. In Skulltide Expanse, virtually all crime is legal so long as one possesses the strength to defend their claims. Mercenary fleets, smugglers, assassins, monster hunters, black markets, and criminal syndicates dominate the city’s chaotic politics."
+        "name": "Dreadcurrent",
+        "description": "A heavily fortified maritime stronghold overlooking one of the most dangerous whirlpool regions in the eastern seas. Constant naval warfare and sea monster attacks define life within Dreadcurrent."
       },
       {
         "name": "Thal’kazuun",
         "description": "An ancient reef kingdom partially built atop submerged ruins older than recorded history. Powerful sea elf dynasties and reef dril’thar clans compete for influence here."
       },
       {
+        "name": "Leviamor",
+        "description": "A colossal abyssal city constructed within deep ocean trenches far beneath the surface. Leviamor is one of the most mysterious settlements in Thalryss and is rumored to maintain direct contact with leviathans and ancient sea dragons."
+      },
+      {
         "name": "Vorthalass",
         "description": "A militarized sahuagin fortress-city known for aggressive expansion, brutal naval raids, and terrifying deepwater armies."
+      },
+      {
+        "name": "Abyrros",
+        "description": "A haunting island settlement surrounded by perpetual storms and ship graveyards. Many believe Abyrros sits above an ancient abyssal gateway beneath the sea."
+      },
+      {
+        "name": "Grimwater Reach",
+        "description": "A lawless frontier port where pirates, mercenaries, monster hunters, and wandering traders gather before venturing into the dangerous outer seas."
       }
     ]
   },
@@ -1092,20 +1116,20 @@
     "culturalNote": "This region has stronger feywild bleed-through and more mysterious magical influence than #1.",
     "settlements": [
       {
-        "name": "Eldryssar",
-        "description": "An ancient ruin-city reclaimed by nature and transformed into a sprawling magical sanctuary filled with overgrown towers, glowing gardens, and forgotten arcane libraries."
-      },
-      {
         "name": "Lunethryl",
         "description": "A radiant moonlit settlement built among enormous silver-leafed trees and elevated crystal bridges. Lunethryl serves as one of the primary eladrin cultural centers within Vaelmyrith."
       },
       {
-        "name": "Velkynwood",
-        "description": "A darker frontier settlement bordering unstable Feywild convergence zones where shadow goblins, hexbloods, and wandering spirit entities are most commonly encountered."
-      },
-      {
         "name": "Whispergrove",
         "description": "A hidden woodland settlement surrounded by living illusion magic and whispering spirit forests. Outsiders often struggle to locate Whispergrove unless guided intentionally."
+      },
+      {
+        "name": "Eldryssar",
+        "description": "An ancient ruin-city reclaimed by nature and transformed into a sprawling magical sanctuary filled with overgrown towers, glowing gardens, and forgotten arcane libraries."
+      },
+      {
+        "name": "Velkynwood",
+        "description": "A darker frontier settlement bordering unstable Feywild convergence zones where shadow goblins, hexbloods, and wandering spirit entities are most commonly encountered."
       }
     ]
   },
@@ -1117,12 +1141,32 @@
     "culturalNote": "This becomes a prosperous agricultural heartland.",
     "settlements": [
       {
-        "name": "Brassmere Concord",
-        "description": "A major political and trade center where brass dragon emissaries and mortal councils oversee regional agreements and economic balance."
+        "name": "Harvestmere",
+        "description": "A central agricultural hub known for massive grain production, seasonal harvest festivals, and wide market exchanges between plains settlements."
       },
       {
         "name": "Caelvanna",
         "description": "A serene riverplain settlement built around natural waterways and pastoral estates, known for harmony with nature spirits and draconic weather blessings."
+      },
+      {
+        "name": "Brassmere Concord",
+        "description": "A major political and trade center where brass dragon emissaries and mortal councils oversee regional agreements and economic balance."
+      },
+      {
+        "name": "Soltharyn Basin",
+        "description": "A fertile basin settlement surrounded by layered farmlands and irrigation canals, specializing in large-scale food production and export."
+      },
+      {
+        "name": "Vaeloris Greenlands",
+        "description": "A sprawling pastoral district known for open grazing lands, centaur migration routes, and nomadic trade gatherings."
+      },
+      {
+        "name": "Valdrune Fields",
+        "description": "An ancient agricultural region with long-standing land rights treaties dating back to early draconic accords."
+      },
+      {
+        "name": "Meadowlight Expanse",
+        "description": "A luminous grassland region famous for bioluminescent flora and rare seasonal natural phenomena during twilight cycles."
       },
       {
         "name": "Elarion Pastures",
@@ -1133,32 +1177,12 @@
         "description": "A semi-wild agricultural frontier where farming settlements blend into natural grassland ecosystems."
       },
       {
-        "name": "Harvestmere",
-        "description": "A central agricultural hub known for massive grain production, seasonal harvest festivals, and wide market exchanges between plains settlements."
-      },
-      {
-        "name": "Meadowlight Expanse",
-        "description": "A luminous grassland region famous for bioluminescent flora and rare seasonal natural phenomena during twilight cycles."
-      },
-      {
-        "name": "Soltharyn Basin",
-        "description": "A fertile basin settlement surrounded by layered farmlands and irrigation canals, specializing in large-scale food production and export."
-      },
-      {
         "name": "Sunvale Reach",
         "description": "A sun-drenched agricultural stretch known for large-scale trade caravans and highly productive wheat fields."
       },
       {
         "name": "Thaloju",
         "description": "A culturally distinct plains settlement known for mixed-race communities, artisan farming, and experimental agricultural practices."
-      },
-      {
-        "name": "Vaeloris Greenlands",
-        "description": "A sprawling pastoral district known for open grazing lands, centaur migration routes, and nomadic trade gatherings."
-      },
-      {
-        "name": "Valdrune Fields",
-        "description": "An ancient agricultural region with long-standing land rights treaties dating back to early draconic accords."
       }
     ]
   },
@@ -1170,24 +1194,24 @@
     "culturalNote": "This becomes a cosmopolitan merchant settlement full of spies, sailors, smugglers, and diplomats.",
     "settlements": [
       {
-        "name": "Bronzewake",
-        "description": "A temple-harbor district dedicated to bronze dragon influence, maritime law, and protection of the strait. Many believe bronze dragons directly oversee this region."
+        "name": "Straithaven",
+        "description": "A fortified trade district located at the narrowest point of the strait, controlling most maritime traffic entering Virelport. Straithaven functions as both customs hub and naval checkpoint."
       },
       {
         "name": "Shadewharf",
         "description": "A shadowy dock district known for smuggling operations, espionage networks, and illegal trade markets hidden beneath legitimate commerce."
       },
       {
-        "name": "Stormgullet",
-        "description": "A dangerous outer harbor exposed to open sea storms, used primarily by privateers, mercenary fleets, and deep-sea expedition vessels."
-      },
-      {
-        "name": "Straithaven",
-        "description": "A fortified trade district located at the narrowest point of the strait, controlling most maritime traffic entering Virelport. Straithaven functions as both customs hub and naval checkpoint."
-      },
-      {
         "name": "Veilstrand",
         "description": "A diplomatic and residential district where ambassadors, merchant lords, and political agents negotiate trade agreements and maritime treaties."
+      },
+      {
+        "name": "Bronzewake",
+        "description": "A temple-harbor district dedicated to bronze dragon influence, maritime law, and protection of the strait. Many believe bronze dragons directly oversee this region."
+      },
+      {
+        "name": "Stormgullet",
+        "description": "A dangerous outer harbor exposed to open sea storms, used primarily by privateers, mercenary fleets, and deep-sea expedition vessels."
       }
     ]
   },
@@ -1199,10 +1223,6 @@
     "culturalNote": "This area feels politically ambitious and expansionist.",
     "settlements": [
       {
-        "name": "Glysera",
-        "description": "A port settlement built across mangrove channels, known for its floating markets and amphibious trade infrastructure."
-      },
-      {
         "name": "Hyselva",
         "description": "A growing coastal capital where jungle trade routes meet naval expansion fleets, functioning as a major administrative hub of frontier development."
       },
@@ -1211,12 +1231,16 @@
         "description": "An inland expedition city carved into dense rainforest, specializing in resource extraction and expansion logistics."
       },
       {
-        "name": "Mornelya",
-        "description": "A militarized expansion fortress overseeing jungle ingress routes and coastal defense corridors."
+        "name": "Glysera",
+        "description": "A port settlement built across mangrove channels, known for its floating markets and amphibious trade infrastructure."
       },
       {
         "name": "Oelnoreu",
         "description": "A diplomatic frontier city where inland kingdoms negotiate access, trade rights, and territorial claims."
+      },
+      {
+        "name": "Mornelya",
+        "description": "A militarized expansion fortress overseeing jungle ingress routes and coastal defense corridors."
       }
     ]
   },
@@ -1228,18 +1252,6 @@
     "culturalNote": "This region is extremely amphibious and marsh-oriented.",
     "settlements": [
       {
-        "name": "Amazuul",
-        "description": "A sacred floodplain settlement surrounded by colossal ancient trees and revered spirit pools believed to connect directly to primordial water entities."
-      },
-      {
-        "name": "Ithkazuun",
-        "description": "A sprawling amphibious river-city dominated by dril’thar clans and elaborate canal systems connecting dozens of smaller surrounding communities."
-      },
-      {
-        "name": "Keth’mora",
-        "description": "A dangerous frontier outpost bordering untamed swamp territories where giant crocodiles, hydras, and swamp drakes are constant threats."
-      },
-      {
         "name": "Sszaruun",
         "description": "A massive marsh-city built atop interconnected wooden platforms and ancient submerged ruins. Sszaruun serves as one of the primary political and trade centers of the delta."
       },
@@ -1248,20 +1260,32 @@
         "description": "A heavily fortified lizardfolk stronghold deep within the blackwater swamps, surrounded by dangerous hydra territory and ancient dragon-haunted waterways."
       },
       {
-        "name": "Vaelzahara",
-        "description": "A vibrant river trade settlement where tabaxi merchants, tortle navigators, and water genasi traders gather from across the eastern waterways."
+        "name": "Xal’voroq",
+        "description": "A mysterious jungle settlement hidden beneath immense mangrove canopies where yuan-ti temples and ancient serpent cults maintain significant influence."
+      },
+      {
+        "name": "Ithkazuun",
+        "description": "A sprawling amphibious river-city dominated by dril’thar clans and elaborate canal systems connecting dozens of smaller surrounding communities."
       },
       {
         "name": "Varesh-Ka",
         "description": "A remote swamp settlement renowned for poison crafting, rare medicinal herbs, and dangerous alchemical traditions maintained by grung and nakudama mystics."
       },
       {
-        "name": "Xal’voroq",
-        "description": "A mysterious jungle settlement hidden beneath immense mangrove canopies where yuan-ti temples and ancient serpent cults maintain significant influence."
-      },
-      {
         "name": "Zhurak’thel",
         "description": "A partially submerged fortress-city built into ancient stone ruins reclaimed by the jungle. Legends claim black dragons once ruled openly from beneath its flooded chambers."
+      },
+      {
+        "name": "Vaelzahara",
+        "description": "A vibrant river trade settlement where tabaxi merchants, tortle navigators, and water genasi traders gather from across the eastern waterways."
+      },
+      {
+        "name": "Amazuul",
+        "description": "A sacred floodplain settlement surrounded by colossal ancient trees and revered spirit pools believed to connect directly to primordial water entities."
+      },
+      {
+        "name": "Keth’mora",
+        "description": "A dangerous frontier outpost bordering untamed swamp territories where giant crocodiles, hydras, and swamp drakes are constant threats."
       }
     ]
   },
@@ -1273,20 +1297,20 @@
     "culturalNote": "This is one of the harshest and most dangerous regions on the continent, most of the settlers live deep in the mountains in cities carved deep underground in the mountains, some rumors say that some settlements delve so deep that you can traverse into the underdark, and even deeper to the abyss and Hell itself.",
     "settlements": [
       {
-        "name": "Drakzhul",
-        "description": "A draconic-ruin city built around ancient dragon architecture, partially collapsed into lava chambers and unstable caverns."
-      },
-      {
         "name": "Karag-Thûl",
         "description": "A massive dwarven fortress-city carved deep into volcanic stone, serving as one of the oldest surviving underground civilizations in the region."
       },
       {
-        "name": "Moltharok",
-        "description": "A mid-depth industrial fortress-city centered around magma forges, weapon production, and elemental energy harvesting."
-      },
-      {
         "name": "Tharvokar",
         "description": "A heavily militarized stronghold controlling key surface-to-subterranean access routes and volcanic passes."
+      },
+      {
+        "name": "Drakzhul",
+        "description": "A draconic-ruin city built around ancient dragon architecture, partially collapsed into lava chambers and unstable caverns."
+      },
+      {
+        "name": "Moltharok",
+        "description": "A mid-depth industrial fortress-city centered around magma forges, weapon production, and elemental energy harvesting."
       },
       {
         "name": "Vulkradûn",
@@ -1296,15 +1320,27 @@
   }
 ];
 
-    const slug = (value) => value
-      .toLowerCase()
+    const removeDiacritics = (value) => value
       .normalize('NFKD')
-      .replace(/[̀-ͯ]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+      .replace(/[\u0300-\u036f]/g, '');
 
     const stripParenthetical = (value) => value.replace(/\s*\([^)]*\)\s*/g, '').trim();
-    const fileNameFor = (settlement, province) => `${stripParenthetical(settlement)}_${province}.html`;
+
+    const normalizeFilePart = (value) => removeDiacritics(stripParenthetical(value))
+      .replace(/[’‘'`´]/g, '')
+      .replace(/&/g, 'and')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '_')
+      .replace(/_+/g, '_')
+      .replace(/^_+|_+$/g, '');
+
+    const slug = (value) => normalizeFilePart(value)
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+    const fileNameFor = (settlement, province) => `${normalizeFilePart(settlement)}_${normalizeFilePart(province)}.html`;
     const hrefFor = (settlement, province) => encodeURI(fileNameFor(settlement, province));
     const escapeHTML = (value) => value.replace(/[&<>"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));
 
