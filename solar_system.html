@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Belavadös Interactive 3D Solar System</title>
 <style>
 :root{--cyan:#00ffff;--panel:rgba(4,12,24,.80);--line:rgba(120,255,255,.35);--white:#eefbff;--gold:#f5d27b}
@@ -58,27 +59,201 @@ a{color:#bfffff;text-decoration:none}.app{position:relative;width:100vw;height:1
   .belavados-standard-nav .belavados-nav-button{white-space:nowrap;font-size:13px;padding:8px 10px;}
 }
 
+
+/* === Belavadös shared site shell and readability pass === */
+#belavados-site-shell{position:relative;z-index:2147483000;display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,.9fr);gap:10px;padding:10px clamp(10px,2vw,18px);background:linear-gradient(90deg,rgba(2,7,12,.97),rgba(20,38,42,.94),rgba(2,7,12,.97));border-bottom:1px solid rgba(0,255,255,.38);box-shadow:0 10px 30px rgba(0,0,0,.42);color:#eefbff;font-family:Georgia,"Times New Roman",serif;}
+#belavados-site-shell *{box-sizing:border-box} .bd-drawer{min-width:0;border:1px solid rgba(0,255,255,.32);border-radius:16px;background:rgba(7,14,21,.82);box-shadow:inset 0 0 18px rgba(0,255,255,.06)}
+.bd-drawer>summary{cursor:pointer;list-style:none;padding:10px 13px;font-weight:800;letter-spacing:.03em;color:#dff;user-select:none}.bd-drawer>summary::-webkit-details-marker{display:none}.bd-drawer>summary::after{content:"  ▾";color:#00ffff}.bd-drawer:not([open])>summary::after{content:"  ▸"}
+.bd-drawer-body{padding:0 12px 12px;max-height:38vh;overflow:auto;scrollbar-width:thin}.bd-primary-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:9px}.bd-nav-pill,.bd-current{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(16,44,48,.95),rgba(7,14,19,.95));color:#eff;text-decoration:none;box-shadow:0 0 14px rgba(0,255,255,.12)}.bd-nav-pill:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(0,255,255,.25)}.bd-current{border-color:rgba(245,210,123,.65);color:#ffe9a8}
+.bd-jump-label,.bd-time-grid label{display:grid;gap:5px;color:#bfeeff;font-size:13px}.bd-jump,#bd-timezone-select,#bd-time-json{width:100%;min-height:36px;border-radius:11px;border:1px solid rgba(0,255,255,.35);background:#07131a;color:#eefbff;padding:7px}.bd-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bd-time-grid span{display:block;margin-top:4px;color:#fff;line-height:1.35}.bd-file-label,.bd-hint{grid-column:1/-1}.bd-hint{margin:2px 0 0;color:#a9cbd0;font-size:12px;line-height:1.35}.bd-hint code{color:#00ffff;white-space:nowrap}
+html{scroll-behavior:smooth} body{overflow-x:hidden} img,canvas,svg,video,iframe{max-width:100%} table{max-width:100%;display:block;overflow-x:auto;white-space:normal} pre,code{white-space:pre-wrap;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.sheet,.section,section,article,aside{max-width:100%;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.box{scrollbar-width:thin}.app,.screen,main{min-width:0}.belavados-standard-nav{display:none!important}
+@media(max-width:820px){#belavados-site-shell{grid-template-columns:1fr}.bd-time-grid{grid-template-columns:1fr}.bd-drawer-body{max-height:46vh}}
+@media print{#belavados-site-shell{display:none!important}}
+</style>
+<style id="belavados-responsive-readable-css">
+
+/* === Belavadös responsive navigation/readability patch: 2026-06-01 === */
+:root{
+  --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQyNmUwIiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiL2YvZjE2ZTJlZjctMGI3Yi00MTliLWIwNTctMWJkMTlhMjI4OWY1L2QxaW8wd2MtYzUxNjU1NTAtOGMwMS00ODdmLTg2NTEtMTQ2ZTFlMTRlMTExLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
+  --bg-quick:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
+  --bg-deep:url("https://wallpapers.com/images/hd/minimalist-skyrim-dual-monitor-ph022pgi8ftp32nv.jpg");
+  --text:#f3e9db; --muted:#d4c6b6; --teal:#3d9fa0; --teal2:#8de0dc; --bronze:#b07a3a; --bronze2:#d7aa63; --plum:#4d3658; --card:rgba(12,16,23,.92);
+  --bd-shell-height:0px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+body{min-width:0; overflow-x:hidden !important;}
+body::before{background-size:cover;background-position:center;background-repeat:no-repeat;}
+img,canvas,svg,video,iframe{max-width:100%;}
+table{max-width:100%;display:block;overflow-x:auto;white-space:normal;}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere;}
+button,a.button,.bd-nav-pill,.bd-current,.belavados-nav-button{min-width:0;white-space:normal;overflow-wrap:anywhere;text-align:center;}
+#belavados-site-shell{
+  position:sticky !important;
+  top:0 !important;
+  z-index:2147483000 !important;
+  display:grid !important;
+  grid-template-columns:minmax(240px,1fr) minmax(240px,.9fr) !important;
+  gap:10px !important;
+  padding:8px clamp(8px,1.7vw,16px) !important;
+  margin:0 !important;
+  background:linear-gradient(90deg,rgba(2,7,12,.97),rgba(20,38,42,.94),rgba(2,7,12,.97)) !important;
+  border-bottom:1px solid rgba(0,255,255,.38) !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.42) !important;
+  color:#eefbff !important;
+  font-family:Georgia,"Times New Roman",serif !important;
+  max-height:min(42vh,360px) !important;
+  overflow:visible !important;
+}
+#belavados-site-shell .bd-drawer{min-width:0;border:1px solid rgba(0,255,255,.32);border-radius:16px;background:rgba(7,14,21,.82);box-shadow:inset 0 0 18px rgba(0,255,255,.06);}
+#belavados-site-shell .bd-drawer>summary{cursor:pointer;list-style:none;padding:9px 12px;font-weight:800;letter-spacing:.03em;color:#dff;user-select:none;}
+#belavados-site-shell .bd-drawer>summary::-webkit-details-marker{display:none;}
+#belavados-site-shell .bd-drawer>summary::after{content:"  ▸";color:#00ffff;}
+#belavados-site-shell .bd-drawer[open]>summary::after{content:"  ▾";}
+#belavados-site-shell .bd-drawer-body{padding:0 12px 12px;max-height:28vh;overflow:auto;scrollbar-width:thin;}
+#belavados-site-shell .bd-primary-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:9px;}
+#belavados-site-shell .bd-nav-pill,#belavados-site-shell .bd-current{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(16,44,48,.95),rgba(7,14,19,.95));color:#eff !important;text-decoration:none !important;box-shadow:0 0 14px rgba(0,255,255,.12);}
+#belavados-site-shell .bd-nav-pill:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(0,255,255,.25);}
+#belavados-site-shell .bd-current{border-color:rgba(245,210,123,.65);color:#ffe9a8 !important;}
+#belavados-site-shell .bd-jump-label,#belavados-site-shell .bd-time-grid label{display:grid;gap:5px;color:#bfeeff;font-size:13px;}
+#belavados-site-shell .bd-jump,#belavados-site-shell #bd-timezone-select,#belavados-site-shell #bd-time-json{width:100%;min-height:36px;border-radius:11px;border:1px solid rgba(0,255,255,.35);background:#07131a;color:#eefbff;padding:7px;}
+#belavados-site-shell .bd-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+#belavados-site-shell .bd-time-grid span{display:block;margin-top:4px;color:#fff;line-height:1.35;}
+#belavados-site-shell .bd-file-label,#belavados-site-shell .bd-hint{grid-column:1/-1;}
+#belavados-site-shell .bd-hint{margin:2px 0 0;color:#a9cbd0;font-size:12px;line-height:1.35;}
+#belavados-site-shell .bd-hint code{color:#00ffff;white-space:nowrap;}
+.bd-feature-marquee{position:relative;z-index:1;margin:10px auto 14px;width:min(1200px,calc(100% - 24px));border-top:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);background:rgba(4,12,18,.78);padding:10px 0;overflow:hidden;white-space:nowrap;color:#f6ebd9;font:clamp(.82rem,1.7vw,.95rem)/1.4 Georgia,"Times New Roman",serif;box-shadow:0 8px 24px rgba(0,0,0,.24);border-radius:0 0 14px 14px;}
+.bd-feature-marquee span{display:inline-block;padding-left:100%;animation:bd-scroll 30s linear infinite;}
+@keyframes bd-scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.bd-feature-marquee span,.marquee span{animation:none; padding-left:0; white-space:normal;}}
+.app,.wrap,main,.screen,.panel,.hero,.focus-box,.content,.container,.layout,.grid,.cards,.docs-grid,.intro-grid,section,article,aside{min-width:0;max-width:100%;}
+.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.sheet,.section,section,article,aside,.window,.module,.tool-panel,.controls,.hud,.readout,.result,.output,.description,.notes,.log,.text-box,textarea{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.card,.doc-card,.mini-panel,.panel,.box,.module,.tool-panel,.controls,.sidebar,.drawer,.hud,.readout,.result,.output,.description,.notes,.log,.text-box{
+  max-height:min(72vh,900px);
+  overflow:auto;
+  scrollbar-width:thin;
+}
+textarea,input,select{max-width:100%;}
+.title,h1,.page-title,.hero-title,header h1{scroll-margin-top:calc(var(--bd-shell-height) + 24px); position:relative; z-index:1;}
+.topbar,.belavados-standard-nav{top:calc(var(--bd-shell-height) + 8px) !important;}
+.belavados-standard-nav{display:none !important;}
+body > h1:first-of-type, body > header:first-of-type, body > main:first-of-type, body > .app:first-of-type, body > .wrap:first-of-type{position:relative;z-index:1;}
+@media (max-width:1100px){
+  #belavados-site-shell{grid-template-columns:1fr !important;max-height:52vh !important;}
+  #belavados-site-shell .bd-drawer-body{max-height:32vh;}
+  .hero{grid-template-columns:1fr !important;}
+  .nav{width:100%;justify-content:stretch;margin-left:0;}
+  .nav a.button{flex:1 1 130px;max-width:none;}
+}
+@media (max-width:900px){
+  .intro-grid,.docs-grid,.cards,.grid{grid-template-columns:1fr !important;}
+  .button-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media (max-width:720px){
+  body{font-size:15px;}
+  #belavados-site-shell{padding:7px !important;gap:7px !important;max-height:58vh !important;}
+  #belavados-site-shell .bd-time-grid{grid-template-columns:1fr !important;}
+  #belavados-site-shell .bd-drawer-body{max-height:38vh;}
+  .app,.wrap{width:calc(100% - 14px) !important;padding-inline:0 !important;margin-inline:auto !important;}
+  .panel{padding:18px !important;}
+  .topbar{padding:12px !important;gap:10px !important;}
+  .brand{width:100%;min-width:0 !important;}
+  .nav{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;}
+  .nav a.button{width:100%;min-height:42px;padding:10px 8px;font-size:.82rem;}
+  .button-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;}
+  .button-grid a{min-height:48px;padding:11px 8px;font-size:.82rem;}
+}
+@media (max-width:420px){
+  .panel{padding:14px !important;}
+  .nav,.button-grid{grid-template-columns:1fr !important;}
+  a.button,button{font-size:.8rem;min-height:42px;padding:10px 8px;}
+}
+@media print{#belavados-site-shell,.bd-feature-marquee{display:none !important;}}
+</style>
+<style id="belavados-player-viewonly-style">
+  [data-viewonly-blocked="true"]{display:none !important;}
+  .viewonly-note{border:1px solid rgba(0,255,255,.35);background:rgba(0,0,0,.45);color:#eaffff;border-radius:12px;padding:.65rem .8rem;margin:.75rem 0;font-size:.92rem;}
+  input[readonly], textarea[readonly]{cursor:default;}
 </style>
 </head>
 <body>
+<!-- === Belavadös shared global dropdown navigation / unhide patch === -->
+<style id="bdg-shared-style">
+:root{--bdg-nav-height:0px;}
+#bd-global-dropdown-nav{position:fixed;top:12px;left:12px;z-index:2147483600;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;max-width:min(92vw,760px);}
+#bd-global-dropdown-nav *{box-sizing:border-box;}
+#bd-global-dropdown-nav .bdg-bar{display:flex;align-items:center;gap:10px;pointer-events:auto;background:linear-gradient(90deg,rgba(2,8,12,.95),rgba(0,52,62,.92),rgba(2,8,12,.95));border:1px solid rgba(0,255,255,.48);box-shadow:0 10px 34px rgba(0,0,0,.42),0 0 24px rgba(0,255,255,.14);border-radius:18px;padding:8px 10px;backdrop-filter:blur(10px);}
+#bd-global-dropdown-nav .bdg-drag-handle{cursor:grab;user-select:none;border:1px solid rgba(0,255,255,.36);border-radius:12px;background:rgba(0,255,255,.08);color:#eff;padding:8px 10px;font-weight:900;line-height:1;}
+#bd-global-dropdown-nav .bdg-drag-handle:active{cursor:grabbing;}
+#bd-global-dropdown-nav details{position:relative;}
+#bd-global-dropdown-nav summary{list-style:none;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:9px 13px;border-radius:14px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(14,44,49,.96),rgba(6,15,22,.96));font-weight:850;color:#eff;text-shadow:0 1px 0 #000;white-space:nowrap;}
+#bd-global-dropdown-nav summary::-webkit-details-marker{display:none;}
+#bd-global-dropdown-nav summary:after{content:'▾';font-size:.82rem;color:#ffe7a6;}
+#bd-global-dropdown-nav details[open] summary:after{content:'▴';}
+#bd-global-dropdown-nav .bdg-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:min(92vw,360px);max-height:min(72vh,620px);overflow:auto;padding:10px;border-radius:18px;border:1px solid rgba(0,255,255,.45);background:linear-gradient(180deg,rgba(4,13,19,.98),rgba(8,21,29,.98));box-shadow:0 18px 48px rgba(0,0,0,.55);}
+#bd-global-dropdown-nav .bdg-link{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin:4px 0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#eaffff !important;text-decoration:none !important;font-weight:760;}
+#bd-global-dropdown-nav .bdg-link:hover,#bd-global-dropdown-nav .bdg-link:focus-visible{outline:none;border-color:rgba(0,255,255,.65);background:rgba(0,255,255,.12);transform:translateY(-1px);}
+#bd-global-dropdown-nav .bdg-current{border-color:rgba(245,210,123,.72)!important;color:#ffe7a6!important;background:rgba(245,210,123,.10)!important;}
+#bd-global-dropdown-nav .bdg-title{font-size:.9rem;line-height:1.15;text-align:right;color:#bff;min-width:120px;}
+#bd-global-dropdown-nav .bdg-title b{display:block;color:#fff;font-size:.98rem;}
+#bdg-hide-nav{border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.10);color:#eff;font-weight:850;padding:9px 11px;cursor:pointer;white-space:nowrap;}
+#bdg-hide-nav:hover{background:rgba(0,255,255,.20);}
+#bd-nav-bubble{position:fixed;left:14px;bottom:14px;z-index:2147483602;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eff;display:none;}
+body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important;}
+body.bdg-nav-hidden #bd-nav-bubble{display:block;}
+#bd-nav-bubble .bdg-bubble-core{border:1px solid rgba(0,255,255,.55);border-radius:999px;background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.38),rgba(0,50,60,.96) 42%,rgba(3,9,14,.98));box-shadow:0 0 28px rgba(0,255,255,.24),0 10px 28px rgba(0,0,0,.42);padding:10px 14px;font-weight:950;cursor:grab;user-select:none;min-width:58px;text-align:center;}
+#bd-nav-bubble .bdg-bubble-core:active{cursor:grabbing;}
+#bd-nav-bubble details{position:relative;}#bd-nav-bubble summary{list-style:none;}#bd-nav-bubble summary::-webkit-details-marker{display:none;}
+#bd-nav-bubble .bdg-bubble-menu{position:absolute;bottom:calc(100% + 8px);left:0;width:220px;border:1px solid rgba(0,255,255,.45);border-radius:16px;background:rgba(3,11,16,.96);box-shadow:0 14px 36px rgba(0,0,0,.48);padding:10px;}
+#bd-nav-bubble button{width:100%;border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.12);color:#eff;font-weight:850;padding:10px;cursor:pointer;}
+.belavados-standard-nav,#belavados-site-shell .bd-nav-drawer,.topbar nav.nav[aria-label*="Primary"],header nav.nav[aria-label*="Primary"],nav[aria-label="Primary site links"],nav[aria-label="Belavadös atlas navigation"]{display:none!important;}
+body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-nav .legend,body.bdg-has-global-nav .control-panel,body.bdg-has-global-nav .sidebar{scrollbar-width:thin;}
+#bd-unhide-tray{position:fixed;right:10px;bottom:10px;z-index:2147483601;max-width:min(420px,calc(100vw - 20px));font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;}
+#bd-unhide-tray details{border:1px solid rgba(0,255,255,.42);border-radius:16px;background:rgba(3,11,16,.94);box-shadow:0 10px 34px rgba(0,0,0,.38);overflow:hidden;}
+#bd-unhide-tray summary{cursor:pointer;list-style:none;padding:10px 12px;font-weight:850;background:linear-gradient(90deg,rgba(0,56,66,.92),rgba(4,12,18,.92));}#bd-unhide-tray summary::-webkit-details-marker{display:none;}
+#bd-unhide-list{display:flex;flex-wrap:wrap;gap:7px;padding:9px;max-height:35vh;overflow:auto;}#bd-unhide-list button,#bd-unhide-all{border:1px solid rgba(0,255,255,.45);border-radius:999px;background:rgba(0,255,255,.10);color:#eff;padding:7px 10px;cursor:pointer;font-weight:760;}#bd-unhide-list button:hover,#bd-unhide-all:hover{background:rgba(0,255,255,.22);}
+.bdg-purpose-panel{border:1px solid rgba(0,255,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(7,18,25,.86),rgba(11,13,20,.90));box-shadow:0 0 30px rgba(0,255,255,.10);padding:18px;margin:16px auto;max-width:1180px;color:inherit;}.bdg-purpose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}.bdg-purpose-grid article{border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.045);padding:14px;}.bdg-purpose-grid h3{margin:.15rem 0 .4rem;color:#ffe7a6;}.bdg-purpose-grid p{margin:.25rem 0;}
+@media(max-width:720px){#bd-global-dropdown-nav{top:8px;left:8px;max-width:calc(100vw - 16px);}#bd-global-dropdown-nav .bdg-bar{gap:6px;align-items:center;flex-wrap:wrap;}#bd-global-dropdown-nav .bdg-title{font-size:.8rem;max-width:42vw;min-width:0;}#bd-global-dropdown-nav .bdg-menu{min-width:calc(100vw - 20px);}#bdg-hide-nav{padding:8px 9px;}#bd-nav-bubble{left:10px;bottom:10px;}}
+</style>
+<div class="viewonly-note">Player view-only version: editing, code/image uploads, scanning, and code/download/export controls are locked.</div><div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav"><div class="bdg-bar"><div class="bdg-drag-handle" title="Drag navigation">✥</div><details><summary>☰ Site Navigation</summary><div class="bdg-menu" role="menu"><a class="bdg-link" data-bdg-target="index.html" href="index.html">Main Page</a><a class="bdg-link" data-bdg-target="portal.html" href="portal.html">Player Portal</a><a class="bdg-link" data-bdg-target="quiz.html" href="quiz.html">Alignment Quizzes</a><a class="bdg-link" data-bdg-target="charactersheet.html" href="charactersheet.html">Character Sheet</a><a class="bdg-link" data-bdg-target="charactersheetgenerator.html" href="charactersheetgenerator.html">Character Generator</a><a class="bdg-link" data-bdg-target="belavados_map_PLAYER.html" href="belavados_map_PLAYER.html">Player Map</a><a class="bdg-link" data-bdg-target="transportation.html" href="transportation.html">Transportation</a><a class="bdg-link" data-bdg-target="atlas.html" href="atlas.html">Atlas</a><a class="bdg-link" data-bdg-target="globe.html" href="globe.html">Globe</a><a class="bdg-link" data-bdg-target="solar_system.html" href="solar_system.html">Solar System</a><a class="bdg-link" data-bdg-target="constellations.html" href="constellations.html">Constellations</a></div></details><button id="bdg-hide-nav" type="button">Hide Nav</button><div class="bdg-title"><b>Belavadös</b><span>site navigation</span></div></div></div>
+<div aria-label="Hidden Belavadös navigation bubble" id="bd-nav-bubble"><details><summary class="bdg-bubble-core" title="Open navigation bubble">☰</summary><div class="bdg-bubble-menu"><button id="bdg-show-nav" type="button">Show Navigation Bar</button></div></details></div>
+<div aria-live="polite" id="bd-unhide-tray"><details><summary>Hidden Panels / Windows <span id="bd-unhide-count">0</span></summary><div style="padding:8px 9px 0"><button id="bd-unhide-all" type="button">Unhide All</button></div><div id="bd-unhide-list"></div></details></div>
+<script id="bdg-shared-script">
+(function(){if(window.__bdgSharedNavInstalled)return;window.__bdgSharedNavInstalled=true;document.body.classList.add('bdg-has-global-nav');var page=(location.pathname.split('/').pop()||'index.html').toLowerCase();document.querySelectorAll('#bd-global-dropdown-nav .bdg-link').forEach(function(a){if((a.getAttribute('href')||'').toLowerCase()===page){a.classList.add('bdg-current');a.setAttribute('aria-current','page');}});function clampPos(el,x,y){var r=el.getBoundingClientRect();var maxX=Math.max(0,window.innerWidth-r.width-8);var maxY=Math.max(0,window.innerHeight-r.height-8);return{x:Math.min(Math.max(8,x),maxX),y:Math.min(Math.max(8,y),maxY)}}function restorePos(el,key,def){try{var p=JSON.parse(localStorage.getItem(key)||'null');if(p){el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'}else if(def){Object.assign(el.style,def)}}catch(e){}}function makeDrag(handle,el,key){var sx=0,sy=0,ox=0,oy=0,moved=false;if(!handle||!el)return;handle.addEventListener('pointerdown',function(ev){moved=false;var r=el.getBoundingClientRect();sx=ev.clientX;sy=ev.clientY;ox=r.left;oy=r.top;handle.setPointerCapture(ev.pointerId);ev.preventDefault()});handle.addEventListener('pointermove',function(ev){if(!handle.hasPointerCapture(ev.pointerId))return;var nx=ox+(ev.clientX-sx),ny=oy+(ev.clientY-sy);if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>3)moved=true;var p=clampPos(el,nx,ny);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'});handle.addEventListener('pointerup',function(ev){if(handle.hasPointerCapture(ev.pointerId))handle.releasePointerCapture(ev.pointerId);var r=el.getBoundingClientRect();try{localStorage.setItem(key,JSON.stringify({x:r.left,y:r.top}))}catch(e){};if(moved){ev.preventDefault();ev.stopPropagation()}},true)}var nav=document.getElementById('bd-global-dropdown-nav'),bubble=document.getElementById('bd-nav-bubble');restorePos(nav,'bdgNavPos');restorePos(bubble,'bdgBubblePos',{left:'14px',bottom:'14px'});makeDrag(document.querySelector('#bd-global-dropdown-nav .bdg-drag-handle'),nav,'bdgNavPos');makeDrag(document.querySelector('#bd-nav-bubble .bdg-bubble-core'),bubble,'bdgBubblePos');document.getElementById('bdg-hide-nav')?.addEventListener('click',function(){document.body.classList.add('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','1')}catch(e){}});document.getElementById('bdg-show-nav')?.addEventListener('click',function(){document.body.classList.remove('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','0')}catch(e){}});try{if(localStorage.getItem('bdgNavHidden')==='1')document.body.classList.add('bdg-nav-hidden')}catch(e){}window.addEventListener('resize',function(){[nav,bubble].forEach(function(el){if(!el)return;var r=el.getBoundingClientRect();var p=clampPos(el,r.left,r.top);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'})});var meaningfulSelector='.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.window,.hud,.legend,.modal,.dialog,[data-panel],[data-window],[role="dialog"]';var tray=document.getElementById('bd-unhide-tray'),list=document.getElementById('bd-unhide-list'),count=document.getElementById('bd-unhide-count');function labelFor(el,i){var h=el.querySelector&&el.querySelector('h1,h2,h3,h4,.title,.panel-title,.section-title,[aria-label]');var t=(el.getAttribute('aria-label')||el.getAttribute('data-title')||(h&&(h.textContent||h.getAttribute('aria-label')))||el.id||el.className||'Panel').toString().trim().replace(/\s+/g,' ');return t.slice(0,46)||('Panel '+(i+1))}function isHidden(el){if(!el||el.id==='bd-unhide-tray'||el.closest&&(el.closest('#bd-unhide-tray')||el.closest('#bd-global-dropdown-nav')||el.closest('#bd-nav-bubble')))return false;var cs=getComputedStyle(el);return el.hidden||cs.display==='none'||cs.visibility==='hidden'||el.classList.contains('hidden')||el.classList.contains('is-hidden')}function showEl(el){try{el.hidden=false;el.removeAttribute('hidden');el.style.display='';el.style.visibility='';el.style.opacity='';el.classList.remove('hidden','is-hidden','closed','collapsed');if(getComputedStyle(el).display==='none')el.style.display='block';el.scrollIntoView({block:'nearest',inline:'nearest'})}catch(e){}refresh()}function refresh(){if(!list)return;list.innerHTML='';var found=[];document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el)&&found.indexOf(el)<0)found.push(el)});count.textContent=found.length;tray.style.display='block';if(!found.length){var none=document.createElement('span');none.style.opacity='.78';none.style.padding='7px';none.textContent='No hidden panels detected.';list.appendChild(none);return}found.slice(0,60).forEach(function(el,i){var b=document.createElement('button');b.type='button';b.textContent='Unhide: '+labelFor(el,i);b.addEventListener('click',function(){showEl(el)});list.appendChild(b)})}document.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('button,a,[role="button"]');if(!b)return;var txt=(b.textContent||b.getAttribute('aria-label')||b.title||'').toLowerCase();if(/\b(hide|close|collapse|minimize|dismiss)\b|×|✕|✖/.test(txt))setTimeout(refresh,80)},true);document.getElementById('bd-unhide-all')?.addEventListener('click',function(){document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el))showEl(el)});refresh()});new MutationObserver(function(){clearTimeout(window.__bdgUnhideTimer);window.__bdgUnhideTimer=setTimeout(refresh,120)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['class','style','hidden','aria-hidden']});refresh()})();
+</script>
+<!-- === end Belavadös shared global dropdown navigation / unhide patch === -->
+<!-- Belavadös shared site shell: navigation + real-time converter -->
+<div aria-label="Belavadös shared navigation and time tools" class="bd-shell" id="belavados-site-shell">
+<details class="bd-drawer bd-time-drawer">
+<summary>⏱ Earth ↔ Belavadös Time</summary>
+<div class="bd-drawer-body bd-time-grid">
+<div><strong>Earth / Eastern</strong><span id="bd-earth-time">Loading…</span></div>
+<div><strong>Belavadös</strong><span id="bd-belavados-time">Loading…</span></div>
+<label>Settlement time zone
+        <select id="bd-timezone-select">
+<option value="0">ATA Standard / UTC+0</option>
+<option value="-12">UTC-12</option><option value="-11">UTC-11</option><option value="-10">UTC-10</option><option value="-9">UTC-9</option><option value="-8">UTC-8</option><option value="-7">UTC-7</option><option value="-6">UTC-6</option><option value="-5">UTC-5</option><option value="-4">UTC-4</option><option value="-3">UTC-3</option><option value="-2">UTC-2</option><option value="-1">UTC-1</option><option value="1">UTC+1</option><option value="2">UTC+2</option><option value="3">UTC+3</option><option value="4">UTC+4</option><option value="5">UTC+5</option><option value="6">UTC+6</option><option value="7">UTC+7</option><option value="8">UTC+8</option><option value="9">UTC+9</option><option value="10">UTC+10</option><option value="11">UTC+11</option><option value="12">UTC+12</option>
+</select>
+</label>
+<label class="bd-file-label" data-viewonly-blocked="true">Import settlement JSON timezone
+        <input accept=".json,application/json" data-viewonly-blocked="true" disabled="disabled" id="bd-time-json" type="file"/>
+</label>
+<p class="bd-hint">Reads JSON fields such as <code>timeZone</code>, <code>timezone</code>, <code>utcOffset</code>, or <code>belavadosTimeZone</code> when present.</p>
+</div>
+</details>
+</div>
 <!-- Belavadös standardized navigation: atlas navigation -->
-<nav class="belavados-standard-nav" aria-label="Belavadös standardized navigation">
-    <a class="belavados-nav-button" href="globe.html">Globe View</a>
-    <a class="belavados-nav-button" href="constellations.html">Constellations</a>
-    <a class="belavados-nav-button" href="belavados_map_PLAYER.html">Player Map</a>
-    <a class="belavados-nav-button" href="solar_system.html">Solar System</a>
-    <a class="belavados-nav-button" href="../main pages/transportation.html">Transportation</a>
-</nav>
-
 <div class="app" id="app">
 <canvas id="space"></canvas>
 <div class="panel topbar">
-  <div class="brand">Belavadös Interactive 3D Solar System</div>
-  <a class="btn" href="../main pages/index.html">Main page</a><a class="btn" href="atlas.html">Atlas</a><a class="btn" href="globe.html">Globe view</a>
-  <select class="btn" id="timeSpeed" title="Simulation speed"><option value="0">Time paused</option><option value="real">Real time</option><option value="15min" selected>1 Belavadös year / 15 min</option><option value="5min">1 Belavadös year / 5 min</option><option value="1min">1 Belavadös year / 1 min</option><option value="30sec">1 Belavadös year / 30 sec</option></select>
-  <button class="btn" data-view="standard">Standard 30°</button><button class="btn" data-view="topDown">Top down</button><button class="btn" data-view="topUp">Top up</button>
-  <button class="btn" data-view="0">0hr</button><button class="btn" data-view="6">6hr</button><button class="btn" data-view="8">8hr</button><button class="btn" data-view="12">12hr</button>
-  <button class="btn" id="recenter">Recenter</button><button class="btn" id="hidePanels">Hide boxes</button>
+<div class="brand">Belavadös Interactive 3D Solar System</div>
+<select class="btn" id="timeSpeed" title="Simulation speed"><option value="0">Time paused</option><option value="real">Real time</option><option selected="" value="15min">1 Belavadös year / 15 min</option><option value="5min">1 Belavadös year / 5 min</option><option value="1min">1 Belavadös year / 1 min</option><option value="30sec">1 Belavadös year / 30 sec</option></select>
+<button class="btn" data-view="standard">Standard 30°</button><button class="btn" data-view="topDown">Top down</button><button class="btn" data-view="topUp">Top up</button>
+<button class="btn" data-view="0">0hr</button><button class="btn" data-view="6">6hr</button><button class="btn" data-view="8">8hr</button><button class="btn" data-view="12">12hr</button>
+<button class="btn" id="recenter">Recenter</button><button class="btn" id="hidePanels">Hide boxes</button>
 </div>
 <div class="panel assetList" id="assetList"></div>
 <div class="panel side" id="info"><h2>Belavadös System</h2><p>Merged from both solar-system designs: this version keeps the richer 360° navigation, click-to-fly objects, panels, nebulae, debris fields, moons, and all docx-matched non-constellation content, while using the planet and sun size logic from solar_system.html. This revision further widens the rendered orbit spacing without changing the listed kilometer/AU distances, adds the Eiršu'neth Comet as a safe, inclined, long-period Vishtecu–Hyperu family comet, and updates the Belavadös lunar system with the corrected nested moon paths and much smaller true-scale moon rendering based on Belavadös as an Earth-sized world.</p><p class="meta">Drag to rotate 360°, hold <span class="kbd">Shift</span> while dragging for slower precision rotation, scroll to zoom, and click any rendered asset to fly toward it.</p></div>
@@ -104,7 +279,7 @@ function resize(){DPR=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight
 function vsub(a,b){return{x:a.x-b.x,y:a.y-b.y,z:a.z-b.z}} function dot(a,b){return a.x*b.x+a.y*b.y+a.z*b.z} function cross(a,b){return{x:a.y*b.z-a.z*b.y,y:a.z*b.x-a.x*b.z,z:a.x*b.y-a.y*b.x}} function norm(a){let l=Math.hypot(a.x,a.y,a.z)||1;return{x:a.x/l,y:a.y/l,z:a.z/l}}
 function camBasis(){let cp=Math.cos(camera.pitch),sp=Math.sin(camera.pitch),sy=Math.sin(camera.yaw),cy=Math.cos(camera.yaw);let pos={x:camera.focus.x+camera.dist*cp*sy,y:camera.focus.y+camera.dist*sp,z:camera.focus.z+camera.dist*cp*cy};let f=norm(vsub(camera.focus,pos));let right=norm(cross(f,{x:0,y:1,z:0}));let up=norm(cross(right,f));return{pos,f,right,up}}
 function project(p,basis=camBasis()){let rel=vsub(p,basis.pos);let z=dot(rel,basis.f);if(z<20)return null;let x=dot(rel,basis.right),y=dot(rel,basis.up);let focal=Math.min(W,H)*0.95;return{x:W/2+x*focal/z,y:H/2-y*focal/z,z,scale:focal/z}}
-// Display-only orbit scale: the kilometer/AU values in the readouts are unchanged, but the drawn spacing is expanded so planet models do not visually collide.
+// Display-only orbit scale: the kilometer/AU values in the readouts are preserved, but the drawn spacing is full so planet models do not visually collide.
 function auRadius(au){return 210+Math.sqrt(au)*330}
 function planetSize(p){let unit;if(p.name==='Belavadös')unit=SOLAR_SYSTEM_SIZE_UNITS.belavados;else if(Number(p.au)>10)unit=SOLAR_SYSTEM_SIZE_UNITS.outer;else if(p.rings)unit=SOLAR_SYSTEM_SIZE_UNITS.ringed;else if(/Gas giant|Storm giant/i.test(p.class))unit=SOLAR_SYSTEM_SIZE_UNITS.giant;else unit=SOLAR_SYSTEM_SIZE_UNITS.regular;return unit*SIZE_DISPLAY_SCALE}
 function parseDec(dec){let m=String(dec||'').match(/([+-]?\d+)/);return m?+m[1]:0}
@@ -158,6 +333,418 @@ canvas.addEventListener('pointerdown',e=>{state.drag=true;state.lastX=e.clientX;
 function setView(v){document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));if(v==='standard'){camera.pitch=30*Math.PI/180;camera.yaw=0;camera.targetDist=2600;return}if(v==='topDown'){camera.pitch=88*Math.PI/180;return}if(v==='topUp'){camera.pitch=-88*Math.PI/180;return}camera.pitch=30*Math.PI/180;camera.yaw=Number(v)/24*TAU}
 function timeRateFromSelect(value){if(value==='real')return 1/86400;if(value==='15min')return 330.15/(15*60);if(value==='5min')return 330.15/(5*60);if(value==='1min')return 330.15/60;if(value==='30sec')return 330.15/30;return 0;}
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));document.getElementById('timeSpeed').onchange=e=>{state.timeRate=timeRateFromSelect(e.target.value)};document.getElementById('recenter').onclick=()=>{camera.targetFocus={x:0,y:0,z:0};camera.targetDist=2600;camera.pitch=30*Math.PI/180;camera.yaw=0;select('Belavadös',false)};document.getElementById('hidePanels').onclick=()=>app.classList.add('hiddenPanels');document.getElementById('showPanels').onclick=()=>app.classList.remove('hiddenPanels');setView('standard');
+</script>
+<script id="belavados-shared-site-shell-js">
+(function(){
+  const pageJump=document.getElementById('bd-page-jump');
+  if(pageJump){pageJump.addEventListener('change',e=>{if(e.target.value) location.href=e.target.value;});}
+  const months=['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
+  const weekdays=['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
+  const earthEl=document.getElementById('bd-earth-time'), belEl=document.getElementById('bd-belavados-time'), tzSel=document.getElementById('bd-timezone-select');
+  function parseOffset(v){ if(v==null) return 0; if(typeof v==='number') return Math.max(-12,Math.min(12,v)); let s=String(v).trim(); let m=s.match(/([+-]?\d{1,2})(?::?\d{2})?/); return m?Math.max(-12,Math.min(12,parseInt(m[1],10))):0; }
+  function findTZ(obj){ if(!obj||typeof obj!=='object') return null; const keys=['timeZone','timezone','utcOffset','belavadosTimeZone','belavados_timezone','settlementTimeZone','settlement_timezone']; for(const k of keys){ if(obj[k]!=null) return obj[k]; } for(const v of Object.values(obj)){ if(v&&typeof v==='object'){ const found=findTZ(v); if(found!=null) return found; } } return null; }
+  function applyJSONTZ(obj){ const found=findTZ(obj); if(found!=null && tzSel){ tzSel.value=String(parseOffset(found)); localStorage.setItem('belavadosTimeZoneOffset',tzSel.value); tick(); } }
+  try{ const saved=localStorage.getItem('belavadosTimeZoneOffset'); if(saved&&tzSel) tzSel.value=saved; }catch(e){}
+  if(tzSel){ tzSel.addEventListener('change',()=>{try{localStorage.setItem('belavadosTimeZoneOffset',tzSel.value)}catch(e){} tick();}); }
+  const file=document.getElementById('bd-time-json');
+  if(file){ file.addEventListener('change', async ev=>{ const f=ev.target.files&&ev.target.files[0]; if(!f) return; try{applyJSONTZ(JSON.parse(await f.text()));}catch(err){alert('That JSON could not be read for a timezone field.');} }); }
+  if(window.settlementData) applyJSONTZ(window.settlementData);
+  function tick(){
+    const now=new Date();
+    if(earthEl){ earthEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'}).format(now); }
+    const off=tzSel?parseOffset(tzSel.value):0; const shifted=new Date(now.getTime()+off*3600000);
+    const epoch=Date.UTC(2025,0,1); const days=Math.floor((shifted.getTime()-epoch)/86400000); const year=1+Math.floor(Math.max(0,days)/330); const doy=((days%330)+330)%330; const month=months[Math.floor(doy/30)]; const day=1+(doy%30); const weekday=weekdays[((days%7)+7)%7];
+    const hh=String(shifted.getUTCHours()).padStart(2,'0'), mm=String(shifted.getUTCMinutes()).padStart(2,'0'), ss=String(shifted.getUTCSeconds()).padStart(2,'0');
+    if(belEl){ belEl.textContent=`${weekday}, ${month} ${day}, Year ${year} • ${hh}:${mm}:${ss} (UTC${off>=0?'+':''}${off})`; }
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+<style id="bd-window-bubble-controls-style">
+/* === Belavadös movable / hideable window bubble controls === */
+.bd-window-managed{
+  resize:both;
+  min-width:180px;
+  min-height:52px;
+  overflow:auto;
+  touch-action:auto;
+}
+.bd-window-managed.bd-window-floating{
+  position:fixed !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  margin:0 !important;
+}
+.bd-window-managed.bd-window-is-hidden{
+  display:none !important;
+}
+body #belavados-site-shell.bd-window-is-hidden,
+body .viewonly-note.bd-window-is-hidden,
+body #app > .panel.bd-window-is-hidden,
+body #app > .legend.bd-window-is-hidden{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+.bd-window-controls{
+  position:absolute;
+  top:6px;
+  right:6px;
+  z-index:2147482500;
+  display:flex;
+  gap:5px;
+  align-items:center;
+  font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
+  pointer-events:auto;
+}
+.bd-window-control-btn,
+.bd-window-move-handle{
+  width:30px;
+  height:30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(0,255,255,.48);
+  border-radius:999px;
+  background:rgba(0,35,45,.86);
+  color:#eff;
+  box-shadow:0 0 12px rgba(0,255,255,.16);
+  font-weight:900;
+  line-height:1;
+  user-select:none;
+}
+.bd-window-control-btn{cursor:pointer;}
+.bd-window-move-handle{cursor:grab;}
+.bd-window-move-handle:active{cursor:grabbing;}
+.bd-window-control-btn:hover,
+.bd-window-move-handle:hover{background:rgba(0,105,120,.86);box-shadow:0 0 16px rgba(0,255,255,.28);}
+.bd-window-bubble{
+  position:fixed;
+  z-index:2147483500;
+  display:none;
+  font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
+  color:#eff;
+}
+.bd-window-bubble.bd-window-bubble-visible{display:block;}
+.bd-window-bubble details{position:relative;}
+.bd-window-bubble summary{list-style:none;}
+.bd-window-bubble summary::-webkit-details-marker{display:none;}
+.bd-window-bubble-core{
+  min-width:58px;
+  max-width:150px;
+  min-height:48px;
+  padding:9px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border:1px solid rgba(0,255,255,.58);
+  border-radius:999px;
+  background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.36),rgba(0,47,58,.96) 44%,rgba(3,9,14,.98));
+  box-shadow:0 0 26px rgba(0,255,255,.25),0 10px 28px rgba(0,0,0,.42);
+  font-weight:950;
+  font-size:12px;
+  line-height:1.05;
+  cursor:grab;
+  user-select:none;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.bd-window-bubble-core:active{cursor:grabbing;}
+.bd-window-bubble-menu{
+  position:absolute;
+  bottom:calc(100% + 8px);
+  left:0;
+  width:230px;
+  border:1px solid rgba(0,255,255,.45);
+  border-radius:16px;
+  background:rgba(3,11,16,.96);
+  box-shadow:0 14px 36px rgba(0,0,0,.48);
+  padding:10px;
+}
+.bd-window-bubble-menu button{
+  width:100%;
+  border:1px solid rgba(0,255,255,.42);
+  border-radius:12px;
+  background:rgba(0,255,255,.12);
+  color:#eff;
+  font-weight:850;
+  padding:10px;
+  cursor:pointer;
+}
+.bd-window-bubble-menu button:hover{background:rgba(0,255,255,.22);}
+#showPanels{display:none !important;}
+#app.hiddenPanels .panel,
+#app.hiddenPanels .legend{display:initial;}
+.panel.topbar.bd-window-managed{padding-right:84px;}
+.panel.assetList.bd-window-managed,
+.panel.side.bd-window-managed,
+#belavados-site-shell.bd-window-managed,
+.viewonly-note.bd-window-managed{padding-top:44px;}
+.legend.bd-window-managed{padding-right:84px;}
+@media(max-width:920px){
+  .assetList.bd-window-managed.bd-window-floating,
+  .side.bd-window-managed.bd-window-floating,
+  .topbar.bd-window-managed.bd-window-floating{display:block;}
+}
+</style>
+<script id="bd-window-bubble-controls-script">
+(function(){
+  if(window.__bdWindowBubbleControlsInstalled) return;
+  window.__bdWindowBubbleControlsInstalled = true;
+
+  var WINDOW_SELECTOR = '#belavados-site-shell, .viewonly-note, #app > .panel, #app > .legend';
+  var STORAGE_PREFIX = 'bdWindowBubble:';
+  var managed = [];
+  var bubbleStartOffset = 0;
+
+  function safeKey(el, index){
+    return STORAGE_PREFIX + (el.id || (el.className || 'window').toString().replace(/\s+/g,'-') + ':' + index);
+  }
+  function labelFor(el, index){
+    if(el.classList.contains('topbar')) return 'Solar Controls';
+    if(el.id === 'assetList') return 'Asset List';
+    if(el.id === 'info') return 'System Info';
+    if(el.classList.contains('legend')) return 'Legend';
+    if(el.id === 'belavados-site-shell') return 'Time Tools';
+    if(el.classList.contains('viewonly-note')) return 'View Note';
+    var heading = el.querySelector && el.querySelector('h1,h2,h3,h4,.title,.panel-title,[aria-label]');
+    var txt = (el.getAttribute('aria-label') || el.getAttribute('data-title') || (heading && (heading.textContent || heading.getAttribute('aria-label'))) || el.id || 'Window ' + (index+1));
+    return String(txt).trim().replace(/\s+/g,' ').slice(0,34) || ('Window ' + (index+1));
+  }
+  function clampToViewport(el, x, y){
+    var r = el.getBoundingClientRect();
+    var w = Math.max(r.width || 58, 58);
+    var h = Math.max(r.height || 48, 48);
+    var maxX = Math.max(8, window.innerWidth - w - 8);
+    var maxY = Math.max(8, window.innerHeight - h - 8);
+    return {x: Math.min(Math.max(8, x), maxX), y: Math.min(Math.max(8, y), maxY)};
+  }
+  function saveState(item){
+    try{
+      var r = item.el.getBoundingClientRect();
+      var br = item.bubble.getBoundingClientRect();
+      localStorage.setItem(item.key, JSON.stringify({
+        hidden: item.el.classList.contains('bd-window-is-hidden'),
+        x: r.left, y: r.top, w: r.width, h: r.height,
+        floating: item.el.classList.contains('bd-window-floating'),
+        bx: br.left, by: br.top
+      }));
+    }catch(e){}
+  }
+  function readState(key){
+    try{return JSON.parse(localStorage.getItem(key) || 'null') || {};}
+    catch(e){return {};}
+  }
+  function makeFloating(el, x, y, w, h){
+    var r = el.getBoundingClientRect();
+    el.classList.add('bd-window-floating');
+    el.style.left = (x == null ? r.left : x) + 'px';
+    el.style.top = (y == null ? r.top : y) + 'px';
+    el.style.width = Math.max(180, w || r.width) + 'px';
+    if(h && h > 52) el.style.height = Math.max(52, h) + 'px';
+    el.style.right = 'auto';
+    el.style.bottom = 'auto';
+    el.style.transform = 'none';
+  }
+  function placeBubble(item, x, y){
+    var bx = x, by = y;
+    if(bx == null || by == null){
+      bx = 14 + (bubbleStartOffset % 5) * 68;
+      by = window.innerHeight - 76 - Math.floor(bubbleStartOffset / 5) * 62;
+      bubbleStartOffset++;
+    }
+    var p = clampToViewport(item.bubble, bx, by);
+    item.bubble.style.left = p.x + 'px';
+    item.bubble.style.top = p.y + 'px';
+    item.bubble.style.right = 'auto';
+    item.bubble.style.bottom = 'auto';
+  }
+  function hideWindow(item){
+    var r = item.el.getBoundingClientRect();
+    if(!item.el.classList.contains('bd-window-floating')) makeFloating(item.el, r.left, r.top, r.width, r.height);
+    item.el.classList.add('bd-window-is-hidden');
+    item.bubble.classList.add('bd-window-bubble-visible');
+    saveState(item);
+  }
+  function showWindow(item){
+    item.el.classList.remove('bd-window-is-hidden');
+    item.bubble.classList.remove('bd-window-bubble-visible');
+    var d = item.bubble.querySelector('details');
+    if(d) d.removeAttribute('open');
+    var r = item.el.getBoundingClientRect();
+    var p = clampToViewport(item.el, r.left, r.top);
+    if(item.el.classList.contains('bd-window-floating')){ item.el.style.left = p.x+'px'; item.el.style.top = p.y+'px'; }
+    saveState(item);
+  }
+  function makeDrag(handle, target, item, isBubble){
+    var sx=0, sy=0, ox=0, oy=0, moved=false;
+    handle.addEventListener('pointerdown', function(ev){
+      moved=false;
+      var r = target.getBoundingClientRect();
+      sx = ev.clientX; sy = ev.clientY; ox = r.left; oy = r.top;
+      if(!isBubble && !target.classList.contains('bd-window-floating')) makeFloating(target, r.left, r.top, r.width, r.height);
+      handle.setPointerCapture(ev.pointerId);
+      ev.preventDefault(); ev.stopPropagation();
+    });
+    handle.addEventListener('pointermove', function(ev){
+      if(!handle.hasPointerCapture(ev.pointerId)) return;
+      var nx = ox + (ev.clientX - sx), ny = oy + (ev.clientY - sy);
+      if(Math.abs(ev.clientX-sx) + Math.abs(ev.clientY-sy) > 3) moved = true;
+      var p = clampToViewport(target, nx, ny);
+      target.style.left = p.x + 'px'; target.style.top = p.y + 'px'; target.style.right='auto'; target.style.bottom='auto'; target.style.transform='none';
+      ev.preventDefault(); ev.stopPropagation();
+    });
+    handle.addEventListener('pointerup', function(ev){
+      if(handle.hasPointerCapture(ev.pointerId)) handle.releasePointerCapture(ev.pointerId);
+      saveState(item);
+      if(moved){ ev.preventDefault(); ev.stopPropagation(); }
+    }, true);
+  }
+  function addControls(el, index){
+    if(!el || el.dataset.bdWindowManaged === 'true') return;
+    if(el.closest && (el.closest('#bd-global-dropdown-nav') || el.closest('#bd-nav-bubble') || el.closest('#bd-unhide-tray'))) return;
+    el.dataset.bdWindowManaged = 'true';
+    el.classList.add('bd-window-managed');
+    if(getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    var key = safeKey(el, index), title = labelFor(el, index), state = readState(key);
+
+    var controls = document.createElement('div');
+    controls.className = 'bd-window-controls';
+    controls.innerHTML = '<button class="bd-window-control-btn" type="button" title="Hide '+title+'" aria-label="Hide '+title+'">−</button><span class="bd-window-move-handle" title="Move '+title+'" aria-label="Move '+title+'">✥</span>';
+    el.appendChild(controls);
+
+    var bubble = document.createElement('div');
+    bubble.className = 'bd-window-bubble';
+    bubble.setAttribute('aria-label', 'Hidden window bubble for '+title);
+    bubble.innerHTML = '<details><summary class="bd-window-bubble-core" title="Open '+title+' bubble">'+title+'</summary><div class="bd-window-bubble-menu"><button type="button">Show '+title+'</button></div></details>';
+    document.body.appendChild(bubble);
+
+    var item = {el:el, bubble:bubble, key:key, title:title};
+    managed.push(item);
+    placeBubble(item, state.bx, state.by);
+    if(state.floating) makeFloating(el, state.x, state.y, state.w, state.h);
+    if(state.hidden){ el.classList.add('bd-window-is-hidden'); bubble.classList.add('bd-window-bubble-visible'); }
+
+    controls.querySelector('.bd-window-control-btn').addEventListener('click', function(ev){ev.preventDefault();ev.stopPropagation();hideWindow(item);});
+    bubble.querySelector('button').addEventListener('click', function(ev){ev.preventDefault();ev.stopPropagation();showWindow(item);});
+    makeDrag(controls.querySelector('.bd-window-move-handle'), el, item, false);
+    makeDrag(bubble.querySelector('.bd-window-bubble-core'), bubble, item, true);
+  }
+  function init(){
+    document.querySelectorAll(WINDOW_SELECTOR).forEach(addControls);
+    var oldHide = document.getElementById('hidePanels');
+    if(oldHide){
+      oldHide.textContent = 'Hide all windows';
+      oldHide.onclick = function(ev){
+        ev.preventDefault(); ev.stopPropagation();
+        var app = document.getElementById('app');
+        if(app) app.classList.remove('hiddenPanels');
+        managed.forEach(function(item){
+          hideWindow(item);
+        });
+      };
+    }
+    var oldShow = document.getElementById('showPanels');
+    if(oldShow){
+      oldShow.onclick = function(ev){ev.preventDefault(); managed.forEach(showWindow);};
+    }
+    window.addEventListener('resize', function(){
+      managed.forEach(function(item){
+        [item.el, item.bubble].forEach(function(el){
+          var r = el.getBoundingClientRect();
+          if((el.classList.contains('bd-window-floating') || el.classList.contains('bd-window-bubble')) && r.width){
+            var p = clampToViewport(el, r.left, r.top);
+            el.style.left = p.x+'px'; el.style.top = p.y+'px'; el.style.right='auto'; el.style.bottom='auto';
+          }
+        });
+        saveState(item);
+      });
+    }, {passive:true});
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+<script id="belavados-responsive-shell-script">
+(function(){
+  function setShellHeight(){
+    var shell=document.getElementById('belavados-site-shell');
+    var h=shell ? Math.ceil(shell.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty('--bd-shell-height', h + 'px');
+  }
+  function collapseDrawersOnLoad(){
+    document.querySelectorAll('#belavados-site-shell details.bd-drawer').forEach(function(d){ d.removeAttribute('open'); });
+  }
+  function wireLongTextScroll(){
+    var selectors='textarea,[contenteditable="true"],.card,.doc-card,.mini-panel,.panel,.box,.module,.tool-panel,.output,.result,.description,.notes,.log,.text-box';
+    document.querySelectorAll(selectors).forEach(function(el){
+      el.style.maxWidth='100%';
+      if(!el.style.overflowWrap) el.style.overflowWrap='anywhere';
+    });
+  }
+  function init(){
+    collapseDrawersOnLoad();
+    setShellHeight();
+    wireLongTextScroll();
+    window.addEventListener('resize', setShellHeight, {passive:true});
+    document.querySelectorAll('#belavados-site-shell details').forEach(function(d){ d.addEventListener('toggle', setShellHeight); });
+    setTimeout(setShellHeight, 50);
+    setTimeout(setShellHeight, 300);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+<script id="belavados-player-viewonly-guard">
+(function(){
+  const allowedPortalTexts = new Set(['upload files','refresh','reload','viewer','profile','manage sheets','sheet viewer','open','view','home','back','show','sign in / sign up','sign out','find email','find username','send reset email']);
+  const blockedPortalTexts = /^(editor|sheet editor|edit|delete|save|source|show source)$/i;
+  function label(el){ return ((el.textContent||el.value||el.getAttribute('aria-label')||el.title||el.id||'')+'').trim().toLowerCase().replace(/\s+/g,' '); }
+  function shouldBlockDynamic(el){
+    const page=(location.pathname.split('/').pop()||'').toLowerCase();
+    const txt=label(el);
+    if(page==='portal.html' && (el.matches('button,a') || el.getAttribute('role')==='button')){
+      if(blockedPortalTexts.test(txt)) return true;
+      if(/source|delete|sheet editor|\beditor\b/.test(txt) && !allowedPortalTexts.has(txt)) return true;
+    }
+    if(el.matches && el.matches('input[type="file"]') && !(page==='portal.html' && el.id==='sheetFiles')) return true;
+    return false;
+  }
+  function apply(){
+    document.querySelectorAll('[data-viewonly-blocked="true"]').forEach(el=>{
+      el.hidden=true; el.setAttribute('aria-hidden','true');
+      if('disabled' in el) el.disabled=true;
+      el.querySelectorAll('input,button,select,textarea,a').forEach(c=>{ if('disabled' in c) c.disabled=true; c.setAttribute('aria-disabled','true'); });
+    });
+    document.querySelectorAll('[data-viewonly-readonly="true"]').forEach(el=>{
+      if(el.matches('input,textarea')){ el.readOnly=true; el.setAttribute('readonly','readonly'); }
+      else if(el.matches('select')){ el.disabled=true; el.setAttribute('aria-disabled','true'); }
+    });
+    document.querySelectorAll('button,a,input,select,textarea').forEach(el=>{
+      if(shouldBlockDynamic(el)){
+        el.dataset.viewonlyBlocked='true'; el.hidden=true; el.setAttribute('aria-hidden','true'); if('disabled' in el) el.disabled=true;
+      }
+    });
+  }
+  function blockedTarget(e){ return e.target && e.target.closest && e.target.closest('[data-viewonly-blocked="true"]'); }
+  ['click','change','input','submit','drop','dragover'].forEach(type=>{
+    document.addEventListener(type,function(e){ const b=blockedTarget(e); if(b){ e.preventDefault(); e.stopImmediatePropagation(); return false; } }, true);
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+  new MutationObserver(apply).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
+<script id="belavados-player-viewonly-map-hard-lock">
+(function(){
+  const page=(location.pathname.split('/').pop()||'').toLowerCase();
+  if(page==='belavados_map_player.html'){
+    document.addEventListener('contextmenu', e => { if(e.target && e.target.closest && e.target.closest('canvas')) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+    window.__BELAVADOS_PLAYER_VIEW_ONLY__ = true;
+  }
+})();
 </script>
 </body>
 </html>

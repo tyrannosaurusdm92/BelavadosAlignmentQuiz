@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Belavadös Character Sheet Portal</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Belavadös Character Sheet Portal</title>
+<style>
 :root{
   --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiL2YvZjE2ZTJlZjctMGI3Yi00MTliLWIwNTctMWJkMTlhMjI4OWY1L2QxaW8wd2MtYzUxNjU1NTAtOGMwMS00ODdmLTg2NTEtMTQ2ZTFlMTRlMTExLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
   --bg-quick:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
@@ -480,323 +481,370 @@ a.secondary > *,
   .belavados-standard-nav .belavados-nav-button{white-space:nowrap;font-size:13px;padding:8px 10px;}
 }
 
+
+/* === Belavadös shared site shell and readability pass === */
+#belavados-site-shell{position:relative;z-index:2147483000;display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,.9fr);gap:10px;padding:10px clamp(10px,2vw,18px);background:linear-gradient(90deg,rgba(2,7,12,.97),rgba(20,38,42,.94),rgba(2,7,12,.97));border-bottom:1px solid rgba(0,255,255,.38);box-shadow:0 10px 30px rgba(0,0,0,.42);color:#eefbff;font-family:Georgia,"Times New Roman",serif;}
+#belavados-site-shell *{box-sizing:border-box} .bd-drawer{min-width:0;border:1px solid rgba(0,255,255,.32);border-radius:16px;background:rgba(7,14,21,.82);box-shadow:inset 0 0 18px rgba(0,255,255,.06)}
+.bd-drawer>summary{cursor:pointer;list-style:none;padding:10px 13px;font-weight:800;letter-spacing:.03em;color:#dff;user-select:none}.bd-drawer>summary::-webkit-details-marker{display:none}.bd-drawer>summary::after{content:"  ▾";color:#00ffff}.bd-drawer:not([open])>summary::after{content:"  ▸"}
+.bd-drawer-body{padding:0 12px 12px;max-height:38vh;overflow:auto;scrollbar-width:thin}.bd-primary-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:9px}.bd-nav-pill,.bd-current{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(16,44,48,.95),rgba(7,14,19,.95));color:#eff;text-decoration:none;box-shadow:0 0 14px rgba(0,255,255,.12)}.bd-nav-pill:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(0,255,255,.25)}.bd-current{border-color:rgba(245,210,123,.65);color:#ffe9a8}
+.bd-jump-label,.bd-time-grid label{display:grid;gap:5px;color:#bfeeff;font-size:13px}.bd-jump,#bd-timezone-select,#bd-time-json{width:100%;min-height:36px;border-radius:11px;border:1px solid rgba(0,255,255,.35);background:#07131a;color:#eefbff;padding:7px}.bd-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bd-time-grid span{display:block;margin-top:4px;color:#fff;line-height:1.35}.bd-file-label,.bd-hint{grid-column:1/-1}.bd-hint{margin:2px 0 0;color:#a9cbd0;font-size:12px;line-height:1.35}.bd-hint code{color:#00ffff;white-space:nowrap}
+html{scroll-behavior:smooth} body{overflow-x:hidden} img,canvas,svg,video,iframe{max-width:100%} table{max-width:100%;display:block;overflow-x:auto;white-space:normal} pre,code{white-space:pre-wrap;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.sheet,.section,section,article,aside{max-width:100%;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.box{scrollbar-width:thin}.app,.screen,main{min-width:0}.belavados-standard-nav{display:none!important}
+@media(max-width:820px){#belavados-site-shell{grid-template-columns:1fr}.bd-time-grid{grid-template-columns:1fr}.bd-drawer-body{max-height:46vh}}
+@media print{#belavados-site-shell{display:none!important}}
 </style>
+
 </head>
 <body class="homepage">
+<!-- === Belavadös shared global dropdown navigation / unhide patch === -->
+<style id="bdg-shared-style">
+:root{--bdg-nav-height:0px;}
+#bd-global-dropdown-nav{position:fixed;top:12px;left:12px;z-index:2147483600;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;max-width:min(92vw,760px);}
+#bd-global-dropdown-nav *{box-sizing:border-box;}
+#bd-global-dropdown-nav .bdg-bar{display:flex;align-items:center;gap:10px;pointer-events:auto;background:linear-gradient(90deg,rgba(2,8,12,.95),rgba(0,52,62,.92),rgba(2,8,12,.95));border:1px solid rgba(0,255,255,.48);box-shadow:0 10px 34px rgba(0,0,0,.42),0 0 24px rgba(0,255,255,.14);border-radius:18px;padding:8px 10px;backdrop-filter:blur(10px);}
+#bd-global-dropdown-nav .bdg-drag-handle{cursor:grab;user-select:none;border:1px solid rgba(0,255,255,.36);border-radius:12px;background:rgba(0,255,255,.08);color:#eff;padding:8px 10px;font-weight:900;line-height:1;}
+#bd-global-dropdown-nav .bdg-drag-handle:active{cursor:grabbing;}
+#bd-global-dropdown-nav details{position:relative;}
+#bd-global-dropdown-nav summary{list-style:none;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:9px 13px;border-radius:14px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(14,44,49,.96),rgba(6,15,22,.96));font-weight:850;color:#eff;text-shadow:0 1px 0 #000;white-space:nowrap;}
+#bd-global-dropdown-nav summary::-webkit-details-marker{display:none;}
+#bd-global-dropdown-nav summary:after{content:'▾';font-size:.82rem;color:#ffe7a6;}
+#bd-global-dropdown-nav details[open] summary:after{content:'▴';}
+#bd-global-dropdown-nav .bdg-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:min(92vw,360px);max-height:min(72vh,620px);overflow:auto;padding:10px;border-radius:18px;border:1px solid rgba(0,255,255,.45);background:linear-gradient(180deg,rgba(4,13,19,.98),rgba(8,21,29,.98));box-shadow:0 18px 48px rgba(0,0,0,.55);}
+#bd-global-dropdown-nav .bdg-link{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin:4px 0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#eaffff !important;text-decoration:none !important;font-weight:760;}
+#bd-global-dropdown-nav .bdg-link:hover,#bd-global-dropdown-nav .bdg-link:focus-visible{outline:none;border-color:rgba(0,255,255,.65);background:rgba(0,255,255,.12);transform:translateY(-1px);}
+#bd-global-dropdown-nav .bdg-current{border-color:rgba(245,210,123,.72)!important;color:#ffe7a6!important;background:rgba(245,210,123,.10)!important;}
+#bd-global-dropdown-nav .bdg-title{font-size:.9rem;line-height:1.15;text-align:right;color:#bff;min-width:120px;}
+#bd-global-dropdown-nav .bdg-title b{display:block;color:#fff;font-size:.98rem;}
+#bdg-hide-nav{border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.10);color:#eff;font-weight:850;padding:9px 11px;cursor:pointer;white-space:nowrap;}
+#bdg-hide-nav:hover{background:rgba(0,255,255,.20);}
+#bd-nav-bubble{position:fixed;left:14px;bottom:14px;z-index:2147483602;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eff;display:none;}
+body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important;}
+body.bdg-nav-hidden #bd-nav-bubble{display:block;}
+#bd-nav-bubble .bdg-bubble-core{border:1px solid rgba(0,255,255,.55);border-radius:999px;background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.38),rgba(0,50,60,.96) 42%,rgba(3,9,14,.98));box-shadow:0 0 28px rgba(0,255,255,.24),0 10px 28px rgba(0,0,0,.42);padding:10px 14px;font-weight:950;cursor:grab;user-select:none;min-width:58px;text-align:center;}
+#bd-nav-bubble .bdg-bubble-core:active{cursor:grabbing;}
+#bd-nav-bubble details{position:relative;}#bd-nav-bubble summary{list-style:none;}#bd-nav-bubble summary::-webkit-details-marker{display:none;}
+#bd-nav-bubble .bdg-bubble-menu{position:absolute;bottom:calc(100% + 8px);left:0;width:220px;border:1px solid rgba(0,255,255,.45);border-radius:16px;background:rgba(3,11,16,.96);box-shadow:0 14px 36px rgba(0,0,0,.48);padding:10px;}
+#bd-nav-bubble button{width:100%;border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.12);color:#eff;font-weight:850;padding:10px;cursor:pointer;}
+.belavados-standard-nav,#belavados-site-shell .bd-nav-drawer,.topbar nav.nav[aria-label*="Primary"],header nav.nav[aria-label*="Primary"],nav[aria-label="Primary site links"],nav[aria-label="Belavadös atlas navigation"]{display:none!important;}
+body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-nav .legend,body.bdg-has-global-nav .control-panel,body.bdg-has-global-nav .sidebar{scrollbar-width:thin;}
+#bd-unhide-tray{position:fixed;right:10px;bottom:10px;z-index:2147483601;max-width:min(420px,calc(100vw - 20px));font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;}
+#bd-unhide-tray details{border:1px solid rgba(0,255,255,.42);border-radius:16px;background:rgba(3,11,16,.94);box-shadow:0 10px 34px rgba(0,0,0,.38);overflow:hidden;}
+#bd-unhide-tray summary{cursor:pointer;list-style:none;padding:10px 12px;font-weight:850;background:linear-gradient(90deg,rgba(0,56,66,.92),rgba(4,12,18,.92));}#bd-unhide-tray summary::-webkit-details-marker{display:none;}
+#bd-unhide-list{display:flex;flex-wrap:wrap;gap:7px;padding:9px;max-height:35vh;overflow:auto;}#bd-unhide-list button,#bd-unhide-all{border:1px solid rgba(0,255,255,.45);border-radius:999px;background:rgba(0,255,255,.10);color:#eff;padding:7px 10px;cursor:pointer;font-weight:760;}#bd-unhide-list button:hover,#bd-unhide-all:hover{background:rgba(0,255,255,.22);}
+.bdg-purpose-panel{border:1px solid rgba(0,255,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(7,18,25,.86),rgba(11,13,20,.90));box-shadow:0 0 30px rgba(0,255,255,.10);padding:18px;margin:16px auto;max-width:1180px;color:inherit;}.bdg-purpose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}.bdg-purpose-grid article{border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.045);padding:14px;}.bdg-purpose-grid h3{margin:.15rem 0 .4rem;color:#ffe7a6;}.bdg-purpose-grid p{margin:.25rem 0;}
+@media(max-width:720px){#bd-global-dropdown-nav{top:8px;left:8px;max-width:calc(100vw - 16px);}#bd-global-dropdown-nav .bdg-bar{gap:6px;align-items:center;flex-wrap:wrap;}#bd-global-dropdown-nav .bdg-title{font-size:.8rem;max-width:42vw;min-width:0;}#bd-global-dropdown-nav .bdg-menu{min-width:calc(100vw - 20px);}#bdg-hide-nav{padding:8px 9px;}#bd-nav-bubble{left:10px;bottom:10px;}}
+</style>
+<div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav"><div class="bdg-bar"><div class="bdg-drag-handle" title="Drag navigation">✥</div><details><summary>☰ Site Navigation</summary><div class="bdg-menu" role="menu"><a class="bdg-link" data-bdg-target="index.html" href="index.html">Main Page</a><a class="bdg-link" data-bdg-target="portal.html" href="portal.html">Player Portal</a><a class="bdg-link" data-bdg-target="quiz.html" href="quiz.html">Alignment Quizzes</a><a class="bdg-link" data-bdg-target="charactersheet.html" href="charactersheet.html">Character Sheet</a><a class="bdg-link" data-bdg-target="charactersheetgenerator.html" href="charactersheetgenerator.html">Character Generator</a><a class="bdg-link" data-bdg-target="belavados_map_PLAYER.html" href="belavados_map_PLAYER.html">Player Map</a><a class="bdg-link" data-bdg-target="transportation.html" href="transportation.html">Transportation</a><a class="bdg-link" data-bdg-target="atlas.html" href="atlas.html">Atlas</a><a class="bdg-link" data-bdg-target="globe.html" href="globe.html">Globe</a><a class="bdg-link" data-bdg-target="solar_system.html" href="solar_system.html">Solar System</a><a class="bdg-link" data-bdg-target="constellations.html" href="constellations.html">Constellations</a></div></details><button id="bdg-hide-nav" type="button">Hide Nav</button><div class="bdg-title"><b>Belavadös</b><span>site navigation</span></div></div></div>
+<div aria-label="Hidden Belavadös navigation bubble" id="bd-nav-bubble"><details><summary class="bdg-bubble-core" title="Open navigation bubble">☰</summary><div class="bdg-bubble-menu"><button id="bdg-show-nav" type="button">Show Navigation Bar</button></div></details></div>
+<div aria-live="polite" id="bd-unhide-tray"><details><summary>Hidden Panels / Windows <span id="bd-unhide-count">0</span></summary><div style="padding:8px 9px 0"><button id="bd-unhide-all" type="button">Unhide All</button></div><div id="bd-unhide-list"></div></details></div>
+<script id="bdg-shared-script">
+(function(){if(window.__bdgSharedNavInstalled)return;window.__bdgSharedNavInstalled=true;document.body.classList.add('bdg-has-global-nav');var page=(location.pathname.split('/').pop()||'index.html').toLowerCase();document.querySelectorAll('#bd-global-dropdown-nav .bdg-link').forEach(function(a){if((a.getAttribute('href')||'').toLowerCase()===page){a.classList.add('bdg-current');a.setAttribute('aria-current','page');}});function clampPos(el,x,y){var r=el.getBoundingClientRect();var maxX=Math.max(0,window.innerWidth-r.width-8);var maxY=Math.max(0,window.innerHeight-r.height-8);return{x:Math.min(Math.max(8,x),maxX),y:Math.min(Math.max(8,y),maxY)}}function restorePos(el,key,def){try{var p=JSON.parse(localStorage.getItem(key)||'null');if(p){el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'}else if(def){Object.assign(el.style,def)}}catch(e){}}function makeDrag(handle,el,key){var sx=0,sy=0,ox=0,oy=0,moved=false;if(!handle||!el)return;handle.addEventListener('pointerdown',function(ev){moved=false;var r=el.getBoundingClientRect();sx=ev.clientX;sy=ev.clientY;ox=r.left;oy=r.top;handle.setPointerCapture(ev.pointerId);ev.preventDefault()});handle.addEventListener('pointermove',function(ev){if(!handle.hasPointerCapture(ev.pointerId))return;var nx=ox+(ev.clientX-sx),ny=oy+(ev.clientY-sy);if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>3)moved=true;var p=clampPos(el,nx,ny);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'});handle.addEventListener('pointerup',function(ev){if(handle.hasPointerCapture(ev.pointerId))handle.releasePointerCapture(ev.pointerId);var r=el.getBoundingClientRect();try{localStorage.setItem(key,JSON.stringify({x:r.left,y:r.top}))}catch(e){};if(moved){ev.preventDefault();ev.stopPropagation()}},true)}var nav=document.getElementById('bd-global-dropdown-nav'),bubble=document.getElementById('bd-nav-bubble');restorePos(nav,'bdgNavPos');restorePos(bubble,'bdgBubblePos',{left:'14px',bottom:'14px'});makeDrag(document.querySelector('#bd-global-dropdown-nav .bdg-drag-handle'),nav,'bdgNavPos');makeDrag(document.querySelector('#bd-nav-bubble .bdg-bubble-core'),bubble,'bdgBubblePos');document.getElementById('bdg-hide-nav')?.addEventListener('click',function(){document.body.classList.add('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','1')}catch(e){}});document.getElementById('bdg-show-nav')?.addEventListener('click',function(){document.body.classList.remove('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','0')}catch(e){}});try{if(localStorage.getItem('bdgNavHidden')==='1')document.body.classList.add('bdg-nav-hidden')}catch(e){}window.addEventListener('resize',function(){[nav,bubble].forEach(function(el){if(!el)return;var r=el.getBoundingClientRect();var p=clampPos(el,r.left,r.top);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'})});var meaningfulSelector='.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.window,.hud,.legend,.modal,.dialog,[data-panel],[data-window],[role="dialog"]';var tray=document.getElementById('bd-unhide-tray'),list=document.getElementById('bd-unhide-list'),count=document.getElementById('bd-unhide-count');function labelFor(el,i){var h=el.querySelector&&el.querySelector('h1,h2,h3,h4,.title,.panel-title,.section-title,[aria-label]');var t=(el.getAttribute('aria-label')||el.getAttribute('data-title')||(h&&(h.textContent||h.getAttribute('aria-label')))||el.id||el.className||'Panel').toString().trim().replace(/\s+/g,' ');return t.slice(0,46)||('Panel '+(i+1))}function isHidden(el){if(!el||el.id==='bd-unhide-tray'||el.closest&&(el.closest('#bd-unhide-tray')||el.closest('#bd-global-dropdown-nav')||el.closest('#bd-nav-bubble')))return false;var cs=getComputedStyle(el);return el.hidden||cs.display==='none'||cs.visibility==='hidden'||el.classList.contains('hidden')||el.classList.contains('is-hidden')}function showEl(el){try{el.hidden=false;el.removeAttribute('hidden');el.style.display='';el.style.visibility='';el.style.opacity='';el.classList.remove('hidden','is-hidden','closed','collapsed');if(getComputedStyle(el).display==='none')el.style.display='block';el.scrollIntoView({block:'nearest',inline:'nearest'})}catch(e){}refresh()}function refresh(){if(!list)return;list.innerHTML='';var found=[];document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el)&&found.indexOf(el)<0)found.push(el)});count.textContent=found.length;tray.style.display='block';if(!found.length){var none=document.createElement('span');none.style.opacity='.78';none.style.padding='7px';none.textContent='No hidden panels detected.';list.appendChild(none);return}found.slice(0,60).forEach(function(el,i){var b=document.createElement('button');b.type='button';b.textContent='Unhide: '+labelFor(el,i);b.addEventListener('click',function(){showEl(el)});list.appendChild(b)})}document.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('button,a,[role="button"]');if(!b)return;var txt=(b.textContent||b.getAttribute('aria-label')||b.title||'').toLowerCase();if(/\b(hide|close|collapse|minimize|dismiss)\b|×|✕|✖/.test(txt))setTimeout(refresh,80)},true);document.getElementById('bd-unhide-all')?.addEventListener('click',function(){document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el))showEl(el)});refresh()});new MutationObserver(function(){clearTimeout(window.__bdgUnhideTimer);window.__bdgUnhideTimer=setTimeout(refresh,120)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['class','style','hidden','aria-hidden']});refresh()})();
+</script>
+<!-- === end Belavadös shared global dropdown navigation / unhide patch === -->
+<!-- Belavadös shared site shell: navigation + real-time converter -->
+<div aria-label="Belavadös shared navigation and time tools" class="bd-shell" id="belavados-site-shell">
+<details class="bd-drawer bd-time-drawer">
+<summary>⏱ Earth ↔ Belavadös Time</summary>
+<div class="bd-drawer-body bd-time-grid">
+<div><strong>Earth / Eastern</strong><span id="bd-earth-time">Loading…</span></div>
+<div><strong>Belavadös</strong><span id="bd-belavados-time">Loading…</span></div>
+<label>Settlement time zone
+        <select id="bd-timezone-select">
+<option value="0">ATA Standard / UTC+0</option>
+<option value="-12">UTC-12</option><option value="-11">UTC-11</option><option value="-10">UTC-10</option><option value="-9">UTC-9</option><option value="-8">UTC-8</option><option value="-7">UTC-7</option><option value="-6">UTC-6</option><option value="-5">UTC-5</option><option value="-4">UTC-4</option><option value="-3">UTC-3</option><option value="-2">UTC-2</option><option value="-1">UTC-1</option><option value="1">UTC+1</option><option value="2">UTC+2</option><option value="3">UTC+3</option><option value="4">UTC+4</option><option value="5">UTC+5</option><option value="6">UTC+6</option><option value="7">UTC+7</option><option value="8">UTC+8</option><option value="9">UTC+9</option><option value="10">UTC+10</option><option value="11">UTC+11</option><option value="12">UTC+12</option>
+</select>
+</label>
+<label class="bd-file-label">Import settlement JSON timezone
+        <input accept=".json,application/json" id="bd-time-json" type="file"/>
+</label>
+<p class="bd-hint">Reads JSON fields such as <code>timeZone</code>, <code>timezone</code>, <code>utcOffset</code>, or <code>belavadosTimeZone</code> when present.</p>
+</div>
+</details>
+</div>
 <!-- Belavadös standardized navigation: player portal navigation -->
-<nav class="belavados-standard-nav" aria-label="Belavadös standardized navigation">
-    <a class="belavados-nav-button" href="../atlas/belavados_map_PLAYER.html">Player Map</a>
-    <a class="belavados-nav-button" href="charactersheet.html">Blank Character Sheet</a>
-    <a class="belavados-nav-button" href="index.html">Main Page</a>
-    <a class="belavados-nav-button" href="../atlas/atlas.html">Atlas</a>
-    <a class="belavados-nav-button" href="transportation.html">Transportation</a>
+<div class="app">
+<header class="topbar">
+<div class="brand">
+<div aria-hidden="true" class="seal"></div>
+<div>
+<h1>Belavadös Character Portal</h1>
+<p id="statusLine">Sign in to manage character sheets</p>
+</div>
+</div>
+<nav aria-label="Primary navigation" class="nav">
+<button class="ghost" data-goto="home" id="navHome" title="Go to homepage">Home</button>
+<button class="ghost" data-back="true" id="navBack" title="Return to the previous portal screen">Back</button>
+<button data-goto="profile" id="navProfile" title="Open player profile">Profile</button>
+<button data-goto="uploader" id="navUploader" title="Upload character sheets">Upload</button>
+<button data-goto="editor" id="navEditor" title="Open character sheet editor">Editor</button>
+<button data-goto="viewer" id="navViewer" title="Open character sheet viewer">Viewer</button>
 </nav>
-
-  <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <div class="seal" aria-hidden="true"></div>
-        <div>
-          <h1>Belavadös Character Portal</h1>
-          <p id="statusLine">Sign in to manage character sheets</p>
-        </div>
-      </div>
-      <nav class="nav" aria-label="Primary navigation">
-        <button id="navHome" class="ghost" data-goto="home" title="Go to homepage">Home</button>
-        <a class="secondary" href="index.html" data-destination="index.html" title="Open index.html">Main Page</a>
-        <button id="navBack" class="ghost" data-back="true" title="Return to the previous portal screen">Back</button>
-        <button id="navProfile" data-goto="profile" title="Open player profile">Profile</button>
-        <button id="navUploader" data-goto="uploader" title="Upload character sheets">Upload</button>
-        <button id="navEditor" data-goto="editor" title="Open character sheet editor">Editor</button>
-        <button id="navViewer" data-goto="viewer" title="Open character sheet viewer">Viewer</button>
-      </nav>
-    </header>
-
-    <div class="marquee-wrap" aria-hidden="true">
-      <div class="marquee"><span>✦ Solo Campaigns ✦ Group Adventures ✦ Kingdom Building ✦ Political Intrigue ✦ Exploration ✦ Survival ✦ Roleplay ✦ Monster Hunting ✦ Crafting ✦ Dungeon Crawling ✦ Divine Conflict ✦ Sandbox Freedom ✦</span></div>
-      <div class="marquee"><span>✦ Welcome to Belavadös ✦ Build characters ✦ Explore the portal ✦ Open the quiz ✦ Gather world documents ✦</span></div>
-    </div>
-
-    <main>
-      <section id="screen-home" class="screen active">
-        <div class="panel hero">
-          <div>
-            <div class="mode-pill">Homepage</div>
-            <h2 class="title">Sign In, Build, and Play</h2>
-            <p class="lede">Create a player account with email and password, upload up to 3 HTML character sheets, then use them like interactive fillable documents. Changes made in editor mode are saved back into the stored HTML so the sheet opens the same way next time.</p>
-            <div class="actions">
-              <button id="goLogin">Sign In / Sign Up</button>
-              <button class="secondary" id="demoFill" title="Load a demo character sheet">Demo Sheet</button>
-              <button class="secondary" id="downloadQuickCharacter" title="Download the quick character sheet HTML file">Download Quick Sheet</button>
-            </div>
-            <div class="portal-links">
-              <a class="secondary portal-link" href="index.html" data-destination="index.html" title="Open index.html"><span>Main Page</span><small>Home hub</small></a>
-              <a class="secondary portal-link" href="quiz.html" data-destination="quiz.html" title="Open quiz.html"><span>Alignment Quizzes</span><small>Quick &amp; in-depth</small></a>
-              <a class="secondary portal-link" href="charactersheetgenerator.html" data-destination="charactersheetgenerator.html" title="Open charactersheetgenerator.html"><span>Character Generator</span><small>Build a character</small></a>
-              <a class="secondary portal-link" href="charactersheet.html" data-destination="charactersheet.html" title="Open charactersheet.html"><span>Character Sheet</span><small>Fillable sheet</small></a>
-              <a class="secondary portal-link" href="https://linktr.ee/belavados_dnd_homebrew" data-destination="https://linktr.ee/belavados_dnd_homebrew" target="_blank" rel="noopener noreferrer" title="Open Belavadös world information and documents"><span>World Info</span><small>Lore &amp; documents</small></a>
-            </div>
-            <div class="intro-grid" style="margin-top:18px;">
-              <div class="info-card">
-                <h3>Player view</h3>
-                <p>Open a sheet in the viewer to use fields and a dice roller without exposing the code.</p>
-              </div>
-              <div class="info-card">
-                <h3>Editor mode</h3>
-                <p>Make edits as if the sheet were a fillable PDF, then save to update the stored HTML.</p>
-              </div>
-              <div class="info-card">
-                <h3>Quick character file</h3>
-                <p>Generate a starter HTML sheet, download it, then upload it into the portal or share it with a player.</p>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Create or sign in</h3>
-            <form id="authForm" class="auth-grid" autocomplete="on">
-              <label>
-                <span class="small">Email</span>
-                <input class="text-input" id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
-              </label>
-              <label>
-                <span class="small">Nickname</span>
-                <input class="text-input" id="authNickname" name="nickname" type="text" autocomplete="nickname" placeholder="Captain Ash" />
-              </label>
-              <label>
-                <span class="small">Username</span>
-                <input class="text-input" id="authUsername" name="username" type="text" autocomplete="username" placeholder="Auto-generated username" />
-                <span class="helper">Built from your email and nickname, then saved so Google Password Manager can store it alongside your email and password.</span>
-              </label>
-              <label>
-                <span class="small">Password</span>
-                <div class="password-field">
-                  <input class="password-input" id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="Create or enter password" required />
-                  <button type="button" class="ghost" id="togglePassword" aria-pressed="false">Show</button>
-                </div>
-              </label>
-              <div class="auth-actions" style="grid-column:1/-1;">
-                <button type="submit">Sign In / Sign Up</button>
-                <button type="button" class="ghost" id="logoutBtn">Sign Out</button>
-              </div>
-            </form>
-            <div class="inline-note">Your browser or Google Password Manager may offer to save the email, username, and password when you submit this form.</div>
-            <div class="lookup-grid">
-              <div class="lookup-card">
-                <h4>Forgot your email?</h4>
-                <label>
-                  <span class="small">Username</span>
-                  <input class="text-input" id="lookupEmailUsername" type="text" autocomplete="username" placeholder="Enter username" />
-                </label>
-                <div class="actions">
-                  <button type="button" id="findEmailBtn">Find email</button>
-                </div>
-                <div id="lookupEmailResult" class="lookup-result"></div>
-              </div>
-              <div class="lookup-card">
-                <h4>Forgot your username?</h4>
-                <label>
-                  <span class="small">Email</span>
-                  <input class="text-input" id="lookupUsernameEmail" type="email" autocomplete="email" placeholder="Enter email" />
-                </label>
-                <div class="actions">
-                  <button type="button" id="findUsernameBtn">Find username</button>
-                </div>
-                <div id="lookupUsernameResult" class="lookup-result"></div>
-              </div>
-              <div class="lookup-card">
-                <h4>Forgot your password?</h4>
-                <label>
-                  <span class="small">Email or username</span>
-                  <input class="text-input" id="resetIdentifier" type="text" autocomplete="username" placeholder="Enter email or username" />
-                </label>
-                <div class="actions">
-                  <button type="button" class="secondary" id="resetPasswordBtn">Send reset email</button>
-                </div>
-                <div id="resetResult" class="lookup-result"></div>
-                <div class="inline-note">For safety, this sends a reset link instead of emailing the password itself.</div>
-              </div>
-            </div>
-            <hr class="soft" />
-            <p class="small muted">This prototype stores account data in the browser. For true creator privacy, move authentication, account storage, and password resets to a backend so passwords never appear in the client at all.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="screen-profile" class="screen">
-        <div class="panel">
-          <div class="stage-meta">
-            <div>
-              <div class="mode-pill">Player Profile</div>
-              <h2 class="result-title" style="margin-top:10px;">Your account</h2>
-              <p class="muted" id="profileWelcome">Signed in as guest.</p>
-            </div>
-            <div class="profile-actions">
-              <button data-goto="uploader" title="Upload a character sheet">Upload Sheet</button>
-              <button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
-              <button data-goto="editor" title="Open the character sheet editor">Editor</button>
-            </div>
-          </div>
-          <div class="header-grid">
-            <div class="sheet-card">
-              <h3>Character sheets</h3>
-              <div class="sheet-list" id="sheetList"></div>
-            </div>
-            <div class="sheet-editor-card">
-              <h3>Current status</h3>
-              <p id="profileStats" class="muted">No account loaded.</p>
-              <hr class="soft" />
-              <div class="sheet-controls">
-                <button data-goto="uploader" title="Manage uploaded HTML character sheet files">Manage Sheets</button>
-                <button data-goto="viewer" title="Use the interactive character sheet viewer">Sheet Viewer</button>
-                <button data-goto="editor" title="Open editor mode to save character sheet changes">Sheet Editor</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="screen-uploader" class="screen">
-        <div class="panel">
-          <div class="stage-meta">
-            <div>
-              <div class="mode-pill">File Uploader</div>
-              <h2 class="result-title" style="margin-top:10px;">Add up to 3 HTML character sheets</h2>
-              <p class="muted">Upload HTML files that contain form fields, text blocks, and your dice roller buttons.</p>
-            </div>
-            <div class="profile-actions">
-              <button data-goto="profile" title="Return to player profile">Profile</button>
-              <button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
-            </div>
-          </div>
-          <div class="sheet-preview-wrap">
-            <div class="sheet-editor-card">
-              <h3>Upload HTML files</h3>
-              <p class="muted small">Only HTML files are accepted. Up to 3 total sheets per player profile.</p>
-              <label>
-                <span class="small">Choose files</span>
-                <input id="sheetFiles" class="text-input" type="file" accept=".html,text/html" multiple />
-              </label>
-              <div class="actions" style="margin-top:12px;">
-                <button id="uploadBtn" title="Upload selected HTML character sheet files">Upload Files</button>
-                <button class="ghost" id="refreshUploadList" title="Refresh uploaded sheet list">Refresh</button>
-              </div>
-              <div class="editor-note" style="margin-top:14px;">
+</header>
+<div aria-hidden="true" class="marquee-wrap">
+<div class="marquee"><span>✦ Solo Campaigns ✦ Group Adventures ✦ Kingdom Building ✦ Political Intrigue ✦ Exploration ✦ Survival ✦ Roleplay ✦ Monster Hunting ✦ Crafting ✦ Dungeon Crawling ✦ Divine Conflict ✦ Sandbox Freedom ✦</span></div>
+<div class="marquee"><span>✦ Welcome to Belavadös ✦ Build characters ✦ Explore the portal ✦ Open the quiz ✦ Gather world documents ✦</span></div>
+</div>
+<main>
+<section class="screen active" id="screen-home">
+<div class="panel hero">
+<div>
+<div class="mode-pill">Homepage</div>
+<h2 class="title">Sign In, Build, and Play</h2>
+<p class="lede">Create a player account with email and password, upload up to 3 HTML character sheets, then use them like interactive fillable documents. Changes made in editor mode are saved back into the stored HTML so the sheet opens the same way next time.</p>
+<div class="actions">
+<button id="goLogin">Sign In / Sign Up</button>
+</div>
+<div class="portal-links">
+</div>
+<div class="intro-grid" style="margin-top:18px;">
+<div class="info-card">
+<h3>Player view</h3>
+<p>Open a sheet in the viewer to use fields and a dice roller without exposing the code.</p>
+</div>
+<div class="info-card">
+<h3>Editor mode</h3>
+<p>Make edits as if the sheet were a fillable PDF, then save to update the stored HTML.</p>
+</div>
+<div class="info-card">
+<h3>Quick character file</h3>
+<p>Generate a starter HTML sheet, download it, then upload it into the portal or share it with a player.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>Create or sign in</h3>
+<form autocomplete="on" class="auth-grid" id="authForm">
+<label>
+<span class="small">Email</span>
+<input autocomplete="email" class="text-input" id="authEmail" name="email" placeholder="you@example.com" required="" type="email"/>
+</label>
+<label>
+<span class="small">Nickname</span>
+<input autocomplete="nickname" class="text-input" id="authNickname" name="nickname" placeholder="Captain Ash" type="text"/>
+</label>
+<label>
+<span class="small">Username</span>
+<input autocomplete="username" class="text-input" id="authUsername" name="username" placeholder="Auto-generated username" type="text"/>
+<span class="helper">Built from your email and nickname, then saved so Google Password Manager can store it alongside your email and password.</span>
+</label>
+<label>
+<span class="small">Password</span>
+<div class="password-field">
+<input autocomplete="current-password" class="password-input" id="authPassword" name="password" placeholder="Create or enter password" required="" type="password"/>
+<button aria-pressed="false" class="ghost" id="togglePassword" type="button">Show</button>
+</div>
+</label>
+<div class="auth-actions" style="grid-column:1/-1;">
+<button type="submit">Sign In / Sign Up</button>
+<button class="ghost" id="logoutBtn" type="button">Sign Out</button>
+</div>
+</form>
+<div class="inline-note">Your browser or Google Password Manager may offer to save the email, username, and password when you submit this form.</div>
+<div class="lookup-grid">
+<div class="lookup-card">
+<h4>Forgot your email?</h4>
+<label>
+<span class="small">Username</span>
+<input autocomplete="username" class="text-input" id="lookupEmailUsername" placeholder="Enter username" type="text"/>
+</label>
+<div class="actions">
+<button id="findEmailBtn" type="button">Find email</button>
+</div>
+<div class="lookup-result" id="lookupEmailResult"></div>
+</div>
+<div class="lookup-card">
+<h4>Forgot your username?</h4>
+<label>
+<span class="small">Email</span>
+<input autocomplete="email" class="text-input" id="lookupUsernameEmail" placeholder="Enter email" type="email"/>
+</label>
+<div class="actions">
+<button id="findUsernameBtn" type="button">Find username</button>
+</div>
+<div class="lookup-result" id="lookupUsernameResult"></div>
+</div>
+<div class="lookup-card">
+<h4>Forgot your password?</h4>
+<label>
+<span class="small">Email or username</span>
+<input autocomplete="username" class="text-input" id="resetIdentifier" placeholder="Enter email or username" type="text"/>
+</label>
+<div class="actions">
+<button class="secondary" id="resetPasswordBtn" type="button">Send reset email</button>
+</div>
+<div class="lookup-result" id="resetResult"></div>
+<div class="inline-note">For safety, this sends a reset link instead of emailing the password itself.</div>
+</div>
+</div>
+<hr class="soft"/>
+<p class="small muted">This prototype stores account data in the browser. For true creator privacy, move authentication, account storage, and password resets to a backend so passwords never appear in the client at all.</p>
+</div>
+</div>
+</section>
+<section class="screen" id="screen-profile">
+<div class="panel">
+<div class="stage-meta">
+<div>
+<div class="mode-pill">Player Profile</div>
+<h2 class="result-title" style="margin-top:10px;">Your account</h2>
+<p class="muted" id="profileWelcome">Signed in as guest.</p>
+</div>
+<div class="profile-actions">
+<button data-goto="uploader" title="Upload a character sheet">Upload Sheet</button>
+<button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
+<button data-goto="editor" title="Open the character sheet editor">Editor</button>
+</div>
+</div>
+<div class="header-grid">
+<div class="sheet-card">
+<h3>Character sheets</h3>
+<div class="sheet-list" id="sheetList"></div>
+</div>
+<div class="sheet-editor-card">
+<h3>Current status</h3>
+<p class="muted" id="profileStats">No account loaded.</p>
+<hr class="soft"/>
+<div class="sheet-controls">
+<button data-goto="uploader" title="Manage uploaded HTML character sheet files">Manage Sheets</button>
+<button data-goto="viewer" title="Use the interactive character sheet viewer">Sheet Viewer</button>
+<button data-goto="editor" title="Open editor mode to save character sheet changes">Sheet Editor</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="screen" id="screen-uploader">
+<div class="panel">
+<div class="stage-meta">
+<div>
+<div class="mode-pill">File Uploader</div>
+<h2 class="result-title" style="margin-top:10px;">Add up to 3 HTML character sheets</h2>
+<p class="muted">Upload HTML files that contain form fields, text blocks, and your dice roller buttons.</p>
+</div>
+<div class="profile-actions">
+<button data-goto="profile" title="Return to player profile">Profile</button>
+<button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
+</div>
+</div>
+<div class="sheet-preview-wrap">
+<div class="sheet-editor-card">
+<h3>Upload HTML files</h3>
+<p class="muted small">Only HTML files are accepted. Up to 3 total sheets per player profile.</p>
+<label>
+<span class="small">Choose files</span>
+<input accept=".html,text/html" class="text-input" id="sheetFiles" multiple="" type="file"/>
+</label>
+<div class="actions" style="margin-top:12px;">
+<button id="uploadBtn" title="Upload selected HTML character sheet files">Upload Files</button>
+<button class="ghost" id="refreshUploadList" title="Refresh uploaded sheet list">Refresh</button>
+</div>
+<div class="editor-note" style="margin-top:14px;">
                 Uploaded sheets are saved inside this browser for the signed in player. A backend can be added later to sync across devices.
               </div>
-            </div>
-            <div class="sheet-card">
-              <h3>Uploaded sheets</h3>
-              <div class="sheet-list" id="uploadList"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="screen-viewer" class="screen">
-        <div class="panel">
-          <div class="stage-meta">
-            <div>
-              <div class="mode-pill">Character Sheet Viewer</div>
-              <h2 class="result-title" style="margin-top:10px;">Interactive sheet mode</h2>
-              <p class="muted">Players can use the sheet like a fillable document and roll dice without seeing the source code.</p>
-            </div>
-            <div class="profile-actions">
-              <button data-goto="profile" title="Return to player profile">Profile</button>
-              <button data-goto="editor" title="Open the character sheet editor">Editor</button>
-            </div>
-          </div>
-          <div class="sheet-toolbar">
-            <label style="flex:1 1 260px;">
-              <span class="small">Choose sheet</span>
-              <select id="viewerSelect" class="select-input"></select>
-            </label>
-            <button id="reloadViewer" title="Reload the character sheet viewer">Reload</button>
-            <button class="secondary" id="openCreatorSource" title="Open creator source view">Source</button>
-          </div>
-          <div class="sheet-preview-wrap">
-            <iframe id="sheetFrame" class="sheet-frame" title="Character sheet viewer"></iframe>
-            <div class="sheet-card">
-              <h3>Dice roller</h3>
-              <p class="muted small">Use the built-in roller, or roll from buttons inside the sheet if your template includes them.</p>
-              <div class="dice-box">
-                <label>
-                  <span class="small">Expression</span>
-                  <input id="diceExpr" class="text-input" value="1d20+5" />
-                </label>
-                <label>
-                  <span class="small">Target</span>
-                  <input id="diceTarget" class="text-input" value="Attack" />
-                </label>
-                <button id="rollDice">Roll Dice</button>
-                <div id="diceOutput" class="dice-output muted">Results will appear here.</div>
-              </div>
-              <hr class="soft" />
-              <p class="small muted">The viewer renders the stored HTML in place. Any input values you change here can be saved later in the editor.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="screen-editor" class="screen">
-        <div class="panel">
-          <div class="stage-meta">
-            <div>
-              <div class="mode-pill">Character Sheet Editor</div>
-              <h2 class="result-title" style="margin-top:10px;">Fillable PDF style editing</h2>
-              <p class="muted">Make changes, then save. The saved HTML becomes the new version of the sheet.</p>
-            </div>
-            <div class="profile-actions">
-              <button data-goto="profile" title="Return to player profile">Profile</button>
-              <button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
-            </div>
-          </div>
-          <div class="sheet-toolbar">
-            <label style="flex:1 1 260px;">
-              <span class="small">Choose sheet to edit</span>
-              <select id="editorSelect" class="select-input"></select>
-            </label>
-            <button id="reloadEditor" title="Reload the character sheet editor">Reload</button>
-            <button id="saveSheet" class="secondary" title="Save character sheet changes">Save</button>
-          </div>
-          <div class="sheet-preview-wrap">
-            <iframe id="editorFrame" class="sheet-frame" title="Character sheet editor"></iframe>
-            <div class="sheet-card">
-              <h3>How editing works</h3>
-              <p class="muted small">The sheet is rendered in a live iframe. Form fields stay editable, and the Save button serializes the updated HTML back into storage.</p>
-              <hr class="soft" />
-              <div class="sheet-controls">
-                <button id="toggleSourceBtn" class="ghost" title="Show creator source view">Show Source</button>
-                <div id="creatorSourceWrap" class="admin-box hidden">
-                  <strong>Creator-only source view</strong>
-                  <pre id="creatorSourceText"></pre>
-                </div>
-              </div>
-              <hr class="soft" />
-              <p class="small muted">If you later connect a backend, this is the page where the saved HTML would be written to a secure database instead of browser storage.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script>
+</div>
+<div class="sheet-card">
+<h3>Uploaded sheets</h3>
+<div class="sheet-list" id="uploadList"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="screen" id="screen-viewer">
+<div class="panel">
+<div class="stage-meta">
+<div>
+<div class="mode-pill">Character Sheet Viewer</div>
+<h2 class="result-title" style="margin-top:10px;">Interactive sheet mode</h2>
+<p class="muted">Players can use the sheet like a fillable document and roll dice without seeing the source code.</p>
+</div>
+<div class="profile-actions">
+<button data-goto="profile" title="Return to player profile">Profile</button>
+<button data-goto="editor" title="Open the character sheet editor">Editor</button>
+</div>
+</div>
+<div class="sheet-toolbar">
+<label style="flex:1 1 260px;">
+<span class="small">Choose sheet</span>
+<select class="select-input" id="viewerSelect"></select>
+</label>
+<button id="reloadViewer" title="Reload the character sheet viewer">Reload</button>
+<button class="secondary" id="openCreatorSource" title="Open creator source view">Source</button>
+</div>
+<div class="sheet-preview-wrap">
+<iframe class="sheet-frame" id="sheetFrame" title="Character sheet viewer"></iframe>
+<div class="sheet-card">
+<h3>Dice roller</h3>
+<p class="muted small">Use the built-in roller, or roll from buttons inside the sheet if your template includes them.</p>
+<div class="dice-box">
+<label>
+<span class="small">Expression</span>
+<input class="text-input" id="diceExpr" value="1d20+5"/>
+</label>
+<label>
+<span class="small">Target</span>
+<input class="text-input" id="diceTarget" value="Attack"/>
+</label>
+<button id="rollDice">Roll Dice</button>
+<div class="dice-output muted" id="diceOutput">Results will appear here.</div>
+</div>
+<hr class="soft"/>
+<p class="small muted">The viewer renders the stored HTML in place. Any input values you change here can be saved later in the editor.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="screen" id="screen-editor">
+<div class="panel">
+<div class="stage-meta">
+<div>
+<div class="mode-pill">Character Sheet Editor</div>
+<h2 class="result-title" style="margin-top:10px;">Fillable PDF style editing</h2>
+<p class="muted">Make changes, then save. The saved HTML becomes the new version of the sheet.</p>
+</div>
+<div class="profile-actions">
+<button data-goto="profile" title="Return to player profile">Profile</button>
+<button data-goto="viewer" title="Open the character sheet viewer">Viewer</button>
+</div>
+</div>
+<div class="sheet-toolbar">
+<label style="flex:1 1 260px;">
+<span class="small">Choose sheet to edit</span>
+<select class="select-input" id="editorSelect"></select>
+</label>
+<button id="reloadEditor" title="Reload the character sheet editor">Reload</button>
+<button class="secondary" id="saveSheet" title="Save character sheet changes">Save</button>
+</div>
+<div class="sheet-preview-wrap">
+<iframe class="sheet-frame" id="editorFrame" title="Character sheet editor"></iframe>
+<div class="sheet-card">
+<h3>How editing works</h3>
+<p class="muted small">The sheet is rendered in a live iframe. Form fields stay editable, and the Save button serializes the current HTML back into storage.</p>
+<hr class="soft"/>
+<div class="sheet-controls">
+<button class="ghost" id="toggleSourceBtn" title="Show creator source view">Show Source</button>
+<div class="admin-box hidden" id="creatorSourceWrap">
+<strong>Creator-only source view</strong>
+<pre id="creatorSourceText"></pre>
+</div>
+</div>
+<hr class="soft"/>
+<p class="small muted">If you later connect a backend, this is the page where the saved HTML would be written to a secure database instead of browser storage.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script>
 (() => {
-  const STORAGE_KEY = 'belavados_character_portal_v1';
-  const SESSION_KEY = 'belavados_character_session_v1';
-  const ADMIN_EMAIL = 'williamsaville@belavados.local';
+  'use strict';
 
-  const state = {
-    history: [],
-    currentScreen: 'home',
-    user: null,
-    data: loadData(),
-    currentSheetId: null,
-    creatorSourceVisible: false,
-    usernameManual: false,
-  };
+  const STORAGE_KEY = 'belavados_character_portal_v2';
+  const LEGACY_STORAGE_KEY = 'belavados_character_portal_v1';
+  const SESSION_KEY = 'belavados_character_session_v2';
+  const LEGACY_SESSION_KEY = 'belavados_character_session_v1';
+  const MAX_SHEETS = 3;
 
-  const el = (id) => document.getElementById(id);
+  const $ = (id) => document.getElementById(id);
   const screens = ['home', 'profile', 'uploader', 'viewer', 'editor'];
 
   const demoSheet = `<!DOCTYPE html>
@@ -804,7 +852,7 @@ a.secondary > *,
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo Character Sheet</title>
+<title>Belavadös Demo Character Sheet</title>
 <style>
   body{font-family:Georgia,serif;margin:0;padding:18px;background:#f7f2e8;color:#211a12;}
   .sheet{max-width:900px;margin:0 auto;background:#fff;border:1px solid #d2c4ad;border-radius:16px;padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.1);}
@@ -814,736 +862,495 @@ a.secondary > *,
   label{display:block;font-weight:700;font-size:.92rem;margin-bottom:4px;}
   input,textarea,select{width:100%;box-sizing:border-box;border:1px solid #cdbfa8;border-radius:10px;padding:10px;font:inherit;background:#fff;}
   textarea{min-height:110px;resize:vertical;}
-  .dice{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px;}
+  .wide{grid-column:1/-1;}
   button{border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer;background:#3d9fa0;color:#fff;}
   .result{padding:12px;border-radius:10px;background:#f3efe6;border:1px solid #d8cbb5;min-height:48px;}
-  .wide{grid-column:1/-1;}
+  @media(max-width:720px){.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-  <div class="sheet">
+  <main class="sheet">
     <h1>Demo Character Sheet</h1>
-    <p>Use this as a template for uploaded sheets. Fields are saved when the editor serializes the HTML.</p>
+    <p>This is a starter sheet for testing the portal. Uploaded sheets with inputs, textareas, selects, checkboxes, radio buttons, and editable text will save their current values.</p>
     <div class="grid">
-      <div class="box"><label>Name</label><input value="Captain Ash Vale" /></div>
-      <div class="box"><label>Class</label><input value="Clockwork Ranger" /></div>
-      <div class="box"><label>Level</label><input type="number" value="5" /></div>
-      <div class="box"><label>Strength</label><input type="number" value="14" /></div>
-      <div class="box"><label>Dexterity</label><input type="number" value="18" /></div>
-      <div class="box"><label>Intelligence</label><input type="number" value="12" /></div>
-      <div class="box wide">
-        <label>Notes</label><textarea>Built for swordplay, scouting, and suspiciously dramatic entrances.</textarea>
-      </div>
+      <div class="box"><label>Character Name</label><input name="characterName" value="Captain Ash Vale"></div>
+      <div class="box"><label>Class</label><input name="class" value="Clockwork Ranger"></div>
+      <div class="box"><label>Level</label><input name="level" type="number" value="5"></div>
+      <div class="box"><label>Strength</label><input name="str" type="number" value="14"></div>
+      <div class="box"><label>Dexterity</label><input name="dex" type="number" value="18"></div>
+      <div class="box"><label>Intelligence</label><input name="int" type="number" value="12"></div>
+      <div class="box wide"><label>Notes</label><textarea name="notes">Built for swordplay, scouting, and suspiciously dramatic entrances.</textarea></div>
       <div class="box wide">
         <label>Dice Roller</label>
-        <div class="dice">
-          <input id="expr" value="1d20+3" style="max-width:160px;" />
-          <button type="button" data-roll="true">Roll</button>
-          <div id="result" class="result">No roll yet.</div>
-        </div>
+        <input id="expr" value="1d20+3" style="max-width:160px;">
+        <button type="button" data-roll="expr" data-roll-output="result">Roll</button>
+        <div id="result" class="result">No roll yet.</div>
       </div>
     </div>
-  </div>
-  <script>
-    function roll(expr){
-      const m = String(expr).trim().match(/^(\d*)d(\d+)([+-]\d+)?$/i);
-      if(!m) return 'Invalid expression';
-      const n = parseInt(m[1] || '1', 10);
-      const sides = parseInt(m[2], 10);
-      const mod = parseInt(m[3] || '0', 10);
-      let total = 0, parts = [];
-      for(let i=0;i<n;i++){ const r = 1 + Math.floor(Math.random()*sides); total += r; parts.push(r); }
-      return parts.join(', ') + ' = ' + total + (mod ? (mod > 0 ? ' + ' + mod : ' - ' + Math.abs(mod)) : '') + ' -> ' + (total + mod);
-    }
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-roll]');
-      if(!btn) return;
-      const expr = document.getElementById('expr').value;
-      document.getElementById('result').textContent = roll(expr);
-    });
-  <\/script>
+  </main>
 </body>
 </html>`;
 
-  function loadData() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      try { return JSON.parse(raw); } catch { /* fall through */ }
+  const state = {
+    history: [],
+    currentScreen: 'home',
+    data: loadData(),
+    user: null,
+    currentSheetId: null,
+    usernameManual: false,
+    creatorSourceVisible: false
+  };
+
+  function normalizeEmail(email){ return String(email || '').trim().toLowerCase(); }
+  function safeText(value){ return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function uid(){ return (crypto.randomUUID ? crypto.randomUUID() : `sheet-${Date.now()}-${Math.random().toString(16).slice(2)}`); }
+  function slugPart(value){ return String(value || '').toLowerCase().replace(/@.*$/, '').replace(/[^a-z0-9]+/g, '').slice(0, 32); }
+
+  function loadData(){
+    const blank = { accounts:{}, sheetsByUser:{} };
+    for (const key of [STORAGE_KEY, LEGACY_STORAGE_KEY]) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (!raw) continue;
+        const parsed = JSON.parse(raw);
+        return {
+          accounts: parsed.accounts || {},
+          sheetsByUser: parsed.sheetsByUser || {}
+        };
+      } catch (_) {}
     }
-    return { accounts: {}, sheetsByUser: {} };
+    return blank;
   }
-
-  function saveData() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data));
-  }
-
-  function loadSession() {
-    try {
-      return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
-    } catch {
-      return null;
+  function saveData(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data)); }
+  function loadSession(){
+    for (const key of [SESSION_KEY, LEGACY_SESSION_KEY]) {
+      try {
+        const session = JSON.parse(localStorage.getItem(key) || 'null');
+        if (session && session.email) return { email: normalizeEmail(session.email) };
+      } catch (_) {}
     }
+    return null;
+  }
+  function saveSession(user){
+    if (user) localStorage.setItem(SESSION_KEY, JSON.stringify({ email: normalizeEmail(user.email) }));
+    else localStorage.removeItem(SESSION_KEY);
   }
 
-  function saveSession(user) {
-    localStorage.setItem(SESSION_KEY, JSON.stringify(user ? { email: user.email } : null));
+  function findAccountByEmail(email){ return state.data.accounts[normalizeEmail(email)] || null; }
+  function findAccountByUsername(username){
+    const target = slugPart(username);
+    if (!target) return null;
+    return Object.values(state.data.accounts).find(acc => slugPart(acc.username) === target) || null;
   }
-
-  function setBodyMode(screen) {
-    if (screen === 'home') document.body.className = 'homepage';
-    else if (screen === 'editor') document.body.className = 'deep-quiz';
-    else if (screen === 'profile') document.body.className = 'results';
-    else document.body.className = 'quick-quiz';
+  function findAccountByIdentifier(identifier){
+    const value = String(identifier || '').trim();
+    if (!value) return null;
+    return value.includes('@') ? findAccountByEmail(value) : findAccountByUsername(value);
   }
-
-  function authLabel() {
-    if (!state.user) return 'Sign in to manage character sheets';
-    const account = findAccountByEmail(state.user.email);
-    const username = account?.username ? ` @${account.username}` : '';
-    return `Signed in as ${state.user.email}${username}`;
-  }
-
-  function getUserSheets(email) {
-    return state.data.sheetsByUser[email] || [];
-  }
-
-  function setUserSheets(email, sheets) {
-    state.data.sheetsByUser[email] = sheets;
-    saveData();
-  }
-
-  function ensureCurrentSheet() {
-    const sheets = state.user ? getUserSheets(state.user.email) : [];
-    if (!sheets.length) {
-      state.currentSheetId = null;
-      return null;
-    }
-    if (!state.currentSheetId || !sheets.some(s => s.id === state.currentSheetId)) {
-      state.currentSheetId = sheets[0].id;
-    }
-    return sheets.find(s => s.id === state.currentSheetId) || sheets[0];
-  }
-
-  function switchScreen(screen, push = true) {
-    if (!screens.includes(screen)) return;
-    if (push && state.currentScreen && state.currentScreen !== screen) state.history.push(state.currentScreen);
-    state.currentScreen = screen;
-    setBodyMode(screen);
-    screens.forEach(s => el(`screen-${s}`).classList.toggle('active', s === screen));
-    updateNavState();
-    updateProfile();
-    updateSheetPickers();
-    if (screen === 'viewer') renderSheet('viewer');
-    if (screen === 'editor') renderSheet('editor');
-    if (screen === 'profile') renderProfile();
-  }
-
-  function updateNavState() {
-    el('navHome').classList.toggle('hidden', state.currentScreen === 'home');
-    el('navBack').disabled = state.history.length === 0;
-    const loggedIn = !!state.user;
-    ['navProfile','navUploader','navEditor','navViewer'].forEach(id => el(id).disabled = !loggedIn);
-    el('statusLine').textContent = authLabel();
-  }
-
-  function updateProfile() {
-    if (!state.user) {
-      el('profileWelcome').textContent = 'Sign in to manage your sheets.';
-      el('profileStats').textContent = 'No account loaded.';
-      el('sheetList').innerHTML = '<div class="muted">No account yet.</div>';
-      el('uploadList').innerHTML = '<div class="muted">Sign in first.</div>';
-      return;
-    }
-    const sheets = getUserSheets(state.user.email);
-    const account = findAccountByEmail(state.user.email);
-    el('profileWelcome').textContent = account?.username
-      ? `Signed in as ${state.user.email} @${account.username}.`
-      : `Signed in as ${state.user.email}.`;
-    el('profileStats').textContent = `You have ${sheets.length} saved character sheet${sheets.length === 1 ? '' : 's'}. Up to 3 are allowed.`;
-  }
-
-  function renderProfile() {
-    if (!state.user) {
-      el('sheetList').innerHTML = '<div class="muted">Sign in first to see character sheets.</div>';
-      return;
-    }
-    const sheets = getUserSheets(state.user.email);
-    if (!sheets.length) {
-      el('sheetList').innerHTML = '<div class="muted">No sheets uploaded yet.</div>';
-      return;
-    }
-    el('sheetList').innerHTML = sheets.map(sheet => `
-      <div class="sheet-item">
-        <div>
-          <strong>${escapeHtml(sheet.name)}</strong>
-          <div class="sheet-meta">Updated ${new Date(sheet.updatedAt).toLocaleString()}</div>
-        </div>
-        <div class="sheet-actions">
-          <button class="ghost" data-open-sheet="${sheet.id}" data-target="viewer">View</button>
-          <button class="ghost" data-open-sheet="${sheet.id}" data-target="editor">Edit</button>
-          <button class="ghost" data-delete-sheet="${sheet.id}">Delete</button>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function updateSheetPickers() {
-    if (!state.user) {
-      el('viewerSelect').innerHTML = '<option>No sheets yet</option>';
-      el('editorSelect').innerHTML = '<option>No sheets yet</option>';
-      return;
-    }
-    const sheets = getUserSheets(state.user.email);
-    const options = sheets.length
-      ? sheets.map(s => `<option value="${s.id}">${escapeHtml(s.name)}</option>`).join('')
-      : '<option value="">No sheets uploaded</option>';
-    el('viewerSelect').innerHTML = options;
-    el('editorSelect').innerHTML = options;
-    const current = ensureCurrentSheet();
-    if (current) {
-      el('viewerSelect').value = current.id;
-      el('editorSelect').value = current.id;
-    }
-  }
-
-  function escapeHtml(str) {
-    return String(str)
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#39;');
-  }
-
-  function uid() {
-    return 'sheet_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
-  }
-
-  function normalizeEmail(value) {
-    return String(value || '').trim().toLowerCase();
-  }
-
-  function slugPart(value) {
-    return String(value || '')
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '.')
-      .replace(/\.+/g, '.')
-      .replace(/^\.|\.$/g, '');
-  }
-
-  function generateUsername(email, nickname) {
-    const emailPart = normalizeEmail(email).split('@')[0] || '';
-    const nicknamePart = slugPart(nickname);
-    const base = [nicknamePart, slugPart(emailPart)].filter(Boolean).join('.');
-    return (base || 'player').slice(0, 32);
-  }
-
-  function ensureUniqueUsername(base, ignoreEmail = '') {
-    const normalizedBase = slugPart(base) || 'player';
-    let candidate = normalizedBase;
+  function generateUsername(email, nickname){ return slugPart(nickname) || slugPart(email) || 'player'; }
+  function ensureUniqueUsername(base, ignoreEmail=''){
+    const root = slugPart(base) || 'player';
+    let candidate = root;
     let n = 1;
-    const taken = (name) => Object.values(state.data.accounts || {}).some(acc => {
-      if (!acc || !acc.username) return false;
-      if (ignoreEmail && normalizeEmail(acc.email) === normalizeEmail(ignoreEmail)) return false;
-      return slugPart(acc.username) === slugPart(name);
-    });
-    while (taken(candidate)) {
+    const ignore = normalizeEmail(ignoreEmail);
+    while (Object.values(state.data.accounts).some(acc => normalizeEmail(acc.email) !== ignore && slugPart(acc.username) === slugPart(candidate))) {
       n += 1;
-      candidate = `${normalizedBase}${n}`;
+      candidate = `${root}${n}`;
     }
     return candidate.slice(0, 32);
   }
 
-  function findAccountByEmail(email) {
-    return state.data.accounts[normalizeEmail(email)] || null;
+  async function hashPassword(password, salt){
+    const bytes = new TextEncoder().encode(`${salt}:${password}`);
+    const digest = await crypto.subtle.digest('SHA-256', bytes);
+    return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2,'0')).join('');
   }
-
-  function findAccountByUsername(username) {
-    const target = slugPart(username);
-    if (!target) return null;
-    return Object.values(state.data.accounts || {}).find(acc => slugPart(acc?.username) === target) || null;
-  }
-
-  function findAccountByIdentifier(identifier) {
-    const value = String(identifier || '').trim();
-    if (!value) return null;
-    if (value.includes('@')) return findAccountByEmail(value);
-    return findAccountByUsername(value);
-  }
-
-  function setLookupResult(id, message, tone = 'info') {
-    const node = el(id);
-    if (!node) return;
-    node.textContent = message;
-    node.style.color = tone === 'error' ? '#ffb6b6' : tone === 'success' ? 'var(--teal2)' : 'var(--muted)';
-  }
-
-  function syncUsernameSuggestion(force = false) {
-    const usernameField = el('authUsername');
-    if (!usernameField) return;
-    const email = el('authEmail')?.value || '';
-    const nickname = el('authNickname')?.value || '';
-    if (!email.trim() && !nickname.trim()) return;
-    const suggestion = ensureUniqueUsername(generateUsername(email, nickname), email);
-    if (force || !state.usernameManual || !usernameField.value.trim()) {
-      usernameField.value = suggestion;
-    }
-  }
-
-  async function hashPassword(password, salt = '') {
-    const data = new TextEncoder().encode(`${salt}:${password}`);
-    const digest = await crypto.subtle.digest('SHA-256', data);
-    return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  async function createPasswordRecord(password) {
-    const salt = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2, '0')).join('');
-    return {
-      salt,
-      passwordHash: await hashPassword(password, salt),
-    };
-  }
-
-  async function verifyPassword(password, account) {
+  function newSalt(){ return Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2,'0')).join(''); }
+  async function passwordRecord(password){ const salt = newSalt(); return { salt, passwordHash: await hashPassword(password, salt) }; }
+  async function verifyPassword(password, account){
     if (!account) return false;
-    const salt = account.salt || '';
-    const expected = account.passwordHash || '';
-    const actual = await hashPassword(password, salt);
-    if (expected === actual) return true;
-    if (!account.salt && expected === (await hashPassword(password, ''))) {
-      account.salt = salt || Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2, '0')).join('');
-      account.passwordHash = await hashPassword(password, account.salt);
-      saveData();
-      return true;
-    }
-    return false;
+    if (!account.salt && account.passwordHash) return account.passwordHash === await hashPassword(password, '');
+    return account.passwordHash === await hashPassword(password, account.salt || '');
   }
 
-  async function handleAuth(e) {
-    e.preventDefault();
-    const email = normalizeEmail(el('authEmail').value);
-    const nickname = el('authNickname').value.trim();
-    const usernameInput = el('authUsername').value.trim();
-    const password = el('authPassword').value;
-    if (!email || !password) return;
+  function getUserSheets(email){ return state.data.sheetsByUser[normalizeEmail(email)] || []; }
+  function setUserSheets(email, sheets){ state.data.sheetsByUser[normalizeEmail(email)] = sheets; saveData(); }
+  function currentAccount(){ return state.user ? findAccountByEmail(state.user.email) : null; }
+  function currentSheet(){
+    if (!state.user) return null;
+    const sheets = getUserSheets(state.user.email);
+    if (!sheets.length) { state.currentSheetId = null; return null; }
+    if (!state.currentSheetId || !sheets.some(s => s.id === state.currentSheetId)) state.currentSheetId = sheets[0].id;
+    return sheets.find(s => s.id === state.currentSheetId) || sheets[0];
+  }
 
-    const username = ensureUniqueUsername(usernameInput || generateUsername(email, nickname), email);
-    const existing = findAccountByEmail(email);
+  function setBodyMode(screen){
+    document.body.classList.remove('homepage','quick-quiz','deep-quiz','results');
+    if (screen === 'home') document.body.classList.add('homepage');
+    else if (screen === 'editor') document.body.classList.add('deep-quiz');
+    else if (screen === 'profile') document.body.classList.add('results');
+    else document.body.classList.add('quick-quiz');
+    document.body.classList.add('bdg-has-global-nav');
+  }
+  function authLabel(){
+    if (!state.user) return 'Sign in to manage character sheets';
+    const acc = currentAccount();
+    return `Signed in as ${state.user.email}${acc?.username ? ` @${acc.username}` : ''}`;
+  }
+  function updateNavState(){
+    $('statusLine').textContent = authLabel();
+    $('navHome').classList.toggle('hidden', state.currentScreen === 'home');
+    $('navBack').disabled = state.history.length === 0;
+    const logged = !!state.user;
+    ['navProfile','navUploader','navEditor','navViewer'].forEach(id => { if ($(id)) $(id).disabled = !logged; });
+  }
+  function switchScreen(screen, push=true){
+    if (!screens.includes(screen)) return;
+    if (push && state.currentScreen && state.currentScreen !== screen) state.history.push(state.currentScreen);
+    state.currentScreen = screen;
+    setBodyMode(screen);
+    screens.forEach(s => $(`screen-${s}`)?.classList.toggle('active', s === screen));
+    updateNavState();
+    updateProfileText();
+    renderProfile();
+    renderUploadList();
+    updateSheetPickers();
+    if (screen === 'viewer') renderSheet('viewer');
+    if (screen === 'editor') renderSheet('editor');
+  }
 
-    if (existing) {
-      const ok = await verifyPassword(password, existing);
-      if (!ok) {
-        alert('That password does not match this account.');
-        return;
-      }
-      existing.username = existing.username || username;
-      existing.nickname = existing.nickname || nickname;
-      existing.updatedAt = new Date().toISOString();
-      saveData();
-      state.user = { email };
-      saveSession(state.user);
-      state.usernameManual = false;
-      updateNavState();
-      updateSheetPickers();
-      switchScreen('profile', false);
-      return;
+  function updateProfileText(){
+    const acc = currentAccount();
+    const sheets = state.user ? getUserSheets(state.user.email) : [];
+    $('profileWelcome').textContent = state.user ? `Signed in as ${state.user.email}${acc?.username ? ` @${acc.username}` : ''}.` : 'Sign in to manage your sheets.';
+    $('profileStats').textContent = state.user ? `You have ${sheets.length} saved character sheet${sheets.length === 1 ? '' : 's'}. Up to ${MAX_SHEETS} are allowed.` : 'No account loaded.';
+  }
+  function sheetCard(sheet){
+    return `<div class="sheet-item">
+      <div><strong>${safeText(sheet.name)}</strong><div class="sheet-meta">Saved ${safeText(new Date(sheet.modifiedAt).toLocaleString())}</div></div>
+      <div class="sheet-actions">
+        <button class="ghost" type="button" data-open-sheet="${safeText(sheet.id)}" data-target="viewer">Open</button>
+        <button class="ghost" type="button" data-open-sheet="${safeText(sheet.id)}" data-target="editor">Edit</button>
+        <button class="ghost" type="button" data-download-sheet="${safeText(sheet.id)}">Export</button>
+        <button class="ghost" type="button" data-delete-sheet="${safeText(sheet.id)}">Delete</button>
+      </div>
+    </div>`;
+  }
+  function renderProfile(){
+    const list = $('sheetList');
+    if (!list) return;
+    if (!state.user) { list.innerHTML = '<div class="muted">No account yet.</div>'; return; }
+    const sheets = getUserSheets(state.user.email);
+    list.innerHTML = sheets.length ? sheets.map(sheetCard).join('') : '<div class="muted">No character sheets uploaded yet.</div>';
+  }
+  function renderUploadList(){
+    const list = $('uploadList');
+    if (!list) return;
+    if (!state.user) { list.innerHTML = '<div class="muted">Sign in first.</div>'; return; }
+    const sheets = getUserSheets(state.user.email);
+    list.innerHTML = sheets.length ? sheets.map(sheetCard).join('') : '<div class="muted">No uploaded files yet.</div>';
+  }
+  function updateSheetPickers(){
+    const sheets = state.user ? getUserSheets(state.user.email) : [];
+    for (const id of ['viewerSelect','editorSelect']) {
+      const select = $(id);
+      if (!select) continue;
+      select.innerHTML = sheets.length
+        ? sheets.map(s => `<option value="${safeText(s.id)}">${safeText(s.name)}</option>`).join('')
+        : '<option value="">Demo sheet / no uploads</option>';
+      if (state.currentSheetId && sheets.some(s => s.id === state.currentSheetId)) select.value = state.currentSheetId;
     }
+  }
 
-    const record = await createPasswordRecord(password);
-    state.data.accounts[email] = {
-      email,
-      username,
-      nickname,
-      ...record,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      resetRequests: [],
-    };
-    state.data.sheetsByUser[email] = [];
+  function syncUsernameSuggestion(force=false){
+    const username = $('authUsername');
+    if (!username) return;
+    if (force || !state.usernameManual || !username.value.trim()) username.value = ensureUniqueUsername(generateUsername($('authEmail').value, $('authNickname').value), $('authEmail').value);
+  }
+  async function handleAuth(event){
+    event.preventDefault();
+    const email = normalizeEmail($('authEmail').value);
+    const nickname = $('authNickname').value.trim();
+    const password = $('authPassword').value;
+    if (!email || !password) return alert('Enter an email and password.');
+    const username = ensureUniqueUsername($('authUsername').value || generateUsername(email, nickname), email);
+    let account = findAccountByEmail(email);
+    if (account) {
+      if (!(await verifyPassword(password, account))) return alert('That password does not match this account.');
+      account.username = account.username || username;
+      account.nickname = account.nickname || nickname;
+      account.modifiedAt = new Date().toISOString();
+    } else {
+      account = { email, username, nickname, ...(await passwordRecord(password)), createdAt:new Date().toISOString(), modifiedAt:new Date().toISOString(), resetRequests:[] };
+      state.data.accounts[email] = account;
+      state.data.sheetsByUser[email] = state.data.sheetsByUser[email] || [];
+    }
     saveData();
     state.user = { email };
     saveSession(state.user);
     state.usernameManual = false;
-    updateNavState();
-    updateSheetPickers();
     switchScreen('profile', false);
   }
-
-  async function requestPasswordReset(identifier) {
-    const account = findAccountByIdentifier(identifier);
-    if (!account) {
-      setLookupResult('resetResult', 'No matching account was found.', 'error');
-      return;
-    }
-    const token = crypto.randomUUID();
-    account.resetRequests = account.resetRequests || [];
-    account.resetRequests.push({ token, requestedAt: new Date().toISOString() });
-    account.updatedAt = new Date().toISOString();
+  function logout(){ state.user = null; state.currentSheetId = null; saveSession(null); switchScreen('home', false); }
+  function setLookupResult(id, message, ok=false){ const node = $(id); if (node) { node.textContent = message; node.style.color = ok ? 'var(--teal2)' : '#ffb6b6'; } }
+  function lookupEmail(){ const acc = findAccountByUsername($('lookupEmailUsername').value); setLookupResult('lookupEmailResult', acc ? `Email found: ${acc.email}` : 'No account matched that username.', !!acc); }
+  function lookupUsername(){ const acc = findAccountByEmail($('lookupUsernameEmail').value); setLookupResult('lookupUsernameResult', acc ? `Username found: ${acc.username}` : 'No account matched that email.', !!acc); }
+  function resetPassword(){
+    const acc = findAccountByIdentifier($('resetIdentifier').value);
+    if (!acc) return setLookupResult('resetResult', 'No matching account was found.', false);
+    const token = uid();
+    acc.resetRequests = acc.resetRequests || [];
+    acc.resetRequests.push({ token, requestedAt:new Date().toISOString() });
+    acc.modifiedAt = new Date().toISOString();
     saveData();
-    setLookupResult(
-      'resetResult',
-      `A reset link would be sent to ${account.email}. For a real deployment, point this button at your backend email service.`,
-      'success'
-    );
+    setLookupResult('resetResult', `Reset request recorded for ${acc.email}. A backend email service can send the link in a live deployment.`, true);
   }
 
-  function lookupEmailFromUsername(username) {
-    const account = findAccountByUsername(username);
-    return account?.email || '';
-  }
-
-  function lookupUsernameFromEmail(email) {
-    const account = findAccountByEmail(email);
-    return account?.username || '';
-  }
-
-  function logout() {
-    state.user = null;
-    state.currentSheetId = null;
-    saveSession(null);
-    updateNavState();
-    updateProfile();
-    updateSheetPickers();
-    switchScreen('home', false);
-  }
-
-  async function uploadFiles() {
+  async function uploadFiles(){
     if (!state.user) return alert('Sign in first.');
-    const files = Array.from(el('sheetFiles').files || []);
+    const input = $('sheetFiles');
+    const files = Array.from(input.files || []);
     if (!files.length) return alert('Choose one or more HTML files first.');
-    const existing = getUserSheets(state.user.email);
-    if (existing.length + files.length > 3) {
-      return alert('Each profile can store up to 3 sheets total.');
-    }
+    const existing = getUserSheets(state.user.email).slice();
+    let added = 0;
     for (const file of files) {
-      const isHtml = file.name.toLowerCase().endsWith('.html') || file.type.includes('html') || file.type === '';
-      if (!isHtml) {
-        alert(`Skipped ${file.name}. Please upload HTML files only.`);
-        continue;
-      }
-      const text = await file.text();
-      existing.push({ id: uid(), name: file.name, html: text, updatedAt: new Date().toISOString() });
+      if (existing.length >= MAX_SHEETS) break;
+      const isHtml = file.name.toLowerCase().endsWith('.html') || file.type === 'text/html' || file.type === '';
+      if (!isHtml) { alert(`Skipped ${file.name}. Only HTML character sheets are accepted.`); continue; }
+      const html = await file.text();
+      existing.push({ id:uid(), name:file.name, html, modifiedAt:new Date().toISOString() });
+      added += 1;
     }
-    setUserSheets(state.user.email, existing.slice(0, 3));
-    el('sheetFiles').value = '';
-    updateSheetPickers();
-    renderProfile();
-    renderUploadList();
-    alert('Sheets uploaded successfully.');
+    setUserSheets(state.user.email, existing);
+    input.value = '';
+    if (added) state.currentSheetId = existing[existing.length - 1].id;
+    renderProfile(); renderUploadList(); updateSheetPickers();
+    alert(added ? `${added} sheet${added === 1 ? '' : 's'} uploaded.` : `No sheets were added. Each account can store ${MAX_SHEETS}.`);
   }
 
-  function renderUploadList() {
-    if (!state.user) {
-      el('uploadList').innerHTML = '<div class="muted">Sign in first.</div>';
-      return;
-    }
-    const sheets = getUserSheets(state.user.email);
-    if (!sheets.length) {
-      el('uploadList').innerHTML = '<div class="muted">No uploaded files yet.</div>';
-      return;
-    }
-    el('uploadList').innerHTML = sheets.map(sheet => `
-      <div class="sheet-item">
-        <div>
-          <strong>${escapeHtml(sheet.name)}</strong>
-          <div class="sheet-meta">Saved ${new Date(sheet.updatedAt).toLocaleString()}</div>
-        </div>
-        <div class="sheet-actions">
-          <button class="ghost" data-open-sheet="${sheet.id}" data-target="viewer">Open</button>
-          <button class="ghost" data-open-sheet="${sheet.id}" data-target="editor">Edit</button>
-          <button class="ghost" data-delete-sheet="${sheet.id}">Delete</button>
-        </div>
-      </div>
-    `).join('');
+  function rollDice(expr){
+    const match = String(expr || '').trim().match(/^(\d*)d(\d+)([+-]\d+)?$/i);
+    if (!match) return 'Invalid expression. Try 1d20+5.';
+    const count = Math.min(parseInt(match[1] || '1', 10), 100);
+    const sides = Math.min(parseInt(match[2], 10), 10000);
+    const mod = parseInt(match[3] || '0', 10);
+    let total = 0; const rolls = [];
+    for (let i=0; i<count; i++) { const r = 1 + Math.floor(Math.random() * sides); rolls.push(r); total += r; }
+    return `${expr}: ${rolls.join(', ')} = ${total}${mod ? (mod > 0 ? ` + ${mod}` : ` - ${Math.abs(mod)}`) : ''} → ${total + mod}`;
   }
-
-  function loadSheetFor(screen) {
-    if (!state.user) return null;
-    const sheets = getUserSheets(state.user.email);
-    if (!sheets.length) return null;
-    const picker = screen === 'editor' ? el('editorSelect') : el('viewerSelect');
-    const selectedId = picker?.value || state.currentSheetId || sheets[0].id;
-    const sheet = sheets.find(s => s.id === selectedId) || sheets[0];
-    state.currentSheetId = sheet.id;
-    if (el('viewerSelect')) el('viewerSelect').value = sheet.id;
-    if (el('editorSelect')) el('editorSelect').value = sheet.id;
-    return sheet;
-  }
-
-  function injectRuntime(doc, editable) {
+  function injectRuntime(doc, mode){
+    const old = doc.querySelectorAll('[data-portal-runtime], #portalRuntimeScript, .portal-runtime-chip');
+    old.forEach(n => n.remove());
     const style = doc.createElement('style');
-    style.setAttribute('data-portal-runtime', 'true');
+    style.dataset.portalRuntime = 'true';
     style.textContent = `
-      [contenteditable="true"]{outline:2px dashed rgba(61,159,160,.35);}
-      [data-portal-role="save-hint"]{display:none !important;}
-      .portal-runtime-chip{position:fixed;right:12px;bottom:12px;z-index:99999;padding:8px 10px;border-radius:999px;background:rgba(15,17,21,.84);color:#fff;font:12px/1.2 sans-serif;border:1px solid rgba(255,255,255,.15)}
+      input,textarea,select,button,[contenteditable="true"]{pointer-events:auto!important;}
+      [contenteditable="true"]{outline:2px dashed rgba(61,159,160,.35);outline-offset:2px;}
+      .portal-runtime-chip{position:fixed;right:12px;bottom:12px;z-index:999999;padding:8px 10px;border-radius:999px;background:rgba(15,17,21,.84);color:#fff;font:12px/1.2 sans-serif;border:1px solid rgba(255,255,255,.18);}
     `;
-    doc.head.appendChild(style);
-
-    if (!doc.getElementById('portalRuntimeScript')) {
-      const script = doc.createElement('script');
-      script.id = 'portalRuntimeScript';
-      script.textContent = `
-        (function(){
-          function roll(expr){
-            var m = String(expr).trim().match(/^(\\d*)d(\\d+)([+-]\\d+)?$/i);
-            if(!m) return 'Invalid expression';
-            var n = parseInt(m[1] || '1', 10);
-            var sides = parseInt(m[2], 10);
-            var mod = parseInt(m[3] || '0', 10);
-            var total = 0, parts = [];
-            for(var i=0;i<n;i++){ var r = 1 + Math.floor(Math.random()*sides); total += r; parts.push(r); }
-            return parts.join(', ') + ' = ' + total + (mod ? (mod > 0 ? ' + ' + mod : ' - ' + Math.abs(mod)) : '') + ' -> ' + (total + mod);
-          }
-          document.addEventListener('click', function(e){
-            var btn = e.target.closest('[data-roll], .roll-dice, button[data-dice]');
-            if(!btn) return;
-            var expr = btn.getAttribute('data-dice') || btn.getAttribute('data-roll') || document.querySelector('[data-dice-input]')?.value || '1d20';
-            var out = document.querySelector('[data-dice-output]') || document.getElementById('diceResult') || document.getElementById('result');
-            if(out) out.textContent = roll(expr);
-          });
-        })();
-      `;
-      doc.body.appendChild(script);
-    }
-
+    (doc.head || doc.documentElement).appendChild(style);
+    doc.querySelectorAll('input, textarea, select, button, [contenteditable]').forEach(node => {
+      node.removeAttribute('disabled');
+      if (mode === 'editor' || mode === 'viewer') node.removeAttribute('readonly');
+    });
+    const script = doc.createElement('script');
+    script.id = 'portalRuntimeScript';
+    script.textContent = `
+      (function(){
+        function rollDice(expr){
+          var match=String(expr||'').trim().match(/^(\\d*)d(\\d+)([+-]\\d+)?$/i);
+          if(!match)return 'Invalid expression. Try 1d20+5.';
+          var count=Math.min(parseInt(match[1]||'1',10),100), sides=Math.min(parseInt(match[2],10),10000), mod=parseInt(match[3]||'0',10);
+          var total=0, rolls=[]; for(var i=0;i<count;i++){var r=1+Math.floor(Math.random()*sides); rolls.push(r); total+=r;}
+          return expr+': '+rolls.join(', ')+' = '+total+(mod?(mod>0?' + '+mod:' - '+Math.abs(mod)):'')+' → '+(total+mod);
+        }
+        document.addEventListener('click',function(e){
+          var btn=e.target.closest('[data-roll], [data-dice], .roll-dice'); if(!btn)return;
+          var exprId=btn.getAttribute('data-roll') || btn.getAttribute('data-dice-input');
+          var expr=(exprId && document.getElementById(exprId) ? document.getElementById(exprId).value : '') || btn.getAttribute('data-dice') || btn.getAttribute('data-expression') || '1d20';
+          var outId=btn.getAttribute('data-roll-output') || btn.getAttribute('data-dice-output');
+          var out=(outId && document.getElementById(outId)) || document.querySelector('[data-dice-output]') || document.getElementById('diceResult') || document.getElementById('result');
+          if(out) out.textContent=rollDice(expr);
+        });
+      })();`;
+    doc.body.appendChild(script);
     const chip = doc.createElement('div');
     chip.className = 'portal-runtime-chip';
-    chip.textContent = editable ? 'Editor mode' : 'Viewer mode';
+    chip.textContent = mode === 'editor' ? 'Editor mode — save from portal' : 'Viewer mode — fillable';
     doc.body.appendChild(chip);
-
-    const controls = Array.from(doc.querySelectorAll('input, textarea, select'));
-    controls.forEach(node => {
-      if (editable) {
-        node.removeAttribute('disabled');
-        node.removeAttribute('readonly');
-      }
-    });
   }
-
-  function renderSheet(screen) {
-    const frame = el(screen === 'editor' ? 'editorFrame' : 'sheetFrame');
-    const sheet = loadSheetFor(screen);
-    const fallback = { name: 'Demo Character Sheet', html: demoSheet };
-    const content = sheet || fallback;
-    state.currentSheetId = sheet ? sheet.id : null;
-    const docHtml = content.html || demoSheet;
-    frame.srcdoc = docHtml;
-    frame.onload = () => {
-      try {
-        const doc = frame.contentDocument;
-        injectRuntime(doc, screen === 'editor');
-      } catch (err) {
-        console.warn('Unable to inject runtime:', err);
-      }
-    };
-    if (screen === 'editor') {
-      el('creatorSourceText').textContent = docHtml;
-      el('creatorSourceWrap').classList.toggle('hidden', !state.creatorSourceVisible);
-      el('toggleSourceBtn').textContent = state.creatorSourceVisible ? 'Hide Source' : 'Show Source';
+  function loadSheetFor(mode){
+    const sheets = state.user ? getUserSheets(state.user.email) : [];
+    if (!sheets.length) return null;
+    const picker = mode === 'editor' ? $('editorSelect') : $('viewerSelect');
+    const selected = picker?.value || state.currentSheetId || sheets[0].id;
+    const sheet = sheets.find(s => s.id === selected) || sheets[0];
+    state.currentSheetId = sheet.id;
+    if ($('viewerSelect')) $('viewerSelect').value = sheet.id;
+    if ($('editorSelect')) $('editorSelect').value = sheet.id;
+    return sheet;
+  }
+  function renderSheet(mode){
+    const frame = mode === 'editor' ? $('editorFrame') : $('sheetFrame');
+    if (!frame) return;
+    const sheet = loadSheetFor(mode);
+    const html = sheet?.html || demoSheet;
+    frame.onload = () => { try { injectRuntime(frame.contentDocument, mode); } catch (err) { console.warn(err); } };
+    frame.srcdoc = html;
+    if (mode === 'editor') {
+      $('creatorSourceText').textContent = html;
+      $('creatorSourceWrap').classList.toggle('hidden', !state.creatorSourceVisible);
+      $('toggleSourceBtn').textContent = state.creatorSourceVisible ? 'Hide Source' : 'Show Source';
     }
   }
-
-  function serializeSheetFromFrame(frame) {
+  function syncFormValuesIntoMarkup(root){
+    root.querySelectorAll('input').forEach(input => {
+      const type = (input.getAttribute('type') || 'text').toLowerCase();
+      if (['checkbox','radio'].includes(type)) {
+        if (input.checked) input.setAttribute('checked',''); else input.removeAttribute('checked');
+      } else if (type !== 'file') {
+        input.setAttribute('value', input.value ?? '');
+      }
+    });
+    root.querySelectorAll('textarea').forEach(textarea => { textarea.textContent = textarea.value ?? ''; });
+    root.querySelectorAll('select').forEach(select => {
+      Array.from(select.options).forEach(option => {
+        if (option.selected) option.setAttribute('selected',''); else option.removeAttribute('selected');
+      });
+    });
+    root.querySelectorAll('[contenteditable="true"], [contenteditable=""]').forEach(node => { node.setAttribute('data-saved-contenteditable','true'); });
+  }
+  function serializeFrame(frame){
     const doc = frame.contentDocument;
-    if (!doc) return null;
+    if (!doc) return '';
+    syncFormValuesIntoMarkup(doc);
     const clone = doc.documentElement.cloneNode(true);
     clone.querySelectorAll('[data-portal-runtime], #portalRuntimeScript, .portal-runtime-chip').forEach(n => n.remove());
-    const runtimeStyle = clone.querySelector('style[data-portal-runtime]');
-    if (runtimeStyle) runtimeStyle.remove();
-    const html = '<!DOCTYPE html>\n' + clone.outerHTML;
-    return html;
+    return '<!DOCTYPE html>\n' + clone.outerHTML;
   }
-
-  function saveEditorChanges() {
+  function saveFrom(mode){
     if (!state.user) return alert('Sign in first.');
-    const frame = el('editorFrame');
-    const sheet = loadSheetFor('editor');
+    const sheet = loadSheetFor(mode);
     if (!sheet) return alert('Upload at least one HTML sheet first.');
-    const updatedHtml = serializeSheetFromFrame(frame);
-    if (!updatedHtml) return alert('Could not read the current sheet.');
-    sheet.html = updatedHtml;
-    sheet.updatedAt = new Date().toISOString();
-    setUserSheets(state.user.email, getUserSheets(state.user.email).map(s => s.id === sheet.id ? sheet : s));
-    el('creatorSourceText').textContent = updatedHtml;
-    renderProfile();
-    renderUploadList();
-    alert('Character sheet saved.');
+    const frame = mode === 'editor' ? $('editorFrame') : $('sheetFrame');
+    const html = serializeFrame(frame);
+    if (!html) return alert('Could not read the sheet.');
+    const sheets = getUserSheets(state.user.email).map(s => s.id === sheet.id ? { ...s, html, modifiedAt:new Date().toISOString() } : s);
+    setUserSheets(state.user.email, sheets);
+    $('creatorSourceText').textContent = html;
+    renderProfile(); renderUploadList(); updateSheetPickers();
+    alert('Character sheet saved in this browser.');
   }
-
-  function deleteSheet(id) {
+  function deleteSheet(id){
     if (!state.user) return;
     const sheets = getUserSheets(state.user.email).filter(s => s.id !== id);
     setUserSheets(state.user.email, sheets);
     if (state.currentSheetId === id) state.currentSheetId = sheets[0]?.id || null;
-    renderProfile();
-    renderUploadList();
-    updateSheetPickers();
+    renderProfile(); renderUploadList(); updateSheetPickers();
+    if (state.currentScreen === 'viewer') renderSheet('viewer');
+    if (state.currentScreen === 'editor') renderSheet('editor');
   }
-
-  function rollDice(expr) {
-    const m = String(expr).trim().match(/^(\d*)d(\d+)([+-]\d+)?$/i);
-    if (!m) return 'Invalid expression';
-    const n = parseInt(m[1] || '1', 10);
-    const sides = parseInt(m[2], 10);
-    const mod = parseInt(m[3] || '0', 10);
-    let total = 0;
-    const parts = [];
-    for (let i = 0; i < n; i++) {
-      const r = 1 + Math.floor(Math.random() * sides);
-      total += r;
-      parts.push(r);
-    }
-    return `${expr} :: ${parts.join(', ')} = ${total}${mod ? (mod > 0 ? ' + ' + mod : ' - ' + Math.abs(mod)) : ''} -> ${total + mod}`;
-  }
-
-  function openCreatorSource() {
-    const sheet = loadSheetFor('viewer') || loadSheetFor('editor');
-    if (!sheet) return alert('Upload a sheet first.');
-    if (state.user?.email !== ADMIN_EMAIL) {
-      alert('Creator source view is reserved for William Saville in this prototype.');
-      return;
-    }
-    state.creatorSourceVisible = !state.creatorSourceVisible;
-    el('creatorSourceWrap').classList.toggle('hidden', !state.creatorSourceVisible);
-    el('creatorSourceText').textContent = sheet.html;
-    el('toggleSourceBtn').textContent = state.creatorSourceVisible ? 'Hide Source' : 'Show Source';
-  }
-
-  function goBack() {
-    const prev = state.history.pop();
-    if (prev) switchScreen(prev, false);
-  }
-
-  function loadDemo() {
-    if (!state.user) {
-      el('authEmail').value = 'player@belavados.local';
-      el('authPassword').value = 'demo1234';
-      el('authForm').requestSubmit();
-      setTimeout(() => {
-        if (!state.user) return;
-        const sheets = getUserSheets(state.user.email);
-        if (!sheets.length) {
-          sheets.push({ id: uid(), name: 'demo-character-sheet.html', html: demoSheet, updatedAt: new Date().toISOString() });
-          setUserSheets(state.user.email, sheets);
-          updateSheetPickers();
-          renderProfile();
-          renderUploadList();
-        }
-      }, 250);
-      return;
-    }
-    const sheets = getUserSheets(state.user.email);
-    if (!sheets.length) {
-      sheets.push({ id: uid(), name: 'demo-character-sheet.html', html: demoSheet, updatedAt: new Date().toISOString() });
-      setUserSheets(state.user.email, sheets);
-      updateSheetPickers();
-      renderProfile();
-      renderUploadList();
-    }
-    switchScreen('viewer');
-  }
-
-  function downloadQuickCharacter() {
-    const blob = new Blob([demoSheet], { type: 'text/html;charset=utf-8' });
+  function exportSheet(id){
+    if (!state.user) return;
+    const sheet = getUserSheets(state.user.email).find(s => s.id === id) || currentSheet();
+    if (!sheet) return;
+    const blob = new Blob([sheet.html], { type:'text/html;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
-    a.download = 'belavados_quick_character.html';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+    a.href = url; a.download = sheet.name || 'belavados-character-sheet.html';
+    document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-
-  function bindEvents() {
-    el('authForm').addEventListener('submit', handleAuth);
-    el('logoutBtn').addEventListener('click', logout);
-    el('togglePassword').addEventListener('click', () => {
-      const input = el('authPassword');
-      const btn = el('togglePassword');
-      const showing = input.type === 'text';
-      input.type = showing ? 'password' : 'text';
-      btn.textContent = showing ? 'Show' : 'Hide';
-      btn.setAttribute('aria-pressed', String(!showing));
-    });
-    el('authEmail').addEventListener('input', () => syncUsernameSuggestion());
-    el('authNickname').addEventListener('input', () => syncUsernameSuggestion());
-    el('authUsername').addEventListener('input', () => { state.usernameManual = true; });
-    el('findEmailBtn').addEventListener('click', () => {
-      const username = el('lookupEmailUsername').value.trim();
-      const email = lookupEmailFromUsername(username);
-      setLookupResult('lookupEmailResult', email ? `Email found: ${email}` : 'No account matched that username.', email ? 'success' : 'error');
-    });
-    el('findUsernameBtn').addEventListener('click', () => {
-      const email = el('lookupUsernameEmail').value.trim();
-      const username = lookupUsernameFromEmail(email);
-      setLookupResult('lookupUsernameResult', username ? `Username found: ${username}` : 'No account matched that email.', username ? 'success' : 'error');
-    });
-    el('resetPasswordBtn').addEventListener('click', () => requestPasswordReset(el('resetIdentifier').value.trim()));
-    el('uploadBtn').addEventListener('click', uploadFiles);
-    el('refreshUploadList').addEventListener('click', () => { renderUploadList(); updateSheetPickers(); });
-    el('saveSheet').addEventListener('click', saveEditorChanges);
-    el('reloadViewer').addEventListener('click', () => renderSheet('viewer'));
-    el('reloadEditor').addEventListener('click', () => renderSheet('editor'));
-    el('rollDice').addEventListener('click', () => {
-      el('diceOutput').textContent = rollDice(el('diceExpr').value);
-    });
-    el('openCreatorSource').addEventListener('click', openCreatorSource);
-    el('toggleSourceBtn').addEventListener('click', openCreatorSource);
-    el('goLogin').addEventListener('click', () => switchScreen('home'));
-    el('demoFill').addEventListener('click', loadDemo);
-    el('downloadQuickCharacter').addEventListener('click', downloadQuickCharacter);
-    el('viewerSelect').addEventListener('change', () => renderSheet('viewer'));
-    el('editorSelect').addEventListener('change', () => renderSheet('editor'));
-    el('navBack').addEventListener('click', goBack);
-    el('navHome').addEventListener('click', () => { state.history = []; switchScreen('home', false); });
-    document.querySelectorAll('[data-goto]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (!state.user && btn.dataset.goto !== 'home') {
-          alert('Please sign in first.');
-          return;
-        }
-        switchScreen(btn.dataset.goto);
-      });
-    });
-    document.addEventListener('click', (e) => {
-      const open = e.target.closest('[data-open-sheet]');
-      if (open) {
-        state.currentSheetId = open.dataset.openSheet;
-        switchScreen(open.dataset.target);
-      }
-      const del = e.target.closest('[data-delete-sheet]');
-      if (del) {
-        if (confirm('Delete this sheet?')) deleteSheet(del.dataset.deleteSheet);
-      }
-    });
-    el('sheetFiles').addEventListener('change', () => {
-      const total = (el('sheetFiles').files || []).length;
-      if (total > 3) alert('You selected more than 3 files. The app will only keep the first 3 total sheets.');
+  function openCreatorSource(){
+    state.creatorSourceVisible = !state.creatorSourceVisible;
+    const sheet = currentSheet();
+    $('creatorSourceWrap').classList.toggle('hidden', !state.creatorSourceVisible);
+    $('creatorSourceText').textContent = sheet?.html || demoSheet;
+    $('toggleSourceBtn').textContent = state.creatorSourceVisible ? 'Hide Source' : 'Show Source';
+  }
+  function addViewerSaveButton(){
+    if ($('saveViewer')) return;
+    const btn = document.createElement('button');
+    btn.id = 'saveViewer'; btn.type = 'button'; btn.className = 'secondary'; btn.textContent = 'Save Viewer Changes';
+    btn.title = 'Save changes made in the viewer';
+    $('reloadViewer')?.insertAdjacentElement('afterend', btn);
+    btn.addEventListener('click', () => saveFrom('viewer'));
+  }
+  function addDemoButton(){
+    const actions = $('goLogin')?.parentElement;
+    if (!actions || $('addDemoSheet')) return;
+    const btn = document.createElement('button'); btn.type='button'; btn.className='ghost'; btn.id='addDemoSheet'; btn.textContent='Add Demo Sheet';
+    actions.appendChild(btn);
+    btn.addEventListener('click', async () => {
+      if (!state.user) { alert('Sign in first, then add the demo sheet.'); return; }
+      const sheets = getUserSheets(state.user.email);
+      if (sheets.length >= MAX_SHEETS) return alert(`Each profile can store up to ${MAX_SHEETS} sheets.`);
+      sheets.push({ id:uid(), name:'demo-character-sheet.html', html:demoSheet, modifiedAt:new Date().toISOString() });
+      setUserSheets(state.user.email, sheets); state.currentSheetId = sheets[sheets.length-1].id; switchScreen('viewer');
     });
   }
 
-  function init() {
+  function bindEvents(){
+    $('authForm')?.addEventListener('submit', handleAuth);
+    $('logoutBtn')?.addEventListener('click', logout);
+    $('togglePassword')?.addEventListener('click', () => {
+      const input = $('authPassword'), btn = $('togglePassword');
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.textContent = show ? 'Hide' : 'Show';
+      btn.setAttribute('aria-pressed', String(show));
+    });
+    $('authEmail')?.addEventListener('input', () => syncUsernameSuggestion());
+    $('authNickname')?.addEventListener('input', () => syncUsernameSuggestion());
+    $('authUsername')?.addEventListener('input', () => { state.usernameManual = true; });
+    $('findEmailBtn')?.addEventListener('click', lookupEmail);
+    $('findUsernameBtn')?.addEventListener('click', lookupUsername);
+    $('resetPasswordBtn')?.addEventListener('click', resetPassword);
+    $('uploadBtn')?.addEventListener('click', uploadFiles);
+    $('refreshUploadList')?.addEventListener('click', () => { renderUploadList(); updateSheetPickers(); });
+    $('reloadViewer')?.addEventListener('click', () => renderSheet('viewer'));
+    $('reloadEditor')?.addEventListener('click', () => renderSheet('editor'));
+    $('saveSheet')?.addEventListener('click', () => saveFrom('editor'));
+    $('rollDice')?.addEventListener('click', () => { $('diceOutput').textContent = rollDice($('diceExpr').value); });
+    $('openCreatorSource')?.addEventListener('click', openCreatorSource);
+    $('toggleSourceBtn')?.addEventListener('click', openCreatorSource);
+    $('goLogin')?.addEventListener('click', () => $('authEmail')?.focus());
+    $('viewerSelect')?.addEventListener('change', () => renderSheet('viewer'));
+    $('editorSelect')?.addEventListener('change', () => renderSheet('editor'));
+    $('navBack')?.addEventListener('click', () => { const prev = state.history.pop(); if (prev) switchScreen(prev, false); });
+    $('navHome')?.addEventListener('click', () => { state.history = []; switchScreen('home', false); });
+    document.querySelectorAll('[data-goto]').forEach(btn => btn.addEventListener('click', () => {
+      const target = btn.dataset.goto;
+      if (!state.user && target !== 'home') return alert('Please sign in first.');
+      switchScreen(target);
+    }));
+    document.addEventListener('click', event => {
+      const open = event.target.closest('[data-open-sheet]');
+      if (open) { state.currentSheetId = open.dataset.openSheet; switchScreen(open.dataset.target || 'viewer'); }
+      const del = event.target.closest('[data-delete-sheet]');
+      if (del && confirm('Delete this sheet from this browser?')) deleteSheet(del.dataset.deleteSheet);
+      const exp = event.target.closest('[data-download-sheet]');
+      if (exp) exportSheet(exp.dataset.downloadSheet);
+    });
+    $('sheetFiles')?.addEventListener('change', () => {
+      const selected = $('sheetFiles').files?.length || 0;
+      const saved = state.user ? getUserSheets(state.user.email).length : 0;
+      if (selected + saved > MAX_SHEETS) alert(`Only the first available slots will be saved. Limit: ${MAX_SHEETS} total sheets.`);
+    });
+    addViewerSaveButton();
+    addDemoButton();
+  }
+
+  function init(){
     state.user = loadSession();
-    if (state.user && !state.data.accounts[state.user.email]) {
-      state.user = null;
-      saveSession(null);
-    }
+    if (state.user && !findAccountByEmail(state.user.email)) { state.user = null; saveSession(null); }
     bindEvents();
     syncUsernameSuggestion(true);
-    updateNavState();
-    updateProfile();
-    updateSheetPickers();
-    renderProfile();
-    renderUploadList();
-    if (state.user) switchScreen('profile', false);
-    else switchScreen('home', false);
+    if (state.user) switchScreen('profile', false); else switchScreen('home', false);
   }
 
   init();
 })();
-  </script>
+</script>
 </body>
 </html>

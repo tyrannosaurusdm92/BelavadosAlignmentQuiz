@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Belavadös Atlas Page</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Belavadös Atlas, Time, Travel, and Lore Hub</title>
 <style>
     :root{
       --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mL2YxNmUyZWY3LTBiN2ItNDE5Yi1iMDU3LTFiZDE5YTIyODlmNS9kMWlvMHdjLWM1MTY1NTUwLThjMDEtNDg3Zi04NjUxLTE0NmUxZTE0ZTExMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
@@ -439,113 +440,314 @@
   .belavados-standard-nav .belavados-nav-button{white-space:nowrap;font-size:13px;padding:8px 10px;}
 }
 
+
+/* === Belavadös shared site shell and readability pass === */
+#belavados-site-shell{position:relative;z-index:2147483000;display:grid;grid-template-columns:minmax(260px,1fr) minmax(260px,.9fr);gap:10px;padding:10px clamp(10px,2vw,18px);background:linear-gradient(90deg,rgba(2,7,12,.97),rgba(20,38,42,.94),rgba(2,7,12,.97));border-bottom:1px solid rgba(0,255,255,.38);box-shadow:0 10px 30px rgba(0,0,0,.42);color:#eefbff;font-family:Georgia,"Times New Roman",serif;}
+#belavados-site-shell *{box-sizing:border-box} .bd-drawer{min-width:0;border:1px solid rgba(0,255,255,.32);border-radius:16px;background:rgba(7,14,21,.82);box-shadow:inset 0 0 18px rgba(0,255,255,.06)}
+.bd-drawer>summary{cursor:pointer;list-style:none;padding:10px 13px;font-weight:800;letter-spacing:.03em;color:#dff;user-select:none}.bd-drawer>summary::-webkit-details-marker{display:none}.bd-drawer>summary::after{content:"  ▾";color:#00ffff}.bd-drawer:not([open])>summary::after{content:"  ▸"}
+.bd-drawer-body{padding:0 12px 12px;max-height:38vh;overflow:auto;scrollbar-width:thin}.bd-primary-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:9px}.bd-nav-pill,.bd-current{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(16,44,48,.95),rgba(7,14,19,.95));color:#eff;text-decoration:none;box-shadow:0 0 14px rgba(0,255,255,.12)}.bd-nav-pill:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(0,255,255,.25)}.bd-current{border-color:rgba(245,210,123,.65);color:#ffe9a8}
+.bd-jump-label,.bd-time-grid label{display:grid;gap:5px;color:#bfeeff;font-size:13px}.bd-jump,#bd-timezone-select,#bd-time-json{width:100%;min-height:36px;border-radius:11px;border:1px solid rgba(0,255,255,.35);background:#07131a;color:#eefbff;padding:7px}.bd-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bd-time-grid span{display:block;margin-top:4px;color:#fff;line-height:1.35}.bd-file-label,.bd-hint{grid-column:1/-1}.bd-hint{margin:2px 0 0;color:#a9cbd0;font-size:12px;line-height:1.35}.bd-hint code{color:#00ffff;white-space:nowrap}
+html{scroll-behavior:smooth} body{overflow-x:hidden} img,canvas,svg,video,iframe{max-width:100%} table{max-width:100%;display:block;overflow-x:auto;white-space:normal} pre,code{white-space:pre-wrap;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.sheet,.section,section,article,aside{max-width:100%;overflow-wrap:anywhere}.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.box{scrollbar-width:thin}.app,.screen,main{min-width:0}.belavados-standard-nav{display:none!important}
+@media(max-width:820px){#belavados-site-shell{grid-template-columns:1fr}.bd-time-grid{grid-template-columns:1fr}.bd-drawer-body{max-height:46vh}}
+@media print{#belavados-site-shell{display:none!important}}
+</style>
+<style id="belavados-responsive-readable-css">
+
+/* === Belavadös responsive navigation/readability patch: 2026-06-01 === */
+:root{
+  --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQyNmUwIiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiL2YvZjE2ZTJlZjctMGI3Yi00MTliLWIwNTctMWJkMTlhMjI4OWY1L2QxaW8wd2MtYzUxNjU1NTAtOGMwMS00ODdmLTg2NTEtMTQ2ZTFlMTRlMTExLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
+  --bg-quick:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
+  --bg-deep:url("https://wallpapers.com/images/hd/minimalist-skyrim-dual-monitor-ph022pgi8ftp32nv.jpg");
+  --text:#f3e9db; --muted:#d4c6b6; --teal:#3d9fa0; --teal2:#8de0dc; --bronze:#b07a3a; --bronze2:#d7aa63; --plum:#4d3658; --card:rgba(12,16,23,.92);
+  --bd-shell-height:0px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+body{min-width:0; overflow-x:hidden !important;}
+body::before{background-size:cover;background-position:center;background-repeat:no-repeat;}
+img,canvas,svg,video,iframe{max-width:100%;}
+table{max-width:100%;display:block;overflow-x:auto;white-space:normal;}
+pre,code{white-space:pre-wrap;overflow-wrap:anywhere;}
+button,a.button,.bd-nav-pill,.bd-current,.belavados-nav-button{min-width:0;white-space:normal;overflow-wrap:anywhere;text-align:center;}
+#belavados-site-shell{
+  position:sticky !important;
+  top:0 !important;
+  z-index:2147483000 !important;
+  display:grid !important;
+  grid-template-columns:minmax(240px,1fr) minmax(240px,.9fr) !important;
+  gap:10px !important;
+  padding:8px clamp(8px,1.7vw,16px) !important;
+  margin:0 !important;
+  background:linear-gradient(90deg,rgba(2,7,12,.97),rgba(20,38,42,.94),rgba(2,7,12,.97)) !important;
+  border-bottom:1px solid rgba(0,255,255,.38) !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.42) !important;
+  color:#eefbff !important;
+  font-family:Georgia,"Times New Roman",serif !important;
+  max-height:min(42vh,360px) !important;
+  overflow:visible !important;
+}
+#belavados-site-shell .bd-drawer{min-width:0;border:1px solid rgba(0,255,255,.32);border-radius:16px;background:rgba(7,14,21,.82);box-shadow:inset 0 0 18px rgba(0,255,255,.06);}
+#belavados-site-shell .bd-drawer>summary{cursor:pointer;list-style:none;padding:9px 12px;font-weight:800;letter-spacing:.03em;color:#dff;user-select:none;}
+#belavados-site-shell .bd-drawer>summary::-webkit-details-marker{display:none;}
+#belavados-site-shell .bd-drawer>summary::after{content:"  ▸";color:#00ffff;}
+#belavados-site-shell .bd-drawer[open]>summary::after{content:"  ▾";}
+#belavados-site-shell .bd-drawer-body{padding:0 12px 12px;max-height:28vh;overflow:auto;scrollbar-width:thin;}
+#belavados-site-shell .bd-primary-links{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:9px;}
+#belavados-site-shell .bd-nav-pill,#belavados-site-shell .bd-current{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(16,44,48,.95),rgba(7,14,19,.95));color:#eff !important;text-decoration:none !important;box-shadow:0 0 14px rgba(0,255,255,.12);}
+#belavados-site-shell .bd-nav-pill:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(0,255,255,.25);}
+#belavados-site-shell .bd-current{border-color:rgba(245,210,123,.65);color:#ffe9a8 !important;}
+#belavados-site-shell .bd-jump-label,#belavados-site-shell .bd-time-grid label{display:grid;gap:5px;color:#bfeeff;font-size:13px;}
+#belavados-site-shell .bd-jump,#belavados-site-shell #bd-timezone-select,#belavados-site-shell #bd-time-json{width:100%;min-height:36px;border-radius:11px;border:1px solid rgba(0,255,255,.35);background:#07131a;color:#eefbff;padding:7px;}
+#belavados-site-shell .bd-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+#belavados-site-shell .bd-time-grid span{display:block;margin-top:4px;color:#fff;line-height:1.35;}
+#belavados-site-shell .bd-file-label,#belavados-site-shell .bd-hint{grid-column:1/-1;}
+#belavados-site-shell .bd-hint{margin:2px 0 0;color:#a9cbd0;font-size:12px;line-height:1.35;}
+#belavados-site-shell .bd-hint code{color:#00ffff;white-space:nowrap;}
+.bd-feature-marquee{position:relative;z-index:1;margin:10px auto 14px;width:min(1200px,calc(100% - 24px));border-top:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);background:rgba(4,12,18,.78);padding:10px 0;overflow:hidden;white-space:nowrap;color:#f6ebd9;font:clamp(.82rem,1.7vw,.95rem)/1.4 Georgia,"Times New Roman",serif;box-shadow:0 8px 24px rgba(0,0,0,.24);border-radius:0 0 14px 14px;}
+.bd-feature-marquee span{display:inline-block;padding-left:100%;animation:bd-scroll 30s linear infinite;}
+@keyframes bd-scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.bd-feature-marquee span,.marquee span{animation:none; padding-left:0; white-space:normal;}}
+.app,.wrap,main,.screen,.panel,.hero,.focus-box,.content,.container,.layout,.grid,.cards,.docs-grid,.intro-grid,section,article,aside{min-width:0;max-width:100%;}
+.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.sheet,.section,section,article,aside,.window,.module,.tool-panel,.controls,.hud,.readout,.result,.output,.description,.notes,.log,.text-box,textarea{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.card,.doc-card,.mini-panel,.panel,.box,.module,.tool-panel,.controls,.sidebar,.drawer,.hud,.readout,.result,.output,.description,.notes,.log,.text-box{
+  max-height:min(72vh,900px);
+  overflow:auto;
+  scrollbar-width:thin;
+}
+textarea,input,select{max-width:100%;}
+.title,h1,.page-title,.hero-title,header h1{scroll-margin-top:calc(var(--bd-shell-height) + 24px); position:relative; z-index:1;}
+.topbar,.belavados-standard-nav{top:calc(var(--bd-shell-height) + 8px) !important;}
+.belavados-standard-nav{display:none !important;}
+body > h1:first-of-type, body > header:first-of-type, body > main:first-of-type, body > .app:first-of-type, body > .wrap:first-of-type{position:relative;z-index:1;}
+@media (max-width:1100px){
+  #belavados-site-shell{grid-template-columns:1fr !important;max-height:52vh !important;}
+  #belavados-site-shell .bd-drawer-body{max-height:32vh;}
+  .hero{grid-template-columns:1fr !important;}
+  .nav{width:100%;justify-content:stretch;margin-left:0;}
+  .nav a.button{flex:1 1 130px;max-width:none;}
+}
+@media (max-width:900px){
+  .intro-grid,.docs-grid,.cards,.grid{grid-template-columns:1fr !important;}
+  .button-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media (max-width:720px){
+  body{font-size:15px;}
+  #belavados-site-shell{padding:7px !important;gap:7px !important;max-height:58vh !important;}
+  #belavados-site-shell .bd-time-grid{grid-template-columns:1fr !important;}
+  #belavados-site-shell .bd-drawer-body{max-height:38vh;}
+  .app,.wrap{width:calc(100% - 14px) !important;padding-inline:0 !important;margin-inline:auto !important;}
+  .panel{padding:18px !important;}
+  .topbar{padding:12px !important;gap:10px !important;}
+  .brand{width:100%;min-width:0 !important;}
+  .nav{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;}
+  .nav a.button{width:100%;min-height:42px;padding:10px 8px;font-size:.82rem;}
+  .button-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;}
+  .button-grid a{min-height:48px;padding:11px 8px;font-size:.82rem;}
+}
+@media (max-width:420px){
+  .panel{padding:14px !important;}
+  .nav,.button-grid{grid-template-columns:1fr !important;}
+  a.button,button{font-size:.8rem;min-height:42px;padding:10px 8px;}
+}
+@media print{#belavados-site-shell,.bd-feature-marquee{display:none !important;}}
+</style>
+<style id="atlas-pantheon-layout-refinement">
+/* Atlas document layout refinement */
+.panel.hero{
+  grid-template-columns:minmax(0,1.08fr) minmax(330px,.98fr);
+  align-items:start;
+}
+.atlas-docs-layout{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(280px,1fr));
+  gap:16px;
+  margin-top:22px;
+  align-items:stretch;
+}
+.atlas-docs-layout .doc-card{
+  min-height:188px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.atlas-docs-layout .doc-card h3{
+  color:#ffe7a6;
+  letter-spacing:.03em;
+}
+.atlas-docs-layout .doc-card p{
+  line-height:1.55;
+}
+.atlas-docs-layout .pantheon-card{
+  grid-column:1 / -1;
+  min-height:unset;
+  background:
+    radial-gradient(circle at top left,rgba(113,19,32,.18),transparent 34%),
+    linear-gradient(180deg,rgba(22,18,24,.98),rgba(12,16,23,.98));
+  border-color:rgba(215,170,99,.25);
+}
+.atlas-docs-layout .pantheon-card p{
+  max-width:88ch;
+}
+.focus-box{
+  min-width:330px;
+}
+.focus-box .mini-panel,
+.focus-box .time-card{
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.focus-box .section-title{
+  white-space:nowrap;
+  overflow-wrap:normal;
+  word-break:keep-all;
+}
+@media(max-width:1100px){
+  .panel.hero{grid-template-columns:1fr;}
+  .focus-box{min-width:0;}
+}
+@media(max-width:760px){
+  .atlas-docs-layout{grid-template-columns:1fr;}
+  .atlas-docs-layout .pantheon-card{grid-column:auto;}
+  .focus-box .section-title{white-space:normal;}
+}
+</style>
+<style id="belavados-player-viewonly-style">
+  [data-viewonly-blocked="true"]{display:none !important;}
+  .viewonly-note{border:1px solid rgba(0,255,255,.35);background:rgba(0,0,0,.45);color:#eaffff;border-radius:12px;padding:.65rem .8rem;margin:.75rem 0;font-size:.92rem;}
+  input[readonly], textarea[readonly]{cursor:default;}
 </style>
 </head>
 <body>
+<!-- === Belavadös shared global dropdown navigation / unhide patch === -->
+<style id="bdg-shared-style">
+:root{--bdg-nav-height:0px;}
+#bd-global-dropdown-nav{position:fixed;top:12px;left:12px;z-index:2147483600;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;max-width:min(92vw,760px);}
+#bd-global-dropdown-nav *{box-sizing:border-box;}
+#bd-global-dropdown-nav .bdg-bar{display:flex;align-items:center;gap:10px;pointer-events:auto;background:linear-gradient(90deg,rgba(2,8,12,.95),rgba(0,52,62,.92),rgba(2,8,12,.95));border:1px solid rgba(0,255,255,.48);box-shadow:0 10px 34px rgba(0,0,0,.42),0 0 24px rgba(0,255,255,.14);border-radius:18px;padding:8px 10px;backdrop-filter:blur(10px);}
+#bd-global-dropdown-nav .bdg-drag-handle{cursor:grab;user-select:none;border:1px solid rgba(0,255,255,.36);border-radius:12px;background:rgba(0,255,255,.08);color:#eff;padding:8px 10px;font-weight:900;line-height:1;}
+#bd-global-dropdown-nav .bdg-drag-handle:active{cursor:grabbing;}
+#bd-global-dropdown-nav details{position:relative;}
+#bd-global-dropdown-nav summary{list-style:none;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:9px 13px;border-radius:14px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(14,44,49,.96),rgba(6,15,22,.96));font-weight:850;color:#eff;text-shadow:0 1px 0 #000;white-space:nowrap;}
+#bd-global-dropdown-nav summary::-webkit-details-marker{display:none;}
+#bd-global-dropdown-nav summary:after{content:'▾';font-size:.82rem;color:#ffe7a6;}
+#bd-global-dropdown-nav details[open] summary:after{content:'▴';}
+#bd-global-dropdown-nav .bdg-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:min(92vw,360px);max-height:min(72vh,620px);overflow:auto;padding:10px;border-radius:18px;border:1px solid rgba(0,255,255,.45);background:linear-gradient(180deg,rgba(4,13,19,.98),rgba(8,21,29,.98));box-shadow:0 18px 48px rgba(0,0,0,.55);}
+#bd-global-dropdown-nav .bdg-link{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin:4px 0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#eaffff !important;text-decoration:none !important;font-weight:760;}
+#bd-global-dropdown-nav .bdg-link:hover,#bd-global-dropdown-nav .bdg-link:focus-visible{outline:none;border-color:rgba(0,255,255,.65);background:rgba(0,255,255,.12);transform:translateY(-1px);}
+#bd-global-dropdown-nav .bdg-current{border-color:rgba(245,210,123,.72)!important;color:#ffe7a6!important;background:rgba(245,210,123,.10)!important;}
+#bd-global-dropdown-nav .bdg-title{font-size:.9rem;line-height:1.15;text-align:right;color:#bff;min-width:120px;}
+#bd-global-dropdown-nav .bdg-title b{display:block;color:#fff;font-size:.98rem;}
+#bdg-hide-nav{border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.10);color:#eff;font-weight:850;padding:9px 11px;cursor:pointer;white-space:nowrap;}
+#bdg-hide-nav:hover{background:rgba(0,255,255,.20);}
+#bd-nav-bubble{position:fixed;left:14px;bottom:14px;z-index:2147483602;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eff;display:none;}
+body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important;}
+body.bdg-nav-hidden #bd-nav-bubble{display:block;}
+#bd-nav-bubble .bdg-bubble-core{border:1px solid rgba(0,255,255,.55);border-radius:999px;background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.38),rgba(0,50,60,.96) 42%,rgba(3,9,14,.98));box-shadow:0 0 28px rgba(0,255,255,.24),0 10px 28px rgba(0,0,0,.42);padding:10px 14px;font-weight:950;cursor:grab;user-select:none;min-width:58px;text-align:center;}
+#bd-nav-bubble .bdg-bubble-core:active{cursor:grabbing;}
+#bd-nav-bubble details{position:relative;}#bd-nav-bubble summary{list-style:none;}#bd-nav-bubble summary::-webkit-details-marker{display:none;}
+#bd-nav-bubble .bdg-bubble-menu{position:absolute;bottom:calc(100% + 8px);left:0;width:220px;border:1px solid rgba(0,255,255,.45);border-radius:16px;background:rgba(3,11,16,.96);box-shadow:0 14px 36px rgba(0,0,0,.48);padding:10px;}
+#bd-nav-bubble button{width:100%;border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.12);color:#eff;font-weight:850;padding:10px;cursor:pointer;}
+.belavados-standard-nav,#belavados-site-shell .bd-nav-drawer,.topbar nav.nav[aria-label*="Primary"],header nav.nav[aria-label*="Primary"],nav[aria-label="Primary site links"],nav[aria-label="Belavadös atlas navigation"]{display:none!important;}
+body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-nav .legend,body.bdg-has-global-nav .control-panel,body.bdg-has-global-nav .sidebar{scrollbar-width:thin;}
+#bd-unhide-tray{position:fixed;right:10px;bottom:10px;z-index:2147483601;max-width:min(420px,calc(100vw - 20px));font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;}
+#bd-unhide-tray details{border:1px solid rgba(0,255,255,.42);border-radius:16px;background:rgba(3,11,16,.94);box-shadow:0 10px 34px rgba(0,0,0,.38);overflow:hidden;}
+#bd-unhide-tray summary{cursor:pointer;list-style:none;padding:10px 12px;font-weight:850;background:linear-gradient(90deg,rgba(0,56,66,.92),rgba(4,12,18,.92));}#bd-unhide-tray summary::-webkit-details-marker{display:none;}
+#bd-unhide-list{display:flex;flex-wrap:wrap;gap:7px;padding:9px;max-height:35vh;overflow:auto;}#bd-unhide-list button,#bd-unhide-all{border:1px solid rgba(0,255,255,.45);border-radius:999px;background:rgba(0,255,255,.10);color:#eff;padding:7px 10px;cursor:pointer;font-weight:760;}#bd-unhide-list button:hover,#bd-unhide-all:hover{background:rgba(0,255,255,.22);}
+.bdg-purpose-panel{border:1px solid rgba(0,255,255,.32);border-radius:22px;background:linear-gradient(180deg,rgba(7,18,25,.86),rgba(11,13,20,.90));box-shadow:0 0 30px rgba(0,255,255,.10);padding:18px;margin:16px auto;max-width:1180px;color:inherit;}.bdg-purpose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}.bdg-purpose-grid article{border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.045);padding:14px;}.bdg-purpose-grid h3{margin:.15rem 0 .4rem;color:#ffe7a6;}.bdg-purpose-grid p{margin:.25rem 0;}
+@media(max-width:720px){#bd-global-dropdown-nav{top:8px;left:8px;max-width:calc(100vw - 16px);}#bd-global-dropdown-nav .bdg-bar{gap:6px;align-items:center;flex-wrap:wrap;}#bd-global-dropdown-nav .bdg-title{font-size:.8rem;max-width:42vw;min-width:0;}#bd-global-dropdown-nav .bdg-menu{min-width:calc(100vw - 20px);}#bdg-hide-nav{padding:8px 9px;}#bd-nav-bubble{left:10px;bottom:10px;}}
+</style>
+<div class="viewonly-note">Player view-only version: editing, code/image uploads, scanning, and code/download/export controls are locked.</div><div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav"><div class="bdg-bar"><div class="bdg-drag-handle" title="Drag navigation">✥</div><details><summary>☰ Site Navigation</summary><div class="bdg-menu" role="menu"><a class="bdg-link" data-bdg-target="index.html" href="index.html">Main Page</a><a class="bdg-link" data-bdg-target="portal.html" href="portal.html">Player Portal</a><a class="bdg-link" data-bdg-target="quiz.html" href="quiz.html">Alignment Quizzes</a><a class="bdg-link" data-bdg-target="charactersheet.html" href="charactersheet.html">Character Sheet</a><a class="bdg-link" data-bdg-target="charactersheetgenerator.html" href="charactersheetgenerator.html">Character Generator</a><a class="bdg-link" data-bdg-target="belavados_map_PLAYER.html" href="belavados_map_PLAYER.html">Player Map</a><a class="bdg-link" data-bdg-target="transportation.html" href="transportation.html">Transportation</a><a class="bdg-link" data-bdg-target="atlas.html" href="atlas.html">Atlas</a><a class="bdg-link" data-bdg-target="globe.html" href="globe.html">Globe</a><a class="bdg-link" data-bdg-target="solar_system.html" href="solar_system.html">Solar System</a><a class="bdg-link" data-bdg-target="constellations.html" href="constellations.html">Constellations</a></div></details><button id="bdg-hide-nav" type="button">Hide Nav</button><div class="bdg-title"><b>Belavadös</b><span>site navigation</span></div></div></div>
+<div aria-label="Hidden Belavadös navigation bubble" id="bd-nav-bubble"><details><summary class="bdg-bubble-core" title="Open navigation bubble">☰</summary><div class="bdg-bubble-menu"><button id="bdg-show-nav" type="button">Show Navigation Bar</button></div></details></div>
+<div aria-live="polite" id="bd-unhide-tray"><details><summary>Hidden Panels / Windows <span id="bd-unhide-count">0</span></summary><div style="padding:8px 9px 0"><button id="bd-unhide-all" type="button">Unhide All</button></div><div id="bd-unhide-list"></div></details></div>
+<script id="bdg-shared-script">
+(function(){if(window.__bdgSharedNavInstalled)return;window.__bdgSharedNavInstalled=true;document.body.classList.add('bdg-has-global-nav');var page=(location.pathname.split('/').pop()||'index.html').toLowerCase();document.querySelectorAll('#bd-global-dropdown-nav .bdg-link').forEach(function(a){if((a.getAttribute('href')||'').toLowerCase()===page){a.classList.add('bdg-current');a.setAttribute('aria-current','page');}});function clampPos(el,x,y){var r=el.getBoundingClientRect();var maxX=Math.max(0,window.innerWidth-r.width-8);var maxY=Math.max(0,window.innerHeight-r.height-8);return{x:Math.min(Math.max(8,x),maxX),y:Math.min(Math.max(8,y),maxY)}}function restorePos(el,key,def){try{var p=JSON.parse(localStorage.getItem(key)||'null');if(p){el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'}else if(def){Object.assign(el.style,def)}}catch(e){}}function makeDrag(handle,el,key){var sx=0,sy=0,ox=0,oy=0,moved=false;if(!handle||!el)return;handle.addEventListener('pointerdown',function(ev){moved=false;var r=el.getBoundingClientRect();sx=ev.clientX;sy=ev.clientY;ox=r.left;oy=r.top;handle.setPointerCapture(ev.pointerId);ev.preventDefault()});handle.addEventListener('pointermove',function(ev){if(!handle.hasPointerCapture(ev.pointerId))return;var nx=ox+(ev.clientX-sx),ny=oy+(ev.clientY-sy);if(Math.abs(ev.clientX-sx)+Math.abs(ev.clientY-sy)>3)moved=true;var p=clampPos(el,nx,ny);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'});handle.addEventListener('pointerup',function(ev){if(handle.hasPointerCapture(ev.pointerId))handle.releasePointerCapture(ev.pointerId);var r=el.getBoundingClientRect();try{localStorage.setItem(key,JSON.stringify({x:r.left,y:r.top}))}catch(e){};if(moved){ev.preventDefault();ev.stopPropagation()}},true)}var nav=document.getElementById('bd-global-dropdown-nav'),bubble=document.getElementById('bd-nav-bubble');restorePos(nav,'bdgNavPos');restorePos(bubble,'bdgBubblePos',{left:'14px',bottom:'14px'});makeDrag(document.querySelector('#bd-global-dropdown-nav .bdg-drag-handle'),nav,'bdgNavPos');makeDrag(document.querySelector('#bd-nav-bubble .bdg-bubble-core'),bubble,'bdgBubblePos');document.getElementById('bdg-hide-nav')?.addEventListener('click',function(){document.body.classList.add('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','1')}catch(e){}});document.getElementById('bdg-show-nav')?.addEventListener('click',function(){document.body.classList.remove('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','0')}catch(e){}});try{if(localStorage.getItem('bdgNavHidden')==='1')document.body.classList.add('bdg-nav-hidden')}catch(e){}window.addEventListener('resize',function(){[nav,bubble].forEach(function(el){if(!el)return;var r=el.getBoundingClientRect();var p=clampPos(el,r.left,r.top);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'})});var meaningfulSelector='.panel,.card,.doc-card,.focus-box,.mini-panel,.sidebar,.drawer,.box,.window,.hud,.legend,.modal,.dialog,[data-panel],[data-window],[role="dialog"]';var tray=document.getElementById('bd-unhide-tray'),list=document.getElementById('bd-unhide-list'),count=document.getElementById('bd-unhide-count');function labelFor(el,i){var h=el.querySelector&&el.querySelector('h1,h2,h3,h4,.title,.panel-title,.section-title,[aria-label]');var t=(el.getAttribute('aria-label')||el.getAttribute('data-title')||(h&&(h.textContent||h.getAttribute('aria-label')))||el.id||el.className||'Panel').toString().trim().replace(/\s+/g,' ');return t.slice(0,46)||('Panel '+(i+1))}function isHidden(el){if(!el||el.id==='bd-unhide-tray'||el.closest&&(el.closest('#bd-unhide-tray')||el.closest('#bd-global-dropdown-nav')||el.closest('#bd-nav-bubble')))return false;var cs=getComputedStyle(el);return el.hidden||cs.display==='none'||cs.visibility==='hidden'||el.classList.contains('hidden')||el.classList.contains('is-hidden')}function showEl(el){try{el.hidden=false;el.removeAttribute('hidden');el.style.display='';el.style.visibility='';el.style.opacity='';el.classList.remove('hidden','is-hidden','closed','collapsed');if(getComputedStyle(el).display==='none')el.style.display='block';el.scrollIntoView({block:'nearest',inline:'nearest'})}catch(e){}refresh()}function refresh(){if(!list)return;list.innerHTML='';var found=[];document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el)&&found.indexOf(el)<0)found.push(el)});count.textContent=found.length;tray.style.display='block';if(!found.length){var none=document.createElement('span');none.style.opacity='.78';none.style.padding='7px';none.textContent='No hidden panels detected.';list.appendChild(none);return}found.slice(0,60).forEach(function(el,i){var b=document.createElement('button');b.type='button';b.textContent='Unhide: '+labelFor(el,i);b.addEventListener('click',function(){showEl(el)});list.appendChild(b)})}document.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.closest('button,a,[role="button"]');if(!b)return;var txt=(b.textContent||b.getAttribute('aria-label')||b.title||'').toLowerCase();if(/\b(hide|close|collapse|minimize|dismiss)\b|×|✕|✖/.test(txt))setTimeout(refresh,80)},true);document.getElementById('bd-unhide-all')?.addEventListener('click',function(){document.querySelectorAll(meaningfulSelector).forEach(function(el){if(isHidden(el))showEl(el)});refresh()});new MutationObserver(function(){clearTimeout(window.__bdgUnhideTimer);window.__bdgUnhideTimer=setTimeout(refresh,120)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['class','style','hidden','aria-hidden']});refresh()})();
+</script>
+<!-- === end Belavadös shared global dropdown navigation / unhide patch === -->
+<!-- Belavadös shared site shell: navigation + real-time converter -->
+<div aria-label="Belavadös shared navigation and time tools" class="bd-shell" id="belavados-site-shell">
+<details class="bd-drawer bd-time-drawer">
+<summary>⏱ Earth ↔ Belavadös Time</summary>
+<div class="bd-drawer-body bd-time-grid">
+<div><strong>Earth / Eastern</strong><span id="bd-earth-time">Loading…</span></div>
+<div><strong>Belavadös</strong><span id="bd-belavados-time">Loading…</span></div>
+<label>Settlement time zone
+        <select id="bd-timezone-select">
+<option value="0">ATA Standard / UTC+0</option>
+<option value="-12">UTC-12</option><option value="-11">UTC-11</option><option value="-10">UTC-10</option><option value="-9">UTC-9</option><option value="-8">UTC-8</option><option value="-7">UTC-7</option><option value="-6">UTC-6</option><option value="-5">UTC-5</option><option value="-4">UTC-4</option><option value="-3">UTC-3</option><option value="-2">UTC-2</option><option value="-1">UTC-1</option><option value="1">UTC+1</option><option value="2">UTC+2</option><option value="3">UTC+3</option><option value="4">UTC+4</option><option value="5">UTC+5</option><option value="6">UTC+6</option><option value="7">UTC+7</option><option value="8">UTC+8</option><option value="9">UTC+9</option><option value="10">UTC+10</option><option value="11">UTC+11</option><option value="12">UTC+12</option>
+</select>
+</label>
+<label class="bd-file-label" data-viewonly-blocked="true">Import settlement JSON timezone
+        <input accept=".json,application/json" data-viewonly-blocked="true" disabled="disabled" id="bd-time-json" type="file"/>
+</label>
+<p class="bd-hint">Reads JSON fields such as <code>timeZone</code>, <code>timezone</code>, <code>utcOffset</code>, or <code>belavadosTimeZone</code> when present.</p>
+</div>
+</details>
+</div>
 <!-- Belavadös standardized navigation: atlas navigation -->
-<nav class="belavados-standard-nav" aria-label="Belavadös standardized navigation">
-    <a class="belavados-nav-button" href="globe.html">Globe View</a>
-    <a class="belavados-nav-button" href="constellations.html">Constellations</a>
-    <a class="belavados-nav-button" href="belavados_map_PLAYER.html">Player Map</a>
-    <a class="belavados-nav-button" href="solar_system.html">Solar System</a>
-    <a class="belavados-nav-button" href="../main pages/transportation.html">Transportation</a>
-</nav>
-
-  <main class="app">
-    <header class="topbar" aria-label="Belavadös atlas navigation">
-      <div class="brand">
-        <div class="seal" aria-hidden="true">✦</div>
-        <div>
-          <h1>Belavadös Atlas Page</h1>
-          <p>Interactive world hub for maps, time, transit, characters, and sky lore.</p>
-        </div>
-      </div>
-      <nav class="nav" aria-label="Primary site links">
-        <a class="button ghost" href="../main pages/index.html" data-destination="index.html">Main Page</a>
-        <a class="button ghost" href="belavados_map_belavados_map_PLAYER.html" data-destination="belavados_map_belavados_map_PLAYER.html">Player Map</a>
-        <a class="button ghost" href="../main pages/portal.html" data-destination="portal.html">Player Portal</a>
-        <a class="button ghost" href="../main pages/transportation.html" data-destination="transportation.html">Public Transit</a>
-      </nav>
-    </header>
-
-    <section class="screen">
-      <div class="panel hero">
-        <div>
-          <h2 class="title">Belavadös Atlas Page</h2>
-          <p class="lede">
-            This is the landing zone for Belavadös interactive maps, constellation records, civil time, immersive public transit, and the globe and solar-system pages for the world your characters reside in. Use it as the campaign table of contents whenever you need to move between the player map, character tools, transit systems, timekeeping, province maps, constellations, or the celestial atlas.
-          </p>
-          <div class="badge-row" aria-label="Atlas features">
-            <span class="badge">🗺️ Maps</span>
-            <span class="badge">✦ Constellations</span>
-            <span class="badge">⏳ Earth + Belavadös Time</span>
-            <span class="badge">🚆 Public Transit</span>
-            <span class="badge">🪐 Globe + Solar System</span>
-          </div>
-
-          <div class="marquee" aria-label="Belavadös feature ticker"><span>Belavadös Atlas · Maps · Player Portal · Character Tools · Alignment Quizzes · Transit Authority · Constellations · Civil Time · Globe and Solar System ·</span></div>
-
-          <section class="docs-grid" style="margin-top:18px" aria-label="Atlas destinations">
-            <article class="doc-card">
-              <h3>World Navigation</h3>
-              <p>Open the main site, player portal, player map, flat province map, or globe and solar-system page without embedding globe/orbit controls inside this launcher.</p>
-              <div class="button-grid">
-                <a class="button" href="../main pages/index.html" data-destination="index.html">Main Page</a>
-                <a class="button" href="belavados_map_belavados_map_PLAYER.html" data-destination="belavados_map_belavados_map_PLAYER.html">Player Map</a>
-                <a class="button" href="../main pages/portal.html" data-destination="portal.html">Player Portal</a>
-                <a class="button secondary" href="province_belavados_map_belavados_map_PLAYER.html" data-destination="province_belavados_map_belavados_map_PLAYER.html">Flat Province Map</a>
-                <a class="button secondary" href="solar_system.html" data-destination="solar_system.html">Globe + Solar System</a>
-                <a class="button secondary" href="constellations.html" data-destination="constellations.html">Constellations</a>
-              </div>
-            </article>
-
-            <article class="doc-card">
-              <h3>Character & Campaign Tools</h3>
-              <p>Jump directly into character sheets, character generation, alignment quizzes, and the Belavadös Arcane Transit Authority for immersive travel.</p>
-              <div class="button-grid">
-                <a class="button" href="../main pages/charactersheet.html" data-destination="charactersheet.html">Character Sheet</a>
-                <a class="button" href="../main pages/charactersheetgenerator.html" data-destination="charactersheetgenerator.html">Character Generator</a>
-                <a class="button secondary" href="../main pages/quiz.html" data-destination="quiz.html">Alignment Quizzes</a>
-                <a class="button secondary" href="../main pages/transportation.html" data-destination="transportation.html">Public Transit</a>
-              </div>
-            </article>
-          </section>
-        </div>
-
-        <aside class="focus-box" aria-label="Atlas status panel">
-          <div class="profile">
-            <div class="avatar" aria-hidden="true"></div>
-            <div class="profile-meta">
-              <div class="mini-panel time-card">
-                <h3 class="section-title">Live Time</h3>
-                <p>Earth time remains first for player ease. Belavadös civil time follows for world immersion.</p>
-                <strong id="earthTime">Loading Earth time…</strong>
-                <small id="belavadosTime">Loading Belavadös time…</small>
-              </div>
-              <div class="mini-panel">
-                <h3 class="section-title">Launcher Notes</h3>
-                <p>This page contains no embedded globe, orbit viewer, or iframe-based map controls. Each button opens its own HTML file as a separate page.</p>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="intro-grid" style="margin-top:16px" aria-label="What this atlas connects">
-      <article class="card">
-        <h3>Maps & Exploration</h3>
-        <p>Use the player map and flat province map to navigate Belavadös geography, settlements, borders, and table-ready travel reference.</p>
-      </article>
-      <article class="card">
-        <h3>Sky, Time & Transit</h3>
-        <p>Use constellations, civil time, the globe and solar-system page, and public transit to keep the world feeling alive around the party.</p>
-      </article>
-    </section>
-
-    <p class="footer-note">Belavadös Atlas Page · place this file in the same folder as the linked HTML pages so every button resolves correctly.</p>
-  </main>
-
+<main class="app">
+<section class="bdg-purpose-panel" id="atlas-world-systems">
+<h2>Atlas, Time, Travel, and Lore Hub</h2>
+<p>The atlas is the world-facing reference center for geography, travel, timekeeping, sky systems, and lore retrieval. Site navigation stays in the universal navigation bar so this page can focus on descriptions and document access.</p>
+<div class="bdg-purpose-grid"><article><h3>Timekeeping</h3><p>Use Earth time and Belavadös time together for session timing, settlement schedules, rest days, travel departures, and calendar reference.</p></article><article><h3>Travel and Transit</h3><p>The atlas explains where transit belongs in the world. Open caravan, ferry, portal, rail, skyship, steamship, submarine, route-delay, and scheduling systems from the universal navigation bar.</p></article><article><h3>World Views</h3><p>Use the player map, globe, constellation viewer, and solar system as separate tools connected by the universal navigation bar rather than repeated local buttons.</p></article><article id="atlas-lore-library"><h3>Lore Retrieval Library</h3><p>Campaign lore and setting PDFs live here as atlas references. Use the document buttons below for the Pantheon and World Lore files.</p></article></div>
+</section>
+<header aria-label="Belavadös atlas navigation" class="topbar">
+<div class="brand">
+<div aria-hidden="true" class="seal">✦</div>
+<div>
+<h1>Belavadös Atlas, Time, Travel, and Lore Hub</h1>
+<p>Interactive world hub for maps, time, transit, characters, and sky lore.</p>
+</div>
+</div>
+</header>
+<section class="screen">
+<div class="panel hero">
+<div>
+<h2 class="title">Belavadös Atlas Page</h2>
+<p class="lede">This is the landing zone for Belavadös interactive maps, constellation records, civil time, immersive public transit, and the globe and solar-system pages for the world your characters reside in. Use the universal navigation bar to move between site pages, while this atlas keeps descriptions and lore document access in one place.</p>
+<div aria-label="Atlas features" class="badge-row">
+<span class="badge">🗺️ Maps</span>
+<span class="badge">✦ Constellations</span>
+<span class="badge">⏳ Earth + Belavadös Time</span>
+<span class="badge">🚆 Public Transit</span>
+<span class="badge">🪐 Globe + Solar System</span>
+</div>
+<div aria-label="Belavadös feature ticker" class="marquee"><span>Belavadös Atlas · Maps · Player Portal · Character Tools · Alignment Quizzes · Transit Authority · Constellations · Civil Time · Globe and Solar System ·</span></div>
+<section aria-label="Atlas destinations" class="docs-grid atlas-docs-layout"><article class="doc-card doc-card-large atlas-reference-card"><h3>Atlas References</h3><p>This atlas gathers the campaign-facing reference points for maps, timekeeping, transit, sky records, and the connected site tools while leaving page-to-page travel to the universal navigation bar.</p></article><article class="doc-card doc-card-large world-lore-card"><h3>World Lore &amp; Campaign Information</h3><p>Open the world lore and campaign information PDF for setting summaries, campaign-facing reference, broad Belavadös context, and table-ready worldbuilding notes.</p><div class="actions"><a class="button secondary" href="https://drive.google.com/file/d/1gJ44gLcpbaf2Ubv6q1Ub9g2ZIyH8UE9-/view?usp=sharing" rel="noopener noreferrer" target="_blank">Open World Lore PDF</a></div></article><article class="doc-card pantheon-card"><h3>Pantheon</h3><p>The Belavadös pantheon is not a comforting roll call of distant protectors. These imprisoned gods are ancient predatory creators: beautiful, uncanny, hungry, and still powerful enough to reach through dreams, worship, ichor, prison rites, and divine dependency. Their containment protects civilization, but it also keeps the world chained to the same horrors it tried to overthrow.</p><div class="actions"><a class="button" href="https://drive.google.com/file/d/1cvzsENhNnNzO_5o_iTuMshqqhqCeVOMB/view?usp=sharing" rel="noopener noreferrer" target="_blank">Open Pantheon PDF</a></div></article></section>
+</div>
+<aside aria-label="Atlas status panel" class="focus-box">
+<div class="profile">
+<div aria-hidden="true" class="avatar"></div>
+<div class="profile-meta">
+<div class="mini-panel time-card">
+<h3 class="section-title">Live Time</h3>
+<p>Earth time remains first for player ease. Belavadös civil time follows for world immersion.</p>
+<strong id="earthTime">Loading Earth time…</strong>
+<small id="belavadosTime">Loading Belavadös time…</small>
+</div>
+<div class="mini-panel">
+<h3 class="section-title">Launcher Notes</h3>
+<p>This page describes the connected atlas tools without duplicating their navigation buttons. Use the universal navigation bar to open the separate HTML pages.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</section>
+<section aria-label="What this atlas connects" class="intro-grid" style="margin-top:16px">
+<article class="card">
+<h3>Maps &amp; Exploration</h3>
+<p>Use the player map and flat province map to navigate Belavadös geography, settlements, borders, and table-ready travel reference.</p>
+</article>
+<article class="card">
+<h3>Sky, Time &amp; Transit</h3>
+<p>Use constellations, civil time, the globe and solar-system page, and public transit to keep the world feeling alive around the party.</p>
+</article>
+</section>
+<p class="footer-note">Belavadös Atlas Page · keep this file in the same folder as the linked HTML pages so universal navigation resolves correctly.</p>
+</main>
 <script>
 (function(){
 const MONTHS=["Thoryn-Rahek","Freysethysra","Nefarokir","Thalunesh","Horundar","Raeshkul","Asethrimir","Sokhivar","Iskazunet","Bastve’enlil","Hathruna"];
@@ -574,6 +776,110 @@ function updateTime(){
 }
 updateTime();
 setInterval(updateTime,1000);
+})();
+</script>
+<script id="belavados-shared-site-shell-js">
+(function(){
+  const pageJump=document.getElementById('bd-page-jump');
+  if(pageJump){pageJump.addEventListener('change',e=>{if(e.target.value) location.href=e.target.value;});}
+  const months=['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
+  const weekdays=['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
+  const earthEl=document.getElementById('bd-earth-time'), belEl=document.getElementById('bd-belavados-time'), tzSel=document.getElementById('bd-timezone-select');
+  function parseOffset(v){ if(v==null) return 0; if(typeof v==='number') return Math.max(-12,Math.min(12,v)); let s=String(v).trim(); let m=s.match(/([+-]?\d{1,2})(?::?\d{2})?/); return m?Math.max(-12,Math.min(12,parseInt(m[1],10))):0; }
+  function findTZ(obj){ if(!obj||typeof obj!=='object') return null; const keys=['timeZone','timezone','utcOffset','belavadosTimeZone','belavados_timezone','settlementTimeZone','settlement_timezone']; for(const k of keys){ if(obj[k]!=null) return obj[k]; } for(const v of Object.values(obj)){ if(v&&typeof v==='object'){ const found=findTZ(v); if(found!=null) return found; } } return null; }
+  function applyJSONTZ(obj){ const found=findTZ(obj); if(found!=null && tzSel){ tzSel.value=String(parseOffset(found)); localStorage.setItem('belavadosTimeZoneOffset',tzSel.value); tick(); } }
+  try{ const saved=localStorage.getItem('belavadosTimeZoneOffset'); if(saved&&tzSel) tzSel.value=saved; }catch(e){}
+  if(tzSel){ tzSel.addEventListener('change',()=>{try{localStorage.setItem('belavadosTimeZoneOffset',tzSel.value)}catch(e){} tick();}); }
+  const file=document.getElementById('bd-time-json');
+  if(file){ file.addEventListener('change', async ev=>{ const f=ev.target.files&&ev.target.files[0]; if(!f) return; try{applyJSONTZ(JSON.parse(await f.text()));}catch(err){alert('That JSON could not be read for a timezone field.');} }); }
+  if(window.settlementData) applyJSONTZ(window.settlementData);
+  function tick(){
+    const now=new Date();
+    if(earthEl){ earthEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'}).format(now); }
+    const off=tzSel?parseOffset(tzSel.value):0; const shifted=new Date(now.getTime()+off*3600000);
+    const epoch=Date.UTC(2025,0,1); const days=Math.floor((shifted.getTime()-epoch)/86400000); const year=1+Math.floor(Math.max(0,days)/330); const doy=((days%330)+330)%330; const month=months[Math.floor(doy/30)]; const day=1+(doy%30); const weekday=weekdays[((days%7)+7)%7];
+    const hh=String(shifted.getUTCHours()).padStart(2,'0'), mm=String(shifted.getUTCMinutes()).padStart(2,'0'), ss=String(shifted.getUTCSeconds()).padStart(2,'0');
+    if(belEl){ belEl.textContent=`${weekday}, ${month} ${day}, Year ${year} • ${hh}:${mm}:${ss} (UTC${off>=0?'+':''}${off})`; }
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+<script id="belavados-responsive-shell-script">
+(function(){
+  function setShellHeight(){
+    var shell=document.getElementById('belavados-site-shell');
+    var h=shell ? Math.ceil(shell.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty('--bd-shell-height', h + 'px');
+  }
+  function collapseDrawersOnLoad(){
+    document.querySelectorAll('#belavados-site-shell details.bd-drawer').forEach(function(d){ d.removeAttribute('open'); });
+  }
+  function wireLongTextScroll(){
+    var selectors='textarea,[contenteditable="true"],.card,.doc-card,.mini-panel,.panel,.box,.module,.tool-panel,.output,.result,.description,.notes,.log,.text-box';
+    document.querySelectorAll(selectors).forEach(function(el){
+      el.style.maxWidth='100%';
+      if(!el.style.overflowWrap) el.style.overflowWrap='anywhere';
+    });
+  }
+  function init(){
+    collapseDrawersOnLoad();
+    setShellHeight();
+    wireLongTextScroll();
+    window.addEventListener('resize', setShellHeight, {passive:true});
+    document.querySelectorAll('#belavados-site-shell details').forEach(function(d){ d.addEventListener('toggle', setShellHeight); });
+    setTimeout(setShellHeight, 50);
+    setTimeout(setShellHeight, 300);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+<script id="belavados-player-viewonly-guard">
+(function(){
+  const allowedPortalTexts = new Set(['upload files','refresh','reload','viewer','profile','manage sheets','sheet viewer','open','view','home','back','show','sign in / sign up','sign out','find email','find username','send reset email']);
+  const blockedPortalTexts = /^(editor|sheet editor|edit|delete|save|source|show source)$/i;
+  function label(el){ return ((el.textContent||el.value||el.getAttribute('aria-label')||el.title||el.id||'')+'').trim().toLowerCase().replace(/\s+/g,' '); }
+  function shouldBlockDynamic(el){
+    const page=(location.pathname.split('/').pop()||'').toLowerCase();
+    const txt=label(el);
+    if(page==='portal.html' && (el.matches('button,a') || el.getAttribute('role')==='button')){
+      if(blockedPortalTexts.test(txt)) return true;
+      if(/source|delete|sheet editor|\beditor\b/.test(txt) && !allowedPortalTexts.has(txt)) return true;
+    }
+    if(el.matches && el.matches('input[type="file"]') && !(page==='portal.html' && el.id==='sheetFiles')) return true;
+    return false;
+  }
+  function apply(){
+    document.querySelectorAll('[data-viewonly-blocked="true"]').forEach(el=>{
+      el.hidden=true; el.setAttribute('aria-hidden','true');
+      if('disabled' in el) el.disabled=true;
+      el.querySelectorAll('input,button,select,textarea,a').forEach(c=>{ if('disabled' in c) c.disabled=true; c.setAttribute('aria-disabled','true'); });
+    });
+    document.querySelectorAll('[data-viewonly-readonly="true"]').forEach(el=>{
+      if(el.matches('input,textarea')){ el.readOnly=true; el.setAttribute('readonly','readonly'); }
+      else if(el.matches('select')){ el.disabled=true; el.setAttribute('aria-disabled','true'); }
+    });
+    document.querySelectorAll('button,a,input,select,textarea').forEach(el=>{
+      if(shouldBlockDynamic(el)){
+        el.dataset.viewonlyBlocked='true'; el.hidden=true; el.setAttribute('aria-hidden','true'); if('disabled' in el) el.disabled=true;
+      }
+    });
+  }
+  function blockedTarget(e){ return e.target && e.target.closest && e.target.closest('[data-viewonly-blocked="true"]'); }
+  ['click','change','input','submit','drop','dragover'].forEach(type=>{
+    document.addEventListener(type,function(e){ const b=blockedTarget(e); if(b){ e.preventDefault(); e.stopImmediatePropagation(); return false; } }, true);
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+  new MutationObserver(apply).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
+<script id="belavados-player-viewonly-map-hard-lock">
+(function(){
+  const page=(location.pathname.split('/').pop()||'').toLowerCase();
+  if(page==='belavados_map_player.html'){
+    document.addEventListener('contextmenu', e => { if(e.target && e.target.closest && e.target.closest('canvas')) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+    window.__BELAVADOS_PLAYER_VIEW_ONLY__ = true;
+  }
 })();
 </script>
 </body>

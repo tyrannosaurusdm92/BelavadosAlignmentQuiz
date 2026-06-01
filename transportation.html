@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Belavadös Arcane Transit Authority</title>
+<style>
+:root{
+  --cyan:#00ffff;--cyan-soft:#9ff;--ink:#eefbff;--muted:#b8d4d9;--gold:#ffe7a6;--bronze:#b77c3d;
+  --panel:rgba(5,13,18,.86);--panel2:rgba(9,22,31,.92);--line:rgba(0,255,255,.28);
+  --good:#74e6a3;--warn:#ffd166;--bad:#ff8b8b;--shadow:0 18px 60px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 12% 0%,#18313a 0,#071018 46%,#010204 100%)}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(0,0,0,.10),rgba(0,0,0,.58)),url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQyNmUwIiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiL2YvZjE2ZTJlZjctMGI3Yi00MTliLWIwNTctMWJkMTlhMjI4OWY1L2QxaW8wd2MtYzUxNjU1NTAtOGMwMS00ODdmLTg2NTEtMTQ2ZTFlMTRlMTExLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");background-size:cover;background-position:center;filter:saturate(.78) brightness(.48)}
+a{color:var(--cyan)}button,input,select{font:inherit;min-width:0}button{cursor:pointer}.app{width:min(1240px,calc(100% - 28px));margin:0 auto;padding:84px 0 34px}.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);gap:16px;align-items:stretch}.card,.heroPanel,.clockPanel,.page{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--panel),rgba(3,7,12,.90));box-shadow:var(--shadow);backdrop-filter:blur(8px)}.heroPanel,.clockPanel{padding:22px}.brand{margin:0;text-align:left;color:#eaffff;font-size:clamp(2.15rem,5vw,4.6rem);line-height:.92;text-shadow:0 0 22px rgba(0,255,255,.18)}.brand small{display:block;margin-top:10px;color:var(--gold);font-size:clamp(1rem,2.1vw,1.45rem);letter-spacing:.02em}.subtitle,.note,.meta{color:var(--muted);line-height:1.55}.chips,.modeFilters,.quickLinks{display:flex;flex-wrap:wrap;gap:8px}.chip,.tag{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(0,255,255,.28);border-radius:999px;background:rgba(0,255,255,.07);color:#eaffff;padding:7px 10px;font-size:.86rem}.now{color:var(--good)}.warn{color:var(--warn)}.closed{color:var(--bad)}
+.clockPanel{display:grid;gap:12px}.timeCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.timeCard{border:1px solid rgba(0,255,255,.18);border-radius:18px;background:rgba(2,11,16,.62);padding:13px;min-width:0}.label{display:block;color:#bff;font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900}.clock{margin-top:4px;font-variant-numeric:tabular-nums;font-size:clamp(1.25rem,3vw,2.1rem);font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.clockMeta{margin-top:5px;color:var(--muted);font-size:.86rem;line-height:1.45}.selectRow{display:grid;gap:6px}.selectRow select,.searchRow input{width:100%;border:1px solid rgba(0,255,255,.28);background:#06131a;color:var(--ink);border-radius:14px;padding:12px}.fileRow{display:grid;grid-template-columns:1fr;gap:6px}.fileRow input{border:1px dashed rgba(0,255,255,.32);border-radius:14px;padding:10px;background:rgba(0,255,255,.05);color:var(--muted)}
+.localNavWrap{position:sticky;top:12px;z-index:50;margin:16px 0}.localNav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:1px solid rgba(0,255,255,.28);border-radius:20px;background:rgba(3,9,14,.86);box-shadow:0 10px 34px rgba(0,0,0,.36);padding:10px;backdrop-filter:blur(10px)}.localNav button{border:1px solid rgba(0,255,255,.28);border-radius:999px;background:linear-gradient(180deg,rgba(14,44,49,.96),rgba(6,15,22,.96));color:#eff;padding:10px 13px;font-weight:850}.localNav button.active{border-color:rgba(255,231,166,.70);color:var(--gold);background:rgba(245,210,123,.12)}.localNav .spacer{flex:1}.localNavHidden .localNav{display:none}.localBubble{display:none;position:fixed;right:16px;bottom:78px;z-index:2000}.localNavHidden .localBubble{display:block}.bubbleBtn{border:1px solid rgba(0,255,255,.55);border-radius:999px;background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.38),rgba(0,50,60,.96) 42%,rgba(3,9,14,.98));box-shadow:0 0 28px rgba(0,255,255,.22),0 10px 28px rgba(0,0,0,.42);color:#eff;padding:12px 16px;font-weight:950}
+.mainGrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);gap:16px}.page{display:none;padding:20px;margin-bottom:16px}.page.active{display:block}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.panelHead h2,.page h2{margin:0;color:#fff}.searchRow{display:grid;grid-template-columns:1fr auto;gap:10px}.searchRow button,.primaryBtn{border:1px solid rgba(0,255,255,.36);background:linear-gradient(180deg,rgba(18,74,82,.92),rgba(7,22,30,.96));color:#eff;border-radius:14px;padding:12px 14px;font-weight:900}.results,.routeGrid,.timeGrid{display:grid;gap:12px}.results{max-height:min(72vh,760px);overflow:auto;padding-right:3px}.routeGrid,.timeGrid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}.card{padding:15px;min-width:0;overflow-wrap:anywhere}.card h3{margin:.1rem 0 .4rem;color:var(--gold)}.modeTag{font-family:Inter,system-ui,sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:950;border-radius:999px;border:1px solid rgba(255,255,255,.14);padding:6px 9px;background:rgba(255,255,255,.07)}.dataTable{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(0,255,255,.18);border-radius:15px;overflow:hidden;display:block;overflow-x:auto}.dataTable th,.dataTable td{padding:10px 11px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}.dataTable th{background:rgba(0,255,255,.08);color:#eaffff}.dataTable tr:last-child td{border-bottom:0}.emptyState{border:1px dashed rgba(0,255,255,.32);border-radius:18px;background:rgba(0,255,255,.045);padding:15px;color:var(--muted);line-height:1.55}.scrollBox{max-height:16rem;overflow:auto;border:1px solid rgba(0,255,255,.15);border-radius:14px;padding:10px;background:rgba(255,255,255,.035)}.footer{color:var(--muted);font-size:.86rem;line-height:1.5;margin-top:14px;text-align:center}
+#bd-global-dropdown-nav{position:fixed;top:12px;left:12px;z-index:2147483600;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eefcff;max-width:min(92vw,760px)}#bd-global-dropdown-nav *{box-sizing:border-box}.bdg-bar{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,rgba(2,8,12,.95),rgba(0,52,62,.92),rgba(2,8,12,.95));border:1px solid rgba(0,255,255,.48);box-shadow:0 10px 34px rgba(0,0,0,.42),0 0 24px rgba(0,255,255,.14);border-radius:18px;padding:8px 10px;backdrop-filter:blur(10px)}.bdg-drag-handle{cursor:grab;user-select:none;border:1px solid rgba(0,255,255,.36);border-radius:12px;background:rgba(0,255,255,.08);color:#eff;padding:8px 10px;font-weight:900;line-height:1}.bdg-drag-handle:active{cursor:grabbing}.bdg-bar details{position:relative}.bdg-bar summary{list-style:none;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:9px 13px;border-radius:14px;border:1px solid rgba(0,255,255,.42);background:linear-gradient(180deg,rgba(14,44,49,.96),rgba(6,15,22,.96));font-weight:850;color:#eff;text-shadow:0 1px 0 #000;white-space:nowrap}.bdg-bar summary::-webkit-details-marker{display:none}.bdg-bar summary:after{content:'▾';font-size:.82rem;color:#ffe7a6}.bdg-bar details[open] summary:after{content:'▴'}.bdg-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:min(92vw,360px);max-height:min(72vh,620px);overflow:auto;padding:10px;border-radius:18px;border:1px solid rgba(0,255,255,.45);background:linear-gradient(180deg,rgba(4,13,19,.98),rgba(8,21,29,.98));box-shadow:0 18px 48px rgba(0,0,0,.55)}.bdg-link{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin:4px 0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#eaffff!important;text-decoration:none!important;font-weight:760}.bdg-link:hover{border-color:rgba(0,255,255,.65);background:rgba(0,255,255,.12);transform:translateY(-1px)}.bdg-current{border-color:rgba(245,210,123,.72)!important;color:#ffe7a6!important;background:rgba(245,210,123,.10)!important}.bdg-title{font-size:.9rem;line-height:1.15;text-align:right;color:#bff;min-width:120px}.bdg-title b{display:block;color:#fff;font-size:.98rem}#bdg-hide-nav{border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.10);color:#eff;font-weight:850;padding:9px 11px;cursor:pointer;white-space:nowrap}#bd-nav-bubble{position:fixed;left:14px;bottom:14px;z-index:2147483602;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:#eff;display:none}body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-hidden #bd-nav-bubble{display:block}.bdg-bubble-core{border:1px solid rgba(0,255,255,.55);border-radius:999px;background:radial-gradient(circle at 35% 30%,rgba(0,255,255,.38),rgba(0,50,60,.96) 42%,rgba(3,9,14,.98));box-shadow:0 0 28px rgba(0,255,255,.24),0 10px 28px rgba(0,0,0,.42);padding:10px 14px;font-weight:950;cursor:grab;user-select:none;min-width:58px;text-align:center}.bdg-bubble-menu{position:absolute;bottom:calc(100% + 8px);left:0;width:220px;border:1px solid rgba(0,255,255,.45);border-radius:16px;background:rgba(3,11,16,.96);box-shadow:0 14px 36px rgba(0,0,0,.48);padding:10px}.bdg-bubble-menu button{width:100%;border:1px solid rgba(0,255,255,.42);border-radius:12px;background:rgba(0,255,255,.12);color:#eff;font-weight:850;padding:10px;cursor:pointer}#bd-nav-bubble details{position:relative}#bd-nav-bubble summary{list-style:none}#bd-nav-bubble summary::-webkit-details-marker{display:none}
+@media(max-width:940px){.app{padding-top:100px}.hero,.mainGrid{grid-template-columns:1fr}.timeCards{grid-template-columns:1fr}.results{max-height:none}.localNav{position:relative}.bdg-title{display:none}}@media(max-width:620px){.app{width:calc(100% - 16px);padding-top:112px}.searchRow{grid-template-columns:1fr}.localNav button{flex:1 1 140px}.heroPanel,.clockPanel,.page{padding:16px}.brand{font-size:2.25rem}.bdg-bar{flex-wrap:wrap;gap:6px}.bdg-menu{min-width:calc(100vw - 24px)}}@media print{#bd-global-dropdown-nav,#bd-nav-bubble,.localNavWrap,.localBubble{display:none!important}.app{padding-top:0}.page{display:block;break-inside:avoid}}
+</style>
+<style id="belavados-player-viewonly-style">
+  [data-viewonly-blocked="true"]{display:none !important;}
+  .viewonly-note{border:1px solid rgba(0,255,255,.35);background:rgba(0,0,0,.45);color:#eaffff;border-radius:12px;padding:.65rem .8rem;margin:.75rem 0;font-size:.92rem;}
+  input[readonly], textarea[readonly]{cursor:default;}
+</style>
+</head>
+<body>
+<div class="viewonly-note">Player view-only version: editing, code/image uploads, scanning, and code/download/export controls are locked.</div><div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav"><div class="bdg-bar"><div class="bdg-drag-handle" title="Drag navigation">✥</div><details><summary>☰ Site Navigation</summary><div class="bdg-menu" role="menu"><a class="bdg-link" href="index.html">Main Page</a><a class="bdg-link" href="portal.html">Player Portal</a><a class="bdg-link" href="quiz.html">Alignment Quizzes</a><a class="bdg-link" href="charactersheet.html">Character Sheet</a><a class="bdg-link" href="charactersheetgenerator.html">Character Generator</a><a class="bdg-link" href="belavados_map_PLAYER.html">Player Map</a><a class="bdg-link" href="transportation.html">Transportation</a><a class="bdg-link" href="atlas.html">Atlas</a><a class="bdg-link" href="globe.html">Globe</a><a class="bdg-link" href="solar_system.html">Solar System</a><a class="bdg-link" href="constellations.html">Constellations</a></div></details><button id="bdg-hide-nav" type="button">Hide Nav</button><div class="bdg-title"><b>Belavadös</b><span>site navigation</span></div></div></div>
+<div aria-label="Hidden Belavadös navigation bubble" id="bd-nav-bubble"><details><summary class="bdg-bubble-core" title="Open navigation bubble">☰</summary><div class="bdg-bubble-menu"><button id="bdg-show-nav" type="button">Show Navigation Bar</button></div></details></div>
+<div class="app" id="app">
+<header class="hero">
+<section class="heroPanel">
+<h1 class="brand">Belavadös Arcane Transit Authority <small>Live route hub and time board</small></h1>
+<p class="subtitle">A cleaner transportation hub for caravan yards, ferry docks, portal halls, rail lines, skyship towers, steamship docks, submarine ports, fares, staffing, and route notices.</p>
+<div class="chips" id="modeChips"></div>
+</section>
+<aside aria-live="polite" class="clockPanel">
+<div class="timeCards">
+<div class="timeCard"><span class="label">Earth Time — Eastern</span><div class="clock" id="liveClock">--:--:--</div><div class="clockMeta" id="earthClockMeta">Tracking by the second.</div></div>
+<div class="timeCard"><span class="label">Belavadös Time</span><div class="clock" id="belavadosClock">--:--:-- Bh</div><div class="clockMeta" id="worldDate">Loading calendar…</div></div>
+</div>
+<div class="selectRow"><label class="label" for="worldTimeZone">Settlement / World Time Zone</label><select id="worldTimeZone"></select></div>
+<div class="fileRow" data-viewonly-blocked="true"><label class="label" for="timeJson">Optional JSON timezone import</label><input accept="application/json,.json" data-viewonly-blocked="true" disabled="disabled" id="timeJson" type="file"/><div class="clockMeta">Reads fields such as timezone, timeZone, utcOffset, or settlementTimeZone.</div></div>
+<div class="chips"><span class="chip" id="serviceBanner">Checking service pattern…</span><span class="chip" id="clockSyncStatus">Both clocks refresh every second</span></div>
+</aside>
+</header>
+<div class="localNavWrap" id="localNavWrap"><nav aria-label="Transportation page sections" class="localNav" id="localNav"></nav><div class="localBubble"><button class="bubbleBtn" id="showLocalNav" type="button">Show Section Tabs</button></div></div>
+<main>
+<section class="page active" id="page-home">
+<div class="mainGrid">
+<section class="card">
+<div class="panelHead"><h2>Find transit information</h2><span class="chip" id="resultCount">No results</span></div>
+<div class="searchRow"><input id="settlementSearch" placeholder="Search route type, fare, employee, assignment, or notice" type="search"/><button id="searchBtn" type="button">Search</button></div>
+<div class="modeFilters" id="modeFilters" style="margin-top:12px"></div>
+<p class="note">The search is ready for route tables and currently searches retained route type headers, fare records, staffing, and service rules.</p>
+</section>
+<aside class="card"><div class="panelHead"><h2>Results</h2><span class="chip" id="selectedMode">All modes</span></div><div class="results" id="results"></div></aside>
+</div>
+</section>
+<section class="page" id="page-routes"><h2>Route Type Headers</h2><p class="note">Mode shells for transportation records. Add loaded routes later without changing the page layout.</p><div class="routeGrid" id="templateCards"></div></section>
+<section class="page" id="page-fares"><h2>Fare Prices</h2><div class="routeGrid" id="fareBox"></div></section>
+<section class="page" id="page-time"><h2>Time Board</h2><p class="note">Eastern player time and Belavadös time are synced from the same second-by-second clock, with the selected world time zone applied to Belavadös time.</p><div class="timeGrid" id="timeConfigCards"></div></section>
+<section class="page" id="page-rest"><h2>Wednesday Service Rules</h2><div id="wednesdayTable"></div></section>
+<section class="page" id="page-employees"><h2>Employees</h2><p class="note">Staffing can be searched from the main board and expanded into route-specific assignments later.</p><div id="employeeTable"></div></section>
+<section class="page" id="page-data"><h2>Data Notes</h2><div class="emptyState">The layout, live clocks, fare structure, mode headers, staffing table, search/filter behavior, JSON timezone import, and movable/hidable navigation are included. Loaded route records can be added to <code>TRANSIT_TEMPLATE.routes</code>.</div></section>
+</main>
+<footer class="footer">Belavadös Arcane Transit Authority • Dark fantasy steampunk transit hub</footer>
+</div>
+<script>
+const TRANSIT_TEMPLATE = {
+  "routes": [],
+  "serviceModes": [
+    {
+      "key": "rail",
+      "label": "Rail",
+      "color": "#e53935",
+      "landOnly": true
+    },
+    {
+      "key": "caravan",
+      "label": "Caravan",
+      "color": "#2e9d52"
+    },
+    {
+      "key": "ferry",
+      "label": "Ferry",
+      "color": "#f28c28"
+    },
+    {
+      "key": "skyship",
+      "label": "Skyship",
+      "color": "#2878ff"
+    },
+    {
+      "key": "portal",
+      "label": "Portal",
+      "color": "#8d45d6"
+    },
+    {
+      "key": "steamship",
+      "label": "Steamship",
+      "color": "#b87932"
+    },
+    {
+      "key": "submarine",
+      "label": "Submarine",
+      "color": "#13b5c8"
+    }
+  ],
+  "routeTypeHeaders": [
+    {
+      "mode": "rail",
+      "title": "Rail",
+      "disclaimer": "Land-only. Do not use for ocean, lake, river-only, submerged, or sky routes.",
+      "fare": "1 Silver (Basic Ticket)"
+    },
+    {
+      "mode": "caravan",
+      "title": "Caravan",
+      "disclaimer": "Ground route for road, wilderness, market, or freight transit service.",
+      "fare": "5 Copper - 1 Silver"
+    },
+    {
+      "mode": "ferry",
+      "title": "Ferry",
+      "disclaimer": "Short-to-medium surface water route for lakes, rivers, harbors, canals, reefs, and nearby islands.",
+      "fare": "5 Copper - 2 Silver"
+    },
+    {
+      "mode": "skyship",
+      "title": "Skyship",
+      "disclaimer": "Air route for high terrain, island chains, skyports, and long-distance crossings.",
+      "fare": "2 Silver - 3 Gold"
+    },
+    {
+      "mode": "portal",
+      "title": "Portal",
+      "disclaimer": "Permit-only or story-gated route; supports restrictions and Wednesday recalibration.",
+      "fare": "Restricted / 2 Gold - 5 Platinum high-priority"
+    },
+    {
+      "mode": "steamship",
+      "title": "Steamship",
+      "disclaimer": "Longer-range surface-water passenger service for coastal or major sea-lane travel.",
+      "fare": "1 Silver - 5 Gold"
+    },
+    {
+      "mode": "submarine",
+      "title": "Submarine",
+      "disclaimer": "Underwater route for reefs, trenches, deep-sea settlements, and submerged hubs.",
+      "fare": "5 Silver - 5 Gold"
+    }
+  ],
+  "fares": [
+    [
+      "🚆 Rail",
+      "1 Silver (Basic Ticket)",
+      "5 Silver - 1 Gold (Private Cabins)",
+      "Land-only rail. It can serve cities, towns, tunnels, bridges, and mountain corridors, but it does not travel across open water or underwater routes."
+    ],
+    [
+      "🛤 Caravan Routes",
+      "5 Copper - 1 Silver",
+      "Varies (Hired Guards, Enchanted Wagons)",
+      "Best for local roads, roads through wilderness, merchant freight, and slower transit movement."
+    ],
+    [
+      "⛵ Ferry",
+      "5 Copper - 2 Silver",
+      "4 Silver - 1 Gold (Private Boat Charter)",
+      "Short-to-medium water service for harbors, rivers, lakes, canals, reefs, and islands."
+    ],
+    [
+      "🛩 Skyship",
+      "2 Silver - 3 Gold",
+      "5 Gold - 10 Platinum (Private Suites, VIP Skydeck)",
+      "Premium long-distance air service for mountains, islands, and terrain that land routes cannot easily cross."
+    ],
+    [
+      "🌀 Portal Travel",
+      "Restricted (Requires Pass)",
+      "2 Gold - 5 Platinum (High-Priority Travel)",
+      "Permit-based travel. Use for official, scholarly, military, emergency, or story-gated transit corridors."
+    ],
+    [
+      "🚢 Steamship",
+      "1 Silver - 5 Gold",
+      "3 Gold - 8 Platinum (Private Stateroom / Charter)",
+      "Longer-range surface-water transit and passenger service; slower than portals or skyships but excellent for coastal chains and major sea lanes."
+    ],
+    [
+      "⚓ Submarine",
+      "5 Silver - 5 Gold",
+      "10 Gold - 15 Platinum (Private Pressure Cabin / Research Charter)",
+      "Underwater transit service for deep-sea settlements, reefs, trenches, hidden ports, and submerged transit hubs."
+    ]
+  ],
+  "wednesday": [
+    [
+      "Rest day",
+      "Wednesday remains the reduced-service day."
+    ],
+    [
+      "Live tracker behavior",
+      "When route data is added later, the tracker can apply reduced-service timing on Wednesdays."
+    ],
+    [
+      "Template status",
+      "No actual route names, route times, provinces, or settlement data are stored in this generic template."
+    ]
+  ],
+  "employees": [
+    [
+      "Vaelith Runecrest",
+      "Dragonborn",
+      "Cis-Male",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Jykara Vale",
+      "Elf",
+      "Cis-Female",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Thorn Blackroot",
+      "Firbolg",
+      "Demi-Male",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Kaelis Mirestep",
+      "Human",
+      "Non-Binary",
+      "Skyship Captain",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Rhogar Embermaw",
+      "Orc",
+      "Trans-Male",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Sylri Whisperwind",
+      "Aarakocra",
+      "Gender-Fluid",
+      "Rail Attendant",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Drazik Coilfang",
+      "Yuan-ti",
+      "Agender",
+      "Cargo Rail Handler",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Mirelle Duskbloom",
+      "Tiefling",
+      "Trans-Female",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Korvun Ashhide",
+      "Goliath",
+      "Cis-Male",
+      "Rail Security Officer",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Zivra Moonpetal",
+      "Satyr",
+      "Poly-Gender",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Talmek Geargrin",
+      "Autognome",
+      "Gender-Less",
+      "Skyship Navigator",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Ilyra Softshadow",
+      "Half-Elf",
+      "Demi-Female",
+      "Ticketing Clerk",
+      "Portal Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Vekk Rustsnout",
+      "Goblin",
+      "Cis-Male",
+      "Train Conductor",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Serapha Dawnveil",
+      "Aasimar",
+      "Cis-Female",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Kriv Thornjaw",
+      "Lizardfolk",
+      "Neutrois",
+      "Skyship Deck Officer",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Velzi Quickpaw",
+      "Tabaxi",
+      "Gender-Flexible",
+      "Express Rail Courier",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Ozmek Brineeye",
+      "Triton",
+      "Bi-Gender",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Fenra Hollowbranch",
+      "Mandrake",
+      "Agender",
+      "Station Groundskeeper",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Kaelix Starwake",
+      "Astral Elf",
+      "Non-Binary",
+      "Train Conductor",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Drogan Flintbrew",
+      "Dwarf",
+      "Cis-Male",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Lurei Honeyfern",
+      "Halfling",
+      "Cis-Female",
+      "Skyship Quartermaster",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Xarvo Mindcoil",
+      "Kalashtar",
+      "Gender-Fluid",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Tovik Emberclaw",
+      "Leonin",
+      "Demi-Male",
+      "Rail Engineer",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Myrrh Veilwalker",
+      "Hexblood",
+      "Trans-Female",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Quillik Tinkersnap",
+      "Kobold",
+      "Gender-Less",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Selnara Driftglass",
+      "Genasi",
+      "Poly-Gender",
+      "Transit Dispatcher",
+      "Portal Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Vrakk Ironmane",
+      "Minotaur",
+      "Cis-Male",
+      "Freight Rail Supervisor",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Isolde Gloamwing",
+      "Owlin",
+      "Cis-Female",
+      "Skyship Captain",
+      "Skyship Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Krex Chitterfang",
+      "Thri-kreen",
+      "Neutrois",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Oren Wildstride",
+      "Centaur",
+      "Demi-Male",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Ysara Tidewhisper",
+      "Dril’thar",
+      "Cis-Female",
+      "Train Conductor",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Maldrik Graveborn",
+      "Reborn",
+      "Agender",
+      "Skyship Engineer",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Tivren Mosscloak",
+      "Hedge",
+      "Non-Binary",
+      "Rail Maintenance Technician",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Arix Velvetstep",
+      "Changeling",
+      "Gender-Fluid",
+      "Passenger Liaison",
+      "Portal Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Jorveth Redtusk",
+      "Half-Orc",
+      "Trans-Male",
+      "Skyship Security Chief",
+      "Skyship Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Vesper Nullsong",
+      "Shade",
+      "Gender-Less",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Kalliope Reeddance",
+      "Cervan",
+      "Cis-Female",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Brixxle Copperthumb",
+      "Gnome",
+      "Bi-Gender",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Tharos Grimtalon",
+      "Kenku",
+      "Cis-Male",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Elyndra Sunshade",
+      "Dhampir",
+      "Trans-Female",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Vorro Chainhide",
+      "Bugbear",
+      "Demi-Male",
+      "Train Conductor",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Zephyra Glowtail",
+      "Plasmoid",
+      "Gender-Fluid",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Kaevik Runecoil",
+      "Gith",
+      "Non-Binary",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Nira Cloudstep",
+      "Hadozee",
+      "Cis-Female",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Morvane Rotkeeper",
+      "Satarre",
+      "Agender",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Monday, Thursday, Saturday",
+      "Template Home Base"
+    ],
+    [
+      "Pell Brightburrow",
+      "Jerbeen",
+      "Cis-Male",
+      "Ferry Operator",
+      "Ferry Template Assignment",
+      "Tuesday, Friday",
+      "Template Home Base"
+    ],
+    [
+      "Xiv Shadowspark",
+      "Shadow Goblin",
+      "Poly-Gender",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Aelene Frostwater",
+      "Triton",
+      "Demi-Female",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Brakka Stonehide",
+      "Bearfolk",
+      "Cis-Male",
+      "Skyship Helmsman",
+      "Skyship Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Orielle Bloomtide",
+      "Dara",
+      "Cis-Female",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Varn Holloweye",
+      "Darakhul",
+      "Neutrois",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Selrix Quicksilver",
+      "Quickstep",
+      "Gender-Flexible",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Thimble Wickerheart",
+      "Wechselkind",
+      "Gender-Less",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Krynn Voidwalker",
+      "Disembodied",
+      "Agender",
+      "Portal Operator",
+      "Portal Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Raviel Duskrend",
+      "Ravenfolk",
+      "Trans-Male",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Pyria Glowbranch",
+      "Luma",
+      "Cis-Female",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Mogruk Bonehammer",
+      "Gnoll",
+      "Cis-Male",
+      "Skyship Cargo Master",
+      "Skyship Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Sylven Ashglade",
+      "Corvum",
+      "Non-Binary",
+      "Rail Navigator",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Izzet Coilgear",
+      "Warforged",
+      "Gender-Less",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Nethra Vinewhisper",
+      "Verdan",
+      "Demi-Female",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Vokar Reefscar",
+      "Sahuagin",
+      "Cis-Male",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Alune Starweaver",
+      "Vulpin",
+      "Trans-Female",
+      "Station Host",
+      "Rail Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ],
+    [
+      "Drevik Stormsnare",
+      "Hobgoblin",
+      "Bi-Gender",
+      "Caravan Driver",
+      "Caravan Template Assignment",
+      "Friday, Sunday",
+      "Template Home Base"
+    ],
+    [
+      "Cyra Lanternmist",
+      "Geppettin",
+      "Gender-Fluid",
+      "Maintenance Worker",
+      "Rail Template Assignment",
+      "Wednesday only; rest-of-week assignment returns to prior rail line as needed",
+      "Template Home Base"
+    ],
+    [
+      "Orryn Blackbriar",
+      "Ratatosk",
+      "Demi-Male",
+      "Skyship Scout",
+      "Skyship Template Assignment",
+      "Thursday, Saturday, Tuesday",
+      "Template Home Base"
+    ]
+  ],
+  "timeConfig": {
+    "earthTimeZone": "America/New_York",
+    "earthLabel": "Player Earth Time (Eastern)",
+    "belavadosDayEarthRatio": 0.9045,
+    "earthDayBelavadosRatio": 1.1056,
+    "months": [
+      "Thoryn-Rahek",
+      "Freysethysra",
+      "Nefarokir",
+      "Thalunesh",
+      "Horundar",
+      "Raeshkul",
+      "Asethrimir",
+      "Sokhivar",
+      "Iskazunet",
+      "Bastve’enlil",
+      "Hathruna"
+    ],
+    "weekdayMap": [
+      "Valkhaday",
+      "Nebday",
+      "Sigranday",
+      "Ishtaday",
+      "Marduday",
+      "Enkirday",
+      "Anubaday"
+    ],
+    "earthWeekdayMap": [
+      "Sunday → Valkhaday",
+      "Monday → Nebday",
+      "Tuesday → Sigranday",
+      "Wednesday → Ishtaday",
+      "Thursday → Marduday",
+      "Friday → Enkirday",
+      "Saturday → Anubaday"
+    ],
+    "driftBufferLabel": "Drift Buffer / 35-Day Ghost",
+    "timeZones": [
+      {
+        "key": "prime",
+        "label": "Prime Meridian / UTC+0 Bh",
+        "offsetBelahours": 0
+      },
+      {
+        "key": "utc_minus_10",
+        "label": "World Zone UTC-10:00",
+        "offsetBelahours": -10.0
+      },
+      {
+        "key": "utc_minus_09",
+        "label": "World Zone UTC-09:00",
+        "offsetBelahours": -9.0
+      },
+      {
+        "key": "utc_minus_08",
+        "label": "World Zone UTC-08:00",
+        "offsetBelahours": -8.0
+      },
+      {
+        "key": "utc_minus_07",
+        "label": "World Zone UTC-07:00",
+        "offsetBelahours": -7.0
+      },
+      {
+        "key": "utc_minus_06",
+        "label": "World Zone UTC-06:00",
+        "offsetBelahours": -6.0
+      },
+      {
+        "key": "utc_minus_05",
+        "label": "World Zone UTC-05:00",
+        "offsetBelahours": -5.0
+      },
+      {
+        "key": "utc_minus_04",
+        "label": "World Zone UTC-04:00",
+        "offsetBelahours": -4.0
+      },
+      {
+        "key": "utc_minus_03",
+        "label": "World Zone UTC-03:00",
+        "offsetBelahours": -3.0
+      },
+      {
+        "key": "utc_minus_02",
+        "label": "World Zone UTC-02:00",
+        "offsetBelahours": -2.0
+      },
+      {
+        "key": "utc_minus_01",
+        "label": "World Zone UTC-01:00",
+        "offsetBelahours": -1.0
+      },
+      {
+        "key": "utc_plus_01",
+        "label": "World Zone UTC+01:00",
+        "offsetBelahours": 1.0
+      },
+      {
+        "key": "utc_plus_02",
+        "label": "World Zone UTC+02:00",
+        "offsetBelahours": 2.0
+      },
+      {
+        "key": "utc_plus_03",
+        "label": "World Zone UTC+03:00",
+        "offsetBelahours": 3.0
+      },
+      {
+        "key": "utc_plus_04",
+        "label": "World Zone UTC+04:00",
+        "offsetBelahours": 4.0
+      },
+      {
+        "key": "utc_plus_05",
+        "label": "World Zone UTC+05:00",
+        "offsetBelahours": 5.0
+      },
+      {
+        "key": "utc_plus_06",
+        "label": "World Zone UTC+06:00",
+        "offsetBelahours": 6.0
+      },
+      {
+        "key": "utc_plus_07",
+        "label": "World Zone UTC+07:00",
+        "offsetBelahours": 7.0
+      },
+      {
+        "key": "utc_plus_08",
+        "label": "World Zone UTC+08:00",
+        "offsetBelahours": 8.0
+      },
+      {
+        "key": "utc_plus_09",
+        "label": "World Zone UTC+09:00",
+        "offsetBelahours": 9.0
+      },
+      {
+        "key": "utc_plus_10",
+        "label": "World Zone UTC+10:00",
+        "offsetBelahours": 10.0
+      }
+    ]
+  },
+  "sourceSummary": "Generic reusable transit template. All loaded routes, province names, settlement names, route names, and route timing data have been removed."
+};
+TRANSIT_TEMPLATE.timeConfig.months = ['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
+TRANSIT_TEMPLATE.timeConfig.weekdayMap = ['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
+TRANSIT_TEMPLATE.timeConfig.earthWeekdayMap = ['Monday → Monday','Tuesday → Tuesday','Wednesday → Wednesday Rest Day','Thursday → Thursday','Friday → Friday','Saturday → Saturday','Sunday → Sunday'];
+const $=id=>document.getElementById(id);
+const PAGES=[['home','Home'],['routes','Routes'],['fares','Fares'],['time','Time Board'],['rest','Wednesday Rules'],['employees','Employees'],['data','Data Notes']];
+let activeMode='all';
+function safe(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function titleCase(v){return String(v||'').replace(/(^|\s)\S/g,t=>t.toUpperCase());}
+function pad(n){return String(n).padStart(2,'0');}
+function selectedWorldZone(){const key=$('worldTimeZone')?.value||'prime';return TRANSIT_TEMPLATE.timeConfig.timeZones.find(z=>z.key===key)||TRANSIT_TEMPLATE.timeConfig.timeZones[0];}
+function parseOffset(v){if(v==null)return 0;if(typeof v==='number')return Math.max(-12,Math.min(12,v));const m=String(v).match(/([+-]?\d{1,2})(?::?\d{2})?/);return m?Math.max(-12,Math.min(12,parseInt(m[1],10))):0;}
+function findTZ(obj){if(!obj||typeof obj!=='object')return null;const keys=['timeZone','timezone','utcOffset','belavadosTimeZone','belavados_timezone','settlementTimeZone','settlement_timezone'];for(const k of keys){if(obj[k]!=null)return obj[k];}for(const v of Object.values(obj)){const found=findTZ(v);if(found!=null)return found;}return null;}
+function applyImportedTimezone(obj){const raw=findTZ(obj);if(raw==null)return;const off=parseOffset(raw);const zones=TRANSIT_TEMPLATE.timeConfig.timeZones;let closest=zones[0],best=999;zones.forEach(z=>{const d=Math.abs((z.offsetBelahours||0)-off);if(d<best){best=d;closest=z;}});$('worldTimeZone').value=closest.key;try{localStorage.setItem('ataWorldTimeZone',closest.key)}catch(e){} updateClock();}
+const EASTERN_DATE_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',month:'long',day:'2-digit',year:'numeric'});
+const EASTERN_TIME_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',second:'2-digit',timeZoneName:'short'});
+const EASTERN_WEEKDAY_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long'});
+function belavadosFromEarth(date=new Date(),zone=selectedWorldZone()){
+  const cfg=TRANSIT_TEMPLATE.timeConfig, earthMs=date.getTime(), belaDayMs=86400000*(cfg.belavadosDayEarthRatio||0.9045), epoch=Date.UTC(2026,0,1,0,0,0);
+  const elapsed=earthMs-epoch, totalDays=Math.floor(elapsed/belaDayMs), dayProgress=((elapsed%belaDayMs)+belaDayMs)%belaDayMs/belaDayMs;
+  const hoursFloat=(dayProgress*24+(zone.offsetBelahours||0)+24)%24, hour=Math.floor(hoursFloat), minute=Math.floor((hoursFloat-hour)*60), second=Math.floor((((hoursFloat-hour)*60)-minute)*60);
+  const idx=((totalDays%330)+330)%330, month=cfg.months[Math.floor(idx/30)]||'Month', dayOfMonth=(idx%30)+1, weekday=cfg.weekdayMap[((totalDays%7)+7)%7]||'';
+  const year=1+Math.floor(Math.max(0,totalDays)/330);return{hour,minute,second,month,dayOfMonth,weekday,year,totalDays};
+}
+function updateClock(){const now=new Date(), z=selectedWorldZone(), b=belavadosFromEarth(now,z);$('liveClock').textContent=EASTERN_TIME_FORMATTER.format(now);$('earthClockMeta').textContent=EASTERN_DATE_FORMATTER.format(now)+' • player-facing Eastern time';$('belavadosClock').textContent=`${pad(b.hour)}:${pad(b.minute)}:${pad(b.second)} Bh`;$('worldDate').textContent=`${b.weekday}, ${b.month} ${b.dayOfMonth}, Year ${b.year} • ${z.label}`;$('clockSyncStatus').textContent='Eastern and Belavadös displays share one live second-by-second update';const banner=$('serviceBanner');if(EASTERN_WEEKDAY_FORMATTER.format(now)==='Wednesday'){banner.textContent='Wednesday reduced-service rules active';banner.className='chip warn';}else{banner.textContent='Standard-service day';banner.className='chip now';}}
+function startLiveClock(){updateClock();setTimeout(startLiveClock,1000-(Date.now()%1000)+8);}
+function table(headers,rows){return `<table class="dataTable"><thead><tr>${headers.map(h=>`<th>${safe(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${safe(c)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;}
+function renderLocalNav(){const nav=$('localNav');nav.innerHTML=PAGES.map(([id,label],i)=>`<button type="button" data-page="${id}" class="${i===0?'active':''}">${safe(label)}</button>`).join('')+'<span class="spacer"></span><button type="button" id="hideLocalNav">Hide Tabs</button>';nav.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(!b)return;document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('#localNav button[data-page]').forEach(n=>n.classList.remove('active'));$('page-'+b.dataset.page).classList.add('active');b.classList.add('active');});$('hideLocalNav').addEventListener('click',()=>{document.body.classList.add('localNavHidden');try{localStorage.setItem('ataLocalNavHidden','1')}catch(e){}});$('showLocalNav').addEventListener('click',()=>{document.body.classList.remove('localNavHidden');try{localStorage.setItem('ataLocalNavHidden','0')}catch(e){}});try{if(localStorage.getItem('ataLocalNavHidden')==='1')document.body.classList.add('localNavHidden')}catch(e){}}
+function renderModeChips(){const chips=$('modeChips');chips.innerHTML=TRANSIT_TEMPLATE.serviceModes.map(m=>`<span class="tag">${safe(m.label)}</span>`).join('');const filters=$('modeFilters');filters.innerHTML=`<button class="primaryBtn modeBtn active" data-mode="all" type="button">All</button>`+TRANSIT_TEMPLATE.serviceModes.map(m=>`<button class="primaryBtn modeBtn" data-mode="${safe(m.key)}" type="button">${safe(m.label)}</button>`).join('');filters.addEventListener('click',e=>{const b=e.target.closest('button[data-mode]');if(!b)return;activeMode=b.dataset.mode;document.querySelectorAll('.modeBtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('selectedMode').textContent=activeMode==='all'?'All modes':titleCase(activeMode);runSearch();});}
+function renderTemplates(){ $('templateCards').innerHTML=TRANSIT_TEMPLATE.routeTypeHeaders.map(t=>`<article class="card"><div class="panelHead"><h3>${safe(t.title)}</h3><span class="modeTag">${safe(t.mode)}</span></div><p class="note">${safe(t.disclaimer)}</p><div class="meta"><strong>Fare:</strong> ${safe(t.fare)}</div></article>`).join('');}
+function renderFares(){ $('fareBox').innerHTML=TRANSIT_TEMPLATE.fares.map(f=>`<article class="card"><h3>${safe(f[0])}</h3><div class="meta"><strong>Public:</strong> ${safe(f[1])}</div><div class="meta"><strong>Private / Premium:</strong> ${safe(f[2])}</div><p class="note">${safe(f[3])}</p></article>`).join('');}
+function renderEmployees(){ $('employeeTable').innerHTML=table(['Name','Race','Gender','Role','Assignment','Workdays','Home Base'],TRANSIT_TEMPLATE.employees);}
+function renderWednesday(){ $('wednesdayTable').innerHTML=table(['Rule','Details'],TRANSIT_TEMPLATE.wednesday);}
+function renderTimeConfig(){const cfg=TRANSIT_TEMPLATE.timeConfig;$('timeConfigCards').innerHTML=[`<article class="card"><h3>Earth Time</h3><p class="note">${safe(cfg.earthLabel||'Player Earth Time')} — America/New_York</p></article>`,`<article class="card"><h3>Belavadös Ratio</h3><p class="note">1 Belavadös day = ${safe(cfg.belavadosDayEarthRatio||0.9045)} Earth days. 1 Earth day = ${safe(cfg.earthDayBelavadosRatio||1.1056)} Belavadös days.</p></article>`,`<article class="card"><h3>Calendar Months</h3><div class="scrollBox"><ol>${cfg.months.map(m=>`<li>${safe(m)}</li>`).join('')}</ol></div></article>`,`<article class="card"><h3>World Time Zones</h3><div class="scrollBox"><ol>${cfg.timeZones.map(z=>`<li>${safe(z.label)}</li>`).join('')}</ol></div></article>`].join('');}
+function renderZoneOptions(){const sel=$('worldTimeZone');sel.innerHTML=TRANSIT_TEMPLATE.timeConfig.timeZones.map(z=>`<option value="${safe(z.key)}">${safe(z.label)}</option>`).join('');try{const saved=localStorage.getItem('ataWorldTimeZone');if(saved&&TRANSIT_TEMPLATE.timeConfig.timeZones.some(z=>z.key===saved))sel.value=saved;}catch(e){}sel.addEventListener('change',()=>{try{localStorage.setItem('ataWorldTimeZone',sel.value)}catch(e){}updateClock();});}
+function runSearch(){const q=($('settlementSearch')?.value||'').toLowerCase().trim();const cards=[];TRANSIT_TEMPLATE.routeTypeHeaders.filter(t=>(activeMode==='all'||t.mode===activeMode)&&(!q||[t.title,t.mode,t.disclaimer,t.fare].join(' ').toLowerCase().includes(q))).forEach(t=>cards.push(`<article class="card"><h3>${safe(t.title)}</h3><div class="meta">Route type header</div><p class="note">${safe(t.disclaimer)}</p></article>`));TRANSIT_TEMPLATE.fares.filter(f=>(!q||f.join(' ').toLowerCase().includes(q))&&(activeMode==='all'||f.join(' ').toLowerCase().includes(activeMode))).forEach(f=>cards.push(`<article class="card"><h3>${safe(f[0])}</h3><div class="meta">${safe(f[1])} • ${safe(f[2])}</div></article>`));TRANSIT_TEMPLATE.employees.filter(e=>(activeMode==='all'||e.join(' ').toLowerCase().includes(activeMode))&&(!q||e.join(' ').toLowerCase().includes(q))).slice(0,24).forEach(e=>cards.push(`<article class="card"><h3>${safe(e[0])}</h3><div class="meta">${safe(e[3])} • ${safe(e[4])}</div><p class="note">Workdays: ${safe(e[5])}<br>Home: ${safe(e[6])}</p></article>`));if(!cards.length)cards.push('<div class="emptyState">No matching transit information found yet. Loaded route records can be added to the route database.</div>');$('results').innerHTML=cards.join('');$('resultCount').textContent=`${cards.length} result${cards.length===1?'':'s'}`;}
+function installGlobalNav(){document.body.classList.add('bdg-has-global-nav');const page=(location.pathname.split('/').pop()||'transportation.html').toLowerCase();document.querySelectorAll('#bd-global-dropdown-nav .bdg-link').forEach(a=>{if((a.getAttribute('href')||'').toLowerCase()===page){a.classList.add('bdg-current');a.setAttribute('aria-current','page');}});function clamp(el,x,y){const r=el.getBoundingClientRect(),maxX=Math.max(0,innerWidth-r.width-8),maxY=Math.max(0,innerHeight-r.height-8);return{x:Math.min(Math.max(8,x),maxX),y:Math.min(Math.max(8,y),maxY)}}function restore(el,key,def){try{const p=JSON.parse(localStorage.getItem(key)||'null');if(p){el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'}else if(def){Object.assign(el.style,def)}}catch(e){}}function drag(handle,el,key){let sx=0,sy=0,ox=0,oy=0;if(!handle||!el)return;handle.addEventListener('pointerdown',ev=>{const r=el.getBoundingClientRect();sx=ev.clientX;sy=ev.clientY;ox=r.left;oy=r.top;handle.setPointerCapture(ev.pointerId);ev.preventDefault()});handle.addEventListener('pointermove',ev=>{if(!handle.hasPointerCapture(ev.pointerId))return;const p=clamp(el,ox+ev.clientX-sx,oy+ev.clientY-sy);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'});handle.addEventListener('pointerup',ev=>{if(handle.hasPointerCapture(ev.pointerId))handle.releasePointerCapture(ev.pointerId);const r=el.getBoundingClientRect();try{localStorage.setItem(key,JSON.stringify({x:r.left,y:r.top}))}catch(e){}})}const nav=$('bd-global-dropdown-nav'),bubble=$('bd-nav-bubble');restore(nav,'bdgNavPos');restore(bubble,'bdgBubblePos',{left:'14px',bottom:'14px'});drag(document.querySelector('.bdg-drag-handle'),nav,'bdgNavPos');drag(document.querySelector('.bdg-bubble-core'),bubble,'bdgBubblePos');$('bdg-hide-nav').addEventListener('click',()=>{document.body.classList.add('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','1')}catch(e){}});$('bdg-show-nav').addEventListener('click',()=>{document.body.classList.remove('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','0')}catch(e){}});try{if(localStorage.getItem('bdgNavHidden')==='1')document.body.classList.add('bdg-nav-hidden')}catch(e){}}
+function init(){installGlobalNav();renderLocalNav();renderZoneOptions();renderModeChips();renderTemplates();renderFares();renderEmployees();renderWednesday();renderTimeConfig();runSearch();$('searchBtn').addEventListener('click',runSearch);$('settlementSearch').addEventListener('input',runSearch);$('timeJson').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;try{applyImportedTimezone(JSON.parse(await f.text()));}catch(err){alert('That JSON could not be read for a timezone field.');}});startLiveClock();}
+init();
+</script>
+<script id="belavados-player-viewonly-guard">
+(function(){
+  const allowedPortalTexts = new Set(['upload files','refresh','reload','viewer','profile','manage sheets','sheet viewer','open','view','home','back','show','sign in / sign up','sign out','find email','find username','send reset email']);
+  const blockedPortalTexts = /^(editor|sheet editor|edit|delete|save|source|show source)$/i;
+  function label(el){ return ((el.textContent||el.value||el.getAttribute('aria-label')||el.title||el.id||'')+'').trim().toLowerCase().replace(/\s+/g,' '); }
+  function shouldBlockDynamic(el){
+    const page=(location.pathname.split('/').pop()||'').toLowerCase();
+    const txt=label(el);
+    if(page==='portal.html' && (el.matches('button,a') || el.getAttribute('role')==='button')){
+      if(blockedPortalTexts.test(txt)) return true;
+      if(/source|delete|sheet editor|\beditor\b/.test(txt) && !allowedPortalTexts.has(txt)) return true;
+    }
+    if(el.matches && el.matches('input[type="file"]') && !(page==='portal.html' && el.id==='sheetFiles')) return true;
+    return false;
+  }
+  function apply(){
+    document.querySelectorAll('[data-viewonly-blocked="true"]').forEach(el=>{
+      el.hidden=true; el.setAttribute('aria-hidden','true');
+      if('disabled' in el) el.disabled=true;
+      el.querySelectorAll('input,button,select,textarea,a').forEach(c=>{ if('disabled' in c) c.disabled=true; c.setAttribute('aria-disabled','true'); });
+    });
+    document.querySelectorAll('[data-viewonly-readonly="true"]').forEach(el=>{
+      if(el.matches('input,textarea')){ el.readOnly=true; el.setAttribute('readonly','readonly'); }
+      else if(el.matches('select')){ el.disabled=true; el.setAttribute('aria-disabled','true'); }
+    });
+    document.querySelectorAll('button,a,input,select,textarea').forEach(el=>{
+      if(shouldBlockDynamic(el)){
+        el.dataset.viewonlyBlocked='true'; el.hidden=true; el.setAttribute('aria-hidden','true'); if('disabled' in el) el.disabled=true;
+      }
+    });
+  }
+  function blockedTarget(e){ return e.target && e.target.closest && e.target.closest('[data-viewonly-blocked="true"]'); }
+  ['click','change','input','submit','drop','dragover'].forEach(type=>{
+    document.addEventListener(type,function(e){ const b=blockedTarget(e); if(b){ e.preventDefault(); e.stopImmediatePropagation(); return false; } }, true);
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+  new MutationObserver(apply).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
+<script id="belavados-player-viewonly-map-hard-lock">
+(function(){
+  const page=(location.pathname.split('/').pop()||'').toLowerCase();
+  if(page==='belavados_map_player.html'){
+    document.addEventListener('contextmenu', e => { if(e.target && e.target.closest && e.target.closest('canvas')) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+    window.__BELAVADOS_PLAYER_VIEW_ONLY__ = true;
+  }
+})();
+</script>
+</body>
+</html>
