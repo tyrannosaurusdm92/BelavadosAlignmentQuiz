@@ -554,6 +554,46 @@ body > h1:first-of-type, body > header:first-of-type, body > main:first-of-type,
   .viewonly-note{border:1px solid rgba(0,255,255,.35);background:rgba(0,0,0,.45);color:#eaffff;border-radius:12px;padding:.65rem .8rem;margin:.75rem 0;font-size:.92rem;}
   input[readonly], textarea[readonly]{cursor:default;}
 </style>
+<style id="belavados-pdf-viewer-style">
+
+/* === Belavadös in-page PDF viewer cards === */
+.pdf-view-card{
+  border:1px solid rgba(124,231,255,.18);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(19,26,36,.96),rgba(14,19,27,.98));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 12px 30px rgba(0,0,0,.28);
+  padding:18px;
+  overflow:hidden;
+}
+.pdf-view-card h3{margin:0 0 8px;}
+.pdf-view-card p{margin:0 0 14px;color:var(--muted);}
+.pdf-actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 14px;}
+.pdf-actions .button{min-width:170px;}
+.pdf-frame-wrap{
+  width:100%;
+  min-height:420px;
+  border:1px solid rgba(0,255,255,.22);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(2,7,12,.82);
+  box-shadow:0 0 22px rgba(0,255,255,.08);
+}
+.pdf-frame-wrap iframe{
+  display:block;
+  width:100%;
+  height:min(78vh,820px);
+  min-height:420px;
+  border:0;
+  background:#07131a;
+}
+@media(max-width:720px){
+  .pdf-view-card{padding:14px;}
+  .pdf-actions .button{flex:1 1 100%;}
+  .pdf-frame-wrap,.pdf-frame-wrap iframe{min-height:360px;}
+  .pdf-frame-wrap iframe{height:68vh;}
+}
+
+</style>
 </head>
 <body>
 <!-- === Belavadös shared global dropdown navigation / unhide patch === -->
@@ -695,6 +735,22 @@ body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-
 </aside>
 </section>
 <div aria-hidden="true" class="marquee"><span>✦ Welcome to Belavadös ✦ Build characters ✦ Explore the portal ✦ Open the quiz ✦ Gather world documents ✦</span></div>
+
+<section class="panel" id="alignment-full-guide-pdf" style="margin-top:18px;">
+  <h3 class="section-title">Belavadös Alignment Full Guide</h3>
+  <article class="pdf-view-card">
+    <h3>Belavadös Alignment Full Guide</h3>
+    <p>View the full alignment guide directly on this page, or open it externally in Google Drive.</p>
+    <div class="pdf-actions" aria-label="Belavadös Alignment Full Guide PDF options">
+      <a class="button" href="#alignment-full-guide-viewer">View in Page</a>
+      <a class="button secondary" href="https://drive.google.com/file/d/1Zgbzn0y83XUXA97YepaPI7J0oJW1Xpwg/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Externally</a>
+    </div>
+    <div class="pdf-frame-wrap" id="alignment-full-guide-viewer">
+      <iframe title="Belavadös Alignment Full Guide PDF" src="https://drive.google.com/file/d/1Zgbzn0y83XUXA97YepaPI7J0oJW1Xpwg/preview" allow="autoplay"></iframe>
+    </div>
+  </article>
+</section>
+
 <section class="panel">
 <h3 class="section-title">Site areas</h3>
 <div class="docs-grid">
