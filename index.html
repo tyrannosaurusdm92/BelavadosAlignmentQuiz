@@ -386,9 +386,65 @@
       .avatar::before{font-size:.62rem;letter-spacing:.14em}
       .footer-note{font-size:.78rem;padding-inline:8px}
     }
-  </style>
+  
+/* Belavadös standardized navigation buttons */
+.belavados-standard-nav{
+  position:sticky;
+  top:0;
+  z-index:2147483000;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:10px 12px;
+  background:linear-gradient(90deg,rgba(3,10,14,.95),rgba(0,58,66,.94),rgba(3,10,14,.95));
+  border-bottom:1px solid rgba(0,255,255,.42);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 -1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.belavados-standard-nav .belavados-nav-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:8px 13px;
+  border:1px solid rgba(0,255,255,.55);
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(0,255,255,.18),rgba(5,28,36,.86));
+  color:#f4ffff !important;
+  text-decoration:none !important;
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.1;
+  box-shadow:0 0 14px rgba(0,255,255,.14), inset 0 0 10px rgba(255,255,255,.04);
+  cursor:pointer;
+}
+.belavados-standard-nav .belavados-nav-button:hover,
+.belavados-standard-nav .belavados-nav-button:focus-visible{
+  background:linear-gradient(180deg,rgba(0,255,255,.34),rgba(6,48,60,.96));
+  border-color:rgba(255,255,255,.86);
+  box-shadow:0 0 20px rgba(0,255,255,.32);
+  transform:translateY(-1px);
+}
+@media (max-width:700px){
+  .belavados-standard-nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;}
+  .belavados-standard-nav .belavados-nav-button{white-space:nowrap;font-size:13px;padding:8px 10px;}
+}
+
+</style>
 </head>
 <body>
+<!-- Belavadös standardized navigation: main page navigation -->
+<nav class="belavados-standard-nav" aria-label="Belavadös standardized navigation">
+    <a class="belavados-nav-button" href="portal.html">Player Portal</a>
+    <a class="belavados-nav-button" href="quiz.html">Alignment Quizzes</a>
+    <a class="belavados-nav-button" href="charactersheetgenerator.html">Character Generator</a>
+    <a class="belavados-nav-button" href="../atlas/atlas.html">Atlas</a>
+</nav>
+
   <div class="app">
     <header class="topbar">
       <div class="brand">
@@ -402,7 +458,6 @@
       <nav class="nav" aria-label="Primary">
         <a class="button ghost" href="quiz.html" data-destination="quiz.html" title="Open Alignment Quizzes" aria-label="Open Alignment Quizzes">Quiz</a>
         <a class="button ghost" href="portal.html" data-destination="portal.html" title="Open Player Portal" aria-label="Open Player Portal">Portal</a>
-        <a class="button ghost" href="map.html" data-destination="map.html" title="Open Interactive Map" aria-label="Open Interactive Map">Map</a>
         <a class="button ghost" href="charactersheetgenerator.html" data-destination="charactersheetgenerator.html" title="Launch Character Sheet Generator" aria-label="Launch Character Sheet Generator">Generator</a>
         <a class="button ghost" href="charactersheet.html" data-destination="charactersheet.html" title="View Character Sheet" aria-label="View Character Sheet">Sheet</a>
       </nav>
@@ -444,7 +499,6 @@
           <div class="button-grid" role="navigation" aria-label="Site sections">
             <a class="button" href="quiz.html" data-destination="quiz.html" title="Enter the Alignment Quiz Page" aria-label="Enter the Alignment Quiz Page">Quiz</a>
             <a class="button secondary" href="portal.html" data-destination="portal.html" title="Open the Player Portal Page" aria-label="Open the Player Portal Page">Portal</a>
-            <a class="button" href="map.html" data-destination="map.html" title="Open the Interactive Map" aria-label="Open the Interactive Map">Map</a>
             <a class="button" href="charactersheetgenerator.html" data-destination="charactersheetgenerator.html" title="Launch the Character Sheet Generator" aria-label="Launch the Character Sheet Generator">Generator</a>
             <a class="button secondary" href="charactersheet.html" data-destination="charactersheet.html" title="View the Character Sheet" aria-label="View the Character Sheet">Sheet</a>
             <a class="button ghost" href="https://linktr.ee/belavados_dnd_homebrew" data-destination="https://linktr.ee/belavados_dnd_homebrew" target="_blank" rel="noopener noreferrer" style="grid-column:1/-1;" title="Open World Information and Documents" aria-label="Open World Information and Documents">Docs</a>
@@ -462,7 +516,7 @@
                 <span class="badge">✦ Lore hub</span>
                 <span class="badge">✦ Character builder</span>
               </div>
-              <p class="small muted">A central page for the quiz, portal, interactive map, character sheet generator, and character sheet.</p>
+              <p class="small muted">A central page for the quiz, portal, character sheet generator, and character sheet.</p>
             </div>
           </div>
 
@@ -472,13 +526,12 @@
             <div class="actions" style="margin-top:14px;">
               <a class="button" href="quiz.html" data-destination="quiz.html" title="Open Alignment Quizzes" aria-label="Open Alignment Quizzes">Quiz</a>
               <a class="button" href="portal.html" data-destination="portal.html" title="Open Player Portal" aria-label="Open Player Portal">Portal</a>
-              <a class="button" href="map.html" data-destination="map.html" title="Open Interactive Map" aria-label="Open Interactive Map">Map</a>
             </div>
           </div>
         </aside>
       </section>
 
-      <div class="marquee" aria-hidden="true"><span>✦ Welcome to Belavadös ✦ Build characters ✦ Explore the portal ✦ Open the map ✦ Open the quiz ✦ Gather world documents ✦</span></div>
+      <div class="marquee" aria-hidden="true"><span>✦ Welcome to Belavadös ✦ Build characters ✦ Explore the portal ✦ Open the quiz ✦ Gather world documents ✦</span></div>
 
       <section class="panel">
         <h3 class="section-title">Site areas</h3>
@@ -490,10 +543,6 @@
           <article class="doc-card">
             <h3>Portal</h3>
             <p>The main gateway into the Belavadös setting and system pages.</p>
-          </article>
-          <article class="doc-card">
-            <h3>Interactive Map</h3>
-            <p>Open the Belavadös map hub for provinces, settlements, and linked location pages.</p>
           </article>
           <article class="doc-card">
             <h3>Character Generator</h3>
