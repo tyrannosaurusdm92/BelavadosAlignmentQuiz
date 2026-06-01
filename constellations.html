@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Belavadös Night Sky Constellation Viewer</title>
+<style>
+  :root { --bg:#050816; --panel:rgba(9,18,38,.78); --ink:#edf7ff; --muted:#9eb8ce; --cyan:#64e9ff; --gold:#ffe7a6; --line:#89f6c7; --warn:#ffb86b; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; overflow:hidden; background:radial-gradient(circle at 50% 35%, #142448 0%, #071326 48%, #030712 100%); color:var(--ink); font-family:Georgia, 'Times New Roman', serif; }
+  #sky { position:fixed; inset:0; width:100vw; height:100vh; cursor:grab; }
+  #sky.dragging { cursor:grabbing; }
+  .wash { position:fixed; inset:-20%; pointer-events:none; background:
+    radial-gradient(ellipse at 30% 25%, rgba(100,233,255,.14), transparent 35%),
+    radial-gradient(ellipse at 78% 69%, rgba(181,128,255,.13), transparent 33%),
+    radial-gradient(ellipse at 50% 85%, rgba(255,201,113,.08), transparent 45%); mix-blend-mode:screen; filter:blur(18px); animation: drift 28s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform:translate(-2%,1%) rotate(-1deg) scale(1); } to { transform:translate(2%,-2%) rotate(1deg) scale(1.05); } }
+  .hud { position:fixed; top:16px; left:16px; width:min(390px, calc(100vw - 32px)); background:var(--panel); backdrop-filter: blur(14px); border:1px solid rgba(124,227,255,.32); border-radius:22px; box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 0 40px rgba(100,233,255,.05); padding:16px; }
+  .hud h1 { margin:0 0 4px; font-size:21px; letter-spacing:.04em; color:#eafcff; }
+  .hud p { margin:4px 0 12px; color:var(--muted); font-size:13px; line-height:1.35; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0; }
+  .row.three { grid-template-columns:1fr 1fr 1fr; }
+  .row.four { grid-template-columns:repeat(4,1fr); }
+  button, select, input[type=range] { width:100%; }
+  button, select { border:1px solid rgba(100,233,255,.35); background:rgba(3,10,24,.72); color:var(--ink); border-radius:13px; padding:9px 10px; font-family:inherit; font-size:13px; outline:none; }
+  button:hover, button.active { border-color:var(--cyan); box-shadow:0 0 0 2px rgba(100,233,255,.12), inset 0 0 20px rgba(100,233,255,.08); color:#fff; }
+  label { display:block; font-size:12px; color:#c0d8ea; margin-top:8px; }
+  input[type=range] { accent-color:#64e9ff; }
+  .readout { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:10px; font-size:12px; color:#cbe7f9; }
+  .pill { border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:6px 9px; background:rgba(255,255,255,.05); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .info { position:fixed; right:16px; top:16px; width:min(360px, calc(100vw - 32px)); max-height:calc(100vh - 32px); overflow:auto; background:var(--panel); border:1px solid rgba(255,231,166,.35); border-radius:22px; padding:16px; box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 0 40px rgba(255,231,166,.04); }
+  .info h2 { margin:0; color:var(--gold); font-size:22px; }
+  .info .sub { color:#bad4e8; font-size:13px; margin:4px 0 12px; }
+  .info table { width:100%; border-collapse:collapse; font-size:13px; }
+  .info td { border-bottom:1px solid rgba(255,255,255,.09); padding:7px 3px; vertical-align:top; }
+  .info td:first-child { color:#9eb8ce; width:42%; }
+  .legend { position:fixed; left:16px; bottom:14px; right:16px; display:flex; gap:10px; flex-wrap:wrap; color:#cce7f6; font-size:12px; pointer-events:none; }
+  .key { background:rgba(4,11,24,.58); border:1px solid rgba(255,255,255,.12); padding:7px 10px; border-radius:999px; backdrop-filter:blur(8px); }
+  .small { font-size:11px; color:#95aec4; }
+  @media (max-width: 900px) { .info { top:auto; bottom:16px; max-height:38vh; } .hud { max-height:55vh; overflow:auto; } .legend { display:none; } }
+
+/* Belavadös dual-time tracker: Earth first for players, Belavadös second for system lore. */
+.bv-time-panel{position:fixed;left:14px;bottom:14px;z-index:999999;max-width:min(560px,calc(100vw - 28px));background:linear-gradient(135deg,rgba(3,12,28,.94),rgba(8,29,54,.90));border:1px solid rgba(111,255,233,.42);box-shadow:0 0 24px rgba(0,0,0,.55),0 0 22px rgba(111,255,233,.16);backdrop-filter:blur(10px);border-radius:16px;color:#eaf6ff;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;overflow:hidden}.bv-time-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border-bottom:1px solid rgba(111,255,233,.18);font-weight:900;letter-spacing:.02em}.bv-time-head span{color:#6fffe9}.bv-time-body{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}.bv-time-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:8px}.bv-time-card b{display:block;color:#9bdff0;text-transform:uppercase;font-size:10px;letter-spacing:.08em;margin-bottom:4px}.bv-time-card strong{display:block;color:#fff;font-size:13px;line-height:1.25}.bv-time-card small{display:block;color:#a9c4d6;font-size:11px;line-height:1.3;margin-top:3px}.bv-time-foot{padding:0 10px 10px;color:#bfefff;font-size:11px;line-height:1.35}.bv-time-foot em{color:#ffd166;font-style:normal}.bv-time-toggle{background:#081a31;border:1px solid rgba(111,255,233,.40);color:#eaf6ff;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800;cursor:pointer}.bv-time-panel.collapsed .bv-time-body,.bv-time-panel.collapsed .bv-time-foot{display:none}.bv-comet-float{margin-top:12px;border:1px solid rgba(191,239,255,.26);background:rgba(191,239,255,.06);border-radius:14px;padding:10px;color:#cfefff}.bv-comet-float h3{margin:0 0 8px!important;color:#bfefff!important;font-size:14px!important}.bv-comet-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.bv-comet-grid div{border-bottom:1px solid rgba(255,255,255,.08);padding:4px 0;font-size:11.5px;color:#aacae0}.bv-comet-grid b{color:#fff}.bv-comet-note{font-size:11.5px!important;color:#dff!important;line-height:1.35!important}.bv-comet-panel{position:fixed;right:14px;bottom:14px;z-index:999998;width:min(390px,calc(100vw - 28px));max-height:42vh;overflow:auto;background:linear-gradient(135deg,rgba(2,8,20,.94),rgba(8,25,48,.91));border:1px solid rgba(191,239,255,.34);box-shadow:0 0 24px rgba(0,0,0,.55);border-radius:16px;padding:12px;color:#eaf6ff;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif}.bv-comet-panel h2{font-size:15px;margin:0 0 6px;color:#bfefff}.bv-comet-panel p{font-size:12px;line-height:1.4;color:#b8d4e7;margin:6px 0}.bv-comet-panel details{font-size:12px;color:#cfefff}.bv-comet-panel summary{cursor:pointer;color:#6fffe9;font-weight:900}.bv-comet-panel table{width:100%;border-collapse:collapse;margin-top:8px}.bv-comet-panel td{border-bottom:1px solid rgba(255,255,255,.08);padding:5px 4px;vertical-align:top;font-size:11.5px}.bv-comet-panel td:first-child{color:#9bdff0;font-weight:800;width:38%}@media(max-width:900px){.bv-time-body{grid-template-columns:1fr}.bv-comet-panel{display:none}}
+
+
+/* Belavadös shared steampunk navigation styling */
+:root{
+  --bg-home:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mL2YxNmUyZWY3LTBiN2ItNDE5Yi1iMDU3LTFiZDE5YTIyODlmNS9kMWlvMHdjLWM1MTY1NTUwLThjMDEtNDg3Zi04NjUxLTE0NmUxZTE0ZTExMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
+  --bg-quick:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
+  --bg-deep:url("https://wallpapers.com/images/hd/minimalist-skyrim-dual-monitor-ph022pgi8ftp32nv.jpg");
+  --text:#f3e9db;
+  --muted:#d4c6b6;
+  --teal:#3d9fa0;
+  --teal2:#8de0dc;
+  --bronze:#b07a3a;
+  --bronze2:#d7aa63;
+  --plum:#4d3658;
+  --card:rgba(12,16,23,.92);
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:linear-gradient(rgba(5,8,9,.34),rgba(5,8,9,.58)),var(--bg-home);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:saturate(1.05);
+  opacity:.42;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.44)),
+    radial-gradient(circle at top,rgba(255,255,255,.06),transparent 28%);
+  pointer-events:none;
+}
+.atlas-topbar{
+  position:fixed;
+  top:16px;
+  left:422px;
+  right:16px;
+  z-index:30;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:rgba(9,13,18,.84);
+  backdrop-filter:blur(14px);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  color:var(--text);
+}
+.atlas-brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  min-width:220px;
+}
+.atlas-seal{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(124,231,255,.4), transparent 32%),
+    linear-gradient(145deg, rgba(25,148,182,.45), rgba(111,71,32,.3));
+  border:1px solid rgba(124,231,255,.4);
+  box-shadow:0 0 0 4px rgba(255,255,255,.03);
+  display:grid;
+  place-items:center;
+}
+.atlas-brand h1{
+  margin:0;
+  font-size:clamp(1rem,1.7vw,1.35rem);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--text);
+}
+.atlas-brand p{margin:3px 0 0;color:var(--muted);font-size:.86rem;line-height:1.25}
+.atlas-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-left:auto}
+.atlas-nav a.button{
+  border:0;
+  border-radius:14px;
+  padding:12px 14px;
+  min-height:44px;
+  min-width:0;
+  max-width:150px;
+  font-size:clamp(.78rem,1.5vw,.96rem);
+  line-height:1.15;
+  letter-spacing:.02em;
+  font-weight:700;
+  cursor:pointer;
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:none;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  hyphens:auto;
+  transition:transform .15s ease, filter .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.atlas-nav a.button:hover{
+  transform:translateY(-1px);
+  filter:saturate(1.05);
+  border-color:rgba(141,224,220,.55);
+  box-shadow:0 14px 30px rgba(7,111,140,.22);
+}
+.atlas-nav a.button.secondary{
+  background:linear-gradient(145deg,rgba(181,138,73,.96),rgba(111,71,32,.98));
+  color:#fff;
+}
+@media(max-width:1100px){
+  .atlas-topbar{position:fixed;left:16px;top:auto;bottom:84px;right:16px;align-items:flex-start}
+  .atlas-nav{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-left:0}
+  .atlas-nav a.button{max-width:none;width:100%}
+}
+@media(max-width:900px){
+  .atlas-topbar{bottom:auto;top:8px;left:8px;right:8px;padding:10px}
+  .hud{top:98px;}
+}
+@media(max-width:520px){
+  .atlas-brand{width:100%;min-width:0}.atlas-seal{width:40px;height:40px;flex-basis:40px}.atlas-brand p{font-size:.76rem}.atlas-nav{grid-template-columns:1fr}.atlas-nav a.button{min-height:40px;padding:10px 8px;font-size:.8rem}.hud{top:172px;}
+}
+
+
+/* Belavadös standardized navigation buttons */
+.belavados-standard-nav{
+  position:sticky;
+  top:0;
+  z-index:2147483000;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:10px 12px;
+  background:linear-gradient(90deg,rgba(3,10,14,.95),rgba(0,58,66,.94),rgba(3,10,14,.95));
+  border-bottom:1px solid rgba(0,255,255,.42);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 -1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.belavados-standard-nav .belavados-nav-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:8px 13px;
+  border:1px solid rgba(0,255,255,.55);
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(0,255,255,.18),rgba(5,28,36,.86));
+  color:#f4ffff !important;
+  text-decoration:none !important;
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.1;
+  box-shadow:0 0 14px rgba(0,255,255,.14), inset 0 0 10px rgba(255,255,255,.04);
+  cursor:pointer;
+}
+.belavados-standard-nav .belavados-nav-button:hover,
+.belavados-standard-nav .belavados-nav-button:focus-visible{
+  background:linear-gradient(180deg,rgba(0,255,255,.34),rgba(6,48,60,.96));
+  border-color:rgba(255,255,255,.86);
+  box-shadow:0 0 20px rgba(0,255,255,.32);
+  transform:translateY(-1px);
+}
+@media (max-width:700px){
+  .belavados-standard-nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;}
+  .belavados-standard-nav .belavados-nav-button{white-space:nowrap;font-size:13px;padding:8px 10px;}
+}
+
+</style>
+</head>
+<body>
+<!-- Belavadös standardized navigation: atlas navigation -->
+<nav class="belavados-standard-nav" aria-label="Belavadös standardized navigation">
+    <a class="belavados-nav-button" href="globe.html">Globe View</a>
+    <a class="belavados-nav-button" href="constellations.html">Constellations</a>
+    <a class="belavados-nav-button" href="belavados_map_PLAYER.html">Player Map</a>
+    <a class="belavados-nav-button" href="solar_system.html">Solar System</a>
+    <a class="belavados-nav-button" href="../main pages/transportation.html">Transportation</a>
+</nav>
+
+
+<header class="atlas-topbar" aria-label="Belavadös constellation navigation">
+  <div class="atlas-brand">
+    <div class="atlas-seal" aria-hidden="true">✦</div>
+    <div>
+      <h1>Belavadös Constellations</h1>
+      <p>Night-sky viewer connected to the atlas hub.</p>
+    </div>
+  </div>
+  <nav class="atlas-nav" aria-label="Page links">
+    <a class="button secondary" href="atlas.html" data-destination="atlas.html">Atlas</a>
+    <a class="button" href="../main pages/index.html" data-destination="index.html">Main Page</a>
+  </nav>
+</header>
+<canvas id="sky"></canvas><div class="wash"></div>
+<section class="hud">
+  <h1>Belavadös Night Sky</h1>
+  <p>Eight Belavadös constellations are remapped from selected legacy coordinate scaffold constellation fields. Pick a clock hour or let the simulated year roll.</p>
+  <div class="row four" id="hours"><button data-hour="0" class="active">0hr</button><button data-hour="6">6hr</button><button data-hour="12">12hr</button><button data-hour="18">18hr</button></div>
+  <div class="row">
+    <button id="viewTopUp" class="active">Top Up</button><button id="viewTopDown">Top Down</button>
+  </div>
+  <div class="row">
+    <button id="play">Pause</button><button id="recenter">Recenter</button>
+  </div>
+  <label>Speed</label>
+  <select id="speed">
+    <option value="900">1 Belavadös year = 15 minutes</option>
+    <option value="300">1 Belavadös year = 5 minutes</option>
+    <option value="60">1 Belavadös year = 1 minute</option>
+    <option value="30">1 Belavadös year = 30 seconds</option>
+  </select>
+  <label>Belavadös orbital day</label><input id="day" type="range" min="0" max="364" value="0" />
+  <label>Observer latitude</label><input id="lat" type="range" min="-80" max="80" value="40" />
+  <label>Zoom into constellation</label>
+  <div class="row"><select id="constellationSelect"></select><button id="zoomConstellation">Zoom</button></div>
+  <div class="readout"><div class="pill" id="dateReadout">Day 1</div><div class="pill" id="timeReadout">0hr</div><div class="pill" id="latReadout">Lat 40°</div><div class="pill" id="visibleReadout">Visible: 0 / 8</div></div>
+</section>
+<section class="info" id="info">
+  <h2>Click a Belavadös constellation</h2>
+  <div class="sub">Use the 0hr / 6hr / 12hr / 18hr buttons, change the season, drag to pan, and wheel to zoom into each remapped figure.</div>
+  <table><tr><td>Projection</td><td>All-sky horizon dome centered on the zenith.</td></tr><tr><td>Season model</td><td>One full Belavadös orbital year can run in 15 min, 5 min, 1 min, or 30 sec.</td></tr><tr><td>Visibility</td><td>Constellations brighten when their midpoint is above the horizon.</td></tr></table>
+</section>
+<div class="legend"><span class="key">cyan stars = visible sky</span><span class="key">green lines = constellation figures</span><span class="key">gold labels = constellation names</span><span class="key">dashed rings = altitude guides</span></div>
+<script>
+const CONSTELLATIONS = [{"abbr": "Tau", "name": "The Minotaur Labyrinth of Anubaldir", "source": "Taurus", "ra": "04 42.13", "dec": "+14 52.63", "area": 797.249, "quad": "NQ1", "raH": 4.702166666666667, "decD": 14.877166666666668, "shape": "Bull's head, horns, and inner maze", "description": "A winter horned maze formed from the Taurus coordinate field, renamed for Anubaldir and the minotaur, goliath, cyclopian, and firbolg lore."}, {"abbr": "Cap", "name": "The Crossroads Mask of Freyseth", "source": "Capricornus", "ra": "21 02.93", "dec": "-18 01.39", "area": 413.947, "quad": "SQ4", "raH": 21.048833333333334, "decD": -18.02316666666667, "shape": "Low mask / road-sign figure", "description": "A low southern late-summer mask drawn from the Capricornus coordinate field, used for pacts, curses, temptation, and planar bloodlines."}, {"abbr": "CrB", "name": "The Wechselkind Crown of Setrimir", "source": "Corona Borealis", "ra": "15 50.59", "dec": "+32 37.49", "area": 178.71, "quad": "NQ3", "raH": 15.843166666666667, "decD": 32.624833333333335, "shape": "Crown arc", "description": "A crown-shaped arc remapped from Corona Borealis for Setrimir's awakened peoples, construct lineages, hidden clasps, and jewel-like star points."}, {"abbr": "Val", "name": "The Dragonborn Dominion of Valkhamesh", "source": "Serpens + Draco", "ra": "16 03.00", "dec": "+36 34.00", "area": 1719.88, "quad": "NQ3", "raH": 16.047333333333334, "decD": 36.56433333333333, "shape": "Two star clusters joined as one curving serpent / draconic banner", "description": "One total constellation made from two legacy coordinate scaffold star clusters: Draco provides the high dragon body, while Serpens provides the lower serpent coil.", "clusters": [{"seed": "Dra", "raH": 15.144, "decD": 67.00666666666666, "area": 1082.952}, {"seed": "Ser", "raH": 16.950666666666667, "decD": 6.122, "area": 636.928}]}, {"abbr": "Cep", "name": "The Sahuagin Deep Gate of Bastveig", "source": "Cepheus", "ra": "02 32.64", "dec": "+71 00.51", "area": 587.787, "quad": "NQ4", "raH": 2.544, "decD": 71.0085, "shape": "Tall doorway with lintel, pillars, and threshold", "description": "A gate-like coordinate frame remapped from Cepheus for Bastveig's trench, reef, Sahuagin, Triton, merfolk, locathah, and grung lore."}, {"abbr": "Psc", "name": "The Twin Drums of Ishtanora", "source": "Pisces", "ra": "00 28.97", "dec": "+13 41.23", "area": 889.417, "quad": "NQ1", "raH": 0.48283333333333334, "decD": 13.687166666666666, "shape": "Two joined circles with bridge cord", "description": "A paired, cord-linked constellation remapped from Pisces for hearth festivals, harvest rites, warning drums, and Ishtanora's smaller folk."}, {"abbr": "Cnc", "name": "The Silkborn Web of Thoryn-Rahek", "source": "Cancer", "ra": "08 38.96", "dec": "+19 48.35", "area": 505.872, "quad": "NQ2", "raH": 8.649333333333333, "decD": 19.805833333333332, "shape": "Petaled web with central knot", "description": "A compact web remapped from Cancer for Silkborn, thri-kreen, cnidarin, oozekin, opteran, and Thoryn-Rahek's aberrant geometry."}, {"abbr": "Lyr", "name": "The Luma Mirror of Nephthysra", "source": "Lyra", "ra": "18 51.17", "dec": "+36 41.36", "area": 286.476, "quad": "NQ4", "raH": 18.852833333333333, "decD": 36.68933333333333, "shape": "V-shaped mirror with winged torch", "description": "A jewel-like mirror frame remapped from Lyra for Luma, Dara, Golynn, Nephthysra, and the beauty-lore of a winged torch."}];
+const canvas = document.getElementById('sky'), ctx = canvas.getContext('2d');
+const TAU = Math.PI*2, DEG=Math.PI/180, RAD=180/Math.PI;
+let W=0,H=0,R=0, playing=true, simDay=0, last=performance.now(), hour=0, lat=40;
+let viewMode='up', zoom=1, panX=0, panY=0, selected=null, hover=null;
+let plotted = [];
+function resize(){ W=canvas.width=innerWidth*devicePixelRatio; H=canvas.height=innerHeight*devicePixelRatio; canvas.style.width=innerWidth+'px'; canvas.style.height=innerHeight+'px'; ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); R=Math.min(innerWidth,innerHeight)*0.43; }
+addEventListener('resize', resize); resize();
+function hash(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return h>>>0; }
+function rng(seed){ let s=seed>>>0; return ()=>((s=Math.imul(1664525,s)+1013904223>>>0)/4294967296); }
+function raStringToHours(s){ const [h,m]=s.split(' ').map(Number); return h+m/60; }
+function decStringToDeg(s){ const neg=s.trim()[0]=='-'; const [d,m]=s.replace('+','').replace('-','').split(' ').map(Number); return (neg?-1:1)*(d+m/60); }
+function eclipticSunRA(day){ return (((day-79)/365.2422)*24%24+24)%24; }
+function lstHours(day, localHour){ return (eclipticSunRA(day)+12+localHour)%24; }
+function altAz(raH, decD){
+  const phi=lat*DEG, dec=decD*DEG, Hh=(((lstHours(simDay,hour)-raH+12)%24)-12), ha=Hh*15*DEG;
+  const sinAlt=Math.sin(dec)*Math.sin(phi)+Math.cos(dec)*Math.cos(phi)*Math.cos(ha);
+  const alt=Math.asin(Math.max(-1,Math.min(1,sinAlt)));
+  const y=-Math.sin(ha)*Math.cos(dec);
+  const x=Math.sin(dec)*Math.cos(phi)-Math.cos(dec)*Math.sin(phi)*Math.cos(ha);
+  let az=Math.atan2(y,x); if(az<0) az+=TAU;
+  return {alt:alt*RAD, az:az*RAD};
+}
+function project(raH, decD){
+  const aa=altAz(raH, decD); if(aa.alt < -7) return null;
+  let rr=(90-aa.alt)/90*R*zoom;
+  let az=aa.az*DEG;
+  let sx=Math.sin(az)*rr, sy=-Math.cos(az)*rr;
+  if(viewMode==='up') sx*=-1;
+  return {x:innerWidth/2+panX+sx, y:innerHeight/2+panY+sy, alt:aa.alt, az:aa.az};
+}
+function constellationStars(c){
+  if(c._stars) return c._stars;
+  const buildCluster = (seed, raH, decD, area, sizeScale=1) => {
+    const r=rng(hash(c.abbr + ':' + seed));
+    const n=Math.max(5,Math.min(14,Math.round(area/140)+4));
+    const spread=Math.max(3.2, Math.min(13, Math.sqrt(area)/3.2)) * sizeScale;
+    const stars=[];
+    stars.push({ra:raH, dec:decD, mag:.1});
+    for(let i=0;i<n;i++){
+      const a=(i/n)*TAU + (r()-.5)*.75;
+      const d=spread*(.2+r()*.85);
+      const ra=(raH + Math.cos(a)*d/15/Math.max(.25,Math.cos(decD*DEG)) + 24)%24;
+      const dec=Math.max(-88,Math.min(88,decD + Math.sin(a)*d));
+      stars.push({ra,dec,mag:.2+r()*4.5});
+    }
+    return stars;
+  };
+  if(c.clusters){
+    c._stars = c.clusters.flatMap(cl => buildCluster(cl.seed, cl.raH, cl.decD, cl.area, .75));
+    return c._stars;
+  }
+  c._stars = buildCluster(c.abbr, c.raH, c.decD, c.area, 1);
+  return c._stars;
+}
+function backgroundStars(){
+  if(window._bgStars) return window._bgStars;
+  const r=rng(920268); const arr=[]; for(let i=0;i<2200;i++){ const u=r()*2-1; arr.push({ra:r()*24, dec:Math.asin(u)*RAD, mag:r()*6}); }
+  return window._bgStars=arr;
+}
+function drawGuides(){
+  const cx=innerWidth/2+panX, cy=innerHeight/2+panY;
+  ctx.save(); ctx.translate(cx,cy); ctx.scale(zoom,zoom);
+  ctx.strokeStyle='rgba(180,220,255,.16)'; ctx.lineWidth=1/zoom; ctx.setLineDash([6/zoom,8/zoom]);
+  [R/3, R*2/3, R].forEach((rad,i)=>{ ctx.beginPath(); ctx.arc(0,0,rad,0,TAU); ctx.stroke(); });
+  ctx.setLineDash([]); ctx.strokeStyle='rgba(255,255,255,.12)';
+  for(let a=0;a<360;a+=30){ const x=Math.sin(a*DEG)*R, y=-Math.cos(a*DEG)*R; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(x,y); ctx.stroke(); }
+  ctx.restore();
+}
+function drawSky(now){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  const grd=ctx.createRadialGradient(innerWidth/2,innerHeight/2,20,innerWidth/2,innerHeight/2,Math.max(innerWidth,innerHeight));
+  grd.addColorStop(0,'#12234c'); grd.addColorStop(.6,'#071226'); grd.addColorStop(1,'#02040b'); ctx.fillStyle=grd; ctx.fillRect(0,0,innerWidth,innerHeight);
+  drawGuides(); plotted=[];
+  for(const s of backgroundStars()){ const p=project(s.ra,s.dec); if(!p||p.alt<0) continue; const tw=.55+.45*Math.sin(now/650+s.ra*4.1); const size=(1.8-s.mag/5.5)*Math.max(.35,zoom*.45); ctx.fillStyle=`rgba(225,244,255,${0.22+tw*.45})`; ctx.beginPath(); ctx.arc(p.x,p.y,Math.max(.35,size),0,TAU); ctx.fill(); }
+  let visible=0;
+  for(const c of CONSTELLATIONS){
+    const cp=project(c.raH,c.decD); const isVisible=cp&&cp.alt>0; if(isVisible) visible++;
+    const stars=constellationStars(c).map(s=>project(s.ra,s.dec));
+    const starPts=stars.filter(Boolean).filter(p=>p.alt>-2);
+    if(starPts.length<2 && !cp) continue;
+    const active=selected&&selected.abbr===c.abbr;
+    ctx.lineWidth=active?2.6:1.15; ctx.strokeStyle=active?'rgba(255,231,166,.95)':(isVisible?'rgba(137,246,199,.55)':'rgba(137,246,199,.13)');
+    ctx.beginPath();
+    for(let i=0;i<starPts.length-1;i++){ ctx.moveTo(starPts[i].x,starPts[i].y); ctx.lineTo(starPts[i+1].x,starPts[i+1].y); } ctx.stroke();
+    for(const p of starPts){ const pulse=active?1.6:1; ctx.fillStyle=active?'rgba(255,235,177,.98)':(isVisible?'rgba(185,249,255,.92)':'rgba(185,249,255,.28)'); ctx.beginPath(); ctx.arc(p.x,p.y,(active?2.5:1.6)*pulse,0,TAU); ctx.fill(); }
+    if(cp && cp.alt>-2){ ctx.font=(active?'700 ':'')+`${Math.max(10,12*zoom)}px Georgia`; ctx.textAlign='center'; ctx.fillStyle=active?'#ffe7a6':(isVisible?'rgba(255,231,166,.9)':'rgba(255,231,166,.34)'); ctx.fillText(c.name,cp.x,cp.y-10); plotted.push({c,x:cp.x,y:cp.y,r:Math.max(24,Math.sqrt(c.area)/2)}); }
+  }
+  document.getElementById('visibleReadout').textContent='Visible: '+visible+' / '+CONSTELLATIONS.length;
+}
+function tick(now){
+  const dt=(now-last)/1000; last=now;
+  if(playing){ const secPerYear=Number(document.getElementById('speed').value); simDay=(simDay+365*dt/secPerYear)%365; document.getElementById('day').value=Math.floor(simDay); }
+  updateReadouts(); drawSky(now); requestAnimationFrame(tick);
+}
+function monthDay(d){ const monthLen=[31,28,31,30,31,30,31,31,30,31,30,31], names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; let day=Math.floor(d)+1, m=0; while(day>monthLen[m]){ day-=monthLen[m++]; } return `${names[m]} ${day}`; }
+function updateReadouts(){ document.getElementById('dateReadout').textContent=monthDay(simDay)+' · day '+(Math.floor(simDay)+1); document.getElementById('timeReadout').textContent=hour+'hr · LST '+lstHours(simDay,hour).toFixed(2)+'h'; document.getElementById('latReadout').textContent='Lat '+lat+'°'; }
+function setInfo(c){ selected=c; document.getElementById('info').innerHTML=`<h2>${c.name}</h2><div class="sub">Remapped from ${c.source} · ${c.shape}</div><table><tr><td>Source coordinates</td><td>${c.ra} h, ${c.dec}°</td></tr><tr><td>Sky area used</td><td>${c.area.toLocaleString()} square degrees</td></tr><tr><td>Quadrant</td><td>${c.quad}</td></tr><tr><td>Visibility now</td><td>${(project(c.raH,c.decD)?.alt||-99)>0?'Above the horizon':'Below or near the horizon'}</td></tr><tr><td>Figure logic</td><td>${c.description}</td></tr><tr><td>Use</td><td>Press Zoom to center this constellation, then drag or wheel to inspect its figure.</td></tr></table>`; document.getElementById('constellationSelect').value=c.abbr; }
+function focusConstellation(c){ const p=project(c.raH,c.decD); if(!p){ panX=0; panY=0; zoom=1.35; return; } zoom=2.75; panX += innerWidth/2-p.x; panY += innerHeight/2-p.y; setInfo(c); }
+document.getElementById('constellationSelect').innerHTML=CONSTELLATIONS.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(c=>`<option value="${c.abbr}">${c.name} (${c.abbr})</option>`).join('');
+document.getElementById('hours').addEventListener('click',e=>{ if(e.target.dataset.hour){ hour=Number(e.target.dataset.hour); document.querySelectorAll('#hours button').forEach(b=>b.classList.toggle('active',b===e.target)); } });
+document.getElementById('viewTopUp').onclick=()=>{ viewMode='up'; document.getElementById('viewTopUp').classList.add('active'); document.getElementById('viewTopDown').classList.remove('active'); };
+document.getElementById('viewTopDown').onclick=()=>{ viewMode='down'; document.getElementById('viewTopDown').classList.add('active'); document.getElementById('viewTopUp').classList.remove('active'); };
+document.getElementById('play').onclick=()=>{ playing=!playing; document.getElementById('play').textContent=playing?'Pause':'Play'; };
+document.getElementById('recenter').onclick=()=>{ zoom=1; panX=0; panY=0; selected=null; };
+document.getElementById('day').oninput=e=>{ simDay=Number(e.target.value); }; document.getElementById('lat').oninput=e=>{ lat=Number(e.target.value); };
+document.getElementById('zoomConstellation').onclick=()=>{ const c=CONSTELLATIONS.find(x=>x.abbr===document.getElementById('constellationSelect').value); focusConstellation(c); };
+canvas.addEventListener('click',e=>{ const x=e.clientX,y=e.clientY; let best=null,bd=1e9; for(const p of plotted){ const d=Math.hypot(x-p.x,y-p.y); if(d<bd&&d<p.r){bd=d;best=p.c;} } if(best) setInfo(best); });
+let drag=false,lx=0,ly=0; canvas.addEventListener('pointerdown',e=>{ drag=true; lx=e.clientX; ly=e.clientY; canvas.classList.add('dragging'); }); addEventListener('pointerup',()=>{ drag=false; canvas.classList.remove('dragging'); }); addEventListener('pointermove',e=>{ if(drag){ panX+=e.clientX-lx; panY+=e.clientY-ly; lx=e.clientX; ly=e.clientY; } });
+canvas.addEventListener('wheel',e=>{ e.preventDefault(); const old=zoom; zoom=Math.max(.55,Math.min(6,zoom*(e.deltaY<0?1.12:.89))); const mx=e.clientX-innerWidth/2-panX, my=e.clientY-innerHeight/2-panY; panX-=mx*(zoom/old-1); panY-=my*(zoom/old-1); },{passive:false});
+requestAnimationFrame(tick);
+</script>
+
+<script>
+(function(){
+  if(window.__belavadosDualTimeInstalled) return;
+  window.__belavadosDualTimeInstalled = true;
+  const PAGE_LABEL = "Constellation View";
+  const BELA_DAY_RATIO = 0.9045;
+  const BELA_YEAR_DAYS = 330;
+  const MONTHS = ["Thoryn-Rahek", "Freysethysra", "Nefarokir", "Thalunesh", "Horundar", "Raeshkul", "Asethrimir", "Sokhivar", "Iskazunet", "Bastve’enlil", "Hathruna"];
+  const WEEKDAYS = ['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
+  function pad(n){return String(n).padStart(2,'0');}
+  function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
+  function localZoneName(date){try{return new Intl.DateTimeFormat(undefined,{timeZoneName:'short'}).formatToParts(date).find(p=>p.type==='timeZoneName').value||'';}catch(e){return '';}}
+  function earthParts(now){
+    const y=now.getFullYear();
+    const yearStart=new Date(y,0,1,0,0,0,0);
+    const todayStart=new Date(y,now.getMonth(),now.getDate(),0,0,0,0);
+    const doy=Math.floor((todayStart-yearStart)/86400000)+1;
+    const frac=(now-todayStart)/86400000;
+    return {year:y,doy,frac};
+  }
+  function driftStartDoy(year){return Math.floor((new Date(year,9,25)-new Date(year,0,1))/86400000)+1;}
+  function belavadosParts(now){
+    const ep=earthParts(now);
+    const cycleFloat=((ep.doy-1)+ep.frac)/BELA_DAY_RATIO;
+    const cycle=((cycleFloat % BELA_YEAR_DAYS)+BELA_YEAR_DAYS)%BELA_YEAR_DAYS;
+    const monthIndex=Math.floor(cycle/30);
+    const dayOfMonth=Math.floor(cycle%30)+1;
+    const belDayOfYear=Math.floor(cycle)+1;
+    const tf=cycle%1;
+    const totalSeconds=Math.floor(tf*24*60*60);
+    const bh=Math.floor(totalSeconds/3600), bm=Math.floor((totalSeconds%3600)/60), bs=totalSeconds%60;
+    const driftDoy=driftStartDoy(ep.year);
+    const isDrift=ep.doy>=driftDoy;
+    const driftDay=ep.doy-driftDoy+1;
+    return {month:MONTHS[monthIndex],monthNumber:monthIndex+1,dayOfMonth,belDayOfYear,bh,bm,bs,weekday:WEEKDAYS[now.getDay()],isDrift,driftDay,earthDoy:ep.doy,earthYear:ep.year};
+  }
+  function earthMonthName(now){return now.toLocaleDateString(undefined,{month:'long'});}
+  function makePanel(){
+    const div=document.createElement('section');
+    div.className='bv-time-panel';
+    div.setAttribute('aria-label','Live Earth and Belavadös time tracker');
+    div.innerHTML=`<div class="bv-time-head"><div>⏱ <span>Earth / Belavadös Live Time</span></div><button class="bv-time-toggle" type="button">hide</button></div><div class="bv-time-body"><div class="bv-time-card"><b>Earth player clock</b><strong data-bv-earth-main></strong><small data-bv-earth-sub></small></div><div class="bv-time-card"><b>Belavadös system clock</b><strong data-bv-bela-main></strong><small data-bv-bela-sub></small></div><div class="bv-time-card"><b>Month tracker</b><strong data-bv-month-main></strong><small data-bv-month-sub></small></div><div class="bv-time-card"><b>Day tracker</b><strong data-bv-day-main></strong><small data-bv-day-sub></small></div></div><div class="bv-time-foot"><em>${PAGE_LABEL}</em> uses Belavadös as the in-system reference. Earth time is shown first only as the player-facing table clock.</div>`;
+    document.body.appendChild(div);
+    div.querySelector('.bv-time-toggle').addEventListener('click',()=>{div.classList.toggle('collapsed');div.querySelector('.bv-time-toggle').textContent=div.classList.contains('collapsed')?'show':'hide';});
+    return div;
+  }
+  const panel=makePanel();
+  function update(){
+    const now=new Date();
+    const b=belavadosParts(now);
+    const earthMain=now.toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'})+', '+now.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit',second:'2-digit'});
+    const earthSub=`Earth month ${earthMonthName(now)} • day ${b.earthDoy} of ${new Date(b.earthYear,1,29).getMonth()===1?366:365} • ${localZoneName(now)}`;
+    const belaMain=b.isDrift ? `Drift Buffer Day ${b.driftDay}, ${b.weekday}, ${pad(b.bh)}:${pad(b.bm)}:${pad(b.bs)} Bh` : `${b.month} ${b.dayOfMonth}, ${b.weekday}, ${pad(b.bh)}:${pad(b.bm)}:${pad(b.bs)} Bh`;
+    const belaSub=b.isDrift ? `35-Day Ghost / Compression Residue • Belavadös civil clock still ticking` : `Belavadös month ${b.monthNumber} of 11 • civil day ${b.belDayOfYear} of 330`;
+    panel.querySelector('[data-bv-earth-main]').textContent=earthMain;
+    panel.querySelector('[data-bv-earth-sub]').textContent=earthSub;
+    panel.querySelector('[data-bv-bela-main]').textContent=belaMain;
+    panel.querySelector('[data-bv-bela-sub]').textContent=belaSub;
+    panel.querySelector('[data-bv-month-main]').textContent=`${earthMonthName(now)} / ${b.isDrift?'Drift Buffer':b.month}`;
+    panel.querySelector('[data-bv-month-sub]').textContent=b.isDrift?'Earth date is active; Belavadös civic months are in drift handling.':`Earth month shown for players; Belavadös divine month shown for system lore.`;
+    panel.querySelector('[data-bv-day-main]').textContent=`Earth ${ordinal(b.earthDoy)} day / Belavadös ${b.isDrift?'Drift '+ordinal(b.driftDay):ordinal(b.belDayOfYear)+' day'}`;
+    panel.querySelector('[data-bv-day-sub]').textContent=`Weekday translation: ${now.toLocaleDateString(undefined,{weekday:'long'})} → ${b.weekday}`;
+  }
+  update(); setInterval(update,1000);
+
+  function injectCometPanel(){
+    if(!/Planet|Orbit|Planetary/i.test(document.title)) return;
+    const right=document.getElementById('rightPanel');
+    if(right && !document.getElementById('bvCometInline')){
+      const box=document.createElement('div'); box.id='bvCometInline'; box.className='bv-comet-float';
+      box.innerHTML=`<h3>Eiršu'neth Comet — Safe Orbit Shell</h3><div class="bv-comet-grid"><div><b>Family:</b> Vishtecu–Hyperu</div><div><b>Period:</b> 6.48 Belavadös years / 2,139.37 Belavadös days</div><div><b>Path:</b> 2.08–4.87 AU, a≈3.48 AU</div><div><b>Inclination:</b> 18° above the Celestial Road</div><div><b>Nucleus:</b> ~85 mi / 137 km</div><div><b>Mass:</b> ~500 trillion tons</div></div><p class="bv-comet-note">The comet is tracked as a Belavadös-system object, not an Earth object. Its perihelion stays outside Vishtecu–Hyperu, and its plane crossings occur only at perihelion and aphelion.</p>`;
+      right.appendChild(box);
+    }
+    if(!document.getElementById('bvCometMaster')){
+      const floater=document.createElement('aside'); floater.id='bvCometMaster'; floater.className='bv-comet-panel';
+      floater.innerHTML=`<h2>☄ Eiršu'neth Comet</h2><p>Massive Vishtecu–Hyperu family omen-comet with a safe, visually dramatic, inclined orbit in the Belavadös solar system.</p><details><summary>Open master orbit table</summary><table><tr><td>Nucleus</td><td>~85 miles / 137 km; roughly 10–50× a typical comet core</td></tr><tr><td>Mass</td><td>~500 trillion tons; ~500× typical comet mass</td></tr><tr><td>Orbital period</td><td>6.48 Belavadös years / 2,139.37 Belavadös days</td></tr><tr><td>Orbit</td><td>Semi-major axis ≈3.48 AU; perihelion 2.08 AU; aphelion 4.87 AU; eccentricity ≈0.402</td></tr><tr><td>Inclination</td><td>18° above the Celestial Road; plane-crossing points only at perihelion and aphelion</td></tr><tr><td>Safety</td><td>Safe and non-impacting; perihelion stays just outside Vishtecu–Hyperu at 1.88 AU with about 0.20 AU clearance</td></tr><tr><td>Visibility</td><td>Brightest near perihelion; large icy-gas body with pale blue-white and smoky silver watercolor tail</td></tr><tr><td>Lore role</td><td>Festivals, prophecies, navigation, ring-watching events, and rare omen-comet traditions</td></tr></table></details>`;
+      document.body.appendChild(floater);
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',injectCometPanel); else injectCometPanel();
+})();
+</script>
+
+</body>
+</html>
