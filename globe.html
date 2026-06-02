@@ -380,6 +380,47 @@ function setActiveGlobeMapFromPayload(payload){
   return true;
 }
 
+function applyActiveGlobeTexture(url){
+  ACTIVE_BELAVADOS_GLOBE_MAP=url;
+  BELAVADOS_SCANNER_CACHE=null;
+  if(typeof THREE!=='undefined' && earthMesh && earthMesh.material){
+    const tex=new THREE.TextureLoader().load(ACTIVE_BELAVADOS_GLOBE_MAP,()=>{ if(earthMesh.material) earthMesh.material.needsUpdate=true; });
+    tex.colorSpace=THREE.SRGBColorSpace;
+    tex.anisotropy=8;
+    if(earthMesh.material.map && earthMesh.material.map.dispose) earthMesh.material.map.dispose();
+    earthMesh.material.map=tex;
+    earthMesh.material.needsUpdate=true;
+  }
+}
+function cropFlatCoordinateExportMap(url){
+  return new Promise(resolve=>{
+    if(!url||!url.startsWith('data:image/')) return resolve(url);
+    const img=new Image();
+    img.onload=()=>{
+      try{
+        const w=img.naturalWidth||img.width, h=img.naturalHeight||img.height;
+        if(!w||!h || Math.abs(w/h-2)<.03) return resolve(url);
+        const cropH=Math.round(w/2);
+        if(cropH>0 && cropH<=h){
+          const canvas=document.createElement('canvas'); canvas.width=w; canvas.height=cropH;
+          const ctx=canvas.getContext('2d'); ctx.drawImage(img,0,0,w,cropH,0,0,w,cropH);
+          return resolve(canvas.toDataURL('image/png'));
+        }
+      }catch(err){ console.warn('Could not crop flat coordinate export map:',err); }
+      resolve(url);
+    };
+    img.onerror=()=>resolve(url);
+    img.src=url;
+  });
+}
+async function setActiveGlobeMapFromPayloadForScanner(payload){
+  const url=findEmbeddedMapDataUrl(payload);
+  if(!url) return false;
+  const prepared=await cropFlatCoordinateExportMap(url);
+  applyActiveGlobeTexture(prepared);
+  return true;
+}
+
 
 const IMPORTANT_PARALLELS=[{name:'Freyseth’s Northern Underworld Gate',lat:65},{name:'Raeshkul’s Thoughtline',lat:24},{name:'Equator',lat:0},{name:'Bastveig’s Deepwater Passage',lat:-24},{name:'Thoryn-Rahek’s Southern Underworld Gate',lat:-65}];
 const R=2.05;
@@ -594,31 +635,107 @@ function setHour(h){timeHours=h; targetLon=-h*15; targetLat=10;}
 function hidePanel(id){const el=by(id); if(!el||el.classList.contains('hidden'))return; el.classList.add('hidden'); renderBubbles();}
 function showPanel(id){const el=by(id); if(!el)return; el.classList.remove('hidden'); renderBubbles();}
 function renderBubbles(){const tray=by('bubbleTray'); tray.innerHTML=''; [['leftPanel','Globe Controls'],['rightPanel','Globe Readout'],['bottomPanel','Quick Controls']].forEach(([id,label])=>{const el=by(id); if(el&&el.classList.contains('hidden')){const b=document.createElement('button'); b.className='bubble'; b.textContent='Show '+label; b.onclick=()=>showPanel(id); tray.appendChild(b);}}); if(tray.children.length>1){const all=document.createElement('button'); all.className='bubble'; all.textContent='Show All Boxes'; all.onclick=()=>['leftPanel','rightPanel','bottomPanel'].forEach(showPanel); tray.appendChild(all);}}
+
+/* === Belavadös JSON placement scanner / coordinate aligner === */
+let LAST_IMPORT_MAP_BOUNDS = null;
+let BELAVADOS_SCANNER_CACHE = null;
+function scannerLogNote(stats){
+  if(!stats) return '';
+  return ` Scanner alignment: ${stats.fromPixels||0} coordinate${stats.fromPixels===1?'':'s'} read from JSON x/y, ${stats.settlementSnaps||0} settlement pin${stats.settlementSnaps===1?'':'s'} nudged to land, ${stats.borderSnaps||0} border anchor${stats.borderSnaps===1?'':'s'} nudged away from deep water.`;
+}
+function extractJsonMapBounds(payload){
+  const mb=payload&&payload.mapBounds||{}, raw=mb.rawCrop||mb;
+  const left=num(raw.left??raw.xMin??raw.minX??0), top=num(raw.top??raw.yMin??raw.minY??0);
+  let right=num(raw.right??raw.xMax??raw.maxX), bottom=num(raw.bottom??raw.yMax??raw.maxY);
+  const width=num(raw.width), height=num(raw.height);
+  if(!Number.isFinite(right)) right=Number.isFinite(width)?left+width:2048;
+  if(!Number.isFinite(bottom)) bottom=Number.isFinite(height)?top+height:1024;
+  return {left:Number.isFinite(left)?left:0, top:Number.isFinite(top)?top:0, right, bottom, width:Math.abs(right-left)||2048, height:Math.abs(bottom-top)||1024};
+}
+function pointXYFromJson(c){
+  if(!c) return null;
+  if(Array.isArray(c)){ const a=num(c[0]), b=num(c[1]); return Number.isFinite(a)&&Number.isFinite(b)&&(Math.abs(a)>180||Math.abs(b)>90)?{x:a,y:b}:null; }
+  const nested=c.coordinates||c.coord||c.point||{};
+  const x=num(c.x??c.pixelX??c.mapX??nested.x??nested.pixelX??nested.mapX), y=num(c.y??c.pixelY??c.mapY??nested.y??nested.pixelY??nested.mapY);
+  return Number.isFinite(x)&&Number.isFinite(y)?{x,y}:null;
+}
+function wrapLon(lon){ lon=num(lon); if(!Number.isFinite(lon)) return lon; while(lon<-180) lon+=360; while(lon>180) lon-=360; return lon; }
+function pixelToLatLonFlat(x,y,bounds=LAST_IMPORT_MAP_BOUNDS){
+  bounds=bounds||{left:0,top:0,width:2048,height:1024};
+  const nx=(x-bounds.left)/Math.max(1,bounds.width), ny=(y-bounds.top)/Math.max(1,bounds.height);
+  return {lat:Math.max(-90,Math.min(90,90-ny*180)), lon:wrapLon(-180+nx*360)};
+}
+function latLonToPixelFlat(lat,lon,w,h){return {x:(wrapLon(lon)+180)/360*w, y:(90-Math.max(-90,Math.min(90,lat)))/180*h};}
+function coordFromJsonPoint(c){
+  const xy=pointXYFromJson(c); if(xy) return {...pixelToLatLonFlat(xy.x,xy.y),x:xy.x,y:xy.y,fromPixel:true};
+  if(Array.isArray(c)){ const a=num(c[0]), b=num(c[1]); if(Number.isFinite(a)&&Number.isFinite(b)) return {lat:a,lon:wrapLon(b),fromPixel:false}; }
+  if(c&&typeof c==='object'){
+    const nested=c.coordinates||c.coord||c.point||{};
+    const lat=num(c.lat??c.latitude??c.Latitude??nested.lat??nested.latitude), lon=num(c.lon??c.lng??c.longitude??c.Longitude??nested.lon??nested.lng??nested.longitude);
+    if(Number.isFinite(lat)&&Number.isFinite(lon)) return {lat,lon:wrapLon(lon),fromPixel:false};
+  }
+  return null;
+}
+function scannerLoadImage(){return new Promise(resolve=>{
+  if(BELAVADOS_SCANNER_CACHE&&BELAVADOS_SCANNER_CACHE.src===ACTIVE_BELAVADOS_GLOBE_MAP) return resolve(BELAVADOS_SCANNER_CACHE);
+  const img=new Image(); img.onload=()=>{try{const canvas=document.createElement('canvas'); canvas.width=img.naturalWidth||img.width; canvas.height=img.naturalHeight||img.height; const ctx=canvas.getContext('2d',{willReadFrequently:true}); ctx.drawImage(img,0,0,canvas.width,canvas.height); const imageData=ctx.getImageData(0,0,canvas.width,canvas.height); BELAVADOS_SCANNER_CACHE={src:ACTIVE_BELAVADOS_GLOBE_MAP,canvas,ctx,imageData,w:canvas.width,h:canvas.height}; resolve(BELAVADOS_SCANNER_CACHE);}catch(err){console.warn('Belavadös scanner image read failed:',err);resolve(null);}}; img.onerror=()=>resolve(null); img.src=ACTIVE_BELAVADOS_GLOBE_MAP;
+});}
+function scannerPixel(scan,x,y){if(!scan)return null; x=Math.round(x); y=Math.round(y); if(x<0||y<0||x>=scan.w||y>=scan.h)return null; const i=(y*scan.w+x)*4,d=scan.imageData.data; return {r:d[i],g:d[i+1],b:d[i+2],a:d[i+3]};}
+function scannerHsv(p){let r=p.r/255,g=p.g/255,b=p.b/255,max=Math.max(r,g,b),min=Math.min(r,g,b),h=0,s=0,v=max,d=max-min; s=max===0?0:d/max; if(d){if(max===r)h=(g-b)/d+(g<b?6:0);else if(max===g)h=(b-r)/d+2;else h=(r-g)/d+4;h*=60;} return {h,s,v};}
+function scannerLum(p){return .2126*p.r+.7152*p.g+.0722*p.b;}
+function scannerTerrain(scan,x,y){
+  const p=scannerPixel(scan,x,y); if(!p||p.a<20)return {type:'void',land:false,water:false}; const h=scannerHsv(p), l=scannerLum(p);
+  if(h.h>=185&&h.h<=248&&h.s>.26)return {type:'water',land:false,water:true};
+  if(h.h>=165&&h.h<185&&h.s>.30)return {type:'reef',land:false,water:true,coast:true};
+  if(h.s<.12&&h.v>.82){const near=scannerContext(scan,x,y,10), mid=scannerContext(scan,x,y,32); if(near.water>.42&&mid.water>.32)return {type:'ocean-ice',land:false,water:true,ice:true}; return {type:near.mountain>.22?'snow-mountain':'marsh-pale',land:true,water:false};}
+  if(h.h>=80&&h.h<=155&&h.s>.20)return {type:l<135?'forest':'grassland',land:true,water:false};
+  if(h.h>=35&&h.h<70&&h.s>.18)return {type:l>165?'coast':'hill',land:true,water:false,coast:l>165};
+  if(h.h>=18&&h.h<42&&h.s>.22)return {type:'desert',land:true,water:false};
+  if(h.s<.25&&l>45&&l<190)return {type:'mountain',land:true,water:false,mountain:true};
+  return {type:'land',land:true,water:false};
+}
+function scannerTerrainShallow(scan,x,y){const p=scannerPixel(scan,x,y); if(!p||p.a<20)return {land:false,water:false}; const h=scannerHsv(p),l=scannerLum(p),water=(h.h>=165&&h.h<=248&&h.s>.24); return {water,land:!water,mountain:(h.s<.28&&l>45&&l<175)};}
+function scannerContext(scan,x,y,r){let water=0,land=0,mountain=0,total=0,step=Math.max(2,Math.round(r/5)); for(let yy=y-r;yy<=y+r;yy+=step)for(let xx=x-r;xx<=x+r;xx+=step){if((xx-x)*(xx-x)+(yy-y)*(yy-y)>r*r)continue; const t=scannerTerrainShallow(scan,xx,yy); total++; if(t.water)water++; if(t.land)land++; if(t.mountain)mountain++;} return {water:water/Math.max(1,total),land:land/Math.max(1,total),mountain:mountain/Math.max(1,total)};}
+function findNearestScannerPixel(scan,x,y,ok,maxR,step=2){let best=null,bestScore=Infinity; for(let r=0;r<=maxR;r+=step){for(let yy=y-r;yy<=y+r;yy+=step)for(let xx=x-r;xx<=x+r;xx+=step){if(Math.abs(xx-x)!==r&&Math.abs(yy-y)!==r)continue; const t=scannerTerrain(scan,xx,yy); if(!ok(t,xx,yy))continue; const d=(xx-x)*(xx-x)+(yy-y)*(yy-y); if(d<bestScore){bestScore=d;best={x:xx,y:yy,terrain:t};}} if(best)return best;} return null;}
+async function applyBelavadosScannerPlacement(payload,provs){
+  LAST_IMPORT_MAP_BOUNDS=extractJsonMapBounds(payload||{}); const stats={fromPixels:0,settlementSnaps:0,borderSnaps:0}; const scan=await scannerLoadImage(); if(!Array.isArray(provs))return stats;
+  for(const p of provs){const raw=p.raw||{}; const rawBorder=firstArray(raw.points,raw.anchors,raw.border,raw.borders,raw.boundary,raw.borderData&&raw.borderData.exactLocations,raw.borderData&&raw.borderData.points,raw.borderData&&raw.borderData.anchors);
+    if(rawBorder.length){const rebuilt=rawBorder.map(coordFromJsonPoint).filter(Boolean).map(c=>{if(c.fromPixel)stats.fromPixels++; return {lat:c.lat,lon:c.lon};}); if(rebuilt.length>=2)p.border=rebuilt;}
+    if(scan&&p.border&&p.border.length){p.border=p.border.map(pt=>{const px=latLonToPixelFlat(pt.lat,pt.lon,scan.w,scan.h), terr=scannerTerrain(scan,px.x,px.y); if(terr.water&&!terr.coast){const near=findNearestScannerPixel(scan,px.x,px.y,t=>t.land||t.coast,24,2); if(near){stats.borderSnaps++; return pixelToLatLonFlat(near.x,near.y,{left:0,top:0,width:scan.w,height:scan.h});}} return pt;});}
+    const rawSettles=normalizeSettlementItems(firstArray(raw.settlements,raw.places,raw.sites,raw.towns,raw.cities,[])); if(rawSettles.length){const byName=new Map(p.settlements.map(s=>[normalizeProvinceKey(s.name),s])); for(const rs of rawSettles){const name=rs.name||rs.settlementName||rs.settlement_name||rs.settlement||rs.Settlement; const match=byName.get(normalizeProvinceKey(name)); if(!match)continue; const c=coordFromJsonPoint(rs); if(c&&c.fromPixel){match.lat=c.lat; match.lon=c.lon; stats.fromPixels++;}}}
+    if(scan&&p.settlements){for(const s of p.settlements){const px=latLonToPixelFlat(s.lat,s.lon,scan.w,scan.h), terr=scannerTerrain(scan,px.x,px.y); if(!terr.land||terr.water||terr.ice){const near=findNearestScannerPixel(scan,px.x,px.y,t=>t.land&&!t.water&&!t.ice,64,2); if(near){const ll=pixelToLatLonFlat(near.x,near.y,{left:0,top:0,width:scan.w,height:scan.h}); s.lat=ll.lat; s.lon=ll.lon; s.scannerAdjusted=true; s.scannerTerrain=near.terrain.type; stats.settlementSnaps++;}}else{s.scannerTerrain=terr.type;}}}
+    p.scannerStats={...stats};
+  }
+  return stats;
+}
+
 function handleJson(e){
   const file=e.target.files[0];
   if(!file)return;
   const reader=new FileReader();
-  reader.onload=()=>{
+  reader.onload=async()=>{
     try{
       const payload=JSON.parse(reader.result);
-      const mapUpdated=setActiveGlobeMapFromPayload(payload);
+      const mapUpdated=await setActiveGlobeMapFromPayloadForScanner(payload);
       provinces=normalizeData(payload);
+      const scanStats=await applyBelavadosScannerPlacement(payload,provinces);
       populateProvinceSelect();
       const borderCount=provinces.reduce((n,p)=>n+p.border.length,0);
       const pinCount=provinces.reduce((n,p)=>n+p.settlements.length,0);
       const settlementNameCount=provinces.reduce((n,p)=>n+(p.settlementNames?p.settlementNames.length:0),0);
-      saveGlobePayload('Belavadös Single Globe JSON Import');
+      saveGlobePayload('Belavadös Single Globe JSON Import + Scanner Alignment');
       const coordNote=(borderCount||pinCount)?` Loaded ${borderCount} border coordinate${borderCount===1?'':'s'} and ${pinCount} settlement pin${pinCount===1?'':'s'}.`:` This JSON imported successfully, but it does not contain border arrays or settlement lat/lon coordinates, so there is nothing coordinate-based to draw on the globe yet.`;
       const mapNote=mapUpdated?' The globe texture was also updated from the JSON export so borders/pins line up with the same map image used by the DM map.':' No embedded map texture was found in the JSON, so the existing globe texture was kept.';
-      readout.innerHTML=`<div class="notice ok">Imported and saved ${provinces.length} province${provinces.length===1?'':'s'}${settlementNameCount?` and recognized ${settlementNameCount} settlement name${settlementNameCount===1?'':'s'}`:''}.${coordNote}${mapNote} Choose a province from the dropdown, or press Save Progress to Player View.</div>`;
+      readout.innerHTML=`<div class="notice ok">Imported, scanned, aligned, and saved ${provinces.length} province${provinces.length===1?'':'s'}${settlementNameCount?` and recognized ${settlementNameCount} settlement name${settlementNameCount===1?'':'s'}`:''}.${coordNote}${mapNote}${scannerLogNote(scanStats)} Choose a province from the dropdown, or press Save Progress to Player View.</div>`;
     }catch(err){
       console.error(err);
-      readout.innerHTML=`<div class="notice">JSON import failed: ${escapeHtml(err.message)}</div>`;
+      readout.innerHTML=`<div class="notice">JSON import/scanner alignment failed: ${escapeHtml(err.message)}</div>`;
     }
   };
   reader.readAsText(file);
 }
 function normalizeData(data){
+  LAST_IMPORT_MAP_BOUNDS=extractJsonMapBounds(data||{});
   let arr=[];
   if(Array.isArray(data)) arr=data;
   else if(data&&Array.isArray(data.provinces)) arr=data.provinces;
@@ -643,10 +760,12 @@ function normalizeData(data){
       const name=s.name||s.settlementName||s.settlement_name||s.settlement||s.Settlement||`Settlement ${j+1}`;
       const type=s.type||s.pinType||s.settlementType||s.settlement_type||s.kind||s.Type||'settlement';
       const coords=s.coordinates||s.coord||{};
-      const lat=num(s.lat??s.latitude??s.Latitude??coords.lat??coords.latitude);
-      const lon=num(s.lon??s.lng??s.longitude??s.Longitude??coords.lon??coords.lng??coords.longitude);
+      let lat=num(s.lat??s.latitude??s.Latitude??coords.lat??coords.latitude);
+      let lon=num(s.lon??s.lng??s.longitude??s.Longitude??coords.lon??coords.lng??coords.longitude);
+      const scannerCoord=coordFromJsonPoint(s);
+      if(scannerCoord&&scannerCoord.fromPixel){lat=scannerCoord.lat;lon=scannerCoord.lon;}
       settlementNames.push(String(name));
-      return {name,type,lat,lon,url:s.url||s.href||s.htmlFileName||s.loreLink||s.externalLoreLink||''};
+      return {name,type,lat,lon,url:s.url||s.href||s.htmlFileName||s.loreLink||s.externalLoreLink||'',x:scannerCoord&&scannerCoord.x,y:scannerCoord&&scannerCoord.y};
     }).filter(s=>Number.isFinite(s.lat)&&Number.isFinite(s.lon));
     return {
       name:p.name||p.provinceName||p.province_name||p.province||`Province ${i+1}`,
@@ -659,11 +778,7 @@ function normalizeSettlementItems(items){if(Array.isArray(items))return items; i
 function normalizeCoords(coords){
   if(!Array.isArray(coords))return[];
   if(coords.length&&Array.isArray(coords[0])&&Array.isArray(coords[0][0]))coords=coords[0];
-  return coords.map(c=>{
-    if(Array.isArray(c)){ return {lat:num(c[0]),lon:num(c[1])}; }
-    const nested=c&&(c.coordinates||c.coord||c.point||{});
-    return {lat:num(c.lat??c.latitude??c.Latitude??nested.lat??nested.latitude),lon:num(c.lon??c.lng??c.longitude??c.Longitude??nested.lon??nested.lng??nested.longitude)};
-  }).filter(c=>Number.isFinite(c.lat)&&Number.isFinite(c.lon));
+  return coords.map(c=>coordFromJsonPoint(c)).filter(Boolean).map(c=>({lat:c.lat,lon:c.lon,x:c.x,y:c.y,fromPixel:!!c.fromPixel})).filter(c=>Number.isFinite(c.lat)&&Number.isFinite(c.lon));
 }
 function num(v){return typeof v==='string'?parseFloat(v.replace('°','')):+v;}
 function populateProvinceSelect(){provinceSelect.innerHTML='<option value="">Select a province…</option>'; provinces.sort((a,b)=>a.name.localeCompare(b.name)).forEach((p,i)=>{p._id=String(i); const o=document.createElement('option'); o.value=p._id; const displayCount=p.settlements.length||(p.settlementNames?p.settlementNames.length:0); o.textContent=`${p.name} (${displayCount} settlement${displayCount===1?'':'s'})`; provinceSelect.appendChild(o);});}
