@@ -95,6 +95,7 @@ html{scroll-behavior:smooth} body{overflow-x:hidden} img,canvas,svg,video,iframe
 body.player-mode label[for="jsonFile"],
 body.player-mode #jsonFile,
 body.player-mode #sampleJson,
+body.player-mode #clearAllJsonData,
 body.player-mode #saveProgressToPlayerGlobe,
 body.player-mode #saveFlatMap,
 body.player-mode #exportJson,
@@ -315,6 +316,7 @@ body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-
 <label class="fileBtn" for="jsonFile">Import Province / Settlement JSON</label><input accept=".json,application/json" id="jsonFile" type="file"/>
 <select id="provinceSelect"><option value="">No province data imported</option></select>
 <div class="grid2"><button id="clearProvince">Clear Province Highlight</button><button id="sampleJson">Show JSON Format</button></div>
+<div class="grid2 dm-only"><button class="wide" id="clearAllJsonData" title="Remove all imported/saved globe JSON data from this browser and clear visible province borders and settlement pins.">Clear All JSON Data</button></div>
 <div class="grid2"><button class="wide" id="saveProgressToPlayerGlobe" title="Save the current DM globe data in this browser, then open the player globe.">Save Progress to Player Globe</button></div>
 <p class="tiny dm-only">Accepted fields are flexible: province <b>name</b>, <b>border</b>/<b>borders</b> coordinate arrays, and <b>settlements</b> with name, lat, lon, and type. Selecting a province highlights its border and places settlement pins on the globe.</p>
 <p class="tiny player-only">Choose a saved province to highlight its glowing border and show its settlement pins.</p>
@@ -612,6 +614,30 @@ function saveProgressToPlayerGlobe(){
   readout.innerHTML=`<div class="notice ok">Saved ${payload.provinces.length} province${payload.provinces.length===1?'':'s'} to this browser for the player view. Switching to player view now.</div>`;
   window.location.href=PLAYER_GLOBE_URL;
 }
+
+function clearAllJsonData(){
+  if(!confirm('Clear all imported/saved globe JSON data from this browser? This removes province data, borders, settlement pins, the selected province, and saved player-view progress.')) return;
+  provinces=[];
+  selectedProvince=null;
+  selectedPinObjects=[];
+  LAST_IMPORT_MAP_BOUNDS=null;
+  BELAVADOS_SCANNER_CACHE=null;
+  if(borderGroup) borderGroup.clear();
+  if(pinGroup) pinGroup.clear();
+  if(provinceSelect) provinceSelect.innerHTML='<option value="">No province data imported</option>';
+  if(selectedName) selectedName.textContent='none';
+  const fileInput=by('jsonFile');
+  if(fileInput) fileInput.value='';
+  try{
+    [
+      GLOBE_STORAGE_KEY,
+      'belavados_dm_globe_provinces',
+      'belavados_globe_selected_province'
+    ].forEach(k=>localStorage.removeItem(k));
+  }catch(err){console.warn('Could not clear saved globe JSON data:',err);}
+  applyActiveGlobeTexture(BELAVADOS_GLOBE_MAP);
+  readout.innerHTML='<div class="notice ok">All imported/saved globe JSON data has been cleared. The globe is back to its default texture with no selected province, borders, or settlement pins.</div>';
+}
 function bindUI(){
   addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
   renderer.domElement.addEventListener('pointerdown',e=>{isDragging=true;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId);});
@@ -626,7 +652,7 @@ function bindUI(){
   by('topDown').onclick=()=>setCameraPreset('topDown'); by('topUp').onclick=()=>setCameraPreset('topUp'); by('standardView').onclick=()=>setCameraPreset('standard'); by('viewSystem').onclick=()=>setCameraPreset('system'); by('viewGlobe').onclick=()=>setCameraPreset('globe');
   by('bottomTopDown').onclick=()=>setCameraPreset('topDown'); by('bottomTopUp').onclick=()=>setCameraPreset('topUp'); by('bottomSystem').onclick=()=>setCameraPreset('system');
   by('recenter').onclick=()=>setCameraPreset('globe');
-  by('jsonFile').addEventListener('change',handleJson); provinceSelect.addEventListener('change',()=>selectProvince(provinceSelect.value)); by('clearProvince').onclick=()=>selectProvince(''); by('sampleJson').onclick=showSampleJson; by('saveProgressToPlayerGlobe').onclick=saveProgressToPlayerGlobe; by('saveFlatMap').onclick=exportFlatMap; by('exportBottom').onclick=exportFlatMap; by('exportJson').onclick=exportJsonData;
+  by('jsonFile').addEventListener('change',handleJson); provinceSelect.addEventListener('change',()=>selectProvince(provinceSelect.value)); by('clearProvince').onclick=()=>selectProvince(''); by('sampleJson').onclick=showSampleJson; by('clearAllJsonData')?.addEventListener('click',clearAllJsonData); by('saveProgressToPlayerGlobe').onclick=saveProgressToPlayerGlobe; by('saveFlatMap').onclick=exportFlatMap; by('exportBottom').onclick=exportFlatMap; by('exportJson').onclick=exportJsonData;
   by('hideAll').onclick=()=>['leftPanel','rightPanel','bottomPanel'].forEach(hidePanel); by('showAll').onclick=()=>['leftPanel','rightPanel','bottomPanel'].forEach(showPanel); document.querySelectorAll('[data-hide]').forEach(b=>b.onclick=()=>hidePanel(b.dataset.hide));
 }
 function by(id){return document.getElementById(id)}
