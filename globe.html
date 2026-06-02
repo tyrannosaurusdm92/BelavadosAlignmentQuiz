@@ -49,6 +49,11 @@
   .bubble{position:fixed;z-index:11;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--cyan);padding:10px 12px;box-shadow:0 0 18px rgba(0,255,255,.16);cursor:pointer;display:none}
   #bubbleControls{left:16px;top:16px} #bubbleInfo{right:16px;top:16px} #bubbleLegend{left:16px;bottom:16px}
   #fileInput{display:none}
+  body.player-mode .dm-only{display:none!important}
+  .modeBadge{margin:0 0 8px 0;padding:8px 10px;border:1px solid rgba(0,255,255,.25);border-radius:10px;background:rgba(0,255,255,.06);color:var(--muted);font-size:12px;line-height:1.35}
+  body.dm-mode .modeBadge{color:#eaffff;border-color:rgba(0,255,255,.45);background:rgba(0,255,255,.10)}
+  body.player-mode .modeBadge::before{content:"Player mode: PNG downloads only. JSON import/export and clear-all tools are locked."}
+  body.dm-mode .modeBadge::before{content:"DM editor mode: full JSON import/export, PNG downloads, and clear-all tools enabled."}
   .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--gold)}
   .err{color:var(--danger)}
   a{color:var(--cyan)}
@@ -130,12 +135,17 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
 <body class="bdg-has-global-nav player-mode">
 <script>
   (function(){
-    var hash = (location.hash || '').trim().toLowerCase();
-    var params = new URLSearchParams(location.search || '');
-    var wantsDM = hash === '#dm-editor' || params.get('mode') === 'dm-editor';
-    document.body.classList.toggle('dm-mode', wantsDM);
-    document.body.classList.toggle('player-mode', !wantsDM);
-    document.documentElement.dataset.globeMode = wantsDM ? 'dm-editor' : 'player';
+    function syncGlobeAccessMode(){
+      var hash = (location.hash || '').trim().toLowerCase();
+      var params = new URLSearchParams(location.search || '');
+      var wantsDM = hash === '#dm-editor' || params.get('mode') === 'dm-editor';
+      document.body.classList.toggle('dm-mode', wantsDM);
+      document.body.classList.toggle('player-mode', !wantsDM);
+      document.documentElement.dataset.globeMode = wantsDM ? 'dm-editor' : 'player';
+      window.BELAVADOS_IS_DM_EDITOR = wantsDM;
+    }
+    syncGlobeAccessMode();
+    window.addEventListener('hashchange', syncGlobeAccessMode);
   })();
 </script>
 <div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav"><div class="bdg-bar"><div class="bdg-drag-handle" title="Drag navigation">✥</div><details><summary>☰ Site Navigation</summary><div class="bdg-menu" role="menu"><a class="bdg-link" href="index.html">Main Page</a><a class="bdg-link" href="portal.html">Player Portal</a><a class="bdg-link" href="quiz.html">Alignment Quizzes</a><a class="bdg-link" href="charactersheet.html">Character Sheet</a><a class="bdg-link" href="charactersheetgenerator.html">Character Generator</a><a class="bdg-link" href="belavados_map_PLAYER.html">Player Map</a><a class="bdg-link" href="transportation.html">Transportation</a><a class="bdg-link" href="atlas.html">Atlas</a><a class="bdg-link" href="globe.html">Globe</a><a class="bdg-link" href="solar_system.html">Solar System</a><a class="bdg-link" href="constellations.html">Constellations</a></div></details><button id="bdg-hide-nav" type="button">Hide Nav</button><div class="bdg-title"><b>Belavadös</b><span>site navigation</span></div></div></div>
@@ -207,7 +217,7 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
       <button type="button" data-hour="0">0hr</button><button type="button" data-hour="3">3hr</button><button type="button" data-hour="6">6hr</button><button type="button" data-hour="9">9hr</button>
       <button type="button" data-hour="12">12hr</button><button type="button" data-hour="15">15hr</button><button type="button" data-hour="18">18hr</button><button type="button" data-hour="21">21hr</button>
     </div>
-    <div class="row">
+    <div class="row dm-only" data-dm-only="json-tools">
       <button id="importBtn">Import JSON</button>
       <button id="exportBtn">Export JSON</button>
     </div>
@@ -215,8 +225,8 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
       <button id="flatPngBtn">Export Flat PNG</button>
       <button id="globePngBtn">Export Globe PNG</button>
     </div>
-    <button id="clearBtn">Clear All JSON Data</button>
-    <input id="fileInput" type="file" accept=".json,application/json" />
+    <button id="clearBtn" class="dm-only" data-dm-only="clear-json">Clear All JSON Data</button>
+    <input id="fileInput" class="dm-only" type="file" accept=".json,application/json" />
     <p class="small">Drag the globe for full 360° rotation. Wheel zooms. Only the selected province border glows; settlement pins are limited to that selected province. The second version globe now sits at the center of the visible sun-and-moons system.</p>
   </div>
 </section>
@@ -1145,16 +1155,34 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
   $('planetViewBtn').addEventListener('click', ()=>{ zoom=1; $('zoomRange').value=1; queueRender(); });
   $('toggleSpinBtn').addEventListener('click', ()=>{ state.autoRotate=!state.autoRotate; $('autoRotate').checked=state.autoRotate; });
   $('focusBtn').addEventListener('click', focusProvince);
-  $('exportBtn').addEventListener('click', ()=>download('Belavados_globe_export.json','application/json',JSON.stringify(globeData,null,2)));
+
+  function isDMEditor(){
+    return document.documentElement.dataset.globeMode === 'dm-editor' || window.BELAVADOS_IS_DM_EDITOR === true;
+  }
+  function requireDMEditor(actionLabel){
+    if (isDMEditor()) return true;
+    alert((actionLabel || 'That tool') + ' is only available on globe.html#dm-editor. Player mode only allows PNG downloads.');
+    return false;
+  }
+
+  $('exportBtn').addEventListener('click', ()=>{
+    if (!requireDMEditor('JSON export')) return;
+    download('Belavados_globe_export.json','application/json',JSON.stringify(globeData,null,2));
+  });
   $('flatPngBtn').addEventListener('click', exportFlatPNG);
   $('globePngBtn').addEventListener('click', exportGlobePNG);
   $('clearBtn').addEventListener('click', ()=>{
+    if (!requireDMEditor('Clearing JSON data')) return;
     globeData.provinces = [];
     populateUI();
     queueRender();
   });
-  $('importBtn').addEventListener('click', ()=>$('fileInput').click());
+  $('importBtn').addEventListener('click', ()=>{
+    if (!requireDMEditor('JSON import')) return;
+    $('fileInput').click();
+  });
   $('fileInput').addEventListener('change', async e=>{
+    if (!requireDMEditor('JSON import')) { e.target.value=''; return; }
     const file = e.target.files[0]; if (!file) return;
     try { loadData(JSON.parse(await file.text())); }
     catch(err){ alert('That JSON could not be imported: '+err.message); }
