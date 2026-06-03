@@ -750,29 +750,23 @@ body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-
 </main>
 <script>
 (function(){
-const MONTHS=["Thoryn-Rahek","Freysethysra","Nefarokir","Thalunesh","Horundar","Raeshkul","Asethrimir","Sokhivar","Iskazunet","Bastve’enlil","Hathruna"];
+const MONTHS=['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna'];
 const WEEKDAYS=['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
+const SOLAR_YEAR_DAYS=330.15, CIVIL_YEAR_DATES=330;
 function pad(n){return String(n).padStart(2,'0')}
-function yearStart(y){return new Date(y,0,1)}
+function isLeapYear(y){return (y%4===0&&y%100!==0)||(y%400===0)}
 function updateTime(){
-  const now=new Date();
-  const start=yearStart(now.getFullYear());
-  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-  const doy=Math.floor((today-start)/86400000)+1;
-  const frac=(now-today)/86400000;
-  const civicYearDay=(((doy-1+frac)/0.9045)%330+330)%330;
-  const monthIndex=Math.floor(civicYearDay/30);
-  const dayOfMonth=Math.floor(civicYearDay%30)+1;
-  const seconds=Math.floor((civicYearDay%1)*86400);
-  const bh=Math.floor(seconds/3600);
-  const bm=Math.floor((seconds%3600)/60);
-  const bs=seconds%60;
-  const driftStart=Math.floor((new Date(now.getFullYear(),9,25)-start)/86400000)+1;
-  const isDrift=doy>=driftStart;
+  const now=new Date(), y=now.getFullYear(), start=new Date(y,0,1,0,0,0,0);
+  const earthDayProgress=(now-start)/86400000;
+  const earthProgress=earthDayProgress/(isLeapYear(y)?366:365);
+  const belSolarDayProgress=earthProgress*SOLAR_YEAR_DAYS;
+  const belCivilDateProgress=earthProgress*CIVIL_YEAR_DATES;
+  const monthIndex=Math.min(10,Math.floor(belCivilDateProgress/30));
+  const dayOfMonth=Math.min(30,Math.floor(belCivilDateProgress%30)+1);
+  const seconds=Math.floor((((belSolarDayProgress%1)+1)%1)*86400);
+  const bh=Math.floor(seconds/3600), bm=Math.floor((seconds%3600)/60), bs=seconds%60;
   document.getElementById('earthTime').textContent=now.toLocaleString();
-  document.getElementById('belavadosTime').textContent=isDrift
-    ? `Belavadös: Drift Buffer Day ${doy-driftStart+1}`
-    : `Belavadös: ${MONTHS[monthIndex]} ${dayOfMonth}, ${WEEKDAYS[now.getDay()]}, ${pad(bh)}:${pad(bm)}:${pad(bs)} Bh`;
+  document.getElementById('belavadosTime').textContent=`Belavadös: ${MONTHS[monthIndex]} ${dayOfMonth}, ${WEEKDAYS[now.getDay()]}, ${pad(bh)}:${pad(bm)}:${pad(bs)} Bh • solar ${belSolarDayProgress.toFixed(2)}`;
 }
 updateTime();
 setInterval(updateTime,1000);
@@ -782,10 +776,31 @@ setInterval(updateTime,1000);
 (function(){
   const pageJump=document.getElementById('bd-page-jump');
   if(pageJump){pageJump.addEventListener('change',e=>{if(e.target.value) location.href=e.target.value;});}
-  const months=['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
-  const weekdays=['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
+  const months=['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna'];
+  const weekdays=['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
+  const SOLAR_YEAR_DAYS=330.15, CIVIL_YEAR_DATES=330;
   const earthEl=document.getElementById('bd-earth-time'), belEl=document.getElementById('bd-belavados-time'), tzSel=document.getElementById('bd-timezone-select');
   function parseOffset(v){ if(v==null) return 0; if(typeof v==='number') return Math.max(-12,Math.min(12,v)); let s=String(v).trim(); let m=s.match(/([+-]?\d{1,2})(?::?\d{2})?/); return m?Math.max(-12,Math.min(12,parseInt(m[1],10))):0; }
+  function isLeapYear(y){return (y%4===0 && y%100!==0) || (y%400===0);}
+  function daysInEarthYear(y){return isLeapYear(y)?366:365;}
+  function zonedDate(date, offsetHours){return new Date(date.getTime()+offsetHours*3600000);}
+  function belavadosFromEarth(date, offsetHours){
+    const z=zonedDate(date, offsetHours);
+    const y=z.getUTCFullYear();
+    const start=Date.UTC(y,0,1,0,0,0,0);
+    const earthDayProgress=(z.getTime()-start)/86400000;
+    const earthProgress=earthDayProgress/daysInEarthYear(y);
+    const belSolarDayProgress=earthProgress*SOLAR_YEAR_DAYS;
+    const belCivilDateProgress=earthProgress*CIVIL_YEAR_DATES;
+    const monthIndex=Math.min(10,Math.floor(belCivilDateProgress/30));
+    const dayOfMonth=Math.min(30,Math.floor(belCivilDateProgress%30)+1);
+    const solarFrac=((belSolarDayProgress%1)+1)%1;
+    const totalSeconds=Math.floor(solarFrac*86400);
+    const hh=String(Math.floor(totalSeconds/3600)).padStart(2,'0');
+    const mm=String(Math.floor((totalSeconds%3600)/60)).padStart(2,'0');
+    const ss=String(totalSeconds%60).padStart(2,'0');
+    return {earthYear:y,month:months[monthIndex],dayOfMonth,weekday:weekdays[z.getUTCDay()],clock:`${hh}:${mm}:${ss}`,solarDayProgress:belSolarDayProgress,civilDateProgress:belCivilDateProgress};
+  }
   function findTZ(obj){ if(!obj||typeof obj!=='object') return null; const keys=['timeZone','timezone','utcOffset','belavadosTimeZone','belavados_timezone','settlementTimeZone','settlement_timezone']; for(const k of keys){ if(obj[k]!=null) return obj[k]; } for(const v of Object.values(obj)){ if(v&&typeof v==='object'){ const found=findTZ(v); if(found!=null) return found; } } return null; }
   function applyJSONTZ(obj){ const found=findTZ(obj); if(found!=null && tzSel){ tzSel.value=String(parseOffset(found)); localStorage.setItem('belavadosTimeZoneOffset',tzSel.value); tick(); } }
   try{ const saved=localStorage.getItem('belavadosTimeZoneOffset'); if(saved&&tzSel) tzSel.value=saved; }catch(e){}
@@ -796,10 +811,9 @@ setInterval(updateTime,1000);
   function tick(){
     const now=new Date();
     if(earthEl){ earthEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'}).format(now); }
-    const off=tzSel?parseOffset(tzSel.value):0; const shifted=new Date(now.getTime()+off*3600000);
-    const epoch=Date.UTC(2025,0,1); const days=Math.floor((shifted.getTime()-epoch)/86400000); const year=1+Math.floor(Math.max(0,days)/330); const doy=((days%330)+330)%330; const month=months[Math.floor(doy/30)]; const day=1+(doy%30); const weekday=weekdays[((days%7)+7)%7];
-    const hh=String(shifted.getUTCHours()).padStart(2,'0'), mm=String(shifted.getUTCMinutes()).padStart(2,'0'), ss=String(shifted.getUTCSeconds()).padStart(2,'0');
-    if(belEl){ belEl.textContent=`${weekday}, ${month} ${day}, Year ${year} • ${hh}:${mm}:${ss} (UTC${off>=0?'+':''}${off})`; }
+    const off=tzSel?parseOffset(tzSel.value):0;
+    const bel=belavadosFromEarth(now, off);
+    if(belEl){ belEl.textContent=`${bel.weekday}, ${bel.month} ${bel.dayOfMonth}, Earth Year ${bel.earthYear} • ${bel.clock} Bh • solar ${bel.solarDayProgress.toFixed(2)} (UTC${off>=0?'+':''}${off})`; }
   }
   tick(); setInterval(tick,1000);
 })();

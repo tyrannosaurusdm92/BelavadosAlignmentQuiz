@@ -310,8 +310,8 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
     {lat:-65, name:"Thoryn-Rahek's Southern Underworld Gate"}
   ];
   const BELAVADOS_TIME = {
-    earthDaysPerBeladay: 0.9045,
-    beladaysPerEarthDay: 1/0.9045,
+    solarYearDays: 330.15,
+    civilYearDates: 330,
     months:['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna'],
     earthWeekdays:['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'],
   };
@@ -407,13 +407,13 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
     const y = z.getUTCFullYear();
     const start = Date.UTC(y,0,1,0,0,0,0);
     const elapsedEarthDays = (z.getTime() - start) / 86400000;
-    const belElapsed = elapsedEarthDays / BELAVADOS_TIME.earthDaysPerBeladay;
-    const wholeBelDay = Math.floor(belElapsed);
-    const belFrac = ((belElapsed % 1) + 1) % 1;
-    const cycleDayIndex = ((wholeBelDay % 330) + 330) % 330;
-    const drift = elapsedEarthDays >= 297; // Approx. Oct 25 onward; the civil guide treats this as Drift Buffer / 35-Day Ghost.
-    const monthIndex = Math.floor(cycleDayIndex / 30);
-    const day = (cycleDayIndex % 30) + 1;
+    const leap = (y%4===0 && y%100!==0) || (y%400===0);
+    const earthProgress = elapsedEarthDays / (leap ? 366 : 365);
+    const belSolarDayProgress = earthProgress * BELAVADOS_TIME.solarYearDays;
+    const belCivilDateProgress = earthProgress * BELAVADOS_TIME.civilYearDates;
+    const monthIndex = Math.min(10, Math.floor(belCivilDateProgress / 30));
+    const day = Math.min(30, Math.floor(belCivilDateProgress % 30) + 1);
+    const belFrac = ((belSolarDayProgress % 1) + 1) % 1;
     const totalSeconds = Math.floor(belFrac * 86400);
     const bh = Math.floor(totalSeconds / 3600);
     const bm = Math.floor((totalSeconds % 3600) / 60);
@@ -422,14 +422,16 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
       year:y, month:BELAVADOS_TIME.months[monthIndex], day,
       weekday:BELAVADOS_TIME.earthWeekdays[z.getUTCDay()],
       time:`${pad2(bh)}:${pad2(bm)}:${pad2(bs)} Bh`,
-      drift,
-      cyclePosition:(belElapsed + 1)
+      drift:false,
+      cyclePosition:belSolarDayProgress,
+      solarDayProgress:belSolarDayProgress,
+      civilDateProgress:belCivilDateProgress
     };
   }
   function updateBelavadosTimeReadout(now, offsetHours){
     const bel = belavadosFromEarth(now, offsetHours);
     const earth = formatEarthDateTimeForOffset(now, offsetHours);
-    const dateText = bel.drift ? `Drift Buffer / 35-Day Ghost, ${bel.weekday}` : `${bel.month} ${bel.day}, ${bel.weekday}`;
+    const dateText = `${bel.month} ${bel.day}, ${bel.weekday} • solar ${bel.solarDayProgress.toFixed(2)}`;
     if($('earthDateClock')) $('earthDateClock').textContent = earth;
     if($('belDateClock')) $('belDateClock').textContent = dateText;
     if($('belTimeClock')) $('belTimeClock').textContent = bel.time;
@@ -787,7 +789,7 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
 
     // Real reference values supplied by Andrew:
     // Chandratecu-Seleneš: 239,973 mi from Belavadös, 1,749 mi diameter, 19.20 Belavadös days.
-    // Mictlindra-Nannara: ~263,030 mi from Belavadös, ~23,057 mi from Chandratecu-Seleneš, 1,014 mi diameter, 1.70 Belavadös days.
+    // Mictlindra-Nannara: 41,600 km from Chandratecu-Seleneš, 1,014 mi diameter, 2.02 Belavadös days.
     // These are visually compressed so they stay on screen, but the moons are pulled much farther out
     // so they no longer read as if they are about to collide with Belavadös.
     const orbitRadius = radius * 1.38;
@@ -804,7 +806,7 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
     const moonX = cx + Math.cos(moonAngle) * orbitRadius;
     const moonY = cy + Math.sin(moonAngle) * (orbitRadius * orbitFlatten);
 
-    const moon2Angle = -(simDays / 1.70) * tau + moonAngle * 0.3;
+    const moon2Angle = -(simDays / 2.02) * tau + moonAngle * 0.3;
     const moon2X = moonX + Math.cos(moon2Angle) * moon2Orbit;
     const moon2Y = moonY + Math.sin(moon2Angle) * (moon2Orbit * moon2Flatten);
 
@@ -871,7 +873,7 @@ body.bdg-nav-hidden #bd-global-dropdown-nav{display:none!important}body.bdg-nav-
 
     pointerHits.push({x:sunX, y:sunY, r:sunRadius+10, name:'The Sun', sub:'Visible system star for the merged globe view'});
     pointerHits.push({x:moonX, y:moonY, r:moonRadius+10, name:'Chandratecu-Seleneš', sub:'Primary moon • 1,749 mi diameter • 239,973 mi from Belavadös • 19.20 day cycle'});
-    pointerHits.push({x:moon2X, y:moon2Y, r:moon2Radius+10, name:'Mictlindra-Nannara', sub:'Secondary moon • 1,014 mi diameter • ~23,057 mi from Chandratecu-Seleneš • 1.70 day cycle'});
+    pointerHits.push({x:moon2X, y:moon2Y, r:moon2Radius+10, name:'Mictlindra-Nannara', sub:'Secondary moon • 1,014 mi diameter • 41,600 km from Chandratecu-Seleneš • 2.02 day cycle'});
 
     if (state.showLabels){
       label('Sun', sunX + sunRadius + 8, sunY, '#ffffff');

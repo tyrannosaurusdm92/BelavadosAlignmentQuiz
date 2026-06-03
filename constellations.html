@@ -438,7 +438,7 @@ body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-
 <option value="60">1 Belavadös year = 1 minute</option>
 <option value="30">1 Belavadös year = 30 seconds</option>
 </select>
-<label>Belavadös orbital day</label><input id="day" max="364" min="0" type="range" value="0"/>
+<label>Belavadös orbital day</label><input id="day" max="330" min="0" step="0.01" type="range" value="0"/>
 <label>Observer latitude</label><input id="lat" max="80" min="-80" type="range" value="40"/>
 <label>Zoom into constellation</label>
 <div class="row"><select id="constellationSelect"></select><button id="zoomConstellation">Zoom</button></div>
@@ -453,7 +453,7 @@ body.bdg-has-global-nav .panel,body.bdg-has-global-nav .hud,body.bdg-has-global-
 <script>
 const CONSTELLATIONS = [{"abbr": "Tau", "name": "The Minotaur Labyrinth of Anubaldir", "source": "Taurus", "ra": "04 42.13", "dec": "+14 52.63", "area": 797.249, "quad": "NQ1", "raH": 4.702166666666667, "decD": 14.877166666666668, "shape": "Bull's head, horns, and inner maze", "description": "A winter horned maze formed from the Taurus coordinate field, renamed for Anubaldir and the minotaur, goliath, cyclopian, and firbolg lore."}, {"abbr": "Cap", "name": "The Crossroads Mask of Freyseth", "source": "Capricornus", "ra": "21 02.93", "dec": "-18 01.39", "area": 413.947, "quad": "SQ4", "raH": 21.048833333333334, "decD": -18.02316666666667, "shape": "Low mask / road-sign figure", "description": "A low southern late-summer mask drawn from the Capricornus coordinate field, used for pacts, curses, temptation, and planar bloodlines."}, {"abbr": "CrB", "name": "The Wechselkind Crown of Setrimir", "source": "Corona Borealis", "ra": "15 50.59", "dec": "+32 37.49", "area": 178.71, "quad": "NQ3", "raH": 15.843166666666667, "decD": 32.624833333333335, "shape": "Crown arc", "description": "A crown-shaped arc remapped from Corona Borealis for Setrimir's awakened peoples, construct lineages, hidden clasps, and jewel-like star points."}, {"abbr": "Val", "name": "The Dragonborn Dominion of Valkhamesh", "source": "Serpens + Draco", "ra": "16 03.00", "dec": "+36 34.00", "area": 1719.88, "quad": "NQ3", "raH": 16.047333333333334, "decD": 36.56433333333333, "shape": "Two star clusters joined as one curving serpent / draconic banner", "description": "One total constellation made from two legacy coordinate scaffold star clusters: Draco provides the high dragon body, while Serpens provides the lower serpent coil.", "clusters": [{"seed": "Dra", "raH": 15.144, "decD": 67.00666666666666, "area": 1082.952}, {"seed": "Ser", "raH": 16.950666666666667, "decD": 6.122, "area": 636.928}]}, {"abbr": "Cep", "name": "The Sahuagin Deep Gate of Bastveig", "source": "Cepheus", "ra": "02 32.64", "dec": "+71 00.51", "area": 587.787, "quad": "NQ4", "raH": 2.544, "decD": 71.0085, "shape": "Tall doorway with lintel, pillars, and threshold", "description": "A gate-like coordinate frame remapped from Cepheus for Bastveig's trench, reef, Sahuagin, Triton, merfolk, locathah, and grung lore."}, {"abbr": "Psc", "name": "The Twin Drums of Ishtanora", "source": "Pisces", "ra": "00 28.97", "dec": "+13 41.23", "area": 889.417, "quad": "NQ1", "raH": 0.48283333333333334, "decD": 13.687166666666666, "shape": "Two joined circles with bridge cord", "description": "A paired, cord-linked constellation remapped from Pisces for hearth festivals, harvest rites, warning drums, and Ishtanora's smaller folk."}, {"abbr": "Cnc", "name": "The Silkborn Web of Thoryn-Rahek", "source": "Cancer", "ra": "08 38.96", "dec": "+19 48.35", "area": 505.872, "quad": "NQ2", "raH": 8.649333333333333, "decD": 19.805833333333332, "shape": "Petaled web with central knot", "description": "A compact web remapped from Cancer for Silkborn, thri-kreen, cnidarin, oozekin, opteran, and Thoryn-Rahek's aberrant geometry."}, {"abbr": "Lyr", "name": "The Luma Mirror of Nephthysra", "source": "Lyra", "ra": "18 51.17", "dec": "+36 41.36", "area": 286.476, "quad": "NQ4", "raH": 18.852833333333333, "decD": 36.68933333333333, "shape": "V-shaped mirror with winged torch", "description": "A jewel-like mirror frame remapped from Lyra for Luma, Dara, Golynn, Nephthysra, and the beauty-lore of a winged torch."}];
 const canvas = document.getElementById('sky'), ctx = canvas.getContext('2d');
-const TAU = Math.PI*2, DEG=Math.PI/180, RAD=180/Math.PI;
+const TAU = Math.PI*2, DEG=Math.PI/180, RAD=180/Math.PI, BEL_YEAR_DAYS=330.15;
 let W=0,H=0,R=0, playing=true, simDay=0, last=performance.now(), hour=0, lat=40;
 let viewMode='up', zoom=1, panX=0, panY=0, selected=null, hover=null;
 let plotted = [];
@@ -463,7 +463,7 @@ function hash(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt
 function rng(seed){ let s=seed>>>0; return ()=>((s=Math.imul(1664525,s)+1013904223>>>0)/4294967296); }
 function raStringToHours(s){ const [h,m]=s.split(' ').map(Number); return h+m/60; }
 function decStringToDeg(s){ const neg=s.trim()[0]=='-'; const [d,m]=s.replace('+','').replace('-','').split(' ').map(Number); return (neg?-1:1)*(d+m/60); }
-function eclipticSunRA(day){ return (((day-79)/365.2422)*24%24+24)%24; }
+function eclipticSunRA(day){ return (((day-79)/BEL_YEAR_DAYS)*24%24+24)%24; }
 function lstHours(day, localHour){ return (eclipticSunRA(day)+12+localHour)%24; }
 function altAz(raH, decD){
   const phi=lat*DEG, dec=decD*DEG, Hh=(((lstHours(simDay,hour)-raH+12)%24)-12), ha=Hh*15*DEG;
@@ -543,10 +543,10 @@ function drawSky(now){
 }
 function tick(now){
   const dt=(now-last)/1000; last=now;
-  if(playing){ const secPerYear=Number(document.getElementById('speed').value); simDay=(simDay+365*dt/secPerYear)%365; document.getElementById('day').value=Math.floor(simDay); }
+  if(playing){ const secPerYear=Number(document.getElementById('speed').value); simDay=(simDay+BEL_YEAR_DAYS*dt/secPerYear)%BEL_YEAR_DAYS; document.getElementById('day').value=simDay.toFixed(2); }
   updateReadouts(); drawSky(now); requestAnimationFrame(tick);
 }
-function monthDay(d){ const monthLen=[31,28,31,30,31,30,31,31,30,31,30,31], names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; let day=Math.floor(d)+1, m=0; while(day>monthLen[m]){ day-=monthLen[m++]; } return `${names[m]} ${day}`; }
+function monthDay(d){ const names=['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna']; const civil=Math.min(329.999,(d/BEL_YEAR_DAYS)*330); const m=Math.floor(civil/30); const day=Math.floor(civil%30)+1; return `${names[m]} ${day}`; }
 function updateReadouts(){ document.getElementById('dateReadout').textContent=monthDay(simDay)+' · day '+(Math.floor(simDay)+1); document.getElementById('timeReadout').textContent=hour+'hr · LST '+lstHours(simDay,hour).toFixed(2)+'h'; document.getElementById('latReadout').textContent='Lat '+lat+'°'; }
 function setInfo(c){ selected=c; document.getElementById('info').innerHTML=`<h2>${c.name}</h2><div class="sub">Remapped from ${c.source} · ${c.shape}</div><table><tr><td>Source coordinates</td><td>${c.ra} h, ${c.dec}°</td></tr><tr><td>Sky area used</td><td>${c.area.toLocaleString()} square degrees</td></tr><tr><td>Quadrant</td><td>${c.quad}</td></tr><tr><td>Visibility now</td><td>${(project(c.raH,c.decD)?.alt||-99)>0?'Above the horizon':'Below or near the horizon'}</td></tr><tr><td>Figure logic</td><td>${c.description}</td></tr><tr><td>Use</td><td>Press Zoom to center this constellation, then drag or wheel to inspect its figure.</td></tr></table>`; document.getElementById('constellationSelect').value=c.abbr; }
 function focusConstellation(c){ const p=project(c.raH,c.decD); if(!p){ panX=0; panY=0; zoom=1.35; return; } zoom=2.75; panX += innerWidth/2-p.x; panY += innerHeight/2-p.y; setInfo(c); }
@@ -568,8 +568,8 @@ requestAnimationFrame(tick);
   if(window.__belavadosDualTimeInstalled) return;
   window.__belavadosDualTimeInstalled = true;
   const PAGE_LABEL = "Constellation View";
-  const BELA_DAY_RATIO = 0.9045;
-  const BELA_YEAR_DAYS = 330;
+  const BELA_SOLAR_YEAR_DAYS = 330.15;
+  const BELA_CIVIL_YEAR_DATES = 330;
   const MONTHS = ["Thoryn-Rahek", "Freysethysra", "Nefarokir", "Thalunesh", "Horundar", "Raeshkul", "Asethrimir", "Sokhivar", "Iskazunet", "Bastve’enlil", "Hathruna"];
   const WEEKDAYS = ['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
   function pad(n){return String(n).padStart(2,'0');}
@@ -583,21 +583,19 @@ requestAnimationFrame(tick);
     const frac=(now-todayStart)/86400000;
     return {year:y,doy,frac};
   }
-  function driftStartDoy(year){return Math.floor((new Date(year,9,25)-new Date(year,0,1))/86400000)+1;}
   function belavadosParts(now){
     const ep=earthParts(now);
-    const cycleFloat=((ep.doy-1)+ep.frac)/BELA_DAY_RATIO;
-    const cycle=((cycleFloat % BELA_YEAR_DAYS)+BELA_YEAR_DAYS)%BELA_YEAR_DAYS;
-    const monthIndex=Math.floor(cycle/30);
-    const dayOfMonth=Math.floor(cycle%30)+1;
-    const belDayOfYear=Math.floor(cycle)+1;
-    const tf=cycle%1;
+    const daysInEarthYear=((ep.year%4===0&&ep.year%100!==0)||(ep.year%400===0))?366:365;
+    const earthProgress=((ep.doy-1)+ep.frac)/daysInEarthYear;
+    const belSolarDayProgress=earthProgress*BELA_SOLAR_YEAR_DAYS;
+    const belCivilDateProgress=earthProgress*BELA_CIVIL_YEAR_DATES;
+    const monthIndex=Math.min(10,Math.floor(belCivilDateProgress/30));
+    const dayOfMonth=Math.min(30,Math.floor(belCivilDateProgress%30)+1);
+    const belDayOfYear=Math.floor(belCivilDateProgress)+1;
+    const tf=((belSolarDayProgress%1)+1)%1;
     const totalSeconds=Math.floor(tf*24*60*60);
     const bh=Math.floor(totalSeconds/3600), bm=Math.floor((totalSeconds%3600)/60), bs=totalSeconds%60;
-    const driftDoy=driftStartDoy(ep.year);
-    const isDrift=ep.doy>=driftDoy;
-    const driftDay=ep.doy-driftDoy+1;
-    return {month:MONTHS[monthIndex],monthNumber:monthIndex+1,dayOfMonth,belDayOfYear,bh,bm,bs,weekday:WEEKDAYS[now.getDay()],isDrift,driftDay,earthDoy:ep.doy,earthYear:ep.year};
+    return {month:MONTHS[monthIndex],monthNumber:monthIndex+1,dayOfMonth,belDayOfYear,bh,bm,bs,weekday:WEEKDAYS[now.getDay()],isDrift:false,driftDay:0,earthDoy:ep.doy,earthYear:ep.year,solarDayProgress:belSolarDayProgress,civilDateProgress:belCivilDateProgress};
   }
   function earthMonthName(now){return now.toLocaleDateString(undefined,{month:'long'});}
   function makePanel(){
@@ -634,10 +632,31 @@ requestAnimationFrame(tick);
 (function(){
   const pageJump=document.getElementById('bd-page-jump');
   if(pageJump){pageJump.addEventListener('change',e=>{if(e.target.value) location.href=e.target.value;});}
-  const months=['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
-  const weekdays=['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
+  const months=['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna'];
+  const weekdays=['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
+  const SOLAR_YEAR_DAYS=330.15, CIVIL_YEAR_DATES=330;
   const earthEl=document.getElementById('bd-earth-time'), belEl=document.getElementById('bd-belavados-time'), tzSel=document.getElementById('bd-timezone-select');
   function parseOffset(v){ if(v==null) return 0; if(typeof v==='number') return Math.max(-12,Math.min(12,v)); let s=String(v).trim(); let m=s.match(/([+-]?\d{1,2})(?::?\d{2})?/); return m?Math.max(-12,Math.min(12,parseInt(m[1],10))):0; }
+  function isLeapYear(y){return (y%4===0 && y%100!==0) || (y%400===0);}
+  function daysInEarthYear(y){return isLeapYear(y)?366:365;}
+  function zonedDate(date, offsetHours){return new Date(date.getTime()+offsetHours*3600000);}
+  function belavadosFromEarth(date, offsetHours){
+    const z=zonedDate(date, offsetHours);
+    const y=z.getUTCFullYear();
+    const start=Date.UTC(y,0,1,0,0,0,0);
+    const earthDayProgress=(z.getTime()-start)/86400000;
+    const earthProgress=earthDayProgress/daysInEarthYear(y);
+    const belSolarDayProgress=earthProgress*SOLAR_YEAR_DAYS;
+    const belCivilDateProgress=earthProgress*CIVIL_YEAR_DATES;
+    const monthIndex=Math.min(10,Math.floor(belCivilDateProgress/30));
+    const dayOfMonth=Math.min(30,Math.floor(belCivilDateProgress%30)+1);
+    const solarFrac=((belSolarDayProgress%1)+1)%1;
+    const totalSeconds=Math.floor(solarFrac*86400);
+    const hh=String(Math.floor(totalSeconds/3600)).padStart(2,'0');
+    const mm=String(Math.floor((totalSeconds%3600)/60)).padStart(2,'0');
+    const ss=String(totalSeconds%60).padStart(2,'0');
+    return {earthYear:y,month:months[monthIndex],dayOfMonth,weekday:weekdays[z.getUTCDay()],clock:`${hh}:${mm}:${ss}`,solarDayProgress:belSolarDayProgress,civilDateProgress:belCivilDateProgress};
+  }
   function findTZ(obj){ if(!obj||typeof obj!=='object') return null; const keys=['timeZone','timezone','utcOffset','belavadosTimeZone','belavados_timezone','settlementTimeZone','settlement_timezone']; for(const k of keys){ if(obj[k]!=null) return obj[k]; } for(const v of Object.values(obj)){ if(v&&typeof v==='object'){ const found=findTZ(v); if(found!=null) return found; } } return null; }
   function applyJSONTZ(obj){ const found=findTZ(obj); if(found!=null && tzSel){ tzSel.value=String(parseOffset(found)); localStorage.setItem('belavadosTimeZoneOffset',tzSel.value); tick(); } }
   try{ const saved=localStorage.getItem('belavadosTimeZoneOffset'); if(saved&&tzSel) tzSel.value=saved; }catch(e){}
@@ -648,10 +667,9 @@ requestAnimationFrame(tick);
   function tick(){
     const now=new Date();
     if(earthEl){ earthEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',year:'numeric',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'}).format(now); }
-    const off=tzSel?parseOffset(tzSel.value):0; const shifted=new Date(now.getTime()+off*3600000);
-    const epoch=Date.UTC(2025,0,1); const days=Math.floor((shifted.getTime()-epoch)/86400000); const year=1+Math.floor(Math.max(0,days)/330); const doy=((days%330)+330)%330; const month=months[Math.floor(doy/30)]; const day=1+(doy%30); const weekday=weekdays[((days%7)+7)%7];
-    const hh=String(shifted.getUTCHours()).padStart(2,'0'), mm=String(shifted.getUTCMinutes()).padStart(2,'0'), ss=String(shifted.getUTCSeconds()).padStart(2,'0');
-    if(belEl){ belEl.textContent=`${weekday}, ${month} ${day}, Year ${year} • ${hh}:${mm}:${ss} (UTC${off>=0?'+':''}${off})`; }
+    const off=tzSel?parseOffset(tzSel.value):0;
+    const bel=belavadosFromEarth(now, off);
+    if(belEl){ belEl.textContent=`${bel.weekday}, ${bel.month} ${bel.dayOfMonth}, Earth Year ${bel.earthYear} • ${bel.clock} Bh • solar ${bel.solarDayProgress.toFixed(2)} (UTC${off>=0?'+':''}${off})`; }
   }
   tick(); setInterval(tick,1000);
 })();

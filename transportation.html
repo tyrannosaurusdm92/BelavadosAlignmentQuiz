@@ -801,8 +801,11 @@ const TRANSIT_TEMPLATE = {
   "timeConfig": {
     "earthTimeZone": "America/New_York",
     "earthLabel": "Player Earth Time (Eastern)",
-    "belavadosDayEarthRatio": 0.9045,
-    "earthDayBelavadosRatio": 1.1056,
+    "belavadosDayEarthRatio": 0.9045205,
+    "earthDayBelavadosRatio": 0.9045205,
+    "belavadosSolarDaysPerEarthDayNonLeap": 0.9045205,
+    "belavadosSolarDaysPerEarthDayLeap": 0.9020492,
+    "earthDaysPerCivilDateNonLeap": 1.10606,
     "months": [
       "Thoryn-Rahek",
       "Freysethysra",
@@ -834,7 +837,7 @@ const TRANSIT_TEMPLATE = {
       "Friday → Enkirday",
       "Saturday → Anubaday"
     ],
-    "driftBufferLabel": "Drift Buffer / 35-Day Ghost",
+    "solarCorrectionRule": "The 0.15 solar-day correction is distributed through the year; no bonus day, drift buffer, or frozen end-period is used.",
     "timeZones": [
       {
         "key": "prime",
@@ -945,9 +948,9 @@ const TRANSIT_TEMPLATE = {
   },
   "sourceSummary": "Generic reusable transit template. All loaded routes, province names, settlement names, route names, and route timing data have been removed."
 };
-TRANSIT_TEMPLATE.timeConfig.months = ['Iskanora','Nebrakhamesh','Sigraveig','Mardrimir','Enkithyr','Anundar','Freyzunet','Nefarokir','Thalunesh','Horundar','Setrimir'];
-TRANSIT_TEMPLATE.timeConfig.weekdayMap = ['Monday','Tuesday','Wednesday — Rest Day','Thursday','Friday','Saturday','Sunday'];
-TRANSIT_TEMPLATE.timeConfig.earthWeekdayMap = ['Monday → Monday','Tuesday → Tuesday','Wednesday → Wednesday Rest Day','Thursday → Thursday','Friday → Friday','Saturday → Saturday','Sunday → Sunday'];
+TRANSIT_TEMPLATE.timeConfig.months = ['Thoryn-Rahek','Freysethysra','Nefarokir','Thalunesh','Horundar','Raeshkul','Asethrimir','Sokhivar','Iskazunet','Bastve’enlil','Hathruna'];
+TRANSIT_TEMPLATE.timeConfig.weekdayMap = ['Valkhaday','Nebday','Sigranday','Ishtaday','Marduday','Enkirday','Anubaday'];
+TRANSIT_TEMPLATE.timeConfig.earthWeekdayMap = ['Sunday → Valkhaday','Monday → Nebday','Tuesday → Sigranday','Wednesday → Ishtaday','Thursday → Marduday','Friday → Enkirday','Saturday → Anubaday'];
 const $=id=>document.getElementById(id);
 const PAGES=[['home','Home'],['routes','Routes'],['fares','Fares'],['time','Time Board'],['rest','Wednesday Rules'],['employees','Employees'],['data','Data Notes']];
 let activeMode='all';
@@ -962,11 +965,15 @@ const EASTERN_DATE_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/
 const EASTERN_TIME_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',second:'2-digit',timeZoneName:'short'});
 const EASTERN_WEEKDAY_FORMATTER=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long'});
 function belavadosFromEarth(date=new Date(),zone=selectedWorldZone()){
-  const cfg=TRANSIT_TEMPLATE.timeConfig, earthMs=date.getTime(), belaDayMs=86400000*(cfg.belavadosDayEarthRatio||0.9045), epoch=Date.UTC(2026,0,1,0,0,0);
-  const elapsed=earthMs-epoch, totalDays=Math.floor(elapsed/belaDayMs), dayProgress=((elapsed%belaDayMs)+belaDayMs)%belaDayMs/belaDayMs;
-  const hoursFloat=(dayProgress*24+(zone.offsetBelahours||0)+24)%24, hour=Math.floor(hoursFloat), minute=Math.floor((hoursFloat-hour)*60), second=Math.floor((((hoursFloat-hour)*60)-minute)*60);
-  const idx=((totalDays%330)+330)%330, month=cfg.months[Math.floor(idx/30)]||'Month', dayOfMonth=(idx%30)+1, weekday=cfg.weekdayMap[((totalDays%7)+7)%7]||'';
-  const year=1+Math.floor(Math.max(0,totalDays)/330);return{hour,minute,second,month,dayOfMonth,weekday,year,totalDays};
+  const cfg=TRANSIT_TEMPLATE.timeConfig, off=zone.offsetBelahours||0;
+  const shifted=new Date(date.getTime()+off*3600000), y=shifted.getUTCFullYear();
+  const start=Date.UTC(y,0,1,0,0,0), elapsedEarthDays=(shifted.getTime()-start)/86400000;
+  const leap=(y%4===0&&y%100!==0)||(y%400===0), earthProgress=elapsedEarthDays/(leap?366:365);
+  const belSolarDayProgress=earthProgress*330.15, belCivilDateProgress=earthProgress*330;
+  const solarFrac=((belSolarDayProgress%1)+1)%1, totalSeconds=Math.floor(solarFrac*86400);
+  const hour=Math.floor(totalSeconds/3600), minute=Math.floor((totalSeconds%3600)/60), second=totalSeconds%60;
+  const idx=Math.min(10,Math.floor(belCivilDateProgress/30)), month=cfg.months[idx]||'Month', dayOfMonth=Math.min(30,Math.floor(belCivilDateProgress%30)+1), weekday=cfg.weekdayMap[shifted.getUTCDay()]||'';
+  return{hour,minute,second,month,dayOfMonth,weekday,year:y,totalDays:belSolarDayProgress,solarDayProgress:belSolarDayProgress,civilDateProgress:belCivilDateProgress};
 }
 function updateClock(){const now=new Date(), z=selectedWorldZone(), b=belavadosFromEarth(now,z);$('liveClock').textContent=EASTERN_TIME_FORMATTER.format(now);$('earthClockMeta').textContent=EASTERN_DATE_FORMATTER.format(now)+' • player-facing Eastern time';$('belavadosClock').textContent=`${pad(b.hour)}:${pad(b.minute)}:${pad(b.second)} Bh`;$('worldDate').textContent=`${b.weekday}, ${b.month} ${b.dayOfMonth}, Year ${b.year} • ${z.label}`;$('clockSyncStatus').textContent='Eastern and Belavadös displays share one live second-by-second update';const banner=$('serviceBanner');if(EASTERN_WEEKDAY_FORMATTER.format(now)==='Wednesday'){banner.textContent='Wednesday reduced-service rules active';banner.className='chip warn';}else{banner.textContent='Standard-service day';banner.className='chip now';}}
 function startLiveClock(){updateClock();setTimeout(startLiveClock,1000-(Date.now()%1000)+8);}
@@ -977,7 +984,7 @@ function renderTemplates(){ $('templateCards').innerHTML=TRANSIT_TEMPLATE.routeT
 function renderFares(){ $('fareBox').innerHTML=TRANSIT_TEMPLATE.fares.map(f=>`<article class="card"><h3>${safe(f[0])}</h3><div class="meta"><strong>Public:</strong> ${safe(f[1])}</div><div class="meta"><strong>Private / Premium:</strong> ${safe(f[2])}</div><p class="note">${safe(f[3])}</p></article>`).join('');}
 function renderEmployees(){ $('employeeTable').innerHTML=table(['Name','Race','Gender','Role','Assignment','Workdays','Home Base'],TRANSIT_TEMPLATE.employees);}
 function renderWednesday(){ $('wednesdayTable').innerHTML=table(['Rule','Details'],TRANSIT_TEMPLATE.wednesday);}
-function renderTimeConfig(){const cfg=TRANSIT_TEMPLATE.timeConfig;$('timeConfigCards').innerHTML=[`<article class="card"><h3>Earth Time</h3><p class="note">${safe(cfg.earthLabel||'Player Earth Time')} — America/New_York</p></article>`,`<article class="card"><h3>Belavadös Ratio</h3><p class="note">1 Belavadös day = ${safe(cfg.belavadosDayEarthRatio||0.9045)} Earth days. 1 Earth day = ${safe(cfg.earthDayBelavadosRatio||1.1056)} Belavadös days.</p></article>`,`<article class="card"><h3>Calendar Months</h3><div class="scrollBox"><ol>${cfg.months.map(m=>`<li>${safe(m)}</li>`).join('')}</ol></div></article>`,`<article class="card"><h3>World Time Zones</h3><div class="scrollBox"><ol>${cfg.timeZones.map(z=>`<li>${safe(z.label)}</li>`).join('')}</ol></div></article>`].join('');}
+function renderTimeConfig(){const cfg=TRANSIT_TEMPLATE.timeConfig;$('timeConfigCards').innerHTML=[`<article class="card"><h3>Earth Time</h3><p class="note">${safe(cfg.earthLabel||'Player Earth Time')} — America/New_York</p></article>`,`<article class="card"><h3>Belavadös Ratio</h3><p class="note">1 Earth day = ${safe(cfg.belavadosSolarDaysPerEarthDayNonLeap||0.9045205)} Belavadös solar days in a non-leap year, or ${safe(cfg.belavadosSolarDaysPerEarthDayLeap||0.9020492)} in a leap year. Named civil dates use 330 dates spread evenly across the Earth year.</p></article>`,`<article class="card"><h3>Calendar Months</h3><div class="scrollBox"><ol>${cfg.months.map(m=>`<li>${safe(m)}</li>`).join('')}</ol></div></article>`,`<article class="card"><h3>World Time Zones</h3><div class="scrollBox"><ol>${cfg.timeZones.map(z=>`<li>${safe(z.label)}</li>`).join('')}</ol></div></article>`].join('');}
 function renderZoneOptions(){const sel=$('worldTimeZone');sel.innerHTML=TRANSIT_TEMPLATE.timeConfig.timeZones.map(z=>`<option value="${safe(z.key)}">${safe(z.label)}</option>`).join('');try{const saved=localStorage.getItem('ataWorldTimeZone');if(saved&&TRANSIT_TEMPLATE.timeConfig.timeZones.some(z=>z.key===saved))sel.value=saved;}catch(e){}sel.addEventListener('change',()=>{try{localStorage.setItem('ataWorldTimeZone',sel.value)}catch(e){}updateClock();});}
 function runSearch(){const q=($('settlementSearch')?.value||'').toLowerCase().trim();const cards=[];TRANSIT_TEMPLATE.routeTypeHeaders.filter(t=>(activeMode==='all'||t.mode===activeMode)&&(!q||[t.title,t.mode,t.disclaimer,t.fare].join(' ').toLowerCase().includes(q))).forEach(t=>cards.push(`<article class="card"><h3>${safe(t.title)}</h3><div class="meta">Route type header</div><p class="note">${safe(t.disclaimer)}</p></article>`));TRANSIT_TEMPLATE.fares.filter(f=>(!q||f.join(' ').toLowerCase().includes(q))&&(activeMode==='all'||f.join(' ').toLowerCase().includes(activeMode))).forEach(f=>cards.push(`<article class="card"><h3>${safe(f[0])}</h3><div class="meta">${safe(f[1])} • ${safe(f[2])}</div></article>`));TRANSIT_TEMPLATE.employees.filter(e=>(activeMode==='all'||e.join(' ').toLowerCase().includes(activeMode))&&(!q||e.join(' ').toLowerCase().includes(q))).slice(0,24).forEach(e=>cards.push(`<article class="card"><h3>${safe(e[0])}</h3><div class="meta">${safe(e[3])} • ${safe(e[4])}</div><p class="note">Workdays: ${safe(e[5])}<br>Home: ${safe(e[6])}</p></article>`));if(!cards.length)cards.push('<div class="emptyState">No matching transit information found yet. Loaded route records can be added to the route database.</div>');$('results').innerHTML=cards.join('');$('resultCount').textContent=`${cards.length} result${cards.length===1?'':'s'}`;}
 function installGlobalNav(){document.body.classList.add('bdg-has-global-nav');const page=(location.pathname.split('/').pop()||'transportation.html').toLowerCase();document.querySelectorAll('#bd-global-dropdown-nav .bdg-link').forEach(a=>{if((a.getAttribute('href')||'').toLowerCase()===page){a.classList.add('bdg-current');a.setAttribute('aria-current','page');}});function clamp(el,x,y){const r=el.getBoundingClientRect(),maxX=Math.max(0,innerWidth-r.width-8),maxY=Math.max(0,innerHeight-r.height-8);return{x:Math.min(Math.max(8,x),maxX),y:Math.min(Math.max(8,y),maxY)}}function restore(el,key,def){try{const p=JSON.parse(localStorage.getItem(key)||'null');if(p){el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'}else if(def){Object.assign(el.style,def)}}catch(e){}}function drag(handle,el,key){let sx=0,sy=0,ox=0,oy=0;if(!handle||!el)return;handle.addEventListener('pointerdown',ev=>{const r=el.getBoundingClientRect();sx=ev.clientX;sy=ev.clientY;ox=r.left;oy=r.top;handle.setPointerCapture(ev.pointerId);ev.preventDefault()});handle.addEventListener('pointermove',ev=>{if(!handle.hasPointerCapture(ev.pointerId))return;const p=clamp(el,ox+ev.clientX-sx,oy+ev.clientY-sy);el.style.left=p.x+'px';el.style.top=p.y+'px';el.style.right='auto';el.style.bottom='auto'});handle.addEventListener('pointerup',ev=>{if(handle.hasPointerCapture(ev.pointerId))handle.releasePointerCapture(ev.pointerId);const r=el.getBoundingClientRect();try{localStorage.setItem(key,JSON.stringify({x:r.left,y:r.top}))}catch(e){}})}const nav=$('bd-global-dropdown-nav'),bubble=$('bd-nav-bubble');restore(nav,'bdgNavPos');restore(bubble,'bdgBubblePos',{left:'14px',bottom:'14px'});drag(document.querySelector('.bdg-drag-handle'),nav,'bdgNavPos');drag(document.querySelector('.bdg-bubble-core'),bubble,'bdgBubblePos');$('bdg-hide-nav').addEventListener('click',()=>{document.body.classList.add('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','1')}catch(e){}});$('bdg-show-nav').addEventListener('click',()=>{document.body.classList.remove('bdg-nav-hidden');try{localStorage.setItem('bdgNavHidden','0')}catch(e){}});try{if(localStorage.getItem('bdgNavHidden')==='1')document.body.classList.add('bdg-nav-hidden')}catch(e){}}
