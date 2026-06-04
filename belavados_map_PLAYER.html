@@ -15,6 +15,7 @@
 </style>
 </head>
 <body class="player-mode bdg-has-global-nav">
+<script>if(location.hash==="#dm-editor"){document.body.classList.remove("player-mode");document.body.classList.add("dm-mode");}</script>
 <div aria-label="Belavadös global site navigation" id="bd-global-dropdown-nav">
   <div class="bdg-bar">
     <div class="bdg-drag-handle" title="Drag navigation">✥</div>
@@ -118,7 +119,7 @@
         <label><span>Settlement Tags</span><input id="dmTags" placeholder="market city, haunted, docks" /></label>
         <label><span>Danger Level</span><select id="dmDanger"><option>Low</option><option>Moderate</option><option>High</option><option>Severe</option><option>Legendary</option></select></label>
         <label><span>Alignment Preference</span><input id="dmAlignmentPref" placeholder="Lawful cooperative, pragmatic honor, etc." /></label>
-        <div class="button-row"><button id="dmGenerateBtn">Autofill Current SVG Locations</button><button id="dmSaveBtn" class="secondary">Save to Player Map</button><button id="dmExportJsonBtn" class="ghost">Export JSON</button><button id="dmExportSiteBtn" class="ghost">Export Player Data ZIP</button></div>
+        <div class="button-row"><button id="dmGenerateBtn">Autofill Current SVG Locations</button><button id="dmSaveBtn" class="secondary">Save to Player Map</button><button id="dmExportJsonBtn" class="ghost">Export JSON</button><button id="dmExportSiteBtn" class="ghost">Export Player Data ZIP</button><button id="dmClearStorageBtn" class="warning" type="button">Clear Broken Local Save</button></div>
       </div></aside>
       <section class="window"><div class="window-header bronze">SVG Upload + Autofill Preview</div><div class="window-body stack">
         <div class="dropzone" id="svgDrop"><strong>Upload clickable SVG only</strong><br/>Drop a .svg file that already contains blank clickable locations. Images, HTML, JSON, ZIP, and all other files are rejected.</div>
