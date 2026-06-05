@@ -1,0 +1,23 @@
+Belavadös site test/fix report
+
+Fixed:
+1. belavados_map_PLAYER.html now loads CSS, JavaScript, and dm_map.json from /dm map editor/ instead of broken root paths. This was the main white-page/non-working DM hash issue.
+2. #dm-editor still points at the same player map file and DM/player mode scripts load from the correct folder.
+3. The map now waits safely for the embedded world image, even if the image finishes loading before the old onload handler was attached.
+4. The map fetch bridge now tries /dm map editor/dm_map.json first, then root-level dm_map.json as a fallback.
+5. Broken header buttons for settlement_generator.html/json_merger.html now point to generator/life_generator.html.
+6. The generator no longer attempts to generate the natural full-world maximum of 144,856 locations + 392,804 NPCs in one browser render. Province/world scope now uses safe budgets distributed across settlements.
+7. Generator service lookups are cached, making location generation much faster.
+8. The JSON preview tab is trimmed for browser safety; Export JSON and Export ZIP still use the full generated state.
+
+Validation performed:
+- All JavaScript files pass node --check syntax validation.
+- dm_map.json and source_manifest.json pass JSON validation.
+- Local HTML asset audit found no missing local href/src files in belavados_map_PLAYER.html, generator/life_generator.html, index.html, and atlas.html.
+- Generator core tests after patch:
+  * settlement: 60 locations, 160 NPCs, 373 relationships, 21 travel records, 60 GeoJSON features, 177 ms.
+  * province: 1,200 locations, 3,500 NPCs, 7,456 relationships, 1,191 travel records, 1,200 GeoJSON features, 3,076 ms.
+  * world: 5,065 locations, 14,991 NPCs, 34,824 relationships, 8,653 travel records, 5,065 GeoJSON features, 12,376 ms.
+
+Important note:
+- The sandbox Chromium browser is blocked from opening local/http pages here by environment policy, so the automated browser smoke test could not complete through Chromium. Static checks and Node generation tests were completed instead.
