@@ -20,9 +20,11 @@
     return data;
   }
   async function loadBootstrap(){
-    const fromHyphen=await tryFetchJson('dm_map.json');
-    const fromUnderscore=fromHyphen || await tryFetchJson('dm_map.json');
-    const merged=normalizeBootstrap(fromUnderscore) || EMBEDDED_BOOTSTRAP;
+    // This page lives at the site root, while the live JSON is intentionally stored in /dm map editor/.
+    // Try the requested GitHub folder first, then fall back to older root-level exports.
+    const fromFolder=await tryFetchJson('dm%20map%20editor/dm_map.json') || await tryFetchJson('dm map editor/dm_map.json');
+    const fromRoot=fromFolder || await tryFetchJson('dm_map.json');
+    const merged=normalizeBootstrap(fromRoot) || EMBEDDED_BOOTSTRAP;
     window.BELAVADOS_DM_MAP_BOOTSTRAP = merged;
     window.BELAVADOS_PLAYER_SEED = merged.playerSeedData || {provinces:merged.provinces||[],items:merged.items||[]};
     document.dispatchEvent(new CustomEvent('belavados:dm-map-loaded',{detail:merged}));
