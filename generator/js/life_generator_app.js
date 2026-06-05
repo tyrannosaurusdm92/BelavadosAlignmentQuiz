@@ -46,8 +46,14 @@
     U.$('provinceSelect').title=isWorld?'Whole world scope ignores province selection and generates across every province.':'';
     U.$('settlementSelect').title=isWorld?'Whole world scope ignores settlement selection and generates across every settlement.':'';
     if(isWorld){
-      U.$('controlMeta').textContent='Whole world scope active: province and settlement menus are blocked out. Generation will expand across all provinces and settlements; cached races receive world-travel access.';
+      if(Number(U.$('locationCount').value)<5000) U.$('locationCount').value=5000;
+      if(Number(U.$('npcCount').value)<15000) U.$('npcCount').value=15000;
+      U.$('controlMeta').textContent='Whole world scope active: province and settlement menus are blocked out. Generation is budgeted across all provinces to prevent browser crashes; cached races receive world-travel access.';
       if((state.raceCache||[]).length) U.$('raceMode').value='cache';
+    } else if(U.$('scopeMode').value==='province'){
+      if(Number(U.$('locationCount').value)<1200) U.$('locationCount').value=1200;
+      if(Number(U.$('npcCount').value)<3500) U.$('npcCount').value=3500;
+      U.$('controlMeta').textContent='Whole province scope active: generation is distributed across that province’s settlements with safe browser limits.';
     } else {
       U.$('controlMeta').textContent='Ready. Generate a settlement, province, or world, or import existing files to restore data.';
     }

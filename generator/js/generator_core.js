@@ -18,7 +18,10 @@
       this.genderIdentities=['A-Gender','Bi-Gender','Cis-Female','Cis-Male','Demi-Female','Demi-Male','Gender-Flexible','Gender-Fluid','Gender-Less','Neutrois','Non-Binary','Poly-Gender','Trans-Female','Trans-Male'];
       this.relationshipKinds={familial:['Parent','Child','Sibling','Grandparent','Grandchild','Cousin','Half-sibling','Step-sibling','Adoptive parent','Adoptive child','Foster parent','Foster child','Guardian','Ward','Extended family member','Chosen family'],romantic:['Romantic partner','Fiancé','Spouse','Ex partner','Long-term partner','Dating partner','Primary partner','Secondary partner','Courtship partner'],professional:['Employer','Employee','Coworker','Colleague','Supervisor','Subordinate','Manager','Assistant','Apprentice','Mentor','Teacher','Student','Business partner','Contractor','Client','Customer','Supplier','Trade contact','Guild member','Guild leader','Fellow guard','Fellow priest','Fellow scholar','Fellow artisan','Rival professional','Competitor'],personal:['Friend','Close friend','Best friend','Acquaintance','Neighbor','Rival','Enemy','Frenemy','Confidant','Drinking companion','Travel companion','Protector','Benefactor','Debtor','Creditor','Ally','Political ally','Political rival','Informant','Trusted contact','Former friend']};
       this.traits=['Ambitious','Bookish','Brave','Brooding','Charismatic','Clumsy','Creative','Curious','Dramatic','Dutiful','Family-Oriented','Foodie','Good-Natured','Gossip','Green Thumb','Hot-Headed','Inventive','Loner','Loyal','Lucky','Mischievous','Neat','Night Owl','Over-Emotional','Party-Loving','Perfectionist','Romantic','Shy','Snobbish','Supernatural Skeptic','Virtuoso','Workaholic','Protective','Secretive','Civic-minded','Haunted','Practical','Restless'];
-      this.hobbies=['clockwork tinkering','tea blending','street chess','river fishing','choir singing','family genealogy','rooftop gardening','map collecting','weapon drills','baking','bird keeping','rune calligraphy','rumor trading','shrine volunteering','skyship watching','caravan games','reading serialized fiction','dockside dancing','herbal brewing','miniature painting','ghost-story nights'];
+      this.hobbies=['clockwork tinkering','tea blending','street chess','river fishing','family genealogy','rooftop gardening','map collecting','weapon drills','baking','bird keeping','rune calligraphy','rumor trading','shrine volunteering','skyship watching','caravan games','reading serialized fiction','dockside dancing','herbal brewing','miniature painting','ghost-story nights'];
+      this.maxInteractiveLocations=5000;
+      this.maxInteractiveNpcs=15000;
+      this._serviceCache=new Map();
     }
     defaultState(){
       return {schema:'belavados.lifeGeneratorState.v1', generatedAt:new Date().toISOString(), settings:{}, raceCache:[], locations:[], npcs:[], relationships:[], schedules:[], travel:[], geojson:{type:'FeatureCollection',features:[]}, imports:[], mapImage:null, logs:[]};
@@ -34,11 +37,13 @@
       const state = config.preserveExisting && existing ? U.clone(existing) : this.defaultState();
       state.generatedAt = new Date().toISOString(); state.settings = U.clone(config); state.raceCache = this.normalizeRaceCache(config.raceCache||state.raceCache||[]);
       const targets = this.expandTargets(config);
+      const countPlan = this.planTargetCounts(config, targets);
       const allLocations=[]; const allNpcs=[]; const allRelationships=[]; const allSchedules=[]; const allTravel=[];
-      for(const target of targets){
+      for(let targetIndex=0; targetIndex<targets.length; targetIndex++){
+        const target=targets[targetIndex];
         const localConfig={...config, ...target};
-        const locCount = Math.max(1, Math.round(config.scopeMode==='settlement' ? config.locationCount : (this.rules.settlementScaling[localConfig.settlementType]?.locations || config.locationCount)));
-        const npcCount = Math.max(1, Math.round(config.scopeMode==='settlement' ? config.npcCount : (this.rules.settlementScaling[localConfig.settlementType]?.npcs || config.npcCount)));
+        const locCount = countPlan[targetIndex]?.locations || 1;
+        const npcCount = countPlan[targetIndex]?.npcs || 1;
         const locations = this.generateLocations(localConfig, locCount);
         const npcs = this.generateNPCs(localConfig, npcCount, locations);
         const relationships = this.generateRelationships(localConfig, npcs, locations);
@@ -71,6 +76,19 @@
         return this.settlementsForProvince(config.province).map(s=>({province:config.province, settlementName:s.name, settlementType:s.type, timezone:this.getProvinceTime(config.province).primaryUtc || config.timezone}));
       }
       return [{province:config.province, settlementName:config.settlementName, settlementType:config.settlementType, timezone:config.timezone}];
+    }
+    planTargetCounts(config, targets){
+      const scalingFor = t => this.rules.settlementScaling[t.settlementType] || this.rules.settlementScaling.Village;
+      if(config.scopeMode==='settlement') return targets.map(t=>({locations:Math.max(1,Math.round(config.generationMode==='singleLocation'?1:(Number(config.locationCount)||scalingFor(t).locations))), npcs:Math.max(1,Math.round(Number(config.npcCount)||scalingFor(t).npcs))}));
+      const weights = targets.map(t=>scalingFor(t));
+      const naturalLocations = weights.reduce((sum,w)=>sum+(Number(w.locations)||1),0);
+      const naturalNpcs = weights.reduce((sum,w)=>sum+(Number(w.npcs)||1),0);
+      const locationBudget = Math.max(targets.length, Math.min(this.maxInteractiveLocations, Math.round(Number(config.locationCount)||Math.min(naturalLocations,this.maxInteractiveLocations))));
+      const npcBudget = Math.max(targets.length, Math.min(this.maxInteractiveNpcs, Math.round(Number(config.npcCount)||Math.min(naturalNpcs,this.maxInteractiveNpcs))));
+      return targets.map((t,i)=>({
+        locations:Math.max(1, Math.round(locationBudget * (Number(weights[i].locations)||1) / Math.max(1,naturalLocations))),
+        npcs:Math.max(1, Math.round(npcBudget * (Number(weights[i].npcs)||1) / Math.max(1,naturalNpcs)))
+      }));
     }
     categoryWeights(config){
       const size=config.settlementType || 'Village';
@@ -130,7 +148,14 @@
     guessCategory(name){ const n=String(name).toLowerCase(); for(const cat of Object.keys(this.catalog.masterCategories||{})){ if((this.catalog.masterCategories[cat]||[]).some(k=>n.includes(k))) return this.mapMasterCategory(cat); } return 'Special / Quest / Intrigue'; }
     mapMasterCategory(cat){ if(/Food|Hospitality/.test(cat)) return 'Hospitality'; if(/Civic|Legal/.test(cat)) return 'Government & Civic'; if(/Transit|Transport/.test(cat)) return 'Transportation'; if(/Learning/.test(cat)) return 'Education'; if(/Danger/.test(cat)) return 'Criminal & Underground'; if(/Community/.test(cat)) return 'Residential'; return cat; }
     servicesFor(meta, config){
-      const items=(this.catalog.serviceItems||[]).filter(s => String(s.place||'').toLowerCase().includes(meta.subcategory.toLowerCase().split(' ')[0]) || String(s.section||'').toLowerCase().includes(meta.category.toLowerCase().split(' ')[0]));
+      const cacheKey=(meta.category||'')+'|'+(meta.subcategory||'');
+      let items=this._serviceCache.get(cacheKey);
+      if(!items){
+        const subKey=meta.subcategory.toLowerCase().split(' ')[0];
+        const catKey=meta.category.toLowerCase().split(' ')[0];
+        items=(this.catalog.serviceItems||[]).filter(s => String(s.place||'').toLowerCase().includes(subKey) || String(s.section||'').toLowerCase().includes(catKey));
+        this._serviceCache.set(cacheKey,items);
+      }
       const picks=U.sampleMany(items, 4);
       const fallback={Commercial:['common supplies','trade goods','local tools','household goods'],Hospitality:['meals','rooms','music','gossip'],Medical:['treatment','herbs','tonics','recovery beds'],Religious:['blessings','rites','confession','pilgrim aid'],Transportation:['tickets','route ledgers','freight booking','travel permits'],Education:['lessons','archives','research help','scribe work'],Residential:['rooms','household support','neighborhood news'],Agriculture:['produce','animal care','seed stock','farm tools'],Maritime:['boat hire','dock space','fish trade','rope repair'],Nature:['guided walks','herb gathering','quiet space','wardens'],['Industry & Crafting']:['repairs','custom work','materials','tool rental'],['Government & Civic']:['permits','records','hearings','security'],['Noble & Elite']:['patronage','estate audience','luxury services','formal events'],['Criminal & Underground']:['rumors','illicit goods','quiet introductions','debt records'],['Special / Quest / Intrigue']:['quest leads','rare access','secret notes','unique services']};
       const itemList=picks.length?picks.map(p=>p.item):fallback[meta.category]||['local service'];
