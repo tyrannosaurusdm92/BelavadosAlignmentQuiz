@@ -718,7 +718,7 @@
   const baseActiveBlock = B.activeBlock;
   if(baseActiveBlock && !B._openTS2ActiveWrapped){
     B.activeBlock = function(npc, date=B.currentDate()){
-      if(!npc) return baseActiveBlock.call(B, npc, date);
+      if(!npc) return {scenario:'unknown',label:'no NPC selected',locationName:'',locationId:'',icon:'',x:50,y:50};
       const base = baseActiveBlock.call(B, npc, date);
       return resolveAction(npc, date, base);
     };
@@ -728,7 +728,7 @@
   const baseNpcPosition = B.npcPosition;
   if(baseNpcPosition && !B._openTS2PositionWrapped){
     B.npcPosition = function(npc, date=B.currentDate()){
-      if(!npc) return baseNpcPosition.call(B, npc, date);
+      if(!npc) return {scenario:'unknown',label:'no NPC selected',locationName:'',locationId:'',icon:'',x:50,y:50};
       return positionFor(npc, date, baseNpcPosition);
     };
     B._openTS2PositionWrapped = true;
