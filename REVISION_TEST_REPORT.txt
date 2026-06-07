@@ -1,0 +1,32 @@
+Belavadös Life Simulator — Revision 1.1.0 Test Report
+Generated: 2026-06-07
+
+Revision focus:
+- Official race menu package integration.
+- Province UTC/time-zone synchronization.
+- Belavadös time model update.
+- Larger settlement/NPC targets and world-travel percentages.
+- Gender identity, relationship, work title, location assignment, transit schedule expansion.
+- Household family tree maker for generated NPCs.
+- Removal of local Onyx chatbot and local Onyx assets; external RuleBot button added.
+
+Tests completed:
+1. Python smoke test
+   Command: python3 tests/smoke_test.py
+   Result: PASS
+   Coverage: required files, JSON validity, race counts, time model, province UTC records, settlement scale targets, external Onyx mode, script references.
+
+2. JavaScript syntax checks
+   Command: node --check life-simulator/*.js
+   Result: PASS
+   Coverage: all simulator JavaScript modules parse successfully.
+
+3. Runtime generation smoke test
+   Result: PASS
+   Generated sample: locations, NPCs, schedules, relationships, households, NPC familyTree data, household relationshipWeb, and public transit habits.
+
+Packaging notes:
+- No local life-simulator/emperor-onyx.js file is included.
+- No local onyx-moods asset folder is included.
+- No external family-tree font files are bundled.
+- The Onyx tab now opens the dedicated Emperor Onyx RuleBot URL in a new tab.
