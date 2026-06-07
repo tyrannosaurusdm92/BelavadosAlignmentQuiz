@@ -1,0 +1,337 @@
+{
+  "schema": "belavados.factionRules.v1",
+  "standingTrack": [
+    {
+      "label": "Hunted",
+      "score": -3000
+    },
+    {
+      "label": "Hostile",
+      "score": -2000
+    },
+    {
+      "label": "Distrusted",
+      "score": -1000
+    },
+    {
+      "label": "Neutral",
+      "score": 0
+    },
+    {
+      "label": "Known",
+      "score": 1000
+    },
+    {
+      "label": "Trusted",
+      "score": 2000
+    },
+    {
+      "label": "Inner Circle",
+      "score": 3000
+    }
+  ],
+  "coreRules": [
+    "Every settlement receives local factions.",
+    "Capital and city settlements receive an Underledger or hidden faction layer.",
+    "Every province receives a Provincial Accord, Transit Compact, divine Covenant, and Black Ledger Cell.",
+    "Faction standing moves in 250-point steps to match the alignment model.",
+    "Quest dates display Earth-first and Belavadös-second."
+  ],
+  "crossSettlementFactions": [
+    {
+      "name": "Onyx Imperial Registry",
+      "type": "civic",
+      "patron": "Nebyrr",
+      "rival": "Black Ichor Ledger",
+      "function": "law, identity, succession, province records, and faction standing"
+    },
+    {
+      "name": "Peacekeepers Thread",
+      "type": "civic",
+      "patron": "Raeshkul",
+      "rival": "Black Ichor Ledger",
+      "function": "freelance peacekeeper intervention"
+    },
+    {
+      "name": "Arcane Transportation Authority",
+      "type": "transit",
+      "patron": "Raeshkul",
+      "rival": "Black Ichor Ledger",
+      "function": "portals, route permits, pass-carrying, route taxes"
+    },
+    {
+      "name": "Ironway Rail and Boilerwright Combine",
+      "type": "transit",
+      "patron": "Marduthor",
+      "rival": "Saboteur Underledger",
+      "function": "rail yards, steam engines, boiler crews"
+    },
+    {
+      "name": "Grand Caravan League",
+      "type": "transit",
+      "patron": "Ishtanora",
+      "rival": "Road Knife Compact",
+      "function": "land caravans, wayhouses, border tolls"
+    },
+    {
+      "name": "Tidewatch Compact",
+      "type": "maritime",
+      "patron": "Bastveig",
+      "rival": "Black Pier Underledger",
+      "function": "ferries, steamships, submarines, reef law"
+    },
+    {
+      "name": "Greenwarden Courts",
+      "type": "nature",
+      "patron": "Sigrananna",
+      "rival": "Unlicensed Lumber Ledger",
+      "function": "forest law, sacred groves, fey boundary mediation"
+    },
+    {
+      "name": "Deepworks Accord",
+      "type": "industry",
+      "patron": "Marduthor",
+      "rival": "Vault-Breach Underledger",
+      "function": "mines, foundries, under-rail, sealed vaults"
+    },
+    {
+      "name": "Shrine-Circle Covenant",
+      "type": "divine",
+      "patron": "varies by province",
+      "rival": "Cult Ledger Cell",
+      "function": "temple festivals, deity rites, omen deadlines"
+    },
+    {
+      "name": "Black Ichor Ledger",
+      "type": "criminal",
+      "patron": "Nefarokir",
+      "rival": "Onyx Imperial Registry",
+      "function": "smuggling, forged death ledgers, illicit transit"
+    }
+  ],
+  "biomeFactionHooks": {
+    "Ocean Surface floating settlement": {
+      "requires": [
+        "ferry or steamship access",
+        "storm shelters"
+      ],
+      "forbid": [
+        "ordinary stables except floating animal barges"
+      ],
+      "favor": [
+        "ferries",
+        "steamships",
+        "skyship towers",
+        "wave markets"
+      ]
+    },
+    "Underwater with reefs": {
+      "requires": [
+        "submarine terminal",
+        "pressure-safe buildings"
+      ],
+      "forbid": [
+        "surface-only livestock facilities",
+        "ordinary horse stables"
+      ],
+      "favor": [
+        "reef sanctuaries",
+        "coral courts",
+        "salvage guilds"
+      ]
+    },
+    "Underwater without reefs": {
+      "requires": [
+        "submarine terminal",
+        "pressure vaults"
+      ],
+      "forbid": [
+        "open-air farms",
+        "ordinary inns",
+        "horse facilities"
+      ],
+      "favor": [
+        "trench lanterns",
+        "abyssal salvage",
+        "sealed ichor chambers"
+      ]
+    },
+    "Grassland": {
+      "requires": [
+        "food source",
+        "water source"
+      ],
+      "forbid": [],
+      "favor": [
+        "caravan grounds",
+        "grazing commons",
+        "rail halts"
+      ]
+    },
+    "Prairie": {
+      "requires": [
+        "storm shelter",
+        "long route supply"
+      ],
+      "forbid": [],
+      "favor": [
+        "sky watchers",
+        "wildfire patrols",
+        "hunter courts"
+      ]
+    },
+    "Farming": {
+      "requires": [
+        "granary",
+        "local court"
+      ],
+      "forbid": [],
+      "favor": [
+        "harvest guilds",
+        "irrigation disputes",
+        "hearth temples"
+      ]
+    },
+    "Mountain range": {
+      "requires": [
+        "tunnel or cliff road"
+      ],
+      "forbid": [],
+      "favor": [
+        "foundries",
+        "skyship moorings",
+        "avalanche watch"
+      ]
+    },
+    "Valley": {
+      "requires": [
+        "bridge or pass road"
+      ],
+      "forbid": [],
+      "favor": [
+        "river farms",
+        "market roads",
+        "monastery routes"
+      ]
+    },
+    "Deep cavern": {
+      "requires": [
+        "under-rail or tunnel access",
+        "fungal food source"
+      ],
+      "forbid": [
+        "open-sky services",
+        "open-air farms"
+      ],
+      "favor": [
+        "mine courts",
+        "sealed vaults",
+        "fungal gardens"
+      ]
+    },
+    "Deep forest": {
+      "requires": [
+        "low-impact transit"
+      ],
+      "forbid": [
+        "heavy industry without permit"
+      ],
+      "favor": [
+        "moonwood wards",
+        "sacred groves",
+        "ranger courts"
+      ]
+    },
+    "Partial forest": {
+      "requires": [
+        "border law"
+      ],
+      "forbid": [],
+      "favor": [
+        "mixed logging",
+        "villages",
+        "farms"
+      ]
+    },
+    "Treetops - treehouses": {
+      "requires": [
+        "canopy walkways"
+      ],
+      "forbid": [
+        "heavy wagon streets above ground"
+      ],
+      "favor": [
+        "rope lifts",
+        "glider docks",
+        "tree shrines"
+      ]
+    },
+    "Marshes and swamps": {
+      "requires": [
+        "poleboat or raised road"
+      ],
+      "forbid": [
+        "dry-road dependence"
+      ],
+      "favor": [
+        "bog patrols",
+        "moss medicine",
+        "ruin divers"
+      ]
+    },
+    "Beach and grass with water": {
+      "requires": [
+        "ferry or coastal path"
+      ],
+      "forbid": [],
+      "favor": [
+        "ferry markets",
+        "coastal farms",
+        "stormbreak walls"
+      ]
+    },
+    "Beach and reefs with water": {
+      "requires": [
+        "reef law",
+        "surface-undersea contact"
+      ],
+      "forbid": [],
+      "favor": [
+        "salvage guilds",
+        "tide temples",
+        "reef courts"
+      ]
+    },
+    "Hybrid tree and forest floor": {
+      "requires": [
+        "canopy and root-level access"
+      ],
+      "forbid": [
+        "unregulated logging"
+      ],
+      "favor": [
+        "fey routes",
+        "ranger law",
+        "root districts"
+      ]
+    },
+    "Hybrid farming forest grassland": {
+      "requires": [
+        "forest commons and fields"
+      ],
+      "forbid": [],
+      "favor": [
+        "harvest guilds",
+        "animal routes",
+        "woodland balance"
+      ]
+    }
+  },
+  "questSeedTemplates": [
+    "Recover the {object} from {location} before the Earth-first deadline expires.",
+    "Mediate the {conflict} between {faction} and {rival}.",
+    "Escort the {object} through {route} while a rival faction applies pressure.",
+    "Correct the {record} in the public archive without empowering the rival ledger.",
+    "Expose the illegal {scheme} while protecting civilians and supply routes."
+  ]
+}

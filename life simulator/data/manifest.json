@@ -1,0 +1,37 @@
+{
+  "name": "Belavadös Life Simulator",
+  "version": "1.0.0-offline-static",
+  "created": "2026-06-07T08:14:07.452314Z",
+  "entry": "life_simulator.html",
+  "modules": [
+    "site.css",
+    "core.js",
+    "data-bundle.js",
+    "render.js",
+    "simulation.js",
+    "npc-system.js",
+    "location-system.js",
+    "relationship-system.js",
+    "family-system.js",
+    "faction-system.js",
+    "schedule-system.js",
+    "services-system.js",
+    "import-system.js",
+    "export-system.js",
+    "emperor-onyx.js"
+  ],
+  "dataFiles": [
+    "belavados_alignment_model.json",
+    "belavados_content.json",
+    "belavados_time_model.json",
+    "belavados_race_categories.json",
+    "living_world_rules.json",
+    "settlement_assignments.json",
+    "visitable_locations.json",
+    "faction_rules.json",
+    "manifest.json"
+  ],
+  "offlineSafe": true,
+  "serverRequired": false,
+  "mapPinWorkflowIncluded": false
+}
