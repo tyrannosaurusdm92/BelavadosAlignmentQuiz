@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "rulebotVersion": "1.0.0",
+  "settlement": "Coalveil",
+  "locations": 220,
+  "npcs": 80,
+  "npcBatch": 12,
+  "provinceSettlements": 3,
+  "playerSafeChecked": true,
+  "htmlExportChecked": true
+}
