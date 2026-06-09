@@ -1,0 +1,24 @@
+{
+  "kind": "BelavadosExternalDmMapShell",
+  "version": 1,
+  "description": "External site-wide DM map data file. Replace this file with the editor's exported dm_map.json to update the current JSON without editing dm_map.html.",
+  "externalJsonFile": "dm_map.json",
+  "mapBounds": {
+    "left": 0,
+    "right": 2048,
+    "top": 0,
+    "bottom": 1024,
+    "rawBottom": 1239,
+    "wrapFullSurface": true
+  },
+  "siteSettings": {
+    "dataMode": "external-json",
+    "editorFile": "dm_map.html",
+    "replacementWorkflow": "Use Export dm_map.json (Full Site JSON), then replace this dm_map.json file with the exported file.",
+    "raceSelectionMode": "cache-driven",
+    "godSelectionMode": "auto-fill-from-race-cache",
+    "settlementTagMode": "auto-fill-from-race-biome-type-danger-alignment-scanner",
+    "provinceZipImageMode": "province_crop_png_only_no_image_suggestions"
+  },
+  "provinces": []
+}
