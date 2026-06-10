@@ -294,28 +294,351 @@ function metaForProvince(p){return (p&&CANONICAL_PROVINCE_METADATA[p.name])||{};
 function pinColor(type){const t=(type||'').toLowerCase();if(t.includes('capital'))return '#DC143C';if(t.includes('city'))return '#32FF32';if(t.includes('town'))return '#FFA500';if(t.includes('village'))return '#000080';return '#ffd700'}
 
 const RACE_CATEGORY_DATA=[
- {label:'Nebyrr',races:['Human','Half-Elf','Half-Orc','Khoravar','Umbral Human']},
- {label:'Sigrananna',races:['Elf','Astral Elf','Eladrin','Lunar Elf','Sea Elf','Celestial Elf','Shadowmoor Elf','Shadar-Kai']},
- {label:'Marduthor',races:['Dwarf','Duergar','Gnome','Deep Gnome','Autognome']},
- {label:'Ishtanora',races:['Halfling','Kender','Kithkin','Qickstep','Hedge','Jerbeen']},
- {label:'Enkirael',races:['Orc','Goblin','Hobgoblin','Bugbear','Gnoll','Gobboc','Shadow Goblin']},
- {label:'Anubaldir',races:['Goliath','Firbolg','Cyclopian','Giff','Minotaur']},
- {label:'Valkhamesh',races:['Dragonborn','Kobold','Lizardfolk','Yuan-Ti']},
- {label:'Freyseth',races:['Aasimar','Tiefling','Feral Tiefling','Hexblood','Accursed','Curseborn']},
- {label:'Nefarokir',races:['Dhampir','Darakhul','Reborn','Arisen','Graveborn','Shade','Downcast']},
- {label:'Thalunesh',races:['Faerie','Fairy','Changeling','Lorwyn Changeling','Satyr','Dreamer']},
- {label:'Horundar',races:['Air Genasi','Earth Genasi','Fire Genasi','Water Genasi','Flamekin','Rimekin','Ashborn','Azureborn','Bogborn','Deepborn','Snowborn','Stoneborn']},
- {label:'Raeshkul',races:['Kalashtar','Githyanki','Githzerai','Plasmoid','Disembodied']},
- {label:'Setrimir',races:['Warforged','Geppettin','Relicborn','Wechselkind']},
- {label:'Sokhivar',races:['Aarakocra','Kenku','Owlin','Ravenfolk','Corvum','Gallus','Strig','Feathren','Raptor']},
- {label:'Iskareth',races:['Harengon','Leonin','Loxodon','Tabaxi','Bearfolk','Canisar','Cervan','Dara','Erina','Mapach','Ratatosk','Rakin','Sattare','Vulpin']},
- {label:'Bastveig',races:['Triton','Locathah','Grung','Merfolk','Sahuagin','Lotol','Nakudama','Dril’thar','Tamhiogals']},
- {label:'Thoryn-Rahek',races:['Thri-Kreen','Cnidarin','Oozekin','Opteran','Silkborn']},
- {label:'Hathruna',races:['Mandrake','Mycelian','Jaspeys','Gnarlborn','Harvestborn']},
- {label:'Eirzunet',races:['Ombrask','Ruinbound','Blagueborn','Threadborn']},
- {label:"Oskar'enlil",races:['Simic Hybrid','Shifter','Verdan','Vedalken','Hadozee','Tortle']},
- {label:'Asethyr',races:['Boggart','Centaur','Grudgel','Hederan','Laneshi','Terandus']},
- {label:'Nephthysra',races:['Dara','Golynn','Luma']}
+ {
+  "label": "Nebyrr",
+  "races": [
+   "Human",
+   "Half-Elf",
+   "Half-Orc",
+   "Khoravar",
+   "Umbral Human"
+  ]
+ },
+ {
+  "label": "Sigrananna",
+  "races": [
+   "Elf (Core Elves)",
+   "High Elf",
+   "Wood Elf",
+   "Drow (Underdark Elf)",
+   "Eladrin",
+   "Astral Elf",
+   "Sea Elf",
+   "Shadar-Kai",
+   "Pallid Elf",
+   "Star Elf (Lunar/Heavenly Lineage)",
+   "Avariel (Winged Elf)",
+   "Snow Elf (Frostbound Elf)",
+   "Sun Elf",
+   "Moon Elf",
+   "Shadowmoor Elf",
+   "Celestial Elf",
+   "Kaluseban",
+   "Lunar Elf",
+   "Arcane Kaluseban",
+   "Starborne Kaluseban",
+   "Wildroot Kaluseban",
+   "Tideborn Kaluseban",
+   "Stonebound Kaluseban",
+   "Umbral Kaluseban"
+  ]
+ },
+ {
+  "label": "Marduthor",
+  "races": [
+   "Dwarf",
+   "Duergar",
+   "Gnome",
+   "Deep Gnome",
+   "Autognome",
+   "Geisamahi",
+   "Hill Dwarf",
+   "Mountain Dwarf",
+   "Forest Gnome",
+   "Rock Gnome"
+  ]
+ },
+ {
+  "label": "Ishtanora",
+  "races": [
+   "Halfling",
+   "Kender",
+   "Kithkin",
+   "Qickstep",
+   "Hedge",
+   "Jerbeen",
+   "Lightfoot Halfling",
+   "Stout Halfling",
+   "Ghostwise Halfling"
+  ]
+ },
+ {
+  "label": "Enkirael",
+  "races": [
+   "Orc",
+   "Goblin",
+   "Hobgoblin",
+   "Bugbear",
+   "Gnoll",
+   "Gobboc",
+   "Shadow Goblin"
+  ]
+ },
+ {
+  "label": "Anubaldir",
+  "races": [
+   "Goliath",
+   "Firbolg",
+   "Cyclopian",
+   "Giff",
+   "Minotaur",
+   "Cloud Giant Goliath",
+   "Fire Giant Goliath",
+   "Frost Giant Goliath",
+   "Hill Giant Goliath",
+   "Stone Giant Goliath",
+   "Storm Giant Goliath"
+  ]
+ },
+ {
+  "label": "Valkhamesh",
+  "races": [
+   "Dragonborn",
+   "Kobold",
+   "Lizardfolk",
+   "Yuan-Ti",
+   "Dragonborn (Core)",
+   "Black Dragonborn",
+   "Blue Dragonborn",
+   "Green Dragonborn",
+   "Red Dragonborn",
+   "White Dragonborn",
+   "Brass Dragonborn",
+   "Bronze Dragonborn",
+   "Copper Dragonborn",
+   "Gold Dragonborn",
+   "Silver Dragonborn",
+   "Amethyst Dragonborn",
+   "Crystal Dragonborn",
+   "Emerald Dragonborn",
+   "Sapphire Dragonborn",
+   "Topaz Dragonborn",
+   "Dragonborn: Noitzideq - Air and Weather",
+   "Dragonborn: Saelftum - Volcanic Flame",
+   "Dragonborn: Jazwed - Lava and Crystal",
+   "Dragonborn: Khoalaros - Tide and Ocean",
+   "Dragonborn: Gauksneth - Desert Sand and Hidden Water",
+   "Dragonborn: Tuorszom - Stone and Mountain",
+   "Dragonborn: Taudinax - Shadow and Light",
+   "Dragonborn: Gouxelq - Metal and Crystal",
+   "Dragonborn: Vautaces - Radiance and Foresight"
+  ]
+ },
+ {
+  "label": "Freyseth",
+  "races": [
+   "Aasimar",
+   "Tiefling",
+   "Feral Tiefling",
+   "Hexblood",
+   "Accursed",
+   "Curseborn",
+   "Aburata",
+   "Aasimar: Protector",
+   "Aasimar: Scourge",
+   "Aasimar: Fallen",
+   "Aasimar: Celestial Revelation",
+   "Tiefling: Asmodeus",
+   "Tiefling: Baalzebul",
+   "Tiefling: Dispater",
+   "Tiefling: Fierna",
+   "Tiefling: Glasya",
+   "Tiefling: Levistus",
+   "Tiefling: Mammon",
+   "Tiefling: Mephistopheles",
+   "Tiefling: Zariel"
+  ]
+ },
+ {
+  "label": "Nefarokir",
+  "races": [
+   "Dhampir",
+   "Darakhul",
+   "Reborn",
+   "Arisen",
+   "Graveborn",
+   "Shade",
+   "Downcast",
+   "Volsarii"
+  ]
+ },
+ {
+  "label": "Thalunesh",
+  "races": [
+   "Faerie",
+   "Fairy",
+   "Changeling",
+   "Lorwyn Changeling",
+   "Satyr",
+   "Dreamer",
+   "Gandirosha"
+  ]
+ },
+ {
+  "label": "Horundar",
+  "races": [
+   "Air Genasi",
+   "Earth Genasi",
+   "Fire Genasi",
+   "Water Genasi",
+   "Flamekin",
+   "Rimekin",
+   "Ashborn",
+   "Azureborn",
+   "Bogborn",
+   "Deepborn",
+   "Snowborn",
+   "Stoneborn",
+   "Panolima",
+   "Earth Panolima",
+   "Fire Panolima",
+   "Water Panolima",
+   "Air Panolima",
+   "Aether Panolima"
+  ]
+ },
+ {
+  "label": "Raeshkul",
+  "races": [
+   "Kalashtar",
+   "Githyanki",
+   "Githzerai",
+   "Plasmoid",
+   "Disembodied",
+   "Gwynis"
+  ]
+ },
+ {
+  "label": "Setrimir",
+  "races": [
+   "Warforged",
+   "Geppettin",
+   "Relicborn",
+   "Wechselkind"
+  ]
+ },
+ {
+  "label": "Sokhivar",
+  "races": [
+   "Aarakocra",
+   "Kenku",
+   "Owlin",
+   "Ravenfolk",
+   "Corvum",
+   "Gallus",
+   "Strig",
+   "Feathren",
+   "Raptor"
+  ]
+ },
+ {
+  "label": "Iskareth",
+  "races": [
+   "Harengon",
+   "Leonin",
+   "Loxodon",
+   "Tabaxi",
+   "Bearfolk",
+   "Canisar",
+   "Cervan",
+   "Erina",
+   "Mapach",
+   "Ratatosk",
+   "Rakin",
+   "Sattare",
+   "Vulpin",
+   "Deorbasun"
+  ]
+ },
+ {
+  "label": "Bastveig",
+  "races": [
+   "Triton",
+   "Locathah",
+   "Grung",
+   "Merfolk",
+   "Sahuagin",
+   "Lotol",
+   "Nakudama",
+   "Dril'thar",
+   "Tamhiogal",
+   "Dril'thar (Core)",
+   "Ocean Dril'thar",
+   "Reef Dril'thar",
+   "Grassland Dril'thar",
+   "Rainforest Dril'thar",
+   "Forest Dril'thar",
+   "Swamp Dril'thar",
+   "Marsh Dril'thar",
+   "Mangrove Dril'thar",
+   "Subterranean River Dril'thar",
+   "Flooded Jungle Dril'thar",
+   "Deep-Water Dril'thar"
+  ]
+ },
+ {
+  "label": "Thoryn-Rahek",
+  "races": [
+   "Thri-Kreen",
+   "Cnidarin",
+   "Oozekin",
+   "Opteran",
+   "Silkborn"
+  ]
+ },
+ {
+  "label": "Hathruna",
+  "races": [
+   "Mandrake",
+   "Mycelian",
+   "Gnarlborn",
+   "Harvestborn",
+   "Jaspey"
+  ]
+ },
+ {
+  "label": "Eirzunet",
+  "races": [
+   "Ombrask",
+   "Ruinbound",
+   "Blagueborn",
+   "Threadborn"
+  ]
+ },
+ {
+  "label": "Oskar'enlil",
+  "races": [
+   "Simic Hybrid",
+   "Shifter",
+   "Verdan",
+   "Vedalken",
+   "Hadozee",
+   "Tortle",
+   "Shifter: Beasthide",
+   "Shifter: Longtooth",
+   "Shifter: Swiftstride",
+   "Shifter: Wildhunt"
+  ]
+ },
+ {
+  "label": "Asethyr",
+  "races": [
+   "Boggart",
+   "Centaur",
+   "Grudgel",
+   "Hederan",
+   "Laneshi",
+   "Terandus"
+  ]
+ },
+ {
+  "label": "Nephthysra",
+  "races": [
+   "Dara",
+   "Golynn",
+   "Luma"
+  ]
+ }
 ];
 const PRIMARY_GODS=RACE_CATEGORY_DATA.map(x=>x.label);
 const SETTLEMENT_TAGS=['Farming','Trade','Hunting','Artisan','Factories','Coastal','Forest','Jungle','Cliff','Dock','Grassland','Deep Mountain','Deep Sea','Floating','Reef','Mining','Fishing','Religious','Military','Academic','Arcane','Industrial','Slums','Noble District','Ruins','Haunted','Fortified','Black Market'];
@@ -2099,7 +2422,7 @@ Promise.all([new Promise(r=>flatImg.onload=r)]).then(()=>{flatCanvas=document.cr
     const div=document.createElement('div');
     div.id='raceBiomeCacheTools';
     div.className='settlement-editor-card';
-    div.innerHTML='<h4>Race + Biome Caches</h4><div class="compact-help">Race cache is unlimited. Pick a category, pick one race/bloodline, then add it. Biome cache allows up to 3 selected specific biomes.</div><div class="control-grid">'+createSelect('bdRaceCategorySelect','Race category')+createSelect('bdRaceSelect','Race / bloodline')+'<button type="button" id="bdAddRaceToCache" class="primary">Add Race to Cache</button><button type="button" id="bdClearRaceCache">Clear Race Cache</button>'+createSelect('bdBiomeCategorySelect','Biome category')+createSelect('bdBiomeSelect','Specific biome')+'<button type="button" id="bdAddBiomeToCache" class="primary">Add Biome</button><button type="button" id="bdClearBiomeCache">Clear Biome Cache</button></div><div><b>Race cache</b><div id="bdRaceCacheList" class="compact-help">—</div></div><div><b>Biome cache</b><div id="bdBiomeCacheList" class="compact-help">—</div></div><div><b>Biome-created faction hints</b><div id="bdBiomeFactionHints" class="compact-help">—</div></div>';
+    div.innerHTML='<h4>Race + Biome Caches</h4><div class="compact-help">Race cache is unlimited. Pick a creator category, pick one race, heritage, bloodline, or lineage, then add it. Biome cache allows up to 3 selected specific biomes.</div><div class="control-grid">'+createSelect('bdRaceCategorySelect','Race category')+createSelect('bdRaceSelect','Race / heritage / bloodline')+'<button type="button" id="bdAddRaceToCache" class="primary">Add Race to Cache</button><button type="button" id="bdClearRaceCache">Clear Race Cache</button>'+createSelect('bdBiomeCategorySelect','Biome category')+createSelect('bdBiomeSelect','Specific biome')+'<button type="button" id="bdAddBiomeToCache" class="primary">Add Biome</button><button type="button" id="bdClearBiomeCache">Clear Biome Cache</button></div><div><b>Race cache</b><div id="bdRaceCacheList" class="compact-help">—</div></div><div><b>Biome cache</b><div id="bdBiomeCacheList" class="compact-help">—</div></div><div><b>Biome-created faction hints</b><div id="bdBiomeFactionHints" class="compact-help">—</div></div>';
     host.parentElement.insertBefore(div, host.nextSibling);
     populateBiomeSelects();
     loadRaceDropdownData().then(populateRaceSelects);

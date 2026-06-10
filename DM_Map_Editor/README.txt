@@ -41,3 +41,7 @@ FIXED GITHUB PAGES LOADING NOTES
 - Expensive full-world auto-fill/live JSON mirroring is deferred during page load; use Export dm_map.json to generate the complete current JSON.
 - Keep dm_map.html and dm_map.json in the same GitHub Pages folder. The filename must remain exactly dm_map.json.
 - If an old browser autosave is offered and you want the GitHub file, choose Cancel. Empty/partial browser saves are ignored automatically.
+Race dropdown update:
+- Keep belavados_race_categories.json beside dm_map.html on GitHub Pages.
+- The race selector now includes core races plus heritage/bloodline/lineage choices such as Dragonborn chromatic/metallic/gem lines, Belavadös Dragonborn parentage lineages, Dril'thar biome lineages, Kaluseban bloodlines, Panolima elemental threads, and expanded elven lineages.
+- dm_map.html also includes the expanded list as an offline fallback.

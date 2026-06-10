@@ -1,0 +1,1593 @@
+{
+  "schema": "belavados-race-categories-v2",
+  "source": "Belavados_DnD_Races_Alignment_Pantheon_Compendium_images_replaced.docx + homebrew lineage package",
+  "notes": "Generated for the DM map editor race cache. Race cache is unlimited. Each category is a creator-god family; each race entry is a selectable race, heritage, bloodline, lineage, or ancestry option.",
+  "raceCategories": [
+    {
+      "number": 1,
+      "label": "Nebyrr",
+      "creator": "Nebyrr",
+      "raceFamily": "Humans, Near-Humans, and Mixed Heritage",
+      "races": [
+        {
+          "label": "Human",
+          "value": "human",
+          "category": "Nebyrr",
+          "raceFamily": "Humans, Near-Humans, and Mixed Heritage"
+        },
+        {
+          "label": "Half-Elf",
+          "value": "half_elf",
+          "category": "Nebyrr",
+          "raceFamily": "Humans, Near-Humans, and Mixed Heritage"
+        },
+        {
+          "label": "Half-Orc",
+          "value": "half_orc",
+          "category": "Nebyrr",
+          "raceFamily": "Humans, Near-Humans, and Mixed Heritage"
+        },
+        {
+          "label": "Khoravar",
+          "value": "khoravar",
+          "category": "Nebyrr",
+          "raceFamily": "Humans, Near-Humans, and Mixed Heritage"
+        },
+        {
+          "label": "Umbral Human",
+          "value": "umbral_human",
+          "category": "Nebyrr",
+          "raceFamily": "Humans, Near-Humans, and Mixed Heritage"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "label": "Sigrananna",
+      "creator": "Sigrananna",
+      "raceFamily": "Elven Peoples",
+      "races": [
+        {
+          "label": "Elf (Core Elves)",
+          "value": "elf_core_elves",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "High Elf",
+          "value": "high_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Wood Elf",
+          "value": "wood_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Drow (Underdark Elf)",
+          "value": "drow_underdark_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Eladrin",
+          "value": "eladrin",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Astral Elf",
+          "value": "astral_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Sea Elf",
+          "value": "sea_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Shadar-Kai",
+          "value": "shadar_kai",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Pallid Elf",
+          "value": "pallid_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Star Elf (Lunar/Heavenly Lineage)",
+          "value": "star_elf_lunar_heavenly_lineage",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Avariel (Winged Elf)",
+          "value": "avariel_winged_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Snow Elf (Frostbound Elf)",
+          "value": "snow_elf_frostbound_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Sun Elf",
+          "value": "sun_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Moon Elf",
+          "value": "moon_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Shadowmoor Elf",
+          "value": "shadowmoor_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Celestial Elf",
+          "value": "celestial_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Kaluseban",
+          "value": "kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Lunar Elf",
+          "value": "lunar_elf",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Arcane Kaluseban",
+          "value": "arcane_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Starborne Kaluseban",
+          "value": "starborne_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Wildroot Kaluseban",
+          "value": "wildroot_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Tideborn Kaluseban",
+          "value": "tideborn_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Stonebound Kaluseban",
+          "value": "stonebound_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        },
+        {
+          "label": "Umbral Kaluseban",
+          "value": "umbral_kaluseban",
+          "category": "Sigrananna",
+          "raceFamily": "Elven Peoples"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "label": "Marduthor",
+      "creator": "Marduthor",
+      "raceFamily": "Dwarven and Gnomish Kin",
+      "races": [
+        {
+          "label": "Dwarf",
+          "value": "dwarf",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Duergar",
+          "value": "duergar",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Gnome",
+          "value": "gnome",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Deep Gnome",
+          "value": "deep_gnome",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Autognome",
+          "value": "autognome",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Geisamahi",
+          "value": "geisamahi",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Hill Dwarf",
+          "value": "hill_dwarf",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Mountain Dwarf",
+          "value": "mountain_dwarf",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Forest Gnome",
+          "value": "forest_gnome",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        },
+        {
+          "label": "Rock Gnome",
+          "value": "rock_gnome",
+          "category": "Marduthor",
+          "raceFamily": "Dwarven and Gnomish Kin"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "label": "Ishtanora",
+      "creator": "Ishtanora",
+      "raceFamily": "Halfling and Smallfolk",
+      "races": [
+        {
+          "label": "Halfling",
+          "value": "halfling",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Kender",
+          "value": "kender",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Kithkin",
+          "value": "kithkin",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Qickstep",
+          "value": "qickstep",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Hedge",
+          "value": "hedge",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Jerbeen",
+          "value": "jerbeen",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Lightfoot Halfling",
+          "value": "lightfoot_halfling",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Stout Halfling",
+          "value": "stout_halfling",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        },
+        {
+          "label": "Ghostwise Halfling",
+          "value": "ghostwise_halfling",
+          "category": "Ishtanora",
+          "raceFamily": "Halfling and Smallfolk"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "label": "Enkirael",
+      "creator": "Enkirael",
+      "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids",
+      "races": [
+        {
+          "label": "Orc",
+          "value": "orc",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Goblin",
+          "value": "goblin",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Hobgoblin",
+          "value": "hobgoblin",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Bugbear",
+          "value": "bugbear",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Gnoll",
+          "value": "gnoll",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Gobboc",
+          "value": "gobboc",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        },
+        {
+          "label": "Shadow Goblin",
+          "value": "shadow_goblin",
+          "category": "Enkirael",
+          "raceFamily": "Orcs, Goblinoids, and Brutish Humanoids"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "label": "Anubaldir",
+      "creator": "Anubaldir",
+      "raceFamily": "Giantkin and Powerful Humanoids",
+      "races": [
+        {
+          "label": "Goliath",
+          "value": "goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Firbolg",
+          "value": "firbolg",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Cyclopian",
+          "value": "cyclopian",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Giff",
+          "value": "giff",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Minotaur",
+          "value": "minotaur",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Cloud Giant Goliath",
+          "value": "cloud_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Fire Giant Goliath",
+          "value": "fire_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Frost Giant Goliath",
+          "value": "frost_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Hill Giant Goliath",
+          "value": "hill_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Stone Giant Goliath",
+          "value": "stone_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        },
+        {
+          "label": "Storm Giant Goliath",
+          "value": "storm_giant_goliath",
+          "category": "Anubaldir",
+          "raceFamily": "Giantkin and Powerful Humanoids"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "label": "Valkhamesh",
+      "creator": "Valkhamesh",
+      "raceFamily": "Draconic and Reptilian Races",
+      "races": [
+        {
+          "label": "Dragonborn",
+          "value": "dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Kobold",
+          "value": "kobold",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Lizardfolk",
+          "value": "lizardfolk",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Yuan-Ti",
+          "value": "yuan_ti",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn (Core)",
+          "value": "dragonborn_core",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Black Dragonborn",
+          "value": "black_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Blue Dragonborn",
+          "value": "blue_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Green Dragonborn",
+          "value": "green_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Red Dragonborn",
+          "value": "red_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "White Dragonborn",
+          "value": "white_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Brass Dragonborn",
+          "value": "brass_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Bronze Dragonborn",
+          "value": "bronze_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Copper Dragonborn",
+          "value": "copper_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Gold Dragonborn",
+          "value": "gold_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Silver Dragonborn",
+          "value": "silver_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Amethyst Dragonborn",
+          "value": "amethyst_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Crystal Dragonborn",
+          "value": "crystal_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Emerald Dragonborn",
+          "value": "emerald_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Sapphire Dragonborn",
+          "value": "sapphire_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Topaz Dragonborn",
+          "value": "topaz_dragonborn",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Noitzideq - Air and Weather",
+          "value": "dragonborn_noitzideq_air_and_weather",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Saelftum - Volcanic Flame",
+          "value": "dragonborn_saelftum_volcanic_flame",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Jazwed - Lava and Crystal",
+          "value": "dragonborn_jazwed_lava_and_crystal",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Khoalaros - Tide and Ocean",
+          "value": "dragonborn_khoalaros_tide_and_ocean",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Gauksneth - Desert Sand and Hidden Water",
+          "value": "dragonborn_gauksneth_desert_sand_and_hidden_water",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Tuorszom - Stone and Mountain",
+          "value": "dragonborn_tuorszom_stone_and_mountain",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Taudinax - Shadow and Light",
+          "value": "dragonborn_taudinax_shadow_and_light",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Gouxelq - Metal and Crystal",
+          "value": "dragonborn_gouxelq_metal_and_crystal",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        },
+        {
+          "label": "Dragonborn: Vautaces - Radiance and Foresight",
+          "value": "dragonborn_vautaces_radiance_and_foresight",
+          "category": "Valkhamesh",
+          "raceFamily": "Draconic and Reptilian Races"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "label": "Freyseth",
+      "creator": "Freyseth",
+      "raceFamily": "Celestial, Fiendish, and Planar Bloodlines",
+      "races": [
+        {
+          "label": "Aasimar",
+          "value": "aasimar",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling",
+          "value": "tiefling",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Feral Tiefling",
+          "value": "feral_tiefling",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Hexblood",
+          "value": "hexblood",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Accursed",
+          "value": "accursed",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Curseborn",
+          "value": "curseborn",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Aburata",
+          "value": "aburata",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Aasimar: Protector",
+          "value": "aasimar_protector",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Aasimar: Scourge",
+          "value": "aasimar_scourge",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Aasimar: Fallen",
+          "value": "aasimar_fallen",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Aasimar: Celestial Revelation",
+          "value": "aasimar_celestial_revelation",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Asmodeus",
+          "value": "tiefling_asmodeus",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Baalzebul",
+          "value": "tiefling_baalzebul",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Dispater",
+          "value": "tiefling_dispater",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Fierna",
+          "value": "tiefling_fierna",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Glasya",
+          "value": "tiefling_glasya",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Levistus",
+          "value": "tiefling_levistus",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Mammon",
+          "value": "tiefling_mammon",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Mephistopheles",
+          "value": "tiefling_mephistopheles",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        },
+        {
+          "label": "Tiefling: Zariel",
+          "value": "tiefling_zariel",
+          "category": "Freyseth",
+          "raceFamily": "Celestial, Fiendish, and Planar Bloodlines"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "label": "Nefarokir",
+      "creator": "Nefarokir",
+      "raceFamily": "Undead and Death-Touched Races",
+      "races": [
+        {
+          "label": "Dhampir",
+          "value": "dhampir",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Darakhul",
+          "value": "darakhul",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Reborn",
+          "value": "reborn",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Arisen",
+          "value": "arisen",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Graveborn",
+          "value": "graveborn",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Shade",
+          "value": "shade",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Downcast",
+          "value": "downcast",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        },
+        {
+          "label": "Volsarii",
+          "value": "volsarii",
+          "category": "Nefarokir",
+          "raceFamily": "Undead and Death-Touched Races"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "label": "Thalunesh",
+      "creator": "Thalunesh",
+      "raceFamily": "Fey and Trickster Folk",
+      "races": [
+        {
+          "label": "Faerie",
+          "value": "faerie",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Fairy",
+          "value": "fairy",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Changeling",
+          "value": "changeling",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Lorwyn Changeling",
+          "value": "lorwyn_changeling",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Satyr",
+          "value": "satyr",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Dreamer",
+          "value": "dreamer",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        },
+        {
+          "label": "Gandirosha",
+          "value": "gandirosha",
+          "category": "Thalunesh",
+          "raceFamily": "Fey and Trickster Folk"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "label": "Horundar",
+      "creator": "Horundar",
+      "raceFamily": "Elemental and Energy-Born Peoples",
+      "races": [
+        {
+          "label": "Air Genasi",
+          "value": "air_genasi",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Earth Genasi",
+          "value": "earth_genasi",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Fire Genasi",
+          "value": "fire_genasi",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Water Genasi",
+          "value": "water_genasi",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Flamekin",
+          "value": "flamekin",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Rimekin",
+          "value": "rimekin",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Ashborn",
+          "value": "ashborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Azureborn",
+          "value": "azureborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Bogborn",
+          "value": "bogborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Deepborn",
+          "value": "deepborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Snowborn",
+          "value": "snowborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Stoneborn",
+          "value": "stoneborn",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Panolima",
+          "value": "panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Earth Panolima",
+          "value": "earth_panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Fire Panolima",
+          "value": "fire_panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Water Panolima",
+          "value": "water_panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Air Panolima",
+          "value": "air_panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        },
+        {
+          "label": "Aether Panolima",
+          "value": "aether_panolima",
+          "category": "Horundar",
+          "raceFamily": "Elemental and Energy-Born Peoples"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "label": "Raeshkul",
+      "creator": "Raeshkul",
+      "raceFamily": "Psionic, Astral, and Alien Minds",
+      "races": [
+        {
+          "label": "Kalashtar",
+          "value": "kalashtar",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        },
+        {
+          "label": "Githyanki",
+          "value": "githyanki",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        },
+        {
+          "label": "Githzerai",
+          "value": "githzerai",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        },
+        {
+          "label": "Plasmoid",
+          "value": "plasmoid",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        },
+        {
+          "label": "Disembodied",
+          "value": "disembodied",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        },
+        {
+          "label": "Gwynis",
+          "value": "gwynis",
+          "category": "Raeshkul",
+          "raceFamily": "Psionic, Astral, and Alien Minds"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "label": "Setrimir",
+      "creator": "Setrimir",
+      "raceFamily": "Constructed and Artificial Beings",
+      "races": [
+        {
+          "label": "Warforged",
+          "value": "warforged",
+          "category": "Setrimir",
+          "raceFamily": "Constructed and Artificial Beings"
+        },
+        {
+          "label": "Geppettin",
+          "value": "geppettin",
+          "category": "Setrimir",
+          "raceFamily": "Constructed and Artificial Beings"
+        },
+        {
+          "label": "Relicborn",
+          "value": "relicborn",
+          "category": "Setrimir",
+          "raceFamily": "Constructed and Artificial Beings"
+        },
+        {
+          "label": "Wechselkind",
+          "value": "wechselkind",
+          "category": "Setrimir",
+          "raceFamily": "Constructed and Artificial Beings"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "label": "Sokhivar",
+      "creator": "Sokhivar",
+      "raceFamily": "Birdfolk and Avian Races",
+      "races": [
+        {
+          "label": "Aarakocra",
+          "value": "aarakocra",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Kenku",
+          "value": "kenku",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Owlin",
+          "value": "owlin",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Ravenfolk",
+          "value": "ravenfolk",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Corvum",
+          "value": "corvum",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Gallus",
+          "value": "gallus",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Strig",
+          "value": "strig",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Feathren",
+          "value": "feathren",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        },
+        {
+          "label": "Raptor",
+          "value": "raptor",
+          "category": "Sokhivar",
+          "raceFamily": "Birdfolk and Avian Races"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "label": "Iskareth",
+      "creator": "Iskareth",
+      "raceFamily": "Beastfolk and Mammalian Anthropomorphs",
+      "races": [
+        {
+          "label": "Harengon",
+          "value": "harengon",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Leonin",
+          "value": "leonin",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Loxodon",
+          "value": "loxodon",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Tabaxi",
+          "value": "tabaxi",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Bearfolk",
+          "value": "bearfolk",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Canisar",
+          "value": "canisar",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Cervan",
+          "value": "cervan",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Erina",
+          "value": "erina",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Mapach",
+          "value": "mapach",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Ratatosk",
+          "value": "ratatosk",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Rakin",
+          "value": "rakin",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Sattare",
+          "value": "sattare",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Vulpin",
+          "value": "vulpin",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        },
+        {
+          "label": "Deorbasun",
+          "value": "deorbasun",
+          "category": "Iskareth",
+          "raceFamily": "Beastfolk and Mammalian Anthropomorphs"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "label": "Bastveig",
+      "creator": "Bastveig",
+      "raceFamily": "Amphibious and Aquatic Peoples",
+      "races": [
+        {
+          "label": "Triton",
+          "value": "triton",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Locathah",
+          "value": "locathah",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Grung",
+          "value": "grung",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Merfolk",
+          "value": "merfolk",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Sahuagin",
+          "value": "sahuagin",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Lotol",
+          "value": "lotol",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Nakudama",
+          "value": "nakudama",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Dril'thar",
+          "value": "dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Tamhiogal",
+          "value": "tamhiogal",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Dril'thar (Core)",
+          "value": "dril_thar_core",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Ocean Dril'thar",
+          "value": "ocean_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Reef Dril'thar",
+          "value": "reef_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Grassland Dril'thar",
+          "value": "grassland_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Rainforest Dril'thar",
+          "value": "rainforest_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Forest Dril'thar",
+          "value": "forest_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Swamp Dril'thar",
+          "value": "swamp_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Marsh Dril'thar",
+          "value": "marsh_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Mangrove Dril'thar",
+          "value": "mangrove_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Subterranean River Dril'thar",
+          "value": "subterranean_river_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Flooded Jungle Dril'thar",
+          "value": "flooded_jungle_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        },
+        {
+          "label": "Deep-Water Dril'thar",
+          "value": "deep_water_dril_thar",
+          "category": "Bastveig",
+          "raceFamily": "Amphibious and Aquatic Peoples"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "label": "Thoryn-Rahek",
+      "creator": "Thoryn-Rahek",
+      "raceFamily": "Insectoid, Ooze, and Aberrant Creatures",
+      "races": [
+        {
+          "label": "Thri-Kreen",
+          "value": "thri_kreen",
+          "category": "Thoryn-Rahek",
+          "raceFamily": "Insectoid, Ooze, and Aberrant Creatures"
+        },
+        {
+          "label": "Cnidarin",
+          "value": "cnidarin",
+          "category": "Thoryn-Rahek",
+          "raceFamily": "Insectoid, Ooze, and Aberrant Creatures"
+        },
+        {
+          "label": "Oozekin",
+          "value": "oozekin",
+          "category": "Thoryn-Rahek",
+          "raceFamily": "Insectoid, Ooze, and Aberrant Creatures"
+        },
+        {
+          "label": "Opteran",
+          "value": "opteran",
+          "category": "Thoryn-Rahek",
+          "raceFamily": "Insectoid, Ooze, and Aberrant Creatures"
+        },
+        {
+          "label": "Silkborn",
+          "value": "silkborn",
+          "category": "Thoryn-Rahek",
+          "raceFamily": "Insectoid, Ooze, and Aberrant Creatures"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "label": "Hathruna",
+      "creator": "Hathruna",
+      "raceFamily": "Plantfolk and Nature-Bound Races",
+      "races": [
+        {
+          "label": "Mandrake",
+          "value": "mandrake",
+          "category": "Hathruna",
+          "raceFamily": "Plantfolk and Nature-Bound Races"
+        },
+        {
+          "label": "Mycelian",
+          "value": "mycelian",
+          "category": "Hathruna",
+          "raceFamily": "Plantfolk and Nature-Bound Races"
+        },
+        {
+          "label": "Gnarlborn",
+          "value": "gnarlborn",
+          "category": "Hathruna",
+          "raceFamily": "Plantfolk and Nature-Bound Races"
+        },
+        {
+          "label": "Harvestborn",
+          "value": "harvestborn",
+          "category": "Hathruna",
+          "raceFamily": "Plantfolk and Nature-Bound Races"
+        },
+        {
+          "label": "Jaspey",
+          "value": "jaspey",
+          "category": "Hathruna",
+          "raceFamily": "Plantfolk and Nature-Bound Races"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "label": "Eirzunet",
+      "creator": "Eirzunet",
+      "raceFamily": "Shadow, Umbral, and Darkness-Aligned Peoples",
+      "races": [
+        {
+          "label": "Ombrask",
+          "value": "ombrask",
+          "category": "Eirzunet",
+          "raceFamily": "Shadow, Umbral, and Darkness-Aligned Peoples"
+        },
+        {
+          "label": "Ruinbound",
+          "value": "ruinbound",
+          "category": "Eirzunet",
+          "raceFamily": "Shadow, Umbral, and Darkness-Aligned Peoples"
+        },
+        {
+          "label": "Blagueborn",
+          "value": "blagueborn",
+          "category": "Eirzunet",
+          "raceFamily": "Shadow, Umbral, and Darkness-Aligned Peoples"
+        },
+        {
+          "label": "Threadborn",
+          "value": "threadborn",
+          "category": "Eirzunet",
+          "raceFamily": "Shadow, Umbral, and Darkness-Aligned Peoples"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "label": "Oskar'enlil",
+      "creator": "Oskar'enlil",
+      "raceFamily": "Animalistic Hybrids and Experimental Races",
+      "races": [
+        {
+          "label": "Simic Hybrid",
+          "value": "simic_hybrid",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Shifter",
+          "value": "shifter",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Verdan",
+          "value": "verdan",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Vedalken",
+          "value": "vedalken",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Hadozee",
+          "value": "hadozee",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Tortle",
+          "value": "tortle",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Shifter: Beasthide",
+          "value": "shifter_beasthide",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Shifter: Longtooth",
+          "value": "shifter_longtooth",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Shifter: Swiftstride",
+          "value": "shifter_swiftstride",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        },
+        {
+          "label": "Shifter: Wildhunt",
+          "value": "shifter_wildhunt",
+          "category": "Oskar'enlil",
+          "raceFamily": "Animalistic Hybrids and Experimental Races"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "label": "Asethyr",
+      "creator": "Asethyr",
+      "raceFamily": "Primitive, Tribal, and Wilderness Humanoids",
+      "races": [
+        {
+          "label": "Boggart",
+          "value": "boggart",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        },
+        {
+          "label": "Centaur",
+          "value": "centaur",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        },
+        {
+          "label": "Grudgel",
+          "value": "grudgel",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        },
+        {
+          "label": "Hederan",
+          "value": "hederan",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        },
+        {
+          "label": "Laneshi",
+          "value": "laneshi",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        },
+        {
+          "label": "Terandus",
+          "value": "terandus",
+          "category": "Asethyr",
+          "raceFamily": "Primitive, Tribal, and Wilderness Humanoids"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "label": "Nephthysra",
+      "creator": "Nephthysra",
+      "raceFamily": "Miscellaneous and Hard-to-Classify Races",
+      "races": [
+        {
+          "label": "Dara",
+          "value": "dara",
+          "category": "Nephthysra",
+          "raceFamily": "Miscellaneous and Hard-to-Classify Races"
+        },
+        {
+          "label": "Golynn",
+          "value": "golynn",
+          "category": "Nephthysra",
+          "raceFamily": "Miscellaneous and Hard-to-Classify Races"
+        },
+        {
+          "label": "Luma",
+          "value": "luma",
+          "category": "Nephthysra",
+          "raceFamily": "Miscellaneous and Hard-to-Classify Races"
+        }
+      ]
+    }
+  ]
+}
