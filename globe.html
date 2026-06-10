@@ -72,7 +72,7 @@ html,body{font:16px/1.5 Georgia,serif;background:#07090a fixed center/cover no-r
 body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(rgba(5,8,9,.38),rgba(5,8,9,.66)),var(--bg-home);background-size:cover;background-position:center;filter:saturate(1.05)}
 body::after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.44)),radial-gradient(circle at top,rgba(255,255,255,.06),transparent 28%);pointer-events:none}
 #globe{filter:drop-shadow(0 0 38px rgba(0,255,255,.34)) drop-shadow(0 0 72px rgba(141,224,220,.16))}
-#overlay{filter:drop-shadow(0 0 10px rgba(255,255,255,.14));transform:translateY(-2px)}
+#overlay{filter:drop-shadow(0 0 10px rgba(255,255,255,.14))}
 .hud{background:linear-gradient(180deg,rgba(9,13,18,.88),rgba(12,16,23,.92));border:1px solid rgba(124,231,255,.22);box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 26px rgba(0,255,255,.12);font-family:Georgia,serif;transition:width .18s ease,max-height .18s ease,box-shadow .18s ease}
 .hud header{background:rgba(9,13,18,.42);gap:6px}
 .hud .body{max-height:58vh;overflow:auto}
@@ -442,7 +442,7 @@ body.template-dashboard .parallelLabel{
       <header><span>DM Tools</span><button class="hideBtn" data-hide="dmTools" type="button">hide</button></header>
       <div class="body">
         <h3>Editor + Export Controls</h3>
-        <p class="small">Private module unlocked only at <code>#dm-editor</code>. Upload NPC JSON by world, province, or settlement; import/export globe JSON; and clear runtime JSON by severity without touching the globe image, moons, sun, or window layout.</p>
+        <p class="small">Private module unlocked only at <code>#dm-editor</code>. Upload NPC JSON by world, province, or settlement; import/export globe JSON; save the current runtime back into a player-ready HTML file, and clear runtime JSON by severity without touching the globe image, moons, sun, or window layout.</p>
         <label class="small" for="npcImportScope">NPC JSON upload scope</label><select id="npcImportScope"><option value="world">World NPC JSON</option><option value="province">Province NPC JSON</option><option value="settlement">Settlement NPC JSON</option><option value="auto">Auto-detect from file</option></select>
         <div class="module-buttons dm-tool-buttons">
           <button id="npcImportBtn" type="button">Upload NPC JSON</button>
@@ -739,6 +739,7 @@ body.template-dashboard .parallelLabel{
     surfW = globeData.surfaceWidth || globeData.imageWidth || 2048;
     surfH = globeData.surfaceHeight || 1024;
     populateUI();
+    restoreEmbeddedPlayerRuntime(globeData);
     textureReady = false;
     textureData = null;
     if (!globeData.imageUrl) {
@@ -1596,17 +1597,111 @@ body.template-dashboard .parallelLabel{
     setDmStatus('Loaded celestial runtime JSON. Sun and moons remain protected renderer layers.');
     queueRender();
   }
-  function savePlayerGlobeRuntime(){
+  function currentPlayerRuntimePayload(){
+    return {
+      kind:'BelavadosEmbeddedPlayerRuntime',
+      savedAt:new Date().toISOString(),
+      npcExports:npcState.exports,
+      activeTrackers:npcState.activeTrackers,
+      selectedNpcId:npcState.selectedNpcId,
+      celestialRuntime:{
+        showCelestials:state.showCelestials,
+        timeSpeed:$('timeSpeed')?.value || '15min',
+        simDays
+      }
+    };
+  }
+  function cloneForEmbeddedHtml(value){
+    return JSON.parse(JSON.stringify(value || {}));
+  }
+  function safeJsonForHtmlScript(value){
+    return JSON.stringify(value)
+      .replace(/</g,'\\u003c')
+      .replace(/>/g,'\\u003e')
+      .replace(/&/g,'\\u0026')
+      .replace(/\u2028/g,'\\u2028')
+      .replace(/\u2029/g,'\\u2029');
+  }
+  function buildEmbeddedPlayerGlobeData(){
+    const embedded = cloneForEmbeddedHtml(globeData);
+    embedded.kind = embedded.kind || 'BelavadosStandaloneGlobe';
+    embedded.version = Math.max(Number(embedded.version || 1), 2);
+    embedded.savedForPlayerAt = new Date().toISOString();
+    embedded.createdFrom = 'Saved to player globe HTML';
+    embedded.playerRuntime = currentPlayerRuntimePayload();
+    return embedded;
+  }
+  function buildPlayerHtmlWithEmbeddedJson(){
+    const script = $('initialGlobeData');
+    if (!script) throw new Error('Missing <script id="initialGlobeData"> block.');
+    const previous = script.textContent;
+    const embeddedGlobeData = buildEmbeddedPlayerGlobeData();
+    script.textContent = safeJsonForHtmlScript(embeddedGlobeData);
+    let htmlText = '<!doctype html>\n' + document.documentElement.outerHTML;
+    script.textContent = previous;
+    return htmlText;
+  }
+  async function writePlayerHtmlFile(htmlText){
+    const blob = new Blob([htmlText], {type:'text/html;charset=utf-8'});
+    if (window.showSaveFilePicker){
+      try{
+        const handle = await window.showSaveFilePicker({
+          suggestedName:'globe.html',
+          types:[{description:'Belavadös Globe HTML', accept:{'text/html':['.html']}}]
+        });
+        const writable = await handle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+        return 'saved-html-file';
+      }catch(err){
+        if (err && err.name === 'AbortError') return 'cancelled';
+        console.warn(err);
+      }
+    }
+    download('globe.html','text/html',blob);
+    return 'downloaded-html-file';
+  }
+  async function savePlayerGlobeRuntime(){
     if (!requireDMEditor('Saving to player globe')) return;
-    const payload = { kind:'BelavadosPlayerGlobeRuntime', savedAt:new Date().toISOString(), globeData, npcExports:npcState.exports, celestialRuntime:{showCelestials:state.showCelestials,timeSpeed:$('timeSpeed')?.value || '15min',simDays} };
     try{
-      localStorage.setItem('belavados.globe.npcExports', JSON.stringify(npcState.exports));
-      localStorage.setItem('belavados.globe.playerRuntime', JSON.stringify(payload));
-    }catch(err){ console.warn(err); }
-    download('Belavados_player_globe_runtime.json','application/json',JSON.stringify(payload,null,2));
-    setDmStatus('Saved current runtime to browser storage and exported a player-globe runtime JSON backup.');
+      const htmlText = buildPlayerHtmlWithEmbeddedJson();
+      const result = await writePlayerHtmlFile(htmlText);
+      if (result === 'cancelled') {
+        setDmStatus('Save to Player Globe cancelled; embedded HTML was not changed.');
+        return;
+      }
+      setDmStatus(result === 'saved-html-file'
+        ? 'Saved player-ready globe.html with the current globe, province, settlement, NPC, tracker, and celestial JSON embedded inside the HTML.'
+        : 'Created player-ready globe.html with the current globe, province, settlement, NPC, tracker, and celestial JSON embedded inside the HTML. Replace the site globe.html with this file.');
+    }catch(err){
+      console.error(err);
+      alert('Save to Player Globe could not embed the current JSON into the HTML: ' + err.message);
+    }
+  }
+  function restoreEmbeddedPlayerRuntime(source){
+    const runtime = source?.playerRuntime || source?.embeddedPlayerRuntime || null;
+    if (!runtime || typeof runtime !== 'object') return false;
+    if (runtime.npcExports && typeof runtime.npcExports === 'object'){
+      ['world','province','settlement'].forEach(scope => {
+        if (runtime.npcExports[scope]?.npcs) npcState.exports[scope] = runtime.npcExports[scope];
+      });
+    }
+    if (Array.isArray(runtime.activeTrackers)) npcState.activeTrackers = runtime.activeTrackers;
+    if (runtime.selectedNpcId) npcState.selectedNpcId = runtime.selectedNpcId;
+    if (runtime.celestialRuntime && typeof runtime.celestialRuntime === 'object'){
+      npcState.celestialRuntime = runtime.celestialRuntime;
+      if (typeof runtime.celestialRuntime.showCelestials === 'boolean'){
+        state.showCelestials = runtime.celestialRuntime.showCelestials;
+        if ($('showCelestials')) $('showCelestials').checked = state.showCelestials;
+      }
+      if (runtime.celestialRuntime.timeSpeed && $('timeSpeed')) $('timeSpeed').value = runtime.celestialRuntime.timeSpeed;
+      if (Number.isFinite(Number(runtime.celestialRuntime.simDays))) simDays = Number(runtime.celestialRuntime.simDays);
+    }
+    rebuildNpcIndex();
+    return true;
   }
   function restoreSavedNpcRuntime(){
+    if (restoreEmbeddedPlayerRuntime(globeData)) return;
     try{
       const saved = JSON.parse(localStorage.getItem('belavados.globe.npcExports') || 'null');
       if (saved && typeof saved === 'object'){
