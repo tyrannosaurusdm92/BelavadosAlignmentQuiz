@@ -2387,6 +2387,177 @@ Promise.all([new Promise(r=>flatImg.onload=r)]).then(()=>{flatCanvas=document.cr
 </script>
 
 
+<script>
+
+/* GitHub Pages external dm_map.json loader fix: restores province/settlement data and border overlay from the external JSON file. */
+(function(){
+  if(window.__belavadosGithubExternalDmMapLoaderFix) return;
+  window.__belavadosGithubExternalDmMapLoaderFix = true;
+
+  const EXTERNAL_URL = (typeof EXTERNAL_DM_MAP_JSON !== 'undefined' && EXTERNAL_DM_MAP_JSON) ? EXTERNAL_DM_MAP_JSON : 'dm_map.json';
+  const SAVE_KEY = 'BelavadosMapDM_BrowserProgress_v2';
+  const AUTOSAVE_KEY = 'BelavadosMapDM_Autosave';
+
+  function q(id){ return document.getElementById(id); }
+  function sleep(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
+  function provinceCount(data){ return data && Array.isArray(data.provinces) ? data.provinces.length : 0; }
+  function readyForMapInstall(){
+    return typeof convertInitial === 'function' && typeof refreshSelect === 'function' && typeof drawMap === 'function' && typeof updateStats === 'function';
+  }
+  async function waitForCore(){
+    for(let i=0;i<160;i++){
+      if(readyForMapInstall()) return true;
+      await sleep(50);
+    }
+    return false;
+  }
+  function activeData(){
+    const serializer = window.serialize || (typeof serialize === 'function' ? serialize : null);
+    if(serializer) return serializer();
+    return {kind:'BelavadosUnifiedPortableMapData',version:5,provinces:(typeof state !== 'undefined' && state.provinces) || []};
+  }
+  function refreshAfterInstall(){
+    try{ if(typeof refreshSelect === 'function') refreshSelect(); }catch(e){}
+    try{ if(typeof renderSettlementSelect === 'function') renderSettlementSelect(); }catch(e){}
+    try{ if(typeof fitMap === 'function') fitMap(); else if(typeof drawMap === 'function') drawMap(); }catch(e){ try{ drawMap(); }catch(_){} }
+    try{ if(typeof updateStats === 'function') updateStats(); }catch(e){}
+    try{ if(typeof updateTerrainPanel === 'function') updateTerrainPanel(); }catch(e){}
+    try{ if(q('dataBox')) q('dataBox').value = JSON.stringify(activeData(), null, 2); }catch(e){}
+  }
+  function installDmMapData(data, sourceLabel){
+    if(!data || !readyForMapInstall()) return false;
+    const count = provinceCount(data);
+    if(count < 1){
+      console.warn('Ignored '+sourceLabel+' because it does not contain any provinces. Replace dm_map.json with a full exported map JSON.');
+      return false;
+    }
+    try{
+      state = convertInitial(data);
+      selected = 0;
+      if(typeof selectedSettlementIndex !== 'undefined') selectedSettlementIndex = -1;
+      currentMapView = 'main';
+      provinceViewCrop = null;
+      if(state && Array.isArray(state.provinces)){
+        const sourceProvinces = Array.isArray(data.provinces) ? data.provinces : [];
+        state.provinces.forEach((p, index)=>{
+          const src = sourceProvinces[index] || {};
+          p.originalAnchors = JSON.parse(JSON.stringify(p.anchors || []));
+          if(p.visible === undefined) p.visible = true;
+          /* Preserve imported scan/metadata so later auto-tag code does not re-scan the entire map for every province on load. */
+          p.terrainScan = src.terrainScan || src.landScanResults || src.provinceInfo?.landScanResults || null;
+          p.landScanResults = p.terrainScan;
+          p.provinceInfo = src.provinceInfo || p.provinceInfo || {};
+          p.governmentType = src.governmentType || src.government || src.provinceInfo?.governmentType || p.governmentType || p.metadata?.governmentType || '';
+          p.government = p.governmentType || p.government || '';
+          p.population = src.population || src.overallPopulation || src.provinceInfo?.overallPopulation || p.population || p.metadata?.population || '';
+          p.overallPopulation = p.population;
+          p.squareMiles = src.squareMiles || src.provinceInfo?.squareMiles || p.squareMiles || null;
+          p.squareKilometers = src.squareKilometers || src.provinceInfo?.squareKilometers || p.squareKilometers || null;
+          p.loreLinks = src.loreLinks || p.loreLinks || [];
+          p.externalLink = src.externalLink || p.externalLink || '';
+          p.provinceMap = src.provinceMap || p.provinceMap || null;
+          if(Array.isArray(p.settlements) && typeof normalizeSettlement === 'function') p.settlements = p.settlements.map(normalizeSettlement);
+        });
+      }
+      refreshAfterInstall();
+      setTimeout(refreshAfterInstall, 250);
+      setTimeout(refreshAfterInstall, 1000);
+      console.info('Belavadös DM map data loaded from '+sourceLabel+' with '+count+' provinces.');
+      try{ window.dispatchEvent(new CustomEvent('belavados:dmMapDataLoaded', {detail:{source:sourceLabel, provinceCount:count}})); }catch(e){}
+      return true;
+    }catch(err){
+      console.error('Could not install '+sourceLabel+' data:', err);
+      alert('Could not load '+sourceLabel+': '+(err && err.message ? err.message : err));
+      return false;
+    }
+  }
+  function getSavedData(){
+    try{
+      const saved = localStorage.getItem(SAVE_KEY) || localStorage.getItem(AUTOSAVE_KEY);
+      return saved ? JSON.parse(saved) : null;
+    }catch(e){ return null; }
+  }
+  async function loadExternalJson(){
+    const coreReady = await waitForCore();
+    if(!coreReady){
+      alert('The map editor core did not finish loading, so dm_map.json could not be installed.');
+      return false;
+    }
+    try{
+      const res = await fetch(EXTERNAL_URL, {cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status+' while loading '+EXTERNAL_URL);
+      const data = await res.json();
+      const loadedCount = provinceCount(data);
+      if(!installDmMapData(data, EXTERNAL_URL)) throw new Error(EXTERNAL_URL+' did not contain usable province data.');
+
+      const savedData = getSavedData();
+      const savedCount = provinceCount(savedData);
+      if(savedCount >= loadedCount && savedCount > 0){
+        const restore = confirm('Saved browser progress was found with '+savedCount+' provinces. Restore it over dm_map.json for this browser session? Choose Cancel to keep the GitHub dm_map.json file.');
+        if(restore) installDmMapData(savedData, 'browser saved progress');
+      }else if(savedCount > 0){
+        console.warn('Browser saved progress has fewer provinces ('+savedCount+') than dm_map.json ('+loadedCount+'); keeping dm_map.json.');
+      }
+      return true;
+    }catch(err){
+      console.warn('External dm_map.json load failed:', err);
+      const savedData = getSavedData();
+      if(provinceCount(savedData) > 0){
+        installDmMapData(savedData, 'browser saved progress');
+        alert('dm_map.json could not be loaded, so saved browser progress was restored instead.');
+        return true;
+      }
+      alert('dm_map.json could not be loaded. On GitHub Pages, keep dm_map.html and dm_map.json in the same folder and preserve the exact lowercase filename dm_map.json.');
+      return false;
+    }
+  }
+  function downloadJson(name, data){
+    const text = JSON.stringify(data, null, 2);
+    if(q('dataBox')) q('dataBox').value = text;
+    if(typeof download === 'function') download(name, text, 'application/json');
+    else {
+      const blob = new Blob([text], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    }
+  }
+  function exportFullSiteJson(){
+    try{
+      if(typeof saveSettlementEditor === 'function' && typeof selectedSettlementIndex !== 'undefined' && selectedSettlementIndex >= 0){
+        try{ saveSettlementEditor(); }catch(e){}
+      }
+      const data = activeData();
+      data.externalJsonFile = 'dm_map.json';
+      data.exportedAs = 'dm_map.json';
+      data.exportPurpose = 'Full site JSON replacement file for dm_map.html external data.';
+      data.exportedAt = new Date().toISOString();
+      downloadJson('dm_map.json', data);
+    }catch(err){ alert('dm_map.json export failed: '+(err && err.message ? err.message : err)); }
+  }
+  function saveProgress(){
+    try{
+      const data = activeData();
+      data.browserProgressSavedAt = new Date().toISOString();
+      const text = JSON.stringify(data);
+      localStorage.setItem(SAVE_KEY, text);
+      localStorage.setItem(AUTOSAVE_KEY, text);
+      if(q('dataBox')) q('dataBox').value = JSON.stringify(data, null, 2);
+      alert('Progress saved in this browser. Export dm_map.json when you want a replacement file for the site.');
+    }catch(err){ alert('Save progress failed: '+(err && err.message ? err.message : err)); }
+  }
+  function installButtons(){
+    const exportBtn = q('exportJson');
+    if(exportBtn) exportBtn.onclick = exportFullSiteJson;
+    const saveBtn = q('saveProgress');
+    if(saveBtn) saveBtn.onclick = saveProgress;
+  }
+  window.belavadosReloadExternalDmMapJson = loadExternalJson;
+  installButtons();
+  loadExternalJson().then(installButtons);
+})();
+
+</script>
 <script id="BELAVADOS_RACE_CACHE_AUTO_TAG_PATCH">
 /* Final requested behavior patch: race caches replace race-category checkboxes; gods and tags auto-fill; province ZIP omits map-image suggestions and includes province_crop.png in the province folder. */
 (function(){
@@ -2579,7 +2750,8 @@ Promise.all([new Promise(r=>flatImg.onload=r)]).then(()=>{flatCanvas=document.cr
     if(gods) gods.textContent=asArray(s.godsWorshipped).length ? asArray(s.godsWorshipped).join(', ') : 'No gods yet. Add races to the race cache.';
     if(tags) tags.textContent=asArray(s.autoSettlementTags || s.settlementTags).length ? asArray(s.autoSettlementTags || s.settlementTags).join(', ') : 'No tags yet. Add races/biomes or run the terrain scanner.';
     if(land){ const l=s.landScannerInfluence; land.textContent=l ? [l.feature,l.type,l.location].filter(Boolean).join(' · ') : 'No land scan result yet.'; }
-    try{ if(q('dataBox') && (window.serialize || typeof serialize === 'function')) q('dataBox').value=JSON.stringify((window.serialize||serialize)(),null,2); }catch(e){}
+    /* Startup/per-selection JSON mirroring disabled for large GitHub Pages maps; use Export dm_map.json for the full live JSON. */
+    try{ if(q('dataBox') && ((typeof state === 'undefined') || !state.provinces || state.provinces.length <= 3) && (window.serialize || typeof serialize === 'function')) q('dataBox').value=JSON.stringify((window.serialize||serialize)(),null,2); }catch(e){}
   }
   function wrapClickForAuto(id){
     const el=q(id); if(!el || el.__autoTagWrapped) return;
@@ -2654,7 +2826,7 @@ Promise.all([new Promise(r=>flatImg.onload=r)]).then(()=>{flatCanvas=document.cr
   const previousSerialize = window.serialize || (typeof serialize === 'function' ? serialize : null);
   if(previousSerialize){
     window.serialize = serialize = function(){
-      applyAutoAll();
+      /* Do not auto-fill every settlement during passive serialization; export/save buttons call applyAutoAll explicitly. */
       const data=previousSerialize.apply(this, arguments) || {};
       cleanSuggestionFields(data);
       asArray(data.provinces).forEach((outP,pi)=>{
@@ -2723,7 +2895,7 @@ Promise.all([new Promise(r=>flatImg.onload=r)]).then(()=>{flatCanvas=document.cr
     installUiPatch();
     const zipBtn=q('exportProvinceZip'); if(zipBtn) zipBtn.onclick=exportProvinceZip;
     const exportBtn=q('exportJson'); if(exportBtn) exportBtn.onclick=exportDmJson;
-    applyAutoAll();
+    /* Do not auto-fill the whole world on startup; this keeps GitHub Pages loading responsive. */
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install); else install();
   setTimeout(install,250); setTimeout(install,1000);

@@ -32,3 +32,12 @@ Preserved behavior:
 - Capital portal-route rule.
 - Time-zone updates on placed/moved settlements.
 - Existing editor controls outside the requested selector/image-suggestion changes.
+
+
+FIXED GITHUB PAGES LOADING NOTES
+- dm_map.html now actively loads the external dm_map.json on page start.
+- dm_map.json has been replaced with the full 28-province exported map JSON from the standalone reference instead of the empty shell file.
+- The loader preserves imported terrain/land-scan metadata so the cache auto-fill patch does not re-scan every province during startup.
+- Expensive full-world auto-fill/live JSON mirroring is deferred during page load; use Export dm_map.json to generate the complete current JSON.
+- Keep dm_map.html and dm_map.json in the same GitHub Pages folder. The filename must remain exactly dm_map.json.
+- If an old browser autosave is offered and you want the GitHub file, choose Cancel. Empty/partial browser saves are ignored automatically.
