@@ -1,0 +1,8 @@
+{
+  "defaultDice": "1d20",
+  "diceLimit": 20,
+  "width": "100%",
+  "height": "540px",
+  "minHeight": "520px",
+  "chatbotRollSource": "existing 3D swipe dice tray only"
+}
