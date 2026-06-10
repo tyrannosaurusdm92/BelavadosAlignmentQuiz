@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belavadös Life Simulator</title>
   <link rel="stylesheet" href="life-simulator/site.css" />
+  <link rel="stylesheet" href="life-simulator/location-tools.css" />
 </head>
 <body>
   <header class="hero">
@@ -14,6 +15,8 @@
       <p class="subtitle">Generate settlement, province, or world NPCs with homes, work, travel patterns, relationships, factions, class hooks, schedules, and export-ready JSON.</p>
     </div>
     <nav class="top-actions" aria-label="Primary actions">
+      <button id="showNpcSimulatorPageBtn" type="button" class="page-switch active">NPC Simulator</button>
+      <button id="showLocationToolsPageBtn" type="button" class="page-switch">Location Generator & Editors</button>
       <button id="saveStateBtn" type="button">Save Progress</button>
       <button id="loadStateBtn" type="button">Load Progress</button>
       <button id="openOnyxButton" type="button">Open Emperor Onyx</button>
@@ -21,7 +24,7 @@
     </nav>
   </header>
 
-  <main class="app-shell">
+  <main id="npcSimulatorPage" class="app-shell app-page active" data-app-page="npc">
     <aside class="control-panel card">
       <h2>Generator Setup</h2>
 
@@ -85,12 +88,33 @@
         <div id="biomeCache" class="chip-box" aria-live="polite"></div>
       </section>
 
-      <section class="form-section">
-        <h3>Build</h3>
-        <div class="button-grid">
-          <button id="generateNpcsBtn" type="button" class="primary">Generate NPCs</button>
-          <button id="clearNpcsBtn" type="button">Clear NPCs</button>
-        </div>
+      <section class="form-section generator-menu-section">
+        <h3>Generator Menu</h3>
+        <details class="generator-menu-group" open>
+          <summary>NPC Generator</summary>
+          <div class="button-grid menu-button-grid">
+            <button id="generateNpcsBtn" type="button" class="primary">Generate / Add NPCs</button>
+            <button id="randomizeFiveBtn" type="button">5% Randomizer</button>
+            <button id="clearNpcsBtn" type="button">Clear NPCs</button>
+          </div>
+        </details>
+        <details class="generator-menu-group">
+          <summary>NPC Export Menu</summary>
+          <div class="button-grid menu-button-grid">
+            <button id="exportAllBtn" type="button">Export All NPCs JSON</button>
+            <button id="exportWorldBtn" type="button">Export World NPCs JSON</button>
+            <button id="exportProvinceBtn" type="button">Export Province NPCs JSON</button>
+            <button id="exportSettlementBtn" type="button">Export Settlement NPCs JSON</button>
+          </div>
+        </details>
+        <details class="generator-menu-group">
+          <summary>Location & Imported Data Menu</summary>
+          <div class="button-grid menu-button-grid">
+            <button id="exportProvinceDataBtn" type="button">Export Current provinces_settlements.json</button>
+            <button id="reconcileLocationsBtn" type="button">Reconcile NPC Residences & Locations</button>
+            <button id="clearLocationsBtn" type="button">Clear Imported Locations</button>
+          </div>
+        </details>
       </section>
     </aside>
 
@@ -101,12 +125,7 @@
             <h2>Current World Packet</h2>
             <p id="summaryLine" class="muted">Loading data…</p>
           </div>
-          <div class="export-row">
-            <button id="exportAllBtn" type="button">Export All NPCs JSON</button>
-            <button id="exportWorldBtn" type="button">Export World-Wide NPCs JSON</button>
-            <button id="exportProvinceBtn" type="button">Export Province-Wide NPCs JSON</button>
-            <button id="exportSettlementBtn" type="button">Export Settlement-Wide NPCs JSON</button>
-          </div>
+
         </div>
         <div id="statsGrid" class="stats-grid"></div>
         <div id="warnings" class="warnings"></div>
@@ -114,16 +133,22 @@
 
       <section class="card tools-card">
         <h2>Import & Replacement Data</h2>
+        <div id="npcDropZone" class="drop-zone" role="button" tabindex="0" aria-label="Drag and drop NPC, location, JSON, HTML, PDF, or DOCX files here">
+          <strong>Drag & drop NPC JSON, simulator JSON, HTML, PDF, or DOCX here</strong>
+          <span>Uploaded NPC fields are preserved first; the generator fills missing schedules, relationships, locations, alignment, transit, wants, fears, and family tree data.</span>
+        </div>
         <div class="import-grid">
+          <label class="file-label">Import / Scan NPC JSON, HTML, PDF, or DOCX
+            <input id="importNpcDocsFile" type="file" multiple accept=".json,.html,.htm,.pdf,.docx,application/json,text/html,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+          </label>
           <label class="file-label">Import provinces_settlements.json
             <input id="importProvinceFile" type="file" accept=".json,application/json" />
           </label>
           <label class="file-label">Import Simulator Save JSON
             <input id="importSaveFile" type="file" accept=".json,application/json" />
           </label>
-          <button id="exportProvinceDataBtn" type="button">Export Current provinces_settlements.json</button>
         </div>
-        <p class="hint">The province data file is replaceable. Exports keep province, settlement, coordinate, time zone, government, and biome fields together for the map data workflow.</p>
+        <p class="hint">The scanner expands uploaded NPCs instead of replacing their important data. If locations are imported after NPCs already exist, generated placeholder assignments are reconciled into the new locations while imported NPC/location fields stay protected.</p>
       </section>
 
       <section class="card directory-card">
@@ -136,10 +161,236 @@
             <input id="npcSearch" type="search" placeholder="name, race, job, faction, location…" />
           </label>
         </div>
+        <div class="directory-tabs" role="tablist" aria-label="NPC data pages">
+          <button type="button" data-npc-page="world" role="tab" aria-selected="true">World NPCs</button>
+          <button type="button" data-npc-page="province" role="tab" aria-selected="false">Province NPCs</button>
+          <button type="button" data-npc-page="settlement" role="tab" aria-selected="false">Settlement NPCs</button>
+        </div>
+        <p id="npcPageSummary" class="hint npc-page-summary"></p>
         <div id="npcDirectory" class="npc-grid"></div>
+      </section>
+
+      <section id="relationshipTrackerCard" class="card relationship-card">
+        <div class="relationship-header">
+          <div>
+            <h2>Relationship Tracker</h2>
+            <p class="muted">Focus on an NPC to inspect familial, romantic, personal, and professional connections with readable color-coded branches.</p>
+          </div>
+          <div class="relationship-controls">
+            <label>Focus NPC
+              <select id="relationshipFocusSelect"></select>
+            </label>
+            <button id="refreshRelationshipTrackerBtn" type="button">Refresh Tracker</button>
+          </div>
+        </div>
+        <div class="relationship-legend" aria-label="Relationship tracker legend">
+          <span class="legend-item legend-familial">Familial</span>
+          <span class="legend-item legend-romantic">Romantic</span>
+          <span class="legend-item legend-personal">Personal</span>
+          <span class="legend-item legend-professional">Professional</span>
+        </div>
+        <div id="relationshipTracker" class="relationship-tracker" aria-live="polite"></div>
       </section>
     </section>
   </main>
+
+  <main id="locationToolsPage" class="app-page location-tools-page" data-app-page="locations" hidden>
+    <section class="location-page-header card">
+      <div>
+        <p class="eyebrow">Second Page</p>
+        <h2>Location Generator, NPC Editor, and Location Editor</h2>
+        <p class="muted">Biome-aware location generation uses the uploaded percentage guide, preserves locked uploaded-NPC locations, and connects generated NPCs to generated locations.</p>
+      </div>
+      <div class="location-page-actions">
+        <button id="locationExportJsonBtn" type="button">Export Expanded Locations JSON</button>
+        <button id="locationRefreshBtn" type="button">Refresh Location Page</button>
+      </div>
+    </section>
+
+    <section class="location-tools-grid">
+      <aside class="card location-control-card">
+        <h2>Location Generator Setup</h2>
+        <section class="form-section">
+          <h3>Generation Target</h3>
+          <label>Generation Scope
+            <select id="locationScopeSelect">
+              <option value="settlement">Single Settlement</option>
+              <option value="province">Whole Province</option>
+              <option value="world">Whole World</option>
+            </select>
+          </label>
+          <label>Province
+            <select id="locationProvinceSelect"></select>
+          </label>
+          <label>Settlement
+            <select id="locationSettlementSelect"></select>
+          </label>
+          <label>Settlement / Location Kind
+            <select id="locationKindSelect">
+              <option value="settlement">Full Settlement Location Set</option>
+              <option value="District">District</option>
+              <option value="Individual building">Individual Building</option>
+              <option value="Business">Business</option>
+              <option value="Landmark">Landmark</option>
+              <option value="Quest location">Quest Location</option>
+              <option value="Dungeon">Dungeon</option>
+              <option value="Faction headquarters">Faction Headquarters</option>
+            </select>
+          </label>
+          <label>Biome Profile
+            <select id="locationBiomeProfileSelect"></select>
+          </label>
+          <div class="two-col">
+            <label>Settlement Type
+              <select id="locationSettlementTypeSelect">
+                <option>Capital City</option>
+                <option>City</option>
+                <option>Town</option>
+                <option>Village</option>
+              </select>
+            </label>
+            <label>Total Locations
+              <input id="locationCountInput" type="number" min="1" max="1500" value="65" />
+            </label>
+          </div>
+          <p id="locationRuleSummary" class="hint">Loading location rules…</p>
+          <div class="button-grid menu-button-grid">
+            <button id="generateLocationsBtn" type="button" class="primary">Generate Locations</button>
+            <button id="lockUploadedNpcLocationsBtn" type="button">Create Locked Locations from Uploaded NPCs</button>
+            <button id="assignGeneratedNpcsBtn" type="button">Auto-Assign Generated NPCs</button>
+            <button id="randomizeLocationNamesBtn" type="button">5% Randomize Location Names</button>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3>Location Stats</h3>
+          <div id="locationStatsGrid" class="stats-grid mini-stats"></div>
+          <p class="hint">Locked locations made from uploaded NPC data preserve their core name/type/biome/source. Their descriptions, services, prices, hooks, and generated-NPC assignments can still be expanded.</p>
+        </section>
+      </aside>
+
+      <section class="card location-directory-card">
+        <div class="directory-header">
+          <div>
+            <h2>Location Directory</h2>
+            <p class="muted">Search generated, imported, and protected uploaded-NPC locations.</p>
+          </div>
+          <label class="search-label">Search Locations
+            <input id="locationSearchInput" type="search" placeholder="name, category, service, NPC, settlement…" />
+          </label>
+        </div>
+        <div class="directory-tabs" role="tablist" aria-label="Location filters">
+          <button type="button" data-location-filter="all" aria-selected="true">All</button>
+          <button type="button" data-location-filter="generated" aria-selected="false">Generated</button>
+          <button type="button" data-location-filter="locked" aria-selected="false">Locked Uploaded-NPC</button>
+          <button type="button" data-location-filter="imported" aria-selected="false">Imported / Other</button>
+        </div>
+        <p id="locationDirectorySummary" class="hint npc-page-summary"></p>
+        <div id="locationDirectory" class="location-grid"></div>
+      </section>
+
+      <section class="card location-editor-card">
+        <div class="directory-header">
+          <div>
+            <h2>Location Editor</h2>
+            <p class="muted">Core fields lock automatically for uploaded-NPC locations; expansion fields remain editable.</p>
+          </div>
+          <button id="newManualLocationBtn" type="button">New Manual Location</button>
+        </div>
+        <form id="locationEditorForm" class="location-editor-form">
+          <input id="editingLocationId" type="hidden" />
+          <div id="locationLockedNotice" class="warning hidden"></div>
+          <div class="two-col">
+            <label>Name
+              <input id="editLocationName" type="text" required />
+            </label>
+            <label>Location Type
+              <select id="editLocationType"></select>
+            </label>
+          </div>
+          <div class="two-col">
+            <label>Settlement
+              <select id="editLocationSettlement"></select>
+            </label>
+            <label>Biome Assignment
+              <input id="editLocationBiome" type="text" />
+            </label>
+          </div>
+          <label>Description
+            <textarea id="editLocationDescription" rows="4"></textarea>
+          </label>
+          <label>Purpose
+            <textarea id="editLocationPurpose" rows="2"></textarea>
+          </label>
+          <div class="two-col">
+            <label>Ownership
+              <input id="editLocationOwnership" type="text" />
+            </label>
+            <label>Hours
+              <input id="editLocationHours" type="text" />
+            </label>
+          </div>
+          <label>Services / Goods (one per line)
+            <textarea id="editLocationServices" rows="4"></textarea>
+          </label>
+          <label>Pricing
+            <textarea id="editLocationPricing" rows="3"></textarea>
+          </label>
+          <label>Reputation
+            <textarea id="editLocationReputation" rows="2"></textarea>
+          </label>
+          <label>Story Hooks (one per line)
+            <textarea id="editLocationHooks" rows="4"></textarea>
+          </label>
+          <label>Tags (comma separated)
+            <input id="editLocationTags" type="text" />
+          </label>
+          <label>Assigned Generated NPCs
+            <select id="editLocationNpcAssignments" multiple size="8"></select>
+          </label>
+          <details class="generator-menu-group" open>
+            <summary>Map Placement, Pins, and Validation</summary>
+            <div class="two-col">
+              <label>Pin X %
+                <input id="editPinX" type="number" min="0" max="100" step="1" />
+              </label>
+              <label>Pin Y %
+                <input id="editPinY" type="number" min="0" max="100" step="1" />
+              </label>
+            </div>
+            <label>Placement Recommendations
+              <textarea id="editPlacementRecommendations" rows="3"></textarea>
+            </label>
+            <label>Terrain Requirements
+              <textarea id="editTerrainRequirements" rows="3"></textarea>
+            </label>
+          </details>
+          <div class="button-grid menu-button-grid editor-actions-row">
+            <button id="saveLocationBtn" type="submit" class="primary">Save Location</button>
+            <button id="expandLockedLocationBtn" type="button">Expand Locked Location</button>
+            <button id="deleteLocationBtn" type="button" class="danger">Delete Editable Location</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <div id="npcWindowOverlay" class="npc-window-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="npcWindowTitle">
+    <section class="npc-window card">
+      <header class="npc-window-header">
+        <div>
+          <p class="eyebrow">NPC Record Window</p>
+          <h2 id="npcWindowTitle">NPC Record</h2>
+        </div>
+        <div class="npc-window-actions">
+          <button id="npcWindowPreviousBtn" type="button">Previous Page</button>
+          <button id="npcWindowBackToGeneratorBtn" type="button">Back to Generator</button>
+          <button id="npcWindowCloseBtn" type="button" aria-label="Close NPC window">×</button>
+        </div>
+      </header>
+      <div id="npcWindowBody" class="npc-window-body"></div>
+    </section>
+  </div>
 
   <template id="npcCardTemplate">
     <article class="npc-card">
@@ -148,7 +399,10 @@
           <h3 class="npc-name"></h3>
           <p class="npc-meta"></p>
         </div>
-        <span class="scope-badge"></span>
+        <div class="npc-card-side">
+          <span class="scope-badge"></span>
+          <div class="npc-card-actions"></div>
+        </div>
       </div>
       <p class="npc-personality"></p>
       <div class="mini-grid npc-quick"></div>
@@ -161,6 +415,9 @@
   </template>
 
   <script src="data/default_data.js"></script>
+  <script src="life-simulator/belavados_alignment_randomizer.js"></script>
   <script src="life-simulator/core.js"></script>
+  <script src="life-simulator/location-generator.js"></script>
+  <script src="life-simulator/location-editor.js"></script>
 </body>
 </html>
