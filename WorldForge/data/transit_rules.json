@@ -1,0 +1,47 @@
+{
+  "schema": "belavados.lifeSimulator.transitRules.v1",
+  "modes": [
+    {
+      "id": "rail",
+      "name": "Rail",
+      "range": "land routes between settlements",
+      "scheduleUse": "commute, freight, official travel"
+    },
+    {
+      "id": "caravan",
+      "name": "Caravan",
+      "range": "roads, wilderness edges, hard routes",
+      "scheduleUse": "trade, personal travel, low-access travel"
+    },
+    {
+      "id": "ferry",
+      "name": "Ferry",
+      "range": "rivers, canals, lakes, short water crossings",
+      "scheduleUse": "daily work and market travel"
+    },
+    {
+      "id": "steamship",
+      "name": "Steamship",
+      "range": "rivers, lakes, bays, reefs, and seas",
+      "scheduleUse": "regional water travel and cargo"
+    },
+    {
+      "id": "skyship",
+      "name": "Skyship",
+      "range": "airborne civic transit between major settlements",
+      "scheduleUse": "long-distance official and commercial travel"
+    },
+    {
+      "id": "submarine",
+      "name": "Submarine",
+      "range": "underwater settlements and deep-water routes",
+      "scheduleUse": "underwater travel, covert cargo, prison routes"
+    },
+    {
+      "id": "portal",
+      "name": "Regulated Portal",
+      "range": "licensed gates only",
+      "scheduleUse": "tiered faction travel, emergency warrants, legal risk"
+    }
+  ]
+}

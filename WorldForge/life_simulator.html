@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belavadös Life Simulator</title>
+  <link rel="stylesheet" href="life-simulator/site.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Belavadös Living World Tools</p>
+      <h1>Life Simulator</h1>
+      <p class="subtitle">Generate settlement, province, or world NPCs with homes, work, travel patterns, relationships, factions, class hooks, schedules, and export-ready JSON.</p>
+    </div>
+    <nav class="top-actions" aria-label="Primary actions">
+      <button id="saveStateBtn" type="button">Save Progress</button>
+      <button id="loadStateBtn" type="button">Load Progress</button>
+      <button id="openOnyxButton" type="button">Open Emperor Onyx</button>
+      <button id="resetStateBtn" type="button" class="danger">Reset</button>
+    </nav>
+  </header>
+
+  <main class="app-shell">
+    <aside class="control-panel card">
+      <h2>Generator Setup</h2>
+
+      <section class="form-section">
+        <h3>Scope</h3>
+        <label>Generation Scope
+          <select id="scopeSelect">
+            <option value="settlement">Single Settlement</option>
+            <option value="province">Whole Province</option>
+            <option value="world">Whole World</option>
+          </select>
+        </label>
+        <label>Province
+          <select id="provinceSelect"></select>
+        </label>
+        <label>Settlement
+          <select id="settlementSelect"></select>
+        </label>
+        <div class="two-col">
+          <label>NPC Count
+            <input id="npcCount" type="number" min="1" max="500" value="24" />
+          </label>
+          <label>Danger Level
+            <select id="dangerSelect"></select>
+          </label>
+        </div>
+        <label>Seed
+          <input id="seedInput" type="text" value="Belavadös" />
+        </label>
+        <p class="hint" id="scopeHint"></p>
+      </section>
+
+      <section class="form-section">
+        <h3>Settlement Alignment Preference</h3>
+        <p class="hint">Each axis uses 0–3000, with 1500 as true neutral. NPCs blend race tendency, local culture, life pressure, and random personal history.</p>
+        <div id="alignmentControls" class="alignment-controls"></div>
+      </section>
+
+      <section class="form-section">
+        <h3>Race Cache</h3>
+        <label>Race Category
+          <select id="raceCategorySelect"></select>
+        </label>
+        <label>Race
+          <select id="raceSelect"></select>
+        </label>
+        <button id="addRaceBtn" type="button">Add Race to Cache</button>
+        <div id="raceCache" class="chip-box" aria-live="polite"></div>
+      </section>
+
+      <section class="form-section">
+        <h3>Biome Cache</h3>
+        <label>Biome Category
+          <select id="biomeCategorySelect"></select>
+        </label>
+        <label>Biome
+          <select id="biomeSelect"></select>
+        </label>
+        <button id="addBiomeBtn" type="button">Add Biome to Cache</button>
+        <p class="hint" id="biomeLimitHint"></p>
+        <div id="biomeCache" class="chip-box" aria-live="polite"></div>
+      </section>
+
+      <section class="form-section">
+        <h3>Build</h3>
+        <div class="button-grid">
+          <button id="generateNpcsBtn" type="button" class="primary">Generate NPCs</button>
+          <button id="clearNpcsBtn" type="button">Clear NPCs</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <section class="card dashboard-card">
+        <div class="dashboard-header">
+          <div>
+            <h2>Current World Packet</h2>
+            <p id="summaryLine" class="muted">Loading data…</p>
+          </div>
+          <div class="export-row">
+            <button id="exportAllBtn" type="button">Export All NPCs JSON</button>
+            <button id="exportWorldBtn" type="button">Export World-Wide NPCs JSON</button>
+            <button id="exportProvinceBtn" type="button">Export Province-Wide NPCs JSON</button>
+            <button id="exportSettlementBtn" type="button">Export Settlement-Wide NPCs JSON</button>
+          </div>
+        </div>
+        <div id="statsGrid" class="stats-grid"></div>
+        <div id="warnings" class="warnings"></div>
+      </section>
+
+      <section class="card tools-card">
+        <h2>Import & Replacement Data</h2>
+        <div class="import-grid">
+          <label class="file-label">Import provinces_settlements.json
+            <input id="importProvinceFile" type="file" accept=".json,application/json" />
+          </label>
+          <label class="file-label">Import Simulator Save JSON
+            <input id="importSaveFile" type="file" accept=".json,application/json" />
+          </label>
+          <button id="exportProvinceDataBtn" type="button">Export Current provinces_settlements.json</button>
+        </div>
+        <p class="hint">The province data file is replaceable. Exports keep province, settlement, coordinate, time zone, government, and biome fields together for the map data workflow.</p>
+      </section>
+
+      <section class="card directory-card">
+        <div class="directory-header">
+          <div>
+            <h2>NPC Directory</h2>
+            <p class="muted">Cards include home, work, travel, relationships, wants, fears, alignment, and export identifiers.</p>
+          </div>
+          <label class="search-label">Search
+            <input id="npcSearch" type="search" placeholder="name, race, job, faction, location…" />
+          </label>
+        </div>
+        <div id="npcDirectory" class="npc-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <template id="npcCardTemplate">
+    <article class="npc-card">
+      <div class="npc-card-header">
+        <div>
+          <h3 class="npc-name"></h3>
+          <p class="npc-meta"></p>
+        </div>
+        <span class="scope-badge"></span>
+      </div>
+      <p class="npc-personality"></p>
+      <div class="mini-grid npc-quick"></div>
+      <div class="alignment-bars"></div>
+      <details>
+        <summary>Schedule, Relationships, and Hooks</summary>
+        <div class="details-body"></div>
+      </details>
+    </article>
+  </template>
+
+  <script src="data/default_data.js"></script>
+  <script src="life-simulator/core.js"></script>
+</body>
+</html>
