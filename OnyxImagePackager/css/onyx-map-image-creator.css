@@ -209,7 +209,7 @@ output{display:block;color:var(--muted);font-size:.84rem;margin-top:.25rem}
 }
 
 
-/* === Onyx Map Request Packager Patch === */
+/* === OnyxImagePackager Patch === */
 .package-panel-main .legacy-generator-hidden{
   display:none !important;
 }

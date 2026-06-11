@@ -3,14 +3,25 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(process.cwd());
-const assetDir = path.resolve(process.argv[2] ? path.join(root, process.argv[2]) : path.join(root, 'assets', 'map_assets'));
-const outputDir = path.join(root, 'json');
+const defaultLocalAssetDir = process.env.ONYX_MAP_ASSET_DIR || 'C:\\Users\\Public\\Pictures\\map_assets';
+const requestedAssetDir = process.argv[2] || defaultLocalAssetDir;
+const outputDir = path.join(root, 'map_assets');
 const chunkDir = path.join(outputDir, 'map_asset_catalog_chunks');
 const manifestPath = path.join(outputDir, 'map_assets_catalog_manifest.json');
 const indexPath = path.join(outputDir, 'map_assets_catalog_index.json');
 const legacyPath = path.join(outputDir, 'map_assets_catalog.json');
 const chunkSize = Number(process.env.ONYX_CATALOG_CHUNK_SIZE || process.argv[3] || 10000);
+const localAssetBaseUrl = process.env.ONYX_LOCAL_ASSET_BASE_URL || 'http://127.0.0.1:5177/local-map-assets/';
 const imageExts = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
+
+function resolveAssetDir(input) {
+  const value = String(input || '').trim();
+  if (/^[A-Za-z]:[\\/]/.test(value)) return path.normalize(value);
+  if (path.isAbsolute(value)) return path.normalize(value);
+  return path.resolve(root, value);
+}
+
+const assetDir = resolveAssetDir(requestedAssetDir);
 
 const keywordGroups = {
   terrain: ['terrain','ground','land','dirt','soil','grass','meadow','prairie','field','farm','sand','beach','shore','mud','moss','rock','stone','cliff','mountain','hill','valley','cave','cavern','floor','tile','plateau','cobble','cobblestone','gravel','ground texture'],
@@ -83,7 +94,7 @@ function tagFile(relPath) {
 async function* walk(dir) {
   let entries;
   try { entries = await fs.readdir(dir, { withFileTypes: true }); }
-  catch (err) { return; }
+  catch { return; }
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) yield* walk(full);
@@ -92,7 +103,7 @@ async function* walk(dir) {
 }
 
 async function main() {
-  await fs.mkdir(chunkDir, { recursive: true });
+  await fs.mkdir(outputDir, { recursive: true });
   await fs.rm(chunkDir, { recursive: true, force: true });
   await fs.mkdir(chunkDir, { recursive: true });
 
@@ -109,7 +120,7 @@ async function main() {
 
   async function flushChunk() {
     if (!current.length) return;
-    const file = `json/map_asset_catalog_chunks/chunk_${String(chunkId).padStart(5, '0')}.json`;
+    const file = `map_assets/map_asset_catalog_chunks/chunk_${String(chunkId).padStart(5, '0')}.json`;
     const out = path.join(root, file);
     const categories = {};
     const tags = {};
@@ -132,12 +143,14 @@ async function main() {
   for await (const full of walk(assetDir)) {
     const stat = await fs.stat(full);
     const relToAsset = path.relative(assetDir, full).split(path.sep).join('/');
-    const relToRoot = path.relative(root, full).split(path.sep).join('/');
     const tagged = tagFile(relToAsset);
     current.push({
       name: path.basename(full),
-      path: relToRoot,
+      path: relToAsset,
       relativePath: relToAsset,
+      localAbsolutePath: full,
+      localImageRoot: assetDir,
+      assetBaseUrl: localAssetBaseUrl,
       size: stat.size,
       modifiedAt: stat.mtime.toISOString(),
       categories: tagged.categories,
@@ -153,12 +166,19 @@ async function main() {
   await flushChunk();
 
   const setMapToArrayMap = map => Object.fromEntries(Object.entries(map).map(([key, set]) => [key, Array.from(set).sort((a,b)=>a-b)]));
+  const generatedAt = new Date().toISOString();
   const manifest = {
-    app: 'Emperor Onyx Map Request Packager',
-    mode: 'chunked-static-catalog',
-    generatedAt: new Date().toISOString(),
-    assetRoot: 'assets/map_assets',
-    sourceAssetDirectory: path.relative(root, assetDir).split(path.sep).join('/'),
+    app: 'OnyxImagePackager',
+    mode: 'chunked-static-catalog-local-images',
+    generatedAt,
+    assetRoot: assetDir,
+    assetRootWindows: defaultLocalAssetDir,
+    localImageRoot: assetDir,
+    assetBaseUrl: localAssetBaseUrl,
+    catalogFolder: 'map_assets',
+    sourceAssetDirectory: assetDir,
+    imagesStoredInGithub: false,
+    cataloguesStoredInGithub: true,
     count: total,
     totalBytes,
     chunkSize,
@@ -166,29 +186,31 @@ async function main() {
     chunks,
     categoryTotals,
     tagTotals,
-    indexFile: 'json/map_assets_catalog_index.json',
-    instructions: 'Commit this manifest, index, chunk files, and the assets/map_assets folder to GitHub. Onyx will search this catalog instead of trying to upload millions of images into the browser.'
+    indexFile: 'map_assets/map_assets_catalog_index.json',
+    instructions: 'Commit the map_assets JSON catalogues only. Keep the actual images at C:\\Users\\Public\\Pictures\\map_assets or set ONYX_MAP_ASSET_DIR. Run node tools/start-local-preview.mjs so OnyxImagePackager can fetch selected local images during ZIP export.'
   };
   const index = {
-    app: 'Emperor Onyx Map Request Packager',
+    app: 'OnyxImagePackager',
     mode: 'chunked-static-catalog-index',
-    generatedAt: manifest.generatedAt,
+    generatedAt,
+    catalogFolder: 'map_assets',
     chunkCount: chunks.length,
     chunkFiles: Object.fromEntries(chunks.map(chunk => [chunk.id, chunk.file])),
     categoryToChunks: setMapToArrayMap(categoryToChunks),
     tagToChunks: setMapToArrayMap(tagToChunks),
     tokenToChunks: setMapToArrayMap(tokenToChunks)
   };
-  await fs.writeFile(manifestPath, JSON.stringify(manifest), 'utf8');
-  await fs.writeFile(indexPath, JSON.stringify(index), 'utf8');
-  await fs.writeFile(legacyPath, JSON.stringify({ app: manifest.app, mode: manifest.mode, generatedAt: manifest.generatedAt, count: total, manifest: 'json/map_assets_catalog_manifest.json', index: 'json/map_assets_catalog_index.json' }, null, 2), 'utf8');
-  console.log(`Emperor Onyx cataloged ${total.toLocaleString()} image assets into ${chunks.length.toLocaleString()} chunks.`);
+  await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+  await fs.writeFile(indexPath, JSON.stringify(index, null, 2), 'utf8');
+  await fs.writeFile(legacyPath, JSON.stringify({ app: manifest.app, mode: manifest.mode, generatedAt, count: total, manifest: 'map_assets/map_assets_catalog_manifest.json', index: 'map_assets/map_assets_catalog_index.json', assetRoot: assetDir, assetBaseUrl: localAssetBaseUrl }, null, 2), 'utf8');
+  console.log(`OnyxImagePackager cataloged ${total.toLocaleString()} image assets into ${chunks.length.toLocaleString()} chunks.`);
+  console.log(`Source images: ${assetDir}`);
   console.log(`Wrote ${path.relative(root, manifestPath)}`);
   console.log(`Wrote ${path.relative(root, indexPath)}`);
   console.log(`Wrote ${path.relative(root, chunkDir)}/chunk_*.json`);
 }
 
 main().catch(error => {
-  console.error('Emperor Onyx refused the catalog because:', error.message);
+  console.error('OnyxImagePackager refused the catalog because:', error.message);
   process.exit(1);
 });

@@ -1,0 +1,9 @@
+{
+  "app": "OnyxImagePackager",
+  "mode": "chunked-static-catalog-local-images",
+  "count": 0,
+  "manifest": "map_assets/map_assets_catalog_manifest.json",
+  "index": "map_assets/map_assets_catalog_index.json",
+  "assetRoot": "C:\\Users\\Public\\Pictures\\map_assets",
+  "assetBaseUrl": "http://127.0.0.1:5177/local-map-assets/"
+}

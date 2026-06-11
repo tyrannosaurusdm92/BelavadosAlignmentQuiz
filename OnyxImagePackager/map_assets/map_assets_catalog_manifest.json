@@ -1,0 +1,22 @@
+{
+  "app": "OnyxImagePackager",
+  "mode": "chunked-static-catalog-local-images",
+  "generatedAt": "2026-06-11T20:13:01.679Z",
+  "assetRoot": "C:\\Users\\Public\\Pictures\\map_assets",
+  "sourceAssetDirectory": "C:\\Users\\Public\\Pictures\\map_assets",
+  "count": 0,
+  "totalBytes": 0,
+  "chunkSize": 10000,
+  "chunkCount": 0,
+  "chunks": [],
+  "categoryTotals": {},
+  "tagTotals": {},
+  "indexFile": "map_assets/map_assets_catalog_index.json",
+  "instructions": "Commit the map_assets JSON catalogues only. Keep the actual image files at C:\\Users\\Public\\Pictures\\map_assets and run node tools/start-local-preview.mjs so OnyxImagePackager can fetch selected local images during ZIP export.",
+  "assetRootWindows": "C:\\Users\\Public\\Pictures\\map_assets",
+  "localImageRoot": "C:\\Users\\Public\\Pictures\\map_assets",
+  "assetBaseUrl": "http://127.0.0.1:5177/local-map-assets/",
+  "catalogFolder": "map_assets",
+  "imagesStoredInGithub": false,
+  "cataloguesStoredInGithub": true
+}

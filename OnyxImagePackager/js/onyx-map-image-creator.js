@@ -1,6 +1,30 @@
 (() => {
   'use strict';
 
+  const ONYX_APP_NAME = 'OnyxImagePackager';
+  const ONYX_LOCAL_IMAGE_ROOT = 'C:\\Users\\Public\\Pictures\\map_assets';
+  const ONYX_LOCAL_IMAGE_BRIDGE = 'http://127.0.0.1:5177/local-map-assets/';
+  const ONYX_CATALOG_MANIFEST_PATHS = [
+    'map_assets/map_assets_catalog_manifest.json',
+    'json/map_assets_catalog_manifest.json'
+  ];
+  const ONYX_LEGACY_CATALOG_PATHS = [
+    'map_assets/map_assets_catalog.json',
+    'map_assets/asset-catalog.json',
+    'map_assets/catalog.json',
+    'json/map_assets_catalog.json'
+  ];
+  const ONYX_TEMPLATE_EXPORT_FILES = [
+    'templates/interactive_map_builder/README.md',
+    'templates/interactive_map_builder/index.html',
+    'templates/interactive_map_builder/data/biome_location_library.json',
+    'templates/interactive_map_builder/data/template_manifest.json',
+    'templates/interactive_map_builder/templates/capital_city_map_builder_template.html',
+    'templates/interactive_map_builder/templates/city_map_builder_template.html',
+    'templates/interactive_map_builder/templates/town_map_builder_template.html',
+    'templates/interactive_map_builder/templates/village_map_builder_template.html'
+  ];
+
   const FALLBACK_BIOMES = {
     settlementTypes: {
       capital: { label: 'Capital', sizeMultiplier: 2.2, buildingBudget: 150, pathBudget: 18, propBudget: 115, plantBudget: 145, canvas: { width: 2048, height: 1400 } },
@@ -360,15 +384,15 @@
   }
 
   async function loadAssetCatalog() {
-    const manifestPaths = ['json/map_assets_catalog_manifest.json', 'assets/map_assets/map_assets_catalog_manifest.json'];
-    const legacyPaths = ['json/map_assets_catalog.json', 'assets/map_assets/map_assets_catalog.json', 'assets/map_assets/asset-catalog.json', 'assets/map_assets/catalog.json'];
+    const manifestPaths = ONYX_CATALOG_MANIFEST_PATHS;
+    const legacyPaths = ONYX_LEGACY_CATALOG_PATHS;
 
     for (const manifestPath of manifestPaths) {
       try {
         const res = await fetch(manifestPath);
         if (!res.ok) continue;
         const manifest = await res.json();
-        const indexPath = manifest.indexFile || manifest.index || 'json/map_assets_catalog_index.json';
+        const indexPath = manifest.indexFile || manifest.index || 'map_assets/map_assets_catalog_index.json';
         const indexRes = await fetch(indexPath);
         if (!indexRes.ok) throw new Error(`Missing catalog index: ${indexPath}`);
         const index = await indexRes.json();
@@ -379,8 +403,8 @@
         renderAssetStats();
         renderPackageCandidates();
         const count = Number(manifest.count || 0).toLocaleString();
-        addLog(`Loaded chunked map_assets catalog with ${count} images. Onyx now searches metadata first and fetches only selected files during export.`, 'thoughtful');
-        addChat('onyx', `Papa, I loaded the 2M+ style map_assets catalog. I will not try to upload every image into the browser. Search or fetch matches, and I shall pull only the chosen files into the ZIP.`);
+        addLog(`Loaded chunked map_assets JSON catalog with ${count} image records. Real images remain at ${manifest.assetRootWindows || manifest.localImageRoot || ONYX_LOCAL_IMAGE_ROOT}.`, 'thoughtful');
+        addChat('onyx', `Papa, I loaded the 2M+ style map_assets JSON catalog. I will not upload every image into GitHub or the browser. Search matches, and I shall pull only selected local files into the ZIP through the local image bridge.`);
         return;
       } catch (err) {
         // try next catalog style
@@ -397,12 +421,12 @@
         state.catalog = { manifest: null, index: null, loadedChunks: new Map(), active: false };
         state.assets = rawAssets.map(item => catalogItemToAsset(item)).filter(Boolean);
         renderAssetStats();
-        addLog(`Loaded ${state.assets.length} legacy cataloged assets from ${path}. For 2M+ assets, use the chunked catalog builder instead.`, 'thoughtful');
+        addLog(`Loaded ${state.assets.length} legacy cataloged assets from ${path}. For the 2M+ library, use the chunked catalog builder and keep real images at ${ONYX_LOCAL_IMAGE_ROOT}.`, 'thoughtful');
         return;
       } catch (err) {
       }
     }
-    addLog('I could not find a local asset catalog. Run node tools/build-map-asset-catalog.mjs, commit json/map_assets_catalog_manifest.json, json/map_assets_catalog_index.json, json/map_asset_catalog_chunks, and assets/map_assets to GitHub, then click this again.', 'judgmental');
+    addLog('I could not find a map_assets JSON catalog. Run node tools/build-map-asset-catalog.mjs from OnyxImagePackager, commit the map_assets JSON catalogue folder to GitHub, keep the actual images at C:\\Users\\Public\\Pictures\\map_assets, then click this again.', 'judgmental');
   }
 
   function handleSettlementJsonImport(e) {
@@ -495,7 +519,7 @@
       state.packageCandidates = [];
       state.packageSelectedAssetIds = new Set();
       renderPackageCandidates();
-      if (userInitiated) addLog('No map_assets are loaded yet. For 2M+ libraries, click “Load 2M+ asset catalog” after building the chunked catalog.', 'hungry');
+      if (userInitiated) addLog('No map_assets catalogues are loaded yet. For 2M+ libraries, build the chunked JSON catalogue in map_assets/, run the local image bridge, then click “Load 2M+ asset catalog”.', 'hungry');
       return [];
     }
     const maxImages = clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500);
@@ -584,7 +608,7 @@
     const key = String(chunkId);
     if (state.catalog.loadedChunks.has(key)) return state.catalog.loadedChunks.get(key);
     const index = state.catalog.index || {};
-    const file = (index.chunkFiles && index.chunkFiles[key]) || (index.chunkFiles && index.chunkFiles[chunkId]) || `json/map_asset_catalog_chunks/chunk_${String(chunkId).padStart(5, '0')}.json`;
+    const file = (index.chunkFiles && index.chunkFiles[key]) || (index.chunkFiles && index.chunkFiles[chunkId]) || `map_assets/map_asset_catalog_chunks/chunk_${String(chunkId).padStart(5, '0')}.json`;
     try {
       const res = await fetch(file);
       if (!res.ok) return [];
@@ -831,6 +855,17 @@
         const templateRes = await fetch('json/onyx_locations_pins_template.json');
         if (templateRes.ok) entries.push({ name: `${slug}/templates/onyx_locations_pins_template.json`, text: await templateRes.text(), type: 'application/json' });
       } catch (err) {}
+      for (const filePath of ONYX_TEMPLATE_EXPORT_FILES) {
+        try {
+          const res = await fetch(filePath);
+          if (!res.ok) continue;
+          entries.push({
+            name: `${slug}/template_program/interactive_map_builder/${filePath.replace(/^templates\/interactive_map_builder\//, '')}`,
+            text: await res.text(),
+            type: guessMimeType(filePath) || 'text/plain'
+          });
+        } catch (err) {}
+      }
       let runningBytes = entries.reduce((sum, entry) => sum + (entry.text ? new TextEncoder().encode(entry.text).byteLength : 0), 0);
       let included = 0;
       const skipped = [];
@@ -849,7 +884,7 @@
       }
       entries[0].text = JSON.stringify({ ...request, package: { ...request.package, includedImages: included, skippedImages: skipped.length, estimatedBytes: runningBytes, skippedAssetPaths: skipped } }, null, 2);
       const zipBlob = await createStoredZip(entries);
-      triggerBlobDownload(zipBlob, `${slug}_onyx_map_request_pack.zip`);
+      triggerBlobDownload(zipBlob, `${slug}_OnyxImagePackager_map_request_pack.zip`);
       setPackageStatus(`ZIP download started: ${included} image assets included, ${skipped.length} skipped, package size ${formatBytes(zipBlob.size)}.`, false);
       addLog(`Exported ZIP map request pack with ${included} images. I expect praise and snacks.`, 'download');
       addChat('onyx', `Papa, the ZIP package is downloading now. I included ${included} image assets and your settlement/request JSON so you can bring it back for map building.`);
@@ -871,7 +906,7 @@
       originalSettlementData: state.settlementJson.data || null
     };
     return {
-      app: 'Emperor Onyx Map Request Packager',
+      app: ONYX_APP_NAME,
       workflow: 'asset-fetch-package-only',
       createdAt: new Date().toISOString(),
       note: 'Onyx did not generate a final map. This package contains settlement JSON/request metadata plus matching images from map_assets for later map construction.',
@@ -880,7 +915,15 @@
         maxImagesRequested: clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500),
         maxZipMbRequested: clampNumber(els.packageMaxMb && els.packageMaxMb.value, 1, 100000, 100000),
         selectedAssetCount: selectedAssets.length,
-        selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
+        selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, relativePath: asset.relativePath || null, localAbsolutePath: asset.localAbsolutePath || null, src: asset.src || null, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
+      },
+      localAssetLibrary: {
+        imagesStoredInGithub: false,
+        cataloguesStoredInGithub: true,
+        catalogFolder: 'map_assets',
+        windowsImageRoot: (state.catalog && state.catalog.manifest && (state.catalog.manifest.assetRootWindows || state.catalog.manifest.localImageRoot)) || ONYX_LOCAL_IMAGE_ROOT,
+        assetBaseUrl: (state.catalog && state.catalog.manifest && state.catalog.manifest.assetBaseUrl) || ONYX_LOCAL_IMAGE_BRIDGE,
+        localBridgeCommand: 'node tools/start-local-preview.mjs'
       },
       generatorRequirements: {
         outputFormat: 'SVG',
@@ -903,19 +946,20 @@
   }
 
   function buildPackageReadme(request) {
-    return `Emperor Onyx Map Request Pack
+    return `OnyxImagePackager Map Request Pack
 
 Settlement: ${request.settlement.name || 'Unnamed'}
 Type: ${request.settlement.settlementType}
 Biomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}
 
-This ZIP was built by Onyx as an asset/request package only. It contains:
+This ZIP was built by OnyxImagePackager as an asset/request package only. It contains:
 - manifest/map_request_manifest.json
 - manifest/future_image_generator_instructions.json
 - manifest/map_module_requirements.css
 - settlement JSON or generated settlement_request JSON
 - templates/onyx_pin_types.json
 - templates/assets/map-marker.svg
+- template_program/interactive_map_builder/ copied from the attached map/settlement builder templates
 - images/ grouped by detected asset category
 
 Generator instructions:
@@ -926,7 +970,11 @@ Generator instructions:
 - For settlement requests, include outer walls, roofs, building clusters, government buildings, houses, hotels, apartments, chapels/churches/temples, paths, plants, and ground or water textures as appropriate.
 - For Location requests only, prioritize interior assets such as beds, hearths, furniture, storage, and room fixtures.
 
-Bring this ZIP back to ChatGPT and ask it to build the map using the included JSON and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow.
+Actual image library source: C:\\Users\\Public\\Pictures\\map_assets. The images included here were selected from JSON catalogues stored in the project map_assets folder.
+
+The attached template program is included under template_program/interactive_map_builder/ so the future AI map/settlement creator can use the capital, city, town, and village builder templates.
+
+Bring this ZIP back to ChatGPT and ask it to build the map using the included JSON, template program, and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow.
 `;
   }
 
@@ -1105,9 +1153,13 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
   async function getAssetBlob(asset) {
     if (asset.file) return asset.file;
     if (!asset.src) return null;
-    const res = await fetch(asset.src);
-    if (!res.ok) throw new Error(`Could not fetch ${asset.path || asset.name}`);
-    return await res.blob();
+    try {
+      const res = await fetch(asset.src);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.blob();
+    } catch (err) {
+      throw new Error(`Could not fetch ${asset.path || asset.name}. For catalogued 2M+ assets, keep the real images at ${ONYX_LOCAL_IMAGE_ROOT} and run node tools/start-local-preview.mjs so ${ONYX_LOCAL_IMAGE_BRIDGE} can serve selected files.`);
+    }
   }
 
   function firstAssetCategory(asset) {
@@ -1115,7 +1167,7 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
   }
 
   function uniqueAssetFileName(asset, index, ext) {
-    const base = safeFileName((asset.path || asset.name || `asset_${index}`).split('/').pop().replace(/\.[^.]+$/, ''));
+    const base = safeFileName((asset.path || asset.name || `asset_${index}`).split(/[\\/]/).pop().replace(/\.[^.]+$/, ''));
     return `${String(index + 1).padStart(4, '0')}_${base}${ext}`;
   }
 
@@ -1191,21 +1243,43 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
     return catalogItemToAsset(item);
   }
 
+  function normalizeCatalogRelativePath(value) {
+    if (!value) return '';
+    let text = String(value).replace(/\\/g, '/');
+    const marker = '/map_assets/';
+    const idx = text.toLowerCase().lastIndexOf(marker);
+    if (idx >= 0) text = text.slice(idx + marker.length);
+    text = text.replace(/^file:\/\/\/[A-Za-z]:\//, '');
+    text = text.replace(/^[A-Za-z]:\//, '');
+    text = text.replace(/^\/+/, '');
+    return text;
+  }
+
+  function makeCatalogAssetUrl(relativePath) {
+    const manifest = state.catalog && state.catalog.manifest ? state.catalog.manifest : {};
+    const base = manifest.assetBaseUrl || manifest.localAssetBaseUrl || ONYX_LOCAL_IMAGE_BRIDGE;
+    return String(base).replace(/\/?$/, '/') + String(relativePath || '').split('/').map(part => encodeURIComponent(part)).join('/');
+  }
+
   function catalogItemToAsset(item) {
     try {
       if (!item || typeof item !== 'object') return null;
-      const path = item.relativePath || item.path || item.url || item.src || item.name;
-      const name = item.name || (path ? String(path).split('/').pop() : 'asset');
-      const classed = classifyAsset(name, path);
+      const relativePath = normalizeCatalogRelativePath(item.relativePath || item.catalogRelativePath || item.path || item.name);
+      const localAbsolutePath = item.localAbsolutePath || item.absolutePath || item.localPath || (relativePath ? `${ONYX_LOCAL_IMAGE_ROOT}\\${relativePath.replace(/\//g, '\\')}` : '');
+      const displayPath = localAbsolutePath || relativePath || item.url || item.src || item.name;
+      const name = item.name || (displayPath ? String(displayPath).split(/[\\/]/).pop() : 'asset');
+      const classed = classifyAsset(name, `${relativePath} ${displayPath}`);
       const meta = {
         categories: Array.isArray(item.categories) && item.categories.length ? item.categories : classed.categories,
         tags: Array.isArray(item.tags) && item.tags.length ? item.tags : classed.tags
       };
-      const src = item.url || item.src || item.path || item.relativePath || name;
+      const src = item.url || item.src || makeCatalogAssetUrl(relativePath || name);
       return {
-        id: slugify((item.relativePath || item.path || item.name || 'catalog-asset') + '-' + (item.size || Math.random().toString(36).slice(2, 8))),
+        id: slugify((relativePath || item.path || item.name || 'catalog-asset') + '-' + (item.size || Math.random().toString(36).slice(2, 8))),
         name,
-        path: path || name,
+        path: displayPath || name,
+        relativePath: relativePath || name,
+        localAbsolutePath,
         src,
         size: item.size || 0,
         mimeType: item.mimeType || guessMimeType(name),
