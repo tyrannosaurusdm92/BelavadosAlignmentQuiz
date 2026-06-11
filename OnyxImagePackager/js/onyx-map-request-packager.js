@@ -12,7 +12,8 @@
       capital: { label: 'Capital', sizeMultiplier: 2.2, buildingBudget: 150, pathBudget: 18, propBudget: 115, plantBudget: 145, canvas: { width: 2048, height: 1400 } },
       city: { label: 'City', sizeMultiplier: 1.65, buildingBudget: 110, pathBudget: 14, propBudget: 85, plantBudget: 110, canvas: { width: 1800, height: 1200 } },
       town: { label: 'Town', sizeMultiplier: 1.0, buildingBudget: 45, pathBudget: 8, propBudget: 42, plantBudget: 70, canvas: { width: 1600, height: 1100 } },
-      village: { label: 'Village', sizeMultiplier: 0.62, buildingBudget: 22, pathBudget: 5, propBudget: 24, plantBudget: 45, canvas: { width: 1300, height: 920 } }
+      village: { label: 'Village', sizeMultiplier: 0.62, buildingBudget: 22, pathBudget: 5, propBudget: 24, plantBudget: 45, canvas: { width: 1300, height: 920 } },
+      location: { label: 'Location', sizeMultiplier: 0.35, buildingBudget: 12, pathBudget: 2, propBudget: 48, plantBudget: 8, canvas: { width: 1600, height: 1000 } }
     },
     categories: {
       Ocean: ['Ocean Surface floating settlement', 'Underwater with reefs', 'Underwater without reefs'],
@@ -96,12 +97,13 @@
   };
 
   const DEFAULT_DISTRIBUTION = {
-    baseLocationCounts: { capital: 120, city: 84, town: 36, village: 18 },
+    baseLocationCounts: { capital: 120, city: 84, town: 36, village: 18, location: 12 },
     percentages: {
       capital: { 'Residential': 24, 'Commercial': 14, 'Hospitality': 8, 'Government & Civic': 8, 'Religious': 6, 'Education': 5, 'Medical': 4, 'Industry & Crafting': 10, 'Agriculture': 4, 'Nature': 5, 'Maritime': 4, 'Transportation': 4, 'Noble & Elite': 3, 'Criminal & Underground': 2, 'Special': 3 },
       city: { 'Residential': 25, 'Commercial': 15, 'Hospitality': 8, 'Government & Civic': 7, 'Religious': 6, 'Education': 5, 'Medical': 4, 'Industry & Crafting': 10, 'Agriculture': 3, 'Nature': 5, 'Maritime': 4, 'Transportation': 4, 'Noble & Elite': 2, 'Criminal & Underground': 2, 'Special': 3 },
       town: { 'Residential': 32, 'Commercial': 12, 'Hospitality': 8, 'Government & Civic': 5, 'Religious': 6, 'Education': 2, 'Medical': 2, 'Industry & Crafting': 8, 'Agriculture': 10, 'Nature': 5, 'Maritime': 3, 'Transportation': 4, 'Noble & Elite': 1, 'Criminal & Underground': 1, 'Special': 1 },
-      village: { 'Residential': 40, 'Commercial': 8, 'Hospitality': 8, 'Government & Civic': 3, 'Religious': 5, 'Education': 1, 'Medical': 1, 'Industry & Crafting': 5, 'Agriculture': 15, 'Nature': 6, 'Maritime': 2, 'Transportation': 4, 'Noble & Elite': 0, 'Criminal & Underground': 0, 'Special': 2 }
+      village: { 'Residential': 40, 'Commercial': 8, 'Hospitality': 8, 'Government & Civic': 3, 'Religious': 5, 'Education': 1, 'Medical': 1, 'Industry & Crafting': 5, 'Agriculture': 15, 'Nature': 6, 'Maritime': 2, 'Transportation': 4, 'Noble & Elite': 0, 'Criminal & Underground': 0, 'Special': 2 },
+      location: { 'Residential': 20, 'Commercial': 10, 'Hospitality': 20, 'Government & Civic': 5, 'Religious': 5, 'Education': 5, 'Medical': 3, 'Industry & Crafting': 5, 'Agriculture': 0, 'Nature': 0, 'Maritime': 0, 'Transportation': 2, 'Noble & Elite': 10, 'Criminal & Underground': 5, 'Special': 10 }
     }
   };
 
@@ -129,6 +131,141 @@
     alignments: ['Altruistic', 'Neutral', 'Guarded', 'Honorable', 'Ambitious', 'Cooperative', 'Lawful', 'Chaotic'],
     socialRoles: ['local notable', 'craftsperson', 'caretaker', 'official', 'rumor source', 'broker', 'warden', 'academic', 'traveler', 'underworld contact']
   };
+
+  const MAP_VIEWER_CSS_REQUIREMENTS = `/* =========================
+   CENTER MAP MODULE
+========================= */
+
+.map-module{
+  width:100%;
+  max-width:var(--map-w);
+  min-height:calc(var(--map-h) + 122px);
+}
+
+.map-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.map-scroll{
+  width:100%;
+  overflow:auto;
+  border:1px solid rgba(124,231,255,.18);
+  border-radius:18px;
+  background:rgba(5,8,12,.86);
+  box-shadow:inset 0 0 45px rgba(0,0,0,.55);
+}
+
+.map-viewer{
+  position:relative;
+  width:var(--map-w);
+  height:var(--map-h);
+  min-width:var(--map-w);
+  min-height:var(--map-h);
+  overflow:hidden;
+  background:
+    linear-gradient(45deg,rgba(255,255,255,.04) 25%,transparent 25%),
+    linear-gradient(-45deg,rgba(255,255,255,.04) 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,rgba(255,255,255,.04) 75%),
+    linear-gradient(-45deg,transparent 75%,rgba(255,255,255,.04) 75%),
+    rgba(5,8,12,.86);
+  background-size:28px 28px;
+  background-position:0 0,0 14px,14px -14px,-14px 0px;
+}
+
+.map-coordinate-mask{
+  position:absolute;
+  left:0;
+  top:1024px;
+  right:0;
+  bottom:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(77,54,88,.12),rgba(0,0,0,.36));
+  border-top:1px dashed rgba(215,170,99,.38);
+}
+
+.map-placeholder{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:28px;
+  color:var(--muted);
+  pointer-events:none;
+}
+
+.map-placeholder strong{
+  display:block;
+  color:var(--teal2);
+  font-size:clamp(1.3rem,3vw,2.4rem);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.map-placeholder span{
+  display:block;
+  max-width:62ch;
+  margin-top:8px;
+}
+
+#mapImage,
+#mapFrame{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  object-fit:contain;
+  background:#07090a;
+}
+
+#mapFrame{display:none}
+
+.map-pin{
+  position:absolute;
+  width:24px;
+  height:24px;
+  min-width:24px;
+  min-height:24px;
+  padding:0;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:
+    radial-gradient(circle at 35% 35%,#fff,transparent 24%),
+    linear-gradient(145deg,var(--teal2),var(--teal));
+  border:2px solid #07111a;
+  box-shadow:0 6px 16px rgba(0,0,0,.55),0 0 18px rgba(124,231,255,.22);
+  cursor:grab;
+  z-index:5;
+}
+
+.map-pin:active{cursor:grabbing}
+
+.map-pin::after{
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  top:100%;
+  transform:translateX(-50%);
+  margin-top:4px;
+  white-space:nowrap;
+  padding:3px 7px;
+  border-radius:999px;
+  font-size:.72rem;
+  color:#061113;
+  background:rgba(141,224,220,.92);
+  border:1px solid rgba(0,0,0,.25);
+  box-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+
+.map-status{
+  color:var(--muted);
+  font-size:.9rem;
+}`;
 
   const state = {
     biomes: FALLBACK_BIOMES,
@@ -523,6 +660,7 @@
     if (text.includes('city')) return 'city';
     if (text.includes('town')) return 'town';
     if (text.includes('village')) return 'village';
+    if (text.includes('location') || text.includes('interior') || text.includes('indoors')) return 'location';
     return '';
   }
 
@@ -574,6 +712,7 @@
     if (type === 'city' && /(city|district|street|market|temple|station|harbor|port)/.test(text)) score += 8;
     if (type === 'town' && /(town|village|market|inn|tavern|road|farm|dock)/.test(text)) score += 6;
     if (type === 'village' && /(village|hut|cottage|farm|field|well|path|camp)/.test(text)) score += 6;
+    if (type === 'location' && /(location|interior|indoors|room|hall|chamber|bed|bedroom|bunk|hearth|fireplace|kitchen|table|chair|stool|desk|forge|counter|shelf|bookshelf|wardrobe|cabinet|rug|shop|sanctum|library|study)/.test(text)) score += 18;
     biomes.forEach(biome => {
       const norm = normalizeText(biome);
       if (norm && text.includes(norm)) score += 35;
@@ -591,6 +730,7 @@
     if (type === 'city') Object.assign(weights, { building: 38, path: 22, object: 14, terrain: 16 });
     if (type === 'town') Object.assign(weights, { building: 32, path: 18, object: 12, terrain: 18 });
     if (type === 'village') Object.assign(weights, { building: 24, path: 15, object: 12, terrain: 22, plants: 18 });
+    if (type === 'location') Object.assign(weights, { building: 34, path: 6, object: 34, terrain: 2, plants: 2, water: 0, reef: 0 });
     biomes.forEach(biome => {
       const text = normalizeText(biome);
       if (/ocean|underwater|water|beach|coast|shore|floating/.test(text)) { weights.water += 34; weights.path += 6; }
@@ -682,6 +822,8 @@
         const templateRaw = state.locationPinTemplate.raw || JSON.stringify(state.locationPinTemplate.data, null, 2);
         entries.push({ name: `${slug}/templates/${safeFileName(state.locationPinTemplate.fileName || 'belavados_locations_pins_template.json')}`, text: templateRaw, type: 'application/json' });
         entries.push({ name: `${slug}/templates/assets/map-marker.svg`, text: ONYX_MARKER_SVG, type: 'image/svg+xml' });
+        entries.push({ name: `${slug}/templates/map_viewer_requirements.css`, text: MAP_VIEWER_CSS_REQUIREMENTS, type: 'text/css' });
+        entries.push({ name: `${slug}/templates/map_output_requirements.json`, text: JSON.stringify({ finalMapFormat: 'svg', geojsonOverlaysRequired: true, settlementMapsMayUseGrids: false, locationMapsMayUseGrids: true, futureGeneratorPlacesPinsByHexColor: true, requiredClickableFeatures: ['building', 'park', 'bridge', 'large treehouse', 'lake', 'dock', 'district', 'major path', 'other major features'], cssAsset: 'templates/map_viewer_requirements.css' }, null, 2), type: 'application/json' });
       }
       if (state.settlementJson && state.settlementJson.raw) entries.push({ name: `${slug}/settlement/${safeFileName(state.settlementJson.fileName || 'settlement.json')}`, text: state.settlementJson.raw, type: 'application/json' });
       else entries.push({ name: `${slug}/settlement/${slug}.settlement_request.json`, text: JSON.stringify(request.settlement, null, 2), type: 'application/json' });
@@ -742,12 +884,18 @@
   }
 
   function buildMapRequestManifest(selectedAssets) {
+    const settlementType = els.settlementType.value || 'town';
+    const isInteriorLocation = settlementType === 'location';
     const settlement = {
       name: els.settlementName.value || '',
-      settlementType: els.settlementType.value || 'town',
+      settlementType,
+      requestKind: isInteriorLocation ? 'specific-interior-location-map' : 'settlement-map',
       selectedBiomes: state.selectedBiomes || [],
       uploadedSettlementJson: state.settlementJson.fileName || null,
-      originalSettlementData: state.settlementJson.data || null
+      originalSettlementData: state.settlementJson.data || null,
+      interiorOnlySuggestionsAllowed: isInteriorLocation,
+      interiorSuggestionExamples: isInteriorLocation ? ['beds', 'bunks', 'hearths', 'fireplaces', 'tables', 'chairs', 'desks', 'shelves', 'wardrobes', 'kitchens'] : [],
+      gridPolicy: isInteriorLocation ? 'Indoor/location maps may use grids if the final generator decides they help. Settlement maps must not use grids.' : 'No settlement map grids. Only indoor/location maps may use grids.'
     };
     return {
       app: 'Emperor Onyx Map Request Packager',
@@ -757,6 +905,26 @@
       settlement,
       locationsAndPinsTemplate: buildTemplateManifestSummary(),
       marker: { assetPath: 'templates/assets/map-marker.svg', colorSource: 'pin.hex', coloring: 'same SVG marker changes color by location/pin hex' },
+      outputRequirements: {
+        finalMapFormat: 'svg',
+        svgRequired: true,
+        geojsonOverlaysRequired: true,
+        interactiveClickableFeaturesRequired: true,
+        settlementGridRule: 'No settlement map grids are allowed.',
+        locationGridRule: 'Only indoor/location maps may use grids, and only if the final generator decides they are helpful.',
+        mapViewerCssAssetPath: 'templates/map_viewer_requirements.css',
+        mapViewerCssSnippet: MAP_VIEWER_CSS_REQUIREMENTS
+      },
+      generatorDirectives: {
+        futureGeneratorResponsibleForPlacement: true,
+        pinPlacement: 'The future image/map generator must place the pins in their correct colors.',
+        interactiveLocationCoverage: 'The future generator must create or add every relevant building, park, bridge, large treehouse, lake, dock, and other major clickable feature, then place an appropriately colored pin and matching GeoJSON on that feature so it can be clicked.',
+        geojsonRule: 'Pins must be backed by matching clickable GeoJSON regions, paths, footprints, districts, or feature overlays wherever appropriate.',
+        svgRule: 'All generated maps must be SVG images and must include GeoJSON overlays for clickability.',
+        cssRule: 'All generated maps must support the viewer/module CSS provided in templates/map_viewer_requirements.css.',
+        gridRule: 'No settlement maps may have grids. Only indoor/location maps may have grids, and only if the final generator decides to use them.',
+        interiorRule: isInteriorLocation ? 'This request is a specific interior/location map. Interior props such as beds, hearths, fireplaces, tables, and room furnishings are allowed and expected where appropriate.' : 'This request is not an interior/location map. Do not suggest beds, hearths, fireplaces, or other room-furnishing props unless the uploaded settlement JSON explicitly calls for a specific interior sub-map.'
+      },
       package: {
         maxImagesRequested: clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 5000, 180),
         maxZipMbRequested: clampNumber(els.packageMaxMb && els.packageMaxMb.value, 1, 100000, 100000),
@@ -768,13 +936,22 @@
         'Use the included images as source/reference assets for terrain, structures, water, roads, biome details, roofs, props, and settlement mood.',
         'Use locationsAndPinsTemplate and templates/belavados_locations_pins_template.json to create color-coded GeoJSON-backed pins, location panels, services/prices, and NPC assignment hooks.',
         'Use templates/assets/map-marker.svg as the shared marker shape and color it by each pin hex field.',
+        'All final generated maps must be SVG images and must include GeoJSON overlays for clickable regions/features.',
+        'Use templates/map_viewer_requirements.css and request.outputRequirements.mapViewerCssSnippet for the required map viewer/module styling.',
+        'The future generator must place the pins in their correct colors and create/add each relevant building, park, bridge, large treehouse, lake, dock, and other major clickable feature with clickable GeoJSON on it.',
+        'No settlement map grids are allowed. Only indoor/location maps may use grids.',
+        isInteriorLocation ? 'This is a specific interior/location map, so interior props like beds, hearths, fireplaces, tables, and room furnishings may be suggested where appropriate.' : 'This is a settlement-scale map, so interior props like beds and hearths should not be suggested unless the settlement JSON explicitly includes a specific interior sub-map request.',
         'Build the final map outside Onyx; Onyx is only packaging candidate assets and structured JSON templates.'
       ]
     };
   }
 
   function buildPackageReadme(request) {
-    return `Emperor Onyx Map Request Pack\n\nSettlement: ${request.settlement.name || 'Unnamed'}\nType: ${request.settlement.settlementType}\nBiomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}\n\nThis ZIP was built by Onyx as an asset/request package only. It contains:\n- manifest/map_request_manifest.json\n- settlement JSON or generated settlement_request JSON\n- templates/belavados_locations_pins_template.json when enabled\n- templates/assets/map-marker.svg for color-changing location pins\n- images/ grouped by detected asset category\n\nBring this ZIP back to ChatGPT and ask it to build the map using the included JSON and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow. Use the included template JSON to seed location panels, GeoJSON-backed pins, services/prices, and NPC assignment rules.\n`;
+    const type = request.settlement.settlementType;
+    const interiorLine = type === 'location'
+      ? 'This request is a specific interior/location map. Beds, hearths, fireplaces, tables, and similar indoor props may be suggested where appropriate.\n'
+      : 'This request is a settlement-scale map. Do not suggest beds, hearths, fireplaces, or similar indoor props unless the settlement JSON explicitly requests a specific interior sub-map.\n';
+    return `Emperor Onyx Map Request Pack\n\nSettlement: ${request.settlement.name || 'Unnamed'}\nType: ${type}\nBiomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}\n\nThis ZIP was built by Onyx as an asset/request package only. It contains:\n- manifest/map_request_manifest.json\n- settlement JSON or generated settlement_request JSON\n- templates/belavados_locations_pins_template.json when enabled\n- templates/assets/map-marker.svg for color-changing location pins\n- templates/map_viewer_requirements.css for the required map viewer module styling\n- templates/map_output_requirements.json for required SVG / GeoJSON output rules\n- images/ grouped by detected asset category\n\nBring this ZIP back to ChatGPT and ask it to build the map using the included JSON and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow. Use the included template JSON to seed location panels, GeoJSON-backed pins, services/prices, and NPC assignment rules.\n\nAll final generated maps must be SVG images and must include GeoJSON overlays for clickable regions and features. The required map viewer/module CSS is included in templates/map_viewer_requirements.css.\n\nThe future generator is responsible for placing the pins in their correct colors. It must create or add each relevant building, park, bridge, large treehouse, lake, dock, and other major clickable feature, then place the colored pin and matching GeoJSON on that feature so the user can click it.\n\nNo settlement maps may have grids. Only indoor/location maps may use grids, if the final generator decides that a grid is helpful.\n\n${interiorLine}`;
   }
 
   async function getAssetBlob(asset) {
@@ -941,7 +1118,7 @@
     }
 
 
-    const typeMatch = lower.match(/\b(capital|city|town|village)\b/);
+    const typeMatch = lower.match(/\b(capital|city|town|village|location)\b/);
     if (typeMatch) {
       els.settlementType.value = typeMatch[1];
       resizeCanvasForSettlement();
@@ -1164,7 +1341,7 @@
   function buildCoreLayout(map, rng) {
     const { width, height, profile } = map;
     const center = { x: width * (0.44 + rng() * 0.12), y: height * (0.48 + rng() * 0.12) };
-    const settlementRadius = Math.min(width, height) * (map.settlementType === 'capital' ? 0.34 : map.settlementType === 'city' ? 0.30 : map.settlementType === 'town' ? 0.24 : 0.18);
+    const settlementRadius = Math.min(width, height) * (map.settlementType === 'capital' ? 0.34 : map.settlementType === 'city' ? 0.30 : map.settlementType === 'town' ? 0.24 : map.settlementType === 'village' ? 0.18 : 0.15);
     const needsWater = profile.water > 0.3 || map.selectedBiomes.some(b => /ocean|underwater|beach|reef|marsh|water/i.test(b));
     const waterSide = rng() > 0.5 ? 'left' : 'right';
     const waterBox = needsWater ? {
@@ -1213,7 +1390,7 @@
     }
 
     map.paths = buildPathNetwork(center, settlementRadius, map.zones, width, height, rng, waterBox);
-    map.summary = `${map.settlementName} is a ${map.settlementType} shaped by ${map.selectedBiomes.join(', ')}.`;
+    map.summary = `${map.settlementName} is a ${map.settlementType === 'location' ? 'specific interior location map' : map.settlementType} shaped by ${map.selectedBiomes.join(', ')}.`;
     map.core = { center, settlementRadius, waterBox };
   }
 

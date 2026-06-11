@@ -111,7 +111,17 @@
       "dome",
       "platform",
       "treehouse",
-      "ruin"
+      "ruin",
+      "room",
+      "hall",
+      "interior",
+      "chamber",
+      "bedroom",
+      "kitchen",
+      "hearth",
+      "fireplace",
+      "parlor",
+      "study"
     ],
     "path": [
       "path",
@@ -150,7 +160,23 @@
       "table",
       "bench",
       "rockpile",
-      "chest"
+      "chest",
+      "bed",
+      "bunk",
+      "hearth",
+      "fireplace",
+      "chair",
+      "stool",
+      "desk",
+      "shelf",
+      "bookshelf",
+      "wardrobe",
+      "cabinet",
+      "rug",
+      "cauldron",
+      "oven",
+      "anvil",
+      "counter"
     ]
   },
   "tagAliases": {
@@ -206,6 +232,17 @@
       "sand",
       "shore",
       "coast"
+    ],
+    "interior": [
+      "interior",
+      "indoors",
+      "room",
+      "hall",
+      "chamber",
+      "parlor",
+      "kitchen",
+      "bedroom",
+      "tavernroom"
     ]
   }
 }

@@ -3,7 +3,8 @@
     "capital": 1312,
     "city": 1000,
     "town": 220,
-    "village": 60
+    "village": 60,
+    "location": 12
   },
   "percentages": {
     "capital": {
@@ -73,18 +74,37 @@
       "Noble & Elite": 0,
       "Criminal & Underground": 0,
       "Special": 2
+    },
+    "location": {
+      "Residential": 20,
+      "Commercial": 10,
+      "Hospitality": 20,
+      "Government & Civic": 5,
+      "Religious": 5,
+      "Education": 5,
+      "Medical": 3,
+      "Industry & Crafting": 5,
+      "Agriculture": 0,
+      "Nature": 0,
+      "Maritime": 0,
+      "Transportation": 2,
+      "Noble & Elite": 10,
+      "Criminal & Underground": 5,
+      "Special": 10
     }
   },
   "namedNpcTargets": {
     "capital": 3588,
     "city": 2700,
     "town": 600,
-    "village": 160
+    "village": 160,
+    "location": 20
   },
   "worldTravelerPercentages": {
     "capital": 21,
     "city": 18,
     "town": 9,
-    "village": 3
+    "village": 3,
+    "location": 0
   }
 }

@@ -15,7 +15,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Cat emperor map-pack request forge</p>
         <h1>Emperor Onyx Map Request Packager</h1>
-        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type and biomes, load or catalog your <code>map_assets</code> folder, and he will fetch the best matching image assets into an exportable ZIP map request pack for building maps later.</p>
+        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type or <strong>Location</strong> for a specific interior map, choose the biomes, load or catalog your <code>map_assets</code> folder, and he will fetch the best matching image assets into an exportable ZIP map request pack for building maps later.</p>
       </div>
       <div class="hero-badges">
         <span class="badge gold">🐈‍⬛ Cat Emperor</span>
@@ -36,6 +36,7 @@
               <option value="city">City</option>
               <option value="town" selected>Town</option>
               <option value="village">Village</option>
+              <option value="location">Location (specific interior map)</option>
             </select>
           </label>
           <div class="triple-grid">
@@ -48,7 +49,7 @@
               <select id="biomeChoice"></select>
             </label>
             <label>
-              <span>Settlement name</span>
+              <span>Settlement or location name</span>
               <input id="settlementName" type="text" value="Gloamhollow" placeholder="Settlement name" />
             </label>
           </div>
@@ -57,7 +58,7 @@
             <button id="clearBiomes" type="button" class="secondary">Clear cache</button>
           </div>
           <div id="biomeCache" class="biome-cache"></div>
-          <p class="hint">Keep up to 3 biome choices cached so hybrid settlements can coexist, such as beach + forest + underwater reefs.</p>
+          <p class="hint">Keep up to 3 biome choices cached so hybrid settlements can coexist, such as beach + forest + underwater reefs. Choose <strong>Location</strong> only for specific interior maps. Interior suggestions like beds, hearths, tables, kitchens, and similar room props are only appropriate for Location requests.</p>
         </div>
 
         <h2>2. Upload settlement JSON</h2>
