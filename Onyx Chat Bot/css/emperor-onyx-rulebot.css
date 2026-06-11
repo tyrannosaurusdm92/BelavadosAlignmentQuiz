@@ -1,0 +1,16 @@
+/* Emperor Onyx RuleBot CSS entrypoint. The large stylesheet was split by responsibility. */
+/* GLOBAL HIDABLE / MOVABLE SITE NAVIGATION */
+/* Onyx responsive layout upgrades */
+/* Full-screen Foundry-style Onyx dice table overlay */
+@import url("./base/variables-base-layout.css");
+@import url("./components/dice-panel.css");
+@import url("./components/dice-main-table.css");
+@import url("./components/mood-system.css");
+@import url("./components/global-navigation.css");
+@import url("./responsive/responsive-layout.css");
+@import url("./components/dice-overlay-runway.css");
+@import url("./themes/onyx-visual-overrides.css");
+@import url("./components/dice-3d-css-solid.css");
+@import url("./components/dice-github-physics-overlay.css");
+@import url("./patches/overflow-hardening.css");
+@import url("./base/utilities.css");

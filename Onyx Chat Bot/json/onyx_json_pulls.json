@@ -1,0 +1,17 @@
+{
+  "races": "json/belavados_races.json",
+  "alignments": "json/belavados_alignments.json",
+  "provinces": "json/belavados_provinces.json",
+  "factions": "json/belavados_factions.json",
+  "transportation": "json/belavados_transportation.json",
+  "interactiveLocations": "json/belavados_interactive_locations.json",
+  "npcs": "json/belavados_npcs.json",
+  "timeConversion": "json/belavados_time_conversion.json",
+  "pantheon": "json/belavados_pantheon.json",
+  "biomes": "json/belavados_biomes.json",
+  "encounterDirectory": "json/belavados_encounter_directory.json",
+  "questHooks": "json/belavados_quest_hooks.json",
+  "campaignTimeline": "json/belavados_campaign_timeline.json",
+  "constellations": "json/belavados_night_sky.json",
+  "chatLogs": "json/belavados_chat_logs.json"
+}

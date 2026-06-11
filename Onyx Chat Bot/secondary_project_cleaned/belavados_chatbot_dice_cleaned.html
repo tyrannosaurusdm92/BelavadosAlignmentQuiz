@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Belavadös Merged Dice-Main Chatbot Assistant</title>
+
+<link href="css/secondary-cleaned.css" rel="stylesheet"/></head>
+<body>
+&lt;!-- Visible demo character-sheet fields removed. Scanner code still reads host-page fields when present. --&gt;
+
+<main>
+
+<!-- Belavadös Embeddable Chat Bot Assistant: paste this whole block inside your editable character sheet HTML -->
+<section class="belavados-chatbot-placeholder" data-belavados-chatbot="" id="belavadosChatbotAssistant">
+<h3>Belavadös Chat Assistant</h3>
+<script class="belavados-chatbot-config" type="application/json">
+  {
+    "botName": "Belavadös Assistant",
+    "diceLimit": 100,
+    "maxSides": 1000,
+    "repeatLimit": 20,
+    "audioEnabled": true,
+    "audioVolume": 0.22,
+    "diceSoundUrl": "",
+    "diceMainFrameUrl": "srcdoc:dice-main",
+    "useDiceMainRoller": true,
+    "rollAnimationMs": 720,
+    "randomFlavor": true,
+    "autoScanOnInput": true,
+    "preferSheetBonuses": true,
+    "includeStaticCharacterText": true,
+    "scanSelector": "input, textarea, select, [contenteditable='true'], [data-character-field], [data-scan-field], [data-5e-field], [data-dnd-field]",
+    "scanTextSelector": "[data-character-text], [data-scan-text], [data-feature], [data-spell], [data-weapon], [data-attack], [data-action], .character-sheet [class*='spell'], .character-sheet [class*='weapon'], .character-sheet [class*='attack'], .character-sheet [class*='feature'], .dnd-character-sheet [class*='spell'], .dnd-character-sheet [class*='weapon'], .dnd-character-sheet [class*='attack'], .dnd-character-sheet [class*='feature']",
+    "excludeSelector": "[data-belavados-chatbot], script, style, button, input[type='button'], input[type='submit'], input[type='reset'], input[type='file'], input[type='password']"
+  }
+  </script>
+<div class="chatbot-shell" data-chatbot-shell="">
+<div class="belavados-chatbot-ui">
+<div aria-live="polite" class="belavados-chatbot-log" data-chat-log=""></div>
+<div class="belavados-chatbot-status" data-chat-status="">Character sheet not scanned yet.</div>
+<div aria-live="polite" class="belavados-dice-stage" data-dice-stage="">
+<div class="belavados-dice-stage-title" data-dice-stage-title="">3D dice table ready.</div>
+<div class="belavados-dice-main-frame-wrap" data-dice-main-wrap="">
+<iframe class="belavados-dice-main-frame" data-dice-main-frame="" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;base href=&quot;dice-main/&quot; /&gt;
+  &lt;title&gt;Belavadös Bot-Controlled 3D Dice Roller&lt;/title&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot; /&gt;
+  &lt;style&gt;
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#05080d;color:#eef8ff;}
+    body{font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;}
+    #diceRoller{position:absolute;inset:0;z-index:0!important;overflow:hidden;background:radial-gradient(circle at 50% 30%,rgba(57,150,190,.14),rgba(0,0,0,.75) 62%),url('assets/background.svg') center/cover no-repeat;}
+    #diceRollerUI{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;pointer-events:none;z-index:10;}
+    .top_field{padding:10px 12px;text-align:center;}
+    #textInput{pointer-events:auto;max-width:min(92vw,760px);width:auto;min-width:120px;text-align:center;border:1px solid rgba(145,225,255,.38);border-radius:999px;background:rgba(0,0,0,.46);color:#e9fbff;font-weight:800;box-shadow:0 0 16px rgba(85,210,255,.16);}
+    #center_div{display:grid;place-items:center;}
+    #instructions{display:none!important;}
+    #numPad{display:none!important;}
+    .bottom_field{padding:10px 12px;text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.52));}
+    #result{display:inline-block;max-width:min(92vw,720px);padding:8px 12px;border:1px solid rgba(145,225,255,.25);border-radius:12px;background:rgba(0,0,0,.45);color:#eef8ff;line-height:1.3;box-shadow:0 0 18px rgba(80,190,255,.12);}
+    #result small{color:#bdd9e3;}
+    #diceLimit{position:absolute;top:55px;left:50%;transform:translateX(-50%);z-index:20;padding:8px 12px;border-radius:12px;background:rgba(70,0,0,.82);border:1px solid rgba(255,120,120,.5);color:#fff;}
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body onload=&quot;main.init()&quot;&gt;
+  &lt;div id=&quot;diceRoller&quot;&gt;&lt;/div&gt;
+  &lt;main id=&quot;diceRollerUI&quot;&gt;
+    &lt;div class=&quot;top_field&quot;&gt;
+      &lt;input type=&quot;text&quot; id=&quot;textInput&quot; spellcheck=&quot;false&quot; inputmode=&quot;none&quot; virtualkeyboardpolicy=&quot;manual&quot; value=&quot;1d20&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;diceLimit&quot; style=&quot;display:none&quot;&gt;Wow that's a lot of dice!&lt;br&gt;[Limit: 20]&lt;/div&gt;
+    &lt;div id=&quot;center_div&quot; class=&quot;center_field&quot;&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;numPad&quot; class=&quot;center_field&quot; style=&quot;display:none&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bottom_field&quot;&gt;&lt;span id=&quot;result&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script src=&quot;libs/three.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;libs/cannon.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;libs/teal.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;dice.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;belavados-main-bot.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" title="Belavadös 3D dice roller"></iframe>
+</div>
+<div aria-label="Text dice summary" class="belavados-dice-row" data-dice-row=""></div>
+<div aria-label="Quick dice roller buttons" class="belavados-quick-rolls">
+<button data-quick-roll="1d20" type="button">d20</button>
+<button data-quick-roll="2d20kh1" type="button">Adv.</button>
+<button data-quick-roll="2d20kl1" type="button">Dis.</button>
+<button data-quick-roll="1d4" type="button">d4</button>
+<button data-quick-roll="1d6" type="button">d6</button>
+<button data-quick-roll="1d8" type="button">d8</button>
+<button data-quick-roll="1d10" type="button">d10</button>
+<button data-quick-roll="1d12" type="button">d12</button>
+<button data-quick-roll="1d100" type="button">d100</button>
+</div>
+</div>
+<form autocomplete="off" class="belavados-chatbot-form" data-chat-form="">
+<textarea data-chat-input="" placeholder="Type 1d20+4, roll perception, disarm trap, rapier attack, spell attack, monk unarmed strike, death save, alignment scan..." rows="2" spellcheck="false"></textarea>
+<div class="belavados-chatbot-actions">
+<button class="primary" type="submit">Send</button>
+<button data-scan-button="" type="button">Scan sheet</button>
+<button data-clear-button="" type="button">Clear</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<script>
+(() => {
+  'use strict';
+
+  const DEFAULT_CONFIG = {
+    botName: 'Belavadös Assistant',
+    diceLimit: 100,
+    maxSides: 1000,
+    repeatLimit: 20,
+    audioEnabled: true,
+    audioVolume: 0.22,
+    diceSoundUrl: '',
+    diceMainFrameUrl: 'srcdoc:dice-main',
+    useDiceMainRoller: true,
+    rollAnimationMs: 720,
+    randomFlavor: true,
+    autoScanOnInput: true,
+    scanSelector: "input, textarea, select, [contenteditable='true'], [data-character-field], [data-scan-field], [data-5e-field], [data-dnd-field]",
+    scanTextSelector: "[data-character-text], [data-scan-text], [data-feature], [data-spell], [data-weapon], [data-attack], [data-action], .character-sheet [class*='spell'], .character-sheet [class*='weapon'], .character-sheet [class*='attack'], .character-sheet [class*='feature'], .dnd-character-sheet [class*='spell'], .dnd-character-sheet [class*='weapon'], .dnd-character-sheet [class*='attack'], .dnd-character-sheet [class*='feature']",
+    excludeSelector: "[data-belavados-chatbot], script, style, button, input[type='button'], input[type='submit'], input[type='reset'], input[type='file'], input[type='password']",
+    preferSheetBonuses: true,
+    includeStaticCharacterText: true
+  };
+
+  const ABILITIES = [
+    { name: 'strength', short: 'str', aliases: ['strength', 'str'] },
+    { name: 'dexterity', short: 'dex', aliases: ['dexterity', 'dex'] },
+    { name: 'constitution', short: 'con', aliases: ['constitution', 'con'] },
+    { name: 'intelligence', short: 'int', aliases: ['intelligence', 'int'] },
+    { name: 'wisdom', short: 'wis', aliases: ['wisdom', 'wis'] },
+    { name: 'charisma', short: 'cha', aliases: ['charisma', 'cha'] }
+  ];
+  const ABILITY_NAMES = ABILITIES.map(a => a.name);
+
+  const SKILL_DATA = [
+    { name: 'acrobatics', ability: 'dexterity', aliases: ['acrobatics'] },
+    { name: 'animal handling', ability: 'wisdom', aliases: ['animal handling', 'animal'] },
+    { name: 'arcana', ability: 'intelligence', aliases: ['arcana'] },
+    { name: 'athletics', ability: 'strength', aliases: ['athletics'] },
+    { name: 'deception', ability: 'charisma', aliases: ['deception'] },
+    { name: 'history', ability: 'intelligence', aliases: ['history'] },
+    { name: 'insight', ability: 'wisdom', aliases: ['insight'] },
+    { name: 'intimidation', ability: 'charisma', aliases: ['intimidation', 'intimidate'] },
+    { name: 'investigation', ability: 'intelligence', aliases: ['investigation', 'investigate'] },
+    { name: 'medicine', ability: 'wisdom', aliases: ['medicine', 'stabilize', 'stabilise', 'first aid'] },
+    { name: 'nature', ability: 'intelligence', aliases: ['nature'] },
+    { name: 'perception', ability: 'wisdom', aliases: ['perception', 'spot', 'listen', 'notice'] },
+    { name: 'performance', ability: 'charisma', aliases: ['performance'] },
+    { name: 'persuasion', ability: 'charisma', aliases: ['persuasion', 'persuade'] },
+    { name: 'religion', ability: 'intelligence', aliases: ['religion'] },
+    { name: 'sleight of hand', ability: 'dexterity', aliases: ['sleight of hand', 'sleight', 'pick pocket', 'pickpocket'] },
+    { name: 'stealth', ability: 'dexterity', aliases: ['stealth', 'sneak', 'hide'] },
+    { name: 'survival', ability: 'wisdom', aliases: ['survival', 'track', 'forage'] }
+  ];
+  const SKILL_NAMES = SKILL_DATA.map(s => s.name);
+
+  const TOOL_ALIASES = [
+    { name: "thieves' tools", aliases: ["thieves tools", "thieve tools", "thieves' tools", 'lockpicks', 'lock picks', 'trap tools'] },
+    { name: 'disguise kit', aliases: ['disguise kit'] },
+    { name: 'forgery kit', aliases: ['forgery kit'] },
+    { name: 'herbalism kit', aliases: ['herbalism kit'] },
+    { name: 'poisoner kit', aliases: ["poisoner's kit", 'poisoner kit'] },
+    { name: 'navigator tools', aliases: ["navigator's tools", 'navigator tools'] }
+  ];
+
+  const ALIGNMENT_AXES = [
+    { name: 'altruism', negative: 'Self-serving', positive: 'Altruistic' },
+    { name: 'lawfulness', negative: 'Chaotic', positive: 'Lawful' },
+    { name: 'cooperation', negative: 'Individualistic', positive: 'Cooperative' },
+    { name: 'honor', negative: 'Dishonorable', positive: 'Honorable' }
+  ];
+
+  const ALIGNMENT_HINTS = [
+    { pattern: /\b(heal|healing|cure wounds|healing word|revive|rescue|protect|defend|stabilize|stabilise|first aid)\b/, text: 'Belavadös note: protecting, healing, rescuing, and risking yourself for others may touch Altruism; mercy or keeping a code may also touch Honor.' },
+    { pattern: /\b(help action|help an ally|assist|teamwork|coordinate|support ally|support the party|bless)\b/, text: 'Belavadös note: teamwork, shared resources, and party support may touch Cooperation, with Altruism possible when there is cost or risk.' },
+    { pattern: /\b(oath|vow|contract|law|treaty|order|authority|command)\b/, text: 'Belavadös note: obeying structure, treaties, duty, or sworn obligations may touch Lawfulness; keeping the promise may also touch Honor.' },
+    { pattern: /\b(lie|deceive|betray|cheat|manipulate|break oath|oathbreak|abandon ally)\b/, text: 'Belavadös note: lying, betrayal, oathbreaking, and abandoning allies can touch Honor and/or Cooperation depending on the scene.' }
+  ];
+
+  const DICE_EXPRESSION_PATTERN = /(?:^|[^\w])((?:[+-]?\s*(?:(?:\d*)d(?:%|f|\d+)(?:(?:kh|kl|dh|dl)\d+)?(?:!(?:p)?)?(?:r(?:<=|>=|<|>|=)?-?\d+)?(?:(?:cs|cf)(?:<=|>=|<|>|=)?-?\d+)*|\d+))(?:\s*[+-]\s*(?:(?:\d*)d(?:%|f|\d+)(?:(?:kh|kl|dh|dl)\d+)?(?:!(?:p)?)?(?:r(?:<=|>=|<|>|=)?-?\d+)?(?:(?:cs|cf)(?:<=|>=|<|>|=)?-?\d+)*|\d+))*)/gi;
+
+  const ROLL_FLAVORS = [
+    'The dice scatter across the table.',
+    'A handful of fate clatters in the tray.',
+    'Belavadös listens as the dice tumble.',
+    'The roll lands with a bright little clack.',
+    'The dice spin, bounce, and settle.',
+    'Chance turns its face toward the party.'
+  ];
+  const CRIT_FLAVORS = {
+    20: ['Natural 20 — the table goes quiet for a heartbeat.', 'Natural 20 — fortune bares its teeth in your favor.'],
+    1: ['Natural 1 — the dice chose chaos.', 'Natural 1 — fate trips over its own cloak.']
+  };
+
+  function mergeConfig(root) {
+    const out = Object.assign({}, DEFAULT_CONFIG);
+    const node = root.querySelector('.belavados-chatbot-config');
+    if (!node) return out;
+    try { Object.assign(out, JSON.parse(node.textContent || '{}') || {}); } catch {}
+    return out;
+  }
+
+  function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[ch]));
+  }
+
+  function normalize(value) {
+    return String(value == null ? '' : value)
+      .toLowerCase()
+      .replace(/[’`]/g, "'")
+      .replace(/[^a-z0-9+%'-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function compact(value) { return normalize(value).replace(/[^a-z0-9]+/g, ''); }
+  function signed(n) { const num = Number(n) || 0; return num >= 0 ? `+${num}` : `${num}`; }
+  function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+  function randomInt(min, max) {
+    min = Math.ceil(Number(min));
+    max = Math.floor(Number(max));
+    if (!Number.isFinite(min) || !Number.isFinite(max)) return 0;
+    if (max < min) [min, max] = [max, min];
+    const range = max - min + 1;
+    const cryptoObj = globalThis.crypto || globalThis.msCrypto;
+    if (cryptoObj?.getRandomValues && range > 0 && range <= 0x100000000) {
+      const maxUint = 0xFFFFFFFF;
+      const limit = maxUint - (maxUint % range);
+      const buf = new Uint32Array(1);
+      let value;
+      do { cryptoObj.getRandomValues(buf); value = buf[0]; } while (value >= limit);
+      return min + (value % range);
+    }
+    return Math.floor(Math.random() * range) + min;
+  }
+  function pick(items) { return items && items.length ? items[randomInt(0, items.length - 1)] : ''; }
+  function uniq(items) { return Array.from(new Set(items.filter(Boolean))); }
+
+  function hasWord(haystack, needle) {
+    const h = ` ${normalize(haystack)} `;
+    return h.includes(` ${normalize(needle)} `) || compact(haystack).includes(compact(needle));
+  }
+
+  function parseNumber(value) {
+    const text = String(value == null ? '' : value).trim();
+    const direct = text.match(/^[-+]?\d+$/);
+    if (direct) return Number(direct[0]);
+    const withSign = text.match(/[-+]\s*\d+/);
+    if (withSign) return Number(withSign[0].replace(/\s+/g, ''));
+    const any = text.match(/\b\d+\b/);
+    if (any) return Number(any[0]);
+    return null;
+  }
+
+  function parseSignedNumber(value) {
+    const m = String(value == null ? '' : value).match(/[-+]\s*\d+/);
+    return m ? Number(m[0].replace(/\s+/g, '')) : null;
+  }
+
+  function abilityModFromScore(value) {
+    const n = parseNumber(value);
+    if (n == null) return null;
+    if (n >= 1 && n <= 30) return Math.floor((n - 10) / 2);
+    return n;
+  }
+
+  function safeCssEscape(value) {
+    if (window.CSS && CSS.escape) return CSS.escape(value);
+    return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+  }
+
+  function closestText(el, selector) {
+    const found = el.closest(selector);
+    return found ? found.textContent.trim() : '';
+  }
+
+  function textBefore(el) {
+    let node = el.previousElementSibling;
+    let hops = 0;
+    while (node && hops < 4) {
+      const text = (node.textContent || '').trim();
+      if (text && text.length < 120) return text;
+      node = node.previousElementSibling;
+      hops += 1;
+    }
+    return '';
+  }
+
+  function labelForElement(el) {
+    const direct = el.getAttribute('data-chatbot-label') || el.getAttribute('data-character-label') || el.getAttribute('data-scan-label') || el.getAttribute('aria-label') || el.getAttribute('data-label') || el.getAttribute('title');
+    if (direct) return direct.trim();
+    if (el.id) {
+      const label = document.querySelector(`label[for="${safeCssEscape(el.id)}"]`);
+      if (label && label.textContent.trim()) return label.textContent.trim();
+    }
+    if (el.closest('label') && closestText(el, 'label')) return closestText(el, 'label');
+    const labelledBy = el.getAttribute('aria-labelledby');
+    if (labelledBy) {
+      const text = labelledBy.split(/\s+/).map(id => document.getElementById(id)?.textContent || '').join(' ').trim();
+      if (text) return text;
+    }
+    const prev = textBefore(el);
+    if (prev) return prev;
+    return el.getAttribute('placeholder') || el.getAttribute('name') || el.id || el.getAttribute('data-character-field') || el.getAttribute('data-scan-field') || el.tagName.toLowerCase();
+  }
+
+  function valueForElement(el) {
+    const tag = el.tagName.toLowerCase();
+    const type = (el.getAttribute('type') || '').toLowerCase();
+    if (type === 'checkbox' || type === 'radio') {
+      if (!el.checked) return '';
+      return el.value && el.value !== 'on' ? el.value : 'checked';
+    }
+    if (tag === 'select') return Array.from(el.selectedOptions || []).map(opt => opt.textContent.trim() || opt.value).filter(Boolean).join(', ');
+    if ('value' in el) return el.value || '';
+    if (el.isContentEditable) return el.textContent || '';
+    return el.textContent || '';
+  }
+
+  function locatorFor(el) {
+    if (!el || el.nodeType !== 1) return '';
+    if (el.id) return `#${el.id}`;
+    const name = el.getAttribute('name');
+    if (name) return `${el.tagName.toLowerCase()}[name="${name}"]`;
+    return el.tagName.toLowerCase();
+  }
+
+  function looksRelevantStaticText(text) {
+    const t = normalize(text);
+    if (t.length < 2 || t.length > 2400) return false;
+    return /\b(spell|cantrip|weapon|attack|damage|save|saving throw|skill|proficiency|initiative|armor class|hit points|death|feature|trait|action|bonus action|reaction|unarmed|monk|ki|martial arts|thieves|tools|altruism|lawfulness|cooperation|honor)\b/.test(t);
+  }
+
+  function splitEntryLines(text) {
+    return String(text || '')
+      .split(/[\n;]+|(?<=\))\s*,\s*/)
+      .map(s => s.trim())
+      .filter(Boolean)
+      .slice(0, 80);
+  }
+
+  function alignmentPhase(score) {
+    const n = Number(score);
+    if (!Number.isFinite(n)) return '';
+    if (n < 0 || n > 3000) return 'outside 0–3000 range';
+    if (n === 1500) return 'Neutral center';
+    if (n <= 999) return 'Extreme negative';
+    if (n <= 1499) return 'Skewed negative';
+    if (n <= 1999) return 'Skewed positive';
+    return 'Extreme positive';
+  }
+
+  function bestOf(records, prop = 'modifier') {
+    const clean = records.filter(r => r && Number.isFinite(Number(r[prop])));
+    if (!clean.length) return null;
+    return clean.slice().sort((a, b) => Number(b[prop]) - Number(a[prop]))[0];
+  }
+
+  class BelavadosChatbot {
+    constructor(root) {
+      this.root = root;
+      this.config = mergeConfig(root);
+      this.log = root.querySelector('[data-chat-log]');
+      this.status = root.querySelector('[data-chat-status]');
+      this.form = root.querySelector('[data-chat-form]');
+      this.input = root.querySelector('[data-chat-input]');
+      this.scanButton = root.querySelector('[data-scan-button]');
+      this.clearButton = root.querySelector('[data-clear-button]');
+      this.stage = root.querySelector('[data-dice-stage]');
+      this.diceRow = root.querySelector('[data-dice-row]');
+      this.diceStageTitle = root.querySelector('[data-dice-stage-title]');
+      this.diceFrame = root.querySelector('[data-dice-main-frame]');
+      this.diceMainReady = false;
+      this.diceMainQueue = [];
+      this.audioContext = null;
+      this.records = [];
+      this.index = this.emptyIndex();
+      this.lastScan = null;
+      this.setupDiceMainBridge();
+      this.wire();
+      this.say(`Ready. No swiping needed — type dice like <span class="belavados-chatbot-pill">1d20+4</span>, ask for sheet rolls like <span class="belavados-chatbot-pill">roll perception</span>, <span class="belavados-chatbot-pill">spell attack</span>, <span class="belavados-chatbot-pill">disarm trap</span>, or <span class="belavados-chatbot-pill">death save</span>, and I will roll the dice-main table for you.`, 'bot');
+      this.scanCharacterSheet({ silent: true });
+    }
+
+    emptyIndex() {
+      return {
+        abilities: {}, skills: {}, saves: {}, tools: {}, attacks: [], spells: [], features: [],
+        common: {}, alignment: {}, death: { successes: null, failures: null }, sourceCounts: {}
+      };
+    }
+
+    wire() {
+      this.form?.addEventListener('submit', event => {
+        event.preventDefault();
+        const message = (this.input?.value || '').trim();
+        if (!message) return;
+        this.input.value = '';
+        this.handleMessage(message);
+      });
+      this.input?.addEventListener('keydown', event => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          this.form?.requestSubmit();
+        }
+      });
+      this.scanButton?.addEventListener('click', () => this.scanCharacterSheet({ silent: false }));
+      this.clearButton?.addEventListener('click', () => {
+        if (this.log) this.log.innerHTML = '';
+        this.say('Chat cleared. Sheet index kept in memory until the next scan.', 'bot');
+      });
+      this.root.querySelectorAll('[data-quick-roll]').forEach(button => {
+        button.addEventListener('click', () => this.handleMessage(button.getAttribute('data-quick-roll') || '1d20'));
+      });
+      if (this.config.autoScanOnInput) {
+        let scanTimer = 0;
+        const rescan = (delay) => {
+          clearTimeout(scanTimer);
+          scanTimer = setTimeout(() => this.scanCharacterSheet({ silent: true }), delay);
+        };
+        document.addEventListener('input', event => { if (!this.root.contains(event.target)) rescan(180); }, true);
+        document.addEventListener('change', event => { if (!this.root.contains(event.target)) rescan(80); }, true);
+      }
+    }
+
+
+    setupDiceMainBridge() {
+      if (!this.diceFrame || this.config.useDiceMainRoller === false) return;
+      const configuredUrl = String(this.config.diceMainFrameUrl || '').trim();
+      if (configuredUrl && this.diceFrame.getAttribute('src') !== configuredUrl) this.diceFrame.setAttribute('src', configuredUrl);
+      window.addEventListener('message', event => {
+        const data = event.data || {};
+        if (!data || typeof data !== 'object') return;
+        if (data.type === 'BELAVADOS_DICE_MAIN_READY') {
+          this.diceMainReady = true;
+          if (this.diceStageTitle) this.diceStageTitle.textContent = '3D dice table ready.';
+          const queued = this.diceMainQueue.splice(0);
+          queued.forEach(payload => this.postDiceMainPayload(payload));
+        }
+        if (data.type === 'BELAVADOS_DICE_MAIN_ERROR') {
+          if (this.diceStageTitle) this.diceStageTitle.textContent = `3D table skipped: ${data.message || 'unsupported roll'}`;
+        }
+      });
+    }
+
+    postDiceMainPayload(payload) {
+      if (!this.diceFrame || !this.diceFrame.contentWindow) return false;
+      try {
+        this.diceFrame.contentWindow.postMessage({ type: 'BELAVADOS_DICE_MAIN_ROLL', payload }, '*');
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    rollDiceMain(roll, context = {}) {
+      if (!this.diceFrame || this.config.useDiceMainRoller === false) return false;
+      const payload = this.buildDiceMainPayload(roll, context);
+      if (!payload) return false;
+      if (!this.diceMainReady) {
+        this.diceMainQueue.push(payload);
+        if (this.diceMainQueue.length > 8) this.diceMainQueue.shift();
+        return true;
+      }
+      return this.postDiceMainPayload(payload);
+    }
+
+    buildDiceMainPayload(roll, context = {}) {
+      const allowed = new Set([4, 6, 8, 10, 12, 20, 100]);
+      const terms = [];
+      const requestedResults = [];
+      let constant = 0;
+      for (const part of roll.parts || []) {
+        if (part.kind === 'modifier') {
+          const m = String(part.text || '').match(/[+-]?\d+/);
+          if (m) constant += Number(m[0]);
+          continue;
+        }
+        if (part.kind !== 'dice') continue;
+        const sidesNum = Number(part.sides);
+        if (!allowed.has(sidesNum)) continue;
+        for (const rawValue of part.rolls || []) {
+          const value = Number(rawValue);
+          if (!Number.isFinite(value)) continue;
+          if (sidesNum === 100) {
+            const v = value >= 100 ? 100 : Math.max(1, Math.min(99, Math.floor(value)));
+            const tens = v === 100 ? 0 : Math.floor(v / 10);
+            const ones = v === 100 ? 0 : v % 10;
+            terms.push('1d100', '1d9');
+            requestedResults.push(tens, ones);
+          } else {
+            terms.push(`1d${sidesNum}`);
+            requestedResults.push(sidesNum === 10 && value === 10 ? 10 : Math.max(1, Math.min(sidesNum, Math.floor(value))));
+          }
+        }
+      }
+      if (!terms.length) return null;
+      let expression = terms.join('+');
+      if (constant > 0) expression += `+${constant}`;
+      if (constant < 0) expression += `${constant}`;
+      return {
+        expression,
+        requestedResults,
+        displayExpression: roll.expression,
+        displayTotal: roll.total,
+        repeatLabel: context.repeatCount > 1 ? `Roll ${context.repeatIndex} of ${context.repeatCount}` : ''
+      };
+    }
+
+    setStatus(text) { if (this.status) this.status.textContent = text; }
+
+    say(html, who = 'bot') {
+      if (!this.log) return;
+      const node = document.createElement('div');
+      node.className = `belavados-chatbot-msg ${who}`;
+      node.innerHTML = `<span class="meta">${who === 'user' ? 'You' : esc(this.config.botName)}</span>${html}`;
+      this.log.appendChild(node);
+      this.log.scrollTop = this.log.scrollHeight;
+    }
+
+    scanCharacterSheet(options = {}) {
+      const silent = Boolean(options.silent);
+      const records = [];
+      const nodes = Array.from(document.querySelectorAll(this.config.scanSelector || DEFAULT_CONFIG.scanSelector));
+      for (const el of nodes) {
+        if (!(el instanceof Element)) continue;
+        if (this.root.contains(el)) continue;
+        if (el.closest(this.config.excludeSelector || DEFAULT_CONFIG.excludeSelector)) continue;
+        const value = valueForElement(el);
+        if (!String(value || '').trim()) continue;
+        const label = labelForElement(el);
+        records.push(this.makeRecord(label, value, 'field', el));
+      }
+
+      if (this.config.includeStaticCharacterText) {
+        const textNodes = Array.from(document.querySelectorAll(this.config.scanTextSelector || DEFAULT_CONFIG.scanTextSelector));
+        for (const el of textNodes) {
+          if (!(el instanceof Element)) continue;
+          if (this.root.contains(el)) continue;
+          if (el.closest(this.config.excludeSelector || DEFAULT_CONFIG.excludeSelector)) continue;
+          const value = (el.textContent || '').trim();
+          if (!looksRelevantStaticText(value)) continue;
+          const label = labelForElement(el);
+          records.push(this.makeRecord(label, value, 'static-text', el));
+        }
+      }
+
+      this.records = records.filter((r, i, arr) => arr.findIndex(x => x.label === r.label && x.value === r.value && x.locator === r.locator) === i);
+      this.index = this.buildIndex(this.records);
+      const numeric = this.records.filter(r => r.number != null).length;
+      const attackCount = this.index.attacks.length;
+      const spellCount = this.index.spells.length;
+      const skillCount = Object.keys(this.index.skills).length;
+      const alignmentCount = Object.keys(this.index.alignment).length;
+      this.lastScan = { total: this.records.length, numeric, attackCount, spellCount, skillCount, alignmentCount, time: new Date() };
+      this.setStatus(`Sheet index: ${this.records.length} filled record(s), ${numeric} numeric, ${skillCount} skill(s), ${attackCount} attack/damage entr${attackCount === 1 ? 'y' : 'ies'}, ${spellCount} spell entr${spellCount === 1 ? 'y' : 'ies'}. Last scan ${this.lastScan.time.toLocaleTimeString()}.`);
+      if (!silent) {
+        const sample = this.records.slice(0, 10).map(r => `<span class="belavados-chatbot-pill">${esc(r.label)}: ${esc(String(r.value).slice(0, 32))}</span>`).join(' ');
+        const extras = alignmentCount ? ` Alignment axes found: ${Object.keys(this.index.alignment).map(a => `<span class="belavados-chatbot-pill">${esc(a)}</span>`).join(' ')}` : '';
+        this.say(`Scanned ${this.records.length} filled record(s). ${sample || 'No filled character fields found yet.'}${extras}`, 'bot');
+      }
+      return this.records;
+    }
+
+    makeRecord(label, value, type, el) {
+      return {
+        label: String(label || '').trim(), value: String(value || '').trim(), type,
+        labelNorm: normalize(label), labelCompact: compact(label),
+        valueNorm: normalize(value), valueCompact: compact(value),
+        textNorm: normalize(`${label} ${value}`), textCompact: compact(`${label} ${value}`),
+        number: parseNumber(value), signedNumber: parseSignedNumber(value), locator: locatorFor(el)
+      };
+    }
+
+    buildIndex(records) {
+      const index = this.emptyIndex();
+      for (const record of records) {
+        index.sourceCounts[record.type] = (index.sourceCounts[record.type] || 0) + 1;
+        this.indexCommon(record, index);
+        this.indexAbilities(record, index);
+        this.indexSkills(record, index);
+        this.indexSaves(record, index);
+        this.indexTools(record, index);
+        this.indexAlignment(record, index);
+        this.indexEntries(record, index);
+      }
+      return index;
+    }
+
+    indexCommon(record, index) {
+      const label = record.labelNorm;
+      const text = record.textNorm;
+      const setCommon = (key, modifier, sourceRecord = record) => {
+        if (modifier == null) return;
+        index.common[key] = { modifier, label: sourceRecord.label, sourceValue: sourceRecord.value };
+      };
+      if (/\b(proficiency bonus|prof bonus|pb)\b/.test(text)) setCommon('proficiency bonus', record.signedNumber ?? record.number);
+      if (/\binitiative\b/.test(label) || /\binitiative\b/.test(text)) setCommon('initiative', record.signedNumber ?? record.number);
+      if (/\bspell attack\b|\bspell attack bonus\b/.test(text)) setCommon('spell attack', record.signedNumber ?? record.number);
+      if (/\bspell save dc\b|\bsave dc\b/.test(text)) setCommon('spell save dc', record.number);
+      if (/\bpassive perception\b/.test(text)) setCommon('passive perception', record.number);
+      if (/\b(armor class|\bac\b)\b/.test(label)) setCommon('armor class', record.number);
+      if (/\b(hit points|hp|current hp|max hp)\b/.test(label)) setCommon('hit points', record.number);
+      if (/\bdeath\b/.test(text) && /\bsuccess/.test(text)) index.death.successes = record.number;
+      if (/\bdeath\b/.test(text) && /\bfailure/.test(text)) index.death.failures = record.number;
+    }
+
+    indexAbilities(record, index) {
+      for (const ability of ABILITIES) {
+        const aliases = ability.aliases;
+        const labelHas = aliases.some(a => hasWord(record.labelNorm, a));
+        if (!labelHas) continue;
+        const signed = record.signedNumber;
+        const raw = record.number;
+        if (raw == null && signed == null) continue;
+        const isModField = /\b(mod|modifier|bonus|save|saving throw)\b/.test(record.labelNorm) || signed != null;
+        const mod = isModField ? (signed ?? raw) : abilityModFromScore(record.value);
+        const score = !isModField && raw >= 1 && raw <= 30 ? raw : null;
+        const current = index.abilities[ability.name] || {};
+        index.abilities[ability.name] = {
+          score: score ?? current.score ?? null,
+          modifier: mod ?? current.modifier ?? null,
+          label: record.label,
+          sourceValue: record.value
+        };
+      }
+    }
+
+    indexSkills(record, index) {
+      for (const skill of SKILL_DATA) {
+        if (!skill.aliases.some(a => hasWord(record.labelNorm, a) || hasWord(record.textNorm, a))) continue;
+        const signed = record.signedNumber;
+        const raw = record.number;
+        const checked = /\bchecked\b/.test(record.valueNorm);
+        const isProf = /\b(proficient|proficiency|prof|trained)\b/.test(record.labelNorm + ' ' + record.valueNorm) || checked;
+        const isExpertise = /\b(expertise|expert)\b/.test(record.labelNorm + ' ' + record.valueNorm);
+        const current = index.skills[skill.name] || { ability: skill.ability };
+        let modifier = current.modifier ?? null;
+        if (signed != null) modifier = signed;
+        else if (raw != null && !checked && /\b(mod|modifier|bonus|total)\b/.test(record.labelNorm + ' ' + record.valueNorm)) modifier = raw;
+        index.skills[skill.name] = {
+          ability: skill.ability,
+          modifier,
+          proficient: current.proficient || isProf || false,
+          expertise: current.expertise || isExpertise || false,
+          label: record.label,
+          sourceValue: record.value
+        };
+      }
+    }
+
+    indexSaves(record, index) {
+      if (!/\b(save|saving throw|saving throws)\b/.test(record.labelNorm + ' ' + record.valueNorm)) return;
+      for (const ability of ABILITIES) {
+        if (!ability.aliases.some(a => hasWord(record.textNorm, a))) continue;
+        const mod = record.signedNumber ?? record.number;
+        if (mod == null) continue;
+        index.saves[ability.name] = { modifier: mod, label: record.label, sourceValue: record.value };
+      }
+    }
+
+    indexTools(record, index) {
+      for (const tool of TOOL_ALIASES) {
+        if (!tool.aliases.some(a => hasWord(record.textNorm, a))) continue;
+        const mod = record.signedNumber ?? (/\bchecked\b/.test(record.valueNorm) ? null : record.number);
+        const current = index.tools[tool.name] || {};
+        index.tools[tool.name] = {
+          modifier: mod ?? current.modifier ?? null,
+          proficient: current.proficient || /\b(checked|proficient|proficiency|trained)\b/.test(record.valueNorm + ' ' + record.labelNorm),
+          label: record.label,
+          sourceValue: record.value
+        };
+      }
+    }
+
+    indexAlignment(record, index) {
+      for (const axis of ALIGNMENT_AXES) {
+        if (!hasWord(record.labelNorm, axis.name) && !hasWord(record.textNorm, axis.name)) continue;
+        const n = record.number;
+        if (n == null) continue;
+        index.alignment[axis.name] = { score: clamp(n, 0, 3000), phase: alignmentPhase(n), label: record.label, sourceValue: record.value };
+      }
+    }
+
+    indexEntries(record, index) {
+      const relevant = /\b(spell|cantrip|weapon|attack|damage|dmg|to hit|feature|trait|action|bonus action|reaction|unarmed|monk|martial arts|ki|eldritch blast|fire bolt|ray|bolt|bow|sword|rapier|dagger|axe|mace|staff)\b/.test(record.textNorm);
+      if (!relevant) return;
+      for (const line of splitEntryLines(record.value)) {
+        const entry = this.parseAttackEntry(line, record);
+        if (entry) index.attacks.push(entry);
+        const spell = this.parseSpellEntry(line, record);
+        if (spell) index.spells.push(spell);
+      }
+      if (/\b(feature|trait|monk|ki|martial arts|flurry|unarmed)\b/.test(record.textNorm)) {
+        index.features.push({ name: record.label, text: record.value, label: record.label, sourceValue: record.value });
+      }
+    }
+
+    parseAttackEntry(line, record) {
+      const full = `${record.label} ${line}`;
+      const norm = normalize(full);
+      if (!/\b(attack|to hit|hit|damage|dmg|weapon|spell|unarmed|strike|martial arts|ray|bolt|blast|bow|sword|rapier|dagger|axe|mace|staff)\b/.test(norm)) return null;
+      const bonusMatch = line.match(/(?:attack|to hit|hit)[^+-]{0,30}([-+]\s*\d+)/i) || line.match(/([-+]\s*\d+)\s*(?:to hit|attack|hit)/i) || record.value.match(new RegExp(`${this.escapeRegExp(line.slice(0, 20))}[\\s\\S]{0,80}(?:attack|to hit|hit)[^+-]{0,30}([-+]\\s*\\d+)`, 'i'));
+      const bonus = bonusMatch ? Number(bonusMatch[1].replace(/\s+/g, '')) : null;
+      const dice = this.extractDiceExpressions(line).filter(expr => !/^1d20/i.test(expr));
+      const damage = dice[0] || '';
+      let name = line.split(/:|\-|—|,/)[0].trim();
+      name = name.replace(/\b(attack|to hit|hit|damage|dmg)\b.*$/i, '').trim();
+      if (!name || name.length > 80) name = record.label;
+      let type = 'ability';
+      if (/\b(spell|cantrip|cast)\b/.test(norm)) type = 'spell';
+      else if (/\b(weapon|bow|sword|rapier|dagger|axe|mace|staff|crossbow|spear|javelin|club|hammer)\b/.test(norm)) type = 'weapon';
+      if (/\b(unarmed|monk|martial arts|flurry)\b/.test(norm)) type = 'ability';
+      if (bonus == null && !damage) return null;
+      return { name, type, attackBonus: bonus, damage, label: record.label, sourceValue: record.value, sourceLine: line };
+    }
+
+    parseSpellEntry(line, record) {
+      const full = `${record.label} ${line}`;
+      if (!/\b(spell|cantrip|magic|cast|prepared|known)\b/i.test(full) && !/\b(cure wounds|healing word|detect magic|fire bolt|eldritch blast|ray of frost|sacred flame|guidance|bless)\b/i.test(line)) return null;
+      let name = line.split(/:|\-|—|,/)[0].trim();
+      if (!name || name.length > 80) name = line.trim().slice(0, 80);
+      const attack = line.match(/(?:spell attack|attack|to hit)[^+-]{0,30}([-+]\s*\d+)/i);
+      const dc = line.match(/(?:save dc|dc)\s*(\d+)/i);
+      const dice = this.extractDiceExpressions(line).filter(expr => !/^1d20/i.test(expr));
+      return { name, attackBonus: attack ? Number(attack[1].replace(/\s+/g, '')) : null, saveDc: dc ? Number(dc[1]) : null, damage: dice[0] || '', label: record.label, sourceValue: record.value };
+    }
+
+    escapeRegExp(value) { return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    handleMessage(message) {
+      this.say(esc(message), 'user');
+      this.scanCharacterSheet({ silent: true });
+      const lower = normalize(message);
+      if (/^(scan|rescan|scan sheet|scan character sheet|refresh sheet)$/i.test(message.trim())) {
+        this.scanCharacterSheet({ silent: false });
+        return;
+      }
+      if (/^(help|commands|what can you do)$/i.test(message.trim())) {
+        this.say(this.helpHtml(), 'bot');
+        return;
+      }
+      if (/\b(alignment scan|show alignment|alignment status|belavados alignment)\b/.test(lower)) {
+        this.say(this.alignmentHtml(), 'bot');
+        return;
+      }
+      if (/\b(spell save dc|save dc)\b/.test(lower) && !/\broll\b/.test(lower)) {
+        this.say(this.lookupHtml('spell save dc'), 'bot');
+        return;
+      }
+      if (/\b(search|find|lookup|look up|show)\b/.test(lower) && !/\broll\b/.test(lower)) {
+        const matches = this.searchRecords(message).slice(0, 10);
+        this.say(matches.length ? this.matchesHtml(matches) : 'I did not find matching filled character-sheet fields.', 'bot');
+        return;
+      }
+      const inferred = this.inferActionRoll(message);
+      if (inferred) {
+        this.respondWithRoll(inferred, message);
+        return;
+      }
+      const expressions = this.extractDiceExpressions(message);
+      if (expressions.length) {
+        const repeatCount = this.extractRepeatCount(message);
+        this.say(expressions.map(expr => this.formatRepeatedRolls(expr, repeatCount)).join(''), 'bot');
+        return;
+      }
+      const matches = this.searchRecords(message).slice(0, 8);
+      if (matches.length) {
+        this.say(this.matchesHtml(matches), 'bot');
+        return;
+      }
+      this.say('I could not find a dice expression or matching sheet value. Try <span class="belavados-chatbot-pill">1d20+4</span>, <span class="belavados-chatbot-pill">roll perception</span>, <span class="belavados-chatbot-pill">spell attack</span>, <span class="belavados-chatbot-pill">disarm trap</span>, or click <span class="belavados-chatbot-pill">Scan sheet</span>.', 'bot');
+    }
+
+    helpHtml() {
+      return 'Try <span class="belavados-chatbot-pill">1d20+4</span>, <span class="belavados-chatbot-pill">2d6+3</span>, <span class="belavados-chatbot-pill">roll initiative</span>, <span class="belavados-chatbot-pill">roll death save</span>, <span class="belavados-chatbot-pill">roll perception with advantage</span>, <span class="belavados-chatbot-pill">4x 1d20+5</span>, <span class="belavados-chatbot-pill">1d20!</span>, <span class="belavados-chatbot-pill">4d6dl1</span>, <span class="belavados-chatbot-pill">8d6cs5</span>, <span class="belavados-chatbot-pill">disarm trap</span>, <span class="belavados-chatbot-pill">rapier attack</span>, <span class="belavados-chatbot-pill">spell attack</span>, <span class="belavados-chatbot-pill">alignment scan</span>, or <span class="belavados-chatbot-pill">scan sheet</span>.';
+    }
+
+    alignmentHtml() {
+      const axes = Object.entries(this.index.alignment);
+      if (!axes.length) return 'I did not find Belavadös alignment axis fields yet. Add fields labeled Altruism, Lawfulness, Cooperation, and Honor, then scan again.';
+      return `<div>Belavadös alignment axis scan:</div>${axes.map(([axis, data]) => `<div><span class="belavados-chatbot-pill">${esc(axis)} ${esc(data.score)} — ${esc(data.phase)}</span></div>`).join('')}`;
+    }
+
+    lookupHtml(key) {
+      const found = this.findModifier(key);
+      if (!found) return `I could not find ${esc(key)} on the scanned sheet.`;
+      return `<span class="belavados-chatbot-pill">${esc(found.label)}: ${esc(found.sourceValue)}</span>`;
+    }
+
+    matchesHtml(matches) {
+      return `Found matching sheet field(s): ${matches.map(r => `<span class="belavados-chatbot-pill">${esc(r.label)}: ${esc(String(r.value).slice(0, 72))}</span>`).join(' ')}`;
+    }
+
+    respondWithRoll(inferred, message) {
+      const repeatCount = this.extractRepeatCount(message);
+      const rolls = [];
+      const parts = [];
+      for (let i = 0; i < repeatCount; i++) {
+        const roll = this.rollExpression(inferred.expression);
+        rolls.push(roll);
+        parts.push(esc(inferred.reason || '') + this.formatRoll(inferred.expression, roll, Object.assign({}, inferred.context || {}, { repeatIndex: i + 1, repeatCount })));
+      }
+      const firstRoll = rolls[0];
+      const notes = [];
+      if (inferred.note) notes.push(inferred.note);
+      const nat = firstRoll ? this.naturalD20Result(firstRoll) : null;
+      if (inferred.context?.kind === 'death' && firstRoll) notes.push(this.deathSaveInterpretation(firstRoll));
+      if (inferred.context?.kind === 'attack' && nat != null) {
+        if (nat === 20) notes.push('Attack note: natural 20 normally hits and is a Critical Hit.');
+        if (nat === 1) notes.push('Attack note: natural 1 normally misses.');
+      }
+      const align = this.alignmentHint(message);
+      if (align) notes.push(align);
+      if (notes.length) parts.push(`<div>${notes.filter(Boolean).map(esc).join('<br>')}</div>`);
+      this.say(parts.join(''), 'bot');
+    }
+
+    inferActionRoll(message) {
+      const lower = normalize(message);
+      const mode = /\b(disadvantage|disadv|dis)\b/.test(lower) ? 'disadvantage' : /\b(advantage|adv)\b/.test(lower) ? 'advantage' : '';
+      const d20 = (mod = 0) => this.d20Expression(mod, mode);
+
+      if (/\bdeath\s+sav(e|ing throw|es)|death saving throw\b/.test(lower)) {
+        return { expression: d20(0), reason: 'Rolling an unmodified death saving throw. ', context: { kind: 'death' }, note: this.deathStateNote() };
+      }
+
+      if (/\binitiative\b/.test(lower)) {
+        const found = this.findModifier('initiative') || this.findAbilityModifier('dexterity');
+        if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : 'Dexterity modifier'} for initiative. `, context: { kind: 'check' } };
+      }
+
+      if (/\b(concentration|maintain spell|hold concentration)\b/.test(lower)) {
+        const found = this.findModifier('constitution save') || this.findAbilityModifier('constitution');
+        if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : 'Constitution modifier'} for concentration. `, context: { kind: 'save' } };
+      }
+
+      const task = this.taskLookup(lower);
+      if (task) return this.inferTaskRoll(task, lower, mode);
+
+      const saveAbility = ABILITIES.find(a => new RegExp(`\\b(${a.name}|${a.short})\\b`).test(lower) && /\b(save|saving throw)\b/.test(lower));
+      if (saveAbility) {
+        const found = this.findModifier(`${saveAbility.name} save`) || this.findAbilityModifier(saveAbility.name);
+        if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : `${saveAbility.name} modifier`} for ${saveAbility.name} save. `, context: { kind: 'save' } };
+      }
+
+      const abilityCheck = ABILITIES.find(a => new RegExp(`\\b(${a.name}|${a.short})\\b`).test(lower) && /\b(check|roll|test)\b/.test(lower));
+      if (abilityCheck) {
+        const found = this.findAbilityModifier(abilityCheck.name);
+        if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : `${abilityCheck.name} modifier`} for ${abilityCheck.name} check. `, context: { kind: 'check' } };
+      }
+
+      if (/\b(attack|damage|hit|shoot|strike|cast|use)\b/.test(lower)) {
+        const item = this.findAttackForMessage(lower);
+        if (item) return item;
+        if (/\b(spell attack|spell hit|ranged spell|melee spell)\b/.test(lower)) {
+          const found = this.findModifier('spell attack') || this.computeSpellAttack();
+          if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : 'computed spell attack bonus'} for spell attack. `, context: { kind: 'attack' } };
+        }
+        if (/\b(unarmed|monk|martial arts|flurry|ki strike|ability attack)\b/.test(lower)) {
+          const found = this.findUnarmedOrMonkAttack();
+          if (found) return { expression: d20(found.modifier), reason: found.reason, context: { kind: 'attack' } };
+        }
+      }
+
+      const skill = this.findSkillMention(lower);
+      if (skill && /\b(roll|check|do|make|try|attempt|scan)\b/.test(lower)) {
+        const found = this.findSkillModifier(skill.name);
+        if (found) return { expression: d20(found.modifier), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : `${skill.ability} modifier`} for ${skill.name}. `, context: { kind: 'check' } };
+      }
+
+      return null;
+    }
+
+    taskLookup(lower) {
+      const tasks = [
+        { patterns: [/\b(disarm|disable|defuse)\b.*\btrap\b/, /\btrap\b.*\b(disarm|disable|defuse)\b/], keys: ["thieves' tools", 'sleight of hand', 'dexterity'], label: 'disarming a trap', kind: 'check', note: "D&D note: Thieves’ Tools commonly apply to disarming traps or opening locks when proficient." },
+        { patterns: [/\b(pick|open)\b.*\block\b/, /\block\b.*\b(pick|open)\b/], keys: ["thieves' tools", 'sleight of hand', 'dexterity'], label: 'opening a lock', kind: 'check', note: "D&D note: Thieves’ Tools commonly apply to opening locks when proficient." },
+        { patterns: [/\bstabiliz(e|e a creature|ing|ation)\b/, /\bfirst aid\b/], keys: ['medicine', 'wisdom'], label: 'stabilizing a creature', kind: 'check', note: 'D&D note: stabilizing a creature at 0 HP normally uses a DC 10 Wisdom (Medicine) check.' },
+        { patterns: [/\bgrapple\b/, /\bshove\b/], keys: ['athletics', 'strength'], label: 'grapple or shove', kind: 'check' },
+        { patterns: [/\bescape\b.*\bgrapple\b/, /\bescape\b.*\brestrain/], keys: ['acrobatics', 'athletics', 'dexterity', 'strength'], label: 'escaping a grapple/restraint', kind: 'check' },
+        { patterns: [/\bhide\b/, /\bsneak\b/], keys: ['stealth', 'dexterity'], label: 'hiding or sneaking', kind: 'check' },
+        { patterns: [/\bdetect magic\b/, /\bidentify magic\b/], keys: ['arcana', 'intelligence'], label: 'magic knowledge', kind: 'check' },
+        { patterns: [/\bperception check\b/, /\blook for\b/, /\bsearch room\b/, /\bspot\b/, /\blisten\b/], keys: ['perception', 'wisdom'], label: 'perception', kind: 'check' }
+      ];
+      return tasks.find(t => t.patterns.some(p => p.test(lower))) || null;
+    }
+
+    inferTaskRoll(task, lower, mode) {
+      const candidates = task.keys.map(key => {
+        if (SKILL_NAMES.includes(key)) return this.findSkillModifier(key);
+        if (ABILITY_NAMES.includes(key)) return this.findAbilityModifier(key);
+        return this.findToolModifier(key);
+      }).filter(Boolean);
+      const found = bestOf(candidates);
+      if (!found) return null;
+      return { expression: this.d20Expression(found.modifier, mode), reason: `Using ${found.label ? `sheet field “${found.label}” (${found.sourceValue})` : found.name || task.label} for ${task.label}. `, note: task.note || found.note || '', context: { kind: task.kind || 'check' } };
+    }
+
+    findSkillMention(lower) {
+      return SKILL_DATA.find(skill => skill.aliases.some(alias => hasWord(lower, alias)));
+    }
+
+    findSkillModifier(name) {
+      const skill = SKILL_DATA.find(s => s.name === name);
+      const direct = this.index.skills[name];
+      if (direct?.modifier != null) return { modifier: direct.modifier, label: direct.label, sourceValue: direct.sourceValue };
+      const ability = this.findAbilityModifier(skill?.ability);
+      if (!ability) return null;
+      let mod = ability.modifier;
+      const pb = this.getProficiencyBonus();
+      if (direct?.expertise && pb != null) mod += pb * 2;
+      else if (direct?.proficient && pb != null) mod += pb;
+      return { modifier: mod, label: direct?.label || ability.label || `${skill?.ability || 'ability'} modifier`, sourceValue: direct?.sourceValue || ability.sourceValue || signed(ability.modifier), note: direct?.proficient && pb == null ? 'Skill proficiency was detected, but no proficiency bonus was found on the sheet.' : '' };
+    }
+
+    findAbilityModifier(name) {
+      if (!name) return null;
+      const ability = this.index.abilities[name];
+      if (ability?.modifier != null) return { modifier: ability.modifier, label: ability.label, sourceValue: ability.sourceValue };
+      const found = this.findModifier(name);
+      return found || null;
+    }
+
+    findToolModifier(name) {
+      const tool = this.index.tools[name];
+      if (tool?.modifier != null) return { modifier: tool.modifier, label: tool.label, sourceValue: tool.sourceValue };
+      const dex = this.findAbilityModifier('dexterity');
+      const pb = this.getProficiencyBonus();
+      if (tool?.proficient && dex && pb != null) return { modifier: dex.modifier + pb, label: tool.label, sourceValue: tool.sourceValue, note: `Computed ${name} from Dexterity plus proficiency.` };
+      const found = this.findModifier(name);
+      if (found) return found;
+      return null;
+    }
+
+    getProficiencyBonus() {
+      const found = this.index.common['proficiency bonus'];
+      return found?.modifier ?? null;
+    }
+
+    computeSpellAttack() {
+      const pb = this.getProficiencyBonus();
+      if (pb == null) return null;
+      const candidates = ['charisma', 'wisdom', 'intelligence'].map(a => this.findAbilityModifier(a)).filter(Boolean);
+      const best = bestOf(candidates);
+      if (!best) return null;
+      return { modifier: best.modifier + pb, label: best.label, sourceValue: `${best.sourceValue} + PB ${signed(pb)}` };
+    }
+
+    findUnarmedOrMonkAttack() {
+      const exact = this.index.attacks.find(a => /\b(unarmed|monk|martial arts|flurry)\b/i.test(`${a.name} ${a.sourceLine} ${a.label}`) && a.attackBonus != null);
+      if (exact) return { modifier: exact.attackBonus, reason: `Using attack bonus from “${exact.name}”. ` };
+      const pb = this.getProficiencyBonus() ?? 0;
+      const dex = this.findAbilityModifier('dexterity');
+      const str = this.findAbilityModifier('strength');
+      const best = bestOf([dex, str]);
+      if (!best) return null;
+      return { modifier: best.modifier + pb, reason: `Computed monk/unarmed attack from the better Strength/Dexterity modifier plus proficiency found on the sheet. ` };
+    }
+
+    findAttackForMessage(lower) {
+      const wantsDamage = /\b(damage|dmg)\b/.test(lower);
+      const wantsSpell = /\b(spell|cantrip|cast)\b/.test(lower);
+      const wantsWeapon = /\b(weapon|melee|ranged|shoot|bow|sword|rapier|dagger|axe|mace|staff)\b/.test(lower);
+      const candidates = this.index.attacks.map(a => ({ item: a, score: this.scoreEntry(a, lower) }))
+        .filter(x => x.score > 0 || (wantsSpell && x.item.type === 'spell') || (wantsWeapon && x.item.type === 'weapon'))
+        .sort((a, b) => b.score - a.score)
+        .map(x => x.item);
+      const item = candidates[0];
+      if (!item) return null;
+      if (wantsDamage && item.damage) return { expression: item.damage, reason: `Using damage dice from “${item.name}”. `, context: { kind: 'damage' } };
+      if (!wantsDamage && item.attackBonus != null) return { expression: this.d20Expression(item.attackBonus, /\b(disadvantage|disadv|dis)\b/.test(lower) ? 'disadvantage' : /\b(advantage|adv)\b/.test(lower) ? 'advantage' : ''), reason: `Using attack bonus from “${item.name}”. `, context: { kind: 'attack' } };
+      if (item.damage) return { expression: item.damage, reason: `Using dice found in “${item.name}”. `, context: { kind: 'damage' } };
+      return null;
+    }
+
+    scoreEntry(entry, lower) {
+      const terms = lower.split(/\s+/).filter(t => t.length > 2).map(compact);
+      const hay = compact(`${entry.name} ${entry.type} ${entry.sourceLine} ${entry.label}`);
+      let score = 0;
+      if (entry.type === 'spell' && /\bspell|cantrip|cast\b/.test(lower)) score += 2;
+      if (entry.type === 'weapon' && /\bweapon|melee|ranged\b/.test(lower)) score += 2;
+      for (const term of terms) if (hay.includes(term)) score += term.length > 4 ? 3 : 1;
+      return score;
+    }
+
+    d20Expression(modifier = 0, mode = '') {
+      const base = mode === 'advantage' ? '2d20kh1' : mode === 'disadvantage' ? '2d20kl1' : '1d20';
+      return `${base}${Number(modifier) ? signed(modifier) : ''}`;
+    }
+
+    findModifier(key) {
+      const keyNorm = normalize(key);
+      const keyCompact = compact(key);
+      const common = this.index.common[keyNorm] || this.index.common[keyCompact];
+      if (common?.modifier != null) return { modifier: common.modifier, label: common.label, sourceValue: common.sourceValue };
+      if (keyNorm.endsWith(' save')) {
+        const ability = ABILITIES.find(a => keyNorm.includes(a.name) || keyNorm.includes(a.short));
+        if (ability && this.index.saves[ability.name]) return { modifier: this.index.saves[ability.name].modifier, label: this.index.saves[ability.name].label, sourceValue: this.index.saves[ability.name].sourceValue };
+      }
+      const candidates = this.records.filter(r => r.labelCompact === keyCompact || r.labelNorm === keyNorm || r.labelCompact.includes(keyCompact) || keyCompact.includes(r.labelCompact) || r.valueCompact.includes(keyCompact));
+      for (const record of candidates) {
+        const num = record.signedNumber ?? record.number;
+        if (num != null) {
+          const ability = ABILITY_NAMES.includes(keyNorm) ? abilityModFromScore(record.value) : num;
+          return { modifier: ability == null ? num : ability, label: record.label, sourceValue: record.value };
+        }
+      }
+      const abilityAlias = ABILITIES.find(a => a.aliases.includes(keyNorm));
+      if (abilityAlias) {
+        const byShort = this.records.find(r => r.labelCompact === abilityAlias.short || r.labelNorm === abilityAlias.short);
+        if (byShort) {
+          const mod = abilityModFromScore(byShort.value);
+          if (mod != null) return { modifier: mod, label: byShort.label, sourceValue: byShort.value };
+        }
+      }
+      return null;
+    }
+
+    extractRepeatCount(message) {
+      const lower = normalize(message);
+      const countMatch = lower.match(/\b(?:repeat|roll)\s+(\d{1,2})\s*(?:times|x)\b/) || lower.match(/\b(\d{1,2})\s*x\b/);
+      const raw = countMatch ? Number(countMatch[1]) : 1;
+      return clamp(raw || 1, 1, Number(this.config.repeatLimit || 20));
+    }
+
+    extractDiceExpressions(message) {
+      const found = [];
+      const text = String(message || '').toLowerCase();
+      DICE_EXPRESSION_PATTERN.lastIndex = 0;
+      let match;
+      while ((match = DICE_EXPRESSION_PATTERN.exec(text)) !== null) {
+        const expr = (match[1] || '').replace(/\s+/g, '');
+        if (/d(?:%|f|\d+)/i.test(expr) && this.isValidExpression(expr)) found.push(expr);
+      }
+      return Array.from(new Set(found)).slice(0, 8);
+    }
+
+    isValidExpression(expr) {
+      const clean = String(expr || '').replace(/\s+/g, '').toLowerCase();
+      if (!clean || !/^[+\-\ddf%khld!prcsm<>=]+$/i.test(clean)) return false;
+      return this.tokenize(clean).every(token => this.isValidTerm(token));
+    }
+
+    tokenize(expr) { return String(expr || '').replace(/\s+/g, '').toLowerCase().match(/[+-]?[^+-]+/g) || []; }
+
+    isValidTerm(token) {
+      const body = token.replace(/^[+-]/, '');
+      return /^\d+$/.test(body) || Boolean(this.parseDiceTerm(body));
+    }
+
+    parseDiceTerm(body) {
+      const m = String(body || '').match(/^(\d*)d(%|f|\d+)(.*)$/i);
+      if (!m) return null;
+      let suffix = m[3] || '';
+      const parsed = {
+        count: Number(m[1] || 1),
+        sidesRaw: m[2].toLowerCase(),
+        keepDrop: '', keepDropCount: null,
+        explode: false, penetrating: false,
+        reroll: null,
+        success: null,
+        failure: null
+      };
+      while (suffix) {
+        let x;
+        if ((x = suffix.match(/^(kh|kl|dh|dl)(\d+)/i))) {
+          parsed.keepDrop = x[1].toLowerCase();
+          parsed.keepDropCount = Number(x[2]);
+          suffix = suffix.slice(x[0].length);
+          continue;
+        }
+        if ((x = suffix.match(/^!p/i))) {
+          parsed.explode = true;
+          parsed.penetrating = true;
+          suffix = suffix.slice(x[0].length);
+          continue;
+        }
+        if ((x = suffix.match(/^!/))) {
+          parsed.explode = true;
+          suffix = suffix.slice(x[0].length);
+          continue;
+        }
+        if ((x = suffix.match(/^r(<=|>=|<|>|=)?(-?\d+)/i))) {
+          parsed.reroll = { op: x[1] || '=', target: Number(x[2]) };
+          suffix = suffix.slice(x[0].length);
+          continue;
+        }
+        if ((x = suffix.match(/^(cs|cf)(<=|>=|<|>|=)?(-?\d+)/i))) {
+          const rule = { op: x[2] || (x[1].toLowerCase() === 'cs' ? '>=' : '<='), target: Number(x[3]) };
+          if (x[1].toLowerCase() === 'cs') parsed.success = rule;
+          else parsed.failure = rule;
+          suffix = suffix.slice(x[0].length);
+          continue;
+        }
+        return null;
+      }
+      if (!Number.isFinite(parsed.count) || parsed.count < 1) return null;
+      return parsed;
+    }
+
+    compareDie(value, op, target) {
+      if (op === '<') return value < target;
+      if (op === '<=') return value <= target;
+      if (op === '>') return value > target;
+      if (op === '>=') return value >= target;
+      return value === target;
+    }
+
+    rollOneDie(sides) {
+      if (sides === 'f') return [-1, 0, 1][randomInt(0, 2)];
+      return randomInt(1, Number(sides));
+    }
+
+    formatRepeatedRolls(expr, repeatCount = 1, context = {}) {
+      const count = clamp(Number(repeatCount || 1), 1, Number(this.config.repeatLimit || 20));
+      const chunks = [];
+      for (let i = 0; i < count; i++) {
+        const roll = this.rollExpression(expr);
+        chunks.push(this.formatRoll(expr, roll, Object.assign({}, context || {}, { repeatIndex: i + 1, repeatCount: count })));
+      }
+      return chunks.join('');
+    }
+
+    rollExpression(expr) {
+      const tokens = this.tokenize(expr);
+      if (!tokens.length) throw new Error('Empty dice expression.');
+      let total = 0;
+      const parts = [];
+      for (const token of tokens) {
+        const sign = token.startsWith('-') ? -1 : 1;
+        const body = token.replace(/^[+-]/, '');
+        if (/^\d+$/.test(body)) {
+          const n = Number(body) * sign;
+          total += n;
+          parts.push({ kind: 'modifier', text: signed(n), total: n });
+          continue;
+        }
+        const parsed = this.parseDiceTerm(body);
+        if (!parsed) throw new Error(`Invalid dice term: ${token}`);
+        const count = clamp(parsed.count, 1, Number(this.config.diceLimit || 100));
+        const sides = parsed.sidesRaw === '%' ? 100 : parsed.sidesRaw === 'f' ? 'f' : clamp(Number(parsed.sidesRaw), 2, Number(this.config.maxSides || 1000));
+        const rolls = [];
+        const flags = [];
+        const explosionCap = 50;
+        for (let i = 0; i < count; i++) {
+          let value = this.rollOneDie(sides);
+          let rerolled = false;
+          if (parsed.reroll && this.compareDie(value, parsed.reroll.op, parsed.reroll.target)) {
+            value = this.rollOneDie(sides);
+            rerolled = true;
+          }
+          rolls.push(value);
+          flags.push({ rerolled, exploded: false });
+          if (parsed.explode && sides !== 'f' && Number.isFinite(Number(sides))) {
+            let guard = 0;
+            let last = value;
+            while (last === Number(sides) && guard < explosionCap) {
+              let extra = this.rollOneDie(sides);
+              last = extra;
+              if (parsed.penetrating) extra = Math.max(1, extra - 1);
+              rolls.push(extra);
+              flags.push({ rerolled: false, exploded: true });
+              guard++;
+            }
+          }
+        }
+        const included = rolls.map(() => true);
+        if (parsed.keepDrop && parsed.keepDropCount != null) {
+          const keepDropCount = clamp(parsed.keepDropCount, 1, rolls.length);
+          const ranked = rolls.map((value, index) => ({ value, index })).sort((a, b) => a.value - b.value);
+          let selected;
+          if (parsed.keepDrop === 'kh') selected = ranked.slice(-keepDropCount).map(r => r.index);
+          if (parsed.keepDrop === 'kl') selected = ranked.slice(0, keepDropCount).map(r => r.index);
+          if (parsed.keepDrop === 'dh') selected = ranked.slice(keepDropCount).map(r => r.index);
+          if (parsed.keepDrop === 'dl') selected = ranked.slice(0, rolls.length - keepDropCount).map(r => r.index);
+          const allowed = new Set(selected || rolls.map((_, i) => i));
+          for (let i = 0; i < included.length; i++) included[i] = allowed.has(i);
+        }
+        let subtotal;
+        let successCount = null;
+        let failureCount = null;
+        if (parsed.success || parsed.failure) {
+          successCount = parsed.success ? rolls.reduce((sum, roll, i) => sum + (included[i] && this.compareDie(roll, parsed.success.op, parsed.success.target) ? 1 : 0), 0) : 0;
+          failureCount = parsed.failure ? rolls.reduce((sum, roll, i) => sum + (included[i] && this.compareDie(roll, parsed.failure.op, parsed.failure.target) ? 1 : 0), 0) : 0;
+          subtotal = (successCount - failureCount) * sign;
+        } else {
+          subtotal = rolls.reduce((sum, roll, i) => sum + (included[i] ? roll : 0), 0) * sign;
+        }
+        total += subtotal;
+        parts.push({
+          kind: 'dice', token, sign, count, sides,
+          keepDrop: parsed.keepDrop, keepDropCount: parsed.keepDropCount,
+          explode: parsed.explode, penetrating: parsed.penetrating,
+          reroll: parsed.reroll, success: parsed.success, failure: parsed.failure,
+          successCount, failureCount, rolls, included, flags, total: subtotal
+        });
+      }
+      return { expression: expr, total, parts };
+    }
+
+    formatRoll(expr, roll, context = {}) {
+      this.renderDiceStage(roll, context);
+      this.playDiceSound(roll);
+      const repeatLabel = context.repeatCount > 1 ? `<span class="belavados-chatbot-pill">Roll ${esc(context.repeatIndex)} of ${esc(context.repeatCount)}</span> ` : '';
+      const nat = this.naturalD20Result(roll);
+      const flavorList = nat === 20 ? CRIT_FLAVORS[20] : nat === 1 ? CRIT_FLAVORS[1] : ROLL_FLAVORS;
+      const flavor = this.config.randomFlavor ? `<div class="belavados-chatbot-flavor">${esc(pick(flavorList))}</div>` : '';
+      const partHtml = roll.parts.map(part => {
+        if (part.kind === 'modifier') return `<span class="belavados-chatbot-pill">${esc(part.text)}</span>`;
+        const rolls = part.rolls.map((n, i) => {
+          const tags = [];
+          if (part.flags?.[i]?.rerolled) tags.push('rerolled');
+          if (part.flags?.[i]?.exploded) tags.push('exploded');
+          let label = `${esc(n)}${tags.length ? ` ${esc(tags.join('/'))}` : ''}`;
+          return part.included[i] ? label : `<s>${label}</s>`;
+        }).join(', ');
+        const extra = [];
+        if (part.success) extra.push(`${part.successCount || 0} success${part.successCount === 1 ? '' : 'es'}`);
+        if (part.failure) extra.push(`${part.failureCount || 0} failure${part.failureCount === 1 ? '' : 's'}`);
+        if (part.explode) extra.push(part.penetrating ? 'penetrating explosions' : 'exploding dice');
+        if (part.reroll) extra.push(`reroll ${part.reroll.op}${part.reroll.target}`);
+        return `<span class="belavados-chatbot-pill">${esc(part.token)} [${rolls}] = ${esc(part.total)}${extra.length ? ` · ${esc(extra.join(', '))}` : ''}</span>`;
+      }).join(' ');
+      return `<div class="belavados-chatbot-roll">${flavor}<div>${repeatLabel}<b>${esc(expr)}</b> → <b>${esc(roll.total)}</b></div><div>${partHtml}</div></div>`;
+    }
+
+    renderDiceStage(roll, context = {}) {
+      const using3d = this.rollDiceMain(roll, context);
+      if (!this.diceRow) return;
+      const dice = [];
+      for (const part of roll.parts) {
+        if (part.kind !== 'dice') continue;
+        part.rolls.forEach((value, index) => dice.push({ value, sides: part.sides, included: part.included[index], flag: part.flags?.[index] || {}, token: part.token }));
+      }
+      const limit = 24;
+      const summary = dice.slice(0, limit).map(die => `${die.included ? '' : 'dropped '}${die.sides === 'f' ? 'dF' : `d${die.sides}`}:${die.value}${die.flag.exploded ? '!' : ''}${die.flag.rerolled ? '↻' : ''}`).join(' · ');
+      this.diceRow.textContent = summary + (dice.length > limit ? ` · +${dice.length - limit} more` : '');
+      if (this.diceStageTitle) {
+        const repeat = context.repeatCount > 1 ? ` · ${context.repeatIndex}/${context.repeatCount}` : '';
+        this.diceStageTitle.textContent = `${using3d ? '3D rolling' : 'Rolled'} ${roll.expression}: total ${roll.total}${repeat}`;
+      }
+    }
+
+    playDiceSound(roll) {
+      if (this.diceFrame && this.config.useDiceMainRoller !== false) return;
+      if (!this.config.audioEnabled) return;
+      const volume = clamp(Number(this.config.audioVolume ?? 0.22), 0, 1);
+      const url = String(this.config.diceSoundUrl || '').trim();
+      if (url) {
+        try {
+          const audio = new Audio(url);
+          audio.volume = volume;
+          audio.currentTime = 0;
+          audio.play().catch(() => this.playSynthDiceSound(roll, volume));
+          return;
+        } catch {}
+      }
+      this.playSynthDiceSound(roll, volume);
+    }
+
+    playSynthDiceSound(roll, volume = 0.22) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        this.audioContext = this.audioContext || new AudioCtx();
+        const ctx = this.audioContext;
+        if (ctx.state === 'suspended') ctx.resume?.();
+        const diceCount = roll.parts.reduce((sum, part) => sum + (part.kind === 'dice' ? part.rolls.length : 0), 0);
+        const hits = clamp(Math.min(diceCount || 1, 9), 1, 9);
+        const master = ctx.createGain();
+        master.gain.setValueAtTime(volume, ctx.currentTime);
+        master.connect(ctx.destination);
+        for (let i = 0; i < hits; i++) {
+          const t = ctx.currentTime + i * randomInt(18, 42) / 1000;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = i % 2 ? 'triangle' : 'square';
+          osc.frequency.setValueAtTime(randomInt(140, 760), t);
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(0.16 / Math.sqrt(hits), t + 0.006);
+          gain.gain.exponentialRampToValueAtTime(0.0001, t + randomInt(42, 95) / 1000);
+          osc.connect(gain);
+          gain.connect(master);
+          osc.start(t);
+          osc.stop(t + 0.12);
+        }
+      } catch {}
+    }
+
+    naturalD20Result(roll) {
+      const d20 = roll.parts.find(p => p.kind === 'dice' && Number(p.sides) === 20 && p.rolls.length);
+      if (!d20) return null;
+      const kept = d20.rolls.filter((_, i) => d20.included[i]);
+      return kept.length ? kept[0] : d20.rolls[0];
+    }
+
+    deathSaveInterpretation(roll) {
+      const raw = this.naturalD20Result(roll);
+      if (raw == null) return '';
+      if (raw === 20) return 'Death save note: natural 20 normally restores 1 HP.';
+      if (raw === 1) return 'Death save note: natural 1 normally counts as two failures.';
+      return raw >= 10 ? 'Death save note: 10+ is normally a success.' : 'Death save note: below 10 is normally a failure.';
+    }
+
+    deathStateNote() {
+      const s = this.index.death.successes;
+      const f = this.index.death.failures;
+      const parts = [];
+      if (s != null) parts.push(`${s} death save success${s === 1 ? '' : 'es'} on sheet`);
+      if (f != null) parts.push(`${f} death save failure${f === 1 ? '' : 's'} on sheet`);
+      return parts.length ? `Current tracker scan: ${parts.join(', ')}.` : '';
+    }
+
+    alignmentHint(message) {
+      const lower = normalize(message);
+      const found = ALIGNMENT_HINTS.find(h => h.pattern.test(lower));
+      return found ? found.text : '';
+    }
+
+    searchRecords(query) {
+      const q = normalize(query).replace(/\b(search|find|look up|lookup|show me|show|cast|use|roll|check|saving throw|save|sheet|for|the|a|an|my|with|advantage|disadvantage)\b/g, ' ').replace(/\s+/g, ' ').trim();
+      const qCompact = compact(q);
+      if (!qCompact) return [];
+      const terms = q.split(/\s+/).map(compact).filter(t => t.length > 1);
+      return this.records.map(record => {
+        let score = 0;
+        const hayLabel = record.labelCompact;
+        const hayValue = record.valueCompact;
+        const hayText = record.textCompact;
+        if (hayLabel.includes(qCompact)) score += 10;
+        if (hayValue.includes(qCompact)) score += 8;
+        if (hayText.includes(qCompact)) score += 5;
+        for (const term of terms) {
+          if (hayLabel.includes(term)) score += 4;
+          if (hayValue.includes(term)) score += 3;
+          if (hayText.includes(term)) score += 2;
+        }
+        return { record, score };
+      }).filter(x => x.score > 0).sort((a, b) => b.score - a.score).map(x => x.record);
+    }
+  }
+
+  function initBelavadosChatbots() {
+    const bots = [];
+    document.querySelectorAll('[data-belavados-chatbot]').forEach(root => {
+      if (root.__belavadosChatbot) return;
+      root.__belavadosChatbot = new BelavadosChatbot(root);
+      bots.push(root.__belavadosChatbot);
+    });
+    window.BelavadosChatbot = window.BelavadosChatbot || {};
+    window.BelavadosChatbot.instances = Array.from(document.querySelectorAll('[data-belavados-chatbot]')).map(root => root.__belavadosChatbot).filter(Boolean);
+    window.BelavadosChatbot.scanAll = () => window.BelavadosChatbot.instances.map(bot => bot.scanCharacterSheet({ silent: false }));
+    window.BelavadosChatbot.roll = expression => (window.BelavadosChatbot.instances[0] || new BelavadosChatbot(document.querySelector('[data-belavados-chatbot]'))).rollExpression(expression);
+    window.BelavadosChatbot.rollVisual = expression => {
+      const bot = window.BelavadosChatbot.instances[0];
+      if (!bot) return null;
+      const roll = bot.rollExpression(String(expression || '1d20'));
+      bot.say(bot.formatRoll(String(expression || '1d20'), roll), 'bot');
+      return roll;
+    };
+    window.BelavadosChatbot.ask = message => window.BelavadosChatbot.instances[0]?.handleMessage(String(message || ''));
+    return bots;
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBelavadosChatbots);
+  else initBelavadosChatbots();
+})();
+
+</script>
+</main>
+</body>
+</html>

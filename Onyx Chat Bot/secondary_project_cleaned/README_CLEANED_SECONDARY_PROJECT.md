@@ -1,0 +1,1 @@
+The visible demo character-sheet section and demo CSS were removed. Scanner behavior remains in JavaScript and reads existing host-page character fields only when they are present. The dice-main assets are preserved.

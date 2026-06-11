@@ -1,0 +1,3 @@
+/* Full-screen Foundry-style Onyx dice table overlay */
+
+.onyx-dice-runway{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;overflow:auto}.onyx-dice-table{height:min(82vh,680px)}

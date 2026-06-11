@@ -1,0 +1,1906 @@
+{
+  "schema": "belavados.biomes.v2",
+  "world": "Belavadös",
+  "sourceFiles": {
+    "previousJson": "belavados_biomes.json",
+    "revisionSource": "Pasted markdown.md"
+  },
+  "purpose": "Life Simulator biome dropdowns, location validation, settlement culture generation, transit logic, and biome-created factions.",
+  "selectionRules": {
+    "dropdownLayers": 2,
+    "maxSpecificBiomesPerSettlement": 3,
+    "mergeMultipleSpecificBiomes": true,
+    "specificBiomeSelectionsAffect": [
+      "valid location types",
+      "invalid location transformations",
+      "settlement economy",
+      "public transit options",
+      "local industries",
+      "likely NPC professions",
+      "race compatibility",
+      "housing styles",
+      "faction types",
+      "rumors",
+      "secrets",
+      "services",
+      "prices",
+      "hazards",
+      "and plot hooks"
+    ]
+  },
+  "dropdowns": {
+    "categoryDropdown": [
+      "Ocean",
+      "Plains",
+      "Mountains",
+      "Forest",
+      "Hybrid"
+    ],
+    "specificBiomeDropdownByCategory": {
+      "Ocean": [
+        "Ocean Surface Floating Settlement",
+        "Underwater with Reefs",
+        "Underwater without Reefs"
+      ],
+      "Plains": [
+        "Grassland",
+        "Prairie",
+        "Farming"
+      ],
+      "Mountains": [
+        "Mountain Range",
+        "Valley",
+        "Deep Cavern"
+      ],
+      "Forest": [
+        "Deep Forest",
+        "Partial Forest",
+        "Treetops - Treehouses",
+        "Marshes and Swamps"
+      ],
+      "Hybrid": [
+        "Beach and Grass with Water",
+        "Beach and Reefs with Water",
+        "Hybrid Tree and Forest Floor",
+        "Hybrid Farming Forest Grassland"
+      ]
+    }
+  },
+  "biomeTree": {
+    "Ocean": [
+      "Ocean Surface Floating Settlement",
+      "Underwater with Reefs",
+      "Underwater without Reefs"
+    ],
+    "Plains": [
+      "Grassland",
+      "Prairie",
+      "Farming"
+    ],
+    "Mountains": [
+      "Mountain Range",
+      "Valley",
+      "Deep Cavern"
+    ],
+    "Forest": [
+      "Deep Forest",
+      "Partial Forest",
+      "Treetops - Treehouses",
+      "Marshes and Swamps"
+    ],
+    "Hybrid": [
+      "Beach and Grass with Water",
+      "Beach and Reefs with Water",
+      "Hybrid Tree and Forest Floor",
+      "Hybrid Farming Forest Grassland"
+    ]
+  },
+  "masterLocationCategories": {
+    "Government & Civic": [
+      "Government Building",
+      "Town Hall",
+      "Courthouse",
+      "Guard Station",
+      "Barracks",
+      "Embassy",
+      "Administrative District"
+    ],
+    "Religious": [
+      "Temple",
+      "Shrine",
+      "Cathedral",
+      "Sacred Grove",
+      "Religious District"
+    ],
+    "Medical": [
+      "Hospital",
+      "Healer",
+      "Apothecary",
+      "Medical District"
+    ],
+    "Commercial": [
+      "Market",
+      "Merchant Hall",
+      "Trading Post",
+      "Bazaar",
+      "Commercial District"
+    ],
+    "Hospitality": [
+      "Tavern",
+      "Inn",
+      "Hostel",
+      "Entertainment Venue"
+    ],
+    "Education": [
+      "Library",
+      "University",
+      "Academy",
+      "School"
+    ],
+    "Industry & Crafting": [
+      "Blacksmith",
+      "Workshop",
+      "Foundry",
+      "Warehouse",
+      "Industrial District"
+    ],
+    "Agriculture": [
+      "Farm",
+      "Orchard",
+      "Vineyard",
+      "Ranch",
+      "Agricultural District"
+    ],
+    "Nature": [
+      "Park",
+      "Garden",
+      "Sacred Grove",
+      "Forest Area",
+      "Nature Reserve"
+    ],
+    "Maritime": [
+      "Dock",
+      "Harbor",
+      "Shipyard",
+      "Fishing Wharf",
+      "Maritime District"
+    ],
+    "Residential": [
+      "Residence",
+      "Housing District",
+      "Neighborhood",
+      "Apartments"
+    ],
+    "Noble & Elite": [
+      "Noble Estate",
+      "Manor",
+      "Palace",
+      "Aristocratic District"
+    ],
+    "Criminal & Underground": [
+      "Thieves Guild",
+      "Smuggler Den",
+      "Black Market",
+      "Criminal District"
+    ],
+    "Transportation": [
+      "Train Station",
+      "Caravan Station",
+      "Ferry Terminal",
+      "Steamship Port",
+      "Submarine Terminal",
+      "Skyship Port",
+      "Portal Facility",
+      "Warehouse",
+      "Freight Depot"
+    ],
+    "Special": [
+      "Quest Location",
+      "Major Plot Location",
+      "Intrigue Location",
+      "Secret Location",
+      "Unique Landmark"
+    ]
+  },
+  "generalBiomeRules": [
+    "A normal horse stable should not appear under the ocean.",
+    "A normal open-air orchard should not appear in a deep cavern.",
+    "A heavy foundry should be rare in treetop settlements unless adapted.",
+    "A submarine terminal should only appear in ocean, reef, underwater, or hybrid-water settlements.",
+    "A skyship port should not replace submarine systems in fully underwater settlements.",
+    "A ferry terminal should require water access.",
+    "A train station should be common in land settlements.",
+    "A capital city should usually include a portal facility unless disabled."
+  ],
+  "biomes": [
+    {
+      "name": "Ocean Surface Floating Settlement",
+      "slug": "ocean_surface_floating_settlement",
+      "category": "Ocean",
+      "selectionPath": [
+        "Ocean",
+        "Ocean Surface Floating Settlement"
+      ],
+      "generationTags": [
+        "vertical_travel",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Maritime",
+        "Transportation",
+        "Commercial",
+        "Hospitality",
+        "Residential",
+        "Special"
+      ],
+      "favoredLocationTypes": [
+        "Floating Market",
+        "Harbor",
+        "Dock",
+        "Shipyard",
+        "Fishing Wharf",
+        "Maritime District",
+        "Ferry Terminal",
+        "Steamship Port",
+        "Skyship Port",
+        "Freight Depot",
+        "Floating Tavern",
+        "Rope-Bridge Inn",
+        "Floating Housing District",
+        "Salvage Workshop",
+        "Net-Mender’s Shop",
+        "Harbor Guard Station",
+        "Storm Shrine",
+        "Lighthouse Tower",
+        "Floating Bazaar",
+        "Private Boat Charter Office"
+      ],
+      "reducedOrTransformedLocations": [
+        "Farms become floating hydroponic gardens, kelp racks, algae farms, or imported food depots.",
+        "Heavy ranches become floating beast pens or aquatic mount pools.",
+        "Deep inland locations are replaced with dockside or platform-based versions."
+      ],
+      "biomeCreatedFactions": [
+        "Harbor Guild",
+        "Steamship Captains’ League",
+        "Fisherfolk Union",
+        "Floating Market Consortium",
+        "Salvage Rights Company",
+        "Storm Shrine Order",
+        "Dockworker Brotherhood",
+        "Privateer Compact",
+        "Smugglers’ Ropeway",
+        "Sea-Merchant House",
+        "Floating Guard Authority",
+        "Reef Trade Envoys",
+        "Maritime Freight Syndicate",
+        "Pirate Remnant Cell",
+        "Skyship-to-Sea Transit Office"
+      ]
+    },
+    {
+      "name": "Underwater with Reefs",
+      "slug": "underwater_with_reefs",
+      "category": "Ocean",
+      "selectionPath": [
+        "Ocean",
+        "Underwater with Reefs"
+      ],
+      "generationTags": [
+        "food_production",
+        "underwater_support",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Maritime",
+        "Nature",
+        "Medical",
+        "Special",
+        "Religious",
+        "Residential",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Submarine Terminal",
+        "Reef Market",
+        "Coral Residence",
+        "Reef Shrine",
+        "Underwater Medical Station",
+        "Pressure-Sealed Apothecary",
+        "Kelp Farm",
+        "Shellfish Farm",
+        "Coral Nursery",
+        "Salvage Workshop",
+        "Air-Dome Tavern",
+        "Air-Dome Inn",
+        "Deep-Sea Guard Station",
+        "Reef Garden",
+        "Nature Reserve",
+        "Submarine Dock",
+        "Underwater Freight Depot",
+        "Bubble-Dome School",
+        "Tide Oracle Chamber"
+      ],
+      "reducedOrTransformedLocations": [
+        "Horse Stable becomes Seahorse Stable, Mount Pool, Submarine Dock, or Beast Handling Grotto.",
+        "Farm becomes Kelp Farm, Shellfish Farm, Coral Nursery, or Algae Garden.",
+        "Tavern becomes Pressure-Sealed Tavern or Air-Dome Inn.",
+        "Blacksmith becomes Pressure Forge, Coral Toolmaker, or Salvage Foundry.",
+        "Ordinary roads become pressure tunnels, reef corridors, or current routes."
+      ],
+      "biomeCreatedFactions": [
+        "Reefwarden Circle",
+        "Coral Gardeners’ Compact",
+        "Submarine Pilots’ Guild",
+        "Deep-Sea Salvage Company",
+        "Tide Shrine Order",
+        "Kelp Farmers’ Cooperative",
+        "Pearl Divers’ League",
+        "Pressure Engineers’ Guild",
+        "Reef Healers’ Circle",
+        "Shellfish Trade Consortium",
+        "Underwater Guard Authority",
+        "Air-Dome Innkeepers’ Association",
+        "Sunken Relic Hunters",
+        "Reef Smuggling Ring",
+        "Ocean-Floor Embassy Delegation"
+      ]
+    },
+    {
+      "name": "Underwater without Reefs",
+      "slug": "underwater_without_reefs",
+      "category": "Ocean",
+      "selectionPath": [
+        "Ocean",
+        "Underwater without Reefs"
+      ],
+      "generationTags": [
+        "underwater_support",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Maritime",
+        "Industry & Crafting",
+        "Transportation",
+        "Medical",
+        "Government & Civic",
+        "Special"
+      ],
+      "favoredLocationTypes": [
+        "Submarine Terminal",
+        "Deep-Sea Transit Hall",
+        "Underwater Freight Depot",
+        "Pressure Gate",
+        "Ballast Maintenance Yard",
+        "Deep-Sea Guard Station",
+        "Salvage Foundry",
+        "Pressure Forge",
+        "Airlock Station",
+        "Expedition Vessel Office",
+        "Noble Submarine Suite Office",
+        "Deep Current Reader’s Office",
+        "Underwater Warehouse",
+        "Deep-Sea Medical Station",
+        "Abyssal Watchtower",
+        "Blackwater Research Station"
+      ],
+      "reducedOrTransformedLocations": [
+        "Ordinary farms become algae farms, pressure-grown fungus gardens, or imported ration depots.",
+        "Open-air markets become pressure markets or submarine cargo exchanges.",
+        "Parks become observation domes, abyssal gardens, or preserved bioluminescent groves."
+      ],
+      "biomeCreatedFactions": [
+        "Deep Current Navigators",
+        "Abyssal Salvage League",
+        "Submarine Engineers’ Union",
+        "Pressure Ward Maintainers",
+        "Blackwater Research Circle",
+        "Deep Freight Authority",
+        "Ocean-Floor Guard",
+        "Noble Expedition Society",
+        "Abyssal Relic Cartel",
+        "Underwater Mining Consortium",
+        "Submerged Embassy Office",
+        "Airlock Inspectors’ Bureau",
+        "Forbidden Depths Cult",
+        "Deep Smugglers’ Chain"
+      ]
+    },
+    {
+      "name": "Grassland",
+      "slug": "grassland",
+      "category": "Plains",
+      "selectionPath": [
+        "Plains",
+        "Grassland"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Agriculture",
+        "Residential",
+        "Transportation",
+        "Commercial",
+        "Nature"
+      ],
+      "favoredLocationTypes": [
+        "Farm",
+        "Ranch",
+        "Grain Mill",
+        "Caravan Station",
+        "Train Station",
+        "Trading Post",
+        "Market",
+        "Rural Shrine",
+        "Guard Station",
+        "Open-Air Tavern",
+        "Homestead",
+        "Neighborhood",
+        "Agricultural District",
+        "Windmill",
+        "Stable",
+        "Roadside Inn",
+        "Prairie Watchtower"
+      ],
+      "reducedOrTransformedLocations": [
+        "Maritime locations require a river, lake, or hybrid water tag.",
+        "Submarine terminals should not appear.",
+        "Dense urban districts should be less common unless settlement type is City or Capital City."
+      ],
+      "biomeCreatedFactions": [
+        "Ranchers’ Alliance",
+        "Grain Farmers’ Cooperative",
+        "Caravan Road Compact",
+        "Prairie Watch",
+        "Open Market Guild",
+        "Homestead Council",
+        "Rural Shrine Keepers",
+        "Horse Breeders’ League",
+        "Windmill Owners’ Association",
+        "Cattle Road Guards",
+        "Land Surveyors’ Office",
+        "Prairie Bandit Gang",
+        "Frontier Militia",
+        "Harvest Festival Circle"
+      ]
+    },
+    {
+      "name": "Prairie",
+      "slug": "prairie",
+      "category": "Plains",
+      "selectionPath": [
+        "Plains",
+        "Prairie"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Agriculture",
+        "Transportation",
+        "Residential",
+        "Commercial",
+        "Government & Civic"
+      ],
+      "favoredLocationTypes": [
+        "Caravan Station",
+        "Train Station",
+        "Freight Depot",
+        "Ranch",
+        "Farm",
+        "Trading Post",
+        "Roadside Inn",
+        "Guard Station",
+        "Watchtower",
+        "Horse Stable",
+        "Prairie Shrine",
+        "Supply Post",
+        "Toll House",
+        "Market",
+        "Wagon Yard",
+        "Camp Kitchen",
+        "Open Neighborhood"
+      ],
+      "reducedOrTransformedLocations": [
+        "Maritime locations require added water access.",
+        "Heavy forests should not dominate.",
+        "Submarine and reef infrastructure should not appear."
+      ],
+      "biomeCreatedFactions": [
+        "Caravan Masters’ League",
+        "Prairie Road Wardens",
+        "Freight Haulers’ Guild",
+        "Ranch Families’ Council",
+        "Horse Traders’ Compact",
+        "Border Patrol Militia",
+        "Wagonwrights’ Guild",
+        "Prairie Shrine Circle",
+        "Bandit-Hunter Company",
+        "Toll Collectors’ Office",
+        "Long Road Merchants",
+        "Frontier Settlers’ Union",
+        "Wandering Healers’ Circuit"
+      ]
+    },
+    {
+      "name": "Farming",
+      "slug": "farming",
+      "category": "Plains",
+      "selectionPath": [
+        "Plains",
+        "Farming"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Agriculture",
+        "Commercial",
+        "Residential",
+        "Transportation",
+        "Hospitality"
+      ],
+      "favoredLocationTypes": [
+        "Farm",
+        "Orchard",
+        "Vineyard",
+        "Ranch",
+        "Agricultural District",
+        "Grain Mill",
+        "Bakery",
+        "Market",
+        "Trading Post",
+        "Caravan Station",
+        "Train Station",
+        "Roadside Tavern",
+        "Produce Warehouse",
+        "Livestock Yard",
+        "Rural Temple",
+        "Harvest Hall",
+        "Farmstead Residence"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy criminal districts should be rare unless danger level is high.",
+        "Maritime locations need river, lake, or coastal access.",
+        "Skyship ports should be rare unless settlement is large or strategically important."
+      ],
+      "biomeCreatedFactions": [
+        "Farmers’ Cooperative",
+        "Millers’ Guild",
+        "Orchard Keepers’ Circle",
+        "Vintners’ League",
+        "Ranchers’ Association",
+        "Harvest Temple",
+        "Grain Tax Office",
+        "Produce Merchants’ Guild",
+        "Rural Laborers’ Union",
+        "Seed Bank Custodians",
+        "Livestock Breeders’ Compact",
+        "Food Smugglers’ Ring",
+        "Landowners’ Council",
+        "Tenant Farmers’ Resistance"
+      ]
+    },
+    {
+      "name": "Mountain Range",
+      "slug": "mountain_range",
+      "category": "Mountains",
+      "selectionPath": [
+        "Mountains",
+        "Mountain Range"
+      ],
+      "generationTags": [
+        "land_access",
+        "vertical_travel"
+      ],
+      "primaryLocationBoosts": [
+        "Industry & Crafting",
+        "Transportation",
+        "Government & Civic",
+        "Residential",
+        "Special"
+      ],
+      "favoredLocationTypes": [
+        "Mine",
+        "Foundry",
+        "Blacksmith",
+        "Workshop",
+        "Freight Depot",
+        "Train Station",
+        "Caravan Station",
+        "Guard Station",
+        "Mountain Barracks",
+        "Cliffside Market",
+        "Tunnel Shrine",
+        "Stone Residence",
+        "Elevated Rail Platform",
+        "Skyship Port",
+        "Gear-Lift Station",
+        "Mountain Pass Toll House",
+        "Ore Warehouse",
+        "Watchtower"
+      ],
+      "reducedOrTransformedLocations": [
+        "Farms become terrace farms, goat pastures, mushroom farms, or mountain gardens.",
+        "Harbors require river, lake, or coastal access.",
+        "Large open parks become cliff gardens, stone terraces, or mountain overlooks."
+      ],
+      "biomeCreatedFactions": [
+        "Miners’ Guild",
+        "Foundry Consortium",
+        "Mountain Guard",
+        "Cliffside Rail Authority",
+        "Stonecutters’ Union",
+        "Ore Merchants’ League",
+        "Tunnel Wardens",
+        "Gear-Lift Engineers",
+        "Skyship Docking Authority",
+        "Mountain Shrine Keepers",
+        "Pass Toll Collectors",
+        "Smuggler Tunnel Network",
+        "Deep Prospectors’ Company",
+        "Stone Noble House"
+      ]
+    },
+    {
+      "name": "Valley",
+      "slug": "valley",
+      "category": "Mountains",
+      "selectionPath": [
+        "Mountains",
+        "Valley"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Agriculture",
+        "Commercial",
+        "Residential",
+        "Transportation",
+        "Nature"
+      ],
+      "favoredLocationTypes": [
+        "Farm",
+        "Vineyard",
+        "Orchard",
+        "Market",
+        "Trading Post",
+        "Train Station",
+        "Caravan Station",
+        "River Ferry if water exists",
+        "Valley Shrine",
+        "Garden",
+        "Neighborhood",
+        "Roadside Inn",
+        "Guard Station",
+        "Agricultural District",
+        "Mill",
+        "Bridge House",
+        "Freight Depot"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy mountain industry should be present only if near cliffs or mines.",
+        "Submarine terminals should not appear unless combined with underwater access.",
+        "Skyship ports should be moderate, not dominant."
+      ],
+      "biomeCreatedFactions": [
+        "Valley Farmers’ Council",
+        "Vineyard Houses",
+        "Orchard Guild",
+        "River Bridge Authority",
+        "Valley Merchants’ League",
+        "Caravan Toll Office",
+        "Harvest Shrine Order",
+        "Millers’ Compact",
+        "Irrigation Keepers",
+        "Land Dispute Council",
+        "Valley Watch",
+        "Cattle Raiders",
+        "Noble Estate Alliance",
+        "Secret River Smugglers"
+      ]
+    },
+    {
+      "name": "Deep Cavern",
+      "slug": "deep_cavern",
+      "category": "Mountains",
+      "selectionPath": [
+        "Mountains",
+        "Deep Cavern"
+      ],
+      "generationTags": [
+        "criminal_pressure",
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Industry & Crafting",
+        "Commercial",
+        "Government & Civic",
+        "Criminal & Underground",
+        "Medical",
+        "Religious",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Mine",
+        "Foundry",
+        "Blacksmith",
+        "Salvage Workshop",
+        "Freight Depot",
+        "Underground Train Station",
+        "Guard Station",
+        "Barracks",
+        "Deep Temple",
+        "Apothecary",
+        "Mushroom Farm",
+        "Cave Lichen Farm",
+        "Glowfruit Garden",
+        "Subterranean Market",
+        "Black Market",
+        "Smuggler Den",
+        "Cave Residence",
+        "Industrial District",
+        "Stone Housing District",
+        "Portal Facility if capital or arcane",
+        "Tunnel Watch Post"
+      ],
+      "reducedOrTransformedLocations": [
+        "Open-air farms become mushroom farms, cave lichen farms, or glowfruit gardens.",
+        "Orchards become fungal groves or glowfruit gardens.",
+        "Skyship ports require cavern shafts or surface access.",
+        "Parks become crystal gardens, fungus gardens, or underground reserves.",
+        "Ranches become cave beast pens or subterranean mount stables."
+      ],
+      "biomeCreatedFactions": [
+        "Deep Miners’ Guild",
+        "Foundry Lords",
+        "Tunnel Wardens",
+        "Mushroom Farmers’ Cooperative",
+        "Black Market Compact",
+        "Smugglers’ Underway",
+        "Deep Temple Order",
+        "Cave Apothecaries’ Circle",
+        "Subterranean Guard",
+        "Ore Tax Office",
+        "Freight Tunnel Authority",
+        "Crystal Prospectors",
+        "Shadow Broker Network",
+        "Hidden Refugee Clan",
+        "Cavern Noble House",
+        "Underground Resistance Cell"
+      ]
+    },
+    {
+      "name": "Deep Forest",
+      "slug": "deep_forest",
+      "category": "Forest",
+      "selectionPath": [
+        "Forest",
+        "Deep Forest"
+      ],
+      "generationTags": [
+        "criminal_pressure",
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Nature",
+        "Residential",
+        "Religious",
+        "Hospitality",
+        "Special"
+      ],
+      "favoredLocationTypes": [
+        "Forest Area",
+        "Nature Reserve",
+        "Sacred Grove",
+        "Shrine",
+        "Herbalist Hut",
+        "Tree-Covered Residence",
+        "Hidden Inn",
+        "Ranger Station",
+        "Forest Market",
+        "Druidic Temple",
+        "Woodland School",
+        "Garden",
+        "Watch Platform",
+        "Hunting Lodge",
+        "Trail Camp",
+        "Fey-Touched Landmark",
+        "Secret Location"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy foundries should be rare or hidden.",
+        "Large industrial districts should be replaced with small workshops or concealed craft lodges.",
+        "Rail requires forest-cleared routes, elevated rails, or root-safe transit.",
+        "Maritime requires river, lake, or swamp access."
+      ],
+      "biomeCreatedFactions": [
+        "Grovekeeper Circle",
+        "Forest Wardens",
+        "Herbalists’ League",
+        "Hidden Rangers",
+        "Druidic Shrine Order",
+        "Woodland Merchants",
+        "Fey Pact Circle",
+        "Beast-Tamers’ Lodge",
+        "Poachers’ Ring",
+        "Forest Smugglers",
+        "Sacred Tree Guardians",
+        "Trail Guides’ Guild",
+        "Wild Healers’ Circle",
+        "Reclusive Noble Lodge",
+        "Monster-Hunter Camp"
+      ]
+    },
+    {
+      "name": "Partial Forest",
+      "slug": "partial_forest",
+      "category": "Forest",
+      "selectionPath": [
+        "Forest",
+        "Partial Forest"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Nature",
+        "Agriculture",
+        "Residential",
+        "Commercial",
+        "Hospitality"
+      ],
+      "favoredLocationTypes": [
+        "Farm",
+        "Orchard",
+        "Forest Area",
+        "Garden",
+        "Herbalist",
+        "Market",
+        "Tavern",
+        "Inn",
+        "Neighborhood",
+        "Ranger Station",
+        "Sacred Grove",
+        "School",
+        "Caravan Station",
+        "Train Station",
+        "Workshop",
+        "Woodcutter Lodge",
+        "Shrine",
+        "Roadside Trading Post"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy industry should be limited unless the economy supports logging, charcoal, or timber craft.",
+        "Submarine terminals should not appear.",
+        "Maritime requires river, lake, or coastal access."
+      ],
+      "biomeCreatedFactions": [
+        "Woodcutters’ Guild",
+        "Orchard Keepers’ Circle",
+        "Forest Farmers’ Cooperative",
+        "Roadside Merchants’ Guild",
+        "Rangers’ Lodge",
+        "Grove Shrine Keepers",
+        "Herbalist Compact",
+        "Timber Tax Office",
+        "Boundary Dispute Council",
+        "Poacher Watch",
+        "Charcoal Burners’ Union",
+        "Rural Smugglers",
+        "Hunter Families’ Council"
+      ]
+    },
+    {
+      "name": "Treetops - Treehouses",
+      "slug": "treetops_treehouses",
+      "category": "Forest",
+      "selectionPath": [
+        "Forest",
+        "Treetops - Treehouses"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access",
+        "vertical_travel"
+      ],
+      "primaryLocationBoosts": [
+        "Nature",
+        "Residential",
+        "Hospitality",
+        "Religious",
+        "Transportation",
+        "Special"
+      ],
+      "favoredLocationTypes": [
+        "Treehouse Residence",
+        "Canopy Market",
+        "Ropeway Station",
+        "Watch Platform",
+        "Sacred Grove",
+        "Canopy Inn",
+        "Herbalist",
+        "Bird Messenger Roost",
+        "Canopy Shrine",
+        "Treetop School",
+        "Hanging Garden",
+        "Canopy Tavern",
+        "Skybridge Walkway",
+        "Climbing Mount Stable",
+        "Canopy Beast Roost",
+        "Light Workshop",
+        "Leaf-Covered Council Hall"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy foundries become light workshops or suspended craft decks.",
+        "Ranches become canopy beast roosts or climbing mount stables.",
+        "Ordinary roads become ropeways, bridges, lifts, or canopy paths.",
+        "Large warehouses become hanging freight platforms."
+      ],
+      "biomeCreatedFactions": [
+        "Canopy Council",
+        "Ropeway Operators’ Guild",
+        "Bird Messenger League",
+        "Treehouse Builders’ Circle",
+        "Sacred Canopy Order",
+        "Herbal Canopy Healers",
+        "Skybridge Wardens",
+        "Climbing Mount Handlers",
+        "Leaf Market Consortium",
+        "Canopy Watch",
+        "Hidden Archer Lodge",
+        "Treetop Smugglers",
+        "Fey-Bound Grove Circle",
+        "Canopy Innkeepers’ Association"
+      ]
+    },
+    {
+      "name": "Marshes and Swamps",
+      "slug": "marshes_and_swamps",
+      "category": "Forest",
+      "selectionPath": [
+        "Forest",
+        "Marshes and Swamps"
+      ],
+      "generationTags": [
+        "criminal_pressure",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Nature",
+        "Criminal & Underground",
+        "Special",
+        "Medical",
+        "Maritime",
+        "Religious"
+      ],
+      "favoredLocationTypes": [
+        "Swamp Shrine",
+        "Marsh Market",
+        "Bog Apothecary",
+        "Herbalist",
+        "Smuggler Den",
+        "Black Market",
+        "Ferry Terminal",
+        "Dock",
+        "Hidden Residence",
+        "Stilt House",
+        "Nature Reserve",
+        "Guard Post",
+        "Monster-Hunter Camp",
+        "Fog Tavern",
+        "Witch Hut",
+        "Reed Boat Station",
+        "Poisoner’s Workshop",
+        "Secret Location"
+      ],
+      "reducedOrTransformedLocations": [
+        "Farms become rice fields, bog gardens, reed farms, or alchemical herb beds.",
+        "Heavy rail requires raised tracks or swamp-stabilized routes.",
+        "Large noble estates become stilt manors or hidden marsh villas.",
+        "Ordinary roads become boardwalks, ferries, or reed-boat paths."
+      ],
+      "biomeCreatedFactions": [
+        "Marsh Wardens",
+        "Bog Apothecaries’ Circle",
+        "Reed Boat Ferrymen",
+        "Swamp Shrine Order",
+        "Smugglers’ Mire",
+        "Black Market Reed Network",
+        "Monster-Hunter Lodge",
+        "Poisoners’ Compact",
+        "Stilt House Council",
+        "Marsh Fisherfolk Union",
+        "Fogbound Cult",
+        "Hidden Witch Circle",
+        "Swamp Guide Guild",
+        "Quarantine Healers",
+        "Outlaw Refuge Clan"
+      ]
+    },
+    {
+      "name": "Beach and Grass with Water",
+      "slug": "beach_and_grass_with_water",
+      "category": "Hybrid",
+      "selectionPath": [
+        "Hybrid",
+        "Beach and Grass with Water"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Maritime",
+        "Hospitality",
+        "Commercial",
+        "Residential",
+        "Agriculture",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Dock",
+        "Harbor",
+        "Ferry Terminal",
+        "Steamship Port",
+        "Beach Market",
+        "Fishing Wharf",
+        "Coastal Tavern",
+        "Inn",
+        "Grassland Farm",
+        "Ranch",
+        "Neighborhood",
+        "Caravan Station",
+        "Train Station",
+        "Shrine",
+        "Seafood Market",
+        "Boat Charter Office",
+        "Freight Depot",
+        "Beach Garden"
+      ],
+      "reducedOrTransformedLocations": [
+        "Deep underwater locations require ocean access.",
+        "Heavy cavern locations should not appear unless combined with mountains.",
+        "Submarine terminal appears only if deeper water routes exist."
+      ],
+      "biomeCreatedFactions": [
+        "Coastal Merchants’ Guild",
+        "Fisherfolk Union",
+        "Beach Innkeepers’ Association",
+        "Ferry Captains’ League",
+        "Grassland Farmers’ Council",
+        "Harbor Guard",
+        "Seafood Traders’ Compact",
+        "Caravan-to-Coast Freight Office",
+        "Private Boat Charter League",
+        "Coastal Shrine Order",
+        "Smugglers’ Cove Network",
+        "Beach Market Consortium",
+        "Noble Vacation House",
+        "Storm Watchers’ Circle"
+      ]
+    },
+    {
+      "name": "Beach and Reefs with Water",
+      "slug": "beach_and_reefs_with_water",
+      "category": "Hybrid",
+      "selectionPath": [
+        "Hybrid",
+        "Beach and Reefs with Water"
+      ],
+      "generationTags": [
+        "food_production",
+        "underwater_support",
+        "water_access"
+      ],
+      "primaryLocationBoosts": [
+        "Maritime",
+        "Nature",
+        "Hospitality",
+        "Medical",
+        "Special",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Dock",
+        "Harbor",
+        "Reef Market",
+        "Ferry Terminal",
+        "Steamship Port",
+        "Submarine Terminal",
+        "Coral Shrine",
+        "Reef Garden",
+        "Apothecary",
+        "Coastal Inn",
+        "Air-Dome Guesthouse",
+        "Fishing Wharf",
+        "Salvage Workshop",
+        "Private Boat Charter Office",
+        "Nature Reserve",
+        "Shellfish Farm",
+        "Coral Nursery",
+        "Tide Oracle Chamber"
+      ],
+      "reducedOrTransformedLocations": [
+        "Farms become shellfish farms, kelp farms, reef gardens, or coastal herb gardens.",
+        "Ranches become aquatic mount pools or coastal beast pens.",
+        "Blacksmiths may become salvage smiths or coral toolmakers."
+      ],
+      "biomeCreatedFactions": [
+        "Reefwarden Circle",
+        "Coral Shrine Order",
+        "Fisherfolk Union",
+        "Shellfish Farmers’ Cooperative",
+        "Salvage Divers’ League",
+        "Submarine Pilots’ Guild",
+        "Coastal Innkeepers’ Compact",
+        "Reef Nature Keepers",
+        "Pearl Traders’ Consortium",
+        "Tide Oracle Followers",
+        "Reef Smugglers",
+        "Storm Salvage Cartel",
+        "Harbor Guard",
+        "Private Charter Captains"
+      ]
+    },
+    {
+      "name": "Hybrid Tree and Forest Floor",
+      "slug": "hybrid_tree_and_forest_floor",
+      "category": "Hybrid",
+      "selectionPath": [
+        "Hybrid",
+        "Hybrid Tree and Forest Floor"
+      ],
+      "generationTags": [
+        "criminal_pressure",
+        "food_production",
+        "land_access",
+        "vertical_travel"
+      ],
+      "primaryLocationBoosts": [
+        "Nature",
+        "Hospitality",
+        "Residential",
+        "Religious",
+        "Commercial",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Treehouse Residence",
+        "Forest Floor Residence",
+        "Canopy Market",
+        "Ground Market",
+        "Ropeway Station",
+        "Caravan Station",
+        "Train Station if developed",
+        "Sacred Grove",
+        "Shrine",
+        "Canopy Inn",
+        "Forest Tavern",
+        "Herbalist",
+        "Garden",
+        "Watch Platform",
+        "Ranger Station",
+        "Woodland School",
+        "Hidden Workshop",
+        "Secret Location"
+      ],
+      "reducedOrTransformedLocations": [
+        "Heavy industry should be limited to forest floor workshops.",
+        "Large warehouses become ground depots or hanging freight platforms.",
+        "Ranches become climbing mount stables or forest beast pens."
+      ],
+      "biomeCreatedFactions": [
+        "Canopy-Floor Council",
+        "Ropeway Operators’ Guild",
+        "Forest Wardens",
+        "Grove Shrine Keepers",
+        "Herbalists’ League",
+        "Treehouse Builders’ Circle",
+        "Ground Market Guild",
+        "Hidden Rangers",
+        "Fey Pact Circle",
+        "Beast Handler Lodge",
+        "Forest Smugglers",
+        "Sacred Tree Guardians",
+        "Canopy Innkeepers",
+        "Woodland Teachers’ Circle"
+      ]
+    },
+    {
+      "name": "Hybrid Farming Forest Grassland",
+      "slug": "hybrid_farming_forest_grassland",
+      "category": "Hybrid",
+      "selectionPath": [
+        "Hybrid",
+        "Hybrid Farming Forest Grassland"
+      ],
+      "generationTags": [
+        "food_production",
+        "land_access"
+      ],
+      "primaryLocationBoosts": [
+        "Agriculture",
+        "Nature",
+        "Residential",
+        "Commercial",
+        "Hospitality",
+        "Transportation"
+      ],
+      "favoredLocationTypes": [
+        "Farm",
+        "Orchard",
+        "Ranch",
+        "Garden",
+        "Forest Area",
+        "Market",
+        "Trading Post",
+        "Tavern",
+        "Inn",
+        "Neighborhood",
+        "Caravan Station",
+        "Train Station",
+        "Shrine",
+        "Herbalist",
+        "Mill",
+        "Produce Warehouse",
+        "Ranger Station",
+        "Agricultural District",
+        "Woodland Homestead"
+      ],
+      "reducedOrTransformedLocations": [
+        "Maritime locations require river, lake, or added water access.",
+        "Submarine terminals should not appear.",
+        "Heavy industry should be moderate unless supported by settlement size."
+      ],
+      "biomeCreatedFactions": [
+        "Farmers’ Cooperative",
+        "Orchard Keepers’ Circle",
+        "Woodland Farmers’ Council",
+        "Herbal Growers’ League",
+        "Ranch Families’ Association",
+        "Produce Merchants’ Guild",
+        "Rural Shrine Order",
+        "Caravan Road Compact",
+        "Millers’ Guild",
+        "Forest Boundary Council",
+        "Poacher Watch",
+        "Harvest Festival Circle",
+        "Landowners’ Council",
+        "Tenant Farmers’ Resistance",
+        "Hidden Grove Protectors"
+      ]
+    }
+  ],
+  "multiBiomeSelectionRules": {
+    "summary": "The user may select up to three specific biomes. When multiple biomes are selected, merge their location logic, transformations, faction pools, transit needs, economy, housing styles, hazards, and hooks.",
+    "examples": {
+      "Example: Ocean Surface + Underwater with Reefs": {
+        "description": "Creates a layered sea settlement with:",
+        "settlementLayers": [
+          "floating surface districts,",
+          "underwater reef districts,",
+          "submarine terminals,",
+          "steamship ports,",
+          "ferry terminals,",
+          "reef markets,",
+          "pressure-sealed taverns,",
+          "coral residences,",
+          "floating inns,",
+          "salvage workshops."
+        ],
+        "favoredLocations": [],
+        "possibleFactions": [
+          "Harbor Guild",
+          "Reefwarden Circle",
+          "Submarine Pilots’ Guild",
+          "Steamship Captains’ League",
+          "Salvage Rights Company",
+          "Tide Shrine Order",
+          "Reef Smugglers"
+        ]
+      },
+      "Example: Mountain Range + Deep Cavern": {
+        "description": "Creates a vertical mountain settlement with surface cliffs and underground districts.",
+        "favoredLocations": [
+          "mines,",
+          "foundries,",
+          "tunnel rail,",
+          "guard stations,",
+          "cavern markets,",
+          "mountain shrines,",
+          "freight depots,",
+          "skyship ports with surface shafts,",
+          "underground housing."
+        ],
+        "possibleFactions": [
+          "Miners’ Guild",
+          "Foundry Lords",
+          "Tunnel Wardens",
+          "Mountain Guard",
+          "Ore Merchants’ League",
+          "Smuggler Tunnel Network",
+          "Deep Temple Order"
+        ]
+      },
+      "Example: Treetops + Deep Forest": {
+        "description": "Creates a forest settlement with canopy and forest-floor layers.",
+        "favoredLocations": [
+          "treehouse residences,",
+          "canopy markets,",
+          "sacred groves,",
+          "ropeway stations,",
+          "ranger lodges,",
+          "herbalist huts,",
+          "hidden inns,",
+          "bird messenger roosts."
+        ],
+        "possibleFactions": [
+          "Canopy Council",
+          "Grovekeeper Circle",
+          "Ropeway Operators’ Guild",
+          "Forest Wardens",
+          "Fey Pact Circle",
+          "Herbalists’ League",
+          "Poachers’ Ring"
+        ]
+      },
+      "Example: Farming + Partial Forest + Grassland": {
+        "description": "Creates a rural mixed settlement.",
+        "favoredLocations": [
+          "farms,",
+          "ranches,",
+          "orchards,",
+          "markets,",
+          "mills,",
+          "woodland homesteads,",
+          "rural shrines,",
+          "caravan stations,",
+          "train stations,",
+          "produce warehouses."
+        ],
+        "possibleFactions": [
+          "Farmers’ Cooperative",
+          "Millers’ Guild",
+          "Orchard Keepers’ Circle",
+          "Caravan Road Compact",
+          "Rural Shrine Order",
+          "Landowners’ Council",
+          "Tenant Farmers’ Resistance"
+        ]
+      }
+    }
+  },
+  "factionGeneration": {
+    "requiredFactionDataFields": [
+      "faction name",
+      "faction type",
+      "biome source",
+      "settlement role",
+      "public reputation",
+      "secret reputation",
+      "leader",
+      "headquarters location",
+      "allied factions",
+      "rival factions",
+      "enemy factions",
+      "common NPC professions",
+      "common member races",
+      "economic influence",
+      "religious ties",
+      "criminal ties if any",
+      "transportation ties if any",
+      "current conflict",
+      "rumor",
+      "secret",
+      "quest hook",
+      "alignment tendency"
+    ],
+    "requiredFactionDataKeys": [
+      "faction_name",
+      "faction_type",
+      "biome_source",
+      "settlement_role",
+      "public_reputation",
+      "secret_reputation",
+      "leader",
+      "headquarters_location",
+      "allied_factions",
+      "rival_factions",
+      "enemy_factions",
+      "common_npc_professions",
+      "common_member_races",
+      "economic_influence",
+      "religious_ties",
+      "criminal_ties_if_any",
+      "transportation_ties_if_any",
+      "current_conflict",
+      "rumor",
+      "secret",
+      "quest_hook",
+      "alignment_tendency"
+    ],
+    "factionTypesByBiomeFamily": {
+      "Ocean and Water Factions": [
+        "Harbor Guild",
+        "Fisherfolk Union",
+        "Steamship Captains’ League",
+        "Reefwarden Circle",
+        "Submarine Pilots’ Guild",
+        "Salvage Divers’ League",
+        "Pearl Traders’ Consortium",
+        "Tide Shrine Order",
+        "Smugglers’ Cove Network",
+        "Privateer Compact"
+      ],
+      "Plains and Farming Factions": [
+        "Farmers’ Cooperative",
+        "Ranchers’ Alliance",
+        "Grain Merchants’ Guild",
+        "Millers’ Guild",
+        "Harvest Shrine Order",
+        "Caravan Road Compact",
+        "Rural Laborers’ Union",
+        "Landowners’ Council",
+        "Tenant Farmers’ Resistance",
+        "Frontier Militia"
+      ],
+      "Mountain and Cavern Factions": [
+        "Miners’ Guild",
+        "Foundry Lords",
+        "Tunnel Wardens",
+        "Ore Merchants’ League",
+        "Mountain Guard",
+        "Gear-Lift Engineers",
+        "Deep Temple Order",
+        "Black Market Compact",
+        "Crystal Prospectors",
+        "Smuggler Tunnel Network"
+      ],
+      "Forest and Treetop Factions": [
+        "Grovekeeper Circle",
+        "Forest Wardens",
+        "Canopy Council",
+        "Ropeway Operators’ Guild",
+        "Herbalists’ League",
+        "Sacred Tree Guardians",
+        "Fey Pact Circle",
+        "Hidden Rangers",
+        "Poachers’ Ring",
+        "Treehouse Builders’ Circle"
+      ],
+      "Swamp and Marsh Factions": [
+        "Marsh Wardens",
+        "Bog Apothecaries’ Circle",
+        "Reed Boat Ferrymen",
+        "Smugglers’ Mire",
+        "Fogbound Cult",
+        "Poisoners’ Compact",
+        "Monster-Hunter Lodge",
+        "Hidden Witch Circle",
+        "Stilt House Council",
+        "Swamp Guide Guild"
+      ],
+      "Hybrid Factions": [
+        "Coastal Merchants’ Guild",
+        "Canopy-Floor Council",
+        "Woodland Farmers’ Council",
+        "Caravan-to-Coast Freight Office",
+        "Forest Boundary Council",
+        "Beach Market Consortium",
+        "Harvest Festival Circle",
+        "Reef Nature Keepers",
+        "Hidden Grove Protectors",
+        "Storm Watchers’ Circle"
+      ]
+    },
+    "defaultFactionObjectTemplate": {
+      "faction_name": null,
+      "faction_type": null,
+      "biome_source": null,
+      "settlement_role": null,
+      "public_reputation": null,
+      "secret_reputation": null,
+      "leader": null,
+      "headquarters_location": null,
+      "allied_factions": null,
+      "rival_factions": null,
+      "enemy_factions": null,
+      "common_npc_professions": null,
+      "common_member_races": null,
+      "economic_influence": null,
+      "religious_ties": null,
+      "criminal_ties_if_any": null,
+      "transportation_ties_if_any": null,
+      "current_conflict": null,
+      "rumor": null,
+      "secret": null,
+      "quest_hook": null,
+      "alignment_tendency": null
+    }
+  },
+  "validationWarnings": [
+    "This biome does not support ordinary horse stables. Use Seahorse Stable, Mount Pool, or Beast Handling Grotto instead.",
+    "Underwater settlements require submarine access.",
+    "This settlement has water access but no ferry, dock, or harbor.",
+    "This deep cavern settlement has no food source. Add mushroom farms, cave lichen farms, or imported ration depots.",
+    "This treetop settlement has heavy industry. Consider replacing foundries with light workshops.",
+    "This mountain settlement has no freight system despite mining or foundry locations.",
+    "This farming settlement has no market or produce warehouse.",
+    "This swamp settlement has no ferry, boardwalk, or reed-boat route.",
+    "This capital city has no portal facility unless portals are disabled.",
+    "This selected race cache does not match the selected biome.",
+    "This settlement has factions but no headquarters locations.",
+    "This settlement has transit factions but no transit locations."
+  ],
+  "finalGeneratorRequirements": [
+    "what locations exist",
+    "what locations are renamed or transformed",
+    "what professions appear",
+    "what factions form",
+    "what goods are sold",
+    "what services are available",
+    "how NPCs travel",
+    "where people live",
+    "what conflicts emerge",
+    "and what stories naturally arise"
+  ],
+  "legacyAdditionalBiomes": [
+    {
+      "name": "deep mountain",
+      "districtFlavor": "elevators, mines, furnaces, bridges, echoing tunnels",
+      "locationBias": [
+        "mine",
+        "forge",
+        "lift station",
+        "guard station",
+        "tavern",
+        "clinic"
+      ],
+      "slug": "deep_mountain",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Mountain Range",
+        "Deep Cavern"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "coastal",
+      "districtFlavor": "docks, fog bells, salt warehouses, ferry slips",
+      "locationBias": [
+        "dock",
+        "fish market",
+        "shipwright",
+        "ferry office",
+        "tavern",
+        "lighthouse"
+      ],
+      "slug": "coastal",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Beach and Grass with Water",
+        "Beach and Reefs with Water",
+        "Ocean Surface Floating Settlement"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "rainforest",
+      "districtFlavor": "lush canopy walks, rope bridges, medicinal gardens",
+      "locationBias": [
+        "herbalist",
+        "tree shrine",
+        "market",
+        "watch platform",
+        "healer",
+        "greenhouse"
+      ],
+      "slug": "rainforest",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Deep Forest",
+        "Treetops - Treehouses"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "lush forest",
+      "districtFlavor": "mossy paths, lantern groves, timber halls, druid stones",
+      "locationBias": [
+        "shrine",
+        "herbalist",
+        "woodworker",
+        "inn",
+        "hunter lodge",
+        "library"
+      ],
+      "slug": "lush_forest",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Deep Forest",
+        "Partial Forest"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "swamp",
+      "districtFlavor": "raised plank roads, reed docks, mist lamps, water shrines",
+      "locationBias": [
+        "dock",
+        "apothecary",
+        "watch post",
+        "ferry office",
+        "fish market",
+        "shrine"
+      ],
+      "slug": "swamp",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Marshes and Swamps"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "desert",
+      "districtFlavor": "shade courts, cisterns, caravanserai, glassworks",
+      "locationBias": [
+        "caravanserai",
+        "cistern",
+        "market",
+        "glassworker",
+        "temple",
+        "guard station"
+      ],
+      "slug": "desert",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "tundra",
+      "districtFlavor": "stone hearth halls, heated tunnels, fur markets",
+      "locationBias": [
+        "hearth inn",
+        "furrier",
+        "watch post",
+        "clinic",
+        "stable",
+        "warehouse"
+      ],
+      "slug": "tundra",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "urban industrial",
+      "districtFlavor": "smoke stacks, rail spurs, clock towers, soot-black alleys",
+      "locationBias": [
+        "factory",
+        "rail station",
+        "clinic",
+        "union hall",
+        "tavern",
+        "forge"
+      ],
+      "slug": "urban_industrial",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "canyon valley",
+      "districtFlavor": "terraced streets, rope lifts, cliff shrines, echo markets",
+      "locationBias": [
+        "lift station",
+        "market",
+        "shrine",
+        "guard post",
+        "inn",
+        "bridge house"
+      ],
+      "slug": "canyon_valley",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Valley",
+        "Mountain Range"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "island",
+      "districtFlavor": "tidal lanes, docks, beacon towers, market piers",
+      "locationBias": [
+        "dock",
+        "ferry office",
+        "fish market",
+        "lighthouse",
+        "temple",
+        "inn"
+      ],
+      "slug": "island",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [
+        "Ocean Surface Floating Settlement",
+        "Beach and Grass with Water",
+        "Beach and Reefs with Water"
+      ],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    },
+    {
+      "name": "volcanic",
+      "districtFlavor": "basalt roads, vent forges, ash gardens, heat pipes",
+      "locationBias": [
+        "forge",
+        "bathhouse",
+        "clinic",
+        "guard station",
+        "mine",
+        "temple"
+      ],
+      "slug": "volcanic",
+      "source": "preserved_from_previous_belavados_biomes_json",
+      "suggestedReplacementBiomes": [],
+      "migrationNote": "Not part of the new required two-layer dropdown list, preserved so existing generators do not lose data."
+    }
+  ],
+  "compatibilityFlatBiomeList": [
+    {
+      "name": "Ocean Surface Floating Settlement",
+      "slug": "ocean_surface_floating_settlement",
+      "category": "Ocean"
+    },
+    {
+      "name": "Underwater with Reefs",
+      "slug": "underwater_with_reefs",
+      "category": "Ocean"
+    },
+    {
+      "name": "Underwater without Reefs",
+      "slug": "underwater_without_reefs",
+      "category": "Ocean"
+    },
+    {
+      "name": "Grassland",
+      "slug": "grassland",
+      "category": "Plains"
+    },
+    {
+      "name": "Prairie",
+      "slug": "prairie",
+      "category": "Plains"
+    },
+    {
+      "name": "Farming",
+      "slug": "farming",
+      "category": "Plains"
+    },
+    {
+      "name": "Mountain Range",
+      "slug": "mountain_range",
+      "category": "Mountains"
+    },
+    {
+      "name": "Valley",
+      "slug": "valley",
+      "category": "Mountains"
+    },
+    {
+      "name": "Deep Cavern",
+      "slug": "deep_cavern",
+      "category": "Mountains"
+    },
+    {
+      "name": "Deep Forest",
+      "slug": "deep_forest",
+      "category": "Forest"
+    },
+    {
+      "name": "Partial Forest",
+      "slug": "partial_forest",
+      "category": "Forest"
+    },
+    {
+      "name": "Treetops - Treehouses",
+      "slug": "treetops_treehouses",
+      "category": "Forest"
+    },
+    {
+      "name": "Marshes and Swamps",
+      "slug": "marshes_and_swamps",
+      "category": "Forest"
+    },
+    {
+      "name": "Beach and Grass with Water",
+      "slug": "beach_and_grass_with_water",
+      "category": "Hybrid"
+    },
+    {
+      "name": "Beach and Reefs with Water",
+      "slug": "beach_and_reefs_with_water",
+      "category": "Hybrid"
+    },
+    {
+      "name": "Hybrid Tree and Forest Floor",
+      "slug": "hybrid_tree_and_forest_floor",
+      "category": "Hybrid"
+    },
+    {
+      "name": "Hybrid Farming Forest Grassland",
+      "slug": "hybrid_farming_forest_grassland",
+      "category": "Hybrid"
+    },
+    {
+      "name": "deep mountain",
+      "slug": "deep_mountain",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "coastal",
+      "slug": "coastal",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "rainforest",
+      "slug": "rainforest",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "lush forest",
+      "slug": "lush_forest",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "swamp",
+      "slug": "swamp",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "desert",
+      "slug": "desert",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "tundra",
+      "slug": "tundra",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "urban industrial",
+      "slug": "urban_industrial",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "canyon valley",
+      "slug": "canyon_valley",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "island",
+      "slug": "island",
+      "category": "Legacy / Additional"
+    },
+    {
+      "name": "volcanic",
+      "slug": "volcanic",
+      "category": "Legacy / Additional"
+    }
+  ],
+  "preservationNotes": [
+    "The previous JSON's exact data has been preserved under legacyAdditionalBiomes where a biome was not part of the new required two-layer dropdown system.",
+    "Grassland remains as a primary required biome and has been expanded with the new markdown rules.",
+    "The old biomeTree string reference has been replaced with a real biomeTree object for direct UI use."
+  ]
+}

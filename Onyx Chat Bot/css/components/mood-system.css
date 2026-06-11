@@ -1,0 +1,148 @@
+/* Onyx animated mood system + requested hub styling */
+
+:root{
+  --bg-home:url("https://wallpapers.com/images/hd/minimalist-skyrim-dual-monitor-ph022pgi8ftp32nv.jpg");
+  --bg-settlement:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f16e2ef7-0b7b-419b-b057-1bd19a2289f5/d1io0wc-c5165550-8c01-487f-8651-146e1e14e111.jpg/v1/fill/w_1024%2Ch_640%2Cq_75%2Cstrp/steampunk_wallpaper_by_spaceturtlestudios_d1io0wc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mL2YxNmUyZWY3LTBiN2ItNDE5Yi1iMDU3LTFiZDE5YTIyODlmNS9kMWlvMHdjLWM1MTY1NTUwLThjMDEtNDg3Zi04NjUxLTE0NmUxZTE0ZTExMS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3SzTUeHWwjxvKxwZmrrWKMa3oiY0fxLBQ_yo0Zr-V-g");
+  --bg-npc:url("https://wallpapers.com/images/hd/epic-dungeons-dragons-gameplay-in-a-mysterious-fantasy-world-1jvzbt9xyokn9j3c.jpg");
+  --ink:#f9f4e8;
+  --muted:#d4c6b6;
+  --gold:#b07a3a;
+  --purple:#4d3658;
+  --purple2:#8b6da2;
+  --line:rgba(141,224,220,.34);
+  --panel:rgba(7,12,18,.94);
+  --panel2:rgba(22,35,44,.92);
+}
+body{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.84)),
+    var(--bg-home) center/cover fixed no-repeat;
+}
+.topbar{
+  background:linear-gradient(180deg,rgba(7,12,18,.96),rgba(22,35,44,.92));
+  border-color:var(--line);
+}
+.panel{
+  background:linear-gradient(180deg,rgba(22,35,44,.95),rgba(7,12,18,.96));
+  border-color:rgba(141,224,220,.26);
+}
+.panel h2,.brand h1,.card h3,.tab.active,.onyx-title strong,.onyx-message h4,.onyx-card-title,th{color:#eef9f5}
+.brand p,.help,.card p,.muted,.onyx-muted,label,.small{color:#d7eadf}
+button,.button,input,select,textarea,.onyx-icon-button,.onyx-small-button,.onyx-send,.onyx-chip,.onyx-tab{
+  border-color:rgba(141,224,220,.34);
+  background:linear-gradient(180deg,rgba(31,44,51,.98),rgba(8,13,18,.98));
+  color:var(--ink);
+}
+button.primary{background:linear-gradient(180deg,rgba(255,238,201,.98),rgba(209,166,95,.98));color:#17100c;border-color:rgba(76,43,12,.42)}
+button.ghost{background:rgba(255,255,255,.06)}
+.msg.bot,.chat,.help,.dropzone,.card,.onyx-message,.onyx-card,.onyx-shell,.onyx-body,.onyx-quickbar,.onyx-header{border-color:rgba(141,224,220,.24)}
+.seal,.onyx-launcher,.onyx-avatar{background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.16),rgba(0,0,0,.9) 62%),#050407}
+.seal:after{display:none}
+.onyx-presence-card{display:grid;gap:12px}
+.onyx-presence-card h2{margin:0;padding:0;border:0;background:none}
+.onyx-mood-display{display:grid;justify-items:center;gap:10px;text-align:center}
+.onyx-mood-stage{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:100%;
+  min-height:230px;
+  padding:14px 18px;
+  border-radius:22px;
+  border:1px solid rgba(141,224,220,.28);
+  background:
+    radial-gradient(circle at 50% 18%,rgba(141,224,220,.16),transparent 38%),
+    radial-gradient(circle at 50% 82%,rgba(0,0,0,.38),transparent 30%),
+    rgba(255,255,255,.03);
+  overflow:hidden;
+}
+.onyx-mood-stage::after{
+  content:"";
+  position:absolute;
+  inset:auto 15% 10px 15%;
+  height:16px;
+  border-radius:999px;
+  background:radial-gradient(circle,rgba(0,0,0,.45),rgba(0,0,0,0));
+  filter:blur(6px);
+  pointer-events:none;
+}
+.onyx-mood-image{
+  display:block;
+  width:min(260px,100%);
+  height:auto;
+  max-height:260px;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.4));
+  transform-origin:50% 85%;
+  will-change:transform;
+}
+.onyx-state-label{font-family:var(--serif);font-size:1.08rem;color:#eef9f5;letter-spacing:.03em}
+.onyx-state-note{font-size:.89rem;color:#d7eadf;max-width:32ch;line-height:1.35}
+.onyx-role-launcher .onyx-state-label,.onyx-role-launcher .onyx-state-note,
+.onyx-role-avatar .onyx-state-label,.onyx-role-avatar .onyx-state-note,
+.onyx-role-seal .onyx-state-label,.onyx-role-seal .onyx-state-note{display:none}
+.onyx-role-launcher .onyx-mood-stage{min-height:52px;padding:0;border:0;background:none}
+.onyx-role-launcher .onyx-mood-image{width:54px;max-height:54px}
+.onyx-role-avatar .onyx-mood-stage,.onyx-role-seal .onyx-mood-stage{min-height:40px;padding:0;border:0;background:none}
+.onyx-role-avatar .onyx-mood-image,.onyx-role-seal .onyx-mood-image{width:40px;max-height:40px}
+.onyx-role-seal .onyx-mood-image{width:52px;max-height:52px}
+.onyx-cat-face{display:grid;place-items:center}
+.onyx-mood-display[data-onyx-mood="thinking"] .onyx-mood-image{animation:onyxThink 1.8s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="judgmental"] .onyx-mood-image{animation:onyxJudge 2.4s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="thoughtful"] .onyx-mood-image{animation:onyxThoughtful 1.9s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="sleepy"] .onyx-mood-image{animation:onyxSleepy 3.2s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="hungry"] .onyx-mood-image{animation:onyxHungry 1.25s ease-in-out infinite}
+.onyx-mood-display[data-onyx-activity="busy"] .onyx-mood-stage::before,
+.onyx-mood-display[data-onyx-activity="responding"] .onyx-mood-stage::before{
+  position:absolute; top:14px; right:18px; font-size:12px; color:#eef9f5; opacity:.9; letter-spacing:.12em; text-transform:uppercase;
+}
+.onyx-mood-display[data-onyx-mood="thinking"] .onyx-mood-stage::before{content:"thinking"; animation:notePulse 1.2s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="judgmental"] .onyx-mood-stage::before{content:"judging"; animation:notePulse 1.8s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="thoughtful"] .onyx-mood-stage::before{content:"responding"; animation:notePulse 1.1s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="sleepy"] .onyx-mood-stage::before{content:"zzz"; animation:zzzFloat 2.8s ease-in-out infinite}
+.onyx-mood-display[data-onyx-mood="hungry"] .onyx-mood-stage::before{content:"snack?"; animation:notePulse .95s ease-in-out infinite}
+@keyframes onyxThink{0%,100%{transform:translateY(0) rotate(-1deg)}25%{transform:translateY(-6px) rotate(1.2deg)}50%{transform:translateY(-10px) rotate(-.4deg)}75%{transform:translateY(-4px) rotate(1deg)}}
+@keyframes onyxJudge{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-4px) rotate(-2deg)}45%{transform:translateX(4px) rotate(1deg)}70%{transform:translateX(-2px) rotate(-1.5deg)}}
+@keyframes onyxThoughtful{0%,100%{transform:translateY(0) rotate(0)}20%{transform:translateY(-4px) rotate(-1.2deg)}40%{transform:translateY(0) rotate(.8deg)}60%{transform:translateY(-3px) rotate(-.8deg)}80%{transform:translateY(0) rotate(.4deg)}}
+@keyframes onyxSleepy{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(4px) rotate(-2deg)}50%{transform:translateY(8px) rotate(-4deg)}75%{transform:translateY(4px) rotate(-2deg)}}
+@keyframes onyxHungry{0%,100%{transform:translateY(0) scale(1)}20%{transform:translateY(-6px) scale(1.02)}45%{transform:translateY(0) scale(.99)}70%{transform:translateY(-3px) scale(1.03)}}
+@keyframes notePulse{0%,100%{opacity:.45;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+@keyframes zzzFloat{0%{opacity:.35;transform:translateY(0)}50%{opacity:1;transform:translateY(-8px)}100%{opacity:.25;transform:translateY(-14px)}}
+@media(max-width:800px){.onyx-mood-stage{min-height:180px}.onyx-mood-image{width:min(220px,100%);max-height:220px}}
+
+
+
+/* Onyx widget face-safe sizing */
+.onyx-launcher{
+  min-width:104px!important;
+  min-height:104px!important;
+  width:104px!important;
+  height:104px!important;
+  border-radius:30px!important;
+  overflow:visible!important;
+  padding:8px!important;
+}
+.onyx-launcher .onyx-mood-stage{
+  overflow:visible!important;
+}
+.onyx-role-launcher .onyx-mood-image{
+  width:90px!important;
+  max-height:90px!important;
+}
+.onyx-badge{
+  right:-7px!important;
+  top:-7px!important;
+}
+.onyx-avatar,
+.seal{
+  overflow:visible!important;
+}
+.onyx-role-avatar .onyx-mood-image{
+  width:52px!important;
+  max-height:52px!important;
+}
+.onyx-role-seal .onyx-mood-image{
+  width:58px!important;
+  max-height:58px!important;
+}
+

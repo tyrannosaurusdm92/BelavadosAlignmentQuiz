@@ -1,0 +1,3049 @@
+{
+  "schema": "belavados.provinces.v2",
+  "schema_previous": "belavados.provinces.v1",
+  "count": 28,
+  "generated_at_utc": "2026-06-08T03:06:08.313859+00:00",
+  "source_documents": [
+    {
+      "type": "json",
+      "name": "belavados_provinces.json",
+      "used_for": "existing province governments and mood text"
+    },
+    {
+      "type": "json",
+      "name": "settlement_assignments.json",
+      "used_for": "authoritative province names, settlement categories, settlement counts, and area weights"
+    },
+    {
+      "type": "docx",
+      "name": "Belavados_Simplified_Time_Conversion_Guide (1).docx",
+      "used_for": "province UTC labels, center longitude/latitude, and timekeeping rules"
+    }
+  ],
+  "revision_notes": [
+    "Province list rebuilt from settlement_assignments.json so renamed provinces and settlement memberships are authoritative.",
+    "Governments and moods preserved from belavados_provinces.json, matched to corrected province names.",
+    "El’dravire from the input province file is normalized to El'dravire Riverrealm from the assignments/time-zone sources.",
+    "Each province now includes primary UTC, display UTC labels, numeric UTC offsets, center longitude/latitude, and timezone notes."
+  ],
+  "renamed_provinces": [
+    {
+      "from": "El’dravire",
+      "to": "El'dravire Riverrealm"
+    }
+  ],
+  "timekeeping": {
+    "earth_first_table_play": true,
+    "belavados_second_lore_time": true,
+    "solar_year_belavados_days": 330.15,
+    "civil_calendar": {
+      "months": 11,
+      "days_per_month": 30,
+      "named_civil_dates": 330
+    },
+    "conversion_formula": [
+      "daysInEarthYear = 365, or 366 in a leap year",
+      "earthProgress = (Earth day-of-year - 1 + fractionOfEarthDay) / daysInEarthYear",
+      "belSolarDayProgress = earthProgress * 330.15",
+      "belCivilDateProgress = earthProgress * 330",
+      "monthIndex = floor(belCivilDateProgress / 30), from 0 to 10",
+      "dayOfMonth = floor(belCivilDateProgress % 30) + 1",
+      "Belavadös clock time may use fractional part of belSolarDayProgress * 24"
+    ],
+    "province_timezone_rule": "Province summaries store primary UTC and one neighboring display UTC where useful; settlement-specific exports should store exact settlement UTC by longitude.",
+    "months": [
+      {
+        "index": 1,
+        "name": "Thoryn-Rahek",
+        "civil_dates": "1-30",
+        "theme": "aberrant life, primordial mutation, dangerous origins"
+      },
+      {
+        "index": 2,
+        "name": "Freysethysra",
+        "civil_dates": "1-30",
+        "theme": "crossroads, curses, beauty, temptation, forbidden pacts"
+      },
+      {
+        "index": 3,
+        "name": "Nefarokir",
+        "civil_dates": "1-30",
+        "theme": "death, spirits, memory, burial, cosmic ledgers"
+      },
+      {
+        "index": 4,
+        "name": "Thalunesh",
+        "civil_dates": "1-30",
+        "theme": "dreamers, tricksters, shapeshifters, wanderers, fey mischief"
+      },
+      {
+        "index": 5,
+        "name": "Horundar",
+        "civil_dates": "1-30",
+        "theme": "storms, oceans, floods, earthquakes, raw elemental force"
+      },
+      {
+        "index": 6,
+        "name": "Raeshkul",
+        "civil_dates": "1-30",
+        "theme": "intellect, psionics, strategy, higher understanding"
+      },
+      {
+        "index": 7,
+        "name": "Asethrimir",
+        "civil_dates": "1-30",
+        "theme": "freedom, revelry, wilderness survival, constructs, awakened machinery"
+      },
+      {
+        "index": 8,
+        "name": "Sokhivar",
+        "civil_dates": "1-30",
+        "theme": "sunlight, music, prophecy, divine freedom"
+      },
+      {
+        "index": 9,
+        "name": "Iskazunet",
+        "civil_dates": "1-30",
+        "theme": "beasts, instinct, fertility, shadows, curses, twilight-born peoples"
+      },
+      {
+        "index": 10,
+        "name": "Bastve'enlil",
+        "civil_dates": "1-30",
+        "theme": "tides, reefs, trenches, adaptation, civilization, instinct"
+      },
+      {
+        "index": 11,
+        "name": "Hathruna",
+        "civil_dates": "1-30",
+        "theme": "rebirth, rot, fungi, roots, decay cycles"
+      }
+    ],
+    "weekdays": [
+      {
+        "earth_weekday": "Monday",
+        "belavados_weekday": "Nebday",
+        "function": "Standard civic day"
+      },
+      {
+        "earth_weekday": "Tuesday",
+        "belavados_weekday": "Sigranday",
+        "function": "Standard civic day"
+      },
+      {
+        "earth_weekday": "Wednesday",
+        "belavados_weekday": "Ishtaday",
+        "function": "Rest / sync day"
+      },
+      {
+        "earth_weekday": "Thursday",
+        "belavados_weekday": "Marduday",
+        "function": "Standard civic day"
+      },
+      {
+        "earth_weekday": "Friday",
+        "belavados_weekday": "Enkirday",
+        "function": "Standard civic day"
+      },
+      {
+        "earth_weekday": "Saturday",
+        "belavados_weekday": "Anubaday",
+        "function": "Standard civic day"
+      },
+      {
+        "earth_weekday": "Sunday",
+        "belavados_weekday": "Valkhaday",
+        "function": "Standard civic day"
+      }
+    ]
+  },
+  "provinces": [
+    {
+      "id": "aelvanyr",
+      "name": "Aelvanyr",
+      "government": "Participatory Democracy",
+      "mood": "misty civic idealism with old forest oaths",
+      "estimated_area_weight": 55633.7,
+      "timezone": {
+        "primary_utc": "UTC-4",
+        "primary_utc_offset_hours": -4.0,
+        "display_utc": [
+          "UTC-4",
+          "UTC-3"
+        ],
+        "display_utc_offset_hours": [
+          -4.0,
+          -3.0
+        ],
+        "center_longitude": -56.825,
+        "center_latitude": -27.314,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Mythraelyn"
+        ],
+        "cities": [
+          "Drakesylva",
+          "Elarvess",
+          "Everwake"
+        ],
+        "towns": [
+          "Faeloryn",
+          "Lunawyn",
+          "Rootmere"
+        ],
+        "villages": [
+          "Sylvarielle",
+          "Vaelithorne",
+          "Wildbloom"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "aelwynora",
+      "name": "Aelwynora",
+      "government": "Consensus",
+      "mood": "diplomatic woodland councils and ancestral law",
+      "estimated_area_weight": 76886.7,
+      "timezone": {
+        "primary_utc": "UTC-2",
+        "primary_utc_offset_hours": -2.0,
+        "display_utc": [
+          "UTC-2",
+          "UTC-1"
+        ],
+        "display_utc_offset_hours": [
+          -2.0,
+          -1.0
+        ],
+        "center_longitude": -25.982,
+        "center_latitude": 61.114,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Elarithen"
+        ],
+        "cities": [
+          "Ulwyn",
+          "Wilsara",
+          "Yltharien"
+        ],
+        "towns": [
+          "Elarion Pastures",
+          "Sylvarûn",
+          "Sylvathûn",
+          "Sylvéraith"
+        ],
+        "villages": [
+          "Yl'varessa",
+          "Orynéssa",
+          "Vaelméra"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "astraevos",
+      "name": "Astraevos",
+      "government": "Noocracy",
+      "mood": "astral towers, scholars, and regulated arcana",
+      "estimated_area_weight": 43456.32,
+      "timezone": {
+        "primary_utc": "UTC+4",
+        "primary_utc_offset_hours": 4.0,
+        "display_utc": [
+          "UTC+3",
+          "UTC+4"
+        ],
+        "display_utc_offset_hours": [
+          3.0,
+          4.0
+        ],
+        "center_longitude": 55.171,
+        "center_latitude": 24.31,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Vaelunthir"
+        ],
+        "cities": [
+          "Mythalora",
+          "Aelshoreth",
+          "Cyralune"
+        ],
+        "towns": [
+          "Orithalune",
+          "Caelmyros",
+          "Ael'voryn"
+        ],
+        "villages": [
+          "Aelmoryth",
+          "Aelryss-Kor"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "bravelyn",
+      "name": "Bravelyn",
+      "government": "Guild Parliament",
+      "mood": "river trade, craft monopolies, and railway politics",
+      "estimated_area_weight": 55124.0,
+      "timezone": {
+        "primary_utc": "UTC-2",
+        "primary_utc_offset_hours": -2.0,
+        "display_utc": [
+          "UTC-3",
+          "UTC-2"
+        ],
+        "display_utc_offset_hours": [
+          -3.0,
+          -2.0
+        ],
+        "center_longitude": -34.488,
+        "center_latitude": -65.17,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Solvaryn"
+        ],
+        "cities": [
+          "Loxvire",
+          "Qasvire",
+          "Qelvandra"
+        ],
+        "towns": [
+          "Sundervale",
+          "Xelvoryn",
+          "Qel'vorys"
+        ],
+        "villages": [
+          "Soltharyn Basin",
+          "Solthéra",
+          "Solunéa"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "ceulrithan",
+      "name": "Ceulrithan",
+      "government": "Confessional Government",
+      "mood": "temples, relic courts, and public piety",
+      "estimated_area_weight": 47295.64,
+      "timezone": {
+        "primary_utc": "UTC",
+        "primary_utc_offset_hours": 0,
+        "display_utc": [
+          "UTC-1",
+          "UTC"
+        ],
+        "display_utc_offset_hours": [
+          -1.0,
+          0
+        ],
+        "center_longitude": -3.079,
+        "center_latitude": -39.63,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Gildri"
+        ],
+        "cities": [
+          "Cindrau",
+          "Turyne",
+          "Qov'ei"
+        ],
+        "towns": [
+          "Rilvays",
+          "Faelith",
+          "Cindréa"
+        ],
+        "villages": [
+          "Th’oyndor",
+          "Vaelyssa"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "drakmorren",
+      "name": "Drakmorren",
+      "government": "Oligarchy",
+      "mood": "dragon-blooded houses, fortresses, and contract law",
+      "estimated_area_weight": 56408.65,
+      "timezone": {
+        "primary_utc": "UTC+9",
+        "primary_utc_offset_hours": 9.0,
+        "display_utc": [
+          "UTC+8",
+          "UTC+9"
+        ],
+        "display_utc_offset_hours": [
+          8.0,
+          9.0
+        ],
+        "center_longitude": 132.232,
+        "center_latitude": 64.92,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Grimvald"
+        ],
+        "cities": [
+          "Vorakmar",
+          "Fenwyrd",
+          "Kharrowfen"
+        ],
+        "towns": [
+          "Morvakar",
+          "Elarûneth",
+          "Heth'vára"
+        ],
+        "villages": [
+          "Myraléon",
+          "Skarnfell",
+          "Vaelorûn"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "earrorim",
+      "name": "Earrorim",
+      "government": "Maritime Compact",
+      "mood": "foggy coasts, ferries, and haunted reefs",
+      "estimated_area_weight": 49904.18,
+      "timezone": {
+        "primary_utc": "UTC-7",
+        "primary_utc_offset_hours": -7.0,
+        "display_utc": [
+          "UTC-7",
+          "UTC-6"
+        ],
+        "display_utc_offset_hours": [
+          -7.0,
+          -6.0
+        ],
+        "center_longitude": -101.697,
+        "center_latitude": 35.305,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Glattonica"
+        ],
+        "cities": [
+          "Iciarene",
+          "Wagriolyn",
+          "Ullunor"
+        ],
+        "towns": [
+          "Obriasos",
+          "Wrasserah",
+          "Myralûn"
+        ],
+        "villages": [
+          "Solvyréa",
+          "Vaelynor"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "el_dravire_riverrealm",
+      "name": "El'dravire Riverrealm",
+      "government": "Parliamentary Government",
+      "mood": "debate halls, factories, newspapers, and reform movements",
+      "estimated_area_weight": 94731.7,
+      "timezone": {
+        "primary_utc": "UTC+4",
+        "primary_utc_offset_hours": 4.0,
+        "display_utc": [
+          "UTC+4",
+          "UTC+5"
+        ],
+        "display_utc_offset_hours": [
+          4.0,
+          5.0
+        ],
+        "center_longitude": 61.119,
+        "center_latitude": -16.033,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Lorangriel"
+        ],
+        "cities": [
+          "Merrinthal",
+          "Murethash",
+          "Yi’vanyr",
+          "Veloraskkis"
+        ],
+        "towns": [
+          "Aelrúnor",
+          "Caelthyrûn",
+          "Cyréthar",
+          "Fael'ryss"
+        ],
+        "villages": [
+          "Maelvéra",
+          "Or'lythae",
+          "Thyralûn"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 4,
+        "towns": 4,
+        "villages": 3,
+        "total": 12
+      },
+      "previous_name_in_input": "El’dravire"
+    },
+    {
+      "id": "eldermere",
+      "name": "Eldermere",
+      "government": "Cooperative Commonwealth",
+      "mood": "lake communes, shared farms, and communal defense",
+      "estimated_area_weight": 66747.86,
+      "timezone": {
+        "primary_utc": "UTC+8",
+        "primary_utc_offset_hours": 8.0,
+        "display_utc": [
+          "UTC+8",
+          "UTC+9"
+        ],
+        "display_utc_offset_hours": [
+          8.0,
+          9.0
+        ],
+        "center_longitude": 123.461,
+        "center_latitude": 40.833,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Sylvanreach"
+        ],
+        "cities": [
+          "Oakenshire",
+          "Riverbloom",
+          "Aelgrove"
+        ],
+        "towns": [
+          "Cloverfen",
+          "Mossvale",
+          "Faelmere"
+        ],
+        "villages": [
+          "Lunebriar",
+          "Greenhollow Plains",
+          "Harvestmere"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "falthrakar",
+      "name": "Falthrakar",
+      "government": "Mountain Clans",
+      "mood": "deep mines, furnaces, and old grudges",
+      "estimated_area_weight": 81159.87,
+      "timezone": {
+        "primary_utc": "UTC",
+        "primary_utc_offset_hours": 0,
+        "display_utc": [
+          "UTC-1",
+          "UTC"
+        ],
+        "display_utc_offset_hours": [
+          -1.0,
+          0
+        ],
+        "center_longitude": -5.451,
+        "center_latitude": 32.805,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Nellvaris"
+        ],
+        "cities": [
+          "Brokharn",
+          "Gorathkar",
+          "Lithvar"
+        ],
+        "towns": [
+          "Aelthéon",
+          "Caelvanna",
+          "Drae'vyris",
+          "Faeloria"
+        ],
+        "villages": [
+          "Mor'athéra",
+          "Oryndéa",
+          "Thalyréss"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "gruddirynn",
+      "name": "Gruddirynn",
+      "government": "Industrial Council",
+      "mood": "coal smoke, rail depots, and labor guild pressure",
+      "estimated_area_weight": 73441.85,
+      "timezone": {
+        "primary_utc": "UTC+5",
+        "primary_utc_offset_hours": 5.0,
+        "display_utc": [
+          "UTC+5",
+          "UTC+6"
+        ],
+        "display_utc_offset_hours": [
+          5.0,
+          6.0
+        ],
+        "center_longitude": 78.009,
+        "center_latitude": -62.445,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Sleakitika"
+        ],
+        "cities": [
+          "Umiotope",
+          "Wrobetopia",
+          "Bleosianys"
+        ],
+        "towns": [
+          "Aelvyréa",
+          "Coravûn",
+          "Dravéssar",
+          "Faeloryth"
+        ],
+        "villages": [
+          "Morélyth",
+          "Othéryn",
+          "Vaeloréss"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "iazethas",
+      "name": "Iazethas",
+      "government": "Magisterial Court",
+      "mood": "desert law, glass domes, and forbidden ruins",
+      "estimated_area_weight": 68328.58,
+      "timezone": {
+        "primary_utc": "UTC-10",
+        "primary_utc_offset_hours": -10.0,
+        "display_utc": [
+          "UTC-10",
+          "UTC-9"
+        ],
+        "display_utc_offset_hours": [
+          -10.0,
+          -9.0
+        ],
+        "center_longitude": -146.861,
+        "center_latitude": -14.171,
+        "notes": "Crosses antimeridian; settlement longitude should decide exact side."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Mostrerah"
+        ],
+        "cities": [
+          "Bleasacia",
+          "Streccea",
+          "Leammipa"
+        ],
+        "towns": [
+          "Cyr'ethael",
+          "Elaréth",
+          "Faelvyrûn"
+        ],
+        "villages": [
+          "Myr'ethûn",
+          "Pokbith",
+          "Vaeloris Greenlands"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "jor_maelis",
+      "name": "Jor’maelis",
+      "government": "Merchant League",
+      "mood": "markets, skyship yards, and beautiful corruption",
+      "estimated_area_weight": 127749.65,
+      "timezone": {
+        "primary_utc": "UTC+9",
+        "primary_utc_offset_hours": 9.0,
+        "display_utc": [
+          "UTC+8",
+          "UTC+9"
+        ],
+        "display_utc_offset_hours": [
+          8.0,
+          9.0
+        ],
+        "center_longitude": 130.627,
+        "center_latitude": -46.374,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Mossirueth"
+        ],
+        "cities": [
+          "Utch’myrith",
+          "Yire’thaulor",
+          "Li’mioreimn",
+          "Rnzeuluun"
+        ],
+        "towns": [
+          "Ish’voryk",
+          "Meadowlight Expanse",
+          "Caelorynth",
+          "Cyravûn"
+        ],
+        "villages": [
+          "Éryndor",
+          "Lythéra",
+          "Nyr'thalor",
+          "Thyraléa"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 4,
+        "towns": 4,
+        "villages": 4,
+        "total": 13
+      }
+    },
+    {
+      "id": "kaelvorrin",
+      "name": "Kaelvorrin",
+      "government": "Knightly Protectorate",
+      "mood": "fortified roads, border keeps, and oathbound patrols",
+      "estimated_area_weight": 44298.21,
+      "timezone": {
+        "primary_utc": "UTC",
+        "primary_utc_offset_hours": 0,
+        "display_utc": [
+          "UTC",
+          "UTC+1"
+        ],
+        "display_utc_offset_hours": [
+          0,
+          1.0
+        ],
+        "center_longitude": 5.828,
+        "center_latitude": 6.383,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Dunvyr"
+        ],
+        "cities": [
+          "Mistval",
+          "Silverwake",
+          "Kael'vyrûn"
+        ],
+        "towns": [
+          "Silver Véil",
+          "Heths’ther",
+          "Myrathéa"
+        ],
+        "villages": [
+          "Thal'ryssûn",
+          "Velunéth"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "kharvathen",
+      "name": "Kharvathen",
+      "government": "Mining Directorate",
+      "mood": "mountain elevators, mines, factories, and pressure from below",
+      "estimated_area_weight": 46609.63,
+      "timezone": {
+        "primary_utc": "UTC-3",
+        "primary_utc_offset_hours": -3.0,
+        "display_utc": [
+          "UTC-3",
+          "UTC-2"
+        ],
+        "display_utc_offset_hours": [
+          -3.0,
+          -2.0
+        ],
+        "center_longitude": -44.077,
+        "center_latitude": -2.058,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Kharzund"
+        ],
+        "cities": [
+          "Ironwood",
+          "Dorghalun",
+          "Greybriar"
+        ],
+        "towns": [
+          "Zarveng",
+          "Thornbreak",
+          "Draskminn"
+        ],
+        "villages": [
+          "Rivenwild",
+          "Lorath"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "khorvaak",
+      "name": "Khorvaak",
+      "government": "Warlord Compact",
+      "mood": "black iron, monster hunting, and suspicious watchtowers",
+      "estimated_area_weight": 40090.31,
+      "timezone": {
+        "primary_utc": "UTC+10",
+        "primary_utc_offset_hours": 10.0,
+        "display_utc": [
+          "UTC+9",
+          "UTC+10"
+        ],
+        "display_utc_offset_hours": [
+          9.0,
+          10.0
+        ],
+        "center_longitude": 149.446,
+        "center_latitude": 21.738,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Vorathûn"
+        ],
+        "cities": [
+          "Khazovar",
+          "Bloodmire",
+          "Cyraléth"
+        ],
+        "towns": [
+          "Élarwyn",
+          "Lunoréa",
+          "Norevûn"
+        ],
+        "villages": [
+          "Thaléssar",
+          "Vyraléth"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "lun_tharave",
+      "name": "Lun’tharavé",
+      "government": "Moonlit Synod",
+      "mood": "lunar rites, dream markets, and moon-influenced weather",
+      "estimated_area_weight": 61017.07,
+      "timezone": {
+        "primary_utc": "UTC+1",
+        "primary_utc_offset_hours": 1.0,
+        "display_utc": [
+          "UTC+1",
+          "UTC+2"
+        ],
+        "display_utc_offset_hours": [
+          1.0,
+          2.0
+        ],
+        "center_longitude": 16.816,
+        "center_latitude": -70.778,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Auralisthra"
+        ],
+        "cities": [
+          "Seralun",
+          "Vireluna",
+          "Sylmaris"
+        ],
+        "towns": [
+          "Neruvéa",
+          "Caelunor",
+          "Lun'varae"
+        ],
+        "villages": [
+          "Lunathéa",
+          "Lunavéss",
+          "Lunévaris"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "marrowynd",
+      "name": "Marrowynd",
+      "government": "Necropolitan Registry",
+      "mood": "ossuary streets, grave contracts, and polite dread",
+      "estimated_area_weight": 82765.46,
+      "timezone": {
+        "primary_utc": "UTC-7",
+        "primary_utc_offset_hours": -7.0,
+        "display_utc": [
+          "UTC-8",
+          "UTC-7"
+        ],
+        "display_utc_offset_hours": [
+          -8.0,
+          -7.0
+        ],
+        "center_longitude": -112.285,
+        "center_latitude": 61.786,
+        "notes": "Crosses antimeridian; settlement longitude should decide exact side."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Stormharrow"
+        ],
+        "cities": [
+          "Blacktide Reach",
+          "Thalmerrow",
+          "Seawynd Hollow"
+        ],
+        "towns": [
+          "Myrkwake",
+          "Vaelshore",
+          "Cindervale Coast",
+          "Kharrowport"
+        ],
+        "villages": [
+          "Shadewharf",
+          "Orinthéa",
+          "Thyrévara"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "nalvessir",
+      "name": "Nalvessir",
+      "government": "Arcane Regency",
+      "mood": "mana tariffs, old nobility, and polished menace",
+      "estimated_area_weight": 39049.5,
+      "timezone": {
+        "primary_utc": "UTC+7",
+        "primary_utc_offset_hours": 7.0,
+        "display_utc": [
+          "UTC+7",
+          "UTC+8"
+        ],
+        "display_utc_offset_hours": [
+          7.0,
+          8.0
+        ],
+        "center_longitude": 109.263,
+        "center_latitude": 19.376,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Greenmire"
+        ],
+        "cities": [
+          "Porthelis",
+          "Briarwater"
+        ],
+        "towns": [
+          "Bentharys",
+          "Palevanna",
+          "Balmire"
+        ],
+        "villages": [
+          "Frostfen",
+          "Pellavess"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 2,
+        "towns": 3,
+        "villages": 2,
+        "total": 8
+      }
+    },
+    {
+      "id": "pelvoryn",
+      "name": "Pelvoryn",
+      "government": "Agrarian Council",
+      "mood": "grain towns, festivals, and buried rural horror",
+      "estimated_area_weight": 28708.54,
+      "timezone": {
+        "primary_utc": "UTC+1",
+        "primary_utc_offset_hours": 1.0,
+        "display_utc": [
+          "UTC",
+          "UTC+1"
+        ],
+        "display_utc_offset_hours": [
+          0,
+          1.0
+        ],
+        "center_longitude": 11.487,
+        "center_latitude": -12.748,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Belynthar"
+        ],
+        "cities": [
+          "Gavaryn",
+          "Lysvire"
+        ],
+        "towns": [
+          "Fensylth",
+          "Lysévara",
+          "Nythéssa"
+        ],
+        "villages": [
+          "Thaloréa",
+          "Wildsunder"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 2,
+        "towns": 3,
+        "villages": 2,
+        "total": 8
+      }
+    },
+    {
+      "id": "sylvaveryn",
+      "name": "Sylvavéryn",
+      "government": "Druidic Compact",
+      "mood": "lush forests, living bridges, and sacred beasts",
+      "estimated_area_weight": 58407.56,
+      "timezone": {
+        "primary_utc": "UTC-6",
+        "primary_utc_offset_hours": -6.0,
+        "display_utc": [
+          "UTC-6",
+          "UTC-5"
+        ],
+        "display_utc_offset_hours": [
+          -6.0,
+          -5.0
+        ],
+        "center_longitude": -86.299,
+        "center_latitude": 8.067,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Vaelthyros"
+        ],
+        "cities": [
+          "Elaravosk",
+          "Myrvaelûn",
+          "Sylthadös"
+        ],
+        "towns": [
+          "Thalavaryn",
+          "Vaerundell",
+          "Lethyrvos"
+        ],
+        "villages": [
+          "Aelmyrwald",
+          "Syl'thara",
+          "Sylthéa"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 3,
+        "total": 10
+      }
+    },
+    {
+      "id": "thalryss",
+      "name": "Thalryss",
+      "government": "Harbor Diet",
+      "mood": "ferries, docks, shipwrights, and sea fog",
+      "estimated_area_weight": 71628.35,
+      "timezone": {
+        "primary_utc": "UTC-9",
+        "primary_utc_offset_hours": -9.0,
+        "display_utc": [
+          "UTC-10",
+          "UTC-9"
+        ],
+        "display_utc_offset_hours": [
+          -10.0,
+          -9.0
+        ],
+        "center_longitude": -138.357,
+        "center_latitude": 15.56,
+        "notes": "Crosses antimeridian; settlement longitude should decide exact side."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Skulltide Expanse"
+        ],
+        "cities": [
+          "Leviamor",
+          "Ocevaruun",
+          "Blackwake Isles"
+        ],
+        "towns": [
+          "Thal’kazuun",
+          "Dreadcurrent",
+          "Vorthalass",
+          "Abyrros"
+        ],
+        "villages": [
+          "Grimwater Reach",
+          "Morvyrûn-Thal",
+          "Nythalûn"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "vaelmyrith",
+      "name": "Vaelmyrith",
+      "government": "Shadow Senate",
+      "mood": "noble salons, spies, and twilight contracts",
+      "estimated_area_weight": 72373.11,
+      "timezone": {
+        "primary_utc": "UTC+2",
+        "primary_utc_offset_hours": 2.0,
+        "display_utc": [
+          "UTC+2",
+          "UTC+3"
+        ],
+        "display_utc_offset_hours": [
+          2.0,
+          3.0
+        ],
+        "center_longitude": 36.153,
+        "center_latitude": 65.988,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Eldryssar"
+        ],
+        "cities": [
+          "Lunethryl",
+          "Velkynwood",
+          "Whispergrove"
+        ],
+        "towns": [
+          "Eldaréss",
+          "Eldavûn",
+          "Faelunéth",
+          "Morvélyn"
+        ],
+        "villages": [
+          "Myrvéla",
+          "Oravélyn",
+          "Sylthéra-Vael"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 4,
+        "villages": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "valerune",
+      "name": "Valerune",
+      "government": "Runic Concord",
+      "mood": "old rune roads, warded valleys, border oaths, and quiet magical weather",
+      "estimated_area_weight": 31229.13,
+      "timezone": {
+        "primary_utc": "UTC+5",
+        "primary_utc_offset_hours": 5.0,
+        "display_utc": [
+          "UTC+4",
+          "UTC+5"
+        ],
+        "display_utc_offset_hours": [
+          4.0,
+          5.0
+        ],
+        "center_longitude": 69.651,
+        "center_latitude": -33.735,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Avarélyn"
+        ],
+        "cities": [
+          "Brassmere Concord",
+          "Scalori"
+        ],
+        "towns": [
+          "Sunvale Reach",
+          "Valdrune Fields",
+          "Nythavéa"
+        ],
+        "villages": [
+          "Thaloju",
+          "Whispering Éstuary"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 2,
+        "towns": 3,
+        "villages": 2,
+        "total": 8
+      }
+    },
+    {
+      "id": "virelport",
+      "name": "Virelport",
+      "government": "Free Port Authority",
+      "mood": "dock unions, smugglers, ferries, and steam cranes",
+      "estimated_area_weight": 50192.29,
+      "timezone": {
+        "primary_utc": "UTC+6",
+        "primary_utc_offset_hours": 6.0,
+        "display_utc": [
+          "UTC+5",
+          "UTC+6"
+        ],
+        "display_utc_offset_hours": [
+          5.0,
+          6.0
+        ],
+        "center_longitude": 82.978,
+        "center_latitude": 74.861,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Bronzewake"
+        ],
+        "cities": [
+          "Veilstrand",
+          "Straithaven",
+          "Stormgullet"
+        ],
+        "towns": [
+          "Vireléssar",
+          "Virelyss",
+          "Virethéa"
+        ],
+        "villages": [
+          "Virethûn",
+          "Vaeluréss"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    },
+    {
+      "id": "vuelmora",
+      "name": "Vuelmora",
+      "government": "Civic Technocracy",
+      "mood": "clockwork utilities, census offices, and rail planning",
+      "estimated_area_weight": 27017.38,
+      "timezone": {
+        "primary_utc": "UTC+7",
+        "primary_utc_offset_hours": 7.0,
+        "display_utc": [
+          "UTC+7",
+          "UTC+8"
+        ],
+        "display_utc_offset_hours": [
+          7.0,
+          8.0
+        ],
+        "center_longitude": 108.95,
+        "center_latitude": -17.703,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Hyselva"
+        ],
+        "cities": [
+          "Oelnoreu",
+          "Mornelya"
+        ],
+        "towns": [
+          "Ithmora",
+          "Glysera",
+          "Thyravéa-Morn"
+        ],
+        "villages": [
+          "Thaloréa Reach",
+          "Xel'ryndor"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 2,
+        "towns": 3,
+        "villages": 2,
+        "total": 8
+      }
+    },
+    {
+      "id": "zal_tharuun",
+      "name": "Zal’tharuun",
+      "government": "Relic Monarchy",
+      "mood": "ancient bloodlines, cursed crowns, and old vaults",
+      "estimated_area_weight": 176208.4,
+      "timezone": {
+        "primary_utc": "UTC-7",
+        "primary_utc_offset_hours": -7.0,
+        "display_utc": [
+          "UTC-7",
+          "UTC-6"
+        ],
+        "display_utc_offset_hours": [
+          -7.0,
+          -6.0
+        ],
+        "center_longitude": -104.774,
+        "center_latitude": -60.995,
+        "notes": "Crosses antimeridian; settlement longitude should decide exact side."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Sszaruun"
+        ],
+        "cities": [
+          "Thal’zuroth",
+          "Xal’voroq",
+          "Ithkazuun",
+          "Varesh-Ka"
+        ],
+        "towns": [
+          "Zhurak’thel",
+          "Vaelzahara",
+          "Amazuul",
+          "Keth’mora",
+          "Keth'varûn"
+        ],
+        "villages": [
+          "Vael'zyr",
+          "Vaerûn-Keth",
+          "Zelvarûn",
+          "Zor'elyth"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 4,
+        "towns": 5,
+        "villages": 4,
+        "total": 14
+      }
+    },
+    {
+      "id": "zharvokh",
+      "name": "Zharvokh",
+      "government": "Forge Tribunal",
+      "mood": "foundries, soot, hammers, and grim justice",
+      "estimated_area_weight": 42499.3,
+      "timezone": {
+        "primary_utc": "UTC-4",
+        "primary_utc_offset_hours": -4.0,
+        "display_utc": [
+          "UTC-5",
+          "UTC-4"
+        ],
+        "display_utc_offset_hours": [
+          -5.0,
+          -4.0
+        ],
+        "center_longitude": -60.833,
+        "center_latitude": 73.588,
+        "notes": "Use secondary UTC only for settlements near that side of the province."
+      },
+      "settlements": {
+        "capital_cities": [
+          "Karag-Thûl"
+        ],
+        "cities": [
+          "Vulkradûn",
+          "Tharvokar",
+          "Moltharok"
+        ],
+        "towns": [
+          "Drakzhul",
+          "Kharévok",
+          "Myrvéssa"
+        ],
+        "villages": [
+          "Thal'véra",
+          "Vorthélyn"
+        ]
+      },
+      "settlement_counts": {
+        "capital_cities": 1,
+        "cities": 3,
+        "towns": 3,
+        "villages": 2,
+        "total": 9
+      }
+    }
+  ],
+  "indexes": {
+    "province_names": [
+      "Aelvanyr",
+      "Aelwynora",
+      "Astraevos",
+      "Bravelyn",
+      "Ceulrithan",
+      "Drakmorren",
+      "Earrorim",
+      "El'dravire Riverrealm",
+      "Eldermere",
+      "Falthrakar",
+      "Gruddirynn",
+      "Iazethas",
+      "Jor’maelis",
+      "Kaelvorrin",
+      "Kharvathen",
+      "Khorvaak",
+      "Lun’tharavé",
+      "Marrowynd",
+      "Nalvessir",
+      "Pelvoryn",
+      "Sylvavéryn",
+      "Thalryss",
+      "Vaelmyrith",
+      "Valerune",
+      "Virelport",
+      "Vuelmora",
+      "Zal’tharuun",
+      "Zharvokh"
+    ],
+    "provinces_by_government": {
+      "Participatory Democracy": [
+        "Aelvanyr"
+      ],
+      "Consensus": [
+        "Aelwynora"
+      ],
+      "Noocracy": [
+        "Astraevos"
+      ],
+      "Guild Parliament": [
+        "Bravelyn"
+      ],
+      "Confessional Government": [
+        "Ceulrithan"
+      ],
+      "Oligarchy": [
+        "Drakmorren"
+      ],
+      "Maritime Compact": [
+        "Earrorim"
+      ],
+      "Parliamentary Government": [
+        "El'dravire Riverrealm"
+      ],
+      "Cooperative Commonwealth": [
+        "Eldermere"
+      ],
+      "Mountain Clans": [
+        "Falthrakar"
+      ],
+      "Industrial Council": [
+        "Gruddirynn"
+      ],
+      "Magisterial Court": [
+        "Iazethas"
+      ],
+      "Merchant League": [
+        "Jor’maelis"
+      ],
+      "Knightly Protectorate": [
+        "Kaelvorrin"
+      ],
+      "Mining Directorate": [
+        "Kharvathen"
+      ],
+      "Warlord Compact": [
+        "Khorvaak"
+      ],
+      "Moonlit Synod": [
+        "Lun’tharavé"
+      ],
+      "Necropolitan Registry": [
+        "Marrowynd"
+      ],
+      "Arcane Regency": [
+        "Nalvessir"
+      ],
+      "Agrarian Council": [
+        "Pelvoryn"
+      ],
+      "Druidic Compact": [
+        "Sylvavéryn"
+      ],
+      "Harbor Diet": [
+        "Thalryss"
+      ],
+      "Shadow Senate": [
+        "Vaelmyrith"
+      ],
+      "Runic Concord": [
+        "Valerune"
+      ],
+      "Free Port Authority": [
+        "Virelport"
+      ],
+      "Civic Technocracy": [
+        "Vuelmora"
+      ],
+      "Relic Monarchy": [
+        "Zal’tharuun"
+      ],
+      "Forge Tribunal": [
+        "Zharvokh"
+      ]
+    },
+    "settlements_by_name": {
+      "Mythraelyn": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "capital_city"
+      },
+      "Drakesylva": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "city"
+      },
+      "Elarvess": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "city"
+      },
+      "Everwake": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "city"
+      },
+      "Faeloryn": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "town"
+      },
+      "Lunawyn": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "town"
+      },
+      "Rootmere": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "town"
+      },
+      "Sylvarielle": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "village"
+      },
+      "Vaelithorne": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "village"
+      },
+      "Wildbloom": {
+        "province": "Aelvanyr",
+        "province_id": "aelvanyr",
+        "category": "village"
+      },
+      "Elarithen": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "capital_city"
+      },
+      "Ulwyn": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "city"
+      },
+      "Wilsara": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "city"
+      },
+      "Yltharien": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "city"
+      },
+      "Elarion Pastures": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "town"
+      },
+      "Sylvarûn": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "town"
+      },
+      "Sylvathûn": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "town"
+      },
+      "Sylvéraith": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "town"
+      },
+      "Yl'varessa": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "village"
+      },
+      "Orynéssa": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "village"
+      },
+      "Vaelméra": {
+        "province": "Aelwynora",
+        "province_id": "aelwynora",
+        "category": "village"
+      },
+      "Vaelunthir": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "capital_city"
+      },
+      "Mythalora": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "city"
+      },
+      "Aelshoreth": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "city"
+      },
+      "Cyralune": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "city"
+      },
+      "Orithalune": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "town"
+      },
+      "Caelmyros": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "town"
+      },
+      "Ael'voryn": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "town"
+      },
+      "Aelmoryth": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "village"
+      },
+      "Aelryss-Kor": {
+        "province": "Astraevos",
+        "province_id": "astraevos",
+        "category": "village"
+      },
+      "Solvaryn": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "capital_city"
+      },
+      "Loxvire": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "city"
+      },
+      "Qasvire": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "city"
+      },
+      "Qelvandra": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "city"
+      },
+      "Sundervale": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "town"
+      },
+      "Xelvoryn": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "town"
+      },
+      "Qel'vorys": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "town"
+      },
+      "Soltharyn Basin": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "village"
+      },
+      "Solthéra": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "village"
+      },
+      "Solunéa": {
+        "province": "Bravelyn",
+        "province_id": "bravelyn",
+        "category": "village"
+      },
+      "Gildri": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "capital_city"
+      },
+      "Cindrau": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "city"
+      },
+      "Turyne": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "city"
+      },
+      "Qov'ei": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "city"
+      },
+      "Rilvays": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "town"
+      },
+      "Faelith": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "town"
+      },
+      "Cindréa": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "town"
+      },
+      "Th’oyndor": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "village"
+      },
+      "Vaelyssa": {
+        "province": "Ceulrithan",
+        "province_id": "ceulrithan",
+        "category": "village"
+      },
+      "Grimvald": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "capital_city"
+      },
+      "Vorakmar": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "city"
+      },
+      "Fenwyrd": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "city"
+      },
+      "Kharrowfen": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "city"
+      },
+      "Morvakar": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "town"
+      },
+      "Elarûneth": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "town"
+      },
+      "Heth'vára": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "town"
+      },
+      "Myraléon": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "village"
+      },
+      "Skarnfell": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "village"
+      },
+      "Vaelorûn": {
+        "province": "Drakmorren",
+        "province_id": "drakmorren",
+        "category": "village"
+      },
+      "Glattonica": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "capital_city"
+      },
+      "Iciarene": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "city"
+      },
+      "Wagriolyn": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "city"
+      },
+      "Ullunor": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "city"
+      },
+      "Obriasos": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "town"
+      },
+      "Wrasserah": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "town"
+      },
+      "Myralûn": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "town"
+      },
+      "Solvyréa": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "village"
+      },
+      "Vaelynor": {
+        "province": "Earrorim",
+        "province_id": "earrorim",
+        "category": "village"
+      },
+      "Lorangriel": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "capital_city"
+      },
+      "Merrinthal": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "city"
+      },
+      "Murethash": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "city"
+      },
+      "Yi’vanyr": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "city"
+      },
+      "Veloraskkis": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "city"
+      },
+      "Aelrúnor": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "town"
+      },
+      "Caelthyrûn": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "town"
+      },
+      "Cyréthar": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "town"
+      },
+      "Fael'ryss": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "town"
+      },
+      "Maelvéra": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "village"
+      },
+      "Or'lythae": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "village"
+      },
+      "Thyralûn": {
+        "province": "El'dravire Riverrealm",
+        "province_id": "el_dravire_riverrealm",
+        "category": "village"
+      },
+      "Sylvanreach": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "capital_city"
+      },
+      "Oakenshire": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "city"
+      },
+      "Riverbloom": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "city"
+      },
+      "Aelgrove": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "city"
+      },
+      "Cloverfen": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "town"
+      },
+      "Mossvale": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "town"
+      },
+      "Faelmere": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "town"
+      },
+      "Lunebriar": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "village"
+      },
+      "Greenhollow Plains": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "village"
+      },
+      "Harvestmere": {
+        "province": "Eldermere",
+        "province_id": "eldermere",
+        "category": "village"
+      },
+      "Nellvaris": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "capital_city"
+      },
+      "Brokharn": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "city"
+      },
+      "Gorathkar": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "city"
+      },
+      "Lithvar": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "city"
+      },
+      "Aelthéon": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "town"
+      },
+      "Caelvanna": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "town"
+      },
+      "Drae'vyris": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "town"
+      },
+      "Faeloria": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "town"
+      },
+      "Mor'athéra": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "village"
+      },
+      "Oryndéa": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "village"
+      },
+      "Thalyréss": {
+        "province": "Falthrakar",
+        "province_id": "falthrakar",
+        "category": "village"
+      },
+      "Sleakitika": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "capital_city"
+      },
+      "Umiotope": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "city"
+      },
+      "Wrobetopia": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "city"
+      },
+      "Bleosianys": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "city"
+      },
+      "Aelvyréa": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "town"
+      },
+      "Coravûn": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "town"
+      },
+      "Dravéssar": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "town"
+      },
+      "Faeloryth": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "town"
+      },
+      "Morélyth": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "village"
+      },
+      "Othéryn": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "village"
+      },
+      "Vaeloréss": {
+        "province": "Gruddirynn",
+        "province_id": "gruddirynn",
+        "category": "village"
+      },
+      "Mostrerah": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "capital_city"
+      },
+      "Bleasacia": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "city"
+      },
+      "Streccea": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "city"
+      },
+      "Leammipa": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "city"
+      },
+      "Cyr'ethael": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "town"
+      },
+      "Elaréth": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "town"
+      },
+      "Faelvyrûn": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "town"
+      },
+      "Myr'ethûn": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "village"
+      },
+      "Pokbith": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "village"
+      },
+      "Vaeloris Greenlands": {
+        "province": "Iazethas",
+        "province_id": "iazethas",
+        "category": "village"
+      },
+      "Mossirueth": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "capital_city"
+      },
+      "Utch’myrith": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "city"
+      },
+      "Yire’thaulor": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "city"
+      },
+      "Li’mioreimn": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "city"
+      },
+      "Rnzeuluun": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "city"
+      },
+      "Ish’voryk": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "town"
+      },
+      "Meadowlight Expanse": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "town"
+      },
+      "Caelorynth": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "town"
+      },
+      "Cyravûn": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "town"
+      },
+      "Éryndor": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "village"
+      },
+      "Lythéra": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "village"
+      },
+      "Nyr'thalor": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "village"
+      },
+      "Thyraléa": {
+        "province": "Jor’maelis",
+        "province_id": "jor_maelis",
+        "category": "village"
+      },
+      "Dunvyr": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "capital_city"
+      },
+      "Mistval": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "city"
+      },
+      "Silverwake": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "city"
+      },
+      "Kael'vyrûn": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "city"
+      },
+      "Silver Véil": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "town"
+      },
+      "Heths’ther": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "town"
+      },
+      "Myrathéa": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "town"
+      },
+      "Thal'ryssûn": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "village"
+      },
+      "Velunéth": {
+        "province": "Kaelvorrin",
+        "province_id": "kaelvorrin",
+        "category": "village"
+      },
+      "Kharzund": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "capital_city"
+      },
+      "Ironwood": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "city"
+      },
+      "Dorghalun": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "city"
+      },
+      "Greybriar": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "city"
+      },
+      "Zarveng": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "town"
+      },
+      "Thornbreak": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "town"
+      },
+      "Draskminn": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "town"
+      },
+      "Rivenwild": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "village"
+      },
+      "Lorath": {
+        "province": "Kharvathen",
+        "province_id": "kharvathen",
+        "category": "village"
+      },
+      "Vorathûn": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "capital_city"
+      },
+      "Khazovar": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "city"
+      },
+      "Bloodmire": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "city"
+      },
+      "Cyraléth": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "city"
+      },
+      "Élarwyn": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "town"
+      },
+      "Lunoréa": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "town"
+      },
+      "Norevûn": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "town"
+      },
+      "Thaléssar": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "village"
+      },
+      "Vyraléth": {
+        "province": "Khorvaak",
+        "province_id": "khorvaak",
+        "category": "village"
+      },
+      "Auralisthra": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "capital_city"
+      },
+      "Seralun": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "city"
+      },
+      "Vireluna": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "city"
+      },
+      "Sylmaris": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "city"
+      },
+      "Neruvéa": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "town"
+      },
+      "Caelunor": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "town"
+      },
+      "Lun'varae": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "town"
+      },
+      "Lunathéa": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "village"
+      },
+      "Lunavéss": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "village"
+      },
+      "Lunévaris": {
+        "province": "Lun’tharavé",
+        "province_id": "lun_tharave",
+        "category": "village"
+      },
+      "Stormharrow": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "capital_city"
+      },
+      "Blacktide Reach": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "city"
+      },
+      "Thalmerrow": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "city"
+      },
+      "Seawynd Hollow": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "city"
+      },
+      "Myrkwake": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "town"
+      },
+      "Vaelshore": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "town"
+      },
+      "Cindervale Coast": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "town"
+      },
+      "Kharrowport": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "town"
+      },
+      "Shadewharf": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "village"
+      },
+      "Orinthéa": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "village"
+      },
+      "Thyrévara": {
+        "province": "Marrowynd",
+        "province_id": "marrowynd",
+        "category": "village"
+      },
+      "Greenmire": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "capital_city"
+      },
+      "Porthelis": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "city"
+      },
+      "Briarwater": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "city"
+      },
+      "Bentharys": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "town"
+      },
+      "Palevanna": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "town"
+      },
+      "Balmire": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "town"
+      },
+      "Frostfen": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "village"
+      },
+      "Pellavess": {
+        "province": "Nalvessir",
+        "province_id": "nalvessir",
+        "category": "village"
+      },
+      "Belynthar": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "capital_city"
+      },
+      "Gavaryn": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "city"
+      },
+      "Lysvire": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "city"
+      },
+      "Fensylth": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "town"
+      },
+      "Lysévara": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "town"
+      },
+      "Nythéssa": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "town"
+      },
+      "Thaloréa": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "village"
+      },
+      "Wildsunder": {
+        "province": "Pelvoryn",
+        "province_id": "pelvoryn",
+        "category": "village"
+      },
+      "Vaelthyros": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "capital_city"
+      },
+      "Elaravosk": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "city"
+      },
+      "Myrvaelûn": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "city"
+      },
+      "Sylthadös": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "city"
+      },
+      "Thalavaryn": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "town"
+      },
+      "Vaerundell": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "town"
+      },
+      "Lethyrvos": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "town"
+      },
+      "Aelmyrwald": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "village"
+      },
+      "Syl'thara": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "village"
+      },
+      "Sylthéa": {
+        "province": "Sylvavéryn",
+        "province_id": "sylvaveryn",
+        "category": "village"
+      },
+      "Skulltide Expanse": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "capital_city"
+      },
+      "Leviamor": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "city"
+      },
+      "Ocevaruun": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "city"
+      },
+      "Blackwake Isles": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "city"
+      },
+      "Thal’kazuun": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "town"
+      },
+      "Dreadcurrent": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "town"
+      },
+      "Vorthalass": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "town"
+      },
+      "Abyrros": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "town"
+      },
+      "Grimwater Reach": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "village"
+      },
+      "Morvyrûn-Thal": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "village"
+      },
+      "Nythalûn": {
+        "province": "Thalryss",
+        "province_id": "thalryss",
+        "category": "village"
+      },
+      "Eldryssar": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "capital_city"
+      },
+      "Lunethryl": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "city"
+      },
+      "Velkynwood": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "city"
+      },
+      "Whispergrove": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "city"
+      },
+      "Eldaréss": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "town"
+      },
+      "Eldavûn": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "town"
+      },
+      "Faelunéth": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "town"
+      },
+      "Morvélyn": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "town"
+      },
+      "Myrvéla": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "village"
+      },
+      "Oravélyn": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "village"
+      },
+      "Sylthéra-Vael": {
+        "province": "Vaelmyrith",
+        "province_id": "vaelmyrith",
+        "category": "village"
+      },
+      "Avarélyn": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "capital_city"
+      },
+      "Brassmere Concord": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "city"
+      },
+      "Scalori": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "city"
+      },
+      "Sunvale Reach": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "town"
+      },
+      "Valdrune Fields": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "town"
+      },
+      "Nythavéa": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "town"
+      },
+      "Thaloju": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "village"
+      },
+      "Whispering Éstuary": {
+        "province": "Valerune",
+        "province_id": "valerune",
+        "category": "village"
+      },
+      "Bronzewake": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "capital_city"
+      },
+      "Veilstrand": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "city"
+      },
+      "Straithaven": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "city"
+      },
+      "Stormgullet": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "city"
+      },
+      "Vireléssar": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "town"
+      },
+      "Virelyss": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "town"
+      },
+      "Virethéa": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "town"
+      },
+      "Virethûn": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "village"
+      },
+      "Vaeluréss": {
+        "province": "Virelport",
+        "province_id": "virelport",
+        "category": "village"
+      },
+      "Hyselva": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "capital_city"
+      },
+      "Oelnoreu": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "city"
+      },
+      "Mornelya": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "city"
+      },
+      "Ithmora": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "town"
+      },
+      "Glysera": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "town"
+      },
+      "Thyravéa-Morn": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "town"
+      },
+      "Thaloréa Reach": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "village"
+      },
+      "Xel'ryndor": {
+        "province": "Vuelmora",
+        "province_id": "vuelmora",
+        "category": "village"
+      },
+      "Sszaruun": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "capital_city"
+      },
+      "Thal’zuroth": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "city"
+      },
+      "Xal’voroq": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "city"
+      },
+      "Ithkazuun": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "city"
+      },
+      "Varesh-Ka": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "city"
+      },
+      "Zhurak’thel": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "town"
+      },
+      "Vaelzahara": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "town"
+      },
+      "Amazuul": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "town"
+      },
+      "Keth’mora": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "town"
+      },
+      "Keth'varûn": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "town"
+      },
+      "Vael'zyr": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "village"
+      },
+      "Vaerûn-Keth": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "village"
+      },
+      "Zelvarûn": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "village"
+      },
+      "Zor'elyth": {
+        "province": "Zal’tharuun",
+        "province_id": "zal_tharuun",
+        "category": "village"
+      },
+      "Karag-Thûl": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "capital_city"
+      },
+      "Vulkradûn": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "city"
+      },
+      "Tharvokar": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "city"
+      },
+      "Moltharok": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "city"
+      },
+      "Drakzhul": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "town"
+      },
+      "Kharévok": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "town"
+      },
+      "Myrvéssa": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "town"
+      },
+      "Thal'véra": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "village"
+      },
+      "Vorthélyn": {
+        "province": "Zharvokh",
+        "province_id": "zharvokh",
+        "category": "village"
+      }
+    }
+  }
+}

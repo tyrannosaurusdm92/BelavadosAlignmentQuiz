@@ -1,0 +1,3319 @@
+{
+  "schema": "belavados.night_sky.v1",
+  "title": "Belavadös Night Sky",
+  "subtitle": "A historical-style celestial analysis using Belavadös stars, moons, planets, constellation naming conventions, and Earth-facing sky time",
+  "document_type": "Celestial lore reference • moons • wandering worlds • stars • constellations • sky-time conversion",
+  "revision": {
+    "renamed_from": "belavados_constellations.json",
+    "previous_schema": "belavados.constellations.v1",
+    "previous_constellation_count": 0,
+    "generated_filename": "night_sky.json",
+    "source_docx": "Belavados_Night_Sky_Time_Conversion.docx"
+  },
+  "naming_and_replacement_rules": [
+    "The bright band crossing the sky is called the Star-River of Belavadös.",
+    "The observing landscape is described as the Great River Valley and its desert-edge skyfields.",
+    "The twelve wandering planets and two moons use the supplied invented names and coordinates.",
+    "The sky analysis keeps the historical-style latitude, precession, seasonality, and horizon logic, but is written as Belavadös sky lore rather than a modern archaeological report."
+  ],
+  "coordinate_system": {
+    "summary": "The sky is described with right ascension and declination. These coordinates function like celestial longitude and latitude. Apparent magnitude uses lower numbers for brighter objects, with negative values being especially bright. Planet and moon distances use AU or kilometers; stellar distances use light-years.",
+    "terms": [
+      {
+        "term": "RA",
+        "meaning_in_this_document": "Right Ascension, measured from 0h to 24h in hours, minutes, and seconds."
+      },
+      {
+        "term": "Dec",
+        "meaning_in_this_document": "Declination, measured in degrees north or south of the celestial equator."
+      },
+      {
+        "term": "AU",
+        "meaning_in_this_document": "Astronomical Unit, used for planet distances."
+      },
+      {
+        "term": "km",
+        "meaning_in_this_document": "Kilometers, used for moon distances."
+      },
+      {
+        "term": "ly",
+        "meaning_in_this_document": "Light-years, used for star distances."
+      },
+      {
+        "term": "Apparent magnitude",
+        "meaning_in_this_document": "Brightness as seen from the surface: lower is brighter."
+      },
+      {
+        "term": "Culmination altitude",
+        "meaning_in_this_document": "Approximate maximum height above the horizon for an observer near 30° N latitude."
+      }
+    ],
+    "observer_latitude_assumption": "approximately 30° N",
+    "circumpolar_threshold_declination": "+60°",
+    "southern_horizon_limit_declination": "-60°"
+  },
+  "time_conversion": {
+    "summary": [
+      "Use Earth dates and Earth time first for players, session schedules, travel timing, event boards, and deadlines. Use Belavadös dates second for lore records, temple calendars, journals, festivals, and immersion. A Belavadös astronomical year is 330.15 Belavadös solar days long, and those solar days are distributed evenly across the Earth year for table play.",
+      "For sky calculations, use solar progress rather than the named civil date. The civil calendar still has 330 named dates arranged as eleven 30-date months, while the 0.15 solar-day correction is spread through the year as a tiny clock drift. There is no bonus day or frozen end-period for moons, planets, tides, omens, or the Star-River."
+    ],
+    "belavados_astronomical_year_days": 330.15,
+    "belavados_civil_calendar_days": 330,
+    "belavados_civil_month_count": 11,
+    "belavados_civil_month_length_days": 30,
+    "formulas": {
+      "daysInEarthYear": "365, or 366 in a leap year",
+      "earthProgress": "(Earth day-of-year - 1 + fractionOfEarthDay) / daysInEarthYear",
+      "belSolarDayProgress": "earthProgress * 330.15",
+      "belCivilDateProgress": "earthProgress * 330",
+      "belavadosClockTime": "fractional_part(belSolarDayProgress) * 24"
+    },
+    "formula_notes": [
+      "1. daysInEarthYear = 365, or 366 in a leap year.",
+      "2. earthProgress = (Earth day-of-year - 1 + fractionOfEarthDay) / daysInEarthYear.",
+      "3. belSolarDayProgress = earthProgress x 330.15. Use this value for moon phases, planetary positions, tides, constellations, seasons, and sky omens.",
+      "4. belCivilDateProgress = earthProgress x 330. Use this value only for the named Belavadös month and date.",
+      "5. Belavadös clock time may use the fractional part of belSolarDayProgress x 24."
+    ],
+    "player_facing_observing_log_format": "Player-facing observing log format Write sky events Earth-first, then Belavadös-second: Earth Month Day, Year, local time with UTC label / Belavadös month date, weekday, Belavadös clock, solar-day progress, moon phase, and sky note. Settlement and province sky notes may include the settlement UTC when the observing site differs from the province primary UTC. Province summaries should show only one or two Earth-style UTC labels, while exact settlement exports can store the UTC chosen by longitude.",
+    "months": [
+      {
+        "number": 1,
+        "month": "Thoryn-Rahek",
+        "sky_record_theme": "aberrant life, primordial mutation, dangerous origins"
+      },
+      {
+        "number": 2,
+        "month": "Freysethysra",
+        "sky_record_theme": "crossroads, curses, beauty, temptation, forbidden pacts"
+      },
+      {
+        "number": 3,
+        "month": "Nefarokir",
+        "sky_record_theme": "death, spirits, memory, burial, cosmic ledgers"
+      },
+      {
+        "number": 4,
+        "month": "Thalunesh",
+        "sky_record_theme": "dreamers, tricksters, shapeshifters, wanderers, fey mischief"
+      },
+      {
+        "number": 5,
+        "month": "Horundar",
+        "sky_record_theme": "storms, oceans, floods, earthquakes, raw elemental force"
+      },
+      {
+        "number": 6,
+        "month": "Raeshkul",
+        "sky_record_theme": "intellect, psionics, strategy, higher understanding"
+      },
+      {
+        "number": 7,
+        "month": "Asethrimir",
+        "sky_record_theme": "freedom, revelry, wilderness survival, constructs, awakened machinery"
+      },
+      {
+        "number": 8,
+        "month": "Sokhivar",
+        "sky_record_theme": "sunlight, music, prophecy, divine freedom"
+      },
+      {
+        "number": 9,
+        "month": "Iskazunet",
+        "sky_record_theme": "beasts, instinct, fertility, shadows, curses, twilight-born peoples"
+      },
+      {
+        "number": 10,
+        "month": "Bastve'enlil",
+        "sky_record_theme": "tides, reefs, trenches, adaptation, civilization, instinct"
+      },
+      {
+        "number": 11,
+        "month": "Hathruna",
+        "sky_record_theme": "rebirth, rot, fungi, roots, decay cycles"
+      }
+    ],
+    "date_rule_note": "These month names are used for date labels only. A constellation, moon, or wandering world should still be calculated from belSolarDayProgress so the sky remains smooth across the full Earth year."
+  },
+  "historical_style_sky_setting": "The analysis assumes a view from approximately 30° N latitude. At 30° N, stars above about +60° declination are circumpolar, while stars below about -60° declination never rise. The sky looks dark, dense, and sharply structured. With no electric skyglow, the Star-River of Belavadös would have been a major visible feature rather than a faint haze. Bright planets, bright stars, both moons, and the eight named constellations would have served as seasonal markers, navigation guides, calendar anchors, and story-bearing landmarks.",
+  "star_river": {
+    "name": "Star-River of Belavadös",
+    "description": "The Star-River of Belavadös is the luminous band of unresolved stars and dark rifts crossing the night sky. In summer evenings, it would stretch through the southern gate-and-serpent sectors and climb toward the northern seasonal markers. In winter evenings, it would run near the Bronze Bull region, becoming paler but still visible under dry, dark conditions. From desert-edge skyfields, the Star-River would not have appeared as a smooth strip. It would have looked mottled, braided, and broken by dark channels. The brightest warm-season section would have been low-to-mid in the southern sky; the higher northern section would have served as a nightly path for visual navigation."
+  },
+  "nebula_fields": [
+    {
+      "id": "ahufej",
+      "name": "Âhufej",
+      "associated_lore": "Minotaur Labyrinth of Anubaldir",
+      "ra": "05h 48m",
+      "dec": "-05° 12′",
+      "ra_hours": 5.8,
+      "dec_degrees": -5.2,
+      "distance": "1,380 ly",
+      "span": "38 ly",
+      "type": "Emission cradle",
+      "dominant_colors": [
+        "Rose",
+        "gold",
+        "smoke-violet"
+      ],
+      "layer_structure": "Foreground soot lanes (900 ly), dense emission nursery (1,380 ly), red-brown rear cloud (5,800 ly)",
+      "texture_and_components": "Dense newborn stellar nursery with glowing hydrogen chambers. Rose tones arise from ionized hydrogen, gold from embedded young stars illuminating dust grains, while smoke-violet regions form where cooler molecular gas mingles with shadowed dust curtains. Texture resembles folded velvet mixed with branching smoke channels. Numerous protostars, Bok globules, and accretion knots are embedded throughout."
+    },
+    {
+      "id": "dus_idu",
+      "name": "Dus‘idu",
+      "associated_lore": "Silkborn Web of Thoryn-Rahek",
+      "ra": "12h 58m",
+      "dec": "+10° 44′",
+      "ra_hours": 12.966667,
+      "dec_degrees": 10.733333,
+      "distance": "2,100 ly",
+      "span": "62 ly",
+      "type": "Supernova veil",
+      "dominant_colors": [
+        "Cyan",
+        "jade",
+        "white"
+      ],
+      "layer_structure": "Silver strand foreground (1,100 ly), supernova shell (2,100 ly), violet mutation veil (6,200 ly)",
+      "texture_and_components": "Extremely filamentary remnant structure. Cyan and jade hues indicate oxygen-rich shock fronts while white regions mark compressed gas where multiple shock waves intersect. Texture appears as torn silk, braided tendrils, and lace-like membranes. Contains expanding ejecta sheets, ionized oxygen filaments, sulfur traces, and high-energy particle fronts."
+    },
+    {
+      "id": "edizfu",
+      "name": "Ềdizfu",
+      "associated_lore": "Dragonborn Dominion of Valkhamesh",
+      "ra": "16h 18m",
+      "dec": "-31° 06′",
+      "ra_hours": 16.3,
+      "dec_degrees": -31.1,
+      "distance": "5,600 ly",
+      "span": "95 ly",
+      "type": "Dark-rift flower",
+      "dominant_colors": [
+        "Magenta",
+        "blue-black",
+        "crimson"
+      ],
+      "layer_structure": "Foreground sparks (1,800 ly), storm sheet (4,200 ly), primary rift flower (5,600 ly), violet dust rear layer (7,900 ly)",
+      "texture_and_components": "Vast petal-shaped dark nebula carved through a glowing emission field. Crimson and magenta petals surround blue-black voids where dense molecular dust blocks starlight. Texture resembles layered flower petals made of smoke and velvet. Contains cold molecular clouds, active collapse zones, dark filaments, and bright ionization ridges outlining the rift edges."
+    },
+    {
+      "id": "jucdimx",
+      "name": "Juçdimx",
+      "associated_lore": "Crossroads Mask of Freyseth",
+      "ra": "21h 02m",
+      "dec": "-22° 18′",
+      "ra_hours": 21.033333,
+      "dec_degrees": -22.3,
+      "distance": "3,400 ly",
+      "span": "74 ly",
+      "type": "Reflection and dust complex",
+      "dominant_colors": [
+        "Silver",
+        "deep blue",
+        "pearl"
+      ],
+      "layer_structure": "Front ash layer (2,000 ly), reflective dust basin (3,400 ly), curse smoke (5,100 ly), under-road shadow (10,300 ly)",
+      "texture_and_components": "A highly reflective dust field illuminated by nearby blue stars. Silver and pearl regions arise from light scattering by fine silicate particles. Texture resembles finished frost, drifting fog banks, and layered mirror-glass sheets. Contains reflective silicate dust, carbonaceous smoke clouds, and fragmented molecular lanes."
+    },
+    {
+      "id": "jadd_jisud",
+      "name": "Jadd-Jisud",
+      "associated_lore": "Wechselkind Crown of Setrimir",
+      "ra": "00h 28m",
+      "dec": "-40° 02′",
+      "ra_hours": 0.466667,
+      "dec_degrees": -40.033333,
+      "distance": "8,900 ly",
+      "span": "120 ly",
+      "type": "Planetary shell cluster",
+      "dominant_colors": [
+        "Red",
+        "amber",
+        "charcoal"
+      ],
+      "layer_structure": "Metal-blue shell (2,200 ly), green shell (4,800 ly), primary red-amber shell cluster (8,900 ly), lost-key echo layer (9,600 ly)",
+      "texture_and_components": "Collection of overlapping planetary-nebula remnants. Amber and red shells arise from hydrogen and nitrogen emissions, while charcoal gaps reveal exhausted central cavities. Texture appears as stacked bubbles, fractured onion skins, and cracked glass spheres. Components include dying stellar cores, expanding gas shells, metallic ion clouds, and dusty ejecta rings."
+    },
+    {
+      "id": "horundar",
+      "name": "Horundar",
+      "associated_lore": "Sahuagin Deep Gate of Bastveig",
+      "ra": "23h 54m",
+      "dec": "+27° 36′",
+      "ra_hours": 23.9,
+      "dec_degrees": 27.6,
+      "distance": "1,900 ly",
+      "span": "46 ly",
+      "type": "Reflection mist and comet reservoir",
+      "dominant_colors": [
+        "White",
+        "pale gold",
+        "ice-blue"
+      ],
+      "layer_structure": "Tide mist (1,600 ly), reservoir core (1,900 ly), reef sheet (3,900 ly), blackwater wall (8,700 ly)",
+      "texture_and_components": "Diffuse cloud filled with icy cometary material. White and ice-blue coloration results from starlight reflecting from frozen dust and microscopic ice crystals. Texture resembles sea fog, frost plumes, and submerged currents. Rich in volatile compounds, comet embryos, crystalline ice grains, and reflective dust sheets."
+    },
+    {
+      "id": "wougen",
+      "name": "Wougen",
+      "associated_lore": "Luma Mirror of Nephthysra",
+      "ra": "13h 51m",
+      "dec": "+22° 08′",
+      "ra_hours": 13.85,
+      "dec_degrees": 22.133333,
+      "distance": "2,850 ly",
+      "span": "80 ly",
+      "type": "Star-forming cloud",
+      "dominant_colors": [
+        "Green-gold",
+        "cream",
+        "turquoise"
+      ],
+      "layer_structure": "Blue foreground haze (1,200 ly), star-forming core (2,850 ly), mirror sheet (3,600 ly), rose backwash (6,300 ly)",
+      "texture_and_components": "Massive molecular cloud actively producing stellar clusters. Green-gold regions arise from mixed oxygen and dust reflection, cream tones from warm embedded stars. Texture resembles billowing cream-colored thunderheads crossed by turquoise rivers. Components include molecular hydrogen reservoirs, stellar nurseries, evaporating gas pillars, and young cluster cavities."
+    },
+    {
+      "id": "siowoei",
+      "name": "Ŝiowoei",
+      "associated_lore": "Dragonborn Dominion outer spiral",
+      "ra": "09h 44m",
+      "dec": "+35° 19′",
+      "ra_hours": 9.733333,
+      "dec_degrees": 35.316667,
+      "distance": "4,200 ly",
+      "span": "68 ly",
+      "type": "Spiral dust coil",
+      "dominant_colors": [
+        "Violet",
+        "silver",
+        "dark blue"
+      ],
+      "layer_structure": "Silver foreground threads (2,000 ly), central spiral coil (4,200 ly), violet rear dust (7,900 ly)",
+      "texture_and_components": "A rotating spiral dust formation resembling a galactic whirlpool. Dark blue channels mark denser dust lanes while silver highlights indicate reflected starlight. Texture resembles braided ribbons, hurricane bands, and coiled smoke. Contains spiral molecular filaments, reflective silicates, and embedded star embryos tracing the coil arms."
+    }
+  ],
+  "celestial_inventory": [
+    {
+      "object_type": "Wandering planets",
+      "count": "12",
+      "notes": "Four are ringed: Vishtecu-Hyperu, Enlimitra, Quetzal-Hermeshu, Varunatl-Kronu."
+    },
+    {
+      "object_type": "Moons",
+      "count": "2",
+      "notes": "A nested lunar system: Chandratecu-Seleneš carries Mictlindra-Nannara."
+    },
+    {
+      "object_type": "Constellation stars",
+      "count": "48",
+      "notes": "Remote fixed stars with constellation-fitted RA, Dec, distance, color, apparent magnitude, and partial-visibility notes."
+    },
+    {
+      "object_type": "Constellations",
+      "count": "8",
+      "notes": "Belavadös sky figures with generator-ready star layouts."
+    },
+    {
+      "object_type": "Total named celestial objects / groups",
+      "count": "70",
+      "notes": "Planets, moons, distant constellation stars, and constellations."
+    }
+  ],
+  "moons": {
+    "phase_pacing": {
+      "rules": [
+        "Chandratecu-Seleneš phase = (belSolarDayProgress mod 19.20) / 19.20.",
+        "Mictlindra-Nannara phase = (belSolarDayProgress mod 2.02) / 2.02.",
+        "Use the resulting fraction as the phase position in the lunar cycle. This keeps both moons moving continuously across non-leap and leap Earth years."
+      ],
+      "chandratecu_seleneš_formula": "(belSolarDayProgress mod 19.20) / 19.20",
+      "mictlindra_nannara_formula": "(belSolarDayProgress mod 2.02) / 2.02"
+    },
+    "moons": [
+      {
+        "id": "chandratecu_selenes",
+        "name": "Chandratecu-Seleneš",
+        "relationship": "Primary moon orbiting Belavadös",
+        "position_average_orbital_distance": "386,200 km from Belavadös",
+        "speed": "3,272 mph / 5,267 km/h / 1.46 km/s",
+        "full_orbit_time": "19.20 Belavadös days",
+        "appearance": "Large silver-white moon with faint blue-gray maria",
+        "notes": "Similar apparent size to the real Moon, but with broader dark basins and a brighter southern highland."
+      },
+      {
+        "id": "mictlindra_nannara",
+        "name": "Mictlindra-Nannara",
+        "relationship": "Smaller moonlet orbiting Chandratecu-Seleneš",
+        "position_average_orbital_distance": "41,600 km from Chandratecu-Seleneš",
+        "speed": "3,355 mph / 5,400 km/h / 1.50 km/s",
+        "full_orbit_time": "2.02 Belavadös days",
+        "appearance": "Small copper-gray moonlet with sharp crescent phase",
+        "notes": "N/A"
+      }
+    ],
+    "primary_moon_size": {
+      "diameter": "1,749 mi / 2,815 km",
+      "circumference": "5,494 mi / 8,843 km",
+      "volume": "11.64 billion km³",
+      "mass": "3.91 × 10²² kg"
+    },
+    "primary_moon_compared_to_belavados": {
+      "diameter": "~22% of Belavadös's diameter",
+      "circumference": "~22% of Belavadös's circumference",
+      "volume": "~1.1% of Belavadös's volume",
+      "mass": "~0.64% of Belavadös's mass"
+    },
+    "dwarf_moon_size": {
+      "diameter": "1,014 mi / 1,633 km",
+      "circumference": "3,187 mi / 5,129 km",
+      "volume": "2.27 billion km³",
+      "mass": "7.63 × 10²¹ kg"
+    },
+    "dwarf_moon_compared_to_belavados": {
+      "diameter": "~12.8% of Belavadös's diameter",
+      "circumference": "~12.8% of Belavadös's circumference",
+      "volume": "~0.21% of Belavadös's volume",
+      "mass": "~0.12% of Belavadös's mass"
+    },
+    "features": [
+      {
+        "feature": "Shared world orbit",
+        "description": "Chandratecu-Seleneš carries Mictlindra-Nannara along its monthly path."
+      },
+      {
+        "feature": "Moonlet visibility",
+        "description": "Mictlindra-Nannara usually appears close to Chandratecu-Seleneš and never strays far in the sky."
+      },
+      {
+        "feature": "Eclipses",
+        "description": "Several times per year, the moonlet can cross the primary lunar disk as a tiny moving black dot."
+      },
+      {
+        "feature": "Tides",
+        "description": "Chandratecu-Seleneš creates the main tides; Mictlindra-Nannara adds a subtle secondary pulse."
+      },
+      {
+        "feature": "Calendar effect",
+        "description": "Sky-watchers track both the broad phases of the larger moon and the smaller moonlet’s quick dance."
+      }
+    ]
+  },
+  "worlds": {
+    "intro": "The Twelve Worlds of the Belavadös System The worlds orbit their star upon a relatively flat shared plane known as the Celestial Road. Belavadös itself remains the 1.00 AU reference world with a 330.15 Belavadös-day astronomical year; player-facing dates distribute that year evenly across the Earth calendar.",
+    "major_worlds": [
+      {
+        "number": 1,
+        "world": "Surixoch-Aresu",
+        "average_distance_au": "0.2814 AU",
+        "average_distance_km": "42.1 million km",
+        "orbital_period_belavados_days": "49.28 days",
+        "orbital_period_belavados_years": "0.149 years",
+        "rings": "No"
+      },
+      {
+        "number": 2,
+        "world": "Mardukesh-Huitra",
+        "average_distance_au": "0.4891 AU",
+        "average_distance_km": "73.2 million km",
+        "orbital_period_belavados_days": "112.93 days",
+        "orbital_period_belavados_years": "0.342 years",
+        "rings": "No"
+      },
+      {
+        "number": 3,
+        "world": "Belavadös",
+        "average_distance_au": "1.00 AU",
+        "average_distance_km": "149.6 million km",
+        "orbital_period_belavados_days": "330.15",
+        "orbital_period_belavados_years": "1.00",
+        "rings": "No"
+      },
+      {
+        "number": 4,
+        "world": "Vishtecu-Hyperu",
+        "average_distance_au": "1.88 AU",
+        "average_distance_km": "281.2 million km",
+        "orbital_period_belavados_days": "3,915.58",
+        "orbital_period_belavados_years": "11.86",
+        "rings": "Yes"
+      },
+      {
+        "number": 5,
+        "world": "Enlimitra",
+        "average_distance_au": "2.47 AU",
+        "average_distance_km": "369.5 million km",
+        "orbital_period_belavados_days": "9,721.42",
+        "orbital_period_belavados_years": "29.45",
+        "rings": "Yes"
+      },
+      {
+        "number": 6,
+        "world": "Tlalokron-Shivae",
+        "average_distance_au": "3.92 AU",
+        "average_distance_km": "586.4 million km",
+        "orbital_period_belavados_days": "27,739.26",
+        "orbital_period_belavados_years": "84.02",
+        "rings": "No"
+      },
+      {
+        "number": 7,
+        "world": "Quetzal-Hermeshu",
+        "average_distance_au": "5.31 AU",
+        "average_distance_km": "794.4 million km",
+        "orbital_period_belavados_days": "54,420.72",
+        "orbital_period_belavados_years": "164.83",
+        "rings": "Yes"
+      }
+    ],
+    "minor_worlds_intro": "Minor worlds are rounded celestial bodies that share their orbital regions with numerous smaller bodies.",
+    "minor_worlds": [
+      {
+        "number": 8,
+        "world": "Nannarvati-Apollatl",
+        "region": "Marduthor Forgebelt",
+        "average_distance_au": "7.84 AU",
+        "average_distance_km": "1.17 billion km",
+        "orbital_period_belavados_days": "1,518.69",
+        "orbital_period_belavados_years": "4.60",
+        "rings": "No"
+      },
+      {
+        "number": 9,
+        "world": "Ishtarkali-Mictor",
+        "region": "Thalunesh Veil",
+        "average_distance_au": "11.20 AU",
+        "average_distance_km": "1.68 billion km",
+        "orbital_period_belavados_days": "81,877.20",
+        "orbital_period_belavados_years": "248.00",
+        "rings": "No"
+      },
+      {
+        "number": 10,
+        "world": "Varunatl-Kronu",
+        "region": "Thalunesh Veil",
+        "average_distance_au": "17.60 AU",
+        "average_distance_km": "2.63 billion km",
+        "orbital_period_belavados_days": "102,346.50",
+        "orbital_period_belavados_years": "310.00",
+        "rings": "Yes"
+      },
+      {
+        "number": 11,
+        "world": "Ea-Narayotl",
+        "region": "Eirzunet Shadow Reach",
+        "average_distance_au": "25.40 AU",
+        "average_distance_km": "3.80 billion km",
+        "orbital_period_belavados_days": "183,946.55",
+        "orbital_period_belavados_years": "557.14",
+        "rings": "No"
+      },
+      {
+        "number": 12,
+        "world": "Zeushamash-Indraxi",
+        "region": "Thalunesh Veil",
+        "average_distance_au": "38.90 AU",
+        "average_distance_km": "5.82 billion km",
+        "orbital_period_belavados_days": "94,092.75",
+        "orbital_period_belavados_years": "285.00",
+        "rings": "No"
+      }
+    ],
+    "celestial_regions": [
+      {
+        "region": "Marduthor Forgebelt",
+        "description": "Vast inner field of stone-rich and metal-rich celestial bodies."
+      },
+      {
+        "region": "Thalunesh Veil",
+        "description": "Distant realm of frozen wanderers, minor worlds, and ancient debris."
+      },
+      {
+        "region": "Eirzunet Shadow Reach",
+        "description": "Sparse outer frontier where isolated bodies travel immense orbital paths."
+      },
+      {
+        "region": "Nefarokir Boundary",
+        "description": "The furthest known limit of the star's influence."
+      },
+      {
+        "region": "Sokhivar's Road",
+        "description": "The great celestial plane followed by the worlds."
+      },
+      {
+        "region": "Ishtanora Fields",
+        "description": "Dense clusters of smaller wandering bodies."
+      },
+      {
+        "region": "Enkirael Hosts",
+        "description": "Swarms of companion bodies sharing larger worlds' paths."
+      },
+      {
+        "region": "Horundar Tides",
+        "description": "Reservoirs of long-period wanderers entering the inner system."
+      }
+    ],
+    "current_observed_worlds_excluding_belavados": [
+      {
+        "id": "surixoch_aresu",
+        "planet": "Surixoch-Aresu",
+        "size_class_prioritized": "Small rocky planet",
+        "distance": "0.42 AU",
+        "magnitude": "-1.8",
+        "magnitude_value": -1.8,
+        "ra": "02h 18m 44s",
+        "dec": "+12° 41′",
+        "ra_hours": 2.312222,
+        "dec_degrees": 12.683333,
+        "rings": "No",
+        "dominant_colors": [
+          "Copper",
+          "rust",
+          "ochre"
+        ],
+        "cloud_surface_features": "Dust basins, bright volcanic ridges, scarlet haze",
+        "appearance": "Copper-red body with golden dust storms"
+      },
+      {
+        "id": "mardukesh_huitra",
+        "planet": "Mardukesh-Huitra",
+        "size_class_prioritized": "Rocky greenhouse planet",
+        "distance": "0.73 AU",
+        "magnitude": "-3.2",
+        "magnitude_value": -3.2,
+        "ra": "04h 51m 03s",
+        "dec": "-04° 19′",
+        "ra_hours": 4.850833,
+        "dec_degrees": -4.316667,
+        "rings": "No",
+        "dominant_colors": [
+          "Pearl",
+          "jade",
+          "pale gold"
+        ],
+        "cloud_surface_features": "Dense cloud ocean, green auroral bands",
+        "appearance": "Pearl-white clouds with green polar glows"
+      },
+      {
+        "id": "vishtecu_hyperu",
+        "planet": "Vishtecu-Hyperu",
+        "size_class_prioritized": "Large rocky / mini-Neptune",
+        "distance": "1.88 AU",
+        "magnitude": "+1.1",
+        "magnitude_value": 1.1,
+        "ra": "09h 33m 58s",
+        "dec": "+07° 52′",
+        "ra_hours": 9.566111,
+        "dec_degrees": 7.866667,
+        "rings": "Yes",
+        "dominant_colors": [
+          "Amber",
+          "rose",
+          "bronze"
+        ],
+        "cloud_surface_features": "Smooth haze, golden storms",
+        "appearance": "Amber world with rose-gold rings"
+      },
+      {
+        "id": "enlimitra",
+        "planet": "Enlimitra",
+        "size_class_prioritized": "Gas giant",
+        "distance": "2.47 AU",
+        "magnitude": "+1.9",
+        "magnitude_value": 1.9,
+        "ra": "11h 42m 21s",
+        "dec": "-13° 37′",
+        "ra_hours": 11.705833,
+        "dec_degrees": -13.616667,
+        "rings": "Yes",
+        "dominant_colors": [
+          "Pale green",
+          "silver",
+          "white"
+        ],
+        "cloud_surface_features": "Soft bands, polar cloud caps",
+        "appearance": "Pale green giant with silver rings"
+      },
+      {
+        "id": "tlalokron_shivae",
+        "planet": "Tlalokron-Shivae",
+        "size_class_prioritized": "Storm giant",
+        "distance": "3.92 AU",
+        "magnitude": "+2.6",
+        "magnitude_value": 2.6,
+        "ra": "13h 05m 12s",
+        "dec": "-21° 14′",
+        "ra_hours": 13.086667,
+        "dec_degrees": -21.233333,
+        "rings": "No",
+        "dominant_colors": [
+          "Indigo",
+          "white",
+          "electric blue"
+        ],
+        "cloud_surface_features": "Lightning scars, equatorial storm chain",
+        "appearance": "Stormy indigo world with white lightning belts"
+      },
+      {
+        "id": "quetzal_hermeshu",
+        "planet": "Quetzal-Hermeshu",
+        "size_class_prioritized": "Gas giant",
+        "distance": "5.31 AU",
+        "magnitude": "+2.2",
+        "magnitude_value": 2.2,
+        "ra": "15h 26m 40s",
+        "dec": "+03° 06′",
+        "ra_hours": 15.444444,
+        "dec_degrees": 3.1,
+        "rings": "Yes",
+        "dominant_colors": [
+          "Emerald",
+          "bronze",
+          "cream"
+        ],
+        "cloud_surface_features": "Feather-like cloud bands",
+        "appearance": "Emerald-bronze world with tilted rings"
+      },
+      {
+        "id": "nannarvati_apollatl",
+        "planet": "Nannarvati-Apollatl",
+        "size_class_prioritized": "Cold gas dwarf",
+        "distance": "7.84 AU",
+        "magnitude": "+3.7",
+        "magnitude_value": 3.7,
+        "ra": "17h 49m 10s",
+        "dec": "+28° 31′",
+        "ra_hours": 17.819444,
+        "dec_degrees": 28.516667,
+        "rings": "No",
+        "dominant_colors": [
+          "Cream",
+          "blue",
+          "gray"
+        ],
+        "cloud_surface_features": "Braided storm lanes",
+        "appearance": "Cream-colored world with blue storm chains"
+      },
+      {
+        "id": "ishtarkali_mictor",
+        "planet": "Ishtarkali-Mictor",
+        "size_class_prioritized": "Ice dwarf",
+        "distance": "11.20 AU",
+        "magnitude": "+4.8",
+        "magnitude_value": 4.8,
+        "ra": "19h 13m 55s",
+        "dec": "-08° 46′",
+        "ra_hours": 19.231944,
+        "dec_degrees": -8.766667,
+        "rings": "No",
+        "dominant_colors": [
+          "Crimson",
+          "black",
+          "wine-red"
+        ],
+        "cloud_surface_features": "Dark polar caps, ruby haze",
+        "appearance": "Dark crimson ice giant with black polar caps"
+      },
+      {
+        "id": "varunatl_kronu",
+        "planet": "Varunatl-Kronu",
+        "size_class_prioritized": "Ice dwarf",
+        "distance": "17.60 AU",
+        "magnitude": "+5.3",
+        "magnitude_value": 5.3,
+        "ra": "21h 37m 02s",
+        "dec": "-26° 18′",
+        "ra_hours": 21.617222,
+        "dec_degrees": -26.3,
+        "rings": "Yes",
+        "dominant_colors": [
+          "Deep blue",
+          "white",
+          "silver"
+        ],
+        "cloud_surface_features": "Calm cloud belts, bright storms",
+        "appearance": "Deep blue giant with broad white rings"
+      },
+      {
+        "id": "ea_narayotl",
+        "planet": "Ea-Narayotl",
+        "size_class_prioritized": "Distant ice planet",
+        "distance": "25.40 AU",
+        "magnitude": "+6.4",
+        "magnitude_value": 6.4,
+        "ra": "23h 08m 49s",
+        "dec": "+15° 57′",
+        "ra_hours": 23.146944,
+        "dec_degrees": 15.95,
+        "rings": "No",
+        "dominant_colors": [
+          "Frost-gray",
+          "turquoise"
+        ],
+        "cloud_surface_features": "Auroral ovals, icy storms",
+        "appearance": "Frost-gray world with turquoise auroral ovals"
+      },
+      {
+        "id": "zeushamash_indraxi",
+        "planet": "Zeushamash-Indraxi",
+        "size_class_prioritized": "Dwarf planet",
+        "distance": "38.90 AU",
+        "magnitude": "+7.1",
+        "magnitude_value": 7.1,
+        "ra": "00h 42m 31s",
+        "dec": "-31° 04′",
+        "ra_hours": 0.708611,
+        "dec_degrees": -31.066667,
+        "rings": "No",
+        "dominant_colors": [
+          "Violet",
+          "white",
+          "charcoal"
+        ],
+        "cloud_surface_features": "Bright icy cap, dark plains",
+        "appearance": "Remote violet dwarf world with a bright icy cap"
+      }
+    ]
+  },
+  "comets": [
+    {
+      "id": "eirsu_neth_comet",
+      "field": "Value",
+      "family": "Vishtecu–Hyperu family comet",
+      "nucleus_size": "~85 miles (137 km) across; ~10–50× typical comet core",
+      "mass": "~500 trillion tons (~500× typical comet mass)",
+      "orbital_period": "6.48 Belavadös years",
+      "orbital_period_days": "2,139.37 Belavadös days",
+      "belavados_year_reference": "1 year = 330.15 standard 24-hour days",
+      "semi_major_axis": "≈ 3.48 AU",
+      "perihelion_closest_approach": "2.08 AU",
+      "aphelion_farthest_distance": "4.87 AU",
+      "eccentricity": "≈ 0.402",
+      "inclination": "18° above the Celestial Road",
+      "plane_crossing_points": "Only at perihelion and aphelion",
+      "inner_system_relation": "Passes just outside Vishtecu–Hyperu’s region",
+      "safety_status": "Safe, non-impacting, visually dramatic",
+      "closest_planetary_orbit_context": "Vishtecu–Hyperu at 1.88 AU (≈0.20 AU / ~29.9 million km clearance at perihelion)",
+      "orbital_neighborhood": "Inside Quetzal-Hermeshu (5.31 AU), outside Tlalokron-Shivae (3.92 AU)",
+      "safety_explanation": "Perihelion stays outside Vishtecu–Hyperu orbit; inclined path avoids mid-plane crossings near inner planets; only intersects Celestial Road at orbital extremes",
+      "inner_approach_orbital_geometry": "4.87 AU → 2.08 AU: descends toward plane; increasing brightness as it nears inner system",
+      "perihelion_passage": "At 2.08 AU: crosses Celestial Road safely between Vishtecu–Hyperu and Enlimitra",
+      "outbound_climb": "2.08 AU → 4.87 AU: rises above plane, avoiding Enlimitra and Tlalokron-Shivae vertically",
+      "aphelion_passage": "At 4.87 AU: crosses Celestial Road between Tlalokron-Shivae and Quetzal-Hermeshu",
+      "return_arc": "4.87 AU → 2.08 AU: descends back toward inner system on a 6.48-year cycle",
+      "visibility_behavior": "Becomes highly visible near perihelion; large icy-gas body with long watercolor tail",
+      "tail_appearance": "Pale blue-white and smoky silver, highly extended and luminous",
+      "observational_significance": "Rare “omen-comet,” visible for months, brightest near Vishtecu–Hyperu region",
+      "cultural_lore_role": "Used for festivals, prophecies, navigation, and ring-watching events",
+      "historical_interpretation": "Once feared due to size; now understood as a stable, repeating safe orbit",
+      "name": "Eiršu'neth Comet",
+      "description": "The Eiršu'neth Comet is a massive, long-period Vishtecu–Hyperu family comet distinguished by its unusually large icy nucleus, high mass, and stable yet dramatic inclined orbit through the outer Belavadös system. With a nucleus about 85 miles (137 km) wide—roughly 10–50 times larger than a typical comet core—and an estimated mass around 500 trillion tons (about 500× that of an average comet), it is one of the most visually and dynamically significant comets in its region. It follows a repeating 6.48 Belavadös-year orbit (≈ 2,139.37 Belavadös days), with a semi-major axis of ~3.48 AU, ranging from a perihelion of 2.08 AU to an aphelion of 4.87 AU. Its 18° inclination above the Celestial Road and carefully positioned crossing points make it a safe, non-impacting body despite its size, periodically producing a spectacular multi-month display as it passes through the inner reaches of its orbit."
+    }
+  ],
+  "distant_constellation_stars": {
+    "note": "The following fixed stars are deliberately remote: distances range from thousands to tens of thousands of light-years, and many magnitudes sit near or below ordinary naked-eye visibility. Coordinates are clustered by constellation so a generator can connect each figure cleanly.",
+    "count": 48,
+    "stars": [
+      {
+        "number": 1,
+        "id": "valkhamesh_prime",
+        "star": "Valkhamesh Prime",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "7,800 ly",
+        "magnitude": "+5.6",
+        "magnitude_value": 5.6,
+        "color": "Blue-White",
+        "ra": "19h 33m 00s",
+        "dec": "+36° 00′",
+        "ra_hours": 19.55,
+        "dec_degrees": 36.0,
+        "role": "Raised storm crest",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 2,
+        "id": "dragonborn_ember",
+        "star": "Dragonborn Ember",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "11,400 ly",
+        "magnitude": "+5.9",
+        "magnitude_value": 5.9,
+        "color": "Amber",
+        "ra": "19h 55m 12s",
+        "dec": "+28° 00′",
+        "ra_hours": 19.92,
+        "dec_degrees": 28.0,
+        "role": "Upper neck",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 3,
+        "id": "kobold_spark",
+        "star": "Kobold Spark",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "15,900 ly",
+        "magnitude": "+6.2",
+        "magnitude_value": 6.2,
+        "color": "White-Gold",
+        "ra": "20h 21m 36s",
+        "dec": "+20° 30′",
+        "ra_hours": 20.36,
+        "dec_degrees": 20.5,
+        "role": "Inner coil",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 4,
+        "id": "lizardfolk_scale",
+        "star": "Lizardfolk Scale",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "22,600 ly",
+        "magnitude": "+6.5",
+        "magnitude_value": 6.5,
+        "color": "Green-White",
+        "ra": "20h 52m 48s",
+        "dec": "+14° 00′",
+        "ra_hours": 20.88,
+        "dec_degrees": 14.0,
+        "role": "Lower coil",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 5,
+        "id": "yuan_ti_fang",
+        "star": "Yuan-Ti Fang",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "31,500 ly",
+        "magnitude": "+6.7",
+        "magnitude_value": 6.7,
+        "color": "Blue",
+        "ra": "21h 22m 12s",
+        "dec": "+19° 00′",
+        "ra_hours": 21.37,
+        "dec_degrees": 19.0,
+        "role": "Serpent's head",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 6,
+        "id": "stormblood_tail",
+        "star": "Stormblood Tail",
+        "constellation": "The Dragonborn Dominion of Valkhamesh",
+        "distance": "46,000 ly",
+        "magnitude": "+7.0",
+        "magnitude_value": 7.0,
+        "color": "Red-Orange",
+        "ra": "21h 51m 36s",
+        "dec": "+08° 00′",
+        "ra_hours": 21.86,
+        "dec_degrees": 8.0,
+        "role": "Trailing tail",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 7,
+        "id": "nephthysra_glass",
+        "star": "Nephthysra Glass",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "9,300 ly",
+        "magnitude": "+5.7",
+        "magnitude_value": 5.7,
+        "color": "White",
+        "ra": "13h 30m 00s",
+        "dec": "+32° 00′",
+        "ra_hours": 13.5,
+        "dec_degrees": 32.0,
+        "role": "Mirror crown",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 8,
+        "id": "luma_glow",
+        "star": "Luma Glow",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "14,200 ly",
+        "magnitude": "+6.0",
+        "magnitude_value": 6.0,
+        "color": "Blue-White",
+        "ra": "13h 04m 48s",
+        "dec": "+23° 30′",
+        "ra_hours": 13.08,
+        "dec_degrees": 23.5,
+        "role": "Left upper mirror wing",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 9,
+        "id": "dara_heart",
+        "star": "Dara Heart",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "14,700 ly",
+        "magnitude": "+6.1",
+        "magnitude_value": 6.1,
+        "color": "Rose-White",
+        "ra": "13h 57m 00s",
+        "dec": "+23° 12′",
+        "ra_hours": 13.95,
+        "dec_degrees": 23.2,
+        "role": "Right upper mirror wing",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 10,
+        "id": "golynn_prism",
+        "star": "Golynn Prism",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "26,900 ly",
+        "magnitude": "+6.6",
+        "magnitude_value": 6.6,
+        "color": "Pale Yellow",
+        "ra": "12h 46m 48s",
+        "dec": "+12° 00′",
+        "ra_hours": 12.78,
+        "dec_degrees": 12.0,
+        "role": "Left lower mirror point",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 11,
+        "id": "charisma_veil",
+        "star": "Charisma Veil",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "28,300 ly",
+        "magnitude": "+6.8",
+        "magnitude_value": 6.8,
+        "color": "White-Gold",
+        "ra": "14h 14m 24s",
+        "dec": "+12° 30′",
+        "ra_hours": 14.24,
+        "dec_degrees": 12.5,
+        "role": "Right lower mirror point",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 12,
+        "id": "mirrorfire_wick",
+        "star": "Mirrorfire Wick",
+        "constellation": "The Luma Mirror of Nephthysra",
+        "distance": "54,000 ly",
+        "magnitude": "+7.1",
+        "magnitude_value": 7.1,
+        "color": "Golden-White",
+        "ra": "13h 31m 12s",
+        "dec": "+18° 00′",
+        "ra_hours": 13.52,
+        "dec_degrees": 18.0,
+        "role": "Central torch-flame",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 13,
+        "id": "anubaldir_stone",
+        "star": "Anubaldir Stone",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "6,200 ly",
+        "magnitude": "+5.4",
+        "magnitude_value": 5.4,
+        "color": "Orange",
+        "ra": "05h 27m 00s",
+        "dec": "+16° 00′",
+        "ra_hours": 5.45,
+        "dec_degrees": 16.0,
+        "role": "Labyrinth heart",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 14,
+        "id": "minotaur_eye",
+        "star": "Minotaur Eye",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "10,800 ly",
+        "magnitude": "+5.9",
+        "magnitude_value": 5.9,
+        "color": "Red-Orange",
+        "ra": "05h 40m 48s",
+        "dec": "+11° 00′",
+        "ra_hours": 5.68,
+        "dec_degrees": 11.0,
+        "role": "Bull's eye",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 15,
+        "id": "goliath_horn",
+        "star": "Goliath Horn",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "18,600 ly",
+        "magnitude": "+6.2",
+        "magnitude_value": 6.2,
+        "color": "White",
+        "ra": "04h 51m 00s",
+        "dec": "+27° 30′",
+        "ra_hours": 4.85,
+        "dec_degrees": 27.5,
+        "role": "Left horn tip",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 16,
+        "id": "firbolg_horn",
+        "star": "Firbolg Horn",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "19,200 ly",
+        "magnitude": "+6.3",
+        "magnitude_value": 6.3,
+        "color": "Golden-White",
+        "ra": "06h 12m 00s",
+        "dec": "+27° 00′",
+        "ra_hours": 6.2,
+        "dec_degrees": 27.0,
+        "role": "Right horn tip",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 17,
+        "id": "cyclopian_watch",
+        "star": "Cyclopian Watch",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "33,800 ly",
+        "magnitude": "+6.8",
+        "magnitude_value": 6.8,
+        "color": "Blue-White",
+        "ra": "05h 07m 12s",
+        "dec": "+06° 00′",
+        "ra_hours": 5.12,
+        "dec_degrees": 6.0,
+        "role": "Lower maze gate",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 18,
+        "id": "giff_burden",
+        "star": "Giff Burden",
+        "constellation": "The Minotaur Labyrinth of Anubaldir",
+        "distance": "45,500 ly",
+        "magnitude": "+7.1",
+        "magnitude_value": 7.1,
+        "color": "Yellow",
+        "ra": "05h 57m 00s",
+        "dec": "+07° 30′",
+        "ra_hours": 5.95,
+        "dec_degrees": 7.5,
+        "role": "Lower shoulder",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 19,
+        "id": "setrimir_diadem",
+        "star": "Setrimir Diadem",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "8,900 ly",
+        "magnitude": "+5.5",
+        "magnitude_value": 5.5,
+        "color": "White",
+        "ra": "23h 25m 12s",
+        "dec": "+29° 00′",
+        "ra_hours": 23.42,
+        "dec_degrees": 29.0,
+        "role": "Western crown point",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 20,
+        "id": "warforged_nail",
+        "star": "Warforged Nail",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "13,100 ly",
+        "magnitude": "+6.1",
+        "magnitude_value": 6.1,
+        "color": "Steel-Blue",
+        "ra": "23h 48m 00s",
+        "dec": "+40° 00′",
+        "ra_hours": 23.8,
+        "dec_degrees": 40.0,
+        "role": "Raised left jewel",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 21,
+        "id": "geppettin_thread",
+        "star": "Geppettin Thread",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "20,000 ly",
+        "magnitude": "+6.4",
+        "magnitude_value": 6.4,
+        "color": "Pale Yellow",
+        "ra": "00h 10m 48s",
+        "dec": "+48° 00′",
+        "ra_hours": 0.18,
+        "dec_degrees": 48.0,
+        "role": "High crown jewel",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 22,
+        "id": "relicborn_spark",
+        "star": "Relicborn Spark",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "27,800 ly",
+        "magnitude": "+6.7",
+        "magnitude_value": 6.7,
+        "color": "White-Gold",
+        "ra": "00h 37m 12s",
+        "dec": "+40° 30′",
+        "ra_hours": 0.62,
+        "dec_degrees": 40.5,
+        "role": "Raised right jewel",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 23,
+        "id": "wechselkind_mask",
+        "star": "Wechselkind Mask",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "39,600 ly",
+        "magnitude": "+6.9",
+        "magnitude_value": 6.9,
+        "color": "Blue-White",
+        "ra": "01h 04m 48s",
+        "dec": "+29° 30′",
+        "ra_hours": 1.08,
+        "dec_degrees": 29.5,
+        "role": "Eastern crown point",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 24,
+        "id": "stolen_gear",
+        "star": "Stolen Gear",
+        "constellation": "The Wechselkind Crown of Setrimir",
+        "distance": "61,000 ly",
+        "magnitude": "+7.2",
+        "magnitude_value": 7.2,
+        "color": "Amber",
+        "ra": "00h 13m 12s",
+        "dec": "+24° 00′",
+        "ra_hours": 0.22,
+        "dec_degrees": 24.0,
+        "role": "Lower hidden clasp",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 25,
+        "id": "bastveig_tide",
+        "star": "Bastveig Tide",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "12,500 ly",
+        "magnitude": "+5.8",
+        "magnitude_value": 5.8,
+        "color": "Blue-White",
+        "ra": "16h 06m 00s",
+        "dec": "-18° 30′",
+        "ra_hours": 16.1,
+        "dec_degrees": -18.5,
+        "role": "Top left lintel",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 26,
+        "id": "triton_ward",
+        "star": "Triton Ward",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "16,400 ly",
+        "magnitude": "+6.0",
+        "magnitude_value": 6.0,
+        "color": "White",
+        "ra": "16h 55m 12s",
+        "dec": "-18° 00′",
+        "ra_hours": 16.92,
+        "dec_degrees": -18.0,
+        "role": "Top right lintel",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 27,
+        "id": "sahuagin_fang",
+        "star": "Sahuagin Fang",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "26,200 ly",
+        "magnitude": "+6.4",
+        "magnitude_value": 6.4,
+        "color": "Deep Blue",
+        "ra": "16h 01m 12s",
+        "dec": "-34° 30′",
+        "ra_hours": 16.02,
+        "dec_degrees": -34.5,
+        "role": "Left pillar",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 28,
+        "id": "merfolk_pearl",
+        "star": "Merfolk Pearl",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "27,100 ly",
+        "magnitude": "+6.5",
+        "magnitude_value": 6.5,
+        "color": "Pearl-White",
+        "ra": "17h 03m 00s",
+        "dec": "-34° 00′",
+        "ra_hours": 17.05,
+        "dec_degrees": -34.0,
+        "role": "Right pillar",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 29,
+        "id": "locathah_well",
+        "star": "Locathah Well",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "48,000 ly",
+        "magnitude": "+7.0",
+        "magnitude_value": 7.0,
+        "color": "Green-White",
+        "ra": "16h 09m 36s",
+        "dec": "-46° 00′",
+        "ra_hours": 16.16,
+        "dec_degrees": -46.0,
+        "role": "Left threshold",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 30,
+        "id": "grung_lantern",
+        "star": "Grung Lantern",
+        "constellation": "The Sahuagin Deep Gate of Bastveig",
+        "distance": "63,500 ly",
+        "magnitude": "+7.2",
+        "magnitude_value": 7.2,
+        "color": "Pale Green",
+        "ra": "16h 55m 12s",
+        "dec": "-45° 00′",
+        "ra_hours": 16.92,
+        "dec_degrees": -45.0,
+        "role": "Right threshold",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 31,
+        "id": "thoryn_rahek_knot",
+        "star": "Thoryn-Rahek Knot",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "7,500 ly",
+        "magnitude": "+5.5",
+        "magnitude_value": 5.5,
+        "color": "Yellow-White",
+        "ra": "09h 15m 00s",
+        "dec": "+36° 00′",
+        "ra_hours": 9.25,
+        "dec_degrees": 36.0,
+        "role": "Central web knot",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 32,
+        "id": "silkborn_strand",
+        "star": "Silkborn Strand",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "18,200 ly",
+        "magnitude": "+6.2",
+        "magnitude_value": 6.2,
+        "color": "White",
+        "ra": "08h 43m 12s",
+        "dec": "+49° 00′",
+        "ra_hours": 8.72,
+        "dec_degrees": 49.0,
+        "role": "Upper left petal",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 33,
+        "id": "thri_kreen_fang",
+        "star": "Thri-Kreen Fang",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "18,700 ly",
+        "magnitude": "+6.3",
+        "magnitude_value": 6.3,
+        "color": "Blue-White",
+        "ra": "09h 49m 12s",
+        "dec": "+49° 30′",
+        "ra_hours": 9.82,
+        "dec_degrees": 49.5,
+        "role": "Upper right petal",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 34,
+        "id": "cnidarin_pulse",
+        "star": "Cnidarin Pulse",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "36,400 ly",
+        "magnitude": "+6.8",
+        "magnitude_value": 6.8,
+        "color": "Rose-White",
+        "ra": "08h 27m 00s",
+        "dec": "+28° 00′",
+        "ra_hours": 8.45,
+        "dec_degrees": 28.0,
+        "role": "Lower left petal",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 35,
+        "id": "oozekin_drop",
+        "star": "Oozekin Drop",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "37,900 ly",
+        "magnitude": "+6.9",
+        "magnitude_value": 6.9,
+        "color": "Green-White",
+        "ra": "10h 06m 00s",
+        "dec": "+27° 30′",
+        "ra_hours": 10.1,
+        "dec_degrees": 27.5,
+        "role": "Lower right petal",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 36,
+        "id": "opteran_eye",
+        "star": "Opteran Eye",
+        "constellation": "The Silkborn Web of Thoryn-Rahek",
+        "distance": "72,000 ly",
+        "magnitude": "+7.3",
+        "magnitude_value": 7.3,
+        "color": "Amber",
+        "ra": "09h 13m 12s",
+        "dec": "+23° 00′",
+        "ra_hours": 9.22,
+        "dec_degrees": 23.0,
+        "role": "Lower web anchor",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 37,
+        "id": "freyseth_mask",
+        "star": "Freyseth Mask",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "8,400 ly",
+        "magnitude": "+5.6",
+        "magnitude_value": 5.6,
+        "color": "Orange-Red",
+        "ra": "22h 07m 12s",
+        "dec": "-20° 00′",
+        "ra_hours": 22.12,
+        "dec_degrees": -20.0,
+        "role": "Mask center",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 38,
+        "id": "aasimar_eye",
+        "star": "Aasimar Eye",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "17,300 ly",
+        "magnitude": "+6.1",
+        "magnitude_value": 6.1,
+        "color": "White-Gold",
+        "ra": "21h 37m 12s",
+        "dec": "-10° 00′",
+        "ra_hours": 21.62,
+        "dec_degrees": -10.0,
+        "role": "Left bright eye",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 39,
+        "id": "tiefling_eye",
+        "star": "Tiefling Eye",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "17,900 ly",
+        "magnitude": "+6.2",
+        "magnitude_value": 6.2,
+        "color": "Red-Orange",
+        "ra": "22h 37m 12s",
+        "dec": "-10° 30′",
+        "ra_hours": 22.62,
+        "dec_degrees": -10.5,
+        "role": "Right ember eye",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 40,
+        "id": "hexblood_smile",
+        "star": "Hexblood Smile",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "31,800 ly",
+        "magnitude": "+6.6",
+        "magnitude_value": 6.6,
+        "color": "Pale Yellow",
+        "ra": "21h 43m 12s",
+        "dec": "-30° 30′",
+        "ra_hours": 21.72,
+        "dec_degrees": -30.5,
+        "role": "Left mouth hook",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 41,
+        "id": "accursed_smile",
+        "star": "Accursed Smile",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "33,200 ly",
+        "magnitude": "+6.7",
+        "magnitude_value": 6.7,
+        "color": "Violet-White",
+        "ra": "22h 33m 00s",
+        "dec": "-31° 00′",
+        "ra_hours": 22.55,
+        "dec_degrees": -31.0,
+        "role": "Right mouth hook",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 42,
+        "id": "curseborn_road",
+        "star": "Curseborn Road",
+        "constellation": "The Crossroads Mask of Freyseth",
+        "distance": "58,000 ly",
+        "magnitude": "+7.1",
+        "magnitude_value": 7.1,
+        "color": "Deep Red",
+        "ra": "22h 06m 00s",
+        "dec": "-36° 30′",
+        "ra_hours": 22.1,
+        "dec_degrees": -36.5,
+        "role": "Lower crossroads post",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 43,
+        "id": "ishtanora_hearth",
+        "star": "Ishtanora Hearth",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "6,700 ly",
+        "magnitude": "+5.5",
+        "magnitude_value": 5.5,
+        "color": "Golden-White",
+        "ra": "10h 43m 12s",
+        "dec": "+07° 00′",
+        "ra_hours": 10.72,
+        "dec_degrees": 7.0,
+        "role": "Left drum center",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 44,
+        "id": "halfling_rim",
+        "star": "Halfling Rim",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "13,500 ly",
+        "magnitude": "+6.0",
+        "magnitude_value": 6.0,
+        "color": "White",
+        "ra": "10h 19m 12s",
+        "dec": "+13° 30′",
+        "ra_hours": 10.32,
+        "dec_degrees": 13.5,
+        "role": "Left upper rim",
+        "visibility": "edge of naked-eye visibility"
+      },
+      {
+        "number": 45,
+        "id": "kithkin_rim",
+        "star": "Kithkin Rim",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "14,000 ly",
+        "magnitude": "+6.1",
+        "magnitude_value": 6.1,
+        "color": "Pale Yellow",
+        "ra": "10h 19m 12s",
+        "dec": "+00° 30′",
+        "ra_hours": 10.32,
+        "dec_degrees": 0.5,
+        "role": "Left lower rim",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 46,
+        "id": "kender_beat",
+        "star": "Kender Beat",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "22,600 ly",
+        "magnitude": "+6.4",
+        "magnitude_value": 6.4,
+        "color": "Orange",
+        "ra": "11h 25m 12s",
+        "dec": "+07° 00′",
+        "ra_hours": 11.42,
+        "dec_degrees": 7.0,
+        "role": "Right drum center",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 47,
+        "id": "qickstep_cord",
+        "star": "Qickstep Cord",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "41,000 ly",
+        "magnitude": "+6.9",
+        "magnitude_value": 6.9,
+        "color": "Blue-White",
+        "ra": "11h 49m 12s",
+        "dec": "+13° 30′",
+        "ra_hours": 11.82,
+        "dec_degrees": 13.5,
+        "role": "Right upper rim",
+        "visibility": "partial/faint visibility"
+      },
+      {
+        "number": 48,
+        "id": "jerbeen_tail",
+        "star": "Jerbeen Tail",
+        "constellation": "The Twin Drums of Ishtanora",
+        "distance": "66,000 ly",
+        "magnitude": "+7.2",
+        "magnitude_value": 7.2,
+        "color": "Red-Orange",
+        "ra": "11h 49m 12s",
+        "dec": "+00° 30′",
+        "ra_hours": 11.82,
+        "dec_degrees": 0.5,
+        "role": "Right lower rim",
+        "visibility": "partial/faint visibility"
+      }
+    ]
+  },
+  "constellations": [
+    {
+      "number": 1,
+      "id": "the_dragonborn_dominion_of_valkhamesh",
+      "name": "The Dragonborn Dominion of Valkhamesh",
+      "center_ra": "20h 43m",
+      "center_dec": "+22° 00′",
+      "center_ra_hours": 20.716667,
+      "center_dec_degrees": 22.0,
+      "main_stars_used": [
+        "Valkhamesh Prime",
+        "Dragonborn Ember",
+        "Kobold Spark"
+      ],
+      "shape": "Curving serpent / draconic banner",
+      "best_season": "Late autumn",
+      "description": "Draconic chain for dragonborn, kobolds, lizardfolk, and yuan-ti.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Valkhamesh Prime",
+          "ra": "19h 33m 00s",
+          "dec": "+36° 00′",
+          "ra_hours": 19.55,
+          "dec_degrees": 36.0,
+          "role_in_shape": "Raised storm crest"
+        },
+        {
+          "order": 2,
+          "star": "Dragonborn Ember",
+          "ra": "19h 55m 12s",
+          "dec": "+28° 00′",
+          "ra_hours": 19.92,
+          "dec_degrees": 28.0,
+          "role_in_shape": "Upper neck"
+        },
+        {
+          "order": 3,
+          "star": "Kobold Spark",
+          "ra": "20h 21m 36s",
+          "dec": "+20° 30′",
+          "ra_hours": 20.36,
+          "dec_degrees": 20.5,
+          "role_in_shape": "Inner coil"
+        },
+        {
+          "order": 4,
+          "star": "Lizardfolk Scale",
+          "ra": "20h 52m 48s",
+          "dec": "+14° 00′",
+          "ra_hours": 20.88,
+          "dec_degrees": 14.0,
+          "role_in_shape": "Lower coil"
+        },
+        {
+          "order": 5,
+          "star": "Yuan-Ti Fang",
+          "ra": "21h 22m 12s",
+          "dec": "+19° 00′",
+          "ra_hours": 21.37,
+          "dec_degrees": 19.0,
+          "role_in_shape": "Serpent's head"
+        },
+        {
+          "order": 6,
+          "star": "Stormblood Tail",
+          "ra": "21h 51m 36s",
+          "dec": "+08° 00′",
+          "ra_hours": 21.86,
+          "dec_degrees": 8.0,
+          "role_in_shape": "Trailing tail"
+        }
+      ],
+      "connect_order": [
+        "Valkhamesh Prime",
+        "Dragonborn Ember",
+        "Kobold Spark",
+        "Lizardfolk Scale",
+        "Yuan-Ti Fang",
+        "Stormblood Tail"
+      ],
+      "default_edges": [
+        [
+          "Valkhamesh Prime",
+          "Dragonborn Ember"
+        ],
+        [
+          "Dragonborn Ember",
+          "Kobold Spark"
+        ],
+        [
+          "Kobold Spark",
+          "Lizardfolk Scale"
+        ],
+        [
+          "Lizardfolk Scale",
+          "Yuan-Ti Fang"
+        ],
+        [
+          "Yuan-Ti Fang",
+          "Stormblood Tail"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 1,
+          "id": "valkhamesh_prime",
+          "star": "Valkhamesh Prime",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "7,800 ly",
+          "magnitude": "+5.6",
+          "magnitude_value": 5.6,
+          "color": "Blue-White",
+          "ra": "19h 33m 00s",
+          "dec": "+36° 00′",
+          "ra_hours": 19.55,
+          "dec_degrees": 36.0,
+          "role": "Raised storm crest",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 2,
+          "id": "dragonborn_ember",
+          "star": "Dragonborn Ember",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "11,400 ly",
+          "magnitude": "+5.9",
+          "magnitude_value": 5.9,
+          "color": "Amber",
+          "ra": "19h 55m 12s",
+          "dec": "+28° 00′",
+          "ra_hours": 19.92,
+          "dec_degrees": 28.0,
+          "role": "Upper neck",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 3,
+          "id": "kobold_spark",
+          "star": "Kobold Spark",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "15,900 ly",
+          "magnitude": "+6.2",
+          "magnitude_value": 6.2,
+          "color": "White-Gold",
+          "ra": "20h 21m 36s",
+          "dec": "+20° 30′",
+          "ra_hours": 20.36,
+          "dec_degrees": 20.5,
+          "role": "Inner coil",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 4,
+          "id": "lizardfolk_scale",
+          "star": "Lizardfolk Scale",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "22,600 ly",
+          "magnitude": "+6.5",
+          "magnitude_value": 6.5,
+          "color": "Green-White",
+          "ra": "20h 52m 48s",
+          "dec": "+14° 00′",
+          "ra_hours": 20.88,
+          "dec_degrees": 14.0,
+          "role": "Lower coil",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 5,
+          "id": "yuan_ti_fang",
+          "star": "Yuan-Ti Fang",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "31,500 ly",
+          "magnitude": "+6.7",
+          "magnitude_value": 6.7,
+          "color": "Blue",
+          "ra": "21h 22m 12s",
+          "dec": "+19° 00′",
+          "ra_hours": 21.37,
+          "dec_degrees": 19.0,
+          "role": "Serpent's head",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 6,
+          "id": "stormblood_tail",
+          "star": "Stormblood Tail",
+          "constellation": "The Dragonborn Dominion of Valkhamesh",
+          "distance": "46,000 ly",
+          "magnitude": "+7.0",
+          "magnitude_value": 7.0,
+          "color": "Red-Orange",
+          "ra": "21h 51m 36s",
+          "dec": "+08° 00′",
+          "ra_hours": 21.86,
+          "dec_degrees": 8.0,
+          "role": "Trailing tail",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "the_luma_mirror_of_nephthysra",
+      "name": "The Luma Mirror of Nephthysra",
+      "center_ra": "13h 33m",
+      "center_dec": "+22° 00′",
+      "center_ra_hours": 13.55,
+      "center_dec_degrees": 22.0,
+      "main_stars_used": [
+        "Nephthysra Glass",
+        "Luma Glow",
+        "Dara Heart"
+      ],
+      "shape": "V-shaped mirror with winged torch",
+      "best_season": "Spring",
+      "description": "V-shaped mirror for Luma, Dara, Golynn, and Nephthysra's beauty-lore.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Nephthysra Glass",
+          "ra": "13h 30m 00s",
+          "dec": "+32° 00′",
+          "ra_hours": 13.5,
+          "dec_degrees": 32.0,
+          "role_in_shape": "Mirror crown"
+        },
+        {
+          "order": 2,
+          "star": "Luma Glow",
+          "ra": "13h 04m 48s",
+          "dec": "+23° 30′",
+          "ra_hours": 13.08,
+          "dec_degrees": 23.5,
+          "role_in_shape": "Left upper mirror wing"
+        },
+        {
+          "order": 3,
+          "star": "Dara Heart",
+          "ra": "13h 57m 00s",
+          "dec": "+23° 12′",
+          "ra_hours": 13.95,
+          "dec_degrees": 23.2,
+          "role_in_shape": "Right upper mirror wing"
+        },
+        {
+          "order": 4,
+          "star": "Golynn Prism",
+          "ra": "12h 46m 48s",
+          "dec": "+12° 00′",
+          "ra_hours": 12.78,
+          "dec_degrees": 12.0,
+          "role_in_shape": "Left lower mirror point"
+        },
+        {
+          "order": 5,
+          "star": "Charisma Veil",
+          "ra": "14h 14m 24s",
+          "dec": "+12° 30′",
+          "ra_hours": 14.24,
+          "dec_degrees": 12.5,
+          "role_in_shape": "Right lower mirror point"
+        },
+        {
+          "order": 6,
+          "star": "Mirrorfire Wick",
+          "ra": "13h 31m 12s",
+          "dec": "+18° 00′",
+          "ra_hours": 13.52,
+          "dec_degrees": 18.0,
+          "role_in_shape": "Central torch-flame"
+        }
+      ],
+      "connect_order": [
+        "Nephthysra Glass",
+        "Luma Glow",
+        "Dara Heart",
+        "Golynn Prism",
+        "Charisma Veil",
+        "Mirrorfire Wick"
+      ],
+      "default_edges": [
+        [
+          "Nephthysra Glass",
+          "Luma Glow"
+        ],
+        [
+          "Luma Glow",
+          "Dara Heart"
+        ],
+        [
+          "Dara Heart",
+          "Golynn Prism"
+        ],
+        [
+          "Golynn Prism",
+          "Charisma Veil"
+        ],
+        [
+          "Charisma Veil",
+          "Mirrorfire Wick"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 7,
+          "id": "nephthysra_glass",
+          "star": "Nephthysra Glass",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "9,300 ly",
+          "magnitude": "+5.7",
+          "magnitude_value": 5.7,
+          "color": "White",
+          "ra": "13h 30m 00s",
+          "dec": "+32° 00′",
+          "ra_hours": 13.5,
+          "dec_degrees": 32.0,
+          "role": "Mirror crown",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 8,
+          "id": "luma_glow",
+          "star": "Luma Glow",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "14,200 ly",
+          "magnitude": "+6.0",
+          "magnitude_value": 6.0,
+          "color": "Blue-White",
+          "ra": "13h 04m 48s",
+          "dec": "+23° 30′",
+          "ra_hours": 13.08,
+          "dec_degrees": 23.5,
+          "role": "Left upper mirror wing",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 9,
+          "id": "dara_heart",
+          "star": "Dara Heart",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "14,700 ly",
+          "magnitude": "+6.1",
+          "magnitude_value": 6.1,
+          "color": "Rose-White",
+          "ra": "13h 57m 00s",
+          "dec": "+23° 12′",
+          "ra_hours": 13.95,
+          "dec_degrees": 23.2,
+          "role": "Right upper mirror wing",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 10,
+          "id": "golynn_prism",
+          "star": "Golynn Prism",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "26,900 ly",
+          "magnitude": "+6.6",
+          "magnitude_value": 6.6,
+          "color": "Pale Yellow",
+          "ra": "12h 46m 48s",
+          "dec": "+12° 00′",
+          "ra_hours": 12.78,
+          "dec_degrees": 12.0,
+          "role": "Left lower mirror point",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 11,
+          "id": "charisma_veil",
+          "star": "Charisma Veil",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "28,300 ly",
+          "magnitude": "+6.8",
+          "magnitude_value": 6.8,
+          "color": "White-Gold",
+          "ra": "14h 14m 24s",
+          "dec": "+12° 30′",
+          "ra_hours": 14.24,
+          "dec_degrees": 12.5,
+          "role": "Right lower mirror point",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 12,
+          "id": "mirrorfire_wick",
+          "star": "Mirrorfire Wick",
+          "constellation": "The Luma Mirror of Nephthysra",
+          "distance": "54,000 ly",
+          "magnitude": "+7.1",
+          "magnitude_value": 7.1,
+          "color": "Golden-White",
+          "ra": "13h 31m 12s",
+          "dec": "+18° 00′",
+          "ra_hours": 13.52,
+          "dec_degrees": 18.0,
+          "role": "Central torch-flame",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "the_minotaur_labyrinth_of_anubaldir",
+      "name": "The Minotaur Labyrinth of Anubaldir",
+      "center_ra": "05h 31m",
+      "center_dec": "+17° 00′",
+      "center_ra_hours": 5.516667,
+      "center_dec_degrees": 17.0,
+      "main_stars_used": [
+        "Anubaldir Stone",
+        "Minotaur Eye",
+        "Goliath Horn"
+      ],
+      "shape": "Bull's head, horns, and inner maze",
+      "best_season": "Winter",
+      "description": "Horned winter maze for minotaurs, goliaths, cyclopians, and firbolgs.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Anubaldir Stone",
+          "ra": "05h 27m 00s",
+          "dec": "+16° 00′",
+          "ra_hours": 5.45,
+          "dec_degrees": 16.0,
+          "role_in_shape": "Labyrinth heart"
+        },
+        {
+          "order": 2,
+          "star": "Minotaur Eye",
+          "ra": "05h 40m 48s",
+          "dec": "+11° 00′",
+          "ra_hours": 5.68,
+          "dec_degrees": 11.0,
+          "role_in_shape": "Bull's eye"
+        },
+        {
+          "order": 3,
+          "star": "Goliath Horn",
+          "ra": "04h 51m 00s",
+          "dec": "+27° 30′",
+          "ra_hours": 4.85,
+          "dec_degrees": 27.5,
+          "role_in_shape": "Left horn tip"
+        },
+        {
+          "order": 4,
+          "star": "Firbolg Horn",
+          "ra": "06h 12m 00s",
+          "dec": "+27° 00′",
+          "ra_hours": 6.2,
+          "dec_degrees": 27.0,
+          "role_in_shape": "Right horn tip"
+        },
+        {
+          "order": 5,
+          "star": "Cyclopian Watch",
+          "ra": "05h 07m 12s",
+          "dec": "+06° 00′",
+          "ra_hours": 5.12,
+          "dec_degrees": 6.0,
+          "role_in_shape": "Lower maze gate"
+        },
+        {
+          "order": 6,
+          "star": "Giff Burden",
+          "ra": "05h 57m 00s",
+          "dec": "+07° 30′",
+          "ra_hours": 5.95,
+          "dec_degrees": 7.5,
+          "role_in_shape": "Lower shoulder"
+        }
+      ],
+      "connect_order": [
+        "Anubaldir Stone",
+        "Minotaur Eye",
+        "Goliath Horn",
+        "Firbolg Horn",
+        "Cyclopian Watch",
+        "Giff Burden"
+      ],
+      "default_edges": [
+        [
+          "Anubaldir Stone",
+          "Minotaur Eye"
+        ],
+        [
+          "Minotaur Eye",
+          "Goliath Horn"
+        ],
+        [
+          "Goliath Horn",
+          "Firbolg Horn"
+        ],
+        [
+          "Firbolg Horn",
+          "Cyclopian Watch"
+        ],
+        [
+          "Cyclopian Watch",
+          "Giff Burden"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 13,
+          "id": "anubaldir_stone",
+          "star": "Anubaldir Stone",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "6,200 ly",
+          "magnitude": "+5.4",
+          "magnitude_value": 5.4,
+          "color": "Orange",
+          "ra": "05h 27m 00s",
+          "dec": "+16° 00′",
+          "ra_hours": 5.45,
+          "dec_degrees": 16.0,
+          "role": "Labyrinth heart",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 14,
+          "id": "minotaur_eye",
+          "star": "Minotaur Eye",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "10,800 ly",
+          "magnitude": "+5.9",
+          "magnitude_value": 5.9,
+          "color": "Red-Orange",
+          "ra": "05h 40m 48s",
+          "dec": "+11° 00′",
+          "ra_hours": 5.68,
+          "dec_degrees": 11.0,
+          "role": "Bull's eye",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 15,
+          "id": "goliath_horn",
+          "star": "Goliath Horn",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "18,600 ly",
+          "magnitude": "+6.2",
+          "magnitude_value": 6.2,
+          "color": "White",
+          "ra": "04h 51m 00s",
+          "dec": "+27° 30′",
+          "ra_hours": 4.85,
+          "dec_degrees": 27.5,
+          "role": "Left horn tip",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 16,
+          "id": "firbolg_horn",
+          "star": "Firbolg Horn",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "19,200 ly",
+          "magnitude": "+6.3",
+          "magnitude_value": 6.3,
+          "color": "Golden-White",
+          "ra": "06h 12m 00s",
+          "dec": "+27° 00′",
+          "ra_hours": 6.2,
+          "dec_degrees": 27.0,
+          "role": "Right horn tip",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 17,
+          "id": "cyclopian_watch",
+          "star": "Cyclopian Watch",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "33,800 ly",
+          "magnitude": "+6.8",
+          "magnitude_value": 6.8,
+          "color": "Blue-White",
+          "ra": "05h 07m 12s",
+          "dec": "+06° 00′",
+          "ra_hours": 5.12,
+          "dec_degrees": 6.0,
+          "role": "Lower maze gate",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 18,
+          "id": "giff_burden",
+          "star": "Giff Burden",
+          "constellation": "The Minotaur Labyrinth of Anubaldir",
+          "distance": "45,500 ly",
+          "magnitude": "+7.1",
+          "magnitude_value": 7.1,
+          "color": "Yellow",
+          "ra": "05h 57m 00s",
+          "dec": "+07° 30′",
+          "ra_hours": 5.95,
+          "dec_degrees": 7.5,
+          "role": "Lower shoulder",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "the_wechselkind_crown_of_setrimir",
+      "name": "The Wechselkind Crown of Setrimir",
+      "center_ra": "00h 15m",
+      "center_dec": "+35° 00′",
+      "center_ra_hours": 0.25,
+      "center_dec_degrees": 35.0,
+      "main_stars_used": [
+        "Setrimir Diadem",
+        "Warforged Nail",
+        "Geppettin Thread"
+      ],
+      "shape": "Crown arc around the 0h seam",
+      "best_season": "Autumn",
+      "description": "Construct crown around the 0h seam for Setrimir's awakened peoples.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Setrimir Diadem",
+          "ra": "23h 25m 12s",
+          "dec": "+29° 00′",
+          "ra_hours": 23.42,
+          "dec_degrees": 29.0,
+          "role_in_shape": "Western crown point"
+        },
+        {
+          "order": 2,
+          "star": "Warforged Nail",
+          "ra": "23h 48m 00s",
+          "dec": "+40° 00′",
+          "ra_hours": 23.8,
+          "dec_degrees": 40.0,
+          "role_in_shape": "Raised left jewel"
+        },
+        {
+          "order": 3,
+          "star": "Geppettin Thread",
+          "ra": "00h 10m 48s",
+          "dec": "+48° 00′",
+          "ra_hours": 0.18,
+          "dec_degrees": 48.0,
+          "role_in_shape": "High crown jewel"
+        },
+        {
+          "order": 4,
+          "star": "Relicborn Spark",
+          "ra": "00h 37m 12s",
+          "dec": "+40° 30′",
+          "ra_hours": 0.62,
+          "dec_degrees": 40.5,
+          "role_in_shape": "Raised right jewel"
+        },
+        {
+          "order": 5,
+          "star": "Wechselkind Mask",
+          "ra": "01h 04m 48s",
+          "dec": "+29° 30′",
+          "ra_hours": 1.08,
+          "dec_degrees": 29.5,
+          "role_in_shape": "Eastern crown point"
+        },
+        {
+          "order": 6,
+          "star": "Stolen Gear",
+          "ra": "00h 13m 12s",
+          "dec": "+24° 00′",
+          "ra_hours": 0.22,
+          "dec_degrees": 24.0,
+          "role_in_shape": "Lower hidden clasp"
+        }
+      ],
+      "connect_order": [
+        "Setrimir Diadem",
+        "Warforged Nail",
+        "Geppettin Thread",
+        "Relicborn Spark",
+        "Wechselkind Mask",
+        "Stolen Gear"
+      ],
+      "default_edges": [
+        [
+          "Setrimir Diadem",
+          "Warforged Nail"
+        ],
+        [
+          "Warforged Nail",
+          "Geppettin Thread"
+        ],
+        [
+          "Geppettin Thread",
+          "Relicborn Spark"
+        ],
+        [
+          "Relicborn Spark",
+          "Wechselkind Mask"
+        ],
+        [
+          "Wechselkind Mask",
+          "Stolen Gear"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 19,
+          "id": "setrimir_diadem",
+          "star": "Setrimir Diadem",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "8,900 ly",
+          "magnitude": "+5.5",
+          "magnitude_value": 5.5,
+          "color": "White",
+          "ra": "23h 25m 12s",
+          "dec": "+29° 00′",
+          "ra_hours": 23.42,
+          "dec_degrees": 29.0,
+          "role": "Western crown point",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 20,
+          "id": "warforged_nail",
+          "star": "Warforged Nail",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "13,100 ly",
+          "magnitude": "+6.1",
+          "magnitude_value": 6.1,
+          "color": "Steel-Blue",
+          "ra": "23h 48m 00s",
+          "dec": "+40° 00′",
+          "ra_hours": 23.8,
+          "dec_degrees": 40.0,
+          "role": "Raised left jewel",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 21,
+          "id": "geppettin_thread",
+          "star": "Geppettin Thread",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "20,000 ly",
+          "magnitude": "+6.4",
+          "magnitude_value": 6.4,
+          "color": "Pale Yellow",
+          "ra": "00h 10m 48s",
+          "dec": "+48° 00′",
+          "ra_hours": 0.18,
+          "dec_degrees": 48.0,
+          "role": "High crown jewel",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 22,
+          "id": "relicborn_spark",
+          "star": "Relicborn Spark",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "27,800 ly",
+          "magnitude": "+6.7",
+          "magnitude_value": 6.7,
+          "color": "White-Gold",
+          "ra": "00h 37m 12s",
+          "dec": "+40° 30′",
+          "ra_hours": 0.62,
+          "dec_degrees": 40.5,
+          "role": "Raised right jewel",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 23,
+          "id": "wechselkind_mask",
+          "star": "Wechselkind Mask",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "39,600 ly",
+          "magnitude": "+6.9",
+          "magnitude_value": 6.9,
+          "color": "Blue-White",
+          "ra": "01h 04m 48s",
+          "dec": "+29° 30′",
+          "ra_hours": 1.08,
+          "dec_degrees": 29.5,
+          "role": "Eastern crown point",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 24,
+          "id": "stolen_gear",
+          "star": "Stolen Gear",
+          "constellation": "The Wechselkind Crown of Setrimir",
+          "distance": "61,000 ly",
+          "magnitude": "+7.2",
+          "magnitude_value": 7.2,
+          "color": "Amber",
+          "ra": "00h 13m 12s",
+          "dec": "+24° 00′",
+          "ra_hours": 0.22,
+          "dec_degrees": 24.0,
+          "role": "Lower hidden clasp",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "the_sahuagin_deep_gate_of_bastveig",
+      "name": "The Sahuagin Deep Gate of Bastveig",
+      "center_ra": "16h 33m",
+      "center_dec": "-33° 00′",
+      "center_ra_hours": 16.55,
+      "center_dec_degrees": -33.0,
+      "main_stars_used": [
+        "Bastveig Tide",
+        "Triton Ward",
+        "Sahuagin Fang"
+      ],
+      "shape": "Tall doorway with threshold",
+      "best_season": "Summer",
+      "description": "Southern ocean gate for trench, reef, and Sahuagin deep-water lore.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Bastveig Tide",
+          "ra": "16h 06m 00s",
+          "dec": "-18° 30′",
+          "ra_hours": 16.1,
+          "dec_degrees": -18.5,
+          "role_in_shape": "Top left lintel"
+        },
+        {
+          "order": 2,
+          "star": "Triton Ward",
+          "ra": "16h 55m 12s",
+          "dec": "-18° 00′",
+          "ra_hours": 16.92,
+          "dec_degrees": -18.0,
+          "role_in_shape": "Top right lintel"
+        },
+        {
+          "order": 3,
+          "star": "Sahuagin Fang",
+          "ra": "16h 01m 12s",
+          "dec": "-34° 30′",
+          "ra_hours": 16.02,
+          "dec_degrees": -34.5,
+          "role_in_shape": "Left pillar"
+        },
+        {
+          "order": 4,
+          "star": "Merfolk Pearl",
+          "ra": "17h 03m 00s",
+          "dec": "-34° 00′",
+          "ra_hours": 17.05,
+          "dec_degrees": -34.0,
+          "role_in_shape": "Right pillar"
+        },
+        {
+          "order": 5,
+          "star": "Locathah Well",
+          "ra": "16h 09m 36s",
+          "dec": "-46° 00′",
+          "ra_hours": 16.16,
+          "dec_degrees": -46.0,
+          "role_in_shape": "Left threshold"
+        },
+        {
+          "order": 6,
+          "star": "Grung Lantern",
+          "ra": "16h 55m 12s",
+          "dec": "-45° 00′",
+          "ra_hours": 16.92,
+          "dec_degrees": -45.0,
+          "role_in_shape": "Right threshold"
+        }
+      ],
+      "connect_order": [
+        "Bastveig Tide",
+        "Triton Ward",
+        "Sahuagin Fang",
+        "Merfolk Pearl",
+        "Locathah Well",
+        "Grung Lantern"
+      ],
+      "default_edges": [
+        [
+          "Bastveig Tide",
+          "Triton Ward"
+        ],
+        [
+          "Triton Ward",
+          "Sahuagin Fang"
+        ],
+        [
+          "Sahuagin Fang",
+          "Merfolk Pearl"
+        ],
+        [
+          "Merfolk Pearl",
+          "Locathah Well"
+        ],
+        [
+          "Locathah Well",
+          "Grung Lantern"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 25,
+          "id": "bastveig_tide",
+          "star": "Bastveig Tide",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "12,500 ly",
+          "magnitude": "+5.8",
+          "magnitude_value": 5.8,
+          "color": "Blue-White",
+          "ra": "16h 06m 00s",
+          "dec": "-18° 30′",
+          "ra_hours": 16.1,
+          "dec_degrees": -18.5,
+          "role": "Top left lintel",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 26,
+          "id": "triton_ward",
+          "star": "Triton Ward",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "16,400 ly",
+          "magnitude": "+6.0",
+          "magnitude_value": 6.0,
+          "color": "White",
+          "ra": "16h 55m 12s",
+          "dec": "-18° 00′",
+          "ra_hours": 16.92,
+          "dec_degrees": -18.0,
+          "role": "Top right lintel",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 27,
+          "id": "sahuagin_fang",
+          "star": "Sahuagin Fang",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "26,200 ly",
+          "magnitude": "+6.4",
+          "magnitude_value": 6.4,
+          "color": "Deep Blue",
+          "ra": "16h 01m 12s",
+          "dec": "-34° 30′",
+          "ra_hours": 16.02,
+          "dec_degrees": -34.5,
+          "role": "Left pillar",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 28,
+          "id": "merfolk_pearl",
+          "star": "Merfolk Pearl",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "27,100 ly",
+          "magnitude": "+6.5",
+          "magnitude_value": 6.5,
+          "color": "Pearl-White",
+          "ra": "17h 03m 00s",
+          "dec": "-34° 00′",
+          "ra_hours": 17.05,
+          "dec_degrees": -34.0,
+          "role": "Right pillar",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 29,
+          "id": "locathah_well",
+          "star": "Locathah Well",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "48,000 ly",
+          "magnitude": "+7.0",
+          "magnitude_value": 7.0,
+          "color": "Green-White",
+          "ra": "16h 09m 36s",
+          "dec": "-46° 00′",
+          "ra_hours": 16.16,
+          "dec_degrees": -46.0,
+          "role": "Left threshold",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 30,
+          "id": "grung_lantern",
+          "star": "Grung Lantern",
+          "constellation": "The Sahuagin Deep Gate of Bastveig",
+          "distance": "63,500 ly",
+          "magnitude": "+7.2",
+          "magnitude_value": 7.2,
+          "color": "Pale Green",
+          "ra": "16h 55m 12s",
+          "dec": "-45° 00′",
+          "ra_hours": 16.92,
+          "dec_degrees": -45.0,
+          "role": "Right threshold",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "the_silkborn_web_of_thoryn_rahek",
+      "name": "The Silkborn Web of Thoryn-Rahek",
+      "center_ra": "09h 15m",
+      "center_dec": "+36° 00′",
+      "center_ra_hours": 9.25,
+      "center_dec_degrees": 36.0,
+      "main_stars_used": [
+        "Thoryn-Rahek Knot",
+        "Silkborn Strand",
+        "Thri-Kreen Fang"
+      ],
+      "shape": "Petaled web with central knot",
+      "best_season": "Spring",
+      "description": "Petaled northern web for Silkborn, thri-kreen, and aberrant geometry.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Thoryn-Rahek Knot",
+          "ra": "09h 15m 00s",
+          "dec": "+36° 00′",
+          "ra_hours": 9.25,
+          "dec_degrees": 36.0,
+          "role_in_shape": "Central web knot"
+        },
+        {
+          "order": 2,
+          "star": "Silkborn Strand",
+          "ra": "08h 43m 12s",
+          "dec": "+49° 00′",
+          "ra_hours": 8.72,
+          "dec_degrees": 49.0,
+          "role_in_shape": "Upper left petal"
+        },
+        {
+          "order": 3,
+          "star": "Thri-Kreen Fang",
+          "ra": "09h 49m 12s",
+          "dec": "+49° 30′",
+          "ra_hours": 9.82,
+          "dec_degrees": 49.5,
+          "role_in_shape": "Upper right petal"
+        },
+        {
+          "order": 4,
+          "star": "Cnidarin Pulse",
+          "ra": "08h 27m 00s",
+          "dec": "+28° 00′",
+          "ra_hours": 8.45,
+          "dec_degrees": 28.0,
+          "role_in_shape": "Lower left petal"
+        },
+        {
+          "order": 5,
+          "star": "Oozekin Drop",
+          "ra": "10h 06m 00s",
+          "dec": "+27° 30′",
+          "ra_hours": 10.1,
+          "dec_degrees": 27.5,
+          "role_in_shape": "Lower right petal"
+        },
+        {
+          "order": 6,
+          "star": "Opteran Eye",
+          "ra": "09h 13m 12s",
+          "dec": "+23° 00′",
+          "ra_hours": 9.22,
+          "dec_degrees": 23.0,
+          "role_in_shape": "Lower web anchor"
+        }
+      ],
+      "connect_order": [
+        "Thoryn-Rahek Knot",
+        "Silkborn Strand",
+        "Thri-Kreen Fang",
+        "Cnidarin Pulse",
+        "Oozekin Drop",
+        "Opteran Eye"
+      ],
+      "default_edges": [
+        [
+          "Thoryn-Rahek Knot",
+          "Silkborn Strand"
+        ],
+        [
+          "Silkborn Strand",
+          "Thri-Kreen Fang"
+        ],
+        [
+          "Thri-Kreen Fang",
+          "Cnidarin Pulse"
+        ],
+        [
+          "Cnidarin Pulse",
+          "Oozekin Drop"
+        ],
+        [
+          "Oozekin Drop",
+          "Opteran Eye"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 31,
+          "id": "thoryn_rahek_knot",
+          "star": "Thoryn-Rahek Knot",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "7,500 ly",
+          "magnitude": "+5.5",
+          "magnitude_value": 5.5,
+          "color": "Yellow-White",
+          "ra": "09h 15m 00s",
+          "dec": "+36° 00′",
+          "ra_hours": 9.25,
+          "dec_degrees": 36.0,
+          "role": "Central web knot",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 32,
+          "id": "silkborn_strand",
+          "star": "Silkborn Strand",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "18,200 ly",
+          "magnitude": "+6.2",
+          "magnitude_value": 6.2,
+          "color": "White",
+          "ra": "08h 43m 12s",
+          "dec": "+49° 00′",
+          "ra_hours": 8.72,
+          "dec_degrees": 49.0,
+          "role": "Upper left petal",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 33,
+          "id": "thri_kreen_fang",
+          "star": "Thri-Kreen Fang",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "18,700 ly",
+          "magnitude": "+6.3",
+          "magnitude_value": 6.3,
+          "color": "Blue-White",
+          "ra": "09h 49m 12s",
+          "dec": "+49° 30′",
+          "ra_hours": 9.82,
+          "dec_degrees": 49.5,
+          "role": "Upper right petal",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 34,
+          "id": "cnidarin_pulse",
+          "star": "Cnidarin Pulse",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "36,400 ly",
+          "magnitude": "+6.8",
+          "magnitude_value": 6.8,
+          "color": "Rose-White",
+          "ra": "08h 27m 00s",
+          "dec": "+28° 00′",
+          "ra_hours": 8.45,
+          "dec_degrees": 28.0,
+          "role": "Lower left petal",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 35,
+          "id": "oozekin_drop",
+          "star": "Oozekin Drop",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "37,900 ly",
+          "magnitude": "+6.9",
+          "magnitude_value": 6.9,
+          "color": "Green-White",
+          "ra": "10h 06m 00s",
+          "dec": "+27° 30′",
+          "ra_hours": 10.1,
+          "dec_degrees": 27.5,
+          "role": "Lower right petal",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 36,
+          "id": "opteran_eye",
+          "star": "Opteran Eye",
+          "constellation": "The Silkborn Web of Thoryn-Rahek",
+          "distance": "72,000 ly",
+          "magnitude": "+7.3",
+          "magnitude_value": 7.3,
+          "color": "Amber",
+          "ra": "09h 13m 12s",
+          "dec": "+23° 00′",
+          "ra_hours": 9.22,
+          "dec_degrees": 23.0,
+          "role": "Lower web anchor",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "the_crossroads_mask_of_freyseth",
+      "name": "The Crossroads Mask of Freyseth",
+      "center_ra": "22h 09m",
+      "center_dec": "-20° 00′",
+      "center_ra_hours": 22.15,
+      "center_dec_degrees": -20.0,
+      "main_stars_used": [
+        "Freyseth Mask",
+        "Aasimar Eye",
+        "Tiefling Eye"
+      ],
+      "shape": "Low mask / road-sign figure",
+      "best_season": "Late summer",
+      "description": "Low southern mask for pacts, curses, temptation, and planar bloodlines.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Freyseth Mask",
+          "ra": "22h 07m 12s",
+          "dec": "-20° 00′",
+          "ra_hours": 22.12,
+          "dec_degrees": -20.0,
+          "role_in_shape": "Mask center"
+        },
+        {
+          "order": 2,
+          "star": "Aasimar Eye",
+          "ra": "21h 37m 12s",
+          "dec": "-10° 00′",
+          "ra_hours": 21.62,
+          "dec_degrees": -10.0,
+          "role_in_shape": "Left bright eye"
+        },
+        {
+          "order": 3,
+          "star": "Tiefling Eye",
+          "ra": "22h 37m 12s",
+          "dec": "-10° 30′",
+          "ra_hours": 22.62,
+          "dec_degrees": -10.5,
+          "role_in_shape": "Right ember eye"
+        },
+        {
+          "order": 4,
+          "star": "Hexblood Smile",
+          "ra": "21h 43m 12s",
+          "dec": "-30° 30′",
+          "ra_hours": 21.72,
+          "dec_degrees": -30.5,
+          "role_in_shape": "Left mouth hook"
+        },
+        {
+          "order": 5,
+          "star": "Accursed Smile",
+          "ra": "22h 33m 00s",
+          "dec": "-31° 00′",
+          "ra_hours": 22.55,
+          "dec_degrees": -31.0,
+          "role_in_shape": "Right mouth hook"
+        },
+        {
+          "order": 6,
+          "star": "Curseborn Road",
+          "ra": "22h 06m 00s",
+          "dec": "-36° 30′",
+          "ra_hours": 22.1,
+          "dec_degrees": -36.5,
+          "role_in_shape": "Lower crossroads post"
+        }
+      ],
+      "connect_order": [
+        "Freyseth Mask",
+        "Aasimar Eye",
+        "Tiefling Eye",
+        "Hexblood Smile",
+        "Accursed Smile",
+        "Curseborn Road"
+      ],
+      "default_edges": [
+        [
+          "Freyseth Mask",
+          "Aasimar Eye"
+        ],
+        [
+          "Aasimar Eye",
+          "Tiefling Eye"
+        ],
+        [
+          "Tiefling Eye",
+          "Hexblood Smile"
+        ],
+        [
+          "Hexblood Smile",
+          "Accursed Smile"
+        ],
+        [
+          "Accursed Smile",
+          "Curseborn Road"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 37,
+          "id": "freyseth_mask",
+          "star": "Freyseth Mask",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "8,400 ly",
+          "magnitude": "+5.6",
+          "magnitude_value": 5.6,
+          "color": "Orange-Red",
+          "ra": "22h 07m 12s",
+          "dec": "-20° 00′",
+          "ra_hours": 22.12,
+          "dec_degrees": -20.0,
+          "role": "Mask center",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 38,
+          "id": "aasimar_eye",
+          "star": "Aasimar Eye",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "17,300 ly",
+          "magnitude": "+6.1",
+          "magnitude_value": 6.1,
+          "color": "White-Gold",
+          "ra": "21h 37m 12s",
+          "dec": "-10° 00′",
+          "ra_hours": 21.62,
+          "dec_degrees": -10.0,
+          "role": "Left bright eye",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 39,
+          "id": "tiefling_eye",
+          "star": "Tiefling Eye",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "17,900 ly",
+          "magnitude": "+6.2",
+          "magnitude_value": 6.2,
+          "color": "Red-Orange",
+          "ra": "22h 37m 12s",
+          "dec": "-10° 30′",
+          "ra_hours": 22.62,
+          "dec_degrees": -10.5,
+          "role": "Right ember eye",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 40,
+          "id": "hexblood_smile",
+          "star": "Hexblood Smile",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "31,800 ly",
+          "magnitude": "+6.6",
+          "magnitude_value": 6.6,
+          "color": "Pale Yellow",
+          "ra": "21h 43m 12s",
+          "dec": "-30° 30′",
+          "ra_hours": 21.72,
+          "dec_degrees": -30.5,
+          "role": "Left mouth hook",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 41,
+          "id": "accursed_smile",
+          "star": "Accursed Smile",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "33,200 ly",
+          "magnitude": "+6.7",
+          "magnitude_value": 6.7,
+          "color": "Violet-White",
+          "ra": "22h 33m 00s",
+          "dec": "-31° 00′",
+          "ra_hours": 22.55,
+          "dec_degrees": -31.0,
+          "role": "Right mouth hook",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 42,
+          "id": "curseborn_road",
+          "star": "Curseborn Road",
+          "constellation": "The Crossroads Mask of Freyseth",
+          "distance": "58,000 ly",
+          "magnitude": "+7.1",
+          "magnitude_value": 7.1,
+          "color": "Deep Red",
+          "ra": "22h 06m 00s",
+          "dec": "-36° 30′",
+          "ra_hours": 22.1,
+          "dec_degrees": -36.5,
+          "role": "Lower crossroads post",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "the_twin_drums_of_ishtanora",
+      "name": "The Twin Drums of Ishtanora",
+      "center_ra": "11h 03m",
+      "center_dec": "+07° 00′",
+      "center_ra_hours": 11.05,
+      "center_dec_degrees": 7.0,
+      "main_stars_used": [
+        "Ishtanora Hearth",
+        "Halfling Rim",
+        "Kithkin Rim"
+      ],
+      "shape": "Two joined circles with bridge cord",
+      "best_season": "Spring",
+      "description": "Two joined circles for hearth festivals, harvest rites, and warning drums.",
+      "layout": [
+        {
+          "order": 1,
+          "star": "Ishtanora Hearth",
+          "ra": "10h 43m 12s",
+          "dec": "+07° 00′",
+          "ra_hours": 10.72,
+          "dec_degrees": 7.0,
+          "role_in_shape": "Left drum center"
+        },
+        {
+          "order": 2,
+          "star": "Halfling Rim",
+          "ra": "10h 19m 12s",
+          "dec": "+13° 30′",
+          "ra_hours": 10.32,
+          "dec_degrees": 13.5,
+          "role_in_shape": "Left upper rim"
+        },
+        {
+          "order": 3,
+          "star": "Kithkin Rim",
+          "ra": "10h 19m 12s",
+          "dec": "+00° 30′",
+          "ra_hours": 10.32,
+          "dec_degrees": 0.5,
+          "role_in_shape": "Left lower rim"
+        },
+        {
+          "order": 4,
+          "star": "Kender Beat",
+          "ra": "11h 25m 12s",
+          "dec": "+07° 00′",
+          "ra_hours": 11.42,
+          "dec_degrees": 7.0,
+          "role_in_shape": "Right drum center"
+        },
+        {
+          "order": 5,
+          "star": "Qickstep Cord",
+          "ra": "11h 49m 12s",
+          "dec": "+13° 30′",
+          "ra_hours": 11.82,
+          "dec_degrees": 13.5,
+          "role_in_shape": "Right upper rim"
+        },
+        {
+          "order": 6,
+          "star": "Jerbeen Tail",
+          "ra": "11h 49m 12s",
+          "dec": "+00° 30′",
+          "ra_hours": 11.82,
+          "dec_degrees": 0.5,
+          "role_in_shape": "Right lower rim"
+        }
+      ],
+      "connect_order": [
+        "Ishtanora Hearth",
+        "Halfling Rim",
+        "Kithkin Rim",
+        "Kender Beat",
+        "Qickstep Cord",
+        "Jerbeen Tail"
+      ],
+      "default_edges": [
+        [
+          "Ishtanora Hearth",
+          "Halfling Rim"
+        ],
+        [
+          "Halfling Rim",
+          "Kithkin Rim"
+        ],
+        [
+          "Kithkin Rim",
+          "Kender Beat"
+        ],
+        [
+          "Kender Beat",
+          "Qickstep Cord"
+        ],
+        [
+          "Qickstep Cord",
+          "Jerbeen Tail"
+        ]
+      ],
+      "stars": [
+        {
+          "number": 43,
+          "id": "ishtanora_hearth",
+          "star": "Ishtanora Hearth",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "6,700 ly",
+          "magnitude": "+5.5",
+          "magnitude_value": 5.5,
+          "color": "Golden-White",
+          "ra": "10h 43m 12s",
+          "dec": "+07° 00′",
+          "ra_hours": 10.72,
+          "dec_degrees": 7.0,
+          "role": "Left drum center",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 44,
+          "id": "halfling_rim",
+          "star": "Halfling Rim",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "13,500 ly",
+          "magnitude": "+6.0",
+          "magnitude_value": 6.0,
+          "color": "White",
+          "ra": "10h 19m 12s",
+          "dec": "+13° 30′",
+          "ra_hours": 10.32,
+          "dec_degrees": 13.5,
+          "role": "Left upper rim",
+          "visibility": "edge of naked-eye visibility"
+        },
+        {
+          "number": 45,
+          "id": "kithkin_rim",
+          "star": "Kithkin Rim",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "14,000 ly",
+          "magnitude": "+6.1",
+          "magnitude_value": 6.1,
+          "color": "Pale Yellow",
+          "ra": "10h 19m 12s",
+          "dec": "+00° 30′",
+          "ra_hours": 10.32,
+          "dec_degrees": 0.5,
+          "role": "Left lower rim",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 46,
+          "id": "kender_beat",
+          "star": "Kender Beat",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "22,600 ly",
+          "magnitude": "+6.4",
+          "magnitude_value": 6.4,
+          "color": "Orange",
+          "ra": "11h 25m 12s",
+          "dec": "+07° 00′",
+          "ra_hours": 11.42,
+          "dec_degrees": 7.0,
+          "role": "Right drum center",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 47,
+          "id": "qickstep_cord",
+          "star": "Qickstep Cord",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "41,000 ly",
+          "magnitude": "+6.9",
+          "magnitude_value": 6.9,
+          "color": "Blue-White",
+          "ra": "11h 49m 12s",
+          "dec": "+13° 30′",
+          "ra_hours": 11.82,
+          "dec_degrees": 13.5,
+          "role": "Right upper rim",
+          "visibility": "partial/faint visibility"
+        },
+        {
+          "number": 48,
+          "id": "jerbeen_tail",
+          "star": "Jerbeen Tail",
+          "constellation": "The Twin Drums of Ishtanora",
+          "distance": "66,000 ly",
+          "magnitude": "+7.2",
+          "magnitude_value": 7.2,
+          "color": "Red-Orange",
+          "ra": "11h 49m 12s",
+          "dec": "+00° 30′",
+          "ra_hours": 11.82,
+          "dec_degrees": 0.5,
+          "role": "Right lower rim",
+          "visibility": "partial/faint visibility"
+        }
+      ]
+    }
+  ],
+  "seasonal_sky_analysis": [
+    {
+      "title": "Winter evenings: The Minotaur Labyrinth ascends",
+      "summary": "Winter evenings are dominated by The Minotaur Labyrinth of Anubaldir. Anubaldir Stone and Minotaur Eye mark the inner maze, while Goliath Horn and Firbolg Horn rise as paired tips above the bull-headed figure. Cyclopian Watch and Giff Burden form the lower gate and shoulder, making the shape read as both beast and maze. At 30° N, the Labyrinth's upper horn stars climb high while its lower gate remains mid-sky. Because the six stars sit between roughly RA 04h 51m and 06h 12m, the figure stays compact enough for a generator to draw a recognizable horned head rather than a scattered seasonal region."
+    },
+    {
+      "title": "Spring evenings: Mirror, Web, and Twin Drums",
+      "summary": "Spring is the richest named-constellation season. The Luma Mirror of Nephthysra, The Silkborn Web of Thoryn-Rahek, and The Twin Drums of Ishtanora all become prominent. Their centers are deliberately separated in RA while their internal stars remain tightly grouped, allowing each figure to resolve as its own shape. This season is excellent for calendar work. The repeated appearance of three interlinked spring figures gives sky-watchers a stable sequence: the Web high in the north, the Mirror through the middle sky, and the Twin Drums balancing the equatorial zone."
+    },
+    {
+      "title": "Summer evenings: The Deep Gate and southern Star-River",
+      "summary": "Summer brings the Sahuagin Deep Gate of Bastveig into the southern sky. Its upper lintel, twin pillars, and lower threshold span roughly RA 16h 01m to 17h 03m and Dec -18° to -46°, so the shape reads as a tall doorway rather than a diagonal scatter. The Star-River of Belavadös is most visually complex during this season. It would look bright, broken, and braided through the southern skyfields, then lift toward northern seasonal markers. The Deep Gate is deliberately horizon-sensitive, making it an oceanic and trench-associated marker."
+    },
+    {
+      "title": "Late summer and autumn: Crossroads Mask, Serpent, and Crown",
+      "summary": "Late summer brings The Crossroads Mask of Freyseth low in the southern sky. The paired eye stars, hooked smile stars, and lower road-post star create a mask-like figure that is visible but vulnerable to haze, matching its lore of thresholds, temptation, and uncertain identity. As the cooling season advances, The Dragonborn Dominion of Valkhamesh and The Wechselkind Crown of Setrimir become defining figures. The Dominion forms a curving serpent at northern autumn declinations, while the Crown arcs around the 0h right-ascension seam without breaking the figure for a coordinate generator."
+    },
+    {
+      "title": "Circumpolar and horizon behavior",
+      "summary": "At 30° N, the circumpolar threshold is approximately +60° declination. The named constellation stars remain below that threshold, so they rise and set rather than staying permanently visible. This preserves seasonal motion while still allowing high northern figures to climb impressively. The southern horizon limit is approximately -60° declination. The lowest named stars remain above that limit, so the Deep Gate and Crossroads Mask are visible from the assumed latitude, though dust, humidity, terrain, and haze can hide their faintest lower stars."
+    }
+  ],
+  "visibility_reference_at_30n": [
+    {
+      "object": "Anubaldir Stone",
+      "declination": "+16° 00′",
+      "approx_maximum_altitude_at_30_n": "76°",
+      "visibility_meaning": "Winter Labyrinth heart; plainly placed within the horned maze."
+    },
+    {
+      "object": "Nephthysra Glass",
+      "declination": "+32° 00′",
+      "approx_maximum_altitude_at_30_n": "88°",
+      "visibility_meaning": "Spring Mirror crown; high and clear in dark skies."
+    },
+    {
+      "object": "Thoryn-Rahek Knot",
+      "declination": "+36° 00′",
+      "approx_maximum_altitude_at_30_n": "84°",
+      "visibility_meaning": "Spring Web center; high northern anchor."
+    },
+    {
+      "object": "Ishtanora Hearth",
+      "declination": "+07° 00′",
+      "approx_maximum_altitude_at_30_n": "67°",
+      "visibility_meaning": "Twin Drums center; mid-sky equatorial marker."
+    },
+    {
+      "object": "Valkhamesh Prime",
+      "declination": "+36° 00′",
+      "approx_maximum_altitude_at_30_n": "84°",
+      "visibility_meaning": "Dragonborn Dominion crest; high autumn serpent marker."
+    },
+    {
+      "object": "Bastveig Tide",
+      "declination": "-18° 30′",
+      "approx_maximum_altitude_at_30_n": "42°",
+      "visibility_meaning": "Deep Gate lintel; southern summer marker."
+    },
+    {
+      "object": "Curseborn Road",
+      "declination": "-36° 30′",
+      "approx_maximum_altitude_at_30_n": "24°",
+      "visibility_meaning": "Freyseth Mask lower post; faint and horizon-sensitive."
+    }
+  ],
+  "representative_night": "A representative high-era observing night can be generated by first calculating belSolarDayProgress from the Earth date and local observing time, then placing Chandratecu-Seleneš and Mictlindra-Nannara along their 19.20-day and 2.02-day cycles. A sample scene may place the paired lunar system near RA 06h 15m and Dec +18° to +19°, close to the Minotaur Labyrinth and high enough for easy viewing from 30° N. When the bright inner planet Mardukesh-Huitra is favorably placed, it dominates the evening or dawn sky with pearl-white brilliance. Surixoch-Aresu appears copper-red and lower near twilight. The four ringed planets are not equally easy to interpret with the unaided eye, but under magnification their ring lore becomes central: Vishtecu-Hyperu shows a rose-gold hairline, Enlimitra a frosted silver span, Quetzal-Hermeshu a tilted green-bronze eye, and Varunatl-Kronu a white-ringed blue elongation.",
+  "sky_lore_summary": [
+    {
+      "category": "Most visible distant star",
+      "most_important_object": "Anubaldir Stone",
+      "why_it_matters": "A comparatively bright +5.4 remote star anchoring the winter Labyrinth."
+    },
+    {
+      "category": "Highest ceremonial marker",
+      "most_important_object": "Nephthysra Glass",
+      "why_it_matters": "Its +32° declination lets it pass near the overhead sky at the assumed latitude."
+    },
+    {
+      "category": "Most generator-ready shape",
+      "most_important_object": "The Wechselkind Crown of Setrimir",
+      "why_it_matters": "Its stars intentionally arc across the 0h seam without scattering into unrelated sky regions."
+    },
+    {
+      "category": "Most horizon-sensitive figure",
+      "most_important_object": "The Sahuagin Deep Gate of Bastveig",
+      "why_it_matters": "Its lower threshold stars remain visible from 30° N but are vulnerable to haze and terrain."
+    },
+    {
+      "category": "Strongest autumn navigation pair",
+      "most_important_object": "The Dragonborn Dominion and Wechselkind Crown",
+      "why_it_matters": "One curves as a serpent while the other crowns the 0h seam, making late-season orientation easy."
+    },
+    {
+      "category": "Best spring calendar sequence",
+      "most_important_object": "Web, Mirror, Drums",
+      "why_it_matters": "Three compact figures rise in a readable order across northern, middle, and equatorial skyfields."
+    },
+    {
+      "category": "Faintest intentional marker",
+      "most_important_object": "Opteran Eye",
+      "why_it_matters": "At +7.3 magnitude, it is deliberately not fully visible without very dark skies or magnification."
+    },
+    {
+      "category": "Best lore-grid match",
+      "most_important_object": "All eight constellations",
+      "why_it_matters": "Each layout uses deity/race star names and clustered RA/Dec positions that match the described figure."
+    }
+  ],
+  "practical_observing_guide": [
+    "For winter navigation, begin with The Minotaur Labyrinth of Anubaldir: the two horn tips and maze-heart create the clearest cold-season figure.",
+    "For spring calendars, track the rising sequence of The Silkborn Web of Thoryn-Rahek, The Luma Mirror of Nephthysra, and The Twin Drums of Ishtanora.",
+    "For summer deep-sky watching, follow the Star-River of Belavadös through the southern skyfields toward The Sahuagin Deep Gate of Bastveig.",
+    "For late-summer horizon work, watch The Crossroads Mask of Freyseth; its lower road-post star is an excellent test of sky clarity.",
+    "For autumn ceremonial timing, use The Wechselkind Crown of Setrimir and The Dragonborn Dominion of Valkhamesh as high and mid-northern markers.",
+    "For lunar calendars, record both the broad phase of Chandratecu-Seleneš and the rapid position changes of Mictlindra-Nannara by using belSolarDayProgress, then display the result Earth-first with the local UTC label."
+  ],
+  "source_and_method_notes": [
+    "The astronomical logic in this document uses standard sky-coordinate concepts: right ascension, declination, apparent magnitude, latitude-dependent visibility, horizon limits, axial precession, and a 330.15-day Belavadös astronomical year distributed evenly across the Earth year for play. The values are intended for generators, lore notes, sky omens, transit boards, and table-facing observing logs.",
+    "No Earth star names are included. The document is intended as a lore-compatible sky reference for Belavadös and as a practical coordinate table for generators; the fixed stars are deliberately placed at remote background distances and several are faint enough to be only partially visible without unusually dark skies or magnification."
+  ]
+}

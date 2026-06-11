@@ -1,0 +1,27 @@
+{
+  "schema": "belavados.transportation.v1",
+  "transportation": [
+    "caravan",
+    "train",
+    "ferry",
+    "steamship",
+    "skyship",
+    "regulated portal"
+  ],
+  "rules": {
+    "transport": [
+      "caravan",
+      "train",
+      "ferry",
+      "steamship",
+      "skyship",
+      "regulated portal"
+    ],
+    "forbiddenModernTransport": [
+      "cars",
+      "planes"
+    ],
+    "portalPolicy": "Portals are restricted to licensed users, monitored by the Arcane Transportation Authority, and usually require a valid pass.",
+    "publicAccessRule": "Player-facing output should hide secrets, DM-only motives, and unrevealed faction plots unless explicitly exported as DM data."
+  }
+}
