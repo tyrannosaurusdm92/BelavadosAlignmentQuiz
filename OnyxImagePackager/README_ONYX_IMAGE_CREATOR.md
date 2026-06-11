@@ -93,3 +93,22 @@ The UI allows a requested ZIP size limit up to **100,000 MB**, but actual succes
 - `scanner_legacy/` — older scanner tools kept for reference.
 - `tools/` — local catalog builder and preview server.
 - `tests/` — simple smoke tests.
+
+
+## 2M+ map_assets catalog workflow
+
+Do **not** use the browser folder picker for the full 2 million+ image library. Browser file inputs can silently cap, stall, or run out of memory on extremely large folders. For the full library, Onyx now uses a static chunked catalog:
+
+```bash
+node tools/build-map-asset-catalog.mjs
+```
+
+That scans `assets/map_assets` and writes:
+
+- `json/map_assets_catalog_manifest.json`
+- `json/map_assets_catalog_index.json`
+- `json/map_asset_catalog_chunks/chunk_*.json`
+
+Commit those JSON files **and** the full `assets/map_assets` folder to GitHub. In the page, click **Load 2M+ asset catalog**. Onyx will search the metadata catalog and fetch only selected images when building the ZIP.
+
+Use the folder picker only for small temporary batches.

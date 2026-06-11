@@ -70,18 +70,18 @@
           <div id="settlementJsonStatus" class="package-status muted">No settlement JSON loaded yet. Onyx can still create a request JSON from the form.</div>
         </div>
 
-        <h2>3. Feed Onyx the map_assets folder</h2>
+        <h2>3. Connect Onyx to map_assets</h2>
         <div id="dropZone" class="drop-zone" tabindex="0">
-          <strong>Drop your map_assets folder here</strong>
-          <span>Onyx scans filenames and tags candidate land, water, plants, roofs, objects, buildings, roads, reefs, settlement maps, and reference images. He packages useful assets; he does not render the final map.</span>
+          <strong>Small batches only: drop or pick a few assets here</strong>
+          <span>For the full 2M+ image library, do not upload the folder into the browser. Build the chunked catalog, upload it with map_assets to GitHub, then click “Load 2M+ asset catalog.” Onyx will search the catalog and only fetch selected files during ZIP export.</span>
         </div>
         <div class="button-row wrap">
-          <label class="file-button">Pick folder<input id="folderInput" type="file" webkitdirectory directory multiple /></label>
+          <label class="file-button">Pick small folder<input id="folderInput" type="file" webkitdirectory directory multiple /></label>
           <label class="file-button secondary-file">Pick images<input id="fileInput" type="file" multiple accept="image/*,.svg" /></label>
           <label class="file-button secondary-file">Import recipe<input id="recipeInput" type="file" accept="application/json,.json" /></label>
-          <button id="loadCatalog" type="button" class="secondary">Load local asset catalog</button>
+          <button id="loadCatalog" type="button" class="secondary">Load 2M+ asset catalog</button>
         </div>
-        <p class="hint">If you place your huge asset folder inside <code>assets/map_assets</code>, run <code>node tools/build-map-asset-catalog.mjs</code> to generate a browser-readable catalog. Onyx can scan millions of cataloged assets by metadata; the 100,000 MB limit applies only when building the ZIP export.</p>
+        <p class="hint">If you place your huge asset folder inside <code>assets/map_assets</code>, run <code>node tools/build-map-asset-catalog.mjs</code> to generate a browser-readable catalog. Onyx can scan millions of cataloged assets by metadata through the chunked catalog; the 100,000 MB limit applies only when adding selected files to the ZIP export. Do not use folder upload for the full 2M+ library; build and commit the catalog instead.</p>
         <div id="assetStats" class="stats-grid"></div>
 
         <h2>4. Speak to Onyx</h2>
@@ -125,7 +125,7 @@
         </div>
         <div class="package-controls-grid">
           <label><span>Asset search</span><input id="assetSearch" type="text" placeholder="Search loaded assets or candidate matches, e.g. roof, bridge, chapel, dock" /></label>
-          <label><span>Max images in package</span><input id="packageMaxImages" type="number" min="1" max="5000" step="1" value="180"></label>
+          <label><span>Max images in package</span><input id="packageMaxImages" type="number" min="1" max="250000" step="1" value="500"></label>
           <label><span>Max ZIP size / MB</span><input id="packageMaxMb" type="number" min="1" max="100000" step="1" value="100000"></label>
           <label class="checkbox-label"><input id="packageIncludeAll" type="checkbox"> <span>Include all loaded assets, not just ranked matches</span></label>
         </div>

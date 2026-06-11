@@ -132,6 +132,7 @@
     distribution: DEFAULT_DISTRIBUTION,
     selectedBiomes: ['Grassland'],
     assets: [],
+    catalog: { manifest: null, index: null, loadedChunks: new Map(), active: false },
     currentMap: null,
     currentGeoJson: null,
     animationFrame: 0,
@@ -359,23 +360,49 @@
   }
 
   async function loadAssetCatalog() {
-    const paths = ['json/map_assets_catalog.json', 'assets/map_assets/map_assets_catalog.json', 'assets/map_assets/asset-catalog.json', 'assets/map_assets/catalog.json'];
-    return (async () => {
-      for (const path of paths) {
-        try {
-          const res = await fetch(path);
-          if (!res.ok) continue;
-          const catalog = await res.json();
-          const rawAssets = Array.isArray(catalog) ? catalog : (catalog.assets || []);
-          state.assets = rawAssets.map(item => catalogItemToAsset(item)).filter(Boolean);
-          renderAssetStats();
-          addLog(`Loaded ${state.assets.length} cataloged assets from ${path}. Onyx can browse huge catalogs by metadata and only fetch the chosen files during export.`, 'thoughtful');
-          return;
-        } catch (err) {
-        }
+    const manifestPaths = ['json/map_assets_catalog_manifest.json', 'assets/map_assets/map_assets_catalog_manifest.json'];
+    const legacyPaths = ['json/map_assets_catalog.json', 'assets/map_assets/map_assets_catalog.json', 'assets/map_assets/asset-catalog.json', 'assets/map_assets/catalog.json'];
+
+    for (const manifestPath of manifestPaths) {
+      try {
+        const res = await fetch(manifestPath);
+        if (!res.ok) continue;
+        const manifest = await res.json();
+        const indexPath = manifest.indexFile || manifest.index || 'json/map_assets_catalog_index.json';
+        const indexRes = await fetch(indexPath);
+        if (!indexRes.ok) throw new Error(`Missing catalog index: ${indexPath}`);
+        const index = await indexRes.json();
+        state.catalog = { manifest, index, loadedChunks: new Map(), active: true };
+        state.assets = [];
+        state.packageCandidates = [];
+        state.packageSelectedAssetIds = new Set();
+        renderAssetStats();
+        renderPackageCandidates();
+        const count = Number(manifest.count || 0).toLocaleString();
+        addLog(`Loaded chunked map_assets catalog with ${count} images. Onyx now searches metadata first and fetches only selected files during export.`, 'thoughtful');
+        addChat('onyx', `Papa, I loaded the 2M+ style map_assets catalog. I will not try to upload every image into the browser. Search or fetch matches, and I shall pull only the chosen files into the ZIP.`);
+        return;
+      } catch (err) {
+        // try next catalog style
       }
-      addLog('I could not find a local asset catalog. Run the Node catalog script first or use the folder picker.', 'judgmental');
-    })();
+    }
+
+    for (const path of legacyPaths) {
+      try {
+        const res = await fetch(path);
+        if (!res.ok) continue;
+        const catalog = await res.json();
+        if (catalog.manifest && !catalog.assets) continue;
+        const rawAssets = Array.isArray(catalog) ? catalog : (catalog.assets || []);
+        state.catalog = { manifest: null, index: null, loadedChunks: new Map(), active: false };
+        state.assets = rawAssets.map(item => catalogItemToAsset(item)).filter(Boolean);
+        renderAssetStats();
+        addLog(`Loaded ${state.assets.length} legacy cataloged assets from ${path}. For 2M+ assets, use the chunked catalog builder instead.`, 'thoughtful');
+        return;
+      } catch (err) {
+      }
+    }
+    addLog('I could not find a local asset catalog. Run node tools/build-map-asset-catalog.mjs, commit json/map_assets_catalog_manifest.json, json/map_assets_catalog_index.json, json/map_asset_catalog_chunks, and assets/map_assets to GitHub, then click this again.', 'judgmental');
   }
 
   function handleSettlementJsonImport(e) {
@@ -458,16 +485,20 @@
     return out.slice(0, 3);
   }
 
-  function findMatchingPackageAssets(userInitiated = false) {
+  async function findMatchingPackageAssets(userInitiated = false) {
     const includeAll = !!(els.packageIncludeAll && els.packageIncludeAll.checked);
+    if (state.catalog && state.catalog.active) {
+      setPackageStatus('Searching chunked 2M+ asset catalog metadata...', false);
+      state.assets = await loadCatalogCandidatesForCurrentRequest(userInitiated);
+    }
     if (!state.assets.length) {
       state.packageCandidates = [];
       state.packageSelectedAssetIds = new Set();
       renderPackageCandidates();
-      if (userInitiated) addLog('No map_assets are loaded yet. Pick the folder, choose images, or load the local catalog first.', 'hungry');
+      if (userInitiated) addLog('No map_assets are loaded yet. For 2M+ libraries, click “Load 2M+ asset catalog” after building the chunked catalog.', 'hungry');
       return [];
     }
-    const maxImages = clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 5000, 180);
+    const maxImages = clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500);
     const candidates = state.assets.map(asset => ({ asset, score: includeAll ? 1 : scorePackageAsset(asset), reasons: explainPackageAsset(asset) }))
       .filter(item => includeAll || item.score > 0)
       .sort((a, b) => b.score - a.score || String(a.asset.path).localeCompare(String(b.asset.path)));
@@ -475,10 +506,96 @@
     state.packageSelectedAssetIds = buildAutoSelectionSet(candidates, maxImages);
     renderPackageCandidates();
     if (userInitiated) {
-      addLog(`Fetched ${candidates.length} possible map assets and selected ${state.packageSelectedAssetIds.size} based on settlement/location requirements. My whiskers approve conditionally.`, 'scan');
-      addChat('onyx', `Papa, I found ${candidates.length} possible map_assets matches and preselected ${state.packageSelectedAssetIds.size}. I made sure settlements include exteriors, structures, paths, plants, and water or ground textures; interiors only get beds and hearths when the request type is Location.`);
+      const source = state.catalog && state.catalog.active ? 'from the chunked 2M+ catalog' : 'from loaded files';
+      addLog(`Fetched ${candidates.length.toLocaleString()} possible map assets ${source} and selected ${state.packageSelectedAssetIds.size.toLocaleString()} based on request requirements.`, 'scan');
+      addChat('onyx', `Papa, I searched ${source} and found ${candidates.length.toLocaleString()} possible matches. I preselected ${state.packageSelectedAssetIds.size.toLocaleString()}. Search narrower if you want something specific, or build the ZIP.`);
     }
     return candidates;
+  }
+
+  async function loadCatalogCandidatesForCurrentRequest(userInitiated = false) {
+    const catalog = state.catalog || {};
+    const manifest = catalog.manifest;
+    const index = catalog.index || {};
+    if (!manifest || !index) return [];
+    const chunkIds = selectCatalogChunkIdsForCurrentRequest(index, manifest);
+    const maxChunks = clampNumber((els.assetSearch && els.assetSearch.value ? 120 : 60), 1, 1000, 60);
+    const limited = chunkIds.slice(0, maxChunks);
+    if (!limited.length && manifest.chunks && manifest.chunks.length) limited.push(...manifest.chunks.slice(0, Math.min(12, manifest.chunks.length)).map(c => c.id));
+    const assets = [];
+    for (const chunkId of limited) {
+      const chunkAssets = await loadCatalogChunk(chunkId);
+      assets.push(...chunkAssets);
+    }
+    if (userInitiated) {
+      addLog(`Searched ${limited.length.toLocaleString()} catalog chunks out of ${(manifest.chunkCount || (manifest.chunks || []).length || 0).toLocaleString()}, covering ${assets.length.toLocaleString()} asset records. Narrow the asset search bar to target more specific chunks.`, 'thinking');
+    }
+    return assets;
+  }
+
+  function selectCatalogChunkIdsForCurrentRequest(index, manifest) {
+    const selected = new Set();
+    const addIds = ids => (ids || []).forEach(id => selected.add(Number(id)));
+    const type = els.settlementType ? els.settlementType.value : 'town';
+    const search = (els.assetSearch && els.assetSearch.value) || '';
+    const tokens = buildCatalogSearchTokens(type, state.selectedBiomes || [], search);
+    tokens.forEach(token => {
+      const norm = normalizeText(token).replace(/\s+/g, '-');
+      addIds(index.tokenToChunks && index.tokenToChunks[norm]);
+      addIds(index.tagToChunks && index.tagToChunks[norm]);
+    });
+    const categories = type === 'location'
+      ? ['building', 'object', 'path']
+      : ['building', 'path', 'plants', 'terrain', 'water', 'reef'];
+    categories.forEach(cat => addIds(index.categoryToChunks && index.categoryToChunks[cat]));
+    const ordered = [...selected].filter(Number.isFinite);
+    ordered.sort((a, b) => scoreCatalogChunk(b, manifest, tokens, type) - scoreCatalogChunk(a, manifest, tokens, type));
+    return ordered;
+  }
+
+  function buildCatalogSearchTokens(type, biomes, search) {
+    const base = new Set();
+    normalizeText(search).split(/\s+/).filter(Boolean).forEach(t => base.add(t));
+    base.add(type);
+    (biomes || []).forEach(biome => normalizeText(biome).split(/\s+/).filter(Boolean).forEach(t => base.add(t)));
+    const settlementTokens = ['wall','roof','cluster','district','government','civic','hall','courthouse','barracks','embassy','palace','castle','house','home','cottage','apartment','apartments','hotel','inn','hostel','tavern','chapel','church','temple','shrine','cathedral','path','road','bridge','tree','plant','ground','terrain','water','surfacewater','deepwater','dock','lake','park','treehouse'];
+    const locationTokens = ['interior','indoor','room','hall','chamber','bed','bunk','hearth','fireplace','table','chair','storage','chest','shelf','door','stairs','lamp','lantern'];
+    (type === 'location' ? locationTokens : settlementTokens).forEach(t => base.add(t));
+    return [...base].filter(t => t.length > 1);
+  }
+
+  function scoreCatalogChunk(chunkId, manifest, tokens, type) {
+    const chunk = (manifest.chunks || []).find(c => Number(c.id) === Number(chunkId));
+    if (!chunk) return 0;
+    let score = 0;
+    const cats = chunk.categories || {};
+    const tags = chunk.tags || {};
+    if (type === 'location') {
+      score += (cats.object || 0) * 3 + (tags.interior || 0) * 8 + (tags.bed || 0) * 7 + (tags.hearth || 0) * 7;
+    } else {
+      score += (cats.building || 0) * 4 + (cats.path || 0) * 3 + (cats.plants || 0) * 2 + (cats.terrain || 0) * 2 + (cats.water || 0) * 2;
+      score += (tags.roof || 0) * 6 + (tags.wall || 0) * 6 + (tags.cluster || 0) * 4 + (tags.government || 0) * 4 + (tags.residential || 0) * 4 + (tags.religious || 0) * 4;
+    }
+    tokens.forEach(token => { if (tags[token]) score += tags[token] * 5; });
+    return score;
+  }
+
+  async function loadCatalogChunk(chunkId) {
+    const key = String(chunkId);
+    if (state.catalog.loadedChunks.has(key)) return state.catalog.loadedChunks.get(key);
+    const index = state.catalog.index || {};
+    const file = (index.chunkFiles && index.chunkFiles[key]) || (index.chunkFiles && index.chunkFiles[chunkId]) || `json/map_asset_catalog_chunks/chunk_${String(chunkId).padStart(5, '0')}.json`;
+    try {
+      const res = await fetch(file);
+      if (!res.ok) return [];
+      const data = await res.json();
+      const raw = Array.isArray(data) ? data : (data.assets || []);
+      const assets = raw.map(item => catalogItemToAsset(item)).filter(Boolean);
+      state.catalog.loadedChunks.set(key, assets);
+      return assets;
+    } catch (err) {
+      return [];
+    }
   }
 
   function buildAutoSelectionSet(candidates, maxImages) {
@@ -681,8 +798,8 @@
 
   async function buildAndDownloadMapPackage() {
     try {
-      if (!state.packageCandidates.length) findMatchingPackageAssets(false);
-      const maxImages = clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 5000, 180);
+      if (!state.packageCandidates.length) await findMatchingPackageAssets(false);
+      const maxImages = clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500);
       const maxMb = clampNumber(els.packageMaxMb && els.packageMaxMb.value, 1, 100000, 100000);
       const maxBytes = maxMb * 1024 * 1024;
       let selected = state.packageCandidates.filter(item => state.packageSelectedAssetIds.has(item.asset.id));
@@ -760,7 +877,7 @@
       note: 'Onyx did not generate a final map. This package contains settlement JSON/request metadata plus matching images from map_assets for later map construction.',
       settlement,
       package: {
-        maxImagesRequested: clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 5000, 180),
+        maxImagesRequested: clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500),
         maxZipMbRequested: clampNumber(els.packageMaxMb && els.packageMaxMb.value, 1, 100000, 100000),
         selectedAssetCount: selectedAssets.length,
         selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
@@ -1127,13 +1244,24 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
   }
 
   function renderAssetStats() {
-    const totals = { all: state.assets.length, terrain: 0, water: 0, plants: 0, building: 0, path: 0, reef: 0, object: 0 };
-    state.assets.forEach(asset => asset.categories.forEach(cat => { if (totals[cat] !== undefined) totals[cat] += 1; }));
+    let totals = { all: state.assets.length, terrain: 0, water: 0, plants: 0, building: 0, path: 0, reef: 0, object: 0 };
+    let usingCatalog = false;
+    if (state.catalog && state.catalog.active && state.catalog.manifest) {
+      usingCatalog = true;
+      const manifest = state.catalog.manifest;
+      totals.all = manifest.count || 0;
+      const categoryTotals = manifest.categoryTotals || {};
+      Object.keys(totals).forEach(key => {
+        if (key !== 'all') totals[key] = categoryTotals[key] || 0;
+      });
+    } else {
+      state.assets.forEach(asset => asset.categories.forEach(cat => { if (totals[cat] !== undefined) totals[cat] += 1; }));
+    }
     els.assetStats.innerHTML = '';
-    [['all', 'Total assets'], ['terrain', 'Terrain'], ['water', 'Water'], ['plants', 'Plants'], ['building', 'Buildings'], ['path', 'Paths'], ['reef', 'Reefs'], ['object', 'Objects']].forEach(([key, label]) => {
+    [['all', usingCatalog ? 'Catalog assets' : 'Loaded assets'], ['terrain', 'Terrain'], ['water', 'Water'], ['plants', 'Plants'], ['building', 'Buildings'], ['path', 'Paths'], ['reef', 'Reefs'], ['object', 'Objects']].forEach(([key, label]) => {
       const card = document.createElement('div');
       card.className = 'stat-card';
-      card.innerHTML = `<strong>${totals[key] || 0}</strong><span>${label}</span>`;
+      card.innerHTML = `<strong>${Number(totals[key] || 0).toLocaleString()}</strong><span>${label}</span>`;
       els.assetStats.append(card);
     });
     if (els.packagePreviewSummary) renderPackageCandidates();
