@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Emperor Onyx — Map Request Packager</title>
-  <link rel="stylesheet" href="css/onyx-map-image-creator.css" />
+  <link rel="stylesheet" href="css/onyx-map-request-packager.css" />
 </head>
 <body>
   <div class="onyx-app-shell">
@@ -66,7 +66,19 @@
           <div id="settlementJsonStatus" class="package-status muted">No settlement JSON loaded yet. Onyx can still create a request JSON from the form.</div>
         </div>
 
-        <h2>3. Feed Onyx the map_assets folder</h2>
+        <h2>3. Locations + pins template</h2>
+        <div class="template-panel">
+          <p class="hint">Load the Belavadös immersive locations + GeoJSON pin template. Onyx will package it with the request so the exported ZIP carries location categories, services, prices, NPC assignment rules, and color-changing marker rules.</p>
+          <div class="button-row wrap">
+            <button id="loadBuiltInTemplate" type="button">Load built-in template</button>
+            <label class="file-button secondary-file">Import locations/pins JSON<input id="locationPinTemplateInput" type="file" accept="application/json,.json" /></label>
+          </div>
+          <label class="checkbox-label"><input id="includeTemplateInPackage" type="checkbox" checked> <span>Include locations + pins template and marker in exported ZIP</span></label>
+          <div id="templateStatus" class="package-status muted">Built-in Belavadös template will auto-load when available.</div>
+          <div id="templatePinPreview" class="template-pin-preview"></div>
+        </div>
+
+        <h2>4. Feed Onyx the map_assets folder</h2>
         <div id="dropZone" class="drop-zone" tabindex="0">
           <strong>Drop your map_assets folder here</strong>
           <span>Onyx scans filenames and tags candidate land, water, plants, roofs, objects, buildings, roads, reefs, settlement maps, and reference images. He packages useful assets; he does not render the final map.</span>
@@ -80,7 +92,7 @@
         <p class="hint">If you place your huge asset folder inside <code>assets/map_assets</code>, run <code>node tools/build-map-asset-catalog.mjs</code> to generate a browser-readable catalog.</p>
         <div id="assetStats" class="stats-grid"></div>
 
-        <h2>4. Speak to Onyx</h2>
+        <h2>5. Speak to Onyx</h2>
         <div class="chat-panel">
           <div class="chat-companion">
             <div class="chat-companion-avatar">
@@ -111,7 +123,7 @@
       <section class="panel canvas-panel package-panel-main">
         <div class="canvas-topbar">
           <div>
-            <h2>5. Map request ZIP packager</h2>
+            <h2>6. Map request ZIP packager</h2>
             <p id="compositionSummary" class="hint">Awaiting settlement JSON and map assets. Onyx will fetch matching images and package them for later map building.</p>
           </div>
           <div class="button-row wrap">
@@ -165,7 +177,7 @@
 
         </div>
 
-        <h2>6. Scanner forge</h2>
+        <h2>7. Scanner forge</h2>
 
         <div class="scan-panel">
           <p class="hint">Optional scanner abilities: load a fantasy map image, auto-pick terrain colors, scan patches, build scan GeoJSON overlays, and export the results. This is for analysis/reference only; the main workflow packages images and JSON for later map building.</p>
@@ -188,20 +200,20 @@
           <pre id="scanPreview" class="geo-preview"></pre>
         </div>
 
-        <h2>7. Legacy pin details</h2>
+        <h2>8. Legacy pin details</h2>
 
         <div id="pinPanel" class="pin-panel empty">Click a pin on the canvas or in the list to inspect a location.</div>
         <div id="pinList" class="pin-list"></div>
 
-        <h2>8. GeoJSON</h2>
+        <h2>9. GeoJSON</h2>
         <div id="geoSummary" class="geo-summary">No GeoJSON generated yet.</div>
         <pre id="geoPreview" class="geo-preview"></pre>
 
-        <h2>9. Imperial packaging notes</h2>
+        <h2>10. Imperial packaging notes</h2>
         <div id="onyxLog" class="onyx-log"></div>
       </section>
     </main>
   </div>
-  <script src="js/onyx-map-image-creator.js"></script>
+  <script src="js/onyx-map-request-packager.js"></script>
 </body>
 </html>

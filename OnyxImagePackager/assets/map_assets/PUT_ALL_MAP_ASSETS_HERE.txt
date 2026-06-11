@@ -1,0 +1,1 @@
+Place your full unsorted map_assets folder contents here. You can also drag the folder directly into the browser tool. Emperor Onyx will classify filenames and use them for DnD settlement map creation.

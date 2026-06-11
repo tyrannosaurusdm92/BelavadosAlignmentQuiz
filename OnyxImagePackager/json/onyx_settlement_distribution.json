@@ -1,9 +1,9 @@
 {
   "baseLocationCounts": {
-    "capital": 120,
-    "city": 84,
-    "town": 36,
-    "village": 18
+    "capital": 1312,
+    "city": 1000,
+    "town": 220,
+    "village": 60
   },
   "percentages": {
     "capital": {
@@ -74,5 +74,17 @@
       "Criminal & Underground": 0,
       "Special": 2
     }
+  },
+  "namedNpcTargets": {
+    "capital": 3588,
+    "city": 2700,
+    "town": 600,
+    "village": 160
+  },
+  "worldTravelerPercentages": {
+    "capital": 21,
+    "city": 18,
+    "town": 9,
+    "village": 3
   }
 }
