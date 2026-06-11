@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Belavadös Settlement Name Generator Asset</title>
+<style>
+
+:root {
+  --bg: #071014;
+  --panel: rgba(8, 22, 28, 0.92);
+  --panel-2: rgba(12, 34, 42, 0.95);
+  --cyan: #00ffff;
+  --cyan-soft: rgba(0,255,255,.16);
+  --ink: #f5fbff;
+  --muted: #a9c8d0;
+  --gold: #e8c76e;
+  --danger: #ff5a7a;
+  --ok: #69ffb0;
+  --border: rgba(0,255,255,.35);
+  --shadow: 0 18px 55px rgba(0,0,0,.55);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,255,255,.12), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(232,199,110,.08), transparent 20%),
+    linear-gradient(135deg, #020607 0%, #071014 45%, #101013 100%);
+}
+body::before {
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 82%);
+}
+header {
+  padding: 34px 22px 18px;
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  letter-spacing: .07em;
+  color: var(--cyan);
+  text-shadow: 0 0 22px rgba(0,255,255,.35);
+}
+.subtitle {
+  max-width: 980px;
+  margin: 12px auto 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 1.02rem;
+}
+.shell {
+  width: min(1240px, calc(100% - 28px));
+  margin: 0 auto 34px;
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  gap: 18px;
+}
+.card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.card h2 {
+  margin: 0;
+  padding: 16px 18px;
+  color: var(--cyan);
+  border-bottom: 1px solid rgba(0,255,255,.22);
+  background: linear-gradient(90deg, rgba(0,255,255,.13), transparent);
+  font-size: 1.25rem;
+}
+.form {
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+label {
+  display: block;
+  color: var(--gold);
+  font-weight: bold;
+  margin-bottom: 7px;
+  letter-spacing: .025em;
+}
+select, input[type="number"], input[type="text"], textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border-radius: 13px;
+  border: 1px solid rgba(0,255,255,.36);
+  background: #08171d;
+  color: var(--ink);
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+textarea { min-height: 90px; resize: vertical; }
+select:focus, input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(0,255,255,.13);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.checkbox input { transform: scale(1.15); accent-color: var(--cyan); }
+.btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+button {
+  border: 1px solid rgba(0,255,255,.45);
+  color: #031014;
+  background: linear-gradient(180deg, #64ffff, #00c6c6);
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .98rem;
+  box-shadow: 0 8px 22px rgba(0,255,255,.12);
+}
+button.secondary {
+  background: transparent;
+  color: var(--cyan);
+}
+button.warning {
+  background: transparent;
+  color: var(--danger);
+  border-color: rgba(255,90,122,.45);
+}
+button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.meta {
+  margin-top: 6px;
+  border: 1px dashed rgba(0,255,255,.28);
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(0,255,255,.06);
+  color: var(--muted);
+  line-height: 1.5;
+}
+.meta strong { color: var(--ink); }
+.results {
+  padding: 18px;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.search {
+  max-width: 310px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 12px;
+}
+.name-card {
+  position: relative;
+  border: 1px solid rgba(0,255,255,.24);
+  border-radius: 18px;
+  padding: 14px;
+  background:
+    linear-gradient(145deg, rgba(0,255,255,.08), rgba(255,255,255,.025)),
+    rgba(255,255,255,.025);
+  min-height: 150px;
+}
+.name {
+  font-size: 1.36rem;
+  color: #fff;
+  margin: 0 0 7px;
+  line-height: 1.2;
+}
+.name small {
+  display: block;
+  color: var(--cyan);
+  font-size: .78rem;
+  margin-top: 5px;
+  letter-spacing: .04em;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.tag {
+  border: 1px solid rgba(232,199,110,.35);
+  color: var(--gold);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: .8rem;
+}
+.mini {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.4;
+}
+.copy {
+  margin-top: 11px;
+  width: 100%;
+  padding: 8px 9px;
+  border-radius: 11px;
+}
+.history {
+  padding: 16px 18px 20px;
+  border-top: 1px solid rgba(0,255,255,.16);
+}
+.history-list {
+  display: grid;
+  gap: 8px;
+  max-height: 250px;
+  overflow: auto;
+  padding-right: 5px;
+}
+.history-item {
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  border-radius: 12px;
+  padding: 9px 10px;
+  color: var(--muted);
+}
+.history-item b { color: var(--ink); }
+.footer-note {
+  width: min(1240px, calc(100% - 28px));
+  margin: 0 auto 30px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+  font-size: .92rem;
+}
+@media (max-width: 920px) {
+  .shell { grid-template-columns: 1fr; }
+  .row, .btns { grid-template-columns: 1fr; }
+  header { padding-top: 24px; }
+}
+@media print {
+  body { background: white; color: black; }
+  .card { box-shadow: none; border-color: #333; background: white; }
+  h1, .card h2, label { color: black; text-shadow: none; }
+  button, .toolbar, .form, .history { display: none !important; }
+  .shell { display:block; width: 100%; }
+}
+
+
+/* Asset-mode refinements */
+body.bng-embedded {
+  min-height: auto;
+  background: transparent;
+}
+body.bng-embedded::before {
+  display: none;
+}
+.bng-asset-note {
+  width: min(1240px, calc(100% - 28px));
+  margin: 0 auto 16px;
+  border: 1px dashed rgba(0,255,255,.32);
+  border-radius: 18px;
+  padding: 12px 16px;
+  background: rgba(0,255,255,.06);
+  color: var(--muted);
+  line-height: 1.45;
+}
+.bng-json-tools {
+  display: grid;
+  gap: 10px;
+}
+.bng-json-tools textarea {
+  min-height: 160px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: .88rem;
+}
+.bng-output-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.bng-output-table th,
+.bng-output-table td {
+  border-bottom: 1px solid rgba(0,255,255,.14);
+  padding: 10px 9px;
+  text-align: left;
+  vertical-align: top;
+}
+.bng-output-table th {
+  color: var(--gold);
+  background: rgba(0,255,255,.08);
+}
+.bng-output-table td {
+  color: var(--ink);
+}
+.bng-output-table small {
+  color: var(--muted);
+}
+.bng-pill {
+  display: inline-block;
+  border: 1px solid rgba(232,199,110,.35);
+  color: var(--gold);
+  border-radius: 999px;
+  padding: 3px 8px;
+  margin: 2px 3px 2px 0;
+  font-size: .78rem;
+}
+</style>
+</head>
+<body class="bng-embedded">
+<header>
+  <h1>Belavadös Settlement Name Generator</h1>
+  <p class="subtitle">Embed-ready asset for settlement generators. It reads racial data from JSON, creates enough NPC names for the requested population, and returns name, race, gender identity, and pronouns for interactive map display.</p>
+</header>
+
+<div class="bng-asset-note">
+  <strong>Asset usage:</strong> include <code>name_generator.js</code>, then call
+  <code>BelavadosNameGenerator.generateNPCs(settlementData)</code> from your settlement generator.
+  This HTML file provides an optional in-generator panel and demo harness.
+</div>
+
+<main class="shell" id="belavados-name-generator-panel" data-belavados-name-generator>
+  <section class="card">
+    <h2>Settlement Generator Input</h2>
+    <div class="form bng-json-tools">
+      <div>
+        <label for="bngJsonInput">Settlement / NPC JSON</label>
+        <textarea id="bngJsonInput" spellcheck="false"></textarea>
+      </div>
+      <div class="row">
+        <div>
+          <label for="bngNpcCount">Fallback NPC Count</label>
+          <input type="number" id="bngNpcCount" min="1" max="2000" value="25" />
+        </div>
+        <div>
+          <label for="bngSurnameMode">Surname Style</label>
+          <select id="bngSurnameMode">
+            <option value="category">Category-based</option>
+            <option value="race">Race-flavored</option>
+            <option value="mixed">Mixed fantasy</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="bngTitles" />
+        <span>Add occasional steampunk-dark-fantasy honorifics and epithets</span>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="bngFantasyMarks" checked />
+        <span>Allow apostrophes, hyphens, and accents in appropriate fantasy names</span>
+      </div>
+      <div class="btns">
+        <button id="bngGenerate">Generate NPC Names</button>
+        <button class="secondary" id="bngCopyJson">Copy NPC JSON</button>
+        <button class="secondary" id="bngDownloadJson">Download NPC JSON</button>
+        <button class="warning" id="bngClear">Clear Output</button>
+      </div>
+      <div class="meta" id="bngStatus"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>NPC Names for Settlement Map</h2>
+    <div class="results">
+      <div class="toolbar">
+        <input class="search" id="bngFilter" type="text" placeholder="Filter NPC names, races, pronouns..." />
+        <div class="mini" id="bngResultCount">No NPCs generated yet.</div>
+      </div>
+      <div id="bngResults"></div>
+    </div>
+  </section>
+</main>
+
+<p class="footer-note">This file is intentionally not a standalone world site. It is an embeddable generator panel for settlement creation workflows.</p>
+
+<script src="name_generator.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.BelavadosNameGenerator) {
+    window.BelavadosNameGenerator.init("#belavados-name-generator-panel");
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+Earth ↔ Belavadös Time Conversion Guide
+Player-facing dual-date standard for calendars, schedules, transit, journals, festivals, and lore documents
+Primary rule: write the familiar Earth date/time first, then the Belavadös equivalent.
+1. Purpose and Player-Facing Rule
+This guide standardizes every time reference so players always receive a readable Earth date/time first, followed by the in-world Belavadös equivalent. The Belavadös calendar keeps its divine naming, compressed year, rest-day structure, and mythic drift logic, but table use remains easy because the Earth timestamp remains the anchor.
+• For play notes, handouts, quest timers, travel schedules, and ATA transit boards, use Earth first.
+• For lore, temples, prophecies, festivals, letters, and legal records, include Belavadös time immediately after Earth time.
+• When a source only has a Belavadös date, add a parenthetical Earth equivalent as soon as it matters for player scheduling.
+2. Core Calendar Model
+Belavadös uses an 11-month civil year with 30 days per month, creating a clean 330-day civic cycle. The week remains seven days long but the names are divine, and the weekly rest/synchronization point moves to Ishtaday, the Wednesday-equivalent.
+Guiding ratio: 1 Belavadös civil day = 0.9045 Earth days. Therefore, 1 Earth day = about 1.1056 Belavadös days.
+Earth → Belavadös elapsed days: Belavadös days = Earth elapsed days ÷ 0.9045.
+Belavadös → Earth elapsed days: Earth days = Belavadös elapsed days × 0.9045.
+3. Two Weekday Modes: Use the First One for Players
+The source system contains two useful weekday logics. To avoid confusion, use them deliberately:
+Important: For anything players must attend, count, or remember, use the Earth weekday translation table above. The fixed monthly grid is for in-world printed calendars and ritual patterning.
+4. Belavadös Month Cycle and Deity Themes
+Each month has exactly 30 civil days. The Earth spans below are approximate player-facing anchors based on the compressed-time model in the civil calendar file.
+5. Fixed 30-Day Month Grid
+For printed Belavadös calendars, every month repeats the same 30-day internal grid. This is best for temple schedules, monthly ritual cycles, almanacs, and civic posters. For live player scheduling, keep using the Earth weekday translation table.
+6. Belavadös Clock System
+Belavadös uses a familiar 24-hour display so players do not have to learn a new clock face. The labels are lore-facing: Belahours, Belaminutes, and Belaseconds. The day is shorter relative to Earth time, so the clock advances faster when mapped strictly.
+Display abbreviation: Bh = Belahour, Bm = Belaminute, Bs = Belasecond. Example: 14:30 Bh = 14 Belahours, 30 Belaminutes.
+7. Earth-to-Belavadös Conversion Procedure
+Use this process whenever converting an Earth timestamp into a Belavadös companion timestamp.
+• Start with the Earth date and time. Use local table time unless a campaign region requires another Earth timezone.
+• Find the Earth day-of-year. For May 30 in a non-leap year, this is day 150.
+• Convert Earth elapsed days into Belavadös elapsed days: Earth day-of-year ÷ 0.9045.
+• Find the Belavadös cycle day inside the 330-day cycle. If the result exceeds 330, wrap into the next cycle.
+• Month = every block of 30 days. Day of month = position inside that block.
+• For player-facing weekday, translate the real Earth weekday into the Belavadös weekday name.
+• Show the final result as Earth first, Belavadös second.
+8. Drift Buffer / 35-Day Ghost
+After Hathruna ends, the remaining Earth-year span can be treated as the Drift Buffer, 35-Day Ghost, Null Time, Uncounted Span, Temporal Surplus, or Compression Residue. This span keeps the civic calendar clean while giving the world a mythic explanation for the missing or unstable time.
+• Ordinary month dates do not need to advance during this span.
+• Seasonal correction, strange portal behavior, astronomical anomalies, or divine prison instability can occur here.
+• For player ease, keep Earth dates active and mark the Belavadös side as Drift Buffer unless a specific lore event overrides it.
+9. Ishta Sync Point
+Ishtaday is the central weekly rest, synchronization, and portal-restriction day. Each Ishtaday at 12:00 Bh, the world can enter an Ishta Pulse or Ishta Sync Point.
+10. Formatting Standards for Future Documents
+11. Deity Naming Rules
+All weekdays and months are named after gods. Single-deity names should preserve the god’s recognizable root. Merged months combine two deity identities and should carry a short theme for each side of the merge.
+12. Quick Reference
+• Earth first, Belavadös second.
+• 1 Belavadös day = 0.9045 Earth days.
+• 1 Earth day = about 1.1056 Belavadös days.
+• 11 months × 30 days = 330 Belavadös civil days.
+• The weekly rest day is Ishtaday, the Wednesday-equivalent.
+• Use live Earth weekday mapping for player-facing schedules.
+• Use fixed monthly grid for in-world almanacs and repeated ritual calendars.
+• After Hathruna, mark the remaining Earth-year span as Drift Buffer / 35-Day Ghost unless a campaign event needs a specific treatment.
+Appendix A: Source Basis
+This guide was compiled from the uploaded Belavadös Civil Time System file and the uploaded Belavadös Pantheon file. The civil time file supplies the 11-month, 30-day, 330-day calendar model, weekday transformation, Ishtaday synchronization rule, drift buffer, and May 30, 2026 example. The pantheon file supplies deity descriptions used for the weekday and month naming tables.
+Standard display: Earth Date, Earth Time / Belavadös Month Day, Belavadös Weekday, Belavadös Time | Example: May 30, 2026, 3:10 PM EDT / Raeshkul 16, Anubaday, 16:45 Bh
+Use Case | Required Display
+Quest deadline | Earth deadline first, Belavadös date second.
+Transit departure | Earth time first, Belavadös clock second.
+Festival date | Earth date first for players, then Belavadös month/day and deity theme.
+In-world legal record | Belavadös phrasing may be first in the prose, but an Earth conversion should follow in parentheses.
+Session recap | Earth session date first; Belavadös date only when the in-world day matters.
+Feature | Earth System | Belavadös Civil System
+Year length | 365 Earth days | 330 Belavadös civil days
+Months | 12 irregular months | 11 fixed months
+Month length | 28-31 days | 30 days each
+Week cycle | 7 days | 7 days, renamed by deity
+Rest day | Sunday | Ishtaday, the Wednesday-equivalent
+Calendar logic | Solar irregular | Compressed harmonic civic cycle
+Player priority | Primary display | Secondary companion display
+Mode | Purpose | Rule | Priority
+Player-facing live weekday | Schedules, sessions, transit, anything tied to real dates | Translate the actual Earth weekday into the Belavadös weekday name. | Default
+Fixed civil month grid | Almanacs, ritual calendars, repeating month templates | Every month starts on Nebday; days 29 and 30 are Nebday and Sigranday. | Secondary
+Earth Day | Belavadös Day | Deity Source | Brief Deity Description | Function
+Monday | Nebday | Nebyrr | Creator of civilization, lineage, dynasties, marriage, inheritance, and social order. | Standard civic day
+Tuesday | Sigranday | Sigrananna | Mistress of forests, moonlight, wilderness, graceful hunters, and elven beauty. | Standard civic day
+Wednesday | Ishtaday | Ishtanora | Patron of hearths, harvests, villages, fertility, and peaceful rural life. | Rest day / portal-restricted day
+Thursday | Marduday | Marduthor | Divine smith of invention, metalwork, architecture, and subterranean empires. | Standard civic day
+Friday | Enkirday | Enkirael | God of conquest, fury, survival, dominance, and warfare. | Standard civic day
+Saturday | Anubaday | Anubaldir | Titan of endurance, burden, colossal strength, and primal resilience. | Standard civic day
+Sunday | Valkhaday | Valkhamesh | Creator of draconic bloodlines, sovereignty, storms, and ancient dominion. | Standard civic day
+# | Belavadös Month | Approx. Earth Span | Deity / Merge | Brief Deity Theme
+1 | Thoryn-Rahek | Jan 1-Jan 27 | Thoryn-Rahek | Creator of aberrant life, insectoid horrors, oozes, and primordial mutation. A dangerous origin-force of divine hunger and malformed creation.
+2 | Freysethysra | Jan 28-Feb 23 | Freyseth + Nephthysra | Freyseth rules crossroads, curses, planar bloodlines, temptation, and forbidden pacts. Nephthysra shapes beauty, emotional influence, charisma, and rare uniqueness.
+3 | Nefarokir | Feb 24-Mar 22 | Nefarokir | Lord of death, spirits, memory, burial, and the forgotten dead; death as inevitability, ledger, and cosmic administration.
+4 | Thalunesh | Mar 23-Apr 18 | Thalunesh | Patron of dreamers, tricksters, shapeshifters, wanderers, and fey mischief.
+5 | Horundar | Apr 19-May 15 | Horundar | Master of storms, oceans, floods, earthquakes, and untamed elemental force.
+6 | Raeshkul | May 16-Jun 11 | Raeshkul | Goddess of intellect, psionics, strategy, and higher understanding.
+7 | Asethrimir | Jun 12-Jul 8 | Asethyr + Setrimir | Asethyr embodies primal freedom, revelry, tribal rites, wilderness survival, and untamed cultures. Setrimir shapes artificial life, stolen knowledge, constructs, and awakened machinery.
+8 | Sokhivar | Jul 9-Aug 4 | Sokhivar | Sky-soaring prophet of sunlight, music, prophecy, and divine freedom.
+9 | Iskazunet | Aug 5-Aug 31 | Iskareth + Eirzunet | Iskareth is the primordial mother of beasts, instinct, fertility, and natural kinship. Eirzunet creates shadows, curses, forbidden transformation, and twilight-born peoples.
+10 | Bastve’enlil | Sep 1-Sep 27 | Bastveig + Oskar’enlil | Bastveig is ancient mother of tides, reefs, trenches, and hidden ocean civilizations. Oskar’enlil architects experimental races balancing adaptation, civilization, and instinct.
+11 | Hathruna | Sep 28-Oct 24 | Hathruna | Goddess of rebirth, rot, fungi, roots, and the cycle of decay.
+Nebday | Sigranday | Ishtaday | Marduday | Enkirday | Anubaday | Valkhaday
+1 | 2 | 3 | 4 | 5 | 6 | 7
+8 | 9 | 10 | 11 | 12 | 13 | 14
+15 | 16 | 17 | 18 | 19 | 20 | 21
+22 | 23 | 24 | 25 | 26 | 27 | 28
+29 | 30 | - | - | - | - | -
+Unit | Belavadös Display | Earth-Relative Meaning
+Beladay | 24 Belahours | 0.9045 Earth days, about 21h 42m 29s Earth time
+Belahour | 60 Belaminutes | About 54m 16s Earth time
+Belaminute | 60 Belaseconds | About 54.27 Earth seconds
+Belasecond | Smallest common display unit | About 0.9045 Earth seconds
+Earth Date | Earth DOY | Belavadös Cycle Position | Player-Facing Weekday | Final Companion Display
+May 30, 2026 | 150 | 150 ÷ 0.9045 = 165.84 | Saturday → Anubaday | Raeshkul 16, Anubaday
+January 1 | 1 | 1 ÷ 0.9045 = 1.11 | Use actual Earth weekday | Thoryn-Rahek 1
+October 25-Dec 31 | After Hathruna span | May fall into drift/null-time handling | Use actual Earth weekday if needed | Drift Buffer / 35-Day Ghost
+System | Ishtaday Effect
+Portals | Restricted, recalibrated, delayed, or stabilized.
+Rail / ATA transit | Reduced service or synchronization windows.
+Magic | Minor time drift correction and magical stabilization.
+Civic life | Rest day, temple observances, rural market pauses, and recalibration rituals.
+Adventure use | A strong weekly marker for deadlines, curses, travel delays, and ritual timing.
+Context | Recommended Format | Example
+General date | Earth Month Day, Year / Belavadös Month Day, Weekday | May 30, 2026 / Raeshkul 16, Anubaday
+Exact time | Earth time with timezone / Belavadös clock | 3:10 PM EDT / 16:45 Bh
+Quest deadline | Earth first with Belavadös lore after | Deadline: June 4, 2026 at 8:00 PM EDT / Raeshkul 22, Marduday, 21:08 Bh
+In-world letter | Belavadös phrasing, Earth in parentheses | Written on Raeshkul 16, Anubaday (May 30, 2026)
+Transit board | Earth departure first; Belavadös departure second | Departing 6:00 PM EDT / 19:53 Bh
+Festival | Earth date first; deity theme noted | July 9 / Sokhivar 1, Festival of Sunlit Prophecy
+Name Type | Rule | Examples
+Weekday | Use shortened deity root + day. | Nebyrr → Nebday; Ishtanora → Ishtaday; Valkhamesh → Valkhaday.
+Single month | Use full deity name. | Nefarokir, Horundar, Raeshkul, Hathruna.
+Merged month | Blend deity roots but explain both deities in references. | Freysethysra = Freyseth + Nephthysra; Asethrimir = Asethyr + Setrimir.
+Player reference | Never require players to infer the merge. | Write “Freysethysra, the month of Freyseth and Nephthysra.”

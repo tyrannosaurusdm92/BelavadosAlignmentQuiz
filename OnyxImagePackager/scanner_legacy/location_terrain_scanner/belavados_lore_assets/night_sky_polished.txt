@@ -1,0 +1,368 @@
+Belavadös Night Sky
+A historical-style celestial analysis using Belavadös stars, moons, planets, and constellation naming conventions
+Celestial lore reference • moons • wandering worlds • stars • constellations
+Contents
+• Naming and replacement rules used in this document
+• Coordinate system used
+• Historical-style sky setting
+• The Star-River of Belavadös
+• Full celestial inventory
+• The Twelve Worlds of the Belavadös System
+• Celestial Regions
+• Two moons in the Belavadös sky
+• Forty-eight distant constellation stars of Belavadös
+• Eight named constellations of Belavadös
+• Representative night: paired moons and wanderers
+• Sky lore summary
+• Constellation star layouts
+• Source and method notes
+Naming and replacement rules used in this document
+The bright band crossing the sky is called the Star-River of Belavadös.
+The observing landscape is described as the Great River Valley and its desert-edge skyfields.
+The twelve wandering planets and two moons use the supplied invented names and coordinates.
+The sky analysis keeps the historical-style latitude, precession, seasonality, and horizon logic, but is written as Belavadös sky lore rather than a modern archaeological report.
+Coordinate system used
+The sky is described with right ascension and declination. These coordinates function like celestial longitude and latitude. Apparent magnitude uses lower numbers for brighter objects, with negative values being especially bright. Planet and moon distances use AU or kilometers; stellar distances use light-years.
+Historical-style sky setting
+The analysis assumes a view from approximately 30° N latitude. At 30° N, stars above about +60° declination are circumpolar, while stars below about -60° declination never rise.
+The sky looks dark, dense, and sharply structured. With no electric skyglow, the Star-River of Belavadös would have been a major visible feature rather than a faint haze. Bright planets, bright stars, both moons, and the eight named constellations would have served as seasonal markers, navigation guides, calendar anchors, and story-bearing landmarks.
+The Star-River of Belavadös
+The Star-River of Belavadös is the luminous band of unresolved stars and dark rifts crossing the night sky. In summer evenings, it would stretch through the southern gate-and-serpent sectors and climb toward the northern seasonal markers. In winter evenings, it would run near the Bronze Bull region, becoming paler but still visible under dry, dark conditions.
+From desert-edge skyfields, the Star-River would not have appeared as a smooth strip. It would have looked mottled, braided, and broken by dark channels. The brightest warm-season section would have been low-to-mid in the southern sky; the higher northern section would have served as a nightly path for visual navigation.
+Nebula fields of Belavadös
+Nebula fields summary
+Âhufej — Minotaur Labyrinth of Anubaldir
+Dus‘idu — Silkborn Web of Thoryn-Rahek
+Ềdizfu — Dragonborn Dominion of Valkhamesh
+Juçdimx — Crossroads Mask of Freyseth
+Jadd-Jisud — Wechselkind Crown of Setrimir
+Horundar — Sahuagin Deep Gate of Bastveig
+Wougen — Luma Mirror of Nephthysra
+Ŝiowoei — Dragonborn Dominion outer spiral
+Full celestial inventory
+Two moons in the Belavadös sky
+The lunar system is nested: the larger moon orbits the world, while the smaller moonlet orbits the larger moon and is carried along with it. This creates paired lunar calendars, small bead-like crossings, and a subtle secondary tidal pulse.
+Relative to Belavadös:
+Dwarf Moon Size
+Compared to Belavadös
+The Twelve Worlds of the Belavadös System
+The worlds orbit their star upon a relatively flat shared plane known as the Celestial Road.
+Major Worlds
+Minor Worlds
+Minor worlds are rounded celestial bodies that share their orbital regions with numerous smaller bodies.
+Celestial Regions
+Current Observed Worlds (Excluding Belavadös)
+Eiršu'neth Comet
+The Eiršu'neth Comet is a massive, long-period Vishtecu–Hyperu family comet distinguished by its unusually large icy nucleus, high mass, and stable yet dramatic inclined orbit through the outer Belavadös system. With a nucleus about 85 miles (137 km) wide—roughly 10–50 times larger than a typical comet core—and an estimated mass around 500 trillion tons (about 500× that of an average comet), it is one of the most visually and dynamically significant comets in its region. It follows a repeating 6.48 Belavadös-year orbit (≈ 2,139.37 Belavadös days), with a semi-major axis of ~3.48 AU, ranging from a perihelion of 2.08 AU to an aphelion of 4.87 AU. Its 18° inclination above the Celestial Road and carefully positioned crossing points make it a safe, non-impacting body despite its size, periodically producing a spectacular multi-month display as it passes through the inner reaches of its orbit.
+Forty-eight distant constellation stars of Belavadös
+The following fixed stars are deliberately remote: distances range from thousands to tens of thousands of light-years, and many magnitudes sit near or below ordinary naked-eye visibility. Coordinates are clustered by constellation so a generator can connect each figure cleanly.
+Eight named constellations of Belavadös
+Seasonal sky analysis
+Winter evenings: The Minotaur Labyrinth ascends
+Winter evenings are dominated by The Minotaur Labyrinth of Anubaldir. Anubaldir Stone and Minotaur Eye mark the inner maze, while Goliath Horn and Firbolg Horn rise as paired tips above the bull-headed figure. Cyclopian Watch and Giff Burden form the lower gate and shoulder, making the shape read as both beast and maze.
+At 30° N, the Labyrinth's upper horn stars climb high while its lower gate remains mid-sky. Because the six stars sit between roughly RA 04h 51m and 06h 12m, the figure stays compact enough for a generator to draw a recognizable horned head rather than a scattered seasonal region.
+Spring evenings: Mirror, Web, and Twin Drums
+Spring is the richest named-constellation season. The Luma Mirror of Nephthysra, The Silkborn Web of Thoryn-Rahek, and The Twin Drums of Ishtanora all become prominent. Their centers are deliberately separated in RA while their internal stars remain tightly grouped, allowing each figure to resolve as its own shape.
+This season is excellent for calendar work. The repeated appearance of three interlinked spring figures gives sky-watchers a stable sequence: the Web high in the north, the Mirror through the middle sky, and the Twin Drums balancing the equatorial zone.
+Summer evenings: The Deep Gate and southern Star-River
+Summer brings the Sahuagin Deep Gate of Bastveig into the southern sky. Its upper lintel, twin pillars, and lower threshold span roughly RA 16h 01m to 17h 03m and Dec -18° to -46°, so the shape reads as a tall doorway rather than a diagonal scatter.
+The Star-River of Belavadös is most visually complex during this season. It would look bright, broken, and braided through the southern skyfields, then lift toward northern seasonal markers. The Deep Gate is deliberately horizon-sensitive, making it an oceanic and trench-associated marker.
+Late summer and autumn: Crossroads Mask, Serpent, and Crown
+Late summer brings The Crossroads Mask of Freyseth low in the southern sky. The paired eye stars, hooked smile stars, and lower road-post star create a mask-like figure that is visible but vulnerable to haze, matching its lore of thresholds, temptation, and uncertain identity.
+As the cooling season advances, The Dragonborn Dominion of Valkhamesh and The Wechselkind Crown of Setrimir become defining figures. The Dominion forms a curving serpent at northern autumn declinations, while the Crown arcs around the 0h right-ascension seam without breaking the figure for a coordinate generator.
+Circumpolar and horizon behavior
+At 30° N, the circumpolar threshold is approximately +60° declination. The revised named constellation stars remain below that threshold, so they rise and set rather than staying permanently visible. This preserves seasonal motion while still allowing high northern figures to climb impressively.
+The southern horizon limit is approximately -60° declination. The lowest revised named stars remain above that limit, so the Deep Gate and Crossroads Mask are visible from the assumed latitude, though dust, humidity, terrain, and haze can hide their faintest lower stars.
+Representative night: paired moons and wanderers
+A representative high-era observing night can be imagined with Chandratecu-Seleneš and Mictlindra-Nannara close together near RA 06h 15m and Dec +18° to +19°. This places the twin lunar system near the winter-to-spring celestial fields. The moonlet would appear close to the larger lunar disk, sometimes separated by a small visible gap and sometimes crossing as a bead-like shadow.
+When the bright inner planet Mardukesh-Huitra is favorably placed, it dominates the evening or dawn sky with pearl-white brilliance. Surixoch-Aresu appears copper-red and lower near twilight. The four ringed planets are not equally easy to interpret with the unaided eye, but under magnification their ring lore becomes central: Vishtecu-Hyperu shows a rose-gold hairline, Enlimitra a frosted silver span, Quetzal-Hermeshu a tilted green-bronze eye, and Varunatl-Kronu a white-ringed blue elongation.
+Sky lore summary
+Constellation star layouts
+The Dragonborn Dominion of Valkhamesh
+The Luma Mirror of Nephthysra
+The Minotaur Labyrinth of Anubaldir
+The Wechselkind Crown of Setrimir
+The Sahuagin Deep Gate of Bastveig
+The Silkborn Web of Thoryn-Rahek
+The Crossroads Mask of Freyseth
+The Twin Drums of Ishtanora
+Practical observing guide for Belavadös sky-watchers
+For winter navigation, begin with The Minotaur Labyrinth of Anubaldir: the two horn tips and maze-heart create the clearest cold-season figure.
+For spring calendars, track the rising sequence of The Silkborn Web of Thoryn-Rahek, The Luma Mirror of Nephthysra, and The Twin Drums of Ishtanora.
+For summer deep-sky watching, follow the Star-River of Belavadös through the southern skyfields toward The Sahuagin Deep Gate of Bastveig.
+For late-summer horizon work, watch The Crossroads Mask of Freyseth; its lower road-post star is an excellent test of sky clarity.
+For autumn ceremonial timing, use The Wechselkind Crown of Setrimir and The Dragonborn Dominion of Valkhamesh as high and mid-northern markers.
+For lunar calendars, record both the broad phase of Chandratecu-Seleneš and the rapid position changes of Mictlindra-Nannara.
+Source and method notes
+The astronomical logic in this document uses standard sky-coordinate concepts: right ascension, declination, apparent magnitude, latitude-dependent visibility, horizon limits, and axial precession. The revised constellation placements use the attached all-sky constellation map and IAU solid-angle/center references as coordinate scaffolding only. Earth star names were not used; all fixed-star names are Belavadös deity/race-based, and every constellation has been remapped so its listed stars sit close enough together to form the described figure in a sky generator.
+No Earth star names are included. The document is intended as a lore-compatible sky reference for Belavadös and as a practical coordinate table for generators; the fixed stars are deliberately placed at remote background distances and several are faint enough to be only partially visible without unusually dark skies or magnification.
+Term | Meaning in this document
+RA | Right Ascension, measured from 0h to 24h in hours, minutes, and seconds.
+Dec | Declination, measured in degrees north or south of the celestial equator.
+AU | Astronomical Unit, used for planet distances.
+km | Kilometers, used for moon distances.
+ly | Light-years, used for star distances.
+Apparent magnitude | Brightness as seen from the surface: lower is brighter.
+Culmination altitude | Approximate maximum height above the horizon for an observer near 30° N latitude.
+RA / Dec | 05h 48m / -05° 12′ | Distance / Span | 1,380 ly / 38 ly
+Type | Emission cradle | Dominant Colors | Rose, gold, smoke-violet
+Layer Structure | Foreground soot lanes (900 ly), dense emission nursery (1,380 ly), red-brown rear cloud (5,800 ly) | Foreground soot lanes (900 ly), dense emission nursery (1,380 ly), red-brown rear cloud (5,800 ly) | Foreground soot lanes (900 ly), dense emission nursery (1,380 ly), red-brown rear cloud (5,800 ly)
+Texture & Components | Dense newborn stellar nursery with glowing hydrogen chambers. Rose tones arise from ionized hydrogen, gold from embedded young stars illuminating dust grains, while smoke-violet regions form where cooler molecular gas mingles with shadowed dust curtains. Texture resembles folded velvet mixed with branching smoke channels. Numerous protostars, Bok globules, and accretion knots are embedded throughout. | Dense newborn stellar nursery with glowing hydrogen chambers. Rose tones arise from ionized hydrogen, gold from embedded young stars illuminating dust grains, while smoke-violet regions form where cooler molecular gas mingles with shadowed dust curtains. Texture resembles folded velvet mixed with branching smoke channels. Numerous protostars, Bok globules, and accretion knots are embedded throughout. | Dense newborn stellar nursery with glowing hydrogen chambers. Rose tones arise from ionized hydrogen, gold from embedded young stars illuminating dust grains, while smoke-violet regions form where cooler molecular gas mingles with shadowed dust curtains. Texture resembles folded velvet mixed with branching smoke channels. Numerous protostars, Bok globules, and accretion knots are embedded throughout.
+RA / Dec | 12h 58m / +10° 44′ | Distance / Span | 2,100 ly / 62 ly
+Type | Supernova veil | Dominant Colors | Cyan, jade, white
+Layer Structure | Silver strand foreground (1,100 ly), supernova shell (2,100 ly), violet mutation veil (6,200 ly) | Silver strand foreground (1,100 ly), supernova shell (2,100 ly), violet mutation veil (6,200 ly) | Silver strand foreground (1,100 ly), supernova shell (2,100 ly), violet mutation veil (6,200 ly)
+Texture & Components | Extremely filamentary remnant structure. Cyan and jade hues indicate oxygen-rich shock fronts while white regions mark compressed gas where multiple shock waves intersect. Texture appears as torn silk, braided tendrils, and lace-like membranes. Contains expanding ejecta sheets, ionized oxygen filaments, sulfur traces, and high-energy particle fronts. | Extremely filamentary remnant structure. Cyan and jade hues indicate oxygen-rich shock fronts while white regions mark compressed gas where multiple shock waves intersect. Texture appears as torn silk, braided tendrils, and lace-like membranes. Contains expanding ejecta sheets, ionized oxygen filaments, sulfur traces, and high-energy particle fronts. | Extremely filamentary remnant structure. Cyan and jade hues indicate oxygen-rich shock fronts while white regions mark compressed gas where multiple shock waves intersect. Texture appears as torn silk, braided tendrils, and lace-like membranes. Contains expanding ejecta sheets, ionized oxygen filaments, sulfur traces, and high-energy particle fronts.
+RA / Dec | 16h 18m / -31° 06′ | Distance / Span | 5,600 ly / 95 ly
+Type | Dark-rift flower | Dominant Colors | Magenta, blue-black, crimson
+Layer Structure | Foreground sparks (1,800 ly), storm sheet (4,200 ly), primary rift flower (5,600 ly), violet dust rear layer (7,900 ly) | Foreground sparks (1,800 ly), storm sheet (4,200 ly), primary rift flower (5,600 ly), violet dust rear layer (7,900 ly) | Foreground sparks (1,800 ly), storm sheet (4,200 ly), primary rift flower (5,600 ly), violet dust rear layer (7,900 ly)
+Texture & Components | Vast petal-shaped dark nebula carved through a glowing emission field. Crimson and magenta petals surround blue-black voids where dense molecular dust blocks starlight. Texture resembles layered flower petals made of smoke and velvet. Contains cold molecular clouds, active collapse zones, dark filaments, and bright ionization ridges outlining the rift edges. | Vast petal-shaped dark nebula carved through a glowing emission field. Crimson and magenta petals surround blue-black voids where dense molecular dust blocks starlight. Texture resembles layered flower petals made of smoke and velvet. Contains cold molecular clouds, active collapse zones, dark filaments, and bright ionization ridges outlining the rift edges. | Vast petal-shaped dark nebula carved through a glowing emission field. Crimson and magenta petals surround blue-black voids where dense molecular dust blocks starlight. Texture resembles layered flower petals made of smoke and velvet. Contains cold molecular clouds, active collapse zones, dark filaments, and bright ionization ridges outlining the rift edges.
+RA / Dec | 21h 02m / -22° 18′ | Distance / Span | 3,400 ly / 74 ly
+Type | Reflection and dust complex | Dominant Colors | Silver, deep blue, pearl
+Layer Structure | Front ash layer (2,000 ly), reflective dust basin (3,400 ly), curse smoke (5,100 ly), under-road shadow (10,300 ly) | Front ash layer (2,000 ly), reflective dust basin (3,400 ly), curse smoke (5,100 ly), under-road shadow (10,300 ly) | Front ash layer (2,000 ly), reflective dust basin (3,400 ly), curse smoke (5,100 ly), under-road shadow (10,300 ly)
+Texture & Components | A highly reflective dust field illuminated by nearby blue stars. Silver and pearl regions arise from light scattering by fine silicate particles. Texture resembles polished frost, drifting fog banks, and layered mirror-glass sheets. Contains reflective silicate dust, carbonaceous smoke clouds, and fragmented molecular lanes. | A highly reflective dust field illuminated by nearby blue stars. Silver and pearl regions arise from light scattering by fine silicate particles. Texture resembles polished frost, drifting fog banks, and layered mirror-glass sheets. Contains reflective silicate dust, carbonaceous smoke clouds, and fragmented molecular lanes. | A highly reflective dust field illuminated by nearby blue stars. Silver and pearl regions arise from light scattering by fine silicate particles. Texture resembles polished frost, drifting fog banks, and layered mirror-glass sheets. Contains reflective silicate dust, carbonaceous smoke clouds, and fragmented molecular lanes.
+RA / Dec | 00h 28m / -40° 02′ | Distance / Span | 8,900 ly / 120 ly
+Type | Planetary shell cluster | Dominant Colors | Red, amber, charcoal
+Layer Structure | Metal-blue shell (2,200 ly), green shell (4,800 ly), primary red-amber shell cluster (8,900 ly), lost-key echo layer (9,600 ly) | Metal-blue shell (2,200 ly), green shell (4,800 ly), primary red-amber shell cluster (8,900 ly), lost-key echo layer (9,600 ly) | Metal-blue shell (2,200 ly), green shell (4,800 ly), primary red-amber shell cluster (8,900 ly), lost-key echo layer (9,600 ly)
+Texture & Components | Collection of overlapping planetary-nebula remnants. Amber and red shells arise from hydrogen and nitrogen emissions, while charcoal gaps reveal exhausted central cavities. Texture appears as stacked bubbles, fractured onion skins, and cracked glass spheres. Components include dying stellar cores, expanding gas shells, metallic ion clouds, and dusty ejecta rings. | Collection of overlapping planetary-nebula remnants. Amber and red shells arise from hydrogen and nitrogen emissions, while charcoal gaps reveal exhausted central cavities. Texture appears as stacked bubbles, fractured onion skins, and cracked glass spheres. Components include dying stellar cores, expanding gas shells, metallic ion clouds, and dusty ejecta rings. | Collection of overlapping planetary-nebula remnants. Amber and red shells arise from hydrogen and nitrogen emissions, while charcoal gaps reveal exhausted central cavities. Texture appears as stacked bubbles, fractured onion skins, and cracked glass spheres. Components include dying stellar cores, expanding gas shells, metallic ion clouds, and dusty ejecta rings.
+RA / Dec | 23h 54m / +27° 36′ | Distance / Span | 1,900 ly / 46 ly
+Type | Reflection mist and comet reservoir | Dominant Colors | White, pale gold, ice-blue
+Layer Structure | Tide mist (1,600 ly), reservoir core (1,900 ly), reef sheet (3,900 ly), blackwater wall (8,700 ly) | Tide mist (1,600 ly), reservoir core (1,900 ly), reef sheet (3,900 ly), blackwater wall (8,700 ly) | Tide mist (1,600 ly), reservoir core (1,900 ly), reef sheet (3,900 ly), blackwater wall (8,700 ly)
+Texture & Components | Diffuse cloud filled with icy cometary material. White and ice-blue coloration results from starlight reflecting from frozen dust and microscopic ice crystals. Texture resembles sea fog, frost plumes, and submerged currents. Rich in volatile compounds, comet embryos, crystalline ice grains, and reflective dust sheets. | Diffuse cloud filled with icy cometary material. White and ice-blue coloration results from starlight reflecting from frozen dust and microscopic ice crystals. Texture resembles sea fog, frost plumes, and submerged currents. Rich in volatile compounds, comet embryos, crystalline ice grains, and reflective dust sheets. | Diffuse cloud filled with icy cometary material. White and ice-blue coloration results from starlight reflecting from frozen dust and microscopic ice crystals. Texture resembles sea fog, frost plumes, and submerged currents. Rich in volatile compounds, comet embryos, crystalline ice grains, and reflective dust sheets.
+RA / Dec | 13h 51m / +22° 08′ | Distance / Span | 2,850 ly / 80 ly
+Type | Star-forming cloud | Dominant Colors | Green-gold, cream, turquoise
+Layer Structure | Blue foreground haze (1,200 ly), star-forming core (2,850 ly), mirror sheet (3,600 ly), rose backwash (6,300 ly) | Blue foreground haze (1,200 ly), star-forming core (2,850 ly), mirror sheet (3,600 ly), rose backwash (6,300 ly) | Blue foreground haze (1,200 ly), star-forming core (2,850 ly), mirror sheet (3,600 ly), rose backwash (6,300 ly)
+Texture & Components | Massive molecular cloud actively producing stellar clusters. Green-gold regions arise from mixed oxygen and dust reflection, cream tones from warm embedded stars. Texture resembles billowing cream-colored thunderheads crossed by turquoise rivers. Components include molecular hydrogen reservoirs, stellar nurseries, evaporating gas pillars, and young cluster cavities. | Massive molecular cloud actively producing stellar clusters. Green-gold regions arise from mixed oxygen and dust reflection, cream tones from warm embedded stars. Texture resembles billowing cream-colored thunderheads crossed by turquoise rivers. Components include molecular hydrogen reservoirs, stellar nurseries, evaporating gas pillars, and young cluster cavities. | Massive molecular cloud actively producing stellar clusters. Green-gold regions arise from mixed oxygen and dust reflection, cream tones from warm embedded stars. Texture resembles billowing cream-colored thunderheads crossed by turquoise rivers. Components include molecular hydrogen reservoirs, stellar nurseries, evaporating gas pillars, and young cluster cavities.
+RA / Dec | 09h 44m / +35° 19′ | Distance / Span | 4,200 ly / 68 ly
+Type | Spiral dust coil | Dominant Colors | Violet, silver, dark blue
+Layer Structure | Silver foreground threads (2,000 ly), central spiral coil (4,200 ly), violet rear dust (7,900 ly) | Silver foreground threads (2,000 ly), central spiral coil (4,200 ly), violet rear dust (7,900 ly) | Silver foreground threads (2,000 ly), central spiral coil (4,200 ly), violet rear dust (7,900 ly)
+Texture & Components | A rotating spiral dust formation resembling a galactic whirlpool. Dark blue channels mark denser dust lanes while silver highlights indicate reflected starlight. Texture resembles braided ribbons, hurricane bands, and coiled smoke. Contains spiral molecular filaments, reflective silicates, and embedded star embryos tracing the coil arms. | A rotating spiral dust formation resembling a galactic whirlpool. Dark blue channels mark denser dust lanes while silver highlights indicate reflected starlight. Texture resembles braided ribbons, hurricane bands, and coiled smoke. Contains spiral molecular filaments, reflective silicates, and embedded star embryos tracing the coil arms. | A rotating spiral dust formation resembling a galactic whirlpool. Dark blue channels mark denser dust lanes while silver highlights indicate reflected starlight. Texture resembles braided ribbons, hurricane bands, and coiled smoke. Contains spiral molecular filaments, reflective silicates, and embedded star embryos tracing the coil arms.
+Object Type | Count | Notes
+Wandering planets | 12 | Four are ringed: Vishtecu-Hyperu, Enlimitra, Quetzal-Hermeshu, Varunatl-Kronu.
+Moons | 2 | A nested lunar system: Chandratecu-Seleneš carries Mictlindra-Nannara.
+Constellation stars | 48 | Remote fixed stars with constellation-fitted RA, Dec, distance, color, apparent magnitude, and partial-visibility notes.
+Constellations | 8 | Belavadös sky figures with generator-ready star layouts.
+Total named celestial objects / groups | 70 | Planets, moons, distant constellation stars, and constellations.
+Moon | Relationship | Position / Average Orbital Distance | Speed | Full Orbit Time | Appearance | Notes
+Chandratecu-Seleneš | Primary moon orbiting Belavadös | 386,200 km from Belavadös | 3,272 mph / 5,267 km/h / 1.46 km/s | 19.20 Belavadös days | Large silver-white moon with faint blue-gray maria | Similar apparent size to the real Moon, but with broader dark basins and a brighter southern highland.
+Mictlindra-Nannara | Smaller moonlet orbiting Chandratecu-Seleneš | 41,600 km from Chandratecu-Seleneš | 3,355 mph / 5,400 km/h / 1.50 km/s | 2.02 Belavadös days | Small copper-gray moonlet with sharp crescent phase | N/A
+Metric | Moon Size
+Diameter | 1,749 mi / 2,815 km
+Circumference | 5,494 mi / 8,843 km
+Volume | 11.64 billion km³
+Mass | 3.91 × 10²² kg
+Metric | Compared to Belavadös
+Diameter | ~22% of Belavadös's diameter
+Circumference | ~22% of Belavadös's circumference
+Volume | ~1.1% of Belavadös's volume
+Mass | ~0.64% of Belavadös's mass
+Metric | Dwarf Moon Size
+Diameter | 1,014 mi / 1,633 km
+Circumference | 3,187 mi / 5,129 km
+Volume | 2.27 billion km³
+Mass | 7.63 × 10²¹ kg
+Metric | Compared to Belavadös
+Diameter | ~12.8% of Belavadös's diameter
+Circumference | ~12.8% of Belavadös's circumference
+Volume | ~0.21% of Belavadös's volume
+Mass | ~0.12% of Belavadös's mass
+Feature | Description
+Shared world orbit | Chandratecu-Seleneš carries Mictlindra-Nannara along its monthly path.
+Moonlet visibility | Mictlindra-Nannara usually appears close to Chandratecu-Seleneš and never strays far in the sky.
+Eclipses | Several times per year, the moonlet can cross the primary lunar disk as a tiny moving black dot.
+Tides | Chandratecu-Seleneš creates the main tides; Mictlindra-Nannara adds a subtle secondary pulse.
+Calendar effect | Sky-watchers track both the broad phases of the larger moon and the smaller moonlet’s quick dance.
+# | World | Average Distance (AU) | Average Distance (km) | Orbital Period (Belavadös Days) | Orbital Period (Belavadös Years) | Rings
+1 | Surixoch-Aresu | 0.2814 AU | 42.1 million km | 49.28 days | 0.149 years | No
+2 | Mardukesh-Huitra | 0.4891 AU | 73.2 million km | 112.93 days | 0.342 years | No
+3 | Belavadös | 1.00 AU | 149.6 million km | 330.15 | 1.00 | No
+4 | Vishtecu-Hyperu | 1.88 AU | 281.2 million km | 3,915.58 | 11.86 | Yes
+5 | Enlimitra | 2.47 AU | 369.5 million km | 9,721.42 | 29.45 | Yes
+6 | Tlalokron-Shivae | 3.92 AU | 586.4 million km | 27,739.26 | 84.02 | No
+7 | Quetzal-Hermeshu | 5.31 AU | 794.4 million km | 54,420.72 | 164.83 | Yes
+# | World | Region | Average Distance (AU) | Average Distance (km) | Orbital Period (Belavadös Days) | Orbital Period (Belavadös Years) | Rings
+8 | Nannarvati-Apollatl | Marduthor Forgebelt | 7.84 AU | 1.17 billion km | 1,518.69 | 4.60 | No
+9 | Ishtarkali-Mictor | Thalunesh Veil | 11.20 AU | 1.68 billion km | 81,877.20 | 248.00 | No
+10 | Varunatl-Kronu | Thalunesh Veil | 17.60 AU | 2.63 billion km | 102,346.50 | 310.00 | Yes
+11 | Ea-Narayotl | Eirzunet Shadow Reach | 25.40 AU | 3.80 billion km | 183,946.55 | 557.14 | No
+12 | Zeushamash-Indraxi | Thalunesh Veil | 38.90 AU | 5.82 billion km | 94,092.75 | 285.00 | No
+Region | Description
+Marduthor Forgebelt | Vast inner field of stone-rich and metal-rich celestial bodies.
+Thalunesh Veil | Distant realm of frozen wanderers, minor worlds, and ancient debris.
+Eirzunet Shadow Reach | Sparse outer frontier where isolated bodies travel immense orbital paths.
+Nefarokir Boundary | The furthest known limit of the star's influence.
+Sokhivar's Road | The great celestial plane followed by the worlds.
+Ishtanora Fields | Dense clusters of smaller wandering bodies.
+Enkirael Hosts | Swarms of companion bodies sharing larger worlds' paths.
+Horundar Tides | Reservoirs of long-period wanderers entering the inner system.
+Planet | Size Class (Prioritized) | Distance | Mag | RA | Dec | Rings | Dominant Colors | Cloud / Surface Features | Appearance
+Surixoch-Aresu | Small rocky planet | 0.42 AU | -1.8 | 02h 18m 44s | +12° 41′ | No | Copper, rust, ochre | Dust basins, bright volcanic ridges, scarlet haze | Copper-red body with golden dust storms
+Mardukesh-Huitra | Rocky greenhouse planet | 0.73 AU | -3.2 | 04h 51m 03s | -04° 19′ | No | Pearl, jade, pale gold | Dense cloud ocean, green auroral bands | Pearl-white clouds with green polar glows
+Vishtecu-Hyperu | Large rocky / mini-Neptune | 1.88 AU | +1.1 | 09h 33m 58s | +07° 52′ | Yes | Amber, rose, bronze | Smooth haze, golden storms | Amber world with rose-gold rings
+Enlimitra | Gas giant | 2.47 AU | +1.9 | 11h 42m 21s | -13° 37′ | Yes | Pale green, silver, white | Soft bands, polar cloud caps | Pale green giant with silver rings
+Tlalokron-Shivae | Storm giant | 3.92 AU | +2.6 | 13h 05m 12s | -21° 14′ | No | Indigo, white, electric blue | Lightning scars, equatorial storm chain | Stormy indigo world with white lightning belts
+Quetzal-Hermeshu | Gas giant | 5.31 AU | +2.2 | 15h 26m 40s | +03° 06′ | Yes | Emerald, bronze, cream | Feather-like cloud bands | Emerald-bronze world with tilted rings
+Nannarvati-Apollatl | Cold gas dwarf | 7.84 AU | +3.7 | 17h 49m 10s | +28° 31′ | No | Cream, blue, gray | Braided storm lanes | Cream-colored world with blue storm chains
+Ishtarkali-Mictor | Ice dwarf | 11.20 AU | +4.8 | 19h 13m 55s | -08° 46′ | No | Crimson, black, wine-red | Dark polar caps, ruby haze | Dark crimson ice giant with black polar caps
+Varunatl-Kronu | Ice dwarf | 17.60 AU | +5.3 | 21h 37m 02s | -26° 18′ | Yes | Deep blue, white, silver | Calm cloud belts, bright storms | Deep blue giant with broad white rings
+Ea-Narayotl | Distant ice planet | 25.40 AU | +6.4 | 23h 08m 49s | +15° 57′ | No | Frost-gray, turquoise | Auroral ovals, icy storms | Frost-gray world with turquoise auroral ovals
+Zeushamash-Indraxi | Dwarf planet | 38.90 AU | +7.1 | 00h 42m 31s | -31° 04′ | No | Violet, white, charcoal | Bright icy cap, dark plains | Remote violet dwarf world with a bright icy cap
+Field | Value
+Comet name | Eiršu'neth Comet
+Family | Vishtecu–Hyperu family comet
+Nucleus size | ~85 miles (137 km) across; ~10–50× typical comet core
+Mass | ~500 trillion tons (~500× typical comet mass)
+Orbital period | 6.48 Belavadös years
+Orbital period (days) | 2,139.37 Belavadös days
+Belavadös year reference | 1 year = 330.15 standard 24-hour days
+Semi-major axis | ≈ 3.48 AU
+Perihelion (closest approach) | 2.08 AU
+Aphelion (farthest distance) | 4.87 AU
+Eccentricity | ≈ 0.402
+Inclination | 18° above the Celestial Road
+Plane-crossing points | Only at perihelion and aphelion
+Inner system relation | Passes just outside Vishtecu–Hyperu’s region
+Safety status | Safe, non-impacting, visually dramatic
+Closest planetary orbit context | Vishtecu–Hyperu at 1.88 AU (≈0.20 AU / ~29.9 million km clearance at perihelion)
+Orbital neighborhood | Inside Quetzal-Hermeshu (5.31 AU), outside Tlalokron-Shivae (3.92 AU)
+Safety explanation | Perihelion stays outside Vishtecu–Hyperu orbit; inclined path avoids mid-plane crossings near inner planets; only intersects Celestial Road at orbital extremes
+Inner approach (orbital geometry) | 4.87 AU → 2.08 AU: descends toward plane; increasing brightness as it nears inner system
+Perihelion passage | At 2.08 AU: crosses Celestial Road safely between Vishtecu–Hyperu and Enlimitra
+Outbound climb | 2.08 AU → 4.87 AU: rises above plane, avoiding Enlimitra and Tlalokron-Shivae vertically
+Aphelion passage | At 4.87 AU: crosses Celestial Road between Tlalokron-Shivae and Quetzal-Hermeshu
+Return arc | 4.87 AU → 2.08 AU: descends back toward inner system on a 6.48-year cycle
+Visibility behavior | Becomes highly visible near perihelion; large icy-gas body with long watercolor tail
+Tail appearance | Pale blue-white and smoky silver, highly extended and luminous
+Observational significance | Rare “omen-comet,” visible for months, brightest near Vishtecu–Hyperu region
+Cultural/lore role | Used for festivals, prophecies, navigation, and ring-watching events
+Historical interpretation | Once feared due to size; now understood as a stable, repeating safe orbit
+# | Star | Constellation | Distance | Mag | Color | RA | Dec | Role / Visibility
+1 | Valkhamesh Prime | The Dragonborn Dominion of Valkhamesh | 7,800 ly | +5.6 | Blue-White | 19h 33m 00s | +36° 00′ | Raised storm crest; edge of naked-eye visibility.
+2 | Dragonborn Ember | The Dragonborn Dominion of Valkhamesh | 11,400 ly | +5.9 | Amber | 19h 55m 12s | +28° 00′ | Upper neck; edge of naked-eye visibility.
+3 | Kobold Spark | The Dragonborn Dominion of Valkhamesh | 15,900 ly | +6.2 | White-Gold | 20h 21m 36s | +20° 30′ | Inner coil; partial/faint visibility.
+4 | Lizardfolk Scale | The Dragonborn Dominion of Valkhamesh | 22,600 ly | +6.5 | Green-White | 20h 52m 48s | +14° 00′ | Lower coil; partial/faint visibility.
+5 | Yuan-Ti Fang | The Dragonborn Dominion of Valkhamesh | 31,500 ly | +6.7 | Blue | 21h 22m 12s | +19° 00′ | Serpent's head; partial/faint visibility.
+6 | Stormblood Tail | The Dragonborn Dominion of Valkhamesh | 46,000 ly | +7.0 | Red-Orange | 21h 51m 36s | +08° 00′ | Trailing tail; partial/faint visibility.
+7 | Nephthysra Glass | The Luma Mirror of Nephthysra | 9,300 ly | +5.7 | White | 13h 30m 00s | +32° 00′ | Mirror crown; edge of naked-eye visibility.
+8 | Luma Glow | The Luma Mirror of Nephthysra | 14,200 ly | +6.0 | Blue-White | 13h 04m 48s | +23° 30′ | Left upper mirror wing; edge of naked-eye visibility.
+9 | Dara Heart | The Luma Mirror of Nephthysra | 14,700 ly | +6.1 | Rose-White | 13h 57m 00s | +23° 12′ | Right upper mirror wing; partial/faint visibility.
+10 | Golynn Prism | The Luma Mirror of Nephthysra | 26,900 ly | +6.6 | Pale Yellow | 12h 46m 48s | +12° 00′ | Left lower mirror point; partial/faint visibility.
+11 | Charisma Veil | The Luma Mirror of Nephthysra | 28,300 ly | +6.8 | White-Gold | 14h 14m 24s | +12° 30′ | Right lower mirror point; partial/faint visibility.
+12 | Mirrorfire Wick | The Luma Mirror of Nephthysra | 54,000 ly | +7.1 | Golden-White | 13h 31m 12s | +18° 00′ | Central torch-flame; partial/faint visibility.
+13 | Anubaldir Stone | The Minotaur Labyrinth of Anubaldir | 6,200 ly | +5.4 | Orange | 05h 27m 00s | +16° 00′ | Labyrinth heart; edge of naked-eye visibility.
+14 | Minotaur Eye | The Minotaur Labyrinth of Anubaldir | 10,800 ly | +5.9 | Red-Orange | 05h 40m 48s | +11° 00′ | Bull's eye; edge of naked-eye visibility.
+15 | Goliath Horn | The Minotaur Labyrinth of Anubaldir | 18,600 ly | +6.2 | White | 04h 51m 00s | +27° 30′ | Left horn tip; partial/faint visibility.
+16 | Firbolg Horn | The Minotaur Labyrinth of Anubaldir | 19,200 ly | +6.3 | Golden-White | 06h 12m 00s | +27° 00′ | Right horn tip; partial/faint visibility.
+17 | Cyclopian Watch | The Minotaur Labyrinth of Anubaldir | 33,800 ly | +6.8 | Blue-White | 05h 07m 12s | +06° 00′ | Lower maze gate; partial/faint visibility.
+18 | Giff Burden | The Minotaur Labyrinth of Anubaldir | 45,500 ly | +7.1 | Yellow | 05h 57m 00s | +07° 30′ | Lower shoulder; partial/faint visibility.
+19 | Setrimir Diadem | The Wechselkind Crown of Setrimir | 8,900 ly | +5.5 | White | 23h 25m 12s | +29° 00′ | Western crown point; edge of naked-eye visibility.
+20 | Warforged Nail | The Wechselkind Crown of Setrimir | 13,100 ly | +6.1 | Steel-Blue | 23h 48m 00s | +40° 00′ | Raised left jewel; partial/faint visibility.
+21 | Geppettin Thread | The Wechselkind Crown of Setrimir | 20,000 ly | +6.4 | Pale Yellow | 00h 10m 48s | +48° 00′ | High crown jewel; partial/faint visibility.
+22 | Relicborn Spark | The Wechselkind Crown of Setrimir | 27,800 ly | +6.7 | White-Gold | 00h 37m 12s | +40° 30′ | Raised right jewel; partial/faint visibility.
+23 | Wechselkind Mask | The Wechselkind Crown of Setrimir | 39,600 ly | +6.9 | Blue-White | 01h 04m 48s | +29° 30′ | Eastern crown point; partial/faint visibility.
+24 | Stolen Gear | The Wechselkind Crown of Setrimir | 61,000 ly | +7.2 | Amber | 00h 13m 12s | +24° 00′ | Lower hidden clasp; partial/faint visibility.
+25 | Bastveig Tide | The Sahuagin Deep Gate of Bastveig | 12,500 ly | +5.8 | Blue-White | 16h 06m 00s | -18° 30′ | Top left lintel; edge of naked-eye visibility.
+26 | Triton Ward | The Sahuagin Deep Gate of Bastveig | 16,400 ly | +6.0 | White | 16h 55m 12s | -18° 00′ | Top right lintel; edge of naked-eye visibility.
+27 | Sahuagin Fang | The Sahuagin Deep Gate of Bastveig | 26,200 ly | +6.4 | Deep Blue | 16h 01m 12s | -34° 30′ | Left pillar; partial/faint visibility.
+28 | Merfolk Pearl | The Sahuagin Deep Gate of Bastveig | 27,100 ly | +6.5 | Pearl-White | 17h 03m 00s | -34° 00′ | Right pillar; partial/faint visibility.
+29 | Locathah Well | The Sahuagin Deep Gate of Bastveig | 48,000 ly | +7.0 | Green-White | 16h 09m 36s | -46° 00′ | Left threshold; partial/faint visibility.
+30 | Grung Lantern | The Sahuagin Deep Gate of Bastveig | 63,500 ly | +7.2 | Pale Green | 16h 55m 12s | -45° 00′ | Right threshold; partial/faint visibility.
+31 | Thoryn-Rahek Knot | The Silkborn Web of Thoryn-Rahek | 7,500 ly | +5.5 | Yellow-White | 09h 15m 00s | +36° 00′ | Central web knot; edge of naked-eye visibility.
+32 | Silkborn Strand | The Silkborn Web of Thoryn-Rahek | 18,200 ly | +6.2 | White | 08h 43m 12s | +49° 00′ | Upper left petal; partial/faint visibility.
+33 | Thri-Kreen Fang | The Silkborn Web of Thoryn-Rahek | 18,700 ly | +6.3 | Blue-White | 09h 49m 12s | +49° 30′ | Upper right petal; partial/faint visibility.
+34 | Cnidarin Pulse | The Silkborn Web of Thoryn-Rahek | 36,400 ly | +6.8 | Rose-White | 08h 27m 00s | +28° 00′ | Lower left petal; partial/faint visibility.
+35 | Oozekin Drop | The Silkborn Web of Thoryn-Rahek | 37,900 ly | +6.9 | Green-White | 10h 06m 00s | +27° 30′ | Lower right petal; partial/faint visibility.
+36 | Opteran Eye | The Silkborn Web of Thoryn-Rahek | 72,000 ly | +7.3 | Amber | 09h 13m 12s | +23° 00′ | Lower web anchor; partial/faint visibility.
+37 | Freyseth Mask | The Crossroads Mask of Freyseth | 8,400 ly | +5.6 | Orange-Red | 22h 07m 12s | -20° 00′ | Mask center; edge of naked-eye visibility.
+38 | Aasimar Eye | The Crossroads Mask of Freyseth | 17,300 ly | +6.1 | White-Gold | 21h 37m 12s | -10° 00′ | Left bright eye; partial/faint visibility.
+39 | Tiefling Eye | The Crossroads Mask of Freyseth | 17,900 ly | +6.2 | Red-Orange | 22h 37m 12s | -10° 30′ | Right ember eye; partial/faint visibility.
+40 | Hexblood Smile | The Crossroads Mask of Freyseth | 31,800 ly | +6.6 | Pale Yellow | 21h 43m 12s | -30° 30′ | Left mouth hook; partial/faint visibility.
+41 | Accursed Smile | The Crossroads Mask of Freyseth | 33,200 ly | +6.7 | Violet-White | 22h 33m 00s | -31° 00′ | Right mouth hook; partial/faint visibility.
+42 | Curseborn Road | The Crossroads Mask of Freyseth | 58,000 ly | +7.1 | Deep Red | 22h 06m 00s | -36° 30′ | Lower crossroads post; partial/faint visibility.
+43 | Ishtanora Hearth | The Twin Drums of Ishtanora | 6,700 ly | +5.5 | Golden-White | 10h 43m 12s | +07° 00′ | Left drum center; edge of naked-eye visibility.
+44 | Halfling Rim | The Twin Drums of Ishtanora | 13,500 ly | +6.0 | White | 10h 19m 12s | +13° 30′ | Left upper rim; edge of naked-eye visibility.
+45 | Kithkin Rim | The Twin Drums of Ishtanora | 14,000 ly | +6.1 | Pale Yellow | 10h 19m 12s | +00° 30′ | Left lower rim; partial/faint visibility.
+46 | Kender Beat | The Twin Drums of Ishtanora | 22,600 ly | +6.4 | Orange | 11h 25m 12s | +07° 00′ | Right drum center; partial/faint visibility.
+47 | Qickstep Cord | The Twin Drums of Ishtanora | 41,000 ly | +6.9 | Blue-White | 11h 49m 12s | +13° 30′ | Right upper rim; partial/faint visibility.
+48 | Jerbeen Tail | The Twin Drums of Ishtanora | 66,000 ly | +7.2 | Red-Orange | 11h 49m 12s | +00° 30′ | Right lower rim; partial/faint visibility.
+# | Constellation | Center RA | Center Dec | Main Stars Used | Shape | Best Season | Description
+1 | The Dragonborn Dominion of Valkhamesh | 20h 43m | +22° 00′ | Valkhamesh Prime, Dragonborn Ember, Kobold Spark | Curving serpent / draconic banner | Late autumn | Draconic chain for dragonborn, kobolds, lizardfolk, and yuan-ti.
+2 | The Luma Mirror of Nephthysra | 13h 33m | +22° 00′ | Nephthysra Glass, Luma Glow, Dara Heart | V-shaped mirror with winged torch | Spring | V-shaped mirror for Luma, Dara, Golynn, and Nephthysra's beauty-lore.
+3 | The Minotaur Labyrinth of Anubaldir | 05h 31m | +17° 00′ | Anubaldir Stone, Minotaur Eye, Goliath Horn | Bull's head, horns, and inner maze | Winter | Horned winter maze for minotaurs, goliaths, cyclopians, and firbolgs.
+4 | The Wechselkind Crown of Setrimir | 00h 15m | +35° 00′ | Setrimir Diadem, Warforged Nail, Geppettin Thread | Crown arc around the 0h seam | Autumn | Construct crown around the 0h seam for Setrimir's awakened peoples.
+5 | The Sahuagin Deep Gate of Bastveig | 16h 33m | -33° 00′ | Bastveig Tide, Triton Ward, Sahuagin Fang | Tall doorway with threshold | Summer | Southern ocean gate for trench, reef, and Sahuagin deep-water lore.
+6 | The Silkborn Web of Thoryn-Rahek | 09h 15m | +36° 00′ | Thoryn-Rahek Knot, Silkborn Strand, Thri-Kreen Fang | Petaled web with central knot | Spring | Petaled northern web for Silkborn, thri-kreen, and aberrant geometry.
+7 | The Crossroads Mask of Freyseth | 22h 09m | -20° 00′ | Freyseth Mask, Aasimar Eye, Tiefling Eye | Low mask / road-sign figure | Late summer | Low southern mask for pacts, curses, temptation, and planar bloodlines.
+8 | The Twin Drums of Ishtanora | 11h 03m | +07° 00′ | Ishtanora Hearth, Halfling Rim, Kithkin Rim | Two joined circles with bridge cord | Spring | Two joined circles for hearth festivals, harvest rites, and warning drums.
+Object | Declination | Approx. maximum altitude at 30° N | Visibility meaning
+Anubaldir Stone | +16° 00′ | 76° | Winter Labyrinth heart; plainly placed within the horned maze.
+Nephthysra Glass | +32° 00′ | 88° | Spring Mirror crown; high and clear in dark skies.
+Thoryn-Rahek Knot | +36° 00′ | 84° | Spring Web center; high northern anchor.
+Ishtanora Hearth | +07° 00′ | 67° | Twin Drums center; mid-sky equatorial marker.
+Valkhamesh Prime | +36° 00′ | 84° | Dragonborn Dominion crest; high autumn serpent marker.
+Bastveig Tide | -18° 30′ | 42° | Deep Gate lintel; southern summer marker.
+Curseborn Road | -36° 30′ | 24° | Freyseth Mask lower post; faint and horizon-sensitive.
+Category | Most Important Object | Why It Matters
+Most visible distant star | Anubaldir Stone | A comparatively bright +5.4 remote star anchoring the winter Labyrinth.
+Highest ceremonial marker | Nephthysra Glass | Its +32° declination lets it pass near the overhead sky at the assumed latitude.
+Most generator-ready shape | The Wechselkind Crown of Setrimir | Its stars intentionally arc across the 0h seam without scattering into unrelated sky regions.
+Most horizon-sensitive figure | The Sahuagin Deep Gate of Bastveig | Its lower threshold stars remain visible from 30° N but are vulnerable to haze and terrain.
+Strongest autumn navigation pair | The Dragonborn Dominion and Wechselkind Crown | One curves as a serpent while the other crowns the 0h seam, making late-season orientation easy.
+Best spring calendar sequence | Web, Mirror, Drums | Three compact figures rise in a readable order across northern, middle, and equatorial skyfields.
+Faintest intentional marker | Opteran Eye | At +7.3 magnitude, it is deliberately not fully visible without very dark skies or magnification.
+Best lore-grid match | All eight constellations | Each layout uses deity/race star names and clustered RA/Dec positions that match the described figure.
+Star | RA | Dec | Role in Shape
+Valkhamesh Prime | 19h 33m 00s | +36° 00′ | Raised storm crest
+Dragonborn Ember | 19h 55m 12s | +28° 00′ | Upper neck
+Kobold Spark | 20h 21m 36s | +20° 30′ | Inner coil
+Lizardfolk Scale | 20h 52m 48s | +14° 00′ | Lower coil
+Yuan-Ti Fang | 21h 22m 12s | +19° 00′ | Serpent's head
+Stormblood Tail | 21h 51m 36s | +08° 00′ | Trailing tail
+Star | RA | Dec | Role in Shape
+Nephthysra Glass | 13h 30m 00s | +32° 00′ | Mirror crown
+Luma Glow | 13h 04m 48s | +23° 30′ | Left upper mirror wing
+Dara Heart | 13h 57m 00s | +23° 12′ | Right upper mirror wing
+Golynn Prism | 12h 46m 48s | +12° 00′ | Left lower mirror point
+Charisma Veil | 14h 14m 24s | +12° 30′ | Right lower mirror point
+Mirrorfire Wick | 13h 31m 12s | +18° 00′ | Central torch-flame
+Star | RA | Dec | Role in Shape
+Anubaldir Stone | 05h 27m 00s | +16° 00′ | Labyrinth heart
+Minotaur Eye | 05h 40m 48s | +11° 00′ | Bull's eye
+Goliath Horn | 04h 51m 00s | +27° 30′ | Left horn tip
+Firbolg Horn | 06h 12m 00s | +27° 00′ | Right horn tip
+Cyclopian Watch | 05h 07m 12s | +06° 00′ | Lower maze gate
+Giff Burden | 05h 57m 00s | +07° 30′ | Lower shoulder
+Star | RA | Dec | Role in Shape
+Setrimir Diadem | 23h 25m 12s | +29° 00′ | Western crown point
+Warforged Nail | 23h 48m 00s | +40° 00′ | Raised left jewel
+Geppettin Thread | 00h 10m 48s | +48° 00′ | High crown jewel
+Relicborn Spark | 00h 37m 12s | +40° 30′ | Raised right jewel
+Wechselkind Mask | 01h 04m 48s | +29° 30′ | Eastern crown point
+Stolen Gear | 00h 13m 12s | +24° 00′ | Lower hidden clasp
+Star | RA | Dec | Role in Shape
+Bastveig Tide | 16h 06m 00s | -18° 30′ | Top left lintel
+Triton Ward | 16h 55m 12s | -18° 00′ | Top right lintel
+Sahuagin Fang | 16h 01m 12s | -34° 30′ | Left pillar
+Merfolk Pearl | 17h 03m 00s | -34° 00′ | Right pillar
+Locathah Well | 16h 09m 36s | -46° 00′ | Left threshold
+Grung Lantern | 16h 55m 12s | -45° 00′ | Right threshold
+Star | RA | Dec | Role in Shape
+Thoryn-Rahek Knot | 09h 15m 00s | +36° 00′ | Central web knot
+Silkborn Strand | 08h 43m 12s | +49° 00′ | Upper left petal
+Thri-Kreen Fang | 09h 49m 12s | +49° 30′ | Upper right petal
+Cnidarin Pulse | 08h 27m 00s | +28° 00′ | Lower left petal
+Oozekin Drop | 10h 06m 00s | +27° 30′ | Lower right petal
+Opteran Eye | 09h 13m 12s | +23° 00′ | Lower web anchor
+Star | RA | Dec | Role in Shape
+Freyseth Mask | 22h 07m 12s | -20° 00′ | Mask center
+Aasimar Eye | 21h 37m 12s | -10° 00′ | Left bright eye
+Tiefling Eye | 22h 37m 12s | -10° 30′ | Right ember eye
+Hexblood Smile | 21h 43m 12s | -30° 30′ | Left mouth hook
+Accursed Smile | 22h 33m 00s | -31° 00′ | Right mouth hook
+Curseborn Road | 22h 06m 00s | -36° 30′ | Lower crossroads post
+Star | RA | Dec | Role in Shape
+Ishtanora Hearth | 10h 43m 12s | +07° 00′ | Left drum center
+Halfling Rim | 10h 19m 12s | +13° 30′ | Left upper rim
+Kithkin Rim | 10h 19m 12s | +00° 30′ | Left lower rim
+Kender Beat | 11h 25m 12s | +07° 00′ | Right drum center
+Qickstep Cord | 11h 49m 12s | +13° 30′ | Right upper rim
+Jerbeen Tail | 11h 49m 12s | +00° 30′ | Right lower rim
