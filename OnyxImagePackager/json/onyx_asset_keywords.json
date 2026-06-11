@@ -36,7 +36,12 @@
       "cavern",
       "floor",
       "tile",
-      "plateau"
+      "plateau",
+      "ground texture",
+      "cobble",
+      "cobblestone",
+      "gravel",
+      "sandbar"
     ],
     "water": [
       "water",
@@ -112,16 +117,25 @@
       "platform",
       "treehouse",
       "ruin",
-      "room",
+      "outer wall",
+      "outerwall",
+      "walls",
+      "gates",
+      "roofs",
+      "district",
+      "building cluster",
+      "cluster",
+      "government",
       "hall",
-      "interior",
-      "chamber",
-      "bedroom",
-      "kitchen",
-      "hearth",
-      "fireplace",
-      "parlor",
-      "study"
+      "church",
+      "chapel",
+      "cathedral",
+      "hotel",
+      "apartment",
+      "apartments",
+      "residence",
+      "manor",
+      "palace"
     ],
     "path": [
       "path",
@@ -137,7 +151,11 @@
       "dock",
       "walkway",
       "fence",
-      "rail"
+      "rail",
+      "roads",
+      "pathway",
+      "courtyard",
+      "causeway"
     ],
     "object": [
       "object",
@@ -162,21 +180,17 @@
       "rockpile",
       "chest",
       "bed",
-      "bunk",
       "hearth",
       "fireplace",
       "chair",
-      "stool",
-      "desk",
-      "shelf",
+      "bookcase",
       "bookshelf",
       "wardrobe",
-      "cabinet",
-      "rug",
-      "cauldron",
-      "oven",
-      "anvil",
-      "counter"
+      "cupboard",
+      "interior",
+      "indoor",
+      "room",
+      "kitchen"
     ]
   },
   "tagAliases": {
@@ -233,16 +247,87 @@
       "shore",
       "coast"
     ],
+    "location": [
+      "location",
+      "interior",
+      "indoor",
+      "room"
+    ],
     "interior": [
       "interior",
-      "indoors",
+      "indoor",
       "room",
       "hall",
-      "chamber",
-      "parlor",
-      "kitchen",
-      "bedroom",
-      "tavernroom"
+      "chamber"
+    ],
+    "bed": [
+      "bed",
+      "bunk",
+      "mattress",
+      "cot"
+    ],
+    "hearth": [
+      "hearth",
+      "fireplace",
+      "stove",
+      "chimney"
+    ],
+    "government": [
+      "government",
+      "civic",
+      "hall",
+      "courthouse",
+      "barracks",
+      "embassy"
+    ],
+    "residential": [
+      "house",
+      "home",
+      "cottage",
+      "apartment",
+      "apartments",
+      "residence"
+    ],
+    "hospitality": [
+      "inn",
+      "hotel",
+      "hostel",
+      "tavern"
+    ],
+    "religious": [
+      "chapel",
+      "church",
+      "temple",
+      "shrine",
+      "cathedral"
+    ],
+    "wall": [
+      "wall",
+      "outer wall",
+      "fortification",
+      "gate"
+    ],
+    "cluster": [
+      "cluster",
+      "district",
+      "neighborhood",
+      "block"
+    ],
+    "deepwater": [
+      "deep water",
+      "deepwater",
+      "underwater",
+      "open ocean",
+      "abyss"
+    ],
+    "surfacewater": [
+      "surface water",
+      "surfacewater",
+      "shore",
+      "coast",
+      "river",
+      "lake",
+      "ocean surface"
     ]
   }
 }

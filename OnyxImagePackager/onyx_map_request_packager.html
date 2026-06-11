@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Emperor Onyx — Map Request Packager</title>
-  <link rel="stylesheet" href="css/onyx-map-request-packager.css" />
+  <link rel="stylesheet" href="css/onyx-map-image-creator.css" />
 </head>
 <body>
   <div class="onyx-app-shell">
@@ -15,7 +15,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Cat emperor map-pack request forge</p>
         <h1>Emperor Onyx Map Request Packager</h1>
-        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type or <strong>Location</strong> for a specific interior map, choose the biomes, load or catalog your <code>map_assets</code> folder, and he will fetch the best matching image assets into an exportable ZIP map request pack for building maps later.</p>
+        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type and biomes, load or catalog your <code>map_assets</code> folder, and he will fetch the best matching image assets into an exportable ZIP map request pack for building maps later.</p>
       </div>
       <div class="hero-badges">
         <span class="badge gold">🐈‍⬛ Cat Emperor</span>
@@ -25,20 +25,23 @@
       </div>
     </header>
 
+    <div class="global-tools"><button id="resetModuleSizes" type="button" class="secondary">Reset module sizes</button><p class="hint inline-hint">Modules are resizable in-browser. Sizes are not saved and will reset on refresh.</p></div>
+
     <main class="layout-grid">
-      <section class="panel controls-panel">
-        <h2>1. Settlement order</h2>
+      <section class="panel controls-panel resizable-panel" data-resizable-panel>
+        <h2>1. Map request order</h2>
         <div class="control-stack">
           <label>
-            <span>Settlement type</span>
+            <span>Request type</span>
             <select id="settlementType">
               <option value="capital">Capital</option>
               <option value="city">City</option>
               <option value="town" selected>Town</option>
               <option value="village">Village</option>
-              <option value="location">Location (specific interior map)</option>
+              <option value="location">Location (interior map)</option>
             </select>
           </label>
+          <p class="hint">Choose <strong>Location</strong> only for specific interior maps. That is the only request type where Onyx should strongly suggest beds, hearths, tables, storage, and similar indoor-only assets. All settlement requests prioritize exteriors, districts, walls, roofs, clusters, paths, plants, and water/ground textures.</p>
           <div class="triple-grid">
             <label>
               <span>Biome category</span>
@@ -49,7 +52,7 @@
               <select id="biomeChoice"></select>
             </label>
             <label>
-              <span>Settlement or location name</span>
+              <span>Settlement name</span>
               <input id="settlementName" type="text" value="Gloamhollow" placeholder="Settlement name" />
             </label>
           </div>
@@ -58,7 +61,7 @@
             <button id="clearBiomes" type="button" class="secondary">Clear cache</button>
           </div>
           <div id="biomeCache" class="biome-cache"></div>
-          <p class="hint">Keep up to 3 biome choices cached so hybrid settlements can coexist, such as beach + forest + underwater reefs. Choose <strong>Location</strong> only for specific interior maps. Interior suggestions like beds, hearths, tables, kitchens, and similar room props are only appropriate for Location requests.</p>
+          <p class="hint">Keep up to 3 biome choices cached so hybrid settlements can coexist, such as beach + forest + underwater reefs.</p>
         </div>
 
         <h2>2. Upload settlement JSON</h2>
@@ -67,19 +70,7 @@
           <div id="settlementJsonStatus" class="package-status muted">No settlement JSON loaded yet. Onyx can still create a request JSON from the form.</div>
         </div>
 
-        <h2>3. Locations + pins template</h2>
-        <div class="template-panel">
-          <p class="hint">Load the Belavadös immersive locations + GeoJSON pin template. Onyx will package it with the request so the exported ZIP carries location categories, services, prices, NPC assignment rules, and color-changing marker rules.</p>
-          <div class="button-row wrap">
-            <button id="loadBuiltInTemplate" type="button">Load built-in template</button>
-            <label class="file-button secondary-file">Import locations/pins JSON<input id="locationPinTemplateInput" type="file" accept="application/json,.json" /></label>
-          </div>
-          <label class="checkbox-label"><input id="includeTemplateInPackage" type="checkbox" checked> <span>Include locations + pins template and marker in exported ZIP</span></label>
-          <div id="templateStatus" class="package-status muted">Built-in Belavadös template will auto-load when available.</div>
-          <div id="templatePinPreview" class="template-pin-preview"></div>
-        </div>
-
-        <h2>4. Feed Onyx the map_assets folder</h2>
+        <h2>3. Feed Onyx the map_assets folder</h2>
         <div id="dropZone" class="drop-zone" tabindex="0">
           <strong>Drop your map_assets folder here</strong>
           <span>Onyx scans filenames and tags candidate land, water, plants, roofs, objects, buildings, roads, reefs, settlement maps, and reference images. He packages useful assets; he does not render the final map.</span>
@@ -90,10 +81,10 @@
           <label class="file-button secondary-file">Import recipe<input id="recipeInput" type="file" accept="application/json,.json" /></label>
           <button id="loadCatalog" type="button" class="secondary">Load local asset catalog</button>
         </div>
-        <p class="hint">If you place your huge asset folder inside <code>assets/map_assets</code>, run <code>node tools/build-map-asset-catalog.mjs</code> to generate a browser-readable catalog.</p>
+        <p class="hint">If you place your huge asset folder inside <code>assets/map_assets</code>, run <code>node tools/build-map-asset-catalog.mjs</code> to generate a browser-readable catalog. Onyx can scan millions of cataloged assets by metadata; the 100,000 MB limit applies only when building the ZIP export.</p>
         <div id="assetStats" class="stats-grid"></div>
 
-        <h2>5. Speak to Onyx</h2>
+        <h2>4. Speak to Onyx</h2>
         <div class="chat-panel">
           <div class="chat-companion">
             <div class="chat-companion-avatar">
@@ -121,11 +112,11 @@
         </div>
       </section>
 
-      <section class="panel canvas-panel package-panel-main">
+      <section class="panel canvas-panel package-panel-main resizable-panel" data-resizable-panel>
         <div class="canvas-topbar">
           <div>
-            <h2>6. Map request ZIP packager</h2>
-            <p id="compositionSummary" class="hint">Awaiting settlement JSON and map assets. Onyx will fetch matching images and package them for later map building.</p>
+            <h2>5. Map request ZIP packager</h2>
+            <p id="compositionSummary" class="hint">Awaiting settlement JSON and map assets. Onyx will fetch matching images and package them for later SVG map building, with instructions for colored pins, GeoJSON overlays, and no settlement grids.</p>
           </div>
           <div class="button-row wrap">
             <button id="findPackageAssets" type="button">Fetch matching assets</button>
@@ -133,9 +124,14 @@
           </div>
         </div>
         <div class="package-controls-grid">
+          <label><span>Asset search</span><input id="assetSearch" type="text" placeholder="Search loaded assets or candidate matches, e.g. roof, bridge, chapel, dock" /></label>
           <label><span>Max images in package</span><input id="packageMaxImages" type="number" min="1" max="5000" step="1" value="180"></label>
           <label><span>Max ZIP size / MB</span><input id="packageMaxMb" type="number" min="1" max="100000" step="1" value="100000"></label>
           <label class="checkbox-label"><input id="packageIncludeAll" type="checkbox"> <span>Include all loaded assets, not just ranked matches</span></label>
+        </div>
+        <div class="button-row wrap">
+          <button id="selectVisibleAssets" type="button" class="secondary">Select visible matches</button>
+          <button id="deselectVisibleAssets" type="button" class="secondary">Deselect visible matches</button>
         </div>
         <div id="packagePreviewSummary" class="package-status">No package candidates yet.</div>
         <div id="packageCandidateList" class="package-candidate-list"></div>
@@ -156,7 +152,7 @@
         </div>
       </section>
 
-      <section class="panel side-panel">
+      <section class="panel side-panel resizable-panel" data-resizable-panel>
         <div class="legacy-generator-hidden" aria-hidden="true">
           <h2>Legacy effects disabled</h2>
         <div class="slider-grid">
@@ -178,7 +174,7 @@
 
         </div>
 
-        <h2>7. Scanner forge</h2>
+        <h2>6. Scanner forge</h2>
 
         <div class="scan-panel">
           <p class="hint">Optional scanner abilities: load a fantasy map image, auto-pick terrain colors, scan patches, build scan GeoJSON overlays, and export the results. This is for analysis/reference only; the main workflow packages images and JSON for later map building.</p>
@@ -201,20 +197,20 @@
           <pre id="scanPreview" class="geo-preview"></pre>
         </div>
 
-        <h2>8. Legacy pin details</h2>
+        <h2>7. Legacy pin details</h2>
 
         <div id="pinPanel" class="pin-panel empty">Click a pin on the canvas or in the list to inspect a location.</div>
         <div id="pinList" class="pin-list"></div>
 
-        <h2>9. GeoJSON</h2>
+        <h2>8. GeoJSON</h2>
         <div id="geoSummary" class="geo-summary">No GeoJSON generated yet.</div>
         <pre id="geoPreview" class="geo-preview"></pre>
 
-        <h2>10. Imperial packaging notes</h2>
+        <h2>9. Imperial packaging notes</h2>
         <div id="onyxLog" class="onyx-log"></div>
       </section>
     </main>
   </div>
-  <script src="js/onyx-map-request-packager.js"></script>
+  <script src="js/onyx-map-image-creator.js"></script>
 </body>
 </html>

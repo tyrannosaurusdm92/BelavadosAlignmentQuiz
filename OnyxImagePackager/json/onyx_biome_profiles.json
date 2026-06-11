@@ -50,16 +50,15 @@
     },
     "location": {
       "label": "Location",
-      "sizeMultiplier": 0.35,
-      "buildingBudget": 12,
+      "sizeMultiplier": 0.28,
+      "buildingBudget": 8,
       "pathBudget": 2,
-      "propBudget": 48,
-      "plantBudget": 8,
+      "propBudget": 34,
+      "plantBudget": 6,
       "canvas": {
-        "width": 1600,
-        "height": 1000
-      },
-      "notes": "Specific interior map. Beds, hearths, tables, and similar indoor props are only suggested for this type."
+        "width": 1100,
+        "height": 850
+      }
     }
   },
   "categories": {

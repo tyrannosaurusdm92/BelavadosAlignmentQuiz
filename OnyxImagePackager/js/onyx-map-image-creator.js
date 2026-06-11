@@ -165,7 +165,7 @@
   }
 
   function captureEls() {
-    const ids = ['settlementType', 'biomeCategory', 'biomeChoice', 'settlementName', 'addBiome', 'clearBiomes', 'biomeCache', 'settlementJsonInput', 'settlementJsonStatus', 'dropZone', 'folderInput', 'fileInput', 'recipeInput', 'loadCatalog', 'assetStats', 'chatLog', 'chatInput', 'sendChat', 'clearChat', 'findPackageAssets', 'buildMapPackage', 'packageMaxImages', 'packageMaxMb', 'packageIncludeAll', 'packagePreviewSummary', 'packageCandidateList', 'packageStatus', 'generateMap', 'variantMap', 'generatePins', 'generateGeoJson', 'downloadPng', 'exportRecipe', 'exportGeoJson', 'exportPins', 'density', 'rotation', 'scaleVariance', 'depth', 'lightingStrength', 'movementStrength', 'spookyStrength', 'seed', 'toggleLighting', 'toggleMovement', 'toggleSounds', 'playDoor', 'mapCanvas', 'fxCanvas', 'pinPanel', 'pinList', 'geoSummary', 'geoPreview', 'onyxLog', 'compositionSummary', 'onyxMood', 'onyxChatMood', 'onyxMoodLabel', 'scanMapInput', 'autoPalette', 'scanTerrain', 'promoteScanGeo', 'downloadScanPng', 'exportScanJson', 'clearScan', 'scanTolerance', 'scanMinPatch', 'scanSummary', 'scanPreview'];
+    const ids = ['settlementType', 'biomeCategory', 'biomeChoice', 'settlementName', 'addBiome', 'clearBiomes', 'biomeCache', 'settlementJsonInput', 'settlementJsonStatus', 'dropZone', 'folderInput', 'fileInput', 'recipeInput', 'loadCatalog', 'assetStats', 'assetSearch', 'selectVisibleAssets', 'deselectVisibleAssets', 'resetModuleSizes', 'chatLog', 'chatInput', 'sendChat', 'clearChat', 'findPackageAssets', 'buildMapPackage', 'packageMaxImages', 'packageMaxMb', 'packageIncludeAll', 'packagePreviewSummary', 'packageCandidateList', 'packageStatus', 'generateMap', 'variantMap', 'generatePins', 'generateGeoJson', 'downloadPng', 'exportRecipe', 'exportGeoJson', 'exportPins', 'density', 'rotation', 'scaleVariance', 'depth', 'lightingStrength', 'movementStrength', 'spookyStrength', 'seed', 'toggleLighting', 'toggleMovement', 'toggleSounds', 'playDoor', 'mapCanvas', 'fxCanvas', 'pinPanel', 'pinList', 'geoSummary', 'geoPreview', 'onyxLog', 'compositionSummary', 'onyxMood', 'onyxChatMood', 'onyxMoodLabel', 'scanMapInput', 'autoPalette', 'scanTerrain', 'promoteScanGeo', 'downloadScanPng', 'exportScanJson', 'clearScan', 'scanTolerance', 'scanMinPatch', 'scanSummary', 'scanPreview'];
     for (const id of ids) els[id] = document.getElementById(id);
   }
 
@@ -208,6 +208,10 @@
     els.fileInput.addEventListener('change', (e) => handleFileSelection([...e.target.files]));
     els.recipeInput.addEventListener('change', handleRecipeImport);
     els.loadCatalog.addEventListener('click', loadAssetCatalog);
+    if (els.assetSearch) els.assetSearch.addEventListener('input', renderPackageCandidates);
+    if (els.selectVisibleAssets) els.selectVisibleAssets.addEventListener('click', () => toggleVisibleCandidates(true));
+    if (els.deselectVisibleAssets) els.deselectVisibleAssets.addEventListener('click', () => toggleVisibleCandidates(false));
+    if (els.resetModuleSizes) els.resetModuleSizes.addEventListener('click', resetModuleSizes);
     if (els.settlementJsonInput) els.settlementJsonInput.addEventListener('change', handleSettlementJsonImport);
     if (els.findPackageAssets) els.findPackageAssets.addEventListener('click', () => findMatchingPackageAssets(true));
     if (els.buildMapPackage) els.buildMapPackage.addEventListener('click', buildAndDownloadMapPackage);
@@ -355,24 +359,24 @@
   }
 
   async function loadAssetCatalog() {
-    const paths = ['json/map_assets_catalog.json', 'assets/map_assets/map_assets_catalog.json'];
-    for (const path of paths) {
-      try {
-        const res = await fetch(path);
-        if (!res.ok) continue;
-        const catalog = await res.json();
-        const assets = await Promise.all((catalog.assets || []).map(loadCatalogAsset));
-        state.assets = assets.filter(Boolean);
-        renderAssetStats();
-        addLog(`Loaded ${state.assets.length} cataloged assets from ${path}. The pantry is full.`, 'thoughtful');
-        return;
-      } catch (err) {
-        // continue
+    const paths = ['json/map_assets_catalog.json', 'assets/map_assets/map_assets_catalog.json', 'assets/map_assets/asset-catalog.json', 'assets/map_assets/catalog.json'];
+    return (async () => {
+      for (const path of paths) {
+        try {
+          const res = await fetch(path);
+          if (!res.ok) continue;
+          const catalog = await res.json();
+          const rawAssets = Array.isArray(catalog) ? catalog : (catalog.assets || []);
+          state.assets = rawAssets.map(item => catalogItemToAsset(item)).filter(Boolean);
+          renderAssetStats();
+          addLog(`Loaded ${state.assets.length} cataloged assets from ${path}. Onyx can browse huge catalogs by metadata and only fetch the chosen files during export.`, 'thoughtful');
+          return;
+        } catch (err) {
+        }
       }
-    }
-    addLog('I could not find a local asset catalog. Run the Node catalog script first or use the folder picker.', 'judgmental');
+      addLog('I could not find a local asset catalog. Run the Node catalog script first or use the folder picker.', 'judgmental');
+    })();
   }
-
 
   function handleSettlementJsonImport(e) {
     const file = e.target.files && e.target.files[0];
@@ -438,6 +442,7 @@
     if (text.includes('city')) return 'city';
     if (text.includes('town')) return 'town';
     if (text.includes('village')) return 'village';
+    if (text.includes('location') || text.includes('interior')) return 'location';
     return '';
   }
 
@@ -467,13 +472,63 @@
       .filter(item => includeAll || item.score > 0)
       .sort((a, b) => b.score - a.score || String(a.asset.path).localeCompare(String(b.asset.path)));
     state.packageCandidates = candidates;
-    state.packageSelectedAssetIds = new Set(candidates.slice(0, maxImages).map(item => item.asset.id));
+    state.packageSelectedAssetIds = buildAutoSelectionSet(candidates, maxImages);
     renderPackageCandidates();
     if (userInitiated) {
-      addLog(`Fetched ${candidates.length} possible map assets and selected the top ${Math.min(maxImages, candidates.length)}. My whiskers approve conditionally.`, 'scan');
-      addChat('onyx', `Papa, I found ${candidates.length} possible map_assets matches and selected ${Math.min(maxImages, candidates.length)} for the ZIP pack. Review the checkboxes, then tell me to build the zip package.`);
+      addLog(`Fetched ${candidates.length} possible map assets and selected ${state.packageSelectedAssetIds.size} based on settlement/location requirements. My whiskers approve conditionally.`, 'scan');
+      addChat('onyx', `Papa, I found ${candidates.length} possible map_assets matches and preselected ${state.packageSelectedAssetIds.size}. I made sure settlements include exteriors, structures, paths, plants, and water or ground textures; interiors only get beds and hearths when the request type is Location.`);
     }
     return candidates;
+  }
+
+  function buildAutoSelectionSet(candidates, maxImages) {
+    const selected = new Set();
+    const take = asset => { if (asset && selected.size < maxImages) selected.add(asset.id); };
+    const selectedType = els.settlementType ? els.settlementType.value : 'town';
+    const requirements = selectedType === 'location' ? getLocationRequiredMatchers() : getSettlementRequiredMatchers();
+    for (const req of requirements) {
+      const matches = candidates.filter(item => req.match(item.asset)).slice(0, req.count || 1);
+      matches.forEach(item => take(item.asset));
+    }
+    for (const item of candidates) {
+      if (selected.size >= maxImages) break;
+      take(item.asset);
+    }
+    return selected;
+  }
+
+  function getSettlementRequiredMatchers() {
+    const biomes = state.selectedBiomes && state.selectedBiomes.length ? state.selectedBiomes.map(normalizeText) : ['grassland'];
+    const isWater = biomes.some(b => /(ocean|underwater|water|beach|reef|coast|shore|lake|river|swamp|marsh)/.test(b));
+    const deepWater = biomes.some(b => /(underwater without reefs|underwater with reefs|deep|open ocean|deep sea)/.test(b));
+    const surfaceWater = biomes.some(b => /(ocean surface|floating|beach|coast|shore|lake|river|surface)/.test(b));
+    return [
+      { key:'outerWalls', count:3, match: asset => /outer\s?wall|fortification|gate|gates|wall/.test(assetSearchText(asset)) },
+      { key:'roofs', count:4, match: asset => /roof|thatch|shingles|tile roof|tile_roof/.test(assetSearchText(asset)) },
+      { key:'clusters', count:4, match: asset => /cluster|district|street|block|neighborhood|settlement|town|city|village/.test(assetSearchText(asset)) },
+      { key:'government', count:2, match: asset => /government|civic|hall|courthouse|barracks|embassy|palace|castle/.test(assetSearchText(asset)) },
+      { key:'residential', count:4, match: asset => /house|home|cottage|hut|residence|apartment|apartments|neighborhood/.test(assetSearchText(asset)) },
+      { key:'hospitality', count:3, match: asset => /inn|hotel|hostel|tavern|lodg|apartment/.test(assetSearchText(asset)) },
+      { key:'religious', count:2, match: asset => /chapel|church|temple|shrine|cathedral/.test(assetSearchText(asset)) },
+      { key:'paths', count:5, match: asset => /path|road|trail|street|bridge|stairs|walkway|dock|pier/.test(assetSearchText(asset)) },
+      { key:'plants', count:4, match: asset => /plant|tree|forest|woods|bush|shrub|flower|vine|grass|moss|garden/.test(assetSearchText(asset)) },
+      { key:'ground', count:4, match: asset => /terrain|ground|dirt|soil|grass|stone|rock|sand|mud|cobble|cobblestone|gravel|floor|tile/.test(assetSearchText(asset)) },
+      { key:'surfaceWater', count: surfaceWater ? 3 : 0, match: asset => /surface water|surfacewater|ocean|sea|river|lake|pond|stream|shore|coast|wave|waterfall|canal|dockwater/.test(assetSearchText(asset)) },
+      { key:'deepWater', count: deepWater ? 3 : 0, match: asset => /deep water|deepwater|underwater|submerged|abyss|open ocean|seafloor|sea_floor/.test(assetSearchText(asset)) },
+      { key:'generalWater', count: (!surfaceWater && !deepWater && isWater) ? 3 : 0, match: asset => /water|ocean|sea|river|lake|shore|reef|coral|underwater/.test(assetSearchText(asset)) }
+    ].filter(req => req.count > 0);
+  }
+
+  function getLocationRequiredMatchers() {
+    return [
+      { key:'interiorShell', count:2, match: asset => /interior|indoor|room|hall|chamber|floor|wall/.test(assetSearchText(asset)) },
+      { key:'beds', count:2, match: asset => /bed|bunk|cot|mattress/.test(assetSearchText(asset)) },
+      { key:'hearths', count:2, match: asset => /hearth|fireplace|stove|chimney|oven/.test(assetSearchText(asset)) },
+      { key:'tables', count:2, match: asset => /table|chair|desk|bench/.test(assetSearchText(asset)) },
+      { key:'storage', count:2, match: asset => /chest|crate|cupboard|wardrobe|shelf|bookcase|bookshelf|cabinet|barrel/.test(assetSearchText(asset)) },
+      { key:'lights', count:2, match: asset => /lamp|lantern|torch|candle|brazi(er|er)?/.test(assetSearchText(asset)) },
+      { key:'doors', count:2, match: asset => /door|arch|entry|stairs|ladder/.test(assetSearchText(asset)) }
+    ];
   }
 
   function scorePackageAsset(asset) {
@@ -485,22 +540,44 @@
     (asset.categories || []).forEach(cat => { score += weights[cat] || 0; });
     (asset.tags || []).forEach(tag => { if (weights[tag]) score += Math.max(2, Math.floor(weights[tag] / 3)); });
     if (text.includes(type)) score += 32;
-    if (type === 'capital' && /(castle|palace|district|large|city|capital|port|station|temple|market)/.test(text)) score += 10;
-    if (type === 'city' && /(city|district|street|market|temple|station|harbor|port)/.test(text)) score += 8;
-    if (type === 'town' && /(town|village|market|inn|tavern|road|farm|dock)/.test(text)) score += 6;
-    if (type === 'village' && /(village|hut|cottage|farm|field|well|path|camp)/.test(text)) score += 6;
+    if (type === 'capital' && /(castle|palace|district|large|city|capital|port|station|temple|market|wall|roof)/.test(text)) score += 12;
+    if (type === 'city' && /(city|district|street|market|temple|station|harbor|port|wall|roof)/.test(text)) score += 9;
+    if (type === 'town' && /(town|village|market|inn|tavern|road|farm|dock|wall|roof)/.test(text)) score += 7;
+    if (type === 'village' && /(village|hut|cottage|farm|field|well|path|camp|roof)/.test(text)) score += 7;
+    if (type === 'location' && /(interior|indoor|room|hall|chamber|bed|hearth|fireplace|table|chair|shelf|storage|kitchen|door)/.test(text)) score += 28;
     biomes.forEach(biome => {
       const norm = normalizeText(biome);
       if (norm && text.includes(norm)) score += 35;
       norm.split(' ').filter(w => w.length > 2).forEach(word => { if (text.includes(word)) score += 8; });
     });
     if ((asset.width || 0) >= 1000 || (asset.height || 0) >= 1000) score += 4;
-    if (/map|battlemap|settlement|village|town|city|province|terrain|tile|asset/.test(text)) score += 4;
+    if (/map|battlemap|settlement|village|town|city|province|terrain|tile|asset|district|bridge|roof|wall/.test(text)) score += 5;
+    if (type !== 'location' && /(bed|hearth|fireplace|mattress|wardrobe|dresser|kitchen)/.test(text)) score -= 18;
     if (/character.?sheet|dice|portrait|npc|token|avatar|mood|onyx/.test(text)) score -= 80;
     return Math.max(0, Math.round(score));
   }
 
   function desiredPackageWeights(type, biomes) {
+    const weights = { terrain: 20, building: 34, path: 18, object: 10, plants: 12, water: 0, reef: 0, roof: 16, wall: 16, cluster: 12, government: 12, residential: 10, hospitality: 10, religious: 8, interior: 0, bed: 0, hearth: 0, deepwater: 0, surfacewater: 0 };
+    if (type === 'capital') Object.assign(weights, { building: 46, path: 24, object: 16, terrain: 18, roof: 20, wall: 20, cluster: 18 });
+    if (type === 'city') Object.assign(weights, { building: 40, path: 22, object: 14, terrain: 18, roof: 18, wall: 18, cluster: 16 });
+    if (type === 'town') Object.assign(weights, { building: 34, path: 20, object: 12, terrain: 20, roof: 16, wall: 14, cluster: 12 });
+    if (type === 'village') Object.assign(weights, { building: 28, path: 16, object: 12, terrain: 22, plants: 20, roof: 14, residential: 14 });
+    if (type === 'location') Object.assign(weights, { building: 12, path: 4, object: 30, terrain: 8, plants: 2, interior: 30, bed: 26, hearth: 24, residential: 8, hospitality: 12 });
+    biomes.forEach(biome => {
+      const text = normalizeText(biome);
+      if (/ocean|underwater|water|beach|coast|shore|floating/.test(text)) { weights.water += 34; weights.path += 6; weights.surfacewater += 20; }
+      if (/reef|coral|kelp/.test(text)) { weights.reef += 34; weights.water += 16; }
+      if (/underwater without reefs|underwater with reefs|deep sea|deep ocean|open ocean/.test(text)) { weights.deepwater += 28; }
+      if (/forest|tree|treetop|swamp|marsh|grass|farm|prairie|plains/.test(text)) { weights.plants += 28; weights.terrain += 12; }
+      if (/mountain|valley|cavern|cave|rock/.test(text)) { weights.terrain += 30; weights.object += 8; }
+      if (/farm|farming|grassland|prairie/.test(text)) { weights.plants += 14; weights.path += 6; }
+      if (/swamp|marsh/.test(text)) { weights.water += 14; weights.plants += 18; }
+    });
+    return weights;
+  }
+
+  function explainPackageAsset(type, biomes) {
     const weights = { terrain: 18, building: 30, path: 16, object: 10, plants: 8, water: 0, reef: 0 };
     if (type === 'capital') Object.assign(weights, { building: 42, path: 24, object: 16, terrain: 16 });
     if (type === 'city') Object.assign(weights, { building: 38, path: 22, object: 14, terrain: 16 });
@@ -537,19 +614,29 @@
 
   function renderPackageCandidates() {
     if (!els.packageCandidateList || !els.packagePreviewSummary) return;
-    const candidates = state.packageCandidates || [];
-    const selectedCount = state.packageSelectedAssetIds ? state.packageSelectedAssetIds.size : 0;
-    const selectedSize = candidates.filter(item => state.packageSelectedAssetIds.has(item.asset.id)).reduce((sum, item) => sum + (Number(item.asset.size) || 0), 0);
-    els.packagePreviewSummary.innerHTML = `<strong>${candidates.length}</strong> candidates, <strong>${selectedCount}</strong> selected, estimated image size <strong>${formatBytes(selectedSize)}</strong>.`;
+    const allCandidates = state.packageCandidates || [];
+    const query = normalizeText((els.assetSearch && els.assetSearch.value) || '');
+    const candidates = query ? allCandidates.filter(item => assetSearchText(item.asset).includes(query)) : allCandidates;
+    const selectedCount = allCandidates.filter(item => state.packageSelectedAssetIds.has(item.asset.id)).length;
+    const visibleSelected = candidates.filter(item => state.packageSelectedAssetIds.has(item.asset.id)).length;
+    const selectedSize = allCandidates.filter(item => state.packageSelectedAssetIds.has(item.asset.id)).reduce((sum, item) => sum + (Number(item.asset.size) || 0), 0);
+    els.packagePreviewSummary.innerHTML = `<strong>${allCandidates.length}</strong> candidates, <strong>${selectedCount}</strong> selected, estimated image size <strong>${formatBytes(selectedSize)}</strong>. Showing <strong>${candidates.length}</strong>${query ? ` matching “${escapeHtml((els.assetSearch && els.assetSearch.value) || '')}”` : ''} with <strong>${visibleSelected}</strong> visible selections.`;
     els.packageCandidateList.innerHTML = '';
-    if (!candidates.length) {
+    if (!allCandidates.length) {
       const empty = document.createElement('div');
       empty.className = 'package-empty';
       empty.textContent = state.assets.length ? 'No ranked candidates yet. Click “Fetch matching assets.”' : 'Load map_assets first with the folder picker or local catalog.';
       els.packageCandidateList.append(empty);
       return;
     }
-    candidates.slice(0, 320).forEach(item => {
+    if (!candidates.length) {
+      const empty = document.createElement('div');
+      empty.className = 'package-empty';
+      empty.textContent = 'No candidates match that asset search. Try a broader term.';
+      els.packageCandidateList.append(empty);
+      return;
+    }
+    candidates.slice(0, 500).forEach(item => {
       const asset = item.asset;
       const card = document.createElement('label');
       card.className = 'package-candidate-card';
@@ -573,6 +660,25 @@
     });
   }
 
+  function toggleVisibleCandidates(shouldSelect) {
+    const query = normalizeText((els.assetSearch && els.assetSearch.value) || '');
+    const candidates = query ? state.packageCandidates.filter(item => assetSearchText(item.asset).includes(query)) : state.packageCandidates;
+    candidates.forEach(item => {
+      if (shouldSelect) state.packageSelectedAssetIds.add(item.asset.id);
+      else state.packageSelectedAssetIds.delete(item.asset.id);
+    });
+    renderPackageCandidates();
+    addLog(`${shouldSelect ? 'Selected' : 'Deselected'} ${candidates.length} visible candidate assets.`, shouldSelect ? 'thinking' : 'judgmental');
+  }
+
+  function resetModuleSizes() {
+    document.querySelectorAll('[data-resizable-panel]').forEach(panel => {
+      panel.style.width = '';
+      panel.style.height = '';
+    });
+    addLog('Module sizes reset. The empire rejects your temporary geometry.', 'thoughtful');
+  }
+
   async function buildAndDownloadMapPackage() {
     try {
       if (!state.packageCandidates.length) findMatchingPackageAssets(false);
@@ -592,10 +698,22 @@
       const request = buildMapRequestManifest(selected.map(item => item.asset));
       const entries = [
         { name: `${slug}/manifest/map_request_manifest.json`, text: JSON.stringify(request, null, 2), type: 'application/json' },
-        { name: `${slug}/README_FOR_CHATGPT.txt`, text: buildPackageReadme(request), type: 'text/plain' }
+        { name: `${slug}/README_FOR_CHATGPT.txt`, text: buildPackageReadme(request), type: 'text/plain' },
+        { name: `${slug}/manifest/future_image_generator_instructions.json`, text: JSON.stringify(buildFutureGeneratorInstructions(request), null, 2), type: 'application/json' },
+        { name: `${slug}/manifest/map_module_requirements.css`, text: MAP_MODULE_REQUIREMENTS_CSS, type: 'text/css' },
+        { name: `${slug}/templates/onyx_pin_types.json`, text: JSON.stringify(state.pinTypes || {}, null, 2), type: 'application/json' },
+        { name: `${slug}/templates/settlement_asset_requirements.json`, text: JSON.stringify(buildSettlementAssetRequirementTemplate(), null, 2), type: 'application/json' }
       ];
       if (state.settlementJson && state.settlementJson.raw) entries.push({ name: `${slug}/settlement/${safeFileName(state.settlementJson.fileName || 'settlement.json')}`, text: state.settlementJson.raw, type: 'application/json' });
       else entries.push({ name: `${slug}/settlement/${slug}.settlement_request.json`, text: JSON.stringify(request.settlement, null, 2), type: 'application/json' });
+      try {
+        const markerRes = await fetch('assets/pins/map-marker.svg');
+        if (markerRes.ok) entries.push({ name: `${slug}/templates/assets/map-marker.svg`, text: await markerRes.text(), type: 'image/svg+xml' });
+      } catch (err) {}
+      try {
+        const templateRes = await fetch('json/onyx_locations_pins_template.json');
+        if (templateRes.ok) entries.push({ name: `${slug}/templates/onyx_locations_pins_template.json`, text: await templateRes.text(), type: 'application/json' });
+      } catch (err) {}
       let runningBytes = entries.reduce((sum, entry) => sum + (entry.text ? new TextEncoder().encode(entry.text).byteLength : 0), 0);
       let included = 0;
       const skipped = [];
@@ -626,9 +744,11 @@
   }
 
   function buildMapRequestManifest(selectedAssets) {
+    const requestType = els.settlementType.value || 'town';
     const settlement = {
       name: els.settlementName.value || '',
-      settlementType: els.settlementType.value || 'town',
+      settlementType: requestType,
+      requestClass: requestType === 'location' ? 'interior-location-map' : 'settlement-map',
       selectedBiomes: state.selectedBiomes || [],
       uploadedSettlementJson: state.settlementJson.fileName || null,
       originalSettlementData: state.settlementJson.data || null
@@ -645,16 +765,224 @@
         selectedAssetCount: selectedAssets.length,
         selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
       },
+      generatorRequirements: {
+        outputFormat: 'SVG',
+        geoJsonOverlaysRequired: true,
+        pinPlacementByGenerator: true,
+        colorChangingMarkerProvided: true,
+        settlementMapsUseGrid: false,
+        interiorLocationMapsUseGrid: true,
+        pinColorsSource: 'templates/onyx_pin_types.json',
+        requiredMapModuleCssFile: 'manifest/map_module_requirements.css'
+      },
       instructionsForChatGPT: [
         'Use the settlement JSON and selectedBiomes to design the map concept.',
         'Use the included images as source/reference assets for terrain, structures, water, roads, biome details, roofs, props, and settlement mood.',
-        'Build the final map outside Onyx; Onyx is only packaging candidate assets.'
+        'The generator must create SVG maps with GeoJSON overlays and clickable colored pins.',
+        'For settlement maps, do not use grids. Only interior location maps may use grids.',
+        'It is up to the future generator to place the provided pin types in their correct colors and to create/add each building, park, bridge, large treehouse, lake, dock, and other clickable location with pins and GeoJSON.'
       ]
     };
   }
 
   function buildPackageReadme(request) {
-    return `Emperor Onyx Map Request Pack\n\nSettlement: ${request.settlement.name || 'Unnamed'}\nType: ${request.settlement.settlementType}\nBiomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}\n\nThis ZIP was built by Onyx as an asset/request package only. It contains:\n- manifest/map_request_manifest.json\n- settlement JSON or generated settlement_request JSON\n- images/ grouped by detected asset category\n\nBring this ZIP back to ChatGPT and ask it to build the map using the included JSON and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow.\n`;
+    return `Emperor Onyx Map Request Pack
+
+Settlement: ${request.settlement.name || 'Unnamed'}
+Type: ${request.settlement.settlementType}
+Biomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}
+
+This ZIP was built by Onyx as an asset/request package only. It contains:
+- manifest/map_request_manifest.json
+- manifest/future_image_generator_instructions.json
+- manifest/map_module_requirements.css
+- settlement JSON or generated settlement_request JSON
+- templates/onyx_pin_types.json
+- templates/assets/map-marker.svg
+- images/ grouped by detected asset category
+
+Generator instructions:
+- Build the final map as an SVG.
+- All final maps must include GeoJSON overlays.
+- The future generator is responsible for placing each colored pin correctly using the provided pin color rules.
+- Settlement maps do NOT use grids. Only interior Location maps may use grids.
+- For settlement requests, include outer walls, roofs, building clusters, government buildings, houses, hotels, apartments, chapels/churches/temples, paths, plants, and ground or water textures as appropriate.
+- For Location requests only, prioritize interior assets such as beds, hearths, furniture, storage, and room fixtures.
+
+Bring this ZIP back to ChatGPT and ask it to build the map using the included JSON and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow.
+`;
+  }
+
+
+  const MAP_MODULE_REQUIREMENTS_CSS = `/* =========================
+   CENTER MAP MODULE
+========================= */
+
+.map-module{
+  width:100%;
+  max-width:var(--map-w);
+  min-height:calc(var(--map-h) + 122px);
+}
+
+.map-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.map-scroll{
+  width:100%;
+  overflow:auto;
+  border:1px solid rgba(124,231,255,.18);
+  border-radius:18px;
+  background:rgba(5,8,12,.86);
+  box-shadow:inset 0 0 45px rgba(0,0,0,.55);
+}
+
+.map-viewer{
+  position:relative;
+  width:var(--map-w);
+  height:var(--map-h);
+  min-width:var(--map-w);
+  min-height:var(--map-h);
+  overflow:hidden;
+  background:
+    linear-gradient(45deg,rgba(255,255,255,.04) 25%,transparent 25%),
+    linear-gradient(-45deg,rgba(255,255,255,.04) 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,rgba(255,255,255,.04) 75%),
+    linear-gradient(-45deg,transparent 75%,rgba(255,255,255,.04) 75%),
+    rgba(5,8,12,.86);
+  background-size:28px 28px;
+  background-position:0 0,0 14px,14px -14px,-14px 0px;
+}
+
+.map-coordinate-mask{
+  position:absolute;
+  left:0;
+  top:1024px;
+  right:0;
+  bottom:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(77,54,88,.12),rgba(0,0,0,.36));
+  border-top:1px dashed rgba(215,170,99,.38);
+}
+
+.map-placeholder{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:28px;
+  color:var(--muted);
+  pointer-events:none;
+}
+
+.map-placeholder strong{
+  display:block;
+  color:var(--teal2);
+  font-size:clamp(1.3rem,3vw,2.4rem);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.map-placeholder span{
+  display:block;
+  max-width:62ch;
+  margin-top:8px;
+}
+
+#mapImage,
+#mapFrame{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  object-fit:contain;
+  background:#07090a;
+}
+
+#mapFrame{display:none}
+
+.map-pin{
+  position:absolute;
+  width:24px;
+  height:24px;
+  min-width:24px;
+  min-height:24px;
+  padding:0;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:
+    radial-gradient(circle at 35% 35%,#fff,transparent 24%),
+    linear-gradient(145deg,var(--teal2),var(--teal));
+  border:2px solid #07111a;
+  box-shadow:0 6px 16px rgba(0,0,0,.55),0 0 18px rgba(124,231,255,.22);
+  cursor:grab;
+  z-index:5;
+}
+
+.map-pin:active{cursor:grabbing}
+
+.map-pin::after{
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  top:100%;
+  transform:translateX(-50%);
+  margin-top:4px;
+  white-space:nowrap;
+  padding:3px 7px;
+  border-radius:999px;
+  font-size:.72rem;
+  color:#061113;
+  background:rgba(141,224,220,.92);
+  border:1px solid rgba(0,0,0,.25);
+  box-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+
+.map-status{
+  color:var(--muted);
+  font-size:.9rem;
+}`;
+
+  function buildFutureGeneratorInstructions(request) {
+    return {
+      summary: 'Build a final SVG map from the included JSON and selected images. Create GeoJSON overlays and clickable colored pins. Use no grid for settlements; use grids only for interior Location requests.',
+      request,
+      rules: {
+        outputFormat: 'svg',
+        geojsonOverlays: 'required',
+        settlementsUseGrids: false,
+        interiorLocationsUseGrids: true,
+        generatorPlacesPins: true,
+        generatorCreatesClickableLocations: true,
+        markerAsset: 'templates/assets/map-marker.svg',
+        pinColorTable: 'templates/onyx_pin_types.json'
+      },
+      settlementRequirements: {
+        settlementAssetCoverage: ['outer walls', 'roofs', 'building clusters', 'government buildings', 'houses', 'hotels', 'apartments', 'chapels/churches/temples', 'paths', 'plants', 'ground textures', 'surface water if applicable', 'deep water if applicable'],
+        locationOnlyInteriorCoverage: ['beds', 'hearths', 'fireplaces', 'tables', 'chairs', 'storage', 'doors', 'interior walls', 'lighting']
+      }
+    };
+  }
+
+  function buildSettlementAssetRequirementTemplate() {
+    return {
+      locationTypeRules: {
+        settlementRequests: {
+          include: ['outer walls', 'roofs', 'building clusters', 'government buildings', 'houses', 'hotels', 'apartments', 'chapels/churches', 'paths', 'plants', 'ground textures', 'surface water if applicable', 'deep water if applicable'],
+          avoidPriorityInteriors: ['beds', 'hearths', 'fireplaces']
+        },
+        locationRequests: {
+          include: ['interior shell', 'beds', 'hearths', 'tables', 'chairs', 'storage', 'lighting', 'doors', 'stairs'],
+          useGrid: true
+        }
+      }
+    };
   }
 
   async function getAssetBlob(asset) {
@@ -743,21 +1071,31 @@
   }
 
   async function loadCatalogAsset(item) {
+    return catalogItemToAsset(item);
+  }
+
+  function catalogItemToAsset(item) {
     try {
-      const src = item.path || item.relativePath;
-      const img = await loadImage(src);
+      if (!item || typeof item !== 'object') return null;
+      const path = item.relativePath || item.path || item.url || item.src || item.name;
+      const name = item.name || (path ? String(path).split('/').pop() : 'asset');
+      const classed = classifyAsset(name, path);
+      const meta = {
+        categories: Array.isArray(item.categories) && item.categories.length ? item.categories : classed.categories,
+        tags: Array.isArray(item.tags) && item.tags.length ? item.tags : classed.tags
+      };
+      const src = item.url || item.src || item.path || item.relativePath || name;
       return {
-        id: slugify((item.relativePath || item.name) + '-' + (item.size || 'catalog')),
-        name: item.name,
-        path: item.relativePath || item.path || item.name,
+        id: slugify((item.relativePath || item.path || item.name || 'catalog-asset') + '-' + (item.size || Math.random().toString(36).slice(2, 8))),
+        name,
+        path: path || name,
         src,
-        img,
         size: item.size || 0,
-        mimeType: guessMimeType(item.name || item.path || item.relativePath),
-        width: img.naturalWidth || img.width,
-        height: img.naturalHeight || img.height,
-        categories: item.categories || ['object'],
-        tags: item.tags || [],
+        mimeType: item.mimeType || guessMimeType(name),
+        width: item.width || null,
+        height: item.height || null,
+        categories: meta.categories,
+        tags: meta.tags,
         origin: 'catalog'
       };
     } catch (err) {
@@ -821,7 +1159,7 @@
     }
 
 
-    const typeMatch = lower.match(/\b(capital|city|town|village)\b/);
+    const typeMatch = lower.match(/\b(capital|city|town|village|location)\b/);
     if (typeMatch) {
       els.settlementType.value = typeMatch[1];
       resizeCanvasForSettlement();
@@ -839,6 +1177,35 @@
     if (lower.includes('clear biome')) {
       state.selectedBiomes = [];
       response.push('cleared the biome cache');
+    }
+
+    const searchMatch = lower.match(/(?:search|find|look for)\s+(.+)/);
+    if (searchMatch && els.assetSearch) {
+      els.assetSearch.value = searchMatch[1].trim();
+      renderPackageCandidates();
+      response.push(`filtered candidates by “${searchMatch[1].trim()}”`);
+    }
+
+    const addMatch = lower.match(/(?:add|include|select)\s+(.+?)(?:\.|,|$)/);
+    if (addMatch && state.packageCandidates && state.packageCandidates.length) {
+      const query = normalizeText(addMatch[1].trim());
+      const matches = state.packageCandidates.filter(item => assetSearchText(item.asset).includes(query));
+      matches.forEach(item => state.packageSelectedAssetIds.add(item.asset.id));
+      if (matches.length) {
+        renderPackageCandidates();
+        response.push(`added ${matches.length} assets matching “${addMatch[1].trim()}”`);
+      }
+    }
+
+    const removeMatch = lower.match(/(?:remove|exclude|deselect)\s+(.+?)(?:\.|,|$)/);
+    if (removeMatch && state.packageCandidates && state.packageCandidates.length) {
+      const query = normalizeText(removeMatch[1].trim());
+      const matches = state.packageCandidates.filter(item => assetSearchText(item.asset).includes(query));
+      matches.forEach(item => state.packageSelectedAssetIds.delete(item.asset.id));
+      if (matches.length) {
+        renderPackageCandidates();
+        response.push(`removed ${matches.length} assets matching “${removeMatch[1].trim()}”`);
+      }
     }
 
     const nameFromQuotes = text.match(/"([^"]+)"/);
