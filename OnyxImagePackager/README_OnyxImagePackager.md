@@ -136,3 +136,15 @@ Settlement requests prioritize:
 - surface water and deep water when applicable
 
 `Location` requests are the only request type that strongly prioritizes interior assets such as beds, hearths, furniture, storage, and room fixtures.
+
+## Interactive map builder merge
+
+This build includes the coordinate-tracking Belavadös interactive map builder under `templates/interactive_map_builder/`. When Onyx exports a ZIP package, he now includes:
+
+- the full builder program,
+- the correct selected capital/city/town/village template for the current request,
+- `selected_interactive_map_builder/biome_location_generation_plan.json`,
+- selected biome JSON profiles,
+- scale targets for location slots, named NPC slots, and world-travel NPC slots.
+
+For one selected biome, 100% of the allotted location slots come from that biome JSON. For two selected biomes, the split is 50/50. For three selected biomes, the first two use about 33.33% each and the final biome receives the rounding remainder so the total is exactly 100%.

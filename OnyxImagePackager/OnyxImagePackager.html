@@ -15,7 +15,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Cat emperor map-pack request forge</p>
         <h1>Emperor Onyx — OnyxImagePackager</h1>
-        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type and biomes, load the JSON catalogues inside <code>map_assets</code>, and he will fetch selected real images from <code>C:\Users\Public\Pictures\map_assets</code> into an exportable ZIP map request pack for building maps later.</p>
+        <p>Onyx no longer tries to create the final map image himself. Feed him a settlement JSON, choose the settlement type and biomes, load the JSON catalogues inside <code>map_assets</code>, and he will fetch selected real images from <code>C:\Users\Public\Pictures\map_assets</code> into an exportable ZIP map request pack. The export also includes the correct capital/city/town/village interactive builder template and biome JSON split for the selected biomes.</p>
       </div>
       <div class="hero-badges">
         <span class="badge gold">🐈‍⬛ Cat Emperor</span>
@@ -61,7 +61,7 @@
             <button id="clearBiomes" type="button" class="secondary">Clear cache</button>
           </div>
           <div id="biomeCache" class="biome-cache"></div>
-          <p class="hint">Keep up to 3 biome choices cached so hybrid settlements can coexist, such as beach + forest + underwater reefs.</p>
+          <p class="hint">Keep up to 3 biome choices cached. Onyx splits the exported location JSON evenly across them: one biome = 100%, two = 50/50, three = 33.33/33.33/33.34 with exact slot totals preserved.</p>
         </div>
 
         <h2>2. Upload settlement JSON</h2>

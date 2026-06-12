@@ -55,3 +55,10 @@ Blend behavior:
 Example: choosing `Beach and grass with water`, `Hybrid tree and forest floor`, and `Hybrid farming forest grassland` gives each biome JSON roughly one third of the location type allotment for the selected settlement template.
 
 A reference all-profile copy is also included at `data/biome_location_library.json`; the working templates do not need external JSON to run.
+
+
+## Coordinate-backed NPC and Route Tracking
+
+This revision adds a coordinate model to every settlement template. When you upload settlement JSON containing latitude/longitude data, the builder detects the settlement center or bounds, then resolves every location pin to both map x/y and latitude/longitude. Imported NPCs inherit coordinates from their current scheduled location, residence, workplace, direct NPC coordinates, or future route position. Unassigned NPCs remain hidden.
+
+Coordinate route records are stored in `state.routes` and support skyship, rail, steamship, portal, ferry, submarine, and caravan routes. Route paths use latitude/longitude waypoints and are projected onto the settlement map for visible route overlays. NPC reaction markers appear only when an NPC has an assigned coordinate-backed current position.

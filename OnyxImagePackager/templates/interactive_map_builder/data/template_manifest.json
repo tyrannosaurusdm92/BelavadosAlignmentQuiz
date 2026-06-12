@@ -1,6 +1,6 @@
 {
   "name": "Belavadös Blank Interactive Map Builder Templates",
-  "version": 1,
+  "version": "2.0-coordinate-tracking",
   "createdFor": "blank settlement map generation and export",
   "containsNoNamedNpcsOrLocations": true,
   "mapDataRemoved": true,
@@ -64,5 +64,20 @@
     "biome_count": 17,
     "names_generated": false,
     "npc_names_generated": false
+  },
+  "coordinate_tracking": {
+    "settlement_json_latitude_longitude": true,
+    "pin_latitude_longitude": true,
+    "npc_coordinate_resolution": true,
+    "supported_routes": [
+      "skyship",
+      "rail",
+      "steamship",
+      "portal",
+      "ferry",
+      "submarine",
+      "caravan"
+    ],
+    "visibility_rule": "NPCs render only after assignment to a coordinate-backed location or route."
   }
 }

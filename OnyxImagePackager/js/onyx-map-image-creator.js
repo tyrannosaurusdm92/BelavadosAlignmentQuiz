@@ -25,6 +25,34 @@
     'templates/interactive_map_builder/templates/village_map_builder_template.html'
   ];
 
+  const ONYX_TEMPLATE_BY_SETTLEMENT_TYPE = {
+    capital: 'templates/interactive_map_builder/templates/capital_city_map_builder_template.html',
+    city: 'templates/interactive_map_builder/templates/city_map_builder_template.html',
+    town: 'templates/interactive_map_builder/templates/town_map_builder_template.html',
+    village: 'templates/interactive_map_builder/templates/village_map_builder_template.html'
+  };
+
+  const ONYX_SETTLEMENT_SCALE_TARGETS = {
+    capital: { label: 'Capital City', locations: 1312, namedNpcs: 3588, worldTravelPercent: 21 },
+    city: { label: 'City', locations: 1000, namedNpcs: 2700, worldTravelPercent: 18 },
+    town: { label: 'Town', locations: 220, namedNpcs: 600, worldTravelPercent: 9 },
+    village: { label: 'Village', locations: 60, namedNpcs: 160, worldTravelPercent: 3 }
+  };
+
+  const ONYX_BIOME_ALIASES = {
+    'Ocean Surface floating settlement': ['ocean surface', 'surface ocean', 'floating settlement', 'floating city', 'floating capital', 'floating town', 'floating village'],
+    'Underwater with reefs': ['underwater with reefs', 'deep ocean with reefs', 'ocean with reefs', 'reef underwater', 'with reefs', 'coral reef', 'reefs'],
+    'Underwater without reefs': ['underwater without reefs', 'deep ocean without reefs', 'open ocean', 'open deep ocean', 'without reefs', 'deep ocean no reefs'],
+    'Beach and grass with water': ['beach and grass', 'beach grass water', 'coastal hybrid', 'coastal grass', 'coast and grass', 'shore grass'],
+    'Beach and reefs with water': ['beach and reefs', 'coastal reefs', 'reef coast', 'reef beach', 'beach reefs water'],
+    'Hybrid tree and forest floor': ['hybrid tree', 'forest floor', 'tree and forest floor', 'tree forest floor', 'tree floor'],
+    'Hybrid farming forest grassland': ['hybrid farming', 'farming forest grassland', 'farm forest grassland', 'forest grassland', 'farming forest', 'farm forest'],
+    'Deep forest': ['deep forest', 'dark forest', 'old growth forest'],
+    'Marshes and swamps': ['marshes and swamps', 'marsh', 'swamp', 'wetland'],
+    'Treetops - treehouses': ['treetops', 'treehouses', 'tree houses', 'canopy settlement'],
+    'Deep cavern': ['deep cavern', 'cavern', 'underdark', 'underground cavern']
+  };
+
   const FALLBACK_BIOMES = {
     settlementTypes: {
       capital: { label: 'Capital', sizeMultiplier: 2.2, buildingBudget: 150, pathBudget: 18, propBudget: 115, plantBudget: 145, canvas: { width: 2048, height: 1400 } },
@@ -163,6 +191,7 @@
     chatHistory: [],
     sounds: { enabled: false, ctx: null, ambientNodes: [] },
     settlementJson: { fileName: '', data: null, raw: '' },
+    biomeLocationLibrary: null,
     packageCandidates: [],
     packageSelectedAssetIds: new Set(),
     scan: { image: null, imageData: null, classes: [], results: [], geojson: null, active: false },
@@ -835,16 +864,23 @@
         return;
       }
       setPackageStatus('Building ZIP package. Onyx is carefully stuffing the box with useful images...', false);
-      const slug = slugify(els.settlementName.value || (state.settlementJson.fileName || 'onyx-map-request').replace(/\.json$/i, '') || 'onyx-map-request');
       const request = buildMapRequestManifest(selected.map(item => item.asset));
+      const htmlStem = (request.settlement && request.settlement.htmlFileName ? request.settlement.htmlFileName : 'onyx-map-request.html').replace(/\.html?$/i, '');
+      const slug = slugify(htmlStem || els.settlementName.value || (state.settlementJson.fileName || 'onyx-map-request').replace(/\.json$/i, '') || 'onyx-map-request');
+      const builderBundle = await buildInteractiveBuilderExportBundle(request);
+      request.interactiveMapBuilder = builderBundle.summary;
+      const htmlContract = buildSettlementHtmlOutputContract(request);
       const entries = [
         { name: `${slug}/manifest/map_request_manifest.json`, text: JSON.stringify(request, null, 2), type: 'application/json' },
         { name: `${slug}/README_FOR_CHATGPT.txt`, text: buildPackageReadme(request), type: 'text/plain' },
         { name: `${slug}/manifest/future_image_generator_instructions.json`, text: JSON.stringify(buildFutureGeneratorInstructions(request), null, 2), type: 'application/json' },
+        { name: `${slug}/manifest/settlement_html_output_contract.json`, text: JSON.stringify(htmlContract, null, 2), type: 'application/json' },
+        { name: `${slug}/settlement/expected_html_filename.txt`, text: `${request.settlement.htmlFileName || htmlContract.htmlFileName}\n`, type: 'text/plain' },
         { name: `${slug}/manifest/map_module_requirements.css`, text: MAP_MODULE_REQUIREMENTS_CSS, type: 'text/css' },
         { name: `${slug}/templates/onyx_pin_types.json`, text: JSON.stringify(state.pinTypes || {}, null, 2), type: 'application/json' },
         { name: `${slug}/templates/settlement_asset_requirements.json`, text: JSON.stringify(buildSettlementAssetRequirementTemplate(), null, 2), type: 'application/json' }
       ];
+      entries.push(...builderBundle.entries.map(entry => ({ ...entry, name: `${slug}/${entry.name}` })));
       if (state.settlementJson && state.settlementJson.raw) entries.push({ name: `${slug}/settlement/${safeFileName(state.settlementJson.fileName || 'settlement.json')}`, text: state.settlementJson.raw, type: 'application/json' });
       else entries.push({ name: `${slug}/settlement/${slug}.settlement_request.json`, text: JSON.stringify(request.settlement, null, 2), type: 'application/json' });
       try {
@@ -895,15 +931,257 @@
     }
   }
 
+  async function buildInteractiveBuilderExportBundle(request) {
+    const selectedType = normalizeSettlementTypeForBuilder(request.settlement && request.settlement.settlementType);
+    const target = ONYX_SETTLEMENT_SCALE_TARGETS[selectedType] || ONYX_SETTLEMENT_SCALE_TARGETS.town;
+    const selectedTemplatePath = ONYX_TEMPLATE_BY_SETTLEMENT_TYPE[selectedType];
+    const library = await loadBuilderBiomeLocationLibrary();
+    const selectedBiomes = normalizeSelectedBiomeNames(request.settlement && request.settlement.selectedBiomes);
+    const blendPlan = buildBiomeLocationBlendPlan(library, selectedType, selectedBiomes, target.locations);
+    const entries = [];
+
+    if (selectedTemplatePath) {
+      const selectedTemplateText = await fetchTextIfAvailable(selectedTemplatePath);
+      if (selectedTemplateText) {
+        entries.push({
+          name: `selected_interactive_map_builder/${selectedTemplatePath.split('/').pop()}`,
+          text: selectedTemplateText,
+          type: 'text/html'
+        });
+      }
+    }
+
+    entries.push({
+      name: 'selected_interactive_map_builder/selected_template_manifest.json',
+      text: JSON.stringify({
+        app: ONYX_APP_NAME,
+        createdAt: new Date().toISOString(),
+        selectedSettlementType: selectedType,
+        selectedSettlementTypeLabel: target.label,
+        selectedTemplatePath,
+        selectedTemplateFile: selectedTemplatePath ? selectedTemplatePath.split('/').pop() : null,
+        expectedSettlementHtmlFileName: request.settlement && request.settlement.htmlFileName ? request.settlement.htmlFileName : null,
+        outputContract: request.settlement && request.settlement.outputContract ? request.settlement.outputContract : null,
+        scaleTargets: {
+          locationSlots: target.locations,
+          namedNpcSlots: target.namedNpcs,
+          worldTravelPercent: target.worldTravelPercent,
+          worldTravelNpcSlots: Math.round(target.namedNpcs * target.worldTravelPercent / 100)
+        },
+        selectedBiomes,
+        biomeBlend: blendPlan.summary,
+        note: 'This selected template is the correct capital/city/town/village interactive map builder for the Onyx request. The full builder program is also included under template_program/interactive_map_builder/.'
+      }, null, 2),
+      type: 'application/json'
+    });
+
+    entries.push({
+      name: 'selected_interactive_map_builder/biome_location_generation_plan.json',
+      text: JSON.stringify(blendPlan, null, 2),
+      type: 'application/json'
+    });
+
+    blendPlan.selectedProfiles.forEach((profile, index) => {
+      const baseName = safeFileName(`${String(index + 1).padStart(2, '0')}_${profile.biome}_${selectedType}_location_profile`);
+      entries.push({
+        name: `selected_interactive_map_builder/selected_biome_json/${baseName}.json`,
+        text: JSON.stringify(profile.full_json || profile, null, 2),
+        type: 'application/json'
+      });
+    });
+
+    return {
+      entries,
+      summary: {
+        selectedSettlementType: selectedType,
+        selectedSettlementTypeLabel: target.label,
+        selectedTemplatePath,
+        selectedTemplateFile: selectedTemplatePath ? selectedTemplatePath.split('/').pop() : null,
+        locationSlots: target.locations,
+        namedNpcSlots: target.namedNpcs,
+        worldTravelPercent: target.worldTravelPercent,
+        worldTravelNpcSlots: Math.round(target.namedNpcs * target.worldTravelPercent / 100),
+        selectedBiomes,
+        biomeLocationSplit: blendPlan.summary
+      }
+    };
+  }
+
+  function normalizeSettlementTypeForBuilder(type) {
+    const value = normalizeText(type || 'town');
+    if (value.includes('capital')) return 'capital';
+    if (value.includes('city')) return 'city';
+    if (value.includes('town')) return 'town';
+    if (value.includes('village')) return 'village';
+    return 'town';
+  }
+
+  function normalizeSelectedBiomeNames(selectedBiomes) {
+    const known = flattenBiomeNames();
+    const output = [];
+    (selectedBiomes && selectedBiomes.length ? selectedBiomes : ['Grassland']).forEach(name => addNormalizedBiomeName(output, name, known));
+    return output.slice(0, 3);
+  }
+
+  function addNormalizedBiomeName(output, name, knownBiomes) {
+    const raw = String(name || '').trim();
+    if (!raw) return;
+    const normalized = normalizeText(raw);
+    const exact = knownBiomes.find(biome => normalizeText(biome) === normalized);
+    const alias = Object.entries(ONYX_BIOME_ALIASES).find(([, aliases]) => aliases.some(a => normalized.includes(normalizeText(a)) || normalizeText(a).includes(normalized)));
+    const value = exact || (alias && alias[0]) || raw;
+    if (value && !output.some(existing => normalizeText(existing) === normalizeText(value))) output.push(value);
+  }
+
+  function evenBiomeSplitPercents(count) {
+    if (count <= 1) return [100];
+    if (count === 2) return [50, 50];
+    const base = Math.floor((100 / count) * 100) / 100;
+    const percents = Array.from({ length: count }, () => base);
+    const used = base * (count - 1);
+    percents[count - 1] = Number((100 - used).toFixed(2));
+    return percents;
+  }
+
+  function buildBiomeLocationBlendPlan(library, settlementType, selectedBiomes, totalLocations) {
+    const entries = Array.isArray(library && library.entries) ? library.entries : [];
+    const selectedProfiles = [];
+    selectedBiomes.forEach(biome => {
+      const normalized = normalizeText(biome);
+      let match = entries.find(entry => normalizeText(entry.settlement_type) === settlementType && normalizeText(entry.biome) === normalized);
+      if (!match) match = entries.find(entry => normalizeText(entry.settlement_type) === settlementType && (normalizeText(entry.biome).includes(normalized) || normalized.includes(normalizeText(entry.biome))));
+      if (match && !selectedProfiles.some(existing => existing.id === match.id)) selectedProfiles.push(match);
+    });
+    if (!selectedProfiles.length) {
+      const fallback = entries.find(entry => normalizeText(entry.settlement_type) === settlementType && normalizeText(entry.biome) === 'grassland') || entries.find(entry => normalizeText(entry.settlement_type) === settlementType);
+      if (fallback) selectedProfiles.push(fallback);
+    }
+
+    const count = Math.max(1, selectedProfiles.length);
+    const desiredPercents = evenBiomeSplitPercents(count);
+    let remainingSlots = totalLocations;
+    const distribution = selectedProfiles.map((profile, index) => {
+      const isLast = index === selectedProfiles.length - 1;
+      const slotCount = isLast ? remainingSlots : Math.floor(totalLocations * desiredPercents[index] / 100);
+      remainingSlots -= slotCount;
+      return {
+        biome: profile.biome,
+        biomeCategory: profile.folder_category,
+        profileId: profile.id,
+        sourcePath: profile.path,
+        allottedLocationSlots: slotCount,
+        requestedSharePercent: desiredPercents[index],
+        actualSlotSharePercent: Number(((slotCount / totalLocations) * 100).toFixed(2)),
+        sharePercent: desiredPercents[index],
+        offeredLocationCategories: profile.available_location_categories || [],
+        biomeIdentity: profile.biome_identity || '',
+        strictPlacementRules: profile.strict_placement_rules || []
+      };
+    });
+
+    const locationTypePool = [];
+    distribution.forEach(item => {
+      const profile = selectedProfiles.find(p => p.id === item.profileId) || {};
+      const categories = Array.isArray(profile.available_location_categories) && profile.available_location_categories.length ? profile.available_location_categories : ['Location'];
+      for (let i = 0; i < item.allottedLocationSlots; i += 1) {
+        locationTypePool.push({
+          slotNumber: locationTypePool.length + 1,
+          biome: item.biome,
+          biomeCategory: item.biomeCategory,
+          profileId: item.profileId,
+          suggestedLocationType: categories[i % categories.length],
+          assignmentState: 'blank_type_suggested',
+          namedLocation: null,
+          namedNpcs: [],
+          coordinates: { latitude: null, longitude: null, x: null, y: null },
+          geojsonFeatureId: null,
+          pinId: null
+        });
+      }
+    });
+
+    return {
+      schema_version: '1.0-onyx-biome-builder-export',
+      createdAt: new Date().toISOString(),
+      settlementType,
+      totalAllottedLocationSlots: totalLocations,
+      selectedBiomeCount: selectedProfiles.length,
+      policy: 'Even split across selected biome JSON profiles. With three selected biome profiles, the first two receive 33.33% and the final one receives the rounding remainder, e.g. 33.34%, so the full total remains 100%.',
+      summary: distribution,
+      selectedProfiles: selectedProfiles.map(profile => ({
+        id: profile.id,
+        folder_category: profile.folder_category,
+        biome: profile.biome,
+        settlement_type: profile.settlement_type,
+        settlement_type_display: profile.settlement_type_display,
+        path: profile.path,
+        generation_tags: profile.generation_tags || [],
+        source_biome: profile.source_biome || '',
+        source_title: profile.source_title || '',
+        available_location_categories: profile.available_location_categories || [],
+        biome_identity: profile.biome_identity || '',
+        strict_placement_rules: profile.strict_placement_rules || [],
+        full_json: profile.full_json || null
+      })),
+      locationTypePool
+    };
+  }
+
+  async function loadBuilderBiomeLocationLibrary() {
+    if (state.biomeLocationLibrary) return state.biomeLocationLibrary;
+    try {
+      const res = await fetch('templates/interactive_map_builder/data/biome_location_library.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      state.biomeLocationLibrary = await res.json();
+    } catch (err) {
+      state.biomeLocationLibrary = { schema_version: 'unavailable', entries: [] };
+      addLog('Could not load the interactive builder biome JSON library for the selected-template bundle. The full builder files will still export.', 'judgmental');
+    }
+    return state.biomeLocationLibrary;
+  }
+
+  async function fetchTextIfAvailable(path) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) return '';
+      return await res.text();
+    } catch (err) {
+      return '';
+    }
+  }
+
   function buildMapRequestManifest(selectedAssets) {
     const requestType = els.settlementType.value || 'town';
+    const builderType = normalizeSettlementTypeForBuilder(requestType);
+    const builderTarget = ONYX_SETTLEMENT_SCALE_TARGETS[builderType] || ONYX_SETTLEMENT_SCALE_TARGETS.town;
+    const originalSettlementData = state.settlementJson && state.settlementJson.data ? state.settlementJson.data : null;
+    const settlementName = els.settlementName.value || findDeepValue(originalSettlementData, ['settlementName', 'settlement_name', 'settlement', 'name', 'title']) || '';
+    const provinceName = findDeepValue(originalSettlementData, ['provinceName', 'province_name', 'province', 'regionName', 'region_name', 'realmName', 'realm_name', 'parentProvince', 'parent_province']) || '';
+    const htmlFileName = deriveSettlementHtmlFileName(settlementName, provinceName, requestType);
     const settlement = {
-      name: els.settlementName.value || '',
+      name: settlementName,
+      provinceName: typeof provinceName === 'string' ? provinceName : '',
       settlementType: requestType,
+      builderSettlementType: builderType,
       requestClass: requestType === 'location' ? 'interior-location-map' : 'settlement-map',
-      selectedBiomes: state.selectedBiomes || [],
+      htmlFileName,
+      expectedHtmlFileName: htmlFileName,
+      outputContract: {
+        finalSettlementHtmlFileName: htmlFileName,
+        finalSettlementHtmlPath: `settlements/${htmlFileName}`,
+        namingRule: 'Sanitize settlement name and province name when available. If no province is present in the settlement JSON, use settlement type as the fallback second component.',
+        stableReplacementRule: 'Future exported settlement HTML can replace a placeholder as long as this exact file name remains the same.'
+      },
+      selectedBiomes: normalizeSelectedBiomeNames(state.selectedBiomes || []),
+      selectedInteractiveTemplate: ONYX_TEMPLATE_BY_SETTLEMENT_TYPE[builderType] || null,
+      scaleTargets: {
+        locations: builderTarget.locations,
+        namedNpcs: builderTarget.namedNpcs,
+        worldTravelPercent: builderTarget.worldTravelPercent,
+        worldTravelNpcs: Math.round(builderTarget.namedNpcs * builderTarget.worldTravelPercent / 100)
+      },
       uploadedSettlementJson: state.settlementJson.fileName || null,
-      originalSettlementData: state.settlementJson.data || null
+      originalSettlementData
     };
     return {
       app: ONYX_APP_NAME,
@@ -915,7 +1193,7 @@
         maxImagesRequested: clampNumber(els.packageMaxImages && els.packageMaxImages.value, 1, 250000, 500),
         maxZipMbRequested: clampNumber(els.packageMaxMb && els.packageMaxMb.value, 1, 100000, 100000),
         selectedAssetCount: selectedAssets.length,
-        selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, relativePath: asset.relativePath || null, localAbsolutePath: asset.localAbsolutePath || null, src: asset.src || null, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
+        selectedAssets: selectedAssets.map(asset => ({ name: asset.name, path: asset.path, relativePath: asset.relativePath || null, alternateLocalRelativePaths: asset.alternateLocalRelativePaths || [], localAbsolutePath: asset.localAbsolutePath || null, alternateLocalAbsolutePaths: asset.alternateLocalAbsolutePaths || [], src: asset.src || null, size: asset.size || 0, categories: asset.categories || [], tags: asset.tags || [], width: asset.width || null, height: asset.height || null }))
       },
       localAssetLibrary: {
         imagesStoredInGithub: false,
@@ -945,25 +1223,68 @@
     };
   }
 
+  function deriveSettlementHtmlFileName(settlementName, provinceName, settlementType) {
+    const primary = sanitizeHtmlFileNamePart(settlementName) || 'Settlement';
+    const secondary = sanitizeHtmlFileNamePart(provinceName) || sanitizeHtmlFileNamePart(settlementType) || 'Settlement';
+    return `${primary}_${secondary}.html`;
+  }
+
+  function sanitizeHtmlFileNamePart(value) {
+    let text = String(value || '').trim();
+    if (!text) return '';
+    text = text.normalize ? text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : text;
+    text = text.replace(/[’'`]/g, '');
+    text = text.replace(/&/g, 'And');
+    text = text.replace(/[^A-Za-z0-9]+/g, '');
+    return text;
+  }
+
+  function buildSettlementHtmlOutputContract(request) {
+    const settlement = request && request.settlement ? request.settlement : {};
+    const htmlFileName = settlement.htmlFileName || deriveSettlementHtmlFileName(settlement.name || '', settlement.provinceName || '', settlement.settlementType || 'settlement');
+    return {
+      schema: 'onyx.settlement.html-output-contract.v1',
+      app: ONYX_APP_NAME,
+      createdAt: new Date().toISOString(),
+      htmlFileName,
+      finalSettlementHtmlFileName: htmlFileName,
+      finalSettlementHtmlPath: `settlements/${htmlFileName}`,
+      settlementName: settlement.name || '',
+      provinceName: settlement.provinceName || '',
+      settlementType: settlement.settlementType || '',
+      sourceSettlementJson: settlement.uploadedSettlementJson || null,
+      rule: 'The AI settlement generator must create/export the final interactive settlement map HTML using this exact file name. Player-site settlement pins can point to this file name now and keep working when the placeholder is replaced later.',
+      fallbackNaming: 'If provinceName is not present in the settlement JSON, Onyx uses settlementType as the second filename component.'
+    };
+  }
+
   function buildPackageReadme(request) {
     return `OnyxImagePackager Map Request Pack
 
 Settlement: ${request.settlement.name || 'Unnamed'}
+Province: ${request.settlement.provinceName || 'Not supplied'}
 Type: ${request.settlement.settlementType}
+Expected settlement HTML file: ${request.settlement.htmlFileName || 'Not supplied'}
 Biomes: ${(request.settlement.selectedBiomes || []).join(' + ') || 'None selected'}
 
 This ZIP was built by OnyxImagePackager as an asset/request package only. It contains:
 - manifest/map_request_manifest.json
 - manifest/future_image_generator_instructions.json
+- manifest/settlement_html_output_contract.json
+- settlement/expected_html_filename.txt
 - manifest/map_module_requirements.css
 - settlement JSON or generated settlement_request JSON
 - templates/onyx_pin_types.json
 - templates/assets/map-marker.svg
 - template_program/interactive_map_builder/ copied from the attached map/settlement builder templates
+- selected_interactive_map_builder/ containing the correct capital/city/town/village template for this request
+- selected_interactive_map_builder/biome_location_generation_plan.json with the exact selected-biome split and blank location-type pool
+- selected_interactive_map_builder/selected_biome_json/ with the selected biome location JSON profiles
 - images/ grouped by detected asset category
 
 Generator instructions:
 - Build the final map as an SVG.
+- Export the final interactive settlement HTML as: ${request.settlement.htmlFileName || 'the exact filename in settlement/expected_html_filename.txt'}
 - All final maps must include GeoJSON overlays.
 - The future generator is responsible for placing each colored pin correctly using the provided pin color rules.
 - Settlement maps do NOT use grids. Only interior Location maps may use grids.
@@ -972,7 +1293,7 @@ Generator instructions:
 
 Actual image library source: C:\\Users\\Public\\Pictures\\map_assets. The images included here were selected from JSON catalogues stored in the project map_assets folder.
 
-The attached template program is included under template_program/interactive_map_builder/ so the future AI map/settlement creator can use the capital, city, town, and village builder templates.
+The attached template program is included under template_program/interactive_map_builder/ so the future AI map/settlement creator can use the capital, city, town, and village builder templates. The selected request-specific builder is also copied under selected_interactive_map_builder/ with a biome_location_generation_plan.json. For three selected biomes, the split is even across all allotted location slots, with the final biome receiving the rounding remainder so the total is exactly 100%.
 
 Bring this ZIP back to ChatGPT and ask it to build the map using the included JSON, template program, and image assets. Onyx did not render the final image, map, sound, pins, or animation in this workflow.
 `;
@@ -1128,6 +1449,13 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
         markerAsset: 'templates/assets/map-marker.svg',
         pinColorTable: 'templates/onyx_pin_types.json'
       },
+      selectedInteractiveMapBuilder: request.interactiveMapBuilder || null,
+      settlementHtmlOutputContract: buildSettlementHtmlOutputContract(request),
+      biomeLocationGeneration: {
+        sourceFile: 'selected_interactive_map_builder/biome_location_generation_plan.json',
+        selectedBiomeJsonFolder: 'selected_interactive_map_builder/selected_biome_json/',
+        policy: 'Use the selected settlement-size template and divide all location slots across the selected biome profiles evenly. With three biomes, use about 33.33%, 33.33%, and 33.34%.'
+      },
       settlementRequirements: {
         settlementAssetCoverage: ['outer walls', 'roofs', 'building clusters', 'government buildings', 'houses', 'hotels', 'apartments', 'chapels/churches/temples', 'paths', 'plants', 'ground textures', 'surface water if applicable', 'deep water if applicable'],
         locationOnlyInteriorCoverage: ['beds', 'hearths', 'fireplaces', 'tables', 'chairs', 'storage', 'doors', 'interior walls', 'lighting']
@@ -1152,14 +1480,21 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
 
   async function getAssetBlob(asset) {
     if (asset.file) return asset.file;
-    if (!asset.src) return null;
-    try {
-      const res = await fetch(asset.src);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.blob();
-    } catch (err) {
-      throw new Error(`Could not fetch ${asset.path || asset.name}. For catalogued 2M+ assets, keep the real images at ${ONYX_LOCAL_IMAGE_ROOT} and run node tools/start-local-preview.mjs so ${ONYX_LOCAL_IMAGE_BRIDGE} can serve selected files.`);
+    const candidateSrcs = [];
+    if (asset.src) candidateSrcs.push(asset.src);
+    (asset.alternateLocalRelativePaths || []).forEach(rel => candidateSrcs.push(makeCatalogAssetUrl(rel)));
+    if (!candidateSrcs.length) return null;
+    const failures = [];
+    for (const src of [...new Set(candidateSrcs)]) {
+      try {
+        const res = await fetch(src);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.blob();
+      } catch (err) {
+        failures.push(`${src}: ${err.message || err}`);
+      }
     }
+    throw new Error(`Could not fetch ${asset.path || asset.name}. Tried ${candidateSrcs.length} catalogue path(s). For catalogued assets, keep the real images at ${ONYX_LOCAL_IMAGE_ROOT} and run node tools/start-local-preview.mjs so ${ONYX_LOCAL_IMAGE_BRIDGE} can serve selected files. Last failures: ${failures.slice(-3).join(' | ')}`);
   }
 
   function firstAssetCategory(asset) {
@@ -1265,6 +1600,8 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
     try {
       if (!item || typeof item !== 'object') return null;
       const relativePath = normalizeCatalogRelativePath(item.relativePath || item.catalogRelativePath || item.path || item.name);
+      const alternateLocalRelativePaths = Array.isArray(item.alternateLocalRelativePaths) ? item.alternateLocalRelativePaths.map(normalizeCatalogRelativePath).filter(Boolean) : [];
+      const alternateLocalAbsolutePaths = Array.isArray(item.alternateLocalAbsolutePaths) ? item.alternateLocalAbsolutePaths.filter(Boolean) : [];
       const localAbsolutePath = item.localAbsolutePath || item.absolutePath || item.localPath || (relativePath ? `${ONYX_LOCAL_IMAGE_ROOT}\\${relativePath.replace(/\//g, '\\')}` : '');
       const displayPath = localAbsolutePath || relativePath || item.url || item.src || item.name;
       const name = item.name || (displayPath ? String(displayPath).split(/[\\/]/).pop() : 'asset');
@@ -1280,6 +1617,8 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
         path: displayPath || name,
         relativePath: relativePath || name,
         localAbsolutePath,
+        alternateLocalRelativePaths,
+        alternateLocalAbsolutePaths,
         src,
         size: item.size || 0,
         mimeType: item.mimeType || guessMimeType(name),
@@ -1371,6 +1710,15 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
     const knownBiomes = flattenBiomeNames();
     knownBiomes.forEach(biome => {
       if (lower.includes(biome.toLowerCase()) && !state.selectedBiomes.includes(biome)) {
+        if (state.selectedBiomes.length >= 3) state.selectedBiomes.shift();
+        state.selectedBiomes.push(biome);
+        response.push(`cached biome ${biome}`);
+      }
+    });
+    Object.entries(ONYX_BIOME_ALIASES).forEach(([biome, aliases]) => {
+      if (!knownBiomes.includes(biome)) return;
+      if (state.selectedBiomes.some(existing => normalizeText(existing) === normalizeText(biome))) return;
+      if (aliases.some(alias => lower.includes(alias))) {
         if (state.selectedBiomes.length >= 3) state.selectedBiomes.shift();
         state.selectedBiomes.push(biome);
         response.push(`cached biome ${biome}`);
