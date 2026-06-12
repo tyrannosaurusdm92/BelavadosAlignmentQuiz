@@ -21,8 +21,8 @@ function resolveMaybeWindows(input, base = root) {
 
 const localAssetRoot = resolveMaybeWindows(requestedLocalAssetRoot);
 
-function send404(res, message = 'OnyxImagePackager cannot find that file.') {
-  res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
+function sendText(res, status, message) {
+  res.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin': '*' });
   res.end(message);
 }
 
@@ -35,6 +35,38 @@ function corsHeaders(type) {
   };
 }
 
+async function existingFilePath(candidate) {
+  try {
+    const stat = await fs.stat(candidate);
+    if (stat.isFile()) return candidate;
+  } catch {}
+  return null;
+}
+
+async function resolveLocalAsset(rel) {
+  const cleanRel = String(rel || '').replace(/^\/+/, '').replace(/\\/g, '/');
+  const parts = cleanRel.split('/').filter(Boolean);
+  const candidates = [];
+  const add = value => {
+    const clean = String(value || '').replace(/^\/+/, '');
+    if (!clean) return;
+    const filePath = path.resolve(localAssetRoot, clean);
+    const rootCheck = path.resolve(localAssetRoot).toLowerCase();
+    if (filePath.toLowerCase().startsWith(rootCheck) && !candidates.includes(filePath)) candidates.push(filePath);
+  };
+
+  add(cleanRel);
+  if (parts.length > 1) add(parts.slice(1).join('/'));
+  if (parts.length) add(parts[parts.length - 1]);
+  if (parts.length > 1) add(`${parts[0]}/${parts[0]}/${parts.slice(1).join('/')}`);
+
+  for (const candidate of candidates) {
+    const found = await existingFilePath(candidate);
+    if (found) return found;
+  }
+  return null;
+}
+
 const server = http.createServer(async (req, res) => {
   try {
     if (req.method === 'OPTIONS') {
@@ -45,13 +77,22 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url || '/', `http://127.0.0.1:${port}`);
     const rawPath = decodeURIComponent(url.pathname === '/' ? '/OnyxImagePackager.html' : url.pathname);
 
+    if (rawPath === '/onyx-local-bridge-status') {
+      let rootStatus = 'missing';
+      try { rootStatus = (await fs.stat(localAssetRoot)).isDirectory() ? 'ok' : 'not-directory'; }
+      catch {}
+      res.writeHead(200, corsHeaders('application/json; charset=utf-8'));
+      res.end(JSON.stringify({ ok: rootStatus === 'ok', localAssetRoot, rootStatus }));
+      return;
+    }
+
     if (rawPath.startsWith('/local-map-assets/')) {
       const rel = rawPath.slice('/local-map-assets/'.length).replace(/^\/+/, '');
-      const filePath = path.resolve(localAssetRoot, rel);
-      const rootCheck = path.resolve(localAssetRoot).toLowerCase();
-      if (!filePath.toLowerCase().startsWith(rootCheck)) throw new Error('Out of bounds local asset path');
-      const stat = await fs.stat(filePath);
-      if (!stat.isFile()) throw new Error('Local asset is not a file');
+      const filePath = await resolveLocalAsset(rel);
+      if (!filePath) {
+        sendText(res, 404, `Onyx local image bridge could not find: ${rel}\nLooked under: ${localAssetRoot}`);
+        return;
+      }
       res.writeHead(200, corsHeaders(mime[path.extname(filePath).toLowerCase()] || 'application/octet-stream'));
       if (req.method === 'HEAD') res.end();
       else createReadStream(filePath).pipe(res);
@@ -66,12 +107,17 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'HEAD') res.end();
     else createReadStream(filePath).pipe(res);
   } catch (err) {
-    send404(res);
+    sendText(res, 404, 'OnyxImagePackager cannot find that file. Launch from the OnyxImagePackager folder and keep real images at C:\\Users\\Public\\Pictures\\map_assets, or set ONYX_MAP_ASSET_DIR.');
   }
 });
 
-server.listen(port, '127.0.0.1', () => {
+server.listen(port, '127.0.0.1', async () => {
+  let rootStatus = 'not checked';
+  try { rootStatus = (await fs.stat(localAssetRoot)).isDirectory() ? 'FOUND' : 'NOT A FOLDER'; }
+  catch { rootStatus = 'MISSING'; }
   console.log(`OnyxImagePackager is previewing at http://127.0.0.1:${port}/`);
   console.log(`Local map_assets image bridge: http://127.0.0.1:${port}/local-map-assets/`);
   console.log(`Serving real images from: ${localAssetRoot}`);
+  console.log(`Real image folder status: ${rootStatus}`);
+  console.log('Keep this window open while building ZIP packages.');
 });

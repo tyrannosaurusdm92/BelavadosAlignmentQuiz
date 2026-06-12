@@ -185,6 +185,7 @@
     selectedBiomes: ['Grassland'],
     assets: [],
     catalog: { manifest: null, index: null, loadedChunks: new Map(), active: false },
+    localAssetFolder: { handle: null, label: '', granted: false, lastFailure: '' },
     currentMap: null,
     currentGeoJson: null,
     animationFrame: 0,
@@ -213,13 +214,14 @@
     addChat('onyx', pickVoice('boot', 'Papa, I am ready. Describe the biome, settlement, or scan task you want, and I shall build it with judgment and love.'));
     renderBiomeCache();
     renderAssetStats();
+    updateLocalAssetFolderStatus();
     renderPackageCandidates();
     updatePinList();
     startOnyxIdleCycle();
   }
 
   function captureEls() {
-    const ids = ['settlementType', 'biomeCategory', 'biomeChoice', 'settlementName', 'addBiome', 'clearBiomes', 'biomeCache', 'settlementJsonInput', 'settlementJsonStatus', 'dropZone', 'folderInput', 'fileInput', 'recipeInput', 'loadCatalog', 'assetStats', 'assetSearch', 'selectVisibleAssets', 'deselectVisibleAssets', 'resetModuleSizes', 'chatLog', 'chatInput', 'sendChat', 'clearChat', 'findPackageAssets', 'buildMapPackage', 'packageMaxImages', 'packageMaxMb', 'packageIncludeAll', 'packagePreviewSummary', 'packageCandidateList', 'packageStatus', 'generateMap', 'variantMap', 'generatePins', 'generateGeoJson', 'downloadPng', 'exportRecipe', 'exportGeoJson', 'exportPins', 'density', 'rotation', 'scaleVariance', 'depth', 'lightingStrength', 'movementStrength', 'spookyStrength', 'seed', 'toggleLighting', 'toggleMovement', 'toggleSounds', 'playDoor', 'mapCanvas', 'fxCanvas', 'pinPanel', 'pinList', 'geoSummary', 'geoPreview', 'onyxLog', 'compositionSummary', 'onyxMood', 'onyxChatMood', 'onyxMoodLabel', 'scanMapInput', 'autoPalette', 'scanTerrain', 'promoteScanGeo', 'downloadScanPng', 'exportScanJson', 'clearScan', 'scanTolerance', 'scanMinPatch', 'scanSummary', 'scanPreview'];
+    const ids = ['settlementType', 'biomeCategory', 'biomeChoice', 'settlementName', 'addBiome', 'clearBiomes', 'biomeCache', 'settlementJsonInput', 'settlementJsonStatus', 'dropZone', 'folderInput', 'fileInput', 'recipeInput', 'loadCatalog', 'connectLocalAssets', 'localAssetFolderStatus', 'assetStats', 'assetSearch', 'selectVisibleAssets', 'deselectVisibleAssets', 'resetModuleSizes', 'chatLog', 'chatInput', 'sendChat', 'clearChat', 'findPackageAssets', 'buildMapPackage', 'packageMaxImages', 'packageMaxMb', 'packageIncludeAll', 'packagePreviewSummary', 'packageCandidateList', 'packageStatus', 'generateMap', 'variantMap', 'generatePins', 'generateGeoJson', 'downloadPng', 'exportRecipe', 'exportGeoJson', 'exportPins', 'density', 'rotation', 'scaleVariance', 'depth', 'lightingStrength', 'movementStrength', 'spookyStrength', 'seed', 'toggleLighting', 'toggleMovement', 'toggleSounds', 'playDoor', 'mapCanvas', 'fxCanvas', 'pinPanel', 'pinList', 'geoSummary', 'geoPreview', 'onyxLog', 'compositionSummary', 'onyxMood', 'onyxChatMood', 'onyxMoodLabel', 'scanMapInput', 'autoPalette', 'scanTerrain', 'promoteScanGeo', 'downloadScanPng', 'exportScanJson', 'clearScan', 'scanTolerance', 'scanMinPatch', 'scanSummary', 'scanPreview'];
     for (const id of ids) els[id] = document.getElementById(id);
   }
 
@@ -262,6 +264,7 @@
     els.fileInput.addEventListener('change', (e) => handleFileSelection([...e.target.files]));
     els.recipeInput.addEventListener('change', handleRecipeImport);
     els.loadCatalog.addEventListener('click', loadAssetCatalog);
+    if (els.connectLocalAssets) els.connectLocalAssets.addEventListener('click', connectLocalAssetFolder);
     if (els.assetSearch) els.assetSearch.addEventListener('input', renderPackageCandidates);
     if (els.selectVisibleAssets) els.selectVisibleAssets.addEventListener('click', () => toggleVisibleCandidates(true));
     if (els.deselectVisibleAssets) els.deselectVisibleAssets.addEventListener('click', () => toggleVisibleCandidates(false));
@@ -412,6 +415,68 @@
     addLog(`${pickVoice('scan', 'Assets inspected.')} I cataloged ${state.assets.length} usable map pieces.`, 'scan');
   }
 
+
+  function updateLocalAssetFolderStatus(text, isError = false) {
+    if (!els.localAssetFolderStatus) return;
+    const status = text || (state.localAssetFolder && state.localAssetFolder.granted
+      ? `Connected to real image folder: ${state.localAssetFolder.label || 'map_assets'}`
+      : `Real image source expected: ${ONYX_LOCAL_IMAGE_ROOT}. Use START_ONYX_LOCAL_PREVIEW.bat or click “Connect real map_assets folder.”`);
+    els.localAssetFolderStatus.textContent = status;
+    els.localAssetFolderStatus.classList.toggle('error', !!isError);
+    els.localAssetFolderStatus.classList.toggle('muted', !isError);
+  }
+
+  async function connectLocalAssetFolder() {
+    if (!window.showDirectoryPicker) {
+      const msg = 'This browser cannot grant direct folder access. Launch Onyx with START_ONYX_LOCAL_PREVIEW.bat so the local image bridge can serve C:\\Users\\Public\\Pictures\\map_assets.';
+      updateLocalAssetFolderStatus(msg, true);
+      addLog(msg, 'judgmental');
+      return;
+    }
+    try {
+      const handle = await window.showDirectoryPicker({ id: 'onyx-map-assets', mode: 'read' });
+      state.localAssetFolder.handle = handle;
+      state.localAssetFolder.label = handle.name || 'map_assets';
+      state.localAssetFolder.granted = true;
+      state.localAssetFolder.lastFailure = '';
+      updateLocalAssetFolderStatus(`Connected to real image folder: ${handle.name || 'map_assets'}. Onyx can now read selected files without the HTTP bridge.`);
+      addLog(`Connected to real map_assets folder: ${handle.name || 'map_assets'}. I may now fetch selected unpacked images directly.`, 'thoughtful');
+    } catch (err) {
+      const msg = `Folder connection was cancelled or blocked: ${err && err.message ? err.message : err}`;
+      state.localAssetFolder.granted = false;
+      updateLocalAssetFolderStatus(msg, true);
+      addLog(msg, 'hungry');
+    }
+  }
+
+  async function getBlobFromConnectedLocalFolder(asset) {
+    const folder = state.localAssetFolder || {};
+    if (!folder.handle || !folder.granted) return null;
+    const candidates = buildLocalAssetRelativeCandidates(asset);
+    const failures = [];
+    for (const rel of candidates) {
+      try {
+        const file = await getFileFromDirectoryHandle(folder.handle, rel);
+        if (file) return file;
+      } catch (err) {
+        failures.push(`${rel}: ${err && err.message ? err.message : err}`);
+      }
+    }
+    folder.lastFailure = failures.slice(-5).join(' | ');
+    return null;
+  }
+
+  async function getFileFromDirectoryHandle(rootHandle, relativePath) {
+    const parts = String(relativePath || '').replace(/\\/g, '/').split('/').filter(Boolean);
+    if (!parts.length) return null;
+    let dir = rootHandle;
+    for (const part of parts.slice(0, -1)) {
+      dir = await dir.getDirectoryHandle(part, { create: false });
+    }
+    const fileHandle = await dir.getFileHandle(parts[parts.length - 1], { create: false });
+    return await fileHandle.getFile();
+  }
+
   async function loadAssetCatalog() {
     const manifestPaths = ONYX_CATALOG_MANIFEST_PATHS;
     const legacyPaths = ONYX_LEGACY_CATALOG_PATHS;
@@ -433,7 +498,8 @@
         renderPackageCandidates();
         const count = Number(manifest.count || 0).toLocaleString();
         addLog(`Loaded chunked map_assets JSON catalog with ${count} image records. Real images remain at ${manifest.assetRootWindows || manifest.localImageRoot || ONYX_LOCAL_IMAGE_ROOT}.`, 'thoughtful');
-        addChat('onyx', `Papa, I loaded the 2M+ style map_assets JSON catalog. I will not upload every image into GitHub or the browser. Search matches, and I shall pull only selected local files into the ZIP through the local image bridge.`);
+        updateLocalAssetFolderStatus(`Catalogue loaded. Real images still need the local bridge at ${manifest.assetBaseUrl || ONYX_LOCAL_IMAGE_BRIDGE} or direct folder permission for ${manifest.assetRootWindows || manifest.localImageRoot || ONYX_LOCAL_IMAGE_ROOT}.`);
+        addChat('onyx', `Papa, I loaded the map_assets JSON catalog. I will not upload every image into GitHub or the browser. I can pull selected local files into the ZIP through the local image bridge, or through the connected real map_assets folder.`);
         return;
       } catch (err) {
         // try next catalog style
@@ -450,7 +516,8 @@
         state.catalog = { manifest: null, index: null, loadedChunks: new Map(), active: false };
         state.assets = rawAssets.map(item => catalogItemToAsset(item)).filter(Boolean);
         renderAssetStats();
-        addLog(`Loaded ${state.assets.length} legacy cataloged assets from ${path}. For the 2M+ library, use the chunked catalog builder and keep real images at ${ONYX_LOCAL_IMAGE_ROOT}.`, 'thoughtful');
+        addLog(`Loaded ${state.assets.length} legacy cataloged assets from ${path}. Real images remain at ${ONYX_LOCAL_IMAGE_ROOT}.`, 'thoughtful');
+        updateLocalAssetFolderStatus(`Legacy catalogue loaded. Use START_ONYX_LOCAL_PREVIEW.bat or connect the real map_assets folder so Onyx can fetch the actual unpacked files.`);
         return;
       } catch (err) {
       }
@@ -1480,21 +1547,29 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
 
   async function getAssetBlob(asset) {
     if (asset.file) return asset.file;
+    const failures = [];
+
+    const localFile = await getBlobFromConnectedLocalFolder(asset);
+    if (localFile) return localFile;
+    if (state.localAssetFolder && state.localAssetFolder.granted && state.localAssetFolder.lastFailure) {
+      failures.push(`connected folder: ${state.localAssetFolder.lastFailure}`);
+    }
+
     const candidateSrcs = [];
     if (asset.src) candidateSrcs.push(asset.src);
-    (asset.alternateLocalRelativePaths || []).forEach(rel => candidateSrcs.push(makeCatalogAssetUrl(rel)));
+    buildLocalAssetRelativeCandidates(asset).forEach(rel => candidateSrcs.push(makeCatalogAssetUrl(rel)));
     if (!candidateSrcs.length) return null;
-    const failures = [];
+
     for (const src of [...new Set(candidateSrcs)]) {
       try {
         const res = await fetch(src);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return await res.blob();
       } catch (err) {
-        failures.push(`${src}: ${err.message || err}`);
+        failures.push(`${src}: ${err && err.message ? err.message : err}`);
       }
     }
-    throw new Error(`Could not fetch ${asset.path || asset.name}. Tried ${candidateSrcs.length} catalogue path(s). For catalogued assets, keep the real images at ${ONYX_LOCAL_IMAGE_ROOT} and run node tools/start-local-preview.mjs so ${ONYX_LOCAL_IMAGE_BRIDGE} can serve selected files. Last failures: ${failures.slice(-3).join(' | ')}`);
+    throw new Error(`Could not fetch ${asset.path || asset.name}. Onyx found the catalogue entry, but the browser could not read the real unpacked file. Launch START_ONYX_LOCAL_PREVIEW.bat and open http://127.0.0.1:5177/, or click “Connect real map_assets folder” and choose ${ONYX_LOCAL_IMAGE_ROOT}. Tried ${candidateSrcs.length.toLocaleString()} bridge path(s). Last failures: ${failures.slice(-5).join(' | ')}`);
   }
 
   function firstAssetCategory(asset) {
@@ -1578,6 +1653,44 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
     return catalogItemToAsset(item);
   }
 
+  function addUniquePathCandidate(out, value) {
+    const normalized = normalizeCatalogRelativePath(value);
+    if (normalized && !out.includes(normalized)) out.push(normalized);
+  }
+
+  function sourceArchiveStemFromAsset(asset) {
+    const raw = asset && (asset.sourceArchiveStem || asset.sourceArchive || '');
+    return String(raw || '').replace(/\.zip$/i, '').trim();
+  }
+
+  function buildLocalAssetRelativeCandidates(asset) {
+    const out = [];
+    if (!asset) return out;
+    addUniquePathCandidate(out, asset.relativePath);
+    addUniquePathCandidate(out, asset.catalogRelativePath);
+    addUniquePathCandidate(out, asset.path);
+    addUniquePathCandidate(out, asset.name);
+    (asset.alternateLocalRelativePaths || []).forEach(value => addUniquePathCandidate(out, value));
+    (asset.alternateLocalAbsolutePaths || []).forEach(value => addUniquePathCandidate(out, value));
+    addUniquePathCandidate(out, asset.localAbsolutePath);
+
+    const sourceStem = sourceArchiveStemFromAsset(asset);
+    const initial = [...out];
+    for (const rel of initial) {
+      const parts = rel.split('/').filter(Boolean);
+      if (parts.length > 1) addUniquePathCandidate(out, parts.slice(1).join('/'));
+      if (sourceStem) {
+        const stemNorm = normalizeCatalogRelativePath(sourceStem);
+        if (stemNorm) {
+          if (!rel.toLowerCase().startsWith(`${stemNorm.toLowerCase()}/`)) addUniquePathCandidate(out, `${stemNorm}/${rel}`);
+          addUniquePathCandidate(out, `${stemNorm}/${stemNorm}/${rel}`);
+          if (rel.toLowerCase().startsWith(`${stemNorm.toLowerCase()}/`)) addUniquePathCandidate(out, rel.slice(stemNorm.length + 1));
+        }
+      }
+    }
+    return out;
+  }
+
   function normalizeCatalogRelativePath(value) {
     if (!value) return '';
     let text = String(value).replace(/\\/g, '/');
@@ -1600,8 +1713,12 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
     try {
       if (!item || typeof item !== 'object') return null;
       const relativePath = normalizeCatalogRelativePath(item.relativePath || item.catalogRelativePath || item.path || item.name);
+      const sourceArchive = item.sourceArchive || item.archive || '';
+      const sourceArchiveStem = item.sourceArchiveStem || String(sourceArchive || '').replace(/\.zip$/i, '');
       const alternateLocalRelativePaths = Array.isArray(item.alternateLocalRelativePaths) ? item.alternateLocalRelativePaths.map(normalizeCatalogRelativePath).filter(Boolean) : [];
       const alternateLocalAbsolutePaths = Array.isArray(item.alternateLocalAbsolutePaths) ? item.alternateLocalAbsolutePaths.filter(Boolean) : [];
+      if (relativePath && !alternateLocalRelativePaths.includes(relativePath)) alternateLocalRelativePaths.push(relativePath);
+      if (item.name && !alternateLocalRelativePaths.includes(item.name)) alternateLocalRelativePaths.push(item.name);
       const localAbsolutePath = item.localAbsolutePath || item.absolutePath || item.localPath || (relativePath ? `${ONYX_LOCAL_IMAGE_ROOT}\\${relativePath.replace(/\//g, '\\')}` : '');
       const displayPath = localAbsolutePath || relativePath || item.url || item.src || item.name;
       const name = item.name || (displayPath ? String(displayPath).split(/[\\/]/).pop() : 'asset');
@@ -1619,6 +1736,8 @@ Bring this ZIP back to ChatGPT and ask it to build the map using the included JS
         localAbsolutePath,
         alternateLocalRelativePaths,
         alternateLocalAbsolutePaths,
+        sourceArchive,
+        sourceArchiveStem,
         src,
         size: item.size || 0,
         mimeType: item.mimeType || guessMimeType(name),

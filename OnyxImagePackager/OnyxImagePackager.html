@@ -80,8 +80,10 @@
           <label class="file-button secondary-file">Pick images<input id="fileInput" type="file" multiple accept="image/*,.svg" /></label>
           <label class="file-button secondary-file">Import recipe<input id="recipeInput" type="file" accept="application/json,.json" /></label>
           <button id="loadCatalog" type="button" class="secondary">Load 2M+ asset catalog</button>
+          <button id="connectLocalAssets" type="button" class="secondary">Connect real map_assets folder</button>
         </div>
-        <p class="hint">Keep your huge image library at <code>C:\Users\Public\Pictures\map_assets</code>, then run <code>node tools/build-map-asset-catalog.mjs</code> from the <code>OnyxImagePackager</code> folder. It writes GitHub-safe JSON catalogues into <code>map_assets/</code>. To package actual images, run <code>node tools/start-local-preview.mjs</code> so Onyx can open selected files through <code>http://127.0.0.1:5177/local-map-assets/</code>.</p>
+        <p class="hint">Keep your huge image library at <code>C:\Users\Public\Pictures\map_assets</code>. For the smoothest workflow, launch Onyx with <code>START_ONYX_LOCAL_PREVIEW.bat</code>, then open the shown <code>http://127.0.0.1:5177/</code> address. If the browser still cannot fetch an image, click <strong>Connect real map_assets folder</strong> and choose <code>C:\Users\Public\Pictures\map_assets</code> to grant direct read access.</p>
+        <div id="localAssetFolderStatus" class="package-status muted">Real image source expected: C:\Users\Public\Pictures\map_assets. Local bridge or folder permission not checked yet.</div>
         <div id="assetStats" class="stats-grid"></div>
 
         <h2>4. Speak to Onyx</h2>

@@ -148,3 +148,15 @@ This build includes the coordinate-tracking Belavadös interactive map builder u
 - scale targets for location slots, named NPC slots, and world-travel NPC slots.
 
 For one selected biome, 100% of the allotted location slots come from that biome JSON. For two selected biomes, the split is 50/50. For three selected biomes, the first two use about 33.33% each and the final biome receives the rounding remainder so the total is exactly 100%.
+
+## Local `map_assets` image fetching
+
+If Onyx loads catalogue JSON but fails when packaging real images, launch the site through the local image bridge:
+
+1. Make sure the real unpacked images are in `C:\Users\Public\Pictures\map_assets`.
+2. Double-click `START_ONYX_LOCAL_PREVIEW.bat`.
+3. Open `http://127.0.0.1:5177/` in Chrome or Edge.
+4. Click **Load 2M+ asset catalog**.
+5. If a selected image still cannot be fetched, click **Connect real map_assets folder** and choose `C:\Users\Public\Pictures\map_assets`.
+
+A browser page cannot directly read arbitrary `C:\...` files without either the local bridge or explicit folder permission.

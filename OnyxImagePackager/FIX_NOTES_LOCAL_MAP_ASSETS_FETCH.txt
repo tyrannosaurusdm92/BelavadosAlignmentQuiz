@@ -1,0 +1,24 @@
+Onyx local map_assets fetch fix
+
+What changed:
+- Added START_ONYX_LOCAL_PREVIEW.bat and .ps1 launchers.
+- Updated tools/start-local-preview.mjs so selected images are served from:
+  C:\Users\Public\Pictures\map_assets
+- Added more tolerant path lookup for unpacked folders:
+  source-folder/file.png
+  file.png
+  nested/source-folder/file.png
+- Added a browser fallback button: "Connect real map_assets folder".
+  In Chrome/Edge, choose C:\Users\Public\Pictures\map_assets if the local bridge is not running or an image still cannot be fetched.
+- Updated Onyx's export error message so it tells you exactly how to connect the real image folder.
+
+Use:
+1. Put your actual unpacked images in C:\Users\Public\Pictures\map_assets.
+2. Open START_ONYX_LOCAL_PREVIEW.bat from the OnyxImagePackager folder.
+3. Open http://127.0.0.1:5177/ in Chrome or Edge.
+4. Click "Load 2M+ asset catalog".
+5. Fetch matching assets and build the ZIP package.
+6. If a selected image still errors, click "Connect real map_assets folder" and pick C:\Users\Public\Pictures\map_assets.
+
+Why this is needed:
+Browsers are not allowed to read C:\Users\Public\Pictures\map_assets directly from normal JavaScript. The local preview server creates a safe bridge from the catalogue JSON to your real unpacked images.
