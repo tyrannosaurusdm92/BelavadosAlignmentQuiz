@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LifeSimulator Reaction",
+  "type": "object",
+  "required": [
+    "id",
+    "label",
+    "category",
+    "icon",
+    "technologyAgnostic",
+    "settingAgnostic",
+    "randomizationProfile",
+    "availability"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "technologyAgnostic": {
+      "const": true
+    },
+    "settingAgnostic": {
+      "const": true
+    },
+    "randomizationProfile": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "object"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
