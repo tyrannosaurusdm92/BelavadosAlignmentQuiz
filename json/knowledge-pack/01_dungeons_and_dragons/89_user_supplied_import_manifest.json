@@ -1,0 +1,18 @@
+{
+  "system": "Dungeons & Dragons",
+  "files": [
+    {
+      "file": "90_user_supplied_dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+      "bytes": 1629808,
+      "sha256": "ca4b07516e2c9da832c4b2d3a478d08ecc93521fb18b006a2a38b29053928405",
+      "origin": "user_supplied_archive"
+    },
+    {
+      "file": "90_user_supplied_dnd_5e_5_5e_xp_progression_calculator.json",
+      "bytes": 8087,
+      "sha256": "4bb64b9ec115ed5b6ed1b76ad75b6a6ef7097abfd177c99abfd375c16dfd2af0",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}
