@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {"archive":"fantasia-archive-v1-master.zip","role":"world database and template UX reference","license":"GPL-3.0","copiedCode":false},
+    {"archive":"fantasia-archive-master.zip","role":"current world database, hierarchy, relationships, import/export UX reference","license":"GPL-3.0","copiedCode":false},
+    {"archive":"ObsidianTTRPGShare-main.zip","role":"linked-note and system-neutral vault organization reference","license":"MPL-2.0","copiedCode":false},
+    {"archive":"obsidian-plugin-watcher-main.zip","role":"catalog/indexing reference","license":"not found","copiedCode":false},
+    {"archive":"Obsidian-WWN-Markdown-main.zip","role":"vault structure reference only","license":"mixed; see notices","copiedCode":false,"contentIncluded":false},
+    {"archive":"Obsidian-SWN-Markdown-main.zip","role":"vault structure reference only","license":"mixed; see notices","copiedCode":false,"contentIncluded":false},
+    {"archive":"mythkeeper-master.zip","role":"asset/profile/gallery UX reference","license":"not found","copiedCode":false},
+    {"archive":"docs-master pt 1.zip + docs-master pt 2.zip","role":"graph, reference, whiteboard, import/export concepts","license":"MIT","copiedCode":false},
+    {"archive":"Template-Share-main.zip","role":"reusable world template concept","license":"not found","copiedCode":false}
+  ]
+}
