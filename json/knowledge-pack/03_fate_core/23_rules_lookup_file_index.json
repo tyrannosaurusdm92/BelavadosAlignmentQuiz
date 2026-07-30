@@ -1,0 +1,130 @@
+{
+  "system": "Fate Core",
+  "files": [
+    {
+      "name": "00_manifest.json",
+      "bytes": 1202,
+      "sha256": "4058f70e8649c8be8df722ed37bb327c91dbd54bb63109295cd04632d4b31d90"
+    },
+    {
+      "name": "01_licensing_and_scope.json",
+      "bytes": 778,
+      "sha256": "638485d8f0b29cae91120ea8aeb76be26a93c88c45054b90bd85c21b8d97ba41"
+    },
+    {
+      "name": "02_edition_timeline_and_conversion.json",
+      "bytes": 4620,
+      "sha256": "d7ce3db3453a96c6dd076545445efdbfdeb7d7100eda88c7166772b6c0a7960e"
+    },
+    {
+      "name": "03_complete_how_to_play.json",
+      "bytes": 7377,
+      "sha256": "6cfda1715ce6963df6e577e049f688643be3458bdbdbf6f8389287d079384f41"
+    },
+    {
+      "name": "04_character_creation.json",
+      "bytes": 3748,
+      "sha256": "87fc0b820f86fd123430ff85f41f132e7245da68d66712aeef2d52c7e5fe2b62"
+    },
+    {
+      "name": "05_advancement_and_leveling.json",
+      "bytes": 6940,
+      "sha256": "338debed441004030f26177123c3dc58188224237e8d4a66aece285991da9f30"
+    },
+    {
+      "name": "06_combat_attacks_actions.json",
+      "bytes": 1802095,
+      "sha256": "de92bab9dc6fe72d29325b469f390b5cb48a9be9ccc480231ab7a4128122c62a"
+    },
+    {
+      "name": "07_magic_spells_powers_rituals.json",
+      "bytes": 2270973,
+      "sha256": "062f212effe453fed1223df19013afab116d11a8ac5ea1267041609e4e439a2e"
+    },
+    {
+      "name": "08_classes_archetypes_playbooks.json",
+      "bytes": 808591,
+      "sha256": "32fd853d9c33b6067d5f55cfb34fc25a30bd28369cf869aed5dd519576daa9a3"
+    },
+    {
+      "name": "09_ancestries_races_species_lineages.json",
+      "bytes": 520504,
+      "sha256": "66b0de7d4c5bb55b2f2738d824924925d7f507ca0d95513dc35e82578cbed5a3"
+    },
+    {
+      "name": "10_subclasses_specializations_paths.json",
+      "bytes": 977938,
+      "sha256": "5e225848a4cf1eda8bc454330a1462849a8815395cf12902001151062065307e"
+    },
+    {
+      "name": "11_backgrounds_origins_professions.json",
+      "bytes": 613675,
+      "sha256": "229ab6c1b92e2a41da858e6715df00d97a609e1296b393001ced0712733a28c2"
+    },
+    {
+      "name": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1639232,
+      "sha256": "62c24764b7f913f802852e46e762a5f02b59e7dda5b474d3b88b8bdb9a13797b"
+    },
+    {
+      "name": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1217863,
+      "sha256": "3dc321c880039614f8781f166ebab281a8539cef79da9b63c0d95e3c7b1169ba"
+    },
+    {
+      "name": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 961599,
+      "sha256": "a20e5b97d102b41bf8299efa5fc8351eac82ebcff2c1e085ed1f39765992ef5c"
+    },
+    {
+      "name": "15_armor_shields_protective_gear.json",
+      "bytes": 546105,
+      "sha256": "71f4f138fff7b4aad528952d2c749ca4670ff217ccf604a337db9894ff1a901a"
+    },
+    {
+      "name": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 761737,
+      "sha256": "bbd45ef98852e6c83f23d3646130e8ac63a41ee3e0bd68757ae6452a52c3ffde"
+    },
+    {
+      "name": "17_conditions_damage_healing_recovery.json",
+      "bytes": 586909,
+      "sha256": "105396fc053171f58a912f07e5ddd01695b47f93b32147e2fa0e1bf1a2fa9e2c"
+    },
+    {
+      "name": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4281601,
+      "sha256": "a290b96d19bda9f261f4dc0ee76f2e6e0d1ebe9bb9e2114fc77395860260bcf9"
+    },
+    {
+      "name": "19_locations_factions_worldbuilding.json",
+      "bytes": 1487897,
+      "sha256": "3f961282d4155cbd7d5b55489793ec3ffada763081a88d79790d570d7fbe4d7e"
+    },
+    {
+      "name": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2290433,
+      "sha256": "aac6b9e890dceb3f391f68f40093ccfb92040bf8f18f01f8acc65011acc143c7"
+    },
+    {
+      "name": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1433672,
+      "sha256": "7015861d7c967ebccd0b24147d27e39c012d1e066623277258f32fba9694a6f4"
+    },
+    {
+      "name": "22_facilitator_tools.json",
+      "bytes": 1355,
+      "sha256": "6ee78a43aabbddb36259cfd84b4688ed656dbb2df1a459d2fa3b25ef974df485"
+    },
+    {
+      "name": "89_user_supplied_import_manifest.json",
+      "bytes": 398,
+      "sha256": "91e3def730f6e4c4b9dd32aa4cdd2865128f13724d949448f061af65ac50d5a4"
+    },
+    {
+      "name": "90_user_supplied_fate_core_complete_how_to_play_reference_v2.json",
+      "bytes": 917972,
+      "sha256": "fed00c11f50c26ba98201542294fe01ffc8ece9e5f81c2ded42604bd885e7029"
+    }
+  ]
+}
