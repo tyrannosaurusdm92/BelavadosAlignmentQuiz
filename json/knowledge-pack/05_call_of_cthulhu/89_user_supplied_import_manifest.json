@@ -1,0 +1,12 @@
+{
+  "system": "Call of Cthulhu",
+  "files": [
+    {
+      "file": "90_user_supplied_how_to_play_coc_7e_complete_reference_v2.json",
+      "bytes": 271196,
+      "sha256": "1993f99b314d29f5374f28fcaa0f7ede1964b420dc23cbbb128a47699219510d",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}
