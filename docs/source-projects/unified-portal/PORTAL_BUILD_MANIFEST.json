@@ -1,0 +1,377 @@
+{
+  "name": "TableGate Saved Character Session Portal with Token Studio",
+  "version": "1.2.0",
+  "generated_utc": "2026-07-28T23:17:28.775661+00:00",
+  "entry_point": "tablegate.html",
+  "backend": {
+    "endpoint": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
+    "library_id": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
+    "library_version": 5
+  },
+  "policies": {
+    "session_character_source": "saved Portal profile characters only",
+    "gameplay_rolls": "central multi-system 3D dice roller",
+    "local_sheet_rolls": "stat generation and permitted stat rerolls only"
+  },
+  "token_studio": {
+    "scope": "one token per saved Portal character",
+    "crop": "circular canvas crop with drag, zoom, and exact offsets",
+    "border_modes": [
+      "reference gold ring",
+      "solid color",
+      "uploaded image texture"
+    ],
+    "texture_layouts": [
+      "fill",
+      "tile"
+    ],
+    "download": "1024x1024 transparent PNG",
+    "profile_preview": "compact transparent WebP or PNG fallback",
+    "editable_source_storage": "IndexedDB when available",
+    "reference_asset": "assets/token-borders/reference-gold-ring.png"
+  },
+  "file_count_excluding_manifest": 68,
+  "total_bytes_excluding_manifest": 69924988,
+  "files": [
+    {
+      "path": "assets/audio/freesound_community-dice-throw-38476.mp3",
+      "bytes": 79680,
+      "sha256": "d3984ac3ffdee31d7d72dcb79781ad5f6ab57d5b722f7d4b8c7e06ae96ed32b2"
+    },
+    {
+      "path": "assets/audio/freesound_community-rpg-dice-rolling-95182.mp3",
+      "bytes": 15840,
+      "sha256": "a0874599e7b53b2043bed860f048d0bb2e407630beee8b4e0d5ab8ce956512c1"
+    },
+    {
+      "path": "assets/audio/nc93322.mp3",
+      "bytes": 29927,
+      "sha256": "dbdc92cfa2a3fad32dca45c17ba28f470181b53330dd843d427ce5e90dc8f5d6"
+    },
+    {
+      "path": "assets/audio/u_ngsgp0r6zb-dice-roll-201898.mp3",
+      "bytes": 370311,
+      "sha256": "52d8b8b0081dbb60586b236637c4ec605ece4dd14696f0df34fccc9f8cf8007a"
+    },
+    {
+      "path": "assets/audio/u_qpfzpydtro-dice-142528.mp3",
+      "bytes": 44544,
+      "sha256": "6a3d37146a9e0a116dc2c8a6663fe9a35c91642d2775eab239ceecdf065688e1"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_01.png",
+      "bytes": 2868515,
+      "sha256": "d740689f863c691c6628476b5d6432ff345b87fa17d0bf9447a9c9a66c1b835f"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_02.png",
+      "bytes": 2748889,
+      "sha256": "f85cdc83268582b2da4134c02d9af142f5d7631a06d8601dd5d5e9ca5f6c14d0"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_03.png",
+      "bytes": 2807496,
+      "sha256": "ad3d229984c3befa3dcabfc9bd49cde819d15c5c2b34fe0a62f3e65b6a5f304d"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_04.png",
+      "bytes": 2441294,
+      "sha256": "35795a99b8777d7e856e8da2aea203fbbb67e7e246223f1143885a822fafaf3a"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_05.png",
+      "bytes": 3092199,
+      "sha256": "e978a19ca90a3b908b562f320bc9391ba55995d59c09c16e18df88a0dcdb2a91"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_06.png",
+      "bytes": 3019788,
+      "sha256": "71ce3d1a03b05bd9977c1bda03b6d8e80e49e492eee2b2786aff45d317af5a8b"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_07.png",
+      "bytes": 2527528,
+      "sha256": "0ff636aa03580f1f6b2e26661e50e0d75e5a1a904dcb351678283a8151707507"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_08.png",
+      "bytes": 2381985,
+      "sha256": "f44bc4c78834259476d7b4d8053ebd52fcd1cf412f309866cd76799c74432df6"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_09.png",
+      "bytes": 2998859,
+      "sha256": "16d7727d63663a1e530ef41e6fcb63c4edc4028c5eeb5e3a11827c28f72e63c5"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_10.png",
+      "bytes": 2267392,
+      "sha256": "498e623cf0784c5f5262700732f38443242cd9d8764ae59f6b342e17623f66a3"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_11.png",
+      "bytes": 2818302,
+      "sha256": "957ad1d60764cb8ab7326f6f51a25fabc022349c93f50e1f7139edb2ef1b5053"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_12.png",
+      "bytes": 2243173,
+      "sha256": "ee0c611a01d2764e2b2d49deee1c214ec99cff9eb4fad4eae833e74b89cf6460"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_13.png",
+      "bytes": 2477370,
+      "sha256": "ed94bbb0d4114d451b10b528c5aa23456f72d9bf03fcd18f4266b8325a022fda"
+    },
+    {
+      "path": "assets/bot-tokens/ttrpg_token_14.png",
+      "bytes": 3304963,
+      "sha256": "10199841f67e8dc78cc528117d45dcdf8ea602ea5e174e32c0fe482745f02dab"
+    },
+    {
+      "path": "assets/dice-designs/background.svg",
+      "bytes": 9406,
+      "sha256": "a382dc4c897441a1688d5c0807e2b1e154cdc106cd42bb62445035505c3c9aeb"
+    },
+    {
+      "path": "assets/dice-designs/dice-bot-default.png",
+      "bytes": 41129,
+      "sha256": "3fa41ab20c1e0c29cefa93e15106022bf0929405b4068c7fc2526f6861af4191"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "bytes": 1017,
+      "sha256": "648e74add247a91083b930bd031c491c47ba5c574a52e71f54f1b04330f23dd3"
+    },
+    {
+      "path": "assets/icons/tablegate-128.png",
+      "bytes": 1248,
+      "sha256": "a3cb0e7ee7c0a8bb6a364f5634b9814cbfb3af6182bd7bfdf50cfa7aad378c2a"
+    },
+    {
+      "path": "assets/icons/tablegate-192.png",
+      "bytes": 1746,
+      "sha256": "d96b0dd9dd9e6b73df53b103a140d228a17f23725d4c449e9920ff10c07d9097"
+    },
+    {
+      "path": "assets/icons/tablegate-256.png",
+      "bytes": 2415,
+      "sha256": "86e737b91a4a87f3f563277f7dba8a7d629ee8b3d3b632d704ba8239d963ea86"
+    },
+    {
+      "path": "assets/icons/tablegate-512.png",
+      "bytes": 5026,
+      "sha256": "54941a9b6d1dbd65f60cc995ac50a3bd2a8709d4b187e26572d89b366ef56efc"
+    },
+    {
+      "path": "assets/icons/tablegate-64.png",
+      "bytes": 698,
+      "sha256": "acd9d7da251d28cf4a80e9b6a86cf08e79363483850db5cea4bf2e829e342564"
+    },
+    {
+      "path": "assets/logo-tablegate.svg",
+      "bytes": 1017,
+      "sha256": "648e74add247a91083b930bd031c491c47ba5c574a52e71f54f1b04330f23dd3"
+    },
+    {
+      "path": "assets/manifest.webmanifest",
+      "bytes": 706,
+      "sha256": "904c583563c946ebc0533cf032cd66edd3c4b55d840582f4513c2cc2a5146422"
+    },
+    {
+      "path": "assets/tablegate-hero.svg",
+      "bytes": 1220,
+      "sha256": "90aceb46b89f43f3c942e3cb77bf02265402bfb0f9152caf45fcce28c6b3efea"
+    },
+    {
+      "path": "assets/token-borders/reference-gold-ring.png",
+      "bytes": 624181,
+      "sha256": "0e185a8b3eacd17c740428e8a0b962cf193c70fd65f1dea58aa975f530d37461"
+    },
+    {
+      "path": "css/dice-roller.css",
+      "bytes": 3267,
+      "sha256": "4372b39764bfdaee4a38a854776ff3c04447af5da2ddfd1c900d847953366e79"
+    },
+    {
+      "path": "css/tablegate.css",
+      "bytes": 20626,
+      "sha256": "db75f0fb108b70c36a17b1c52fb31ec7e5fc5c0078099d8030dc3c1b18eac8e7"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 1424,
+      "sha256": "edcb4327b31de896500abae60782178577db375a9a03ca248b734939e12a35be"
+    },
+    {
+      "path": "docs/GITHUB_PACKAGE_MANIFEST.json",
+      "bytes": 1204,
+      "sha256": "1f3775dbb796053072a4fc55ddd28130e999abfcdbc011f69aa392087d5dd180"
+    },
+    {
+      "path": "docs/LICENSES.md",
+      "bytes": 1024,
+      "sha256": "8699e8c2b0d372ed773516dc07fefb2e55d91bad1a126795f78b296a56a6073b"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 2118,
+      "sha256": "6c397432caf887b57c7b0944ec6a103e1fd23560ccff9f143feaf5453c6d68e0"
+    },
+    {
+      "path": "docs/SOURCE_AUDIT.md",
+      "bytes": 777,
+      "sha256": "54238c28124db652c0fdda91f3893ce52c26d7fa250b8a89ea7c429cf6f5c2c0"
+    },
+    {
+      "path": "docs/SYSTEM_FEATURE_MATRIX.md",
+      "bytes": 732,
+      "sha256": "baa9da31404d2f8b629b928794bc5ed7d3957d9788a0c83bf51cdfbb0663a401"
+    },
+    {
+      "path": "docs/TEST_REPORT.md",
+      "bytes": 2648,
+      "sha256": "20c0a7b9dc7dfc69bd5f00aec5ac216fff618a539cd4312a61df5115220060c6"
+    },
+    {
+      "path": "docs/VALIDATION_REPORT.json",
+      "bytes": 1018,
+      "sha256": "98585303b501c3963c4f9b2801e18576bd8cbc81980796dd7412bbc5958b945f"
+    },
+    {
+      "path": "js/backend.js",
+      "bytes": 2394,
+      "sha256": "9492a7d07899a49d1a8f97d375317c0daf307c352e5fe089db7903a816fc0495"
+    },
+    {
+      "path": "js/cannon.min.js",
+      "bytes": 67549,
+      "sha256": "75a41584e675275cc6199f3affbe1f0138fe48ef3a80ef81ed855c861a4d81b3"
+    },
+    {
+      "path": "js/config.js",
+      "bytes": 790,
+      "sha256": "e6303fb139fe19a98168362945fb7c7be71c03250d0e075c46689488e65b58e7"
+    },
+    {
+      "path": "js/dice-main-bot.js",
+      "bytes": 4640,
+      "sha256": "4e8a4113bc035c1d4fc88f3168cf4db8a41141d9dcb9f68bb6a9cf047513b160"
+    },
+    {
+      "path": "js/dice.js",
+      "bytes": 48775,
+      "sha256": "e3c9c450efa5de8e34ff74a4872301b0da46b2c23be5478de084e46336cee816"
+    },
+    {
+      "path": "js/multi-system-engine.js",
+      "bytes": 89991,
+      "sha256": "89a5972b70203434e0819b684378ce9398409d03a77fa6ed6e9dcd63619deaba"
+    },
+    {
+      "path": "js/session-roller-bundle.js",
+      "bytes": 2084921,
+      "sha256": "3e57dd852586033ae6da1ad48be4ee28a7bd4ff8a296d8b551683780dea6abca"
+    },
+    {
+      "path": "js/session-system-bundles.js",
+      "bytes": 7920293,
+      "sha256": "3a776592ed4dd57bb03d8c50f528d9a47e66fce4547e855f85b668bd35b9d63f"
+    },
+    {
+      "path": "js/system-bundles.js",
+      "bytes": 7894255,
+      "sha256": "fa81252bc0e7ab4bb69b59683ea19675ede5525b91667b5c92268c7e34a51615"
+    },
+    {
+      "path": "js/tablegate.js",
+      "bytes": 66305,
+      "sha256": "842cd86a21eb1f2eb7b9c343111cf1f9d80bf852fea6734768d40620f0c56ee8"
+    },
+    {
+      "path": "js/teal.js",
+      "bytes": 6684,
+      "sha256": "cdd73e16b955afa7eb8a73dc310e33443165de7c3e4d7fa3dfff46c655cd0819"
+    },
+    {
+      "path": "js/three.min.js",
+      "bytes": 430630,
+      "sha256": "bd7a7dc2b5f582aed0339efae4d1ed034f1c138b7c8820c579257ba3b3d4adba"
+    },
+    {
+      "path": "js/ttrpg_system_bundle.js",
+      "bytes": 5102092,
+      "sha256": "186ac8e180c1627f76ac5039eb056b5ca343aed35beb90de0ad5e13fb1d19e44"
+    },
+    {
+      "path": "json/backend_config.json",
+      "bytes": 479,
+      "sha256": "c0bf49e24f01ff98970879ff99780f269b0004d770d3e46141eff749225065e5"
+    },
+    {
+      "path": "json/dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+      "bytes": 1629808,
+      "sha256": "ca4b07516e2c9da832c4b2d3a478d08ecc93521fb18b006a2a38b29053928405"
+    },
+    {
+      "path": "json/fate_core_complete_how_to_play_reference_v2.json",
+      "bytes": 917972,
+      "sha256": "fed00c11f50c26ba98201542294fe01ffc8ece9e5f81c2ded42604bd885e7029"
+    },
+    {
+      "path": "json/gurps_4e_revised_complete_character_reference_v2.json",
+      "bytes": 566514,
+      "sha256": "e90ad9647f67076fe24d9db557b1305aa58acb516724dc8f268d6fa4005fff88"
+    },
+    {
+      "path": "json/how_to_play_blades_in_the_dark_complete_reference_v2.json",
+      "bytes": 357692,
+      "sha256": "66f98a144e33a194f2e8891d045688b296ac601df7460f8cb90e170f0fafda83"
+    },
+    {
+      "path": "json/how_to_play_coc_7e_complete_reference_v2.json",
+      "bytes": 271196,
+      "sha256": "1993f99b314d29f5374f28fcaa0f7ede1964b420dc23cbbb128a47699219510d"
+    },
+    {
+      "path": "json/how_to_play_daggerheart_complete_reference_v2.json",
+      "bytes": 997612,
+      "sha256": "91a84a7c4b95ccb8d710c1da067254912066a1ee735206fbfef9a648ec04c32c"
+    },
+    {
+      "path": "json/how_to_play_pathfinder_2e_remastered_complete_reference_v2.json",
+      "bytes": 548561,
+      "sha256": "f98e83f8040d748201e7c89e00452f0d4e3f973d60c30ea2fdcca2102c5d9734"
+    },
+    {
+      "path": "json/how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+      "bytes": 1141734,
+      "sha256": "07897ea312410ff103c954e49495dc07153c2156d67c9a049dde5eae9bcfc62d"
+    },
+    {
+      "path": "json/savage_worlds_swade_complete_reference_v2.json",
+      "bytes": 477779,
+      "sha256": "bd1d7d8eb6b1db53028e81a52492e9f6ce2c8107d3faf388bf0192d40e18f3de"
+    },
+    {
+      "path": "json/systems.json",
+      "bytes": 6170,
+      "sha256": "1b4514f56e921a00bf1c21733a3e446d73a879ae8092405963879c980fc78872"
+    },
+    {
+      "path": "json/ttrpg_system_manifest.json",
+      "bytes": 6467,
+      "sha256": "bdfdcb3b3198534d58220c9cc9e1a8737b62179929155279ed5ea151fe8f47a0"
+    },
+    {
+      "path": "service-worker.js",
+      "bytes": 1273,
+      "sha256": "df404178174634cfaa22b2e13ec877ea2791107f2f170fa533b14e0244947a91"
+    },
+    {
+      "path": "tablegate.html",
+      "bytes": 19710,
+      "sha256": "61f596d5d335f5f2ed90ca5f7297720f35098bedd8258c8e9e8019b3cae95f04"
+    }
+  ]
+}

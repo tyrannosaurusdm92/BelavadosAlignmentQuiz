@@ -1,0 +1,37 @@
+{
+  "package": "TableGate Saved Character Session Portal with Token Studio",
+  "version": "1.2.0",
+  "entry_point": "tablegate.html",
+  "pwa_service_worker": "service-worker.js",
+  "top_level": [
+    "tablegate.html",
+    "service-worker.js",
+    "css/",
+    "js/",
+    "json/",
+    "assets/",
+    "docs/"
+  ],
+  "deployment": {
+    "static_hosting": true,
+    "direct_file_open": true,
+    "service_worker_requires_http_or_https": true
+  },
+  "backend": {
+    "endpoint": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
+    "library_id": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
+    "library_version": 5
+  },
+  "notes": [
+    "No build step is required.",
+    "No Windows batch launcher is included.",
+    "Sessions load only saved Portal characters.",
+    "Each saved character can create and retain a circular token with a color or image-textured border."
+  ],
+  "features": {
+    "character_token_studio": true,
+    "token_reference_asset": "assets/token-borders/reference-gold-ring.png",
+    "transparent_png_export": true,
+    "editable_media_storage": "IndexedDB with finished-token profile fallback"
+  }
+}
