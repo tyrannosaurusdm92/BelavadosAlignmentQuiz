@@ -1,0 +1,235 @@
+{
+  "system": "Savage Worlds Adventure Edition",
+  "summary": "Advances purchase new Edges, raise skills or attributes within limits, and move through Novice, Seasoned, Veteran, Heroic, and Legendary ranks.",
+  "edition_neutral_advancement_loop": [
+    "identify trigger",
+    "award progress",
+    "record progress",
+    "choose improvement",
+    "recalculate derived values",
+    "review new permissions",
+    "update character summary"
+  ],
+  "advancement_records": [
+    {
+      "id": "swade-adv-00001",
+      "stage": 1,
+      "benchmark": "novice",
+      "expected_change": "new capability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00002",
+      "stage": 2,
+      "benchmark": "novice",
+      "expected_change": "greater reliability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00003",
+      "stage": 3,
+      "benchmark": "novice",
+      "expected_change": "broader influence",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00004",
+      "stage": 4,
+      "benchmark": "novice",
+      "expected_change": "stronger resilience",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00005",
+      "stage": 5,
+      "benchmark": "capable",
+      "expected_change": "new narrative permission",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00006",
+      "stage": 6,
+      "benchmark": "capable",
+      "expected_change": "new capability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00007",
+      "stage": 7,
+      "benchmark": "capable",
+      "expected_change": "greater reliability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00008",
+      "stage": 8,
+      "benchmark": "capable",
+      "expected_change": "broader influence",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00009",
+      "stage": 9,
+      "benchmark": "veteran",
+      "expected_change": "stronger resilience",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00010",
+      "stage": 10,
+      "benchmark": "veteran",
+      "expected_change": "new narrative permission",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00011",
+      "stage": 11,
+      "benchmark": "veteran",
+      "expected_change": "new capability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00012",
+      "stage": 12,
+      "benchmark": "veteran",
+      "expected_change": "greater reliability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00013",
+      "stage": 13,
+      "benchmark": "heroic",
+      "expected_change": "broader influence",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00014",
+      "stage": 14,
+      "benchmark": "heroic",
+      "expected_change": "stronger resilience",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00015",
+      "stage": 15,
+      "benchmark": "heroic",
+      "expected_change": "new narrative permission",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00016",
+      "stage": 16,
+      "benchmark": "heroic",
+      "expected_change": "new capability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00017",
+      "stage": 17,
+      "benchmark": "legendary",
+      "expected_change": "greater reliability",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00018",
+      "stage": 18,
+      "benchmark": "legendary",
+      "expected_change": "broader influence",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00019",
+      "stage": 19,
+      "benchmark": "legendary",
+      "expected_change": "stronger resilience",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    },
+    {
+      "id": "swade-adv-00020",
+      "stage": 20,
+      "benchmark": "legendary",
+      "expected_change": "new narrative permission",
+      "review_questions": [
+        "Does this preserve another character’s niche?",
+        "Does it change resource recovery?",
+        "Does it require updated opposition?"
+      ]
+    }
+  ]
+}

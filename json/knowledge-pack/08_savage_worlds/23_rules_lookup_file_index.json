@@ -1,0 +1,130 @@
+{
+  "system": "Savage Worlds Adventure Edition",
+  "files": [
+    {
+      "name": "00_manifest.json",
+      "bytes": 1252,
+      "sha256": "43783e5c832901e01c46b36c7993172ef788614f6453cb4e9b58bad52f0a1c2b"
+    },
+    {
+      "name": "01_licensing_and_scope.json",
+      "bytes": 839,
+      "sha256": "050fb2e512d16bef19dd0ca9880b5c1024ba1a08876d245cc0f31efd314af6b0"
+    },
+    {
+      "name": "02_edition_timeline_and_conversion.json",
+      "bytes": 3763,
+      "sha256": "95b3ca8a673b65401e702ac38bf8761901fed5dd1a16235708372fd1baa2863b"
+    },
+    {
+      "name": "03_complete_how_to_play.json",
+      "bytes": 7437,
+      "sha256": "fe8db5ca4dbaf05be8b6c8927c0d7f834527908ea6f0f111f118fc868818bf35"
+    },
+    {
+      "name": "04_character_creation.json",
+      "bytes": 3770,
+      "sha256": "e196d9ce62bd1b9f1a162e620295f7560f2480a26a41f37504aefa67c1e9833c"
+    },
+    {
+      "name": "05_advancement_and_leveling.json",
+      "bytes": 6999,
+      "sha256": "941fc43a94997e102059815d572d0373d25f1c2d248f4f9f58a47fd99b229f66"
+    },
+    {
+      "name": "06_combat_attacks_actions.json",
+      "bytes": 1838452,
+      "sha256": "71a602b657e72e86a6c170c561a2cf18abeac47820ba3706e6b0bcc44d9f0fbf"
+    },
+    {
+      "name": "07_magic_spells_powers_rituals.json",
+      "bytes": 2322143,
+      "sha256": "dcc14f33451ee82a83a72d93678059650594f80a78b9aac5659b4822210a5353"
+    },
+    {
+      "name": "08_classes_archetypes_playbooks.json",
+      "bytes": 821675,
+      "sha256": "4bcb37ee3deb51a94d0e97cb7ad5425a308370d4a41624b71a210b09cbcaa2e7"
+    },
+    {
+      "name": "09_ancestries_races_species_lineages.json",
+      "bytes": 521026,
+      "sha256": "cf230548e68f54ff9f2b49f0f4e8fd176e85cc800c4867479e1bc13e976c33d3"
+    },
+    {
+      "name": "10_subclasses_specializations_paths.json",
+      "bytes": 978454,
+      "sha256": "73e9fe4944722d79eafa59d3b6ba89dc2ff2a03089012d386f9ebe5f88966171"
+    },
+    {
+      "name": "11_backgrounds_origins_professions.json",
+      "bytes": 614547,
+      "sha256": "b0cebf07217a16f061195b27c8a13c17e0624d806c3074347d08644800e043c0"
+    },
+    {
+      "name": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1663194,
+      "sha256": "6b095f27d9f4ae3aeaaad2c916ddd526a6cbd1d1d4c84933be1c04a379c2ec34"
+    },
+    {
+      "name": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1216485,
+      "sha256": "eb126397b2e4233386dd3cbe91c2b426251554c15827bcdca128c9b5fe4bff93"
+    },
+    {
+      "name": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 983566,
+      "sha256": "73fe09370a2d6d60d8bde932bbce9266e5dbae02379b01c3d0866c4c21d41b46"
+    },
+    {
+      "name": "15_armor_shields_protective_gear.json",
+      "bytes": 546927,
+      "sha256": "46d15fba1f9168bc1434a360f624a08c6019d7ada0593856de5d190f07d22540"
+    },
+    {
+      "name": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 762859,
+      "sha256": "32340f357b6bd486497f5e9606bd2e3e39eb0848d671d3990c0641e3a30993af"
+    },
+    {
+      "name": "17_conditions_damage_healing_recovery.json",
+      "bytes": 587631,
+      "sha256": "671e72d6f4990c0ea429acb8cee0ec243d98088643b33b7a0f5649b551705fae"
+    },
+    {
+      "name": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4362467,
+      "sha256": "9f7387f8e75cd0a05582e1783d1f95c1bae281ccf97e2c4d18e2ae734b2b5d34"
+    },
+    {
+      "name": "19_locations_factions_worldbuilding.json",
+      "bytes": 1489319,
+      "sha256": "d222aa681b962c33d1872c23fbcc86ca3dac76bc7c325468193c51306c763830"
+    },
+    {
+      "name": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2301255,
+      "sha256": "1585c7187f6ce33d318c26f7a6df77e4548b97d6f40cecd1cfac53c16ba66248"
+    },
+    {
+      "name": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1434994,
+      "sha256": "6cdf15f2fd2462f9aa9a9056f593f7443137cb26b15c0cddb067d0f888336263"
+    },
+    {
+      "name": "22_facilitator_tools.json",
+      "bytes": 1377,
+      "sha256": "d7979582df14203aead9f6227de21669716b1d2b80803053bedf12a091fa0c61"
+    },
+    {
+      "name": "89_user_supplied_import_manifest.json",
+      "bytes": 418,
+      "sha256": "7d3775ed01d158c768eaad92619a541fd278a690bcee969f8f1ab790177358a7"
+    },
+    {
+      "name": "90_user_supplied_savage_worlds_swade_complete_reference_v2.json",
+      "bytes": 477779,
+      "sha256": "bd1d7d8eb6b1db53028e81a52492e9f6ce2c8107d3faf388bf0192d40e18f3de"
+    }
+  ]
+}
