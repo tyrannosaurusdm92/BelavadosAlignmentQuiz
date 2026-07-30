@@ -1,5 +1,0 @@
-{
-  "schema": "belavados.npcs.v1",
-  "note": "NPC generation is disabled in this Onyx build. Use this file only for imported/reference NPC records.",
-  "npcs": []
-}
