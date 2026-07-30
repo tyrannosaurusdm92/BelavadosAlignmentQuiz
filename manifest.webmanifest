@@ -1,0 +1,48 @@
+{
+  "name": "TableGate Campaign Workspace",
+  "short_name": "TableGate",
+  "description": "Multi-system campaign workspace with messaging, worldbuilding, life simulation, campaign references, maps, tokens, character tools, 3D session dice, scheduling, tutorials, and documented sources.",
+  "id": "tablegate-campaign-workspace",
+  "start_url": "./TableGate.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#001010",
+  "theme_color": "#001010",
+  "orientation": "any",
+  "categories": [
+    "productivity",
+    "social",
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/TableGate-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/TableGate-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/TableGate-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icons/TableGate-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
