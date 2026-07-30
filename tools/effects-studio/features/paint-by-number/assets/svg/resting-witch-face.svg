@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+<title id="title">Resting Witch Face — fillable paint-by-number page</title>
+<desc id="desc">A deadpan witch portrait with a crooked hat, celestial details, and jewel tones. Click a numbered region to apply its suggested color. Shift-click a region to clear it.</desc>
+<metadata id="pbn-meta"><![CDATA[{"slug": "resting-witch-face", "title": "Resting Witch Face", "desc": "A deadpan witch portrait with a crooked hat, celestial details, and jewel tones.", "tags": ["Witchy", "Humor", "Portrait"], "palette": [{"hex": "#2d2930", "name": "Ink"}, {"hex": "#f2e7d9", "name": "Paper"}, {"hex": "#242c3c", "name": "Night"}, {"hex": "#434a63", "name": "Indigo"}, {"hex": "#6c5d80", "name": "Violet"}, {"hex": "#945b7e", "name": "Mauve"}, {"hex": "#b85f6b", "name": "Berry"}, {"hex": "#d8836f", "name": "Coral"}, {"hex": "#d7a449", "name": "Amber"}, {"hex": "#e7ca66", "name": "Gold"}], "complexity": "Detailed"}]]></metadata>
+<rect width="900" height="900" fill="#fffdf8"/>
+<g id="artwork"><rect class="region" data-color="2" x="0" y="0" width="900" height="900" stroke-width="0" fill="#f2e7d9" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="3" cx="450" cy="445" r="405" stroke-width="10" fill="#242c3c" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="4" d="M 210 385 Q450 320 690 385 L620 240 Q560 100 405 110 Q460 190 370 300 Z" fill="#434a63" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="6" d="M 165 390 Q450 335 735 390 Q700 455 450 445 Q200 455 165 390Z" fill="#945b7e" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><rect class="region" data-color="9" x="340" y="300" width="245" height="58" rx="15" transform="rotate(-8 462 329)" fill="#d7a449" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="10" points="520.0,284.0 527.1,300.3 544.7,302.0 531.4,313.7 535.3,331.0 520.0,322.0 504.7,331.0 508.6,313.7 495.3,302.0 512.9,300.3" stroke-width="2" fill="#e7ca66" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><ellipse class="region" data-color="8" cx="450" cy="555" rx="160" ry="185" fill="#d8836f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="6" d="M 300 520 Q320 390 450 400 Q580 390 600 520 Q535 470 450 485 Q365 470 300 520Z" fill="#945b7e" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 300 500 Q220 620 310 760 Q350 660 390 520Z" fill="#6c5d80" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 600 500 Q680 620 590 760 Q550 660 510 520Z" fill="#6c5d80" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse class="region" data-color="1" cx="390" cy="545" rx="30" ry="16" fill="#2d2930" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse class="region" data-color="1" cx="510" cy="545" rx="30" ry="16" fill="#2d2930" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 390 545 l38 -5 M 510 545 l-38 -5" stroke-width="7" fill="none" stroke="#2d2930" stroke-linecap="round" stroke-linejoin="round"/><polygon class="region" data-color="7" points="450,575 430,610 468,605" fill="#b85f6b" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 405 650 Q450 625 495 650" stroke-width="7" fill="none" stroke="#2d2930" stroke-linecap="round" stroke-linejoin="round"/><text class="region" data-color="1" x="450" y="815" text-anchor="middle" font-size="54" font-weight="900" font-family="Arial Black,Impact,sans-serif" fill="#2d2930" stroke="#2d2930" stroke-width="3" paint-order="stroke fill">RESTING WITCH FACE</text><polygon class="region" data-color="10" points="130.0,158.0 133.2,165.6 141.4,166.3 135.1,171.7 137.1,179.7 130.0,175.4 122.9,179.7 124.9,171.7 118.6,166.3 126.8,165.6" stroke-width="2" fill="#e7ca66" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="10" points="760.0,141.0 762.4,146.7 768.6,147.2 763.9,151.3 765.3,157.3 760.0,154.1 754.7,157.3 756.1,151.3 751.4,147.2 757.6,146.7" stroke-width="2" fill="#e7ca66" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="10" points="750.0,628.0 753.2,635.6 761.4,636.3 755.1,641.7 757.1,649.7 750.0,645.4 742.9,649.7 744.9,641.7 738.6,636.3 746.8,635.6" stroke-width="2" fill="#e7ca66" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="10" points="150.0,642.0 152.1,647.1 157.6,647.5 153.4,651.1 154.7,656.5 150.0,653.6 145.3,656.5 146.6,651.1 142.4,647.5 147.9,647.1" stroke-width="2" fill="#e7ca66" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/></g>
+<g id="number-labels" pointer-events="none"></g>
+<g id="legend" display="none"><rect id="legend-bg" x="15" y="900" width="870" height="220" rx="16" fill="#fffdf8" stroke="#6f5a43" stroke-width="3"/><text x="40" y="930" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#3d342c">Suggested colors — click regions to fill; Shift-click to clear</text></g>
+<script><![CDATA[
+(function(){
+  const svg=document.querySelector('svg');
+  const meta=JSON.parse(document.getElementById('pbn-meta').textContent);
+  const cols=4, cellW=205, cellH=40, startX=40, startY=950;
+  const rows=Math.ceil(meta.palette.length/cols), buttonY=startY+rows*cellH+12;
+  const legendHeight=(buttonY-900)+56, viewHeight=900+legendHeight+15;
+  svg.setAttribute('viewBox',`0 0 900 ${viewHeight}`);
+  svg.setAttribute('height',String(viewHeight));
+  const labels=document.getElementById('number-labels');
+  const legend=document.getElementById('legend');
+  legend.setAttribute('display','inline');
+  const NS='http://www.w3.org/2000/svg';
+  const make=(tag,at,text)=>{const e=document.createElementNS(NS,tag);Object.entries(at||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text!=null)e.textContent=text;return e};
+  let numbersVisible=true;
+  document.querySelectorAll('.region').forEach((el)=>{
+    const n=Number(el.getAttribute('data-color'));
+    const color=meta.palette[n-1].hex;
+    el.dataset.suggested=color;
+    el.setAttribute('fill','#fffdf8');
+    el.style.cursor='pointer';
+    let b; try{b=el.getBBox()}catch(_){return}
+    if(b.width>=28 && b.height>=20){
+      const t=make('text',{x:(b.x+b.width/2).toFixed(1),y:(b.y+b.height/2+5).toFixed(1),'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':Math.max(11,Math.min(24,Math.sqrt(b.width*b.height)/7)).toFixed(0),'font-weight':'800',fill:'#51463d','pointer-events':'none','data-for':n},String(n));
+      labels.appendChild(t); el.dataset.labelIndex=labels.children.length-1;
+    }
+    el.addEventListener('click',(ev)=>{
+      if(ev.shiftKey){el.setAttribute('fill','#fffdf8');}else{el.setAttribute('fill',color)}
+      const idx=Number(el.dataset.labelIndex); if(Number.isFinite(idx)&&labels.children[idx]) labels.children[idx].setAttribute('display',ev.shiftKey&&numbersVisible?'inline':'none');
+    });
+  });
+  meta.palette.forEach((p,i)=>{
+    const col=i%cols,row=Math.floor(i/cols),x=startX+col*cellW,y=startY+row*cellH;
+    legend.appendChild(make('rect',{x,y,width:34,height:28,rx:5,fill:p.hex,stroke:'#2d2930','stroke-width':2}));
+    legend.appendChild(make('text',{x:x+43,y:y+20,'font-family':'Arial,sans-serif','font-size':15,'font-weight':700,fill:'#2d2930'},`${i+1}. ${p.name}`));
+  });
+  const btn=(x,label,fn)=>{const g=make('g',{cursor:'pointer'});g.appendChild(make('rect',{x,y:buttonY,width:160,height:38,rx:12,fill:'#fffaf1',stroke:'#6f5a43','stroke-width':2}));g.appendChild(make('text',{x:x+80,y:buttonY+25,'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':16,'font-weight':800,fill:'#3d342c'},label));g.addEventListener('click',fn);legend.appendChild(g)};
+  const bg=document.getElementById('legend-bg');if(bg)bg.setAttribute('height',String(legendHeight));
+  btn(160,'Fill all',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill',el.dataset.suggested); const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display','none')}));
+  btn(370,'Reset',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill','#fffdf8');const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display',numbersVisible?'inline':'none')}));
+  btn(580,'Toggle numbers',()=>{numbersVisible=!numbersVisible;labels.setAttribute('display',numbersVisible?'inline':'none')});
+})();
+]]></script>
+</svg>

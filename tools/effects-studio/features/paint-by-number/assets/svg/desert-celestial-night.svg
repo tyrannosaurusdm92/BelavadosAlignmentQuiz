@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+<title id="title">Desert Celestial Night — fillable paint-by-number page</title>
+<desc id="desc">Layered mesas, a tall cactus, and a gold moon beneath an indigo desert sky. Click a numbered region to apply its suggested color. Shift-click a region to clear it.</desc>
+<metadata id="pbn-meta"><![CDATA[{"slug": "desert-celestial-night", "title": "Desert Celestial Night", "desc": "Layered mesas, a tall cactus, and a gold moon beneath an indigo desert sky.", "tags": ["Landscape", "Celestial", "Desert"], "palette": [{"hex": "#f2e4d0", "name": "Sand light"}, {"hex": "#d0a56c", "name": "Sand"}, {"hex": "#b8784f", "name": "Clay"}, {"hex": "#302e4b", "name": "Night indigo"}, {"hex": "#4e5375", "name": "Dusk violet"}, {"hex": "#f1c65b", "name": "Moon gold"}, {"hex": "#52735b", "name": "Cactus"}, {"hex": "#c85b70", "name": "Bloom pink"}], "complexity": "Detailed"}]]></metadata>
+<rect width="900" height="900" fill="#fffdf8"/>
+<g id="artwork"><rect class="region" data-color="4" x="0" y="0" width="900" height="900" stroke-width="0" fill="#302e4b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="6" cx="660" cy="180" r="100" fill="#f1c65b" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 0 430 Q 220 340 420 430 T900 410V900H0Z" stroke-width="0" fill="#4e5375" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="2" d="M 0 600 L185 360 L340 600 L515 300 L720 600 L900 390 V900H0Z" stroke-width="0" fill="#d0a56c" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="3" d="M 0 690 Q 200 560 410 690 T900 650V900H0Z" stroke-width="0" fill="#b8784f" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="1" d="M 0 770 Q 260 640 480 760 T900 735V900H0Z" stroke-width="0" fill="#f2e4d0" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="7" d="M 420 780 V480 Q 420 430 460 430 Q500 430 500 480 V570 H555 V520 Q555 485 590 485 Q625 485 625 520 V625 Q625 670 575 670 H500 V780 Z" fill="#52735b" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 460 455 V760 M 590 510 V650" stroke="#9ec18b" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="region" data-color="8" d="M 590 480 Q 594.9 465.5 590.0 446.0 Q 585.1 465.5 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 604.4 474.8 616.6 458.8 Q 598.3 467.2 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 603.1 488.0 623.1 487.6 Q 605.2 478.5 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 591.9 495.2 604.8 510.6 Q 600.7 491.0 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 579.3 491.0 575.2 510.6 Q 588.1 495.2 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 574.8 478.5 556.9 487.6 Q 576.9 488.0 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="8" d="M 590 480 Q 581.7 467.2 563.4 458.8 Q 575.6 474.8 590 480 Z" stroke-width="4" fill="#c85b70" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="6" cx="590" cy="480" r="11.899999999999999" stroke-width="4" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="120.0,138.0 123.0,145.9 131.4,146.3 124.8,151.6 127.1,159.7 120.0,155.0 112.9,159.7 115.2,151.6 108.6,146.3 117.0,145.9" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="260.0,102.0 262.0,107.3 267.6,107.5 263.2,111.0 264.7,116.5 260.0,113.4 255.3,116.5 256.8,111.0 252.4,107.5 258.0,107.3" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="395.0,200.0 397.5,206.6 404.5,206.9 399.0,211.3 400.9,218.1 395.0,214.2 389.1,218.1 391.0,211.3 385.5,206.9 392.5,206.6" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="765.0,311.0 767.2,316.9 773.6,317.2 768.6,321.2 770.3,327.3 765.0,323.8 759.7,327.3 761.4,321.2 756.4,317.2 762.8,316.9" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="820.0,103.0 821.7,107.6 826.7,107.8 822.8,110.9 824.1,115.7 820.0,112.9 815.9,115.7 817.2,110.9 813.3,107.8 818.3,107.6" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><polygon class="region" data-color="6" points="560.0,83.0 561.7,87.6 566.7,87.8 562.8,90.9 564.1,95.7 560.0,92.9 555.9,95.7 557.2,90.9 553.3,87.8 558.3,87.6" stroke-width="2" fill="#f1c65b" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/></g>
+<g id="number-labels" pointer-events="none"></g>
+<g id="legend" display="none"><rect id="legend-bg" x="15" y="900" width="870" height="220" rx="16" fill="#fffdf8" stroke="#6f5a43" stroke-width="3"/><text x="40" y="930" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#3d342c">Suggested colors — click regions to fill; Shift-click to clear</text></g>
+<script><![CDATA[
+(function(){
+  const svg=document.querySelector('svg');
+  const meta=JSON.parse(document.getElementById('pbn-meta').textContent);
+  const cols=4, cellW=205, cellH=40, startX=40, startY=950;
+  const rows=Math.ceil(meta.palette.length/cols), buttonY=startY+rows*cellH+12;
+  const legendHeight=(buttonY-900)+56, viewHeight=900+legendHeight+15;
+  svg.setAttribute('viewBox',`0 0 900 ${viewHeight}`);
+  svg.setAttribute('height',String(viewHeight));
+  const labels=document.getElementById('number-labels');
+  const legend=document.getElementById('legend');
+  legend.setAttribute('display','inline');
+  const NS='http://www.w3.org/2000/svg';
+  const make=(tag,at,text)=>{const e=document.createElementNS(NS,tag);Object.entries(at||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text!=null)e.textContent=text;return e};
+  let numbersVisible=true;
+  document.querySelectorAll('.region').forEach((el)=>{
+    const n=Number(el.getAttribute('data-color'));
+    const color=meta.palette[n-1].hex;
+    el.dataset.suggested=color;
+    el.setAttribute('fill','#fffdf8');
+    el.style.cursor='pointer';
+    let b; try{b=el.getBBox()}catch(_){return}
+    if(b.width>=28 && b.height>=20){
+      const t=make('text',{x:(b.x+b.width/2).toFixed(1),y:(b.y+b.height/2+5).toFixed(1),'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':Math.max(11,Math.min(24,Math.sqrt(b.width*b.height)/7)).toFixed(0),'font-weight':'800',fill:'#51463d','pointer-events':'none','data-for':n},String(n));
+      labels.appendChild(t); el.dataset.labelIndex=labels.children.length-1;
+    }
+    el.addEventListener('click',(ev)=>{
+      if(ev.shiftKey){el.setAttribute('fill','#fffdf8');}else{el.setAttribute('fill',color)}
+      const idx=Number(el.dataset.labelIndex); if(Number.isFinite(idx)&&labels.children[idx]) labels.children[idx].setAttribute('display',ev.shiftKey&&numbersVisible?'inline':'none');
+    });
+  });
+  meta.palette.forEach((p,i)=>{
+    const col=i%cols,row=Math.floor(i/cols),x=startX+col*cellW,y=startY+row*cellH;
+    legend.appendChild(make('rect',{x,y,width:34,height:28,rx:5,fill:p.hex,stroke:'#2d2930','stroke-width':2}));
+    legend.appendChild(make('text',{x:x+43,y:y+20,'font-family':'Arial,sans-serif','font-size':15,'font-weight':700,fill:'#2d2930'},`${i+1}. ${p.name}`));
+  });
+  const btn=(x,label,fn)=>{const g=make('g',{cursor:'pointer'});g.appendChild(make('rect',{x,y:buttonY,width:160,height:38,rx:12,fill:'#fffaf1',stroke:'#6f5a43','stroke-width':2}));g.appendChild(make('text',{x:x+80,y:buttonY+25,'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':16,'font-weight':800,fill:'#3d342c'},label));g.addEventListener('click',fn);legend.appendChild(g)};
+  const bg=document.getElementById('legend-bg');if(bg)bg.setAttribute('height',String(legendHeight));
+  btn(160,'Fill all',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill',el.dataset.suggested); const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display','none')}));
+  btn(370,'Reset',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill','#fffdf8');const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display',numbersVisible?'inline':'none')}));
+  btn(580,'Toggle numbers',()=>{numbersVisible=!numbersVisible;labels.setAttribute('display',numbersVisible?'inline':'none')});
+})();
+]]></script>
+</svg>

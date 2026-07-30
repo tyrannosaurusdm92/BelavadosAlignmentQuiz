@@ -1,0 +1,138 @@
+{
+  "title": "Steampunk Moth Lantern",
+  "file": "steampunk-moth-lantern.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Ink",
+      "hex": "#2d2930",
+      "region_count": 3,
+      "regions": [
+        "region-009",
+        "region-011",
+        "region-023"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Parchment",
+      "hex": "#efe2ca",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Brass",
+      "hex": "#d09a38",
+      "region_count": 11,
+      "regions": [
+        "region-005",
+        "region-012",
+        "region-013",
+        "region-014",
+        "region-015",
+        "region-016",
+        "region-017",
+        "region-018",
+        "region-019",
+        "region-020",
+        "region-021"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Copper",
+      "hex": "#a96336",
+      "region_count": 1,
+      "regions": [
+        "region-006"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Bronze",
+      "hex": "#745033",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Iron",
+      "hex": "#59616a",
+      "region_count": 1,
+      "regions": [
+        "region-022"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Steel",
+      "hex": "#89919a",
+      "region_count": 1,
+      "regions": [
+        "region-010"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Teal glass",
+      "hex": "#3f8e91",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Sage",
+      "hex": "#71826a",
+      "region_count": 1,
+      "regions": [
+        "region-007"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Burgundy",
+      "hex": "#7f3e46",
+      "region_count": 1,
+      "regions": [
+        "region-008"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Smoke",
+      "hex": "#b5aea4",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 12,
+      "name": "Cream",
+      "hex": "#f7f0df",
+      "region_count": 1,
+      "regions": [
+        "region-004"
+      ]
+    }
+  ],
+  "region_count": 23,
+  "tags": [
+    "Steampunk",
+    "Moth",
+    "Lantern"
+  ],
+  "complexity": "Detailed"
+}

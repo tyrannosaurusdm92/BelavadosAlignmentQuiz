@@ -1,0 +1,245 @@
+{
+  "title": "Cozy Night Window",
+  "file": "cozy-window.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Cream",
+      "hex": "#F4E5C2",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Coral",
+      "hex": "#C97B63",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Sage",
+      "hex": "#6F8F72",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Pine",
+      "hex": "#4C6658",
+      "region_count": 1,
+      "regions": [
+        "region-004"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Ochre",
+      "hex": "#D8A657",
+      "region_count": 2,
+      "regions": [
+        "region-005",
+        "region-027"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Clay",
+      "hex": "#8C5C4A",
+      "region_count": 2,
+      "regions": [
+        "region-006",
+        "region-028"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Mist",
+      "hex": "#A9B8A3",
+      "region_count": 2,
+      "regions": [
+        "region-007",
+        "region-029"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Blush",
+      "hex": "#E9B4A6",
+      "region_count": 2,
+      "regions": [
+        "region-008",
+        "region-012"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Espresso",
+      "hex": "#5D4A43",
+      "region_count": 4,
+      "regions": [
+        "region-009",
+        "region-013",
+        "region-030",
+        "region-031"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Sand",
+      "hex": "#D9C8A9",
+      "region_count": 2,
+      "regions": [
+        "region-010",
+        "region-032"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Sea Glass",
+      "hex": "#7E9C8E",
+      "region_count": 1,
+      "regions": [
+        "region-011"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ember",
+      "hex": "#B96B55",
+      "region_count": 1,
+      "regions": [
+        "region-014"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Porcelain",
+      "hex": "#EFE7D8",
+      "region_count": 1,
+      "regions": [
+        "region-015"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Moss",
+      "hex": "#3D5148",
+      "region_count": 1,
+      "regions": [
+        "region-016"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Berry",
+      "hex": "#C08F57",
+      "region_count": 1,
+      "regions": [
+        "region-017"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Marigold",
+      "hex": "#8A735F",
+      "region_count": 1,
+      "regions": [
+        "region-018"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "Violet",
+      "hex": "#E3C47D",
+      "region_count": 1,
+      "regions": [
+        "region-019"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Lagoon",
+      "hex": "#768D6E",
+      "region_count": 1,
+      "regions": [
+        "region-020"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Honey",
+      "hex": "#B78072",
+      "region_count": 1,
+      "regions": [
+        "region-021"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Mauve",
+      "hex": "#556C74",
+      "region_count": 1,
+      "regions": [
+        "region-022"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Leaf",
+      "hex": "#D7A58B",
+      "region_count": 1,
+      "regions": [
+        "region-023"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Poppy",
+      "hex": "#9A826D",
+      "region_count": 1,
+      "regions": [
+        "region-024"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "Sky",
+      "hex": "#C5D6C8",
+      "region_count": 1,
+      "regions": [
+        "region-025"
+      ]
+    },
+    {
+      "number": 24,
+      "name": "Umber",
+      "hex": "#6E4B44",
+      "region_count": 1,
+      "regions": [
+        "region-026"
+      ]
+    }
+  ],
+  "region_count": 32,
+  "tags": [
+    "Interior",
+    "Night",
+    "Cozy",
+    "OurSpace Original"
+  ],
+  "complexity": "Moderate"
+}

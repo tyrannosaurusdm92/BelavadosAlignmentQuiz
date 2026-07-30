@@ -1,0 +1,264 @@
+{
+  "title": "Calico Tea Garden",
+  "file": "calico-tea-garden.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Warm paper",
+      "hex": "#F6E7C5",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Terracotta frame",
+      "hex": "#C97B63",
+      "region_count": 2,
+      "regions": [
+        "region-002",
+        "region-047"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Garden sky",
+      "hex": "#78967A",
+      "region_count": 2,
+      "regions": [
+        "region-003",
+        "region-046"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Sun gold",
+      "hex": "#E2B353",
+      "region_count": 2,
+      "regions": [
+        "region-004",
+        "region-045"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Leaf ochre",
+      "hex": "#D9A04A",
+      "region_count": 4,
+      "regions": [
+        "region-005",
+        "region-008",
+        "region-040",
+        "region-043"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Clay",
+      "hex": "#91604C",
+      "region_count": 4,
+      "regions": [
+        "region-006",
+        "region-009",
+        "region-041",
+        "region-044"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Pale sage",
+      "hex": "#A7B7A4",
+      "region_count": 3,
+      "regions": [
+        "region-007",
+        "region-010",
+        "region-042"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Peach floor",
+      "hex": "#E7A99A",
+      "region_count": 1,
+      "regions": [
+        "region-011"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Espresso rug",
+      "hex": "#5A4741",
+      "region_count": 1,
+      "regions": [
+        "region-012"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Sand rug",
+      "hex": "#D9C8A9",
+      "region_count": 1,
+      "regions": [
+        "region-013"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Sea-glass rug",
+      "hex": "#7E9C8E",
+      "region_count": 1,
+      "regions": [
+        "region-014"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Calico white",
+      "hex": "#F5F0E5",
+      "region_count": 3,
+      "regions": [
+        "region-015",
+        "region-017",
+        "region-018"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Deep brown",
+      "hex": "#3B312E",
+      "region_count": 1,
+      "regions": [
+        "region-016"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Calico black",
+      "hex": "#242628",
+      "region_count": 4,
+      "regions": [
+        "region-019",
+        "region-020",
+        "region-023",
+        "region-050"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Charcoal",
+      "hex": "#49433F",
+      "region_count": 3,
+      "regions": [
+        "region-021",
+        "region-022",
+        "region-051"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Pumpkin orange",
+      "hex": "#D97832",
+      "region_count": 3,
+      "regions": [
+        "region-024",
+        "region-026",
+        "region-048"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "Golden orange",
+      "hex": "#E8A34A",
+      "region_count": 4,
+      "regions": [
+        "region-025",
+        "region-027",
+        "region-028",
+        "region-049"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Bright white",
+      "hex": "#FFF9ED",
+      "region_count": 3,
+      "regions": [
+        "region-029",
+        "region-036",
+        "region-037"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Green-gold eyes",
+      "hex": "#8BA56F",
+      "region_count": 2,
+      "regions": [
+        "region-030",
+        "region-031"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Pupils",
+      "hex": "#202525",
+      "region_count": 2,
+      "regions": [
+        "region-032",
+        "region-033"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Rose nose",
+      "hex": "#D58E88",
+      "region_count": 1,
+      "regions": [
+        "region-034"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Warm muzzle",
+      "hex": "#E7C5AA",
+      "region_count": 1,
+      "regions": [
+        "region-035"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "Celadon pot",
+      "hex": "#C6D8CC",
+      "region_count": 1,
+      "regions": [
+        "region-038"
+      ]
+    },
+    {
+      "number": 24,
+      "name": "Umber rim",
+      "hex": "#6E4B44",
+      "region_count": 1,
+      "regions": [
+        "region-039"
+      ]
+    }
+  ],
+  "region_count": 51,
+  "tags": [
+    "Calico Cat",
+    "Floral",
+    "Cozy",
+    "OurSpace Original"
+  ],
+  "complexity": "Detailed"
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+<title id="title">Art Nouveau Irises — fillable paint-by-number page</title>
+<desc id="desc">Tall iris blossoms and curling leaves arranged in an elegant Art Nouveau arch. Click a numbered region to apply its suggested color. Shift-click a region to clear it.</desc>
+<metadata id="pbn-meta"><![CDATA[{"slug": "art-nouveau-irises", "title": "Art Nouveau Irises", "desc": "Tall iris blossoms and curling leaves arranged in an elegant Art Nouveau arch.", "tags": ["Floral", "Art Nouveau", "Decorative"], "palette": [{"hex": "#f3eadb", "name": "Cream"}, {"hex": "#40564a", "name": "Deep green"}, {"hex": "#6e8461", "name": "Leaf green"}, {"hex": "#4e5c86", "name": "Indigo"}, {"hex": "#7471a0", "name": "Violet"}, {"hex": "#a486b2", "name": "Lavender"}, {"hex": "#d8a45f", "name": "Amber"}, {"hex": "#e0c86f", "name": "Gold"}, {"hex": "#75a1a0", "name": "Aqua"}], "complexity": "Detailed"}]]></metadata>
+<rect width="900" height="900" fill="#fffdf8"/>
+<g id="artwork"><rect class="region" data-color="1" x="0" y="0" width="900" height="900" stroke-width="0" fill="#f3eadb" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="9" d="M 80 820 V240 Q450 15 820 240 V820 Z" stroke-width="10" fill="#75a1a0" stroke="#2d2930" stroke-linejoin="round" stroke-linecap="round"/><path d="M 250 820 Q220 560 330 310 M450 820 Q450 520 450 235 M650 820 Q680 560 570 310" stroke="#40564a" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="region" data-color="4" d="M 330 300 C 240 230 210 320 290 375 C 315 345 320 320 330 300Z" fill="#4e5c86" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 330 300 C 420 230 450 320 370 375 C 345 345 340 320 330 300Z" fill="#7471a0" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="6" d="M 330 300 Q 330 180 280 145 Q 340 130 330 300Z" fill="#a486b2" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="7" d="M 330 300 Q 330 180 380 145 Q 320 130 330 300Z" fill="#d8a45f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="8" cx="330" cy="300" r="22" fill="#e0c86f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="4" d="M 450 225 C 360 155 330 245 410 300 C 435 270 440 245 450 225Z" fill="#4e5c86" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 450 225 C 540 155 570 245 490 300 C 465 270 460 245 450 225Z" fill="#7471a0" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="6" d="M 450 225 Q 450 105 400 70 Q 460 55 450 225Z" fill="#a486b2" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="7" d="M 450 225 Q 450 105 500 70 Q 440 55 450 225Z" fill="#d8a45f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="8" cx="450" cy="225" r="22" fill="#e0c86f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="4" d="M 570 300 C 480 230 450 320 530 375 C 555 345 560 320 570 300Z" fill="#4e5c86" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="5" d="M 570 300 C 660 230 690 320 610 375 C 585 345 580 320 570 300Z" fill="#7471a0" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="6" d="M 570 300 Q 570 180 520 145 Q 580 130 570 300Z" fill="#a486b2" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="7" d="M 570 300 Q 570 180 620 145 Q 560 130 570 300Z" fill="#d8a45f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><circle class="region" data-color="8" cx="570" cy="300" r="22" fill="#e0c86f" stroke="#2d2930" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><path class="region" data-color="2" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#40564a" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(180 720) rotate(-75) scale(1)"/><path class="region" data-color="3" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#6e8461" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(260 690) rotate(-60) scale(0.8)"/><path class="region" data-color="2" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#40564a" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(720 720) rotate(255) scale(1)"/><path class="region" data-color="3" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#6e8461" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(640 690) rotate(240) scale(0.8)"/><path class="region" data-color="3" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#6e8461" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(410 650) rotate(-80) scale(0.7)"/><path class="region" data-color="2" d="M 0 0 C 32 -42 78 -32 92 0 C 63 19 25 20 0 0 Z" fill="#40564a" stroke="#2d2930" stroke-width="4" stroke-linejoin="round" transform="translate(490 650) rotate(260) scale(0.7)"/></g>
+<g id="number-labels" pointer-events="none"></g>
+<g id="legend" display="none"><rect id="legend-bg" x="15" y="900" width="870" height="220" rx="16" fill="#fffdf8" stroke="#6f5a43" stroke-width="3"/><text x="40" y="930" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#3d342c">Suggested colors — click regions to fill; Shift-click to clear</text></g>
+<script><![CDATA[
+(function(){
+  const svg=document.querySelector('svg');
+  const meta=JSON.parse(document.getElementById('pbn-meta').textContent);
+  const cols=4, cellW=205, cellH=40, startX=40, startY=950;
+  const rows=Math.ceil(meta.palette.length/cols), buttonY=startY+rows*cellH+12;
+  const legendHeight=(buttonY-900)+56, viewHeight=900+legendHeight+15;
+  svg.setAttribute('viewBox',`0 0 900 ${viewHeight}`);
+  svg.setAttribute('height',String(viewHeight));
+  const labels=document.getElementById('number-labels');
+  const legend=document.getElementById('legend');
+  legend.setAttribute('display','inline');
+  const NS='http://www.w3.org/2000/svg';
+  const make=(tag,at,text)=>{const e=document.createElementNS(NS,tag);Object.entries(at||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text!=null)e.textContent=text;return e};
+  let numbersVisible=true;
+  document.querySelectorAll('.region').forEach((el)=>{
+    const n=Number(el.getAttribute('data-color'));
+    const color=meta.palette[n-1].hex;
+    el.dataset.suggested=color;
+    el.setAttribute('fill','#fffdf8');
+    el.style.cursor='pointer';
+    let b; try{b=el.getBBox()}catch(_){return}
+    if(b.width>=28 && b.height>=20){
+      const t=make('text',{x:(b.x+b.width/2).toFixed(1),y:(b.y+b.height/2+5).toFixed(1),'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':Math.max(11,Math.min(24,Math.sqrt(b.width*b.height)/7)).toFixed(0),'font-weight':'800',fill:'#51463d','pointer-events':'none','data-for':n},String(n));
+      labels.appendChild(t); el.dataset.labelIndex=labels.children.length-1;
+    }
+    el.addEventListener('click',(ev)=>{
+      if(ev.shiftKey){el.setAttribute('fill','#fffdf8');}else{el.setAttribute('fill',color)}
+      const idx=Number(el.dataset.labelIndex); if(Number.isFinite(idx)&&labels.children[idx]) labels.children[idx].setAttribute('display',ev.shiftKey&&numbersVisible?'inline':'none');
+    });
+  });
+  meta.palette.forEach((p,i)=>{
+    const col=i%cols,row=Math.floor(i/cols),x=startX+col*cellW,y=startY+row*cellH;
+    legend.appendChild(make('rect',{x,y,width:34,height:28,rx:5,fill:p.hex,stroke:'#2d2930','stroke-width':2}));
+    legend.appendChild(make('text',{x:x+43,y:y+20,'font-family':'Arial,sans-serif','font-size':15,'font-weight':700,fill:'#2d2930'},`${i+1}. ${p.name}`));
+  });
+  const btn=(x,label,fn)=>{const g=make('g',{cursor:'pointer'});g.appendChild(make('rect',{x,y:buttonY,width:160,height:38,rx:12,fill:'#fffaf1',stroke:'#6f5a43','stroke-width':2}));g.appendChild(make('text',{x:x+80,y:buttonY+25,'text-anchor':'middle','font-family':'Arial,sans-serif','font-size':16,'font-weight':800,fill:'#3d342c'},label));g.addEventListener('click',fn);legend.appendChild(g)};
+  const bg=document.getElementById('legend-bg');if(bg)bg.setAttribute('height',String(legendHeight));
+  btn(160,'Fill all',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill',el.dataset.suggested); const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display','none')}));
+  btn(370,'Reset',()=>document.querySelectorAll('.region').forEach(el=>{el.setAttribute('fill','#fffdf8');const idx=Number(el.dataset.labelIndex);if(Number.isFinite(idx)&&labels.children[idx])labels.children[idx].setAttribute('display',numbersVisible?'inline':'none')}));
+  btn(580,'Toggle numbers',()=>{numbersVisible=!numbersVisible;labels.setAttribute('display',numbersVisible?'inline':'none')});
+})();
+]]></script>
+</svg>

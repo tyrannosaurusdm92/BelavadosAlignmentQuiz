@@ -1,0 +1,1730 @@
+{
+  "title": "Ichor Steamship",
+  "file": "steamship.svg",
+  "primary_reference_image": "traveltransit_passenger_on_steamship.svg",
+  "related_reference_images_used_for_art_direction": [
+    "traveltransit_boarding_steamship.svg",
+    "traveltransit_leaving_steamship.svg",
+    "traveltransit_passenger_on_steamship.svg",
+    "traveltransit_waiting_steamship.svg"
+  ],
+  "method": "Direct reference-based vector paint-cell conversion: the embedded source artwork was segmented into simplified SVG paths; no generated replacement image was used.",
+  "interaction": {
+    "click": "Paint or unpaint one cell with its suggested numbered color.",
+    "shift_click": "Paint or unpaint all cells assigned the same number.",
+    "palette_swatch_click": "Paint all cells assigned that palette number.",
+    "keyboard": "Focus any cell and press Enter or Space; Shift+Enter/Space paints the full number group."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Saintglass cream",
+      "hex": "#F2E6C8",
+      "region_count": 10,
+      "regions": [
+        "steamship-cell-001",
+        "steamship-cell-007",
+        "steamship-cell-013",
+        "steamship-cell-024",
+        "steamship-cell-033",
+        "steamship-cell-063",
+        "steamship-cell-100",
+        "steamship-cell-199",
+        "steamship-cell-200",
+        "steamship-cell-213"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Steam white",
+      "hex": "#E9F0EF",
+      "region_count": 3,
+      "regions": [
+        "steamship-cell-002",
+        "steamship-cell-004",
+        "steamship-cell-005"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Ichor cyan glow",
+      "hex": "#58E7F5",
+      "region_count": 7,
+      "regions": [
+        "region-ring",
+        "steamship-cell-072",
+        "steamship-cell-083",
+        "steamship-cell-194",
+        "steamship-cell-195",
+        "steamship-cell-221",
+        "steamship-cell-222"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Deep cyan glass",
+      "hex": "#1387A8",
+      "region_count": 3,
+      "regions": [
+        "steamship-cell-050",
+        "steamship-cell-057",
+        "steamship-cell-171"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Polished brass",
+      "hex": "#D5962E",
+      "region_count": 13,
+      "regions": [
+        "steamship-cell-025",
+        "steamship-cell-034",
+        "steamship-cell-064",
+        "steamship-cell-103",
+        "steamship-cell-130",
+        "steamship-cell-143",
+        "steamship-cell-149",
+        "steamship-cell-151",
+        "steamship-cell-155",
+        "steamship-cell-163",
+        "steamship-cell-166",
+        "steamship-cell-189",
+        "steamship-cell-190"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Burnished copper",
+      "hex": "#A85D21",
+      "region_count": 28,
+      "regions": [
+        "steamship-cell-009",
+        "steamship-cell-012",
+        "steamship-cell-015",
+        "steamship-cell-027",
+        "steamship-cell-042",
+        "steamship-cell-053",
+        "steamship-cell-092",
+        "steamship-cell-102",
+        "steamship-cell-111",
+        "steamship-cell-117",
+        "steamship-cell-118",
+        "steamship-cell-119",
+        "steamship-cell-124",
+        "steamship-cell-137",
+        "steamship-cell-152",
+        "steamship-cell-162",
+        "steamship-cell-174",
+        "steamship-cell-191",
+        "steamship-cell-192",
+        "steamship-cell-201",
+        "steamship-cell-202",
+        "steamship-cell-205",
+        "steamship-cell-207",
+        "steamship-cell-208",
+        "steamship-cell-210",
+        "steamship-cell-212",
+        "steamship-cell-224",
+        "steamship-cell-226"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Dark bronze",
+      "hex": "#6A371B",
+      "region_count": 61,
+      "regions": [
+        "steamship-cell-003",
+        "steamship-cell-006",
+        "steamship-cell-011",
+        "steamship-cell-018",
+        "steamship-cell-019",
+        "steamship-cell-020",
+        "steamship-cell-021",
+        "steamship-cell-023",
+        "steamship-cell-032",
+        "steamship-cell-035",
+        "steamship-cell-039",
+        "steamship-cell-041",
+        "steamship-cell-048",
+        "steamship-cell-049",
+        "steamship-cell-056",
+        "steamship-cell-058",
+        "steamship-cell-061",
+        "steamship-cell-062",
+        "steamship-cell-075",
+        "steamship-cell-080",
+        "steamship-cell-081",
+        "steamship-cell-087",
+        "steamship-cell-088",
+        "steamship-cell-090",
+        "steamship-cell-096",
+        "steamship-cell-099",
+        "steamship-cell-105",
+        "steamship-cell-106",
+        "steamship-cell-109",
+        "steamship-cell-110",
+        "steamship-cell-113",
+        "steamship-cell-114",
+        "steamship-cell-126",
+        "steamship-cell-127",
+        "steamship-cell-129",
+        "steamship-cell-132",
+        "steamship-cell-139",
+        "steamship-cell-140",
+        "steamship-cell-141",
+        "steamship-cell-144",
+        "steamship-cell-145",
+        "steamship-cell-147",
+        "steamship-cell-156",
+        "steamship-cell-157",
+        "steamship-cell-160",
+        "steamship-cell-164",
+        "steamship-cell-172",
+        "steamship-cell-173",
+        "steamship-cell-175",
+        "steamship-cell-178",
+        "steamship-cell-179",
+        "steamship-cell-180",
+        "steamship-cell-184",
+        "steamship-cell-185",
+        "steamship-cell-197",
+        "steamship-cell-204",
+        "steamship-cell-206",
+        "steamship-cell-209",
+        "steamship-cell-218",
+        "steamship-cell-219",
+        "steamship-cell-225"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Walnut brown",
+      "hex": "#38231D",
+      "region_count": 63,
+      "regions": [
+        "steamship-cell-010",
+        "steamship-cell-014",
+        "steamship-cell-016",
+        "steamship-cell-026",
+        "steamship-cell-028",
+        "steamship-cell-029",
+        "steamship-cell-031",
+        "steamship-cell-036",
+        "steamship-cell-037",
+        "steamship-cell-038",
+        "steamship-cell-040",
+        "steamship-cell-044",
+        "steamship-cell-045",
+        "steamship-cell-047",
+        "steamship-cell-055",
+        "steamship-cell-059",
+        "steamship-cell-065",
+        "steamship-cell-066",
+        "steamship-cell-069",
+        "steamship-cell-070",
+        "steamship-cell-071",
+        "steamship-cell-073",
+        "steamship-cell-076",
+        "steamship-cell-077",
+        "steamship-cell-082",
+        "steamship-cell-084",
+        "steamship-cell-089",
+        "steamship-cell-091",
+        "steamship-cell-093",
+        "steamship-cell-094",
+        "steamship-cell-095",
+        "steamship-cell-097",
+        "steamship-cell-098",
+        "steamship-cell-101",
+        "steamship-cell-108",
+        "steamship-cell-112",
+        "steamship-cell-115",
+        "steamship-cell-120",
+        "steamship-cell-122",
+        "steamship-cell-123",
+        "steamship-cell-125",
+        "steamship-cell-128",
+        "steamship-cell-133",
+        "steamship-cell-134",
+        "steamship-cell-136",
+        "steamship-cell-146",
+        "steamship-cell-150",
+        "steamship-cell-153",
+        "steamship-cell-154",
+        "steamship-cell-158",
+        "steamship-cell-159",
+        "steamship-cell-161",
+        "steamship-cell-167",
+        "steamship-cell-168",
+        "steamship-cell-177",
+        "steamship-cell-181",
+        "steamship-cell-182",
+        "steamship-cell-187",
+        "steamship-cell-196",
+        "steamship-cell-198",
+        "steamship-cell-214",
+        "steamship-cell-216",
+        "steamship-cell-217"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Forged iron",
+      "hex": "#657078",
+      "region_count": 7,
+      "regions": [
+        "steamship-cell-079",
+        "steamship-cell-085",
+        "steamship-cell-121",
+        "steamship-cell-148",
+        "steamship-cell-186",
+        "steamship-cell-193",
+        "steamship-cell-223"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Slate navy",
+      "hex": "#193548",
+      "region_count": 1,
+      "regions": [
+        "steamship-cell-138"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Midnight blue",
+      "hex": "#0C2130",
+      "region_count": 1,
+      "regions": [
+        "region-field"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ichor black",
+      "hex": "#080D12",
+      "region_count": 33,
+      "regions": [
+        "region-bg",
+        "steamship-cell-008",
+        "steamship-cell-017",
+        "steamship-cell-022",
+        "steamship-cell-030",
+        "steamship-cell-043",
+        "steamship-cell-046",
+        "steamship-cell-051",
+        "steamship-cell-052",
+        "steamship-cell-054",
+        "steamship-cell-060",
+        "steamship-cell-067",
+        "steamship-cell-068",
+        "steamship-cell-074",
+        "steamship-cell-078",
+        "steamship-cell-086",
+        "steamship-cell-104",
+        "steamship-cell-107",
+        "steamship-cell-116",
+        "steamship-cell-131",
+        "steamship-cell-135",
+        "steamship-cell-142",
+        "steamship-cell-165",
+        "steamship-cell-169",
+        "steamship-cell-170",
+        "steamship-cell-176",
+        "steamship-cell-183",
+        "steamship-cell-188",
+        "steamship-cell-203",
+        "steamship-cell-211",
+        "steamship-cell-215",
+        "steamship-cell-220",
+        "steamship-cell-227"
+      ]
+    }
+  ],
+  "region_count": 230,
+  "numbered_visible_cell_count": 199,
+  "regions": [
+    {
+      "id": "region-bg",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": null
+    },
+    {
+      "id": "region-field",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": null
+    },
+    {
+      "id": "region-ring",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": null
+    },
+    {
+      "id": "steamship-cell-001",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 828
+    },
+    {
+      "id": "steamship-cell-002",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 824
+    },
+    {
+      "id": "steamship-cell-003",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 790
+    },
+    {
+      "id": "steamship-cell-004",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 734
+    },
+    {
+      "id": "steamship-cell-005",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 682
+    },
+    {
+      "id": "steamship-cell-006",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 665
+    },
+    {
+      "id": "steamship-cell-007",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 640
+    },
+    {
+      "id": "steamship-cell-008",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 637
+    },
+    {
+      "id": "steamship-cell-009",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 611
+    },
+    {
+      "id": "steamship-cell-010",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 608
+    },
+    {
+      "id": "steamship-cell-011",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 589
+    },
+    {
+      "id": "steamship-cell-012",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 587
+    },
+    {
+      "id": "steamship-cell-013",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 563
+    },
+    {
+      "id": "steamship-cell-014",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 557
+    },
+    {
+      "id": "steamship-cell-015",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 557
+    },
+    {
+      "id": "steamship-cell-016",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 556
+    },
+    {
+      "id": "steamship-cell-017",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 538
+    },
+    {
+      "id": "steamship-cell-018",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 535
+    },
+    {
+      "id": "steamship-cell-019",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 533
+    },
+    {
+      "id": "steamship-cell-020",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 533
+    },
+    {
+      "id": "steamship-cell-021",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 529
+    },
+    {
+      "id": "steamship-cell-022",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 528
+    },
+    {
+      "id": "steamship-cell-023",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 521
+    },
+    {
+      "id": "steamship-cell-024",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 519
+    },
+    {
+      "id": "steamship-cell-025",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 517
+    },
+    {
+      "id": "steamship-cell-026",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 513
+    },
+    {
+      "id": "steamship-cell-027",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 513
+    },
+    {
+      "id": "steamship-cell-028",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 511
+    },
+    {
+      "id": "steamship-cell-029",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 504
+    },
+    {
+      "id": "steamship-cell-030",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 498
+    },
+    {
+      "id": "steamship-cell-031",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 497
+    },
+    {
+      "id": "steamship-cell-032",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 495
+    },
+    {
+      "id": "steamship-cell-033",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 492
+    },
+    {
+      "id": "steamship-cell-034",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 490
+    },
+    {
+      "id": "steamship-cell-035",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 485
+    },
+    {
+      "id": "steamship-cell-036",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 485
+    },
+    {
+      "id": "steamship-cell-037",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 483
+    },
+    {
+      "id": "steamship-cell-038",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 483
+    },
+    {
+      "id": "steamship-cell-039",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 480
+    },
+    {
+      "id": "steamship-cell-040",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 475
+    },
+    {
+      "id": "steamship-cell-041",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 472
+    },
+    {
+      "id": "steamship-cell-042",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 470
+    },
+    {
+      "id": "steamship-cell-043",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 470
+    },
+    {
+      "id": "steamship-cell-044",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 470
+    },
+    {
+      "id": "steamship-cell-045",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 468
+    },
+    {
+      "id": "steamship-cell-046",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 468
+    },
+    {
+      "id": "steamship-cell-047",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 466
+    },
+    {
+      "id": "steamship-cell-048",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 462
+    },
+    {
+      "id": "steamship-cell-049",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 461
+    },
+    {
+      "id": "steamship-cell-050",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 457
+    },
+    {
+      "id": "steamship-cell-051",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 455
+    },
+    {
+      "id": "steamship-cell-052",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 454
+    },
+    {
+      "id": "steamship-cell-053",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 452
+    },
+    {
+      "id": "steamship-cell-054",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 452
+    },
+    {
+      "id": "steamship-cell-055",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 449
+    },
+    {
+      "id": "steamship-cell-056",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 449
+    },
+    {
+      "id": "steamship-cell-057",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 446
+    },
+    {
+      "id": "steamship-cell-058",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 445
+    },
+    {
+      "id": "steamship-cell-059",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 443
+    },
+    {
+      "id": "steamship-cell-060",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 439
+    },
+    {
+      "id": "steamship-cell-061",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 435
+    },
+    {
+      "id": "steamship-cell-062",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 434
+    },
+    {
+      "id": "steamship-cell-063",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 432
+    },
+    {
+      "id": "steamship-cell-064",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 431
+    },
+    {
+      "id": "steamship-cell-065",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 431
+    },
+    {
+      "id": "steamship-cell-066",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 431
+    },
+    {
+      "id": "steamship-cell-067",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 426
+    },
+    {
+      "id": "steamship-cell-068",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 426
+    },
+    {
+      "id": "steamship-cell-069",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 424
+    },
+    {
+      "id": "steamship-cell-070",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 422
+    },
+    {
+      "id": "steamship-cell-071",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 420
+    },
+    {
+      "id": "steamship-cell-072",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 419
+    },
+    {
+      "id": "steamship-cell-073",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 419
+    },
+    {
+      "id": "steamship-cell-074",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 418
+    },
+    {
+      "id": "steamship-cell-075",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 417
+    },
+    {
+      "id": "steamship-cell-076",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 415
+    },
+    {
+      "id": "steamship-cell-077",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 413
+    },
+    {
+      "id": "steamship-cell-078",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 412
+    },
+    {
+      "id": "steamship-cell-079",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 411
+    },
+    {
+      "id": "steamship-cell-080",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 411
+    },
+    {
+      "id": "steamship-cell-081",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 410
+    },
+    {
+      "id": "steamship-cell-082",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 410
+    },
+    {
+      "id": "steamship-cell-083",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 409
+    },
+    {
+      "id": "steamship-cell-084",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 408
+    },
+    {
+      "id": "steamship-cell-085",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 407
+    },
+    {
+      "id": "steamship-cell-086",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 403
+    },
+    {
+      "id": "steamship-cell-087",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 400
+    },
+    {
+      "id": "steamship-cell-088",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 399
+    },
+    {
+      "id": "steamship-cell-089",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 397
+    },
+    {
+      "id": "steamship-cell-090",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 396
+    },
+    {
+      "id": "steamship-cell-091",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 396
+    },
+    {
+      "id": "steamship-cell-092",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 396
+    },
+    {
+      "id": "steamship-cell-093",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 395
+    },
+    {
+      "id": "steamship-cell-094",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 394
+    },
+    {
+      "id": "steamship-cell-095",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 394
+    },
+    {
+      "id": "steamship-cell-096",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 393
+    },
+    {
+      "id": "steamship-cell-097",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 390
+    },
+    {
+      "id": "steamship-cell-098",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 389
+    },
+    {
+      "id": "steamship-cell-099",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 387
+    },
+    {
+      "id": "steamship-cell-100",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 386
+    },
+    {
+      "id": "steamship-cell-101",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 382
+    },
+    {
+      "id": "steamship-cell-102",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 380
+    },
+    {
+      "id": "steamship-cell-103",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 379
+    },
+    {
+      "id": "steamship-cell-104",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 378
+    },
+    {
+      "id": "steamship-cell-105",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 375
+    },
+    {
+      "id": "steamship-cell-106",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 374
+    },
+    {
+      "id": "steamship-cell-107",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 374
+    },
+    {
+      "id": "steamship-cell-108",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 373
+    },
+    {
+      "id": "steamship-cell-109",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 372
+    },
+    {
+      "id": "steamship-cell-110",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 372
+    },
+    {
+      "id": "steamship-cell-111",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 372
+    },
+    {
+      "id": "steamship-cell-112",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 368
+    },
+    {
+      "id": "steamship-cell-113",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 368
+    },
+    {
+      "id": "steamship-cell-114",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 367
+    },
+    {
+      "id": "steamship-cell-115",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 365
+    },
+    {
+      "id": "steamship-cell-116",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 365
+    },
+    {
+      "id": "steamship-cell-117",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 362
+    },
+    {
+      "id": "steamship-cell-118",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 361
+    },
+    {
+      "id": "steamship-cell-119",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 361
+    },
+    {
+      "id": "steamship-cell-120",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 361
+    },
+    {
+      "id": "steamship-cell-121",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 360
+    },
+    {
+      "id": "steamship-cell-122",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 359
+    },
+    {
+      "id": "steamship-cell-123",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 359
+    },
+    {
+      "id": "steamship-cell-124",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 355
+    },
+    {
+      "id": "steamship-cell-125",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 351
+    },
+    {
+      "id": "steamship-cell-126",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 349
+    },
+    {
+      "id": "steamship-cell-127",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 348
+    },
+    {
+      "id": "steamship-cell-128",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 348
+    },
+    {
+      "id": "steamship-cell-129",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 345
+    },
+    {
+      "id": "steamship-cell-130",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 343
+    },
+    {
+      "id": "steamship-cell-131",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 342
+    },
+    {
+      "id": "steamship-cell-132",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 342
+    },
+    {
+      "id": "steamship-cell-133",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 340
+    },
+    {
+      "id": "steamship-cell-134",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 337
+    },
+    {
+      "id": "steamship-cell-135",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 337
+    },
+    {
+      "id": "steamship-cell-136",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 337
+    },
+    {
+      "id": "steamship-cell-137",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 335
+    },
+    {
+      "id": "steamship-cell-138",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 332
+    },
+    {
+      "id": "steamship-cell-139",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 332
+    },
+    {
+      "id": "steamship-cell-140",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 330
+    },
+    {
+      "id": "steamship-cell-141",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 327
+    },
+    {
+      "id": "steamship-cell-142",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 325
+    },
+    {
+      "id": "steamship-cell-143",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 325
+    },
+    {
+      "id": "steamship-cell-144",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 323
+    },
+    {
+      "id": "steamship-cell-145",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 322
+    },
+    {
+      "id": "steamship-cell-146",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 321
+    },
+    {
+      "id": "steamship-cell-147",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 318
+    },
+    {
+      "id": "steamship-cell-148",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 316
+    },
+    {
+      "id": "steamship-cell-149",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 315
+    },
+    {
+      "id": "steamship-cell-150",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 314
+    },
+    {
+      "id": "steamship-cell-151",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 311
+    },
+    {
+      "id": "steamship-cell-152",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 310
+    },
+    {
+      "id": "steamship-cell-153",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 310
+    },
+    {
+      "id": "steamship-cell-154",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 310
+    },
+    {
+      "id": "steamship-cell-155",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 308
+    },
+    {
+      "id": "steamship-cell-156",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 307
+    },
+    {
+      "id": "steamship-cell-157",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 305
+    },
+    {
+      "id": "steamship-cell-158",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 305
+    },
+    {
+      "id": "steamship-cell-159",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 305
+    },
+    {
+      "id": "steamship-cell-160",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 303
+    },
+    {
+      "id": "steamship-cell-161",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 302
+    },
+    {
+      "id": "steamship-cell-162",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 302
+    },
+    {
+      "id": "steamship-cell-163",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 299
+    },
+    {
+      "id": "steamship-cell-164",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 296
+    },
+    {
+      "id": "steamship-cell-165",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 296
+    },
+    {
+      "id": "steamship-cell-166",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 296
+    },
+    {
+      "id": "steamship-cell-167",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 293
+    },
+    {
+      "id": "steamship-cell-168",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 292
+    },
+    {
+      "id": "steamship-cell-169",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 290
+    },
+    {
+      "id": "steamship-cell-170",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 287
+    },
+    {
+      "id": "steamship-cell-171",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 286
+    },
+    {
+      "id": "steamship-cell-172",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 285
+    },
+    {
+      "id": "steamship-cell-173",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 283
+    },
+    {
+      "id": "steamship-cell-174",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 281
+    },
+    {
+      "id": "steamship-cell-175",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 280
+    },
+    {
+      "id": "steamship-cell-176",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 279
+    },
+    {
+      "id": "steamship-cell-177",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 278
+    },
+    {
+      "id": "steamship-cell-178",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 274
+    },
+    {
+      "id": "steamship-cell-179",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 272
+    },
+    {
+      "id": "steamship-cell-180",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 272
+    },
+    {
+      "id": "steamship-cell-181",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 269
+    },
+    {
+      "id": "steamship-cell-182",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 268
+    },
+    {
+      "id": "steamship-cell-183",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 268
+    },
+    {
+      "id": "steamship-cell-184",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 264
+    },
+    {
+      "id": "steamship-cell-185",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 259
+    },
+    {
+      "id": "steamship-cell-186",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 258
+    },
+    {
+      "id": "steamship-cell-187",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 258
+    },
+    {
+      "id": "steamship-cell-188",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 255
+    },
+    {
+      "id": "steamship-cell-189",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 252
+    },
+    {
+      "id": "steamship-cell-190",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 252
+    },
+    {
+      "id": "steamship-cell-191",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 252
+    },
+    {
+      "id": "steamship-cell-192",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 249
+    },
+    {
+      "id": "steamship-cell-193",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 248
+    },
+    {
+      "id": "steamship-cell-194",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 247
+    },
+    {
+      "id": "steamship-cell-195",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 245
+    },
+    {
+      "id": "steamship-cell-196",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 245
+    },
+    {
+      "id": "steamship-cell-197",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 244
+    },
+    {
+      "id": "steamship-cell-198",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 241
+    },
+    {
+      "id": "steamship-cell-199",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 240
+    },
+    {
+      "id": "steamship-cell-200",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 239
+    },
+    {
+      "id": "steamship-cell-201",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 237
+    },
+    {
+      "id": "steamship-cell-202",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 236
+    },
+    {
+      "id": "steamship-cell-203",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 234
+    },
+    {
+      "id": "steamship-cell-204",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 234
+    },
+    {
+      "id": "steamship-cell-205",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 222
+    },
+    {
+      "id": "steamship-cell-206",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 219
+    },
+    {
+      "id": "steamship-cell-207",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 218
+    },
+    {
+      "id": "steamship-cell-208",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 215
+    },
+    {
+      "id": "steamship-cell-209",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 211
+    },
+    {
+      "id": "steamship-cell-210",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 209
+    },
+    {
+      "id": "steamship-cell-211",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 209
+    },
+    {
+      "id": "steamship-cell-212",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 209
+    },
+    {
+      "id": "steamship-cell-213",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 209
+    },
+    {
+      "id": "steamship-cell-214",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 206
+    },
+    {
+      "id": "steamship-cell-215",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 202
+    },
+    {
+      "id": "steamship-cell-216",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 198
+    },
+    {
+      "id": "steamship-cell-217",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 189
+    },
+    {
+      "id": "steamship-cell-218",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 185
+    },
+    {
+      "id": "steamship-cell-219",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 184
+    },
+    {
+      "id": "steamship-cell-220",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 184
+    },
+    {
+      "id": "steamship-cell-221",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 181
+    },
+    {
+      "id": "steamship-cell-222",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 179
+    },
+    {
+      "id": "steamship-cell-223",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 178
+    },
+    {
+      "id": "steamship-cell-224",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 174
+    },
+    {
+      "id": "steamship-cell-225",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 172
+    },
+    {
+      "id": "steamship-cell-226",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 168
+    },
+    {
+      "id": "steamship-cell-227",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 163
+    }
+  ]
+}

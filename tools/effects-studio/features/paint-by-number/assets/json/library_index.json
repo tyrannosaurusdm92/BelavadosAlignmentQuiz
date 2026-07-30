@@ -1,0 +1,514 @@
+{
+  "count": 40,
+  "items": [
+    {
+      "slug": "midnight-black-cat",
+      "title": "Midnight Black Cat",
+      "desc": "A black cat framed by a jewel-toned greenhouse window and luminous flowers.",
+      "tags": [
+        "Animals",
+        "Botanical",
+        "Neon"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/midnight-black-cat.svg"
+    },
+    {
+      "slug": "botanical-luna-moth",
+      "title": "Botanical Luna Moth",
+      "desc": "A symmetrical luna moth with moonlit wings, fern leaves, and gemstone markings.",
+      "tags": [
+        "Animals",
+        "Celestial",
+        "Botanical"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/botanical-luna-moth.svg"
+    },
+    {
+      "slug": "koi-moon-pond",
+      "title": "Koi Moon Pond",
+      "desc": "Two koi circle through layered blue-green water beneath lotus blossoms.",
+      "tags": [
+        "Animals",
+        "Water",
+        "Meditative"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/koi-moon-pond.svg"
+    },
+    {
+      "slug": "owl-and-night-blooms",
+      "title": "Owl & Night Blooms",
+      "desc": "A watchful owl surrounded by moonlight, berries, and night-opening flowers.",
+      "tags": [
+        "Animals",
+        "Night",
+        "Floral"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/owl-and-night-blooms.svg"
+    },
+    {
+      "slug": "curiosity-beetle-cabinet",
+      "title": "Curiosity Beetle Cabinet",
+      "desc": "Nine jewel beetles arranged in a warm Victorian specimen cabinet.",
+      "tags": [
+        "Insects",
+        "Vintage",
+        "Pattern"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/curiosity-beetle-cabinet.svg"
+    },
+    {
+      "slug": "cozy-reading-nook",
+      "title": "Cozy Reading Nook",
+      "desc": "A grown-up reading corner with a sleeping cat, books, plants, and warm lamp light.",
+      "tags": [
+        "Cozy",
+        "Interior",
+        "Animals"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/cozy-reading-nook.svg"
+    },
+    {
+      "slug": "desert-celestial-night",
+      "title": "Desert Celestial Night",
+      "desc": "Layered mesas, a tall cactus, and a gold moon beneath an indigo desert sky.",
+      "tags": [
+        "Landscape",
+        "Celestial",
+        "Desert"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/desert-celestial-night.svg"
+    },
+    {
+      "slug": "rainy-city-window",
+      "title": "Rainy City Window",
+      "desc": "A moody city viewed through rain-streaked glass, warm windows, and a leafy sill.",
+      "tags": [
+        "City",
+        "Interior",
+        "Atmospheric"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/rainy-city-window.svg"
+    },
+    {
+      "slug": "ocean-wave-mandala",
+      "title": "Ocean Wave Mandala",
+      "desc": "A circular adult-coloring mandala built from rolling waves, sea glass, coral, and sand.",
+      "tags": [
+        "Pattern",
+        "Water",
+        "Meditative"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/ocean-wave-mandala.svg"
+    },
+    {
+      "slug": "sun-moon-sacred-geometry",
+      "title": "Sun & Moon Sacred Geometry",
+      "desc": "A balanced celestial face surrounded by twenty-four geometric color rays.",
+      "tags": [
+        "Celestial",
+        "Pattern",
+        "Meditative"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/sun-moon-sacred-geometry.svg"
+    },
+    {
+      "slug": "art-nouveau-irises",
+      "title": "Art Nouveau Irises",
+      "desc": "Tall iris blossoms and curling leaves arranged in an elegant Art Nouveau arch.",
+      "tags": [
+        "Floral",
+        "Art Nouveau",
+        "Decorative"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/art-nouveau-irises.svg"
+    },
+    {
+      "slug": "peacock-feather-mandala",
+      "title": "Peacock Feather Mandala",
+      "desc": "A detailed circular pattern of peacock eyes, jewel feathers, and gold centers.",
+      "tags": [
+        "Pattern",
+        "Animals",
+        "Jewel Tone"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/peacock-feather-mandala.svg"
+    },
+    {
+      "slug": "gothic-rose-window",
+      "title": "Gothic Rose Window",
+      "desc": "A cathedral-inspired stained-glass arch with tracery, jewel panels, and rose motifs.",
+      "tags": [
+        "Gothic",
+        "Architecture",
+        "Stained Glass"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/gothic-rose-window.svg"
+    },
+    {
+      "slug": "fuck-it-bloom-anyway",
+      "title": "Fuck It, Bloom Anyway",
+      "desc": "A sweary floral affirmation with large lettering and a full botanical border.",
+      "tags": [
+        "Sweary",
+        "Floral",
+        "Affirmation"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/fuck-it-bloom-anyway.svg"
+    },
+    {
+      "slug": "shit-happens-flowers-grow",
+      "title": "Shit Happens. Flowers Grow.",
+      "desc": "A rainy-day sweary page where storm clouds feed a bright garden.",
+      "tags": [
+        "Sweary",
+        "Floral",
+        "Humor"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/shit-happens-flowers-grow.svg"
+    },
+    {
+      "slug": "nope-not-today",
+      "title": "Nope. Not Today.",
+      "desc": "A sleepy celestial refusal with clouds, crescent moon, and muted adult colors.",
+      "tags": [
+        "Humor",
+        "Celestial",
+        "Affirmation"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/nope-not-today.svg"
+    },
+    {
+      "slug": "resting-witch-face",
+      "title": "Resting Witch Face",
+      "desc": "A deadpan witch portrait with a crooked hat, celestial details, and jewel tones.",
+      "tags": [
+        "Witchy",
+        "Humor",
+        "Portrait"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/resting-witch-face.svg"
+    },
+    {
+      "slug": "cascading-dice-table",
+      "title": "Cascading Dice Table",
+      "desc": "A full polyhedral dice cascade—d4, d6, d8, d10, d12, d20, and d100—falling onto a gamer table.",
+      "tags": [
+        "Gamer",
+        "Dice",
+        "TTRPG"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/cascading-dice-table.svg",
+      "guide": "assets/json/cascading-dice-table_color_guide.json"
+    },
+    {
+      "slug": "emerald-clockwork-dragon",
+      "title": "Emerald Clockwork Dragon",
+      "desc": "A jewel-toned dragon with clockwork accents, moonlit wings, and a curled tail.",
+      "tags": [
+        "Dragon",
+        "Steampunk",
+        "Fantasy"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/emerald-clockwork-dragon.svg",
+      "guide": "assets/json/emerald-clockwork-dragon_color_guide.json"
+    },
+    {
+      "slug": "xbox-controller",
+      "title": "Xbox Controller",
+      "desc": "A cozy paint-by-number interpretation of an Xbox-style controller with asymmetric sticks and colorful face buttons.",
+      "tags": [
+        "Gamer",
+        "Controller",
+        "Xbox"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/xbox-controller.svg",
+      "guide": "assets/json/xbox-controller_color_guide.json"
+    },
+    {
+      "slug": "nap-raccoon",
+      "title": "Fuck This, I Need a Nap",
+      "desc": "A deeply tired raccoon under a blanket with the requested exhausted phrase.",
+      "tags": [
+        "Humor",
+        "Raccoon",
+        "Sweary"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/nap-raccoon.svg",
+      "guide": "assets/json/nap-raccoon_color_guide.json"
+    },
+    {
+      "slug": "paused-game-controller",
+      "title": "I Paused My GAME for This?!",
+      "desc": "An Xbox-style controller beneath the requested gamer complaint.",
+      "tags": [
+        "Gamer",
+        "Humor",
+        "Controller"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/paused-game-controller.svg",
+      "guide": "assets/json/paused-game-controller_color_guide.json"
+    },
+    {
+      "slug": "permanently-exhausted-pigeon",
+      "title": "Permanently Exhausted Pigeon",
+      "desc": "A rumpled pigeon tucked into bed beneath the requested permanently exhausted caption.",
+      "tags": [
+        "Pigeon",
+        "Humor",
+        "Cozy"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/permanently-exhausted-pigeon.svg",
+      "guide": "assets/json/permanently-exhausted-pigeon_color_guide.json"
+    },
+    {
+      "slug": "witchcore-potion-cabinet",
+      "title": "Witchcore Potion Cabinet",
+      "desc": "A packed apothecary cabinet of glowing bottles, herbs, and tea-colored elixirs.",
+      "tags": [
+        "Witchcore",
+        "Potions",
+        "Apothecary"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/witchcore-potion-cabinet.svg",
+      "guide": "assets/json/witchcore-potion-cabinet_color_guide.json"
+    },
+    {
+      "slug": "steampunk-clockwork-owl",
+      "title": "Steampunk Clockwork Owl",
+      "desc": "A brass-and-copper owl with gearwork breastplate and glassy teal eyes.",
+      "tags": [
+        "Steampunk",
+        "Owl",
+        "Clockwork"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/steampunk-clockwork-owl.svg",
+      "guide": "assets/json/steampunk-clockwork-owl_color_guide.json"
+    },
+    {
+      "slug": "gamer-dungeon-desk",
+      "title": "Gamer Dungeon Desk",
+      "desc": "A cozy battlestation with fantasy monitor scene, tower PC, controller, candles, and scattered dice.",
+      "tags": [
+        "Gamer",
+        "Desk",
+        "TTRPG"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/gamer-dungeon-desk.svg",
+      "guide": "assets/json/gamer-dungeon-desk_color_guide.json"
+    },
+    {
+      "slug": "mushroom-cauldron",
+      "title": "Mushroom Moon Cauldron",
+      "desc": "A moonlit cauldron bubbling beneath a giant spotted mushroom and tiny forest caps.",
+      "tags": [
+        "Witchcore",
+        "Mushroom",
+        "Cauldron"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/mushroom-cauldron.svg",
+      "guide": "assets/json/mushroom-cauldron_color_guide.json"
+    },
+    {
+      "slug": "dice-witch-circle",
+      "title": "Dice Witch Circle",
+      "desc": "Polyhedral dice orbit a pentacle-like magical circle with stars and a glowing center.",
+      "tags": [
+        "Witchcore",
+        "Dice",
+        "TTRPG"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/dice-witch-circle.svg",
+      "guide": "assets/json/dice-witch-circle_color_guide.json"
+    },
+    {
+      "slug": "steampunk-moth-lantern",
+      "title": "Steampunk Moth Lantern",
+      "desc": "A large jewel-winged moth glowing inside a brass lantern above a small gear medallion.",
+      "tags": [
+        "Steampunk",
+        "Moth",
+        "Lantern"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/steampunk-moth-lantern.svg",
+      "guide": "assets/json/steampunk-moth-lantern_color_guide.json"
+    },
+    {
+      "slug": "midnight-garden",
+      "title": "Midnight Garden",
+      "desc": "Large black cat, moon, layered hills, and jewel-like flowers.",
+      "tags": [
+        "Animal",
+        "Floral",
+        "Cozy",
+        "OurSpace Original"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/midnight-garden.svg",
+      "guide": "assets/json/midnight-garden_color_guide.json"
+    },
+    {
+      "slug": "loud-bloom",
+      "title": "Loud Bloom",
+      "desc": "Original sweary floral poster with bold decorative lettering.",
+      "tags": [
+        "Adult",
+        "Phrase",
+        "Floral",
+        "OurSpace Original"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/loud-bloom.svg",
+      "guide": "assets/json/loud-bloom_color_guide.json"
+    },
+    {
+      "slug": "rest-mandala",
+      "title": "Rest Is Productive",
+      "desc": "Layered self-care mandala with repeating, easy-to-recolor groups.",
+      "tags": [
+        "Mandala",
+        "Self-Care",
+        "Geometric",
+        "OurSpace Original"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/rest-mandala.svg",
+      "guide": "assets/json/rest-mandala_color_guide.json"
+    },
+    {
+      "slug": "cozy-window",
+      "title": "Cozy Night Window",
+      "desc": "Moonlit window, tea, plant, rug, and a curled-up cat.",
+      "tags": [
+        "Interior",
+        "Night",
+        "Cozy",
+        "OurSpace Original"
+      ],
+      "complexity": "Moderate",
+      "file": "assets/svg/cozy-window.svg",
+      "guide": "assets/json/cozy-window_color_guide.json"
+    },
+    {
+      "slug": "calico-tea-garden",
+      "title": "Calico Tea Garden",
+      "desc": "A seated calico with broad black, orange, and white coat islands in a sunny botanical tea nook.",
+      "tags": [
+        "Calico Cat",
+        "Floral",
+        "Cozy",
+        "OurSpace Original"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/calico-tea-garden.svg",
+      "guide": "assets/json/calico-tea-garden_color_guide.json"
+    },
+    {
+      "slug": "tortie-moon-conservatory",
+      "title": "Tortie Moon Conservatory",
+      "desc": "A curled tortoiseshell cat with dense amber, copper, umber, and near-black coat mosaics beneath a moon window.",
+      "tags": [
+        "Tortie Cat",
+        "Botanical",
+        "Mosaic",
+        "OurSpace Original"
+      ],
+      "complexity": "Detailed",
+      "file": "assets/svg/tortie-moon-conservatory.svg",
+      "guide": "assets/json/tortie-moon-conservatory_color_guide.json"
+    },
+    {
+      "slug": "portal",
+      "title": "Ichor Portal Station",
+      "desc": "A glowing Ichor-powered portal station with saintglass architecture and mechanical framing.",
+      "tags": [
+        "Transit",
+        "Portal",
+        "Steampunk"
+      ],
+      "complexity": "Intricate",
+      "file": "assets/svg/portal.svg",
+      "guide": "assets/json/portal_color_guide.json"
+    },
+    {
+      "slug": "skyship",
+      "title": "Ichor Skyship",
+      "desc": "An Ichor-powered skyship with ornate hull, engines, clouds, and airborne transit details.",
+      "tags": [
+        "Transit",
+        "Skyship",
+        "Steampunk"
+      ],
+      "complexity": "Intricate",
+      "file": "assets/svg/skyship.svg",
+      "guide": "assets/json/skyship_color_guide.json"
+    },
+    {
+      "slug": "steamship",
+      "title": "Ichor Steamship",
+      "desc": "A grand Ichor-powered passenger steamship crossing stylized water.",
+      "tags": [
+        "Transit",
+        "Steamship",
+        "Steampunk"
+      ],
+      "complexity": "Intricate",
+      "file": "assets/svg/steamship.svg",
+      "guide": "assets/json/steamship_color_guide.json"
+    },
+    {
+      "slug": "submarine",
+      "title": "Ichor Submarine",
+      "desc": "An Ichor-powered submarine traveling through a luminous undersea environment.",
+      "tags": [
+        "Transit",
+        "Submarine",
+        "Steampunk"
+      ],
+      "complexity": "Intricate",
+      "file": "assets/svg/submarine.svg",
+      "guide": "assets/json/submarine_color_guide.json"
+    },
+    {
+      "slug": "train",
+      "title": "Ichor-Powered Train",
+      "desc": "A detailed Ichor-powered train with mechanical bodywork and transit scenery.",
+      "tags": [
+        "Transit",
+        "Train",
+        "Steampunk"
+      ],
+      "complexity": "Intricate",
+      "file": "assets/svg/train.svg",
+      "guide": "assets/json/train_color_guide.json"
+    }
+  ]
+}

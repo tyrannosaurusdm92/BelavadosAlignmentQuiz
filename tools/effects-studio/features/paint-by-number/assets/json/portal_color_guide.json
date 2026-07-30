@@ -1,0 +1,1735 @@
+{
+  "title": "Ichor Portal Station",
+  "file": "portal.svg",
+  "primary_reference_image": "traveltransit_traveling_portal.svg",
+  "related_reference_images_used_for_art_direction": [
+    "traveltransit_Arriving_at_portal_station.svg",
+    "traveltransit_Leaving_portal_station.svg",
+    "traveltransit_Waiting_at_portal_station.svg",
+    "traveltransit_traveling_portal.svg"
+  ],
+  "method": "Direct reference-based vector paint-cell conversion: the embedded source artwork was segmented into simplified SVG paths; no generated replacement image was used.",
+  "interaction": {
+    "click": "Paint or unpaint one cell with its suggested numbered color.",
+    "shift_click": "Paint or unpaint all cells assigned the same number.",
+    "palette_swatch_click": "Paint all cells assigned that palette number.",
+    "keyboard": "Focus any cell and press Enter or Space; Shift+Enter/Space paints the full number group."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Saintglass cream",
+      "hex": "#F2E6C8",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 2,
+      "name": "Steam white",
+      "hex": "#E9F0EF",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 3,
+      "name": "Ichor cyan glow",
+      "hex": "#58E7F5",
+      "region_count": 26,
+      "regions": [
+        "region-ring",
+        "portal-cell-005",
+        "portal-cell-030",
+        "portal-cell-032",
+        "portal-cell-033",
+        "portal-cell-044",
+        "portal-cell-046",
+        "portal-cell-049",
+        "portal-cell-054",
+        "portal-cell-055",
+        "portal-cell-060",
+        "portal-cell-062",
+        "portal-cell-068",
+        "portal-cell-069",
+        "portal-cell-072",
+        "portal-cell-075",
+        "portal-cell-082",
+        "portal-cell-098",
+        "portal-cell-104",
+        "portal-cell-115",
+        "portal-cell-135",
+        "portal-cell-137",
+        "portal-cell-171",
+        "portal-cell-172",
+        "portal-cell-203",
+        "portal-cell-204"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Deep cyan glass",
+      "hex": "#1387A8",
+      "region_count": 13,
+      "regions": [
+        "portal-cell-036",
+        "portal-cell-056",
+        "portal-cell-058",
+        "portal-cell-087",
+        "portal-cell-109",
+        "portal-cell-123",
+        "portal-cell-159",
+        "portal-cell-160",
+        "portal-cell-175",
+        "portal-cell-186",
+        "portal-cell-205",
+        "portal-cell-212",
+        "portal-cell-224"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Polished brass",
+      "hex": "#D5962E",
+      "region_count": 8,
+      "regions": [
+        "portal-cell-111",
+        "portal-cell-120",
+        "portal-cell-130",
+        "portal-cell-157",
+        "portal-cell-191",
+        "portal-cell-193",
+        "portal-cell-200",
+        "portal-cell-215"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Burnished copper",
+      "hex": "#A85D21",
+      "region_count": 16,
+      "regions": [
+        "portal-cell-007",
+        "portal-cell-086",
+        "portal-cell-091",
+        "portal-cell-114",
+        "portal-cell-141",
+        "portal-cell-151",
+        "portal-cell-174",
+        "portal-cell-179",
+        "portal-cell-182",
+        "portal-cell-192",
+        "portal-cell-208",
+        "portal-cell-214",
+        "portal-cell-220",
+        "portal-cell-221",
+        "portal-cell-222",
+        "portal-cell-223"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Dark bronze",
+      "hex": "#6A371B",
+      "region_count": 52,
+      "regions": [
+        "portal-cell-002",
+        "portal-cell-010",
+        "portal-cell-012",
+        "portal-cell-018",
+        "portal-cell-025",
+        "portal-cell-028",
+        "portal-cell-034",
+        "portal-cell-039",
+        "portal-cell-050",
+        "portal-cell-063",
+        "portal-cell-067",
+        "portal-cell-070",
+        "portal-cell-071",
+        "portal-cell-074",
+        "portal-cell-077",
+        "portal-cell-078",
+        "portal-cell-079",
+        "portal-cell-081",
+        "portal-cell-084",
+        "portal-cell-088",
+        "portal-cell-092",
+        "portal-cell-093",
+        "portal-cell-101",
+        "portal-cell-106",
+        "portal-cell-119",
+        "portal-cell-127",
+        "portal-cell-128",
+        "portal-cell-136",
+        "portal-cell-139",
+        "portal-cell-140",
+        "portal-cell-142",
+        "portal-cell-144",
+        "portal-cell-145",
+        "portal-cell-146",
+        "portal-cell-154",
+        "portal-cell-156",
+        "portal-cell-158",
+        "portal-cell-164",
+        "portal-cell-165",
+        "portal-cell-169",
+        "portal-cell-176",
+        "portal-cell-177",
+        "portal-cell-178",
+        "portal-cell-181",
+        "portal-cell-187",
+        "portal-cell-198",
+        "portal-cell-199",
+        "portal-cell-207",
+        "portal-cell-210",
+        "portal-cell-211",
+        "portal-cell-213",
+        "portal-cell-218"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Walnut brown",
+      "hex": "#38231D",
+      "region_count": 64,
+      "regions": [
+        "portal-cell-003",
+        "portal-cell-004",
+        "portal-cell-006",
+        "portal-cell-009",
+        "portal-cell-011",
+        "portal-cell-014",
+        "portal-cell-015",
+        "portal-cell-016",
+        "portal-cell-019",
+        "portal-cell-020",
+        "portal-cell-021",
+        "portal-cell-027",
+        "portal-cell-029",
+        "portal-cell-035",
+        "portal-cell-037",
+        "portal-cell-038",
+        "portal-cell-040",
+        "portal-cell-043",
+        "portal-cell-047",
+        "portal-cell-048",
+        "portal-cell-059",
+        "portal-cell-065",
+        "portal-cell-073",
+        "portal-cell-076",
+        "portal-cell-083",
+        "portal-cell-085",
+        "portal-cell-089",
+        "portal-cell-090",
+        "portal-cell-094",
+        "portal-cell-095",
+        "portal-cell-096",
+        "portal-cell-097",
+        "portal-cell-100",
+        "portal-cell-102",
+        "portal-cell-103",
+        "portal-cell-107",
+        "portal-cell-112",
+        "portal-cell-113",
+        "portal-cell-116",
+        "portal-cell-122",
+        "portal-cell-124",
+        "portal-cell-125",
+        "portal-cell-126",
+        "portal-cell-132",
+        "portal-cell-138",
+        "portal-cell-152",
+        "portal-cell-153",
+        "portal-cell-162",
+        "portal-cell-166",
+        "portal-cell-173",
+        "portal-cell-180",
+        "portal-cell-183",
+        "portal-cell-185",
+        "portal-cell-189",
+        "portal-cell-195",
+        "portal-cell-196",
+        "portal-cell-197",
+        "portal-cell-202",
+        "portal-cell-206",
+        "portal-cell-217",
+        "portal-cell-219",
+        "portal-cell-226",
+        "portal-cell-227",
+        "portal-cell-228"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Forged iron",
+      "hex": "#657078",
+      "region_count": 20,
+      "regions": [
+        "portal-cell-022",
+        "portal-cell-026",
+        "portal-cell-041",
+        "portal-cell-042",
+        "portal-cell-052",
+        "portal-cell-053",
+        "portal-cell-057",
+        "portal-cell-066",
+        "portal-cell-121",
+        "portal-cell-133",
+        "portal-cell-134",
+        "portal-cell-149",
+        "portal-cell-150",
+        "portal-cell-161",
+        "portal-cell-184",
+        "portal-cell-190",
+        "portal-cell-194",
+        "portal-cell-201",
+        "portal-cell-209",
+        "portal-cell-216"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Slate navy",
+      "hex": "#193548",
+      "region_count": 14,
+      "regions": [
+        "portal-cell-001",
+        "portal-cell-008",
+        "portal-cell-013",
+        "portal-cell-024",
+        "portal-cell-031",
+        "portal-cell-080",
+        "portal-cell-099",
+        "portal-cell-117",
+        "portal-cell-129",
+        "portal-cell-147",
+        "portal-cell-148",
+        "portal-cell-167",
+        "portal-cell-188",
+        "portal-cell-225"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Midnight blue",
+      "hex": "#0C2130",
+      "region_count": 3,
+      "regions": [
+        "region-field",
+        "portal-cell-045",
+        "portal-cell-163"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ichor black",
+      "hex": "#080D12",
+      "region_count": 15,
+      "regions": [
+        "region-bg",
+        "portal-cell-017",
+        "portal-cell-023",
+        "portal-cell-051",
+        "portal-cell-061",
+        "portal-cell-064",
+        "portal-cell-105",
+        "portal-cell-108",
+        "portal-cell-110",
+        "portal-cell-118",
+        "portal-cell-131",
+        "portal-cell-143",
+        "portal-cell-155",
+        "portal-cell-168",
+        "portal-cell-170"
+      ]
+    }
+  ],
+  "region_count": 231,
+  "numbered_visible_cell_count": 231,
+  "regions": [
+    {
+      "id": "region-bg",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": null
+    },
+    {
+      "id": "region-field",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": null
+    },
+    {
+      "id": "region-ring",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": null
+    },
+    {
+      "id": "portal-cell-001",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 1439
+    },
+    {
+      "id": "portal-cell-002",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1428
+    },
+    {
+      "id": "portal-cell-003",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 1357
+    },
+    {
+      "id": "portal-cell-004",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 1335
+    },
+    {
+      "id": "portal-cell-005",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 1207
+    },
+    {
+      "id": "portal-cell-006",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 1183
+    },
+    {
+      "id": "portal-cell-007",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 1135
+    },
+    {
+      "id": "portal-cell-008",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 1105
+    },
+    {
+      "id": "portal-cell-009",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 1063
+    },
+    {
+      "id": "portal-cell-010",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1055
+    },
+    {
+      "id": "portal-cell-011",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 1050
+    },
+    {
+      "id": "portal-cell-012",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1017
+    },
+    {
+      "id": "portal-cell-013",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 1014
+    },
+    {
+      "id": "portal-cell-014",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 992
+    },
+    {
+      "id": "portal-cell-015",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 991
+    },
+    {
+      "id": "portal-cell-016",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 991
+    },
+    {
+      "id": "portal-cell-017",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 961
+    },
+    {
+      "id": "portal-cell-018",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 959
+    },
+    {
+      "id": "portal-cell-019",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 954
+    },
+    {
+      "id": "portal-cell-020",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 930
+    },
+    {
+      "id": "portal-cell-021",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 929
+    },
+    {
+      "id": "portal-cell-022",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 923
+    },
+    {
+      "id": "portal-cell-023",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 921
+    },
+    {
+      "id": "portal-cell-024",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 920
+    },
+    {
+      "id": "portal-cell-025",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 917
+    },
+    {
+      "id": "portal-cell-026",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 916
+    },
+    {
+      "id": "portal-cell-027",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 915
+    },
+    {
+      "id": "portal-cell-028",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 899
+    },
+    {
+      "id": "portal-cell-029",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 896
+    },
+    {
+      "id": "portal-cell-030",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 895
+    },
+    {
+      "id": "portal-cell-031",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 875
+    },
+    {
+      "id": "portal-cell-032",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 870
+    },
+    {
+      "id": "portal-cell-033",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 868
+    },
+    {
+      "id": "portal-cell-034",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 860
+    },
+    {
+      "id": "portal-cell-035",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 858
+    },
+    {
+      "id": "portal-cell-036",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 854
+    },
+    {
+      "id": "portal-cell-037",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 851
+    },
+    {
+      "id": "portal-cell-038",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 844
+    },
+    {
+      "id": "portal-cell-039",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 836
+    },
+    {
+      "id": "portal-cell-040",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 830
+    },
+    {
+      "id": "portal-cell-041",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 824
+    },
+    {
+      "id": "portal-cell-042",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 823
+    },
+    {
+      "id": "portal-cell-043",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 822
+    },
+    {
+      "id": "portal-cell-044",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 816
+    },
+    {
+      "id": "portal-cell-045",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": 810
+    },
+    {
+      "id": "portal-cell-046",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 805
+    },
+    {
+      "id": "portal-cell-047",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 797
+    },
+    {
+      "id": "portal-cell-048",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 789
+    },
+    {
+      "id": "portal-cell-049",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 788
+    },
+    {
+      "id": "portal-cell-050",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 777
+    },
+    {
+      "id": "portal-cell-051",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 776
+    },
+    {
+      "id": "portal-cell-052",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 772
+    },
+    {
+      "id": "portal-cell-053",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 763
+    },
+    {
+      "id": "portal-cell-054",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 763
+    },
+    {
+      "id": "portal-cell-055",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 760
+    },
+    {
+      "id": "portal-cell-056",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 758
+    },
+    {
+      "id": "portal-cell-057",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 757
+    },
+    {
+      "id": "portal-cell-058",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 748
+    },
+    {
+      "id": "portal-cell-059",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 746
+    },
+    {
+      "id": "portal-cell-060",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 742
+    },
+    {
+      "id": "portal-cell-061",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 742
+    },
+    {
+      "id": "portal-cell-062",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 739
+    },
+    {
+      "id": "portal-cell-063",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 736
+    },
+    {
+      "id": "portal-cell-064",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 732
+    },
+    {
+      "id": "portal-cell-065",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 731
+    },
+    {
+      "id": "portal-cell-066",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 720
+    },
+    {
+      "id": "portal-cell-067",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 720
+    },
+    {
+      "id": "portal-cell-068",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 717
+    },
+    {
+      "id": "portal-cell-069",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 712
+    },
+    {
+      "id": "portal-cell-070",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 709
+    },
+    {
+      "id": "portal-cell-071",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 683
+    },
+    {
+      "id": "portal-cell-072",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 672
+    },
+    {
+      "id": "portal-cell-073",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 672
+    },
+    {
+      "id": "portal-cell-074",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 666
+    },
+    {
+      "id": "portal-cell-075",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 665
+    },
+    {
+      "id": "portal-cell-076",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 662
+    },
+    {
+      "id": "portal-cell-077",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 655
+    },
+    {
+      "id": "portal-cell-078",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 655
+    },
+    {
+      "id": "portal-cell-079",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 654
+    },
+    {
+      "id": "portal-cell-080",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 654
+    },
+    {
+      "id": "portal-cell-081",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 653
+    },
+    {
+      "id": "portal-cell-082",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 651
+    },
+    {
+      "id": "portal-cell-083",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 650
+    },
+    {
+      "id": "portal-cell-084",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 642
+    },
+    {
+      "id": "portal-cell-085",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 641
+    },
+    {
+      "id": "portal-cell-086",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 638
+    },
+    {
+      "id": "portal-cell-087",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 634
+    },
+    {
+      "id": "portal-cell-088",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 631
+    },
+    {
+      "id": "portal-cell-089",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 621
+    },
+    {
+      "id": "portal-cell-090",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 619
+    },
+    {
+      "id": "portal-cell-091",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 615
+    },
+    {
+      "id": "portal-cell-092",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 614
+    },
+    {
+      "id": "portal-cell-093",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 612
+    },
+    {
+      "id": "portal-cell-094",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 610
+    },
+    {
+      "id": "portal-cell-095",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 606
+    },
+    {
+      "id": "portal-cell-096",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 603
+    },
+    {
+      "id": "portal-cell-097",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 600
+    },
+    {
+      "id": "portal-cell-098",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 600
+    },
+    {
+      "id": "portal-cell-099",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 594
+    },
+    {
+      "id": "portal-cell-100",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 594
+    },
+    {
+      "id": "portal-cell-101",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 593
+    },
+    {
+      "id": "portal-cell-102",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 590
+    },
+    {
+      "id": "portal-cell-103",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 587
+    },
+    {
+      "id": "portal-cell-104",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 586
+    },
+    {
+      "id": "portal-cell-105",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 583
+    },
+    {
+      "id": "portal-cell-106",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 582
+    },
+    {
+      "id": "portal-cell-107",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 580
+    },
+    {
+      "id": "portal-cell-108",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 580
+    },
+    {
+      "id": "portal-cell-109",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 576
+    },
+    {
+      "id": "portal-cell-110",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 575
+    },
+    {
+      "id": "portal-cell-111",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 572
+    },
+    {
+      "id": "portal-cell-112",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 571
+    },
+    {
+      "id": "portal-cell-113",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 564
+    },
+    {
+      "id": "portal-cell-114",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 558
+    },
+    {
+      "id": "portal-cell-115",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 557
+    },
+    {
+      "id": "portal-cell-116",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 557
+    },
+    {
+      "id": "portal-cell-117",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 553
+    },
+    {
+      "id": "portal-cell-118",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 552
+    },
+    {
+      "id": "portal-cell-119",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 551
+    },
+    {
+      "id": "portal-cell-120",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 548
+    },
+    {
+      "id": "portal-cell-121",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 543
+    },
+    {
+      "id": "portal-cell-122",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 542
+    },
+    {
+      "id": "portal-cell-123",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 539
+    },
+    {
+      "id": "portal-cell-124",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 537
+    },
+    {
+      "id": "portal-cell-125",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 535
+    },
+    {
+      "id": "portal-cell-126",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 535
+    },
+    {
+      "id": "portal-cell-127",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 527
+    },
+    {
+      "id": "portal-cell-128",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 527
+    },
+    {
+      "id": "portal-cell-129",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 526
+    },
+    {
+      "id": "portal-cell-130",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 526
+    },
+    {
+      "id": "portal-cell-131",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 524
+    },
+    {
+      "id": "portal-cell-132",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 524
+    },
+    {
+      "id": "portal-cell-133",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 524
+    },
+    {
+      "id": "portal-cell-134",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 523
+    },
+    {
+      "id": "portal-cell-135",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 523
+    },
+    {
+      "id": "portal-cell-136",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 521
+    },
+    {
+      "id": "portal-cell-137",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 516
+    },
+    {
+      "id": "portal-cell-138",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 515
+    },
+    {
+      "id": "portal-cell-139",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 515
+    },
+    {
+      "id": "portal-cell-140",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 512
+    },
+    {
+      "id": "portal-cell-141",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 512
+    },
+    {
+      "id": "portal-cell-142",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 511
+    },
+    {
+      "id": "portal-cell-143",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 509
+    },
+    {
+      "id": "portal-cell-144",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 508
+    },
+    {
+      "id": "portal-cell-145",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 505
+    },
+    {
+      "id": "portal-cell-146",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 504
+    },
+    {
+      "id": "portal-cell-147",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 504
+    },
+    {
+      "id": "portal-cell-148",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 501
+    },
+    {
+      "id": "portal-cell-149",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 501
+    },
+    {
+      "id": "portal-cell-150",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 501
+    },
+    {
+      "id": "portal-cell-151",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 499
+    },
+    {
+      "id": "portal-cell-152",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 494
+    },
+    {
+      "id": "portal-cell-153",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 492
+    },
+    {
+      "id": "portal-cell-154",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 491
+    },
+    {
+      "id": "portal-cell-155",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 490
+    },
+    {
+      "id": "portal-cell-156",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 484
+    },
+    {
+      "id": "portal-cell-157",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 482
+    },
+    {
+      "id": "portal-cell-158",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 478
+    },
+    {
+      "id": "portal-cell-159",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 474
+    },
+    {
+      "id": "portal-cell-160",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 473
+    },
+    {
+      "id": "portal-cell-161",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 473
+    },
+    {
+      "id": "portal-cell-162",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 471
+    },
+    {
+      "id": "portal-cell-163",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": 466
+    },
+    {
+      "id": "portal-cell-164",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 465
+    },
+    {
+      "id": "portal-cell-165",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 465
+    },
+    {
+      "id": "portal-cell-166",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 463
+    },
+    {
+      "id": "portal-cell-167",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 462
+    },
+    {
+      "id": "portal-cell-168",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 461
+    },
+    {
+      "id": "portal-cell-169",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 460
+    },
+    {
+      "id": "portal-cell-170",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 457
+    },
+    {
+      "id": "portal-cell-171",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 456
+    },
+    {
+      "id": "portal-cell-172",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 456
+    },
+    {
+      "id": "portal-cell-173",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 455
+    },
+    {
+      "id": "portal-cell-174",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 450
+    },
+    {
+      "id": "portal-cell-175",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 450
+    },
+    {
+      "id": "portal-cell-176",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 449
+    },
+    {
+      "id": "portal-cell-177",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 439
+    },
+    {
+      "id": "portal-cell-178",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 438
+    },
+    {
+      "id": "portal-cell-179",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 433
+    },
+    {
+      "id": "portal-cell-180",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 431
+    },
+    {
+      "id": "portal-cell-181",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 429
+    },
+    {
+      "id": "portal-cell-182",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 424
+    },
+    {
+      "id": "portal-cell-183",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 420
+    },
+    {
+      "id": "portal-cell-184",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 415
+    },
+    {
+      "id": "portal-cell-185",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 414
+    },
+    {
+      "id": "portal-cell-186",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 413
+    },
+    {
+      "id": "portal-cell-187",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 412
+    },
+    {
+      "id": "portal-cell-188",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 411
+    },
+    {
+      "id": "portal-cell-189",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 411
+    },
+    {
+      "id": "portal-cell-190",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 410
+    },
+    {
+      "id": "portal-cell-191",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 405
+    },
+    {
+      "id": "portal-cell-192",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 404
+    },
+    {
+      "id": "portal-cell-193",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 401
+    },
+    {
+      "id": "portal-cell-194",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 397
+    },
+    {
+      "id": "portal-cell-195",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 391
+    },
+    {
+      "id": "portal-cell-196",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 391
+    },
+    {
+      "id": "portal-cell-197",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 390
+    },
+    {
+      "id": "portal-cell-198",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 385
+    },
+    {
+      "id": "portal-cell-199",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 381
+    },
+    {
+      "id": "portal-cell-200",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 380
+    },
+    {
+      "id": "portal-cell-201",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 379
+    },
+    {
+      "id": "portal-cell-202",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 370
+    },
+    {
+      "id": "portal-cell-203",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 366
+    },
+    {
+      "id": "portal-cell-204",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 363
+    },
+    {
+      "id": "portal-cell-205",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 363
+    },
+    {
+      "id": "portal-cell-206",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 360
+    },
+    {
+      "id": "portal-cell-207",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 351
+    },
+    {
+      "id": "portal-cell-208",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 346
+    },
+    {
+      "id": "portal-cell-209",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 344
+    },
+    {
+      "id": "portal-cell-210",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 344
+    },
+    {
+      "id": "portal-cell-211",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 342
+    },
+    {
+      "id": "portal-cell-212",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 340
+    },
+    {
+      "id": "portal-cell-213",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 337
+    },
+    {
+      "id": "portal-cell-214",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 336
+    },
+    {
+      "id": "portal-cell-215",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 329
+    },
+    {
+      "id": "portal-cell-216",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 322
+    },
+    {
+      "id": "portal-cell-217",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 322
+    },
+    {
+      "id": "portal-cell-218",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 319
+    },
+    {
+      "id": "portal-cell-219",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 300
+    },
+    {
+      "id": "portal-cell-220",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 299
+    },
+    {
+      "id": "portal-cell-221",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 293
+    },
+    {
+      "id": "portal-cell-222",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 284
+    },
+    {
+      "id": "portal-cell-223",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 275
+    },
+    {
+      "id": "portal-cell-224",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 267
+    },
+    {
+      "id": "portal-cell-225",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 263
+    },
+    {
+      "id": "portal-cell-226",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 260
+    },
+    {
+      "id": "portal-cell-227",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 259
+    },
+    {
+      "id": "portal-cell-228",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 254
+    }
+  ]
+}

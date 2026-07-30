@@ -1,0 +1,1652 @@
+{
+  "title": "Ichor-Powered Train",
+  "file": "train.svg",
+  "primary_reference_image": "traveltransit_riding_train.svg",
+  "related_reference_images_used_for_art_direction": [
+    "traveltransit_boarding_train.svg",
+    "traveltransit_leaving_train.svg",
+    "traveltransit_riding_train.svg",
+    "traveltransit_waiting_train.svg"
+  ],
+  "method": "Direct reference-based vector paint-cell conversion: the embedded source artwork was segmented into simplified SVG paths; no generated replacement image was used.",
+  "interaction": {
+    "click": "Paint or unpaint one cell with its suggested numbered color.",
+    "shift_click": "Paint or unpaint all cells assigned the same number.",
+    "palette_swatch_click": "Paint all cells assigned that palette number.",
+    "keyboard": "Focus any cell and press Enter or Space; Shift+Enter/Space paints the full number group."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Saintglass cream",
+      "hex": "#F2E6C8",
+      "region_count": 12,
+      "regions": [
+        "train-cell-056",
+        "train-cell-060",
+        "train-cell-066",
+        "train-cell-068",
+        "train-cell-083",
+        "train-cell-085",
+        "train-cell-087",
+        "train-cell-136",
+        "train-cell-169",
+        "train-cell-179",
+        "train-cell-214",
+        "train-cell-216"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Steam white",
+      "hex": "#E9F0EF",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 3,
+      "name": "Ichor cyan glow",
+      "hex": "#58E7F5",
+      "region_count": 3,
+      "regions": [
+        "region-ring",
+        "train-cell-154",
+        "train-cell-209"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Deep cyan glass",
+      "hex": "#1387A8",
+      "region_count": 2,
+      "regions": [
+        "train-cell-135",
+        "train-cell-204"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Polished brass",
+      "hex": "#D5962E",
+      "region_count": 24,
+      "regions": [
+        "train-cell-023",
+        "train-cell-043",
+        "train-cell-067",
+        "train-cell-081",
+        "train-cell-084",
+        "train-cell-086",
+        "train-cell-098",
+        "train-cell-107",
+        "train-cell-116",
+        "train-cell-121",
+        "train-cell-134",
+        "train-cell-137",
+        "train-cell-142",
+        "train-cell-163",
+        "train-cell-166",
+        "train-cell-170",
+        "train-cell-182",
+        "train-cell-197",
+        "train-cell-198",
+        "train-cell-199",
+        "train-cell-201",
+        "train-cell-206",
+        "train-cell-208",
+        "train-cell-212"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Burnished copper",
+      "hex": "#A85D21",
+      "region_count": 25,
+      "regions": [
+        "train-cell-009",
+        "train-cell-010",
+        "train-cell-016",
+        "train-cell-040",
+        "train-cell-046",
+        "train-cell-093",
+        "train-cell-112",
+        "train-cell-119",
+        "train-cell-122",
+        "train-cell-125",
+        "train-cell-130",
+        "train-cell-131",
+        "train-cell-139",
+        "train-cell-140",
+        "train-cell-141",
+        "train-cell-150",
+        "train-cell-156",
+        "train-cell-157",
+        "train-cell-158",
+        "train-cell-162",
+        "train-cell-167",
+        "train-cell-176",
+        "train-cell-186",
+        "train-cell-196",
+        "train-cell-207"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Dark bronze",
+      "hex": "#6A371B",
+      "region_count": 60,
+      "regions": [
+        "train-cell-001",
+        "train-cell-002",
+        "train-cell-003",
+        "train-cell-004",
+        "train-cell-005",
+        "train-cell-008",
+        "train-cell-011",
+        "train-cell-014",
+        "train-cell-018",
+        "train-cell-021",
+        "train-cell-027",
+        "train-cell-028",
+        "train-cell-029",
+        "train-cell-033",
+        "train-cell-036",
+        "train-cell-038",
+        "train-cell-039",
+        "train-cell-044",
+        "train-cell-051",
+        "train-cell-053",
+        "train-cell-061",
+        "train-cell-062",
+        "train-cell-072",
+        "train-cell-077",
+        "train-cell-078",
+        "train-cell-080",
+        "train-cell-088",
+        "train-cell-091",
+        "train-cell-094",
+        "train-cell-106",
+        "train-cell-108",
+        "train-cell-111",
+        "train-cell-113",
+        "train-cell-114",
+        "train-cell-117",
+        "train-cell-120",
+        "train-cell-124",
+        "train-cell-129",
+        "train-cell-133",
+        "train-cell-138",
+        "train-cell-143",
+        "train-cell-145",
+        "train-cell-146",
+        "train-cell-155",
+        "train-cell-159",
+        "train-cell-160",
+        "train-cell-161",
+        "train-cell-165",
+        "train-cell-168",
+        "train-cell-174",
+        "train-cell-177",
+        "train-cell-187",
+        "train-cell-189",
+        "train-cell-191",
+        "train-cell-194",
+        "train-cell-202",
+        "train-cell-205",
+        "train-cell-211",
+        "train-cell-213",
+        "train-cell-215"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Walnut brown",
+      "hex": "#38231D",
+      "region_count": 50,
+      "regions": [
+        "train-cell-006",
+        "train-cell-007",
+        "train-cell-012",
+        "train-cell-015",
+        "train-cell-017",
+        "train-cell-019",
+        "train-cell-020",
+        "train-cell-022",
+        "train-cell-024",
+        "train-cell-025",
+        "train-cell-026",
+        "train-cell-034",
+        "train-cell-035",
+        "train-cell-037",
+        "train-cell-042",
+        "train-cell-045",
+        "train-cell-052",
+        "train-cell-054",
+        "train-cell-057",
+        "train-cell-058",
+        "train-cell-064",
+        "train-cell-070",
+        "train-cell-071",
+        "train-cell-074",
+        "train-cell-089",
+        "train-cell-099",
+        "train-cell-103",
+        "train-cell-109",
+        "train-cell-110",
+        "train-cell-118",
+        "train-cell-126",
+        "train-cell-127",
+        "train-cell-128",
+        "train-cell-144",
+        "train-cell-149",
+        "train-cell-153",
+        "train-cell-164",
+        "train-cell-171",
+        "train-cell-172",
+        "train-cell-173",
+        "train-cell-178",
+        "train-cell-181",
+        "train-cell-183",
+        "train-cell-185",
+        "train-cell-188",
+        "train-cell-190",
+        "train-cell-192",
+        "train-cell-193",
+        "train-cell-200",
+        "train-cell-203"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Forged iron",
+      "hex": "#657078",
+      "region_count": 12,
+      "regions": [
+        "train-cell-032",
+        "train-cell-047",
+        "train-cell-063",
+        "train-cell-065",
+        "train-cell-075",
+        "train-cell-095",
+        "train-cell-097",
+        "train-cell-123",
+        "train-cell-180",
+        "train-cell-184",
+        "train-cell-195",
+        "train-cell-210"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Slate navy",
+      "hex": "#193548",
+      "region_count": 2,
+      "regions": [
+        "train-cell-105",
+        "train-cell-175"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Midnight blue",
+      "hex": "#0C2130",
+      "region_count": 1,
+      "regions": [
+        "region-field"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ichor black",
+      "hex": "#080D12",
+      "region_count": 28,
+      "regions": [
+        "region-bg",
+        "train-cell-013",
+        "train-cell-030",
+        "train-cell-031",
+        "train-cell-041",
+        "train-cell-048",
+        "train-cell-049",
+        "train-cell-050",
+        "train-cell-055",
+        "train-cell-059",
+        "train-cell-069",
+        "train-cell-073",
+        "train-cell-076",
+        "train-cell-079",
+        "train-cell-082",
+        "train-cell-090",
+        "train-cell-092",
+        "train-cell-096",
+        "train-cell-100",
+        "train-cell-101",
+        "train-cell-102",
+        "train-cell-104",
+        "train-cell-115",
+        "train-cell-132",
+        "train-cell-147",
+        "train-cell-148",
+        "train-cell-151",
+        "train-cell-152"
+      ]
+    }
+  ],
+  "region_count": 219,
+  "numbered_visible_cell_count": 198,
+  "regions": [
+    {
+      "id": "region-bg",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": null
+    },
+    {
+      "id": "region-field",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": null
+    },
+    {
+      "id": "region-ring",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": null
+    },
+    {
+      "id": "train-cell-001",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1137
+    },
+    {
+      "id": "train-cell-002",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1128
+    },
+    {
+      "id": "train-cell-003",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 1023
+    },
+    {
+      "id": "train-cell-004",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 922
+    },
+    {
+      "id": "train-cell-005",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 900
+    },
+    {
+      "id": "train-cell-006",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 886
+    },
+    {
+      "id": "train-cell-007",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 872
+    },
+    {
+      "id": "train-cell-008",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 872
+    },
+    {
+      "id": "train-cell-009",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 870
+    },
+    {
+      "id": "train-cell-010",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 841
+    },
+    {
+      "id": "train-cell-011",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 836
+    },
+    {
+      "id": "train-cell-012",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 833
+    },
+    {
+      "id": "train-cell-013",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 826
+    },
+    {
+      "id": "train-cell-014",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 800
+    },
+    {
+      "id": "train-cell-015",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 794
+    },
+    {
+      "id": "train-cell-016",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 783
+    },
+    {
+      "id": "train-cell-017",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 773
+    },
+    {
+      "id": "train-cell-018",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 770
+    },
+    {
+      "id": "train-cell-019",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 769
+    },
+    {
+      "id": "train-cell-020",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 730
+    },
+    {
+      "id": "train-cell-021",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 726
+    },
+    {
+      "id": "train-cell-022",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 725
+    },
+    {
+      "id": "train-cell-023",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 723
+    },
+    {
+      "id": "train-cell-024",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 713
+    },
+    {
+      "id": "train-cell-025",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 712
+    },
+    {
+      "id": "train-cell-026",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 710
+    },
+    {
+      "id": "train-cell-027",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 705
+    },
+    {
+      "id": "train-cell-028",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 705
+    },
+    {
+      "id": "train-cell-029",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 700
+    },
+    {
+      "id": "train-cell-030",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 697
+    },
+    {
+      "id": "train-cell-031",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 696
+    },
+    {
+      "id": "train-cell-032",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 690
+    },
+    {
+      "id": "train-cell-033",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 689
+    },
+    {
+      "id": "train-cell-034",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 686
+    },
+    {
+      "id": "train-cell-035",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 673
+    },
+    {
+      "id": "train-cell-036",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 668
+    },
+    {
+      "id": "train-cell-037",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 667
+    },
+    {
+      "id": "train-cell-038",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 667
+    },
+    {
+      "id": "train-cell-039",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 665
+    },
+    {
+      "id": "train-cell-040",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 657
+    },
+    {
+      "id": "train-cell-041",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 652
+    },
+    {
+      "id": "train-cell-042",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 644
+    },
+    {
+      "id": "train-cell-043",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 636
+    },
+    {
+      "id": "train-cell-044",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 633
+    },
+    {
+      "id": "train-cell-045",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 630
+    },
+    {
+      "id": "train-cell-046",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 622
+    },
+    {
+      "id": "train-cell-047",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 619
+    },
+    {
+      "id": "train-cell-048",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 614
+    },
+    {
+      "id": "train-cell-049",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 607
+    },
+    {
+      "id": "train-cell-050",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 601
+    },
+    {
+      "id": "train-cell-051",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 600
+    },
+    {
+      "id": "train-cell-052",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 591
+    },
+    {
+      "id": "train-cell-053",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 591
+    },
+    {
+      "id": "train-cell-054",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 590
+    },
+    {
+      "id": "train-cell-055",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 589
+    },
+    {
+      "id": "train-cell-056",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 580
+    },
+    {
+      "id": "train-cell-057",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 574
+    },
+    {
+      "id": "train-cell-058",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 573
+    },
+    {
+      "id": "train-cell-059",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 572
+    },
+    {
+      "id": "train-cell-060",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 561
+    },
+    {
+      "id": "train-cell-061",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 561
+    },
+    {
+      "id": "train-cell-062",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 556
+    },
+    {
+      "id": "train-cell-063",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 556
+    },
+    {
+      "id": "train-cell-064",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 552
+    },
+    {
+      "id": "train-cell-065",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 550
+    },
+    {
+      "id": "train-cell-066",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 548
+    },
+    {
+      "id": "train-cell-067",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 545
+    },
+    {
+      "id": "train-cell-068",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 544
+    },
+    {
+      "id": "train-cell-069",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 537
+    },
+    {
+      "id": "train-cell-070",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 536
+    },
+    {
+      "id": "train-cell-071",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 532
+    },
+    {
+      "id": "train-cell-072",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 531
+    },
+    {
+      "id": "train-cell-073",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 523
+    },
+    {
+      "id": "train-cell-074",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 521
+    },
+    {
+      "id": "train-cell-075",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 521
+    },
+    {
+      "id": "train-cell-076",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 520
+    },
+    {
+      "id": "train-cell-077",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 519
+    },
+    {
+      "id": "train-cell-078",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 518
+    },
+    {
+      "id": "train-cell-079",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 518
+    },
+    {
+      "id": "train-cell-080",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 516
+    },
+    {
+      "id": "train-cell-081",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 513
+    },
+    {
+      "id": "train-cell-082",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 509
+    },
+    {
+      "id": "train-cell-083",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 506
+    },
+    {
+      "id": "train-cell-084",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 505
+    },
+    {
+      "id": "train-cell-085",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 501
+    },
+    {
+      "id": "train-cell-086",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 500
+    },
+    {
+      "id": "train-cell-087",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 497
+    },
+    {
+      "id": "train-cell-088",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 492
+    },
+    {
+      "id": "train-cell-089",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 492
+    },
+    {
+      "id": "train-cell-090",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 492
+    },
+    {
+      "id": "train-cell-091",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 491
+    },
+    {
+      "id": "train-cell-092",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 491
+    },
+    {
+      "id": "train-cell-093",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 488
+    },
+    {
+      "id": "train-cell-094",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 487
+    },
+    {
+      "id": "train-cell-095",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 484
+    },
+    {
+      "id": "train-cell-096",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 483
+    },
+    {
+      "id": "train-cell-097",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 483
+    },
+    {
+      "id": "train-cell-098",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 481
+    },
+    {
+      "id": "train-cell-099",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 480
+    },
+    {
+      "id": "train-cell-100",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 478
+    },
+    {
+      "id": "train-cell-101",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 477
+    },
+    {
+      "id": "train-cell-102",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 477
+    },
+    {
+      "id": "train-cell-103",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 476
+    },
+    {
+      "id": "train-cell-104",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 474
+    },
+    {
+      "id": "train-cell-105",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 472
+    },
+    {
+      "id": "train-cell-106",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 468
+    },
+    {
+      "id": "train-cell-107",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 463
+    },
+    {
+      "id": "train-cell-108",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 461
+    },
+    {
+      "id": "train-cell-109",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 455
+    },
+    {
+      "id": "train-cell-110",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 450
+    },
+    {
+      "id": "train-cell-111",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 449
+    },
+    {
+      "id": "train-cell-112",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 446
+    },
+    {
+      "id": "train-cell-113",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 445
+    },
+    {
+      "id": "train-cell-114",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 445
+    },
+    {
+      "id": "train-cell-115",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 443
+    },
+    {
+      "id": "train-cell-116",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 438
+    },
+    {
+      "id": "train-cell-117",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 434
+    },
+    {
+      "id": "train-cell-118",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 434
+    },
+    {
+      "id": "train-cell-119",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 434
+    },
+    {
+      "id": "train-cell-120",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 433
+    },
+    {
+      "id": "train-cell-121",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 427
+    },
+    {
+      "id": "train-cell-122",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 426
+    },
+    {
+      "id": "train-cell-123",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 426
+    },
+    {
+      "id": "train-cell-124",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 425
+    },
+    {
+      "id": "train-cell-125",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 416
+    },
+    {
+      "id": "train-cell-126",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 410
+    },
+    {
+      "id": "train-cell-127",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 410
+    },
+    {
+      "id": "train-cell-128",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 407
+    },
+    {
+      "id": "train-cell-129",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 407
+    },
+    {
+      "id": "train-cell-130",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 401
+    },
+    {
+      "id": "train-cell-131",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 399
+    },
+    {
+      "id": "train-cell-132",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 399
+    },
+    {
+      "id": "train-cell-133",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 396
+    },
+    {
+      "id": "train-cell-134",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 394
+    },
+    {
+      "id": "train-cell-135",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 394
+    },
+    {
+      "id": "train-cell-136",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 393
+    },
+    {
+      "id": "train-cell-137",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 393
+    },
+    {
+      "id": "train-cell-138",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 391
+    },
+    {
+      "id": "train-cell-139",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 387
+    },
+    {
+      "id": "train-cell-140",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 385
+    },
+    {
+      "id": "train-cell-141",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 378
+    },
+    {
+      "id": "train-cell-142",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 377
+    },
+    {
+      "id": "train-cell-143",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 375
+    },
+    {
+      "id": "train-cell-144",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 370
+    },
+    {
+      "id": "train-cell-145",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 367
+    },
+    {
+      "id": "train-cell-146",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 366
+    },
+    {
+      "id": "train-cell-147",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 364
+    },
+    {
+      "id": "train-cell-148",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 363
+    },
+    {
+      "id": "train-cell-149",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 362
+    },
+    {
+      "id": "train-cell-150",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 362
+    },
+    {
+      "id": "train-cell-151",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 361
+    },
+    {
+      "id": "train-cell-152",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 361
+    },
+    {
+      "id": "train-cell-153",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 359
+    },
+    {
+      "id": "train-cell-154",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 358
+    },
+    {
+      "id": "train-cell-155",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 354
+    },
+    {
+      "id": "train-cell-156",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 345
+    },
+    {
+      "id": "train-cell-157",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 342
+    },
+    {
+      "id": "train-cell-158",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 342
+    },
+    {
+      "id": "train-cell-159",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 341
+    },
+    {
+      "id": "train-cell-160",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 341
+    },
+    {
+      "id": "train-cell-161",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 339
+    },
+    {
+      "id": "train-cell-162",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 336
+    },
+    {
+      "id": "train-cell-163",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 336
+    },
+    {
+      "id": "train-cell-164",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 333
+    },
+    {
+      "id": "train-cell-165",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 333
+    },
+    {
+      "id": "train-cell-166",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 332
+    },
+    {
+      "id": "train-cell-167",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 332
+    },
+    {
+      "id": "train-cell-168",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 330
+    },
+    {
+      "id": "train-cell-169",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 326
+    },
+    {
+      "id": "train-cell-170",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 326
+    },
+    {
+      "id": "train-cell-171",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 323
+    },
+    {
+      "id": "train-cell-172",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 321
+    },
+    {
+      "id": "train-cell-173",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 318
+    },
+    {
+      "id": "train-cell-174",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 307
+    },
+    {
+      "id": "train-cell-175",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 298
+    },
+    {
+      "id": "train-cell-176",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 296
+    },
+    {
+      "id": "train-cell-177",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 295
+    },
+    {
+      "id": "train-cell-178",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 293
+    },
+    {
+      "id": "train-cell-179",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 291
+    },
+    {
+      "id": "train-cell-180",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 288
+    },
+    {
+      "id": "train-cell-181",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 286
+    },
+    {
+      "id": "train-cell-182",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 284
+    },
+    {
+      "id": "train-cell-183",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 283
+    },
+    {
+      "id": "train-cell-184",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 281
+    },
+    {
+      "id": "train-cell-185",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 280
+    },
+    {
+      "id": "train-cell-186",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 280
+    },
+    {
+      "id": "train-cell-187",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 278
+    },
+    {
+      "id": "train-cell-188",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 268
+    },
+    {
+      "id": "train-cell-189",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 265
+    },
+    {
+      "id": "train-cell-190",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 265
+    },
+    {
+      "id": "train-cell-191",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 262
+    },
+    {
+      "id": "train-cell-192",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 260
+    },
+    {
+      "id": "train-cell-193",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 259
+    },
+    {
+      "id": "train-cell-194",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 258
+    },
+    {
+      "id": "train-cell-195",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 247
+    },
+    {
+      "id": "train-cell-196",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 239
+    },
+    {
+      "id": "train-cell-197",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 239
+    },
+    {
+      "id": "train-cell-198",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 238
+    },
+    {
+      "id": "train-cell-199",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 238
+    },
+    {
+      "id": "train-cell-200",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 237
+    },
+    {
+      "id": "train-cell-201",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 236
+    },
+    {
+      "id": "train-cell-202",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 234
+    },
+    {
+      "id": "train-cell-203",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 229
+    },
+    {
+      "id": "train-cell-204",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 228
+    },
+    {
+      "id": "train-cell-205",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 227
+    },
+    {
+      "id": "train-cell-206",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 227
+    },
+    {
+      "id": "train-cell-207",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 226
+    },
+    {
+      "id": "train-cell-208",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 222
+    },
+    {
+      "id": "train-cell-209",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 220
+    },
+    {
+      "id": "train-cell-210",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 220
+    },
+    {
+      "id": "train-cell-211",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 219
+    },
+    {
+      "id": "train-cell-212",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 217
+    },
+    {
+      "id": "train-cell-213",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 217
+    },
+    {
+      "id": "train-cell-214",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 212
+    },
+    {
+      "id": "train-cell-215",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 212
+    },
+    {
+      "id": "train-cell-216",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 209
+    }
+  ]
+}

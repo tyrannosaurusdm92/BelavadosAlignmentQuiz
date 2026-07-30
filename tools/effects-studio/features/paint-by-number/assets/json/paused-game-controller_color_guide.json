@@ -1,0 +1,127 @@
+{
+  "title": "I Paused My GAME for This?!",
+  "file": "paused-game-controller.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Ink",
+      "hex": "#2d2930",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 2,
+      "name": "Cream",
+      "hex": "#f3eadb",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Console charcoal",
+      "hex": "#393c45",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Steel",
+      "hex": "#6c7480",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 5,
+      "name": "Xbox green",
+      "hex": "#55a84f",
+      "region_count": 5,
+      "regions": [
+        "region-003",
+        "region-005",
+        "region-006",
+        "region-011",
+        "region-014"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Neon cyan",
+      "hex": "#35c8d7",
+      "region_count": 1,
+      "regions": [
+        "region-007"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Electric violet",
+      "hex": "#8155b6",
+      "region_count": 1,
+      "regions": [
+        "region-008"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Hot coral",
+      "hex": "#d96363",
+      "region_count": 1,
+      "regions": [
+        "region-009"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Gold",
+      "hex": "#d6a43e",
+      "region_count": 1,
+      "regions": [
+        "region-010"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Wood",
+      "hex": "#7d533b",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 11,
+      "name": "Shadow navy",
+      "hex": "#26384d",
+      "region_count": 2,
+      "regions": [
+        "region-004",
+        "region-012"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "White",
+      "hex": "#fffaf1",
+      "region_count": 1,
+      "regions": [
+        "region-013"
+      ]
+    }
+  ],
+  "region_count": 14,
+  "tags": [
+    "Gamer",
+    "Humor",
+    "Controller"
+  ],
+  "complexity": "Moderate"
+}
