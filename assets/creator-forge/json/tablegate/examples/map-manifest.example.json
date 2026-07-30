@@ -1,0 +1,53 @@
+{
+  "schema": "tablegate.map-hierarchy.v1",
+  "name": "Example Nested Campaign Maps",
+  "roots": [
+    {
+      "id": "world-example",
+      "name": "Example World",
+      "type": "world",
+      "file": "maps/example-world.svg",
+      "description": "The top-level globe or world map.",
+      "children": [
+        {
+          "id": "continent-north",
+          "name": "Northern Continent",
+          "type": "continent",
+          "file": "maps/northern-continent.svg",
+          "children": [
+            {
+              "id": "kingdom-example",
+              "name": "Example Kingdom",
+              "type": "kingdom",
+              "file": "maps/example-kingdom.svg",
+              "children": [
+                {
+                  "id": "city-example",
+                  "name": "Example City",
+                  "type": "city",
+                  "file": "maps/example-city.svg",
+                  "children": [
+                    {
+                      "id": "tavern-example",
+                      "name": "Example Tavern",
+                      "type": "building",
+                      "file": "maps/example-tavern.svg",
+                      "children": [
+                        {
+                          "id": "tavern-common-room",
+                          "name": "Common Room",
+                          "type": "room",
+                          "file": "maps/example-tavern-common-room.svg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

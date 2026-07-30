@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tablegate.transit-network.schema.json",
+  "title": "TableGate Transit Network",
+  "type": "object",
+  "required": [
+    "types",
+    "stops",
+    "routes",
+    "services"
+  ],
+  "properties": {
+    "types": {
+      "type": "array"
+    },
+    "stops": {
+      "type": "array"
+    },
+    "routes": {
+      "type": "array"
+    },
+    "services": {
+      "type": "array"
+    },
+    "vehicles": {
+      "type": "array"
+    },
+    "tripPlans": {
+      "type": "array"
+    },
+    "settings": {
+      "type": "object"
+    }
+  }
+}
