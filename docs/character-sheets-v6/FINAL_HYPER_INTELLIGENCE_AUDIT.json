@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "sheets": 9,
+  "shared_requirements": {
+    "dnd_studio_layout": true,
+    "hamburger_jump_scroll": true,
+    "named_design_dropdown": true,
+    "two_persistent_art_uploaders": true,
+    "circle_crop_drag_zoom_position": true,
+    "border_color_wheel_and_hex": true,
+    "uploaded_border_texture_or_gradient": true,
+    "automatic_progression_and_popups": true,
+    "currency_tracking_and_math": true,
+    "future_iframe_portal_bridge": true,
+    "new_competing_dice_roller": false
+  },
+  "validation_reports": [
+    "VALIDATION_DND_INTERACTIVE_EXPORT.json",
+    "VALIDATION_DND_PROGRESSION.json",
+    "VALIDATION_HYPER_MOBILE.json",
+    "VALIDATION_HYPER_RUNTIME.json",
+    "VALIDATION_HYPER_SUMMARY.json",
+    "VALIDATION_INTERACTIVE_EXPORT_ALL_SYSTEMS.json",
+    "VALIDATION_PROGRESSION_SYSTEMS_1_TO_8.json",
+    "VALIDATION_REPORT.json",
+    "VALIDATION_REPORT_SYSTEM_ATLAS.json"
+  ]
+}

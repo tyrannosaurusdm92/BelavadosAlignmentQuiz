@@ -1,0 +1,187 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "html_files": [
+      "tablegate.html"
+    ],
+    "forbidden_scripts": [],
+    "files_over_24000000_bytes": [],
+    "json_count": 114,
+    "json_errors": [],
+    "active_backend_refs": [
+      "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6",
+      "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec"
+    ],
+    "embedded_apps": [
+      "forge",
+      "portal"
+    ],
+    "embedded_resource_missing": [],
+    "character_sheet_count": 9,
+    "character_sheet_ids": [
+      "01_fate_core_campaign_storyboard",
+      "02_gurps_tactical_dossier",
+      "03_call_of_cthulhu_evidence_board",
+      "04_daggerheart_domain_card_atelier",
+      "05_pathfinder_remastered_hero_workshop",
+      "06_pbta_move_workshop",
+      "07_swade_wild_card_command_deck",
+      "08_blades_in_the_dark_score_command_board",
+      "09_dnd_5e_5_5e_complete_character_sheet_original"
+    ],
+    "browser_smoke": {
+      "checks": [
+        {
+          "name": "creator area visible",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "checkbox selection recorded",
+          "pass": true,
+          "detail": "1"
+        },
+        {
+          "name": "published item visible to campaign 1 players",
+          "pass": true,
+          "detail": "1"
+        },
+        {
+          "name": "publication bound to server1",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "campaign 2 receives no campaign 1 items",
+          "pass": true,
+          "detail": "0"
+        },
+        {
+          "name": "selection cleared on server switch",
+          "pass": true,
+          "detail": "0"
+        },
+        {
+          "name": "creator destination names active server",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "creator Facebook link hidden behind text",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "creator Facebook link cyan",
+          "pass": true,
+          "detail": "rgb(0, 255, 255)"
+        },
+        {
+          "name": "forge srcdoc receives campaign id",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "name": "all nine standalone sheets merged",
+          "pass": true,
+          "detail": "9"
+        },
+        {
+          "name": "standalone sheet loaded inside single HTML shell",
+          "pass": true,
+          "detail": "<!doctype html><html><body>Sheet \"server2\"</body></html>"
+        }
+      ],
+      "errors": [],
+      "passed": true
+    },
+    "file_count": 1940,
+    "uncompressed_bytes": 242365979,
+    "largest_files": [
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-3.js",
+        "bytes": 16391619
+      },
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-2.js",
+        "bytes": 16385165
+      },
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-1.js",
+        "bytes": 16380824
+      },
+      {
+        "file": "assets/unified-portal/js/session-system-bundles.js",
+        "bytes": 7920293
+      },
+      {
+        "file": "assets/unified-portal/js/system-bundles.js",
+        "bytes": 7894255
+      },
+      {
+        "file": "js/character-sheet-library.js",
+        "bytes": 5982663
+      },
+      {
+        "file": "assets/unified-portal/js/ttrpg_system_bundle.js",
+        "bytes": 5102092
+      },
+      {
+        "file": "assets/creator-forge/js/data/legacy-dnd/visitable_locations.json",
+        "bytes": 4359016
+      },
+      {
+        "file": "assets/creator-forge/js/data/lifesimulator/mixed_heritage.json",
+        "bytes": 3444694
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_14.png",
+        "bytes": 3304963
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_05.png",
+        "bytes": 3092199
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_06.png",
+        "bytes": 3019788
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_09.png",
+        "bytes": 2998859
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_01.png",
+        "bytes": 2868515
+      },
+      {
+        "file": "assets/creator-forge/js/data/lifesimulator/bootstrap_data.js",
+        "bytes": 2831940
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_11.png",
+        "bytes": 2818302
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_03.png",
+        "bytes": 2807496
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_02.png",
+        "bytes": 2748889
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_07.png",
+        "bytes": 2527528
+      },
+      {
+        "file": "assets/unified-portal/assets/bot-tokens/ttrpg_token_13.png",
+        "bytes": 2477370
+      }
+    ],
+    "javascript_syntax_count": 81,
+    "javascript_syntax_errors": []
+  }
+}

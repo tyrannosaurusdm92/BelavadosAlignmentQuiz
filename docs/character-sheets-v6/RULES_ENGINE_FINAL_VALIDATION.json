@@ -1,0 +1,93 @@
+{
+  "generated": "2026-07-29",
+  "static_checks": [
+    {
+      "file": "01_fate_core_campaign_storyboard.html",
+      "bytes": 902373,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "5eed4012aeac601d5db79dce59d747edc28b7ee36aef6743bf3dd087115f2cf9"
+    },
+    {
+      "file": "02_gurps_tactical_dossier.html",
+      "bytes": 871889,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "bdaa49b2b4e32a64be8c495c25d0682b53b15b4b01a3d40269e1e0389df26838"
+    },
+    {
+      "file": "03_call_of_cthulhu_evidence_board.html",
+      "bytes": 493516,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "f19a210a5fd59e89f3a41b6c60e2b9990a26196d5966213988d2bc4d8b46e1d4"
+    },
+    {
+      "file": "04_daggerheart_domain_card_atelier.html",
+      "bytes": 1080136,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "eb96e08f180a5677fa3c542ba1f8aa68651aeee1f08f6336e19849700c6a575c"
+    },
+    {
+      "file": "05_pathfinder_remastered_hero_workshop.html",
+      "bytes": 699611,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "2a6418a6b132fd781b710a84524b33c86b89ec0cd315cb252951f8ce75f307e2"
+    },
+    {
+      "file": "06_pbta_move_workshop.html",
+      "bytes": 1137229,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "e91bacea43d4af697564d1bd46adcfd1ed53c607a3af93937d34581f773a3579"
+    },
+    {
+      "file": "07_swade_wild_card_command_deck.html",
+      "bytes": 670285,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "61d5e5b953ac27f43ff0fa55f5f336045a2b9dfc56e2dfab87c2a850f81ea58a"
+    },
+    {
+      "file": "08_blades_in_the_dark_score_command_board.html",
+      "bytes": 376375,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "aa348d7425399d74256a2f1ab6ba498d32d2ace0f8efb9dd090655f8fe6ec1ed"
+    },
+    {
+      "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "bytes": 1598770,
+      "engine_sections": 1,
+      "engine_scripts": 1,
+      "engine_styles": 1,
+      "duplicate_html_ids": [],
+      "sha256": "b15ced2928a9ab3af4be6a894aafd78096b48397e6cbfb4c1185d659ddadb407"
+    }
+  ],
+  "all_passed": true,
+  "browser_test_summary": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0
+  },
+  "max_file_bytes": 1629808
+}

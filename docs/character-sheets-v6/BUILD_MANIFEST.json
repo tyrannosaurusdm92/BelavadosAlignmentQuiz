@@ -1,0 +1,224 @@
+{
+  "collection": "Complete TTRPG Character Studio Collection \u2014 Hyper-Intelligent Pass",
+  "generated_at_utc": "2026-07-29T09:20:22.850033+00:00",
+  "file_count": 41,
+  "total_bytes": 13683394,
+  "features": [
+    "unified D&D studio layout",
+    "two circular crop artwork editors",
+    "color wheel and hex borders",
+    "uploaded border textures",
+    "system-specific automatic progression",
+    "currency/resource math and ledgers",
+    "continuous system audits",
+    "tablegate.character-sheet.v1 iframe bridge",
+    "no added general dice roller"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5766,
+      "sha256": "4a789c709e9cfcf42fd3400de97f6d4af377ec68dbffbdffe6e14a76d11b8aff"
+    },
+    {
+      "path": "assets/editable_circle_border_reference.svg",
+      "bytes": 1649,
+      "sha256": "ea6c6b560c7a517facfeb3a36289b9cfde671289e199fd89a5ecb3595d6768dd"
+    },
+    {
+      "path": "character_sheets/01_fate_core_campaign_storyboard.html",
+      "bytes": 775488,
+      "sha256": "f716d3b2dbe79f89e4d08b46bf75e908f57fe2e115ab0e590f6e9c8ce3f2471e"
+    },
+    {
+      "path": "character_sheets/02_gurps_tactical_dossier.html",
+      "bytes": 570638,
+      "sha256": "1982c462582df671102fd87d692a379b2cb28c23fef0a5fb010942d7a23fddff"
+    },
+    {
+      "path": "character_sheets/03_call_of_cthulhu_evidence_board.html",
+      "bytes": 353423,
+      "sha256": "9c7ccc1322cfbb5eb871c353516ff74298cf35d7a288d772751184116d15271c"
+    },
+    {
+      "path": "character_sheets/04_daggerheart_domain_card_atelier.html",
+      "bytes": 927801,
+      "sha256": "194359655d3f7712cb4d63cec0bea5071087b921c605110a3f8058e0eb3551bd"
+    },
+    {
+      "path": "character_sheets/05_pathfinder_remastered_hero_workshop.html",
+      "bytes": 568255,
+      "sha256": "92eeba314308235f68bf51b471ef4b335e028262335c1aa7b499aa6a94c63f71"
+    },
+    {
+      "path": "character_sheets/06_pbta_move_workshop.html",
+      "bytes": 1035115,
+      "sha256": "d38533058bd5c1994463a42cc3c878bdefaa4f672f30a97ab6e6dc499c82deff"
+    },
+    {
+      "path": "character_sheets/07_swade_wild_card_command_deck.html",
+      "bytes": 509838,
+      "sha256": "c49cc1f11d4d8e336e6a8dc1a851aa567c541ce997e75a1dd7de0ab5d547e0d6"
+    },
+    {
+      "path": "character_sheets/08_blades_in_the_dark_score_command_board.html",
+      "bytes": 231206,
+      "sha256": "65eca640eaafb69a3ab1f3738520c8faeb3da9fd5a3224d1451e94b007aeb6a0"
+    },
+    {
+      "path": "character_sheets/09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "bytes": 1353504,
+      "sha256": "d5756eb1e23faf90f727892e49dd8369c0522845035d60c905cba5d54b913ce3"
+    },
+    {
+      "path": "copy color schemes (without copying homebrew names like ichor) from here.html",
+      "bytes": 83602,
+      "sha256": "7f49d0b34734f0ba7bc0b517e744e4376243a331de270f1cdc8f7facf17c53f1"
+    },
+    {
+      "path": "copy hamburger navigation and 2 image uploader and narrow overlay from here.html",
+      "bytes": 35910,
+      "sha256": "5a138642879af8363a51a0b20546b9c199a5a03703852121c1e6e8b2d02a8d3b"
+    },
+    {
+      "path": "docs/CUSTOMIZATION_FEATURES.md",
+      "bytes": 1448,
+      "sha256": "414aaac5ef6db5710f3716e5c1e2f932ce6e12a92240d38de3b4b7c320618e0f"
+    },
+    {
+      "path": "docs/FILENAME_INSTRUCTIONS_APPLIED.md",
+      "bytes": 1361,
+      "sha256": "9ab78ec3948864c7c60b9ed632d578c2936ebe626ca5fb6090ed8b0301e69ea8"
+    },
+    {
+      "path": "docs/FINAL_HYPER_INTELLIGENCE_AUDIT.json",
+      "bytes": 915,
+      "sha256": "104c34a10549e8ca7ee0778870a3d6ea727d99b411f9bfd0d6d2f8af35a12085"
+    },
+    {
+      "path": "docs/FINAL_UNIFICATION_AUDIT.json",
+      "bytes": 3796,
+      "sha256": "8558d03a34d7d1a20889de86f6acbe4f6f46514e673e3b90ddea12599d28b74e"
+    },
+    {
+      "path": "docs/HYPER_INTELLIGENT_AUTOMATION.md",
+      "bytes": 3793,
+      "sha256": "b7d8a89920f438ba58871970e75d8efd90d901a25fa10b9100daad7284898e46"
+    },
+    {
+      "path": "docs/PORTAL_BRIDGE_CONTRACT.md",
+      "bytes": 3799,
+      "sha256": "5ae3011df37fc94dff3cec13df8b3b42d8dac68aab4976f609da63885e050a09"
+    },
+    {
+      "path": "docs/SYSTEM_FEATURE_MATRIX.md",
+      "bytes": 3091,
+      "sha256": "d73a9458a61b25f993fab6b618b33391e575dcde865c83a589026dc1d9baa86e"
+    },
+    {
+      "path": "docs/VALIDATION_DND_INTERACTIVE_EXPORT.json",
+      "bytes": 25628,
+      "sha256": "55577d82eacfa004544c014fc416a7b74d6ced574d960bef91eaf36c107b9172"
+    },
+    {
+      "path": "docs/VALIDATION_DND_PROGRESSION.json",
+      "bytes": 128,
+      "sha256": "c8f8dce91310c9f8baa382f9d5380da27a2e0100968a11fc9a00e9f420c94e5d"
+    },
+    {
+      "path": "docs/VALIDATION_HYPER_MOBILE.json",
+      "bytes": 2057,
+      "sha256": "b0827c7addf9a3d0bb67bdb546bfda8e2523dc36a32d7d0e49f9e64d14820f1d"
+    },
+    {
+      "path": "docs/VALIDATION_HYPER_RUNTIME.json",
+      "bytes": 23600,
+      "sha256": "20a6c1035d7ab0af91c5e7b3a9f268b72dd3f59cb62f01a320a318e5403fcd97"
+    },
+    {
+      "path": "docs/VALIDATION_HYPER_SUMMARY.json",
+      "bytes": 1267,
+      "sha256": "c8ee65fdc1a27c5566ae8365d622dd70653b24c91e9c6a7df55aabbc2376f5c2"
+    },
+    {
+      "path": "docs/VALIDATION_INTERACTIVE_EXPORT_ALL_SYSTEMS.json",
+      "bytes": 186936,
+      "sha256": "e33fcbaaa8f4f2e0e7f145590ee0337911e93c1a49ec1e3ba9896e0154cbd75a"
+    },
+    {
+      "path": "docs/VALIDATION_PROGRESSION_SYSTEMS_1_TO_8.json",
+      "bytes": 33832,
+      "sha256": "9168321f9771742910dca3310df43955fdfd14254a6991159dece23b65e56142"
+    },
+    {
+      "path": "docs/VALIDATION_REPORT.json",
+      "bytes": 10312,
+      "sha256": "50c53c4d90e49ff61609d46dc360c17dbf561053c88f9c6a47078ccb9a2b8a3f"
+    },
+    {
+      "path": "docs/VALIDATION_REPORT_SYSTEM_ATLAS.json",
+      "bytes": 3382,
+      "sha256": "89135060fa6b033079d96b973c96455c25628d4e1b34f6e772f543ff20a7e888"
+    },
+    {
+      "path": "docs/pre_unification_sha256.json",
+      "bytes": 1016,
+      "sha256": "49e09c68646a39afbcbdccd7d45b49b63f8318a92dea7aa264626813a3a7fd79"
+    },
+    {
+      "path": "docs/tablegate_character_sheet_bridge_v1.schema.json",
+      "bytes": 2166,
+      "sha256": "df15551ce7fb31ab1592e4f0511137b41aa05444cab6ff7481451dd759eedbf6"
+    },
+    {
+      "path": "reference_json/dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+      "bytes": 1629808,
+      "sha256": "ca4b07516e2c9da832c4b2d3a478d08ecc93521fb18b006a2a38b29053928405"
+    },
+    {
+      "path": "reference_json/fate_core_complete_how_to_play_reference_v2.json",
+      "bytes": 917972,
+      "sha256": "fed00c11f50c26ba98201542294fe01ffc8ece9e5f81c2ded42604bd885e7029"
+    },
+    {
+      "path": "reference_json/gurps_4e_revised_complete_character_reference_v2.json",
+      "bytes": 566514,
+      "sha256": "e90ad9647f67076fe24d9db557b1305aa58acb516724dc8f268d6fa4005fff88"
+    },
+    {
+      "path": "reference_json/how_to_play_blades_in_the_dark_complete_reference_v2.json",
+      "bytes": 357692,
+      "sha256": "66f98a144e33a194f2e8891d045688b296ac601df7460f8cb90e170f0fafda83"
+    },
+    {
+      "path": "reference_json/how_to_play_coc_7e_complete_reference_v2.json",
+      "bytes": 271196,
+      "sha256": "1993f99b314d29f5374f28fcaa0f7ede1964b420dc23cbbb128a47699219510d"
+    },
+    {
+      "path": "reference_json/how_to_play_daggerheart_complete_reference_v2.json",
+      "bytes": 997612,
+      "sha256": "91a84a7c4b95ccb8d710c1da067254912066a1ee735206fbfef9a648ec04c32c"
+    },
+    {
+      "path": "reference_json/how_to_play_pathfinder_2e_remastered_complete_reference_v2.json",
+      "bytes": 548561,
+      "sha256": "f98e83f8040d748201e7c89e00452f0d4e3f973d60c30ea2fdcca2102c5d9734"
+    },
+    {
+      "path": "reference_json/how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+      "bytes": 1141734,
+      "sha256": "07897ea312410ff103c954e49495dc07153c2156d67c9a049dde5eae9bcfc62d"
+    },
+    {
+      "path": "reference_json/savage_worlds_swade_complete_reference_v2.json",
+      "bytes": 477779,
+      "sha256": "bd1d7d8eb6b1db53028e81a52492e9f6ce2c8107d3faf388bf0192d40e18f3de"
+    },
+    {
+      "path": "system_atlas.html",
+      "bytes": 13804,
+      "sha256": "752593f36352cb162da985dcc3530b351bd027a9bb9b603681847c39eac90d9c"
+    }
+  ]
+}
