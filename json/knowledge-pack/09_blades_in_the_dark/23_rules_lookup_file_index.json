@@ -1,0 +1,130 @@
+{
+  "system": "Blades in the Dark / Forged in the Dark",
+  "files": [
+    {
+      "name": "00_manifest.json",
+      "bytes": 1246,
+      "sha256": "9b9c430fbb816b4f9a059654d2e15695e41953b7d164a451ab5320957b50e367"
+    },
+    {
+      "name": "01_licensing_and_scope.json",
+      "bytes": 820,
+      "sha256": "e01c03d7363f66aab6a632bae4b66f53754101a36307615ec9f454aeee50f923"
+    },
+    {
+      "name": "02_edition_timeline_and_conversion.json",
+      "bytes": 2892,
+      "sha256": "7aae63e49a75f0d40301787ea74afcacca70eef2d582fcb93af90b80666d4d75"
+    },
+    {
+      "name": "03_complete_how_to_play.json",
+      "bytes": 7519,
+      "sha256": "bd16b5ee633b08e96bd0f31a4007cb5bc41876461b5ac91d90b9c3430a4f32c5"
+    },
+    {
+      "name": "04_character_creation.json",
+      "bytes": 3778,
+      "sha256": "d8628825d449e6cfe010fc63627862615c62a8af45c1d3e6fb7210f9afc08e28"
+    },
+    {
+      "name": "05_advancement_and_leveling.json",
+      "bytes": 6981,
+      "sha256": "099ef1a8728f70b47f48604ff6755db874790314a8dc0a426f7d1d2d71ab3acd"
+    },
+    {
+      "name": "06_combat_attacks_actions.json",
+      "bytes": 1814802,
+      "sha256": "23a2526bfd1c0e5e6b4784de3d4aed33aba83e15c4e914c9a9981993dacbef88"
+    },
+    {
+      "name": "07_magic_spells_powers_rituals.json",
+      "bytes": 2315072,
+      "sha256": "c6f746bc6b5b4921881341bb26edaebcda8b4bf31f6fa9163aec6c4196ebfc8c"
+    },
+    {
+      "name": "08_classes_archetypes_playbooks.json",
+      "bytes": 815079,
+      "sha256": "339c49a41779e443beca49a228a6b04369185e7159d1b79dc680a027db2809d2"
+    },
+    {
+      "name": "09_ancestries_races_species_lineages.json",
+      "bytes": 520534,
+      "sha256": "1a2d1edf2edf77f2682d27d10bef31c31ca597b6067feda5afc5bc318cca8f2a"
+    },
+    {
+      "name": "10_subclasses_specializations_paths.json",
+      "bytes": 977824,
+      "sha256": "4f9aeea90c6a604faa17042053c3a8d9e6de722f2b3da24b111a28e8a09b2a9e"
+    },
+    {
+      "name": "11_backgrounds_origins_professions.json",
+      "bytes": 613705,
+      "sha256": "d031eba60258b71b6d411a8b28d3bf244c1cc9b388da483f6cead766ac52f13d"
+    },
+    {
+      "name": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1638962,
+      "sha256": "4e91dc950d443b39ba7aaf75a394cd40280fa6924b5ee2f6fa0b8e9459831dd1"
+    },
+    {
+      "name": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1245893,
+      "sha256": "e16159abee6bcb985c05f4c5e0e9c90bf3ec50c386e35479439772fc177b301b"
+    },
+    {
+      "name": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 961353,
+      "sha256": "c2d055b4e8d786d979b4d2a476396d24af7889851151456614f21a81209f35d9"
+    },
+    {
+      "name": "15_armor_shields_protective_gear.json",
+      "bytes": 546135,
+      "sha256": "674e1c795b14a673c0584732986a6df653fd375ca5977c0289b411409639586e"
+    },
+    {
+      "name": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 761767,
+      "sha256": "061c2b3e7f78e4bb91a9a4f2fa8452ef470f3b3f13720687b2d3ae7302f36e49"
+    },
+    {
+      "name": "17_conditions_damage_healing_recovery.json",
+      "bytes": 586939,
+      "sha256": "cd49d628c85bcc009a8ec870fbac16000379c775bf8accc4cd2734b29bd40f71"
+    },
+    {
+      "name": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4308160,
+      "sha256": "9ee591ef8bd75272a9eb42442cfc51447de3bb14655da3944b888e6e1df7c996"
+    },
+    {
+      "name": "19_locations_factions_worldbuilding.json",
+      "bytes": 1487927,
+      "sha256": "938e53c813c200e9c9033ce337e0b1d3d28d760f0588bf325063c8d6d4fdc6e3"
+    },
+    {
+      "name": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2346863,
+      "sha256": "ec10da2aa08926362b59db9b71b20608bdc55be09318d9ec7ea1ce847b83a96c"
+    },
+    {
+      "name": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1433702,
+      "sha256": "6463631e81645c1750fed04b1086ed8e9db1f5b58fb54153a74b7adf972c25ae"
+    },
+    {
+      "name": "22_facilitator_tools.json",
+      "bytes": 1385,
+      "sha256": "c93c990d6bafbc1195ca0e139ac2b3cd5a7e2ccce0a523c2964748220fc2ed2a"
+    },
+    {
+      "name": "89_user_supplied_import_manifest.json",
+      "bytes": 437,
+      "sha256": "4fa7b8394e4a1b73e25660593cb79122912b4f09112d1f10cb3eda1e91c6f3fc"
+    },
+    {
+      "name": "90_user_supplied_how_to_play_blades_in_the_dark_complete_reference_v2.json",
+      "bytes": 357692,
+      "sha256": "66f98a144e33a194f2e8891d045688b296ac601df7460f8cb90e170f0fafda83"
+    }
+  ]
+}

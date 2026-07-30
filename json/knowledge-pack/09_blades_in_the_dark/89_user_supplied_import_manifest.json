@@ -1,0 +1,12 @@
+{
+  "system": "Blades in the Dark / Forged in the Dark",
+  "files": [
+    {
+      "file": "90_user_supplied_how_to_play_blades_in_the_dark_complete_reference_v2.json",
+      "bytes": 357692,
+      "sha256": "66f98a144e33a194f2e8891d045688b296ac601df7460f8cb90e170f0fafda83",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}
