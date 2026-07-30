@@ -1,0 +1,143 @@
+{
+  "schema": "tablegate.lifesimulator.manifest.v6",
+  "name": "TableGate LifeSimulator — Setting and System Agnostic",
+  "version": "6.0.0",
+  "entry": "lifesimulator.html",
+  "alternateEntry": "index.html",
+  "offlineStandalone": true,
+  "requiresBatchFiles": false,
+  "branding": "TableGate",
+  "rulesSystems": [
+    {
+      "id": "dnd",
+      "name": "Dungeons & Dragons",
+      "defaultEdition": "5.5e",
+      "editions": [
+        "5e",
+        "5.5e"
+      ],
+      "source": "json/systems/dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json"
+    },
+    {
+      "id": "daggerheart",
+      "name": "Daggerheart",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/systems/how_to_play_daggerheart_complete_reference_v2.json"
+    },
+    {
+      "id": "pathfinder2e",
+      "name": "Pathfinder Second Edition Remastered",
+      "defaultEdition": "remastered",
+      "editions": [
+        "remastered"
+      ],
+      "source": "json/systems/how_to_play_pathfinder_2e_remastered_complete_reference_v2.json"
+    },
+    {
+      "id": "blades",
+      "name": "Blades in the Dark",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/systems/how_to_play_blades_in_the_dark_complete_reference_v2.json"
+    },
+    {
+      "id": "coc7e",
+      "name": "Call of Cthulhu Seventh Edition",
+      "defaultEdition": "7e",
+      "editions": [
+        "7e"
+      ],
+      "source": "json/systems/how_to_play_coc_7e_complete_reference_v2.json"
+    },
+    {
+      "id": "fate",
+      "name": "Fate Core",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/systems/fate_core_complete_how_to_play_reference_v2.json"
+    },
+    {
+      "id": "gurps",
+      "name": "GURPS Fourth Edition Revised",
+      "defaultEdition": "4e-revised",
+      "editions": [
+        "4e-revised"
+      ],
+      "source": "json/systems/gurps_4e_revised_complete_character_reference_v2.json"
+    },
+    {
+      "id": "pbta",
+      "name": "Powered by the Apocalypse",
+      "defaultEdition": "framework",
+      "editions": [
+        "framework"
+      ],
+      "source": "json/systems/how_to_play_powered_by_the_apocalypse_complete_reference_v2.json"
+    },
+    {
+      "id": "swade",
+      "name": "Savage Worlds Adventure Edition",
+      "defaultEdition": "swade",
+      "editions": [
+        "swade"
+      ],
+      "source": "json/systems/savage_worlds_swade_complete_reference_v2.json"
+    }
+  ],
+  "capabilities": [
+    "hierarchical map viewer",
+    "project-level and per-entity rules switching",
+    "protected and custom body forms",
+    "system-aware entity generation",
+    "semantic locations",
+    "NPC dialogue and memory",
+    "schedules and reactions",
+    "simulation branches and save points",
+    "import/export and validation"
+  ],
+  "registryCounts": {
+    "rulesSystems": 9,
+    "rulesEditions": 10,
+    "bodyFormCategories": 23,
+    "protectedBodyForms": 161,
+    "orderedMixedHeritageRecords": 7664,
+    "genderIdentities": 14,
+    "tokenBorders": 285,
+    "coreReactions": 968,
+    "biomeCategories": 5,
+    "biomePaths": 18
+  },
+  "package": {
+    "files": 1371,
+    "bytes": 74757392,
+    "fileTypes": {
+      ".css": 20,
+      ".html": 2,
+      ".js": 32,
+      ".json": 59,
+      ".md": 5,
+      ".svg": 1253
+    }
+  },
+  "keyFiles": [
+    "lifesimulator.html",
+    "index.html",
+    "css/tablegate.css",
+    "js/tablegate/system-catalog.js",
+    "js/tablegate/system-adapter.js",
+    "js/tablegate/map-viewer.js",
+    "json/lifesimulator/lifesimulator_manifest.json",
+    "README.md",
+    "docs/SYSTEM_SWITCHING_GUIDE.md",
+    "docs/MAP_VIEWER_GUIDE.md",
+    "docs/MIGRATION_NOTES.md",
+    "docs/BUILD_AUDIT.md"
+  ]
+}
