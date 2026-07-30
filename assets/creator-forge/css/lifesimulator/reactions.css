@@ -1,7 +1,0 @@
-/* Reactions visual contract. Companion to js/lifesimulator/reactions.js. */
-:root{--wf-reactions-surface:var(--panel,rgba(13,24,38,.92));--wf-reactions-gap:.75rem;}
-[data-module="reactions"], .module-reactions{position:relative;display:grid;gap:var(--wf-reactions-gap);min-width:0;}
-[data-module="reactions"] .module-status, .module-reactions .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
-[data-module="reactions"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-reactions-surface);}
-@media (max-width:760px){[data-module="reactions"],.module-reactions{grid-template-columns:1fr;}}
-@media (prefers-reduced-motion:reduce){[data-module="reactions"] *, .module-reactions *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

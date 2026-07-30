@@ -1,7 +1,0 @@
-/* Race Creator visual contract. Companion to js/lifesimulator/race-creator.js. */
-:root{--wf-race-creator-surface:var(--panel,rgba(13,24,38,.92));--wf-race-creator-gap:.75rem;}
-[data-module="race-creator"], .module-race-creator{position:relative;display:grid;gap:var(--wf-race-creator-gap);min-width:0;}
-[data-module="race-creator"] .module-status, .module-race-creator .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
-[data-module="race-creator"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-race-creator-surface);}
-@media (max-width:760px){[data-module="race-creator"],.module-race-creator{grid-template-columns:1fr;}}
-@media (prefers-reduced-motion:reduce){[data-module="race-creator"] *, .module-race-creator *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

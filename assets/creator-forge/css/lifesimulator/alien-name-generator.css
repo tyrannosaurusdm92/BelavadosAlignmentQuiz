@@ -1,7 +1,0 @@
-/* Alien Name Generator visual contract. Companion to js/lifesimulator/alien-name-generator.js. */
-:root{--wf-alien-name-generator-surface:var(--panel,rgba(13,24,38,.92));--wf-alien-name-generator-gap:.75rem;}
-[data-module="alien-name-generator"], .module-alien-name-generator{position:relative;display:grid;gap:var(--wf-alien-name-generator-gap);min-width:0;}
-[data-module="alien-name-generator"] .module-status, .module-alien-name-generator .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
-[data-module="alien-name-generator"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-alien-name-generator-surface);}
-@media (max-width:760px){[data-module="alien-name-generator"],.module-alien-name-generator{grid-template-columns:1fr;}}
-@media (prefers-reduced-motion:reduce){[data-module="alien-name-generator"] *, .module-alien-name-generator *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

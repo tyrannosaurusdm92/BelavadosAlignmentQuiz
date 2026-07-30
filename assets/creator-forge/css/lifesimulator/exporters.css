@@ -1,7 +1,0 @@
-/* Exporters visual contract. Companion to js/lifesimulator/exporters.js. */
-:root{--wf-exporters-surface:var(--panel,rgba(13,24,38,.92));--wf-exporters-gap:.75rem;}
-[data-module="exporters"], .module-exporters{position:relative;display:grid;gap:var(--wf-exporters-gap);min-width:0;}
-[data-module="exporters"] .module-status, .module-exporters .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
-[data-module="exporters"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-exporters-surface);}
-@media (max-width:760px){[data-module="exporters"],.module-exporters{grid-template-columns:1fr;}}
-@media (prefers-reduced-motion:reduce){[data-module="exporters"] *, .module-exporters *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
