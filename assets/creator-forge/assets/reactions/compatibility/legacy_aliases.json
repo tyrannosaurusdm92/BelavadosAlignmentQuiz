@@ -1,0 +1,1725 @@
+{
+  "schemaVersion": "2.0.0",
+  "aliases": {
+    "reactions/addedstates__vacationing.svg": {
+      "target": "expansions/belavados/original_icons/addedstates__vacationing.svg",
+      "reactionId": "belavados.addedstates.vacationing",
+      "canonicalCoreReactionId": "leisure_tourism.vacationing"
+    },
+    "reactions/afternoonroutine__attending_council_meetings.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__attending_council_meetings.svg",
+      "reactionId": "belavados.afternoonroutine.attending_council_meetings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__banking_money.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__banking_money.svg",
+      "reactionId": "belavados.afternoonroutine.banking_money",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__conducting_research.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__conducting_research.svg",
+      "reactionId": "belavados.afternoonroutine.conducting_research",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__continuing_work.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__continuing_work.svg",
+      "reactionId": "belavados.afternoonroutine.continuing_work",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__doing_repairs.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__doing_repairs.svg",
+      "reactionId": "belavados.afternoonroutine.doing_repairs",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__escorting_goods.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__escorting_goods.svg",
+      "reactionId": "belavados.afternoonroutine.escorting_goods",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__exercising.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__exercising.svg",
+      "reactionId": "belavados.afternoonroutine.exercising",
+      "canonicalCoreReactionId": "health_wellness.exercising"
+    },
+    "reactions/afternoonroutine__making_deliveries.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__making_deliveries.svg",
+      "reactionId": "belavados.afternoonroutine.making_deliveries",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__meeting_with_a_faction.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__meeting_with_a_faction.svg",
+      "reactionId": "belavados.afternoonroutine.meeting_with_a_faction",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__meeting_with_clients.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__meeting_with_clients.svg",
+      "reactionId": "belavados.afternoonroutine.meeting_with_clients",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__patrolling.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__patrolling.svg",
+      "reactionId": "belavados.afternoonroutine.patrolling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__preparing_dinner_ingredients.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__preparing_dinner_ingredients.svg",
+      "reactionId": "belavados.afternoonroutine.preparing_dinner_ingredients",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__restocking_shelves.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__restocking_shelves.svg",
+      "reactionId": "belavados.afternoonroutine.restocking_shelves",
+      "canonicalCoreReactionId": "commerce_services.restocking_shelves"
+    },
+    "reactions/afternoonroutine__running_family_errands.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__running_family_errands.svg",
+      "reactionId": "belavados.afternoonroutine.running_family_errands",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__studying.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__studying.svg",
+      "reactionId": "belavados.afternoonroutine.studying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__taking_children_home.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__taking_children_home.svg",
+      "reactionId": "belavados.afternoonroutine.taking_children_home",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__training.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__training.svg",
+      "reactionId": "belavados.afternoonroutine.training",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/afternoonroutine__visiting_a_second_job.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__visiting_a_second_job.svg",
+      "reactionId": "belavados.afternoonroutine.visiting_a_second_job",
+      "canonicalCoreReactionId": "work_professional.visiting_a_second_job"
+    },
+    "reactions/afternoonroutine__visiting_a_tavern.svg": {
+      "target": "expansions/belavados/original_icons/afternoonroutine__visiting_a_tavern.svg",
+      "reactionId": "belavados.afternoonroutine.visiting_a_tavern",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__breaking_into_buildings.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__breaking_into_buildings.svg",
+      "reactionId": "belavados.criminalsecretactivities.breaking_into_buildings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__bribing_officials.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__bribing_officials.svg",
+      "reactionId": "belavados.criminalsecretactivities.bribing_officials",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__forging_documents.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__forging_documents.svg",
+      "reactionId": "belavados.criminalsecretactivities.forging_documents",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__hiding_evidence.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__hiding_evidence.svg",
+      "reactionId": "belavados.criminalsecretactivities.hiding_evidence",
+      "canonicalCoreReactionId": "crime_secret.hiding_evidence"
+    },
+    "reactions/criminalsecretactivities__interrogating_someone.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__interrogating_someone.svg",
+      "reactionId": "belavados.criminalsecretactivities.interrogating_someone",
+      "canonicalCoreReactionId": "crime_secret.interrogating_someone"
+    },
+    "reactions/criminalsecretactivities__laundering_money.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__laundering_money.svg",
+      "reactionId": "belavados.criminalsecretactivities.laundering_money",
+      "canonicalCoreReactionId": "crime_secret.laundering_money"
+    },
+    "reactions/criminalsecretactivities__lying_low.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__lying_low.svg",
+      "reactionId": "belavados.criminalsecretactivities.lying_low",
+      "canonicalCoreReactionId": "crime_secret.lying_low"
+    },
+    "reactions/criminalsecretactivities__making_escape_plans.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__making_escape_plans.svg",
+      "reactionId": "belavados.criminalsecretactivities.making_escape_plans",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__meeting_an_accomplice.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__meeting_an_accomplice.svg",
+      "reactionId": "belavados.criminalsecretactivities.meeting_an_accomplice",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__pickpocketing.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__pickpocketing.svg",
+      "reactionId": "belavados.criminalsecretactivities.pickpocketing",
+      "canonicalCoreReactionId": "crime_secret.pickpocketing"
+    },
+    "reactions/criminalsecretactivities__running_a_black_market.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__running_a_black_market.svg",
+      "reactionId": "belavados.criminalsecretactivities.running_a_black_market",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__selling_contraband.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__selling_contraband.svg",
+      "reactionId": "belavados.criminalsecretactivities.selling_contraband",
+      "canonicalCoreReactionId": "crime_secret.selling_contraband"
+    },
+    "reactions/criminalsecretactivities__smuggling.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__smuggling.svg",
+      "reactionId": "belavados.criminalsecretactivities.smuggling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__spying.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__spying.svg",
+      "reactionId": "belavados.criminalsecretactivities.spying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__tailing_targets.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__tailing_targets.svg",
+      "reactionId": "belavados.criminalsecretactivities.tailing_targets",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/criminalsecretactivities__threatening_witnesses.svg": {
+      "target": "expansions/belavados/original_icons/criminalsecretactivities__threatening_witnesses.svg",
+      "reactionId": "belavados.criminalsecretactivities.threatening_witnesses",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__attending_festivals.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__attending_festivals.svg",
+      "reactionId": "belavados.daysoffleisure.attending_festivals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__attending_performances.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__attending_performances.svg",
+      "reactionId": "belavados.daysoffleisure.attending_performances",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__crafting_personal_items.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__crafting_personal_items.svg",
+      "reactionId": "belavados.daysoffleisure.crafting_personal_items",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__drinking.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__drinking.svg",
+      "reactionId": "belavados.daysoffleisure.drinking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__exercising.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__exercising.svg",
+      "reactionId": "belavados.daysoffleisure.exercising",
+      "canonicalCoreReactionId": "health_wellness.exercising"
+    },
+    "reactions/daysoffleisure__fishing_for_fun.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__fishing_for_fun.svg",
+      "reactionId": "belavados.daysoffleisure.fishing_for_fun",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__gambling.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__gambling.svg",
+      "reactionId": "belavados.daysoffleisure.gambling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__gardening.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__gardening.svg",
+      "reactionId": "belavados.daysoffleisure.gardening",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__going_to_the_market.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__going_to_the_market.svg",
+      "reactionId": "belavados.daysoffleisure.going_to_the_market",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__hunting_for_fun.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__hunting_for_fun.svg",
+      "reactionId": "belavados.daysoffleisure.hunting_for_fun",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__playing_games.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__playing_games.svg",
+      "reactionId": "belavados.daysoffleisure.playing_games",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__practicing_a_hobby.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__practicing_a_hobby.svg",
+      "reactionId": "belavados.daysoffleisure.practicing_a_hobby",
+      "canonicalCoreReactionId": "arts_entertainment.practicing_a_hobby"
+    },
+    "reactions/daysoffleisure__reading.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__reading.svg",
+      "reactionId": "belavados.daysoffleisure.reading",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__shopping.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__shopping.svg",
+      "reactionId": "belavados.daysoffleisure.shopping",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__sleeping_in.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__sleeping_in.svg",
+      "reactionId": "belavados.daysoffleisure.sleeping_in",
+      "canonicalCoreReactionId": "leisure_tourism.sleeping_in"
+    },
+    "reactions/daysoffleisure__studying.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__studying.svg",
+      "reactionId": "belavados.daysoffleisure.studying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__traveling.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__traveling.svg",
+      "reactionId": "belavados.daysoffleisure.traveling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__visiting_family.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__visiting_family.svg",
+      "reactionId": "belavados.daysoffleisure.visiting_family",
+      "canonicalCoreReactionId": "family_care.visiting_family"
+    },
+    "reactions/daysoffleisure__visiting_friends.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__visiting_friends.svg",
+      "reactionId": "belavados.daysoffleisure.visiting_friends",
+      "canonicalCoreReactionId": "social_relationships.visiting_friends"
+    },
+    "reactions/daysoffleisure__visiting_scenic_spots.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__visiting_scenic_spots.svg",
+      "reactionId": "belavados.daysoffleisure.visiting_scenic_spots",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/daysoffleisure__walking.svg": {
+      "target": "expansions/belavados/original_icons/daysoffleisure__walking.svg",
+      "reactionId": "belavados.daysoffleisure.walking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__defending_others.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__defending_others.svg",
+      "reactionId": "belavados.emergencycrisis.defending_others",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__evacuating_civilians.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__evacuating_civilians.svg",
+      "reactionId": "belavados.emergencycrisis.evacuating_civilians",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__fighting.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__fighting.svg",
+      "reactionId": "belavados.emergencycrisis.fighting",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__fleeing.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__fleeing.svg",
+      "reactionId": "belavados.emergencycrisis.fleeing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__hiding.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__hiding.svg",
+      "reactionId": "belavados.emergencycrisis.hiding",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__investigating_damage.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__investigating_damage.svg",
+      "reactionId": "belavados.emergencycrisis.investigating_damage",
+      "canonicalCoreReactionId": "emergency_safety.investigating_damage"
+    },
+    "reactions/emergencycrisis__locking_down_a_building.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__locking_down_a_building.svg",
+      "reactionId": "belavados.emergencycrisis.locking_down_a_building",
+      "canonicalCoreReactionId": "emergency_safety.locking_down_a_building"
+    },
+    "reactions/emergencycrisis__loot_recovery.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__loot_recovery.svg",
+      "reactionId": "belavados.emergencycrisis.loot_recovery",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__looting.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__looting.svg",
+      "reactionId": "belavados.emergencycrisis.looting",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__mourning.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__mourning.svg",
+      "reactionId": "belavados.emergencycrisis.mourning",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__protecting_valuables.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__protecting_valuables.svg",
+      "reactionId": "belavados.emergencycrisis.protecting_valuables",
+      "canonicalCoreReactionId": "emergency_safety.protecting_valuables"
+    },
+    "reactions/emergencycrisis__putting_out_fires.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__putting_out_fires.svg",
+      "reactionId": "belavados.emergencycrisis.putting_out_fires",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__rebuilding.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__rebuilding.svg",
+      "reactionId": "belavados.emergencycrisis.rebuilding",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__reporting_danger.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__reporting_danger.svg",
+      "reactionId": "belavados.emergencycrisis.reporting_danger",
+      "canonicalCoreReactionId": "emergency_safety.reporting_danger"
+    },
+    "reactions/emergencycrisis__rescuing_animals.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__rescuing_animals.svg",
+      "reactionId": "belavados.emergencycrisis.rescuing_animals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/emergencycrisis__searching_for_someone.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__searching_for_someone.svg",
+      "reactionId": "belavados.emergencycrisis.searching_for_someone",
+      "canonicalCoreReactionId": "special_states.searching_for_someone"
+    },
+    "reactions/emergencycrisis__sounding_an_alarm.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__sounding_an_alarm.svg",
+      "reactionId": "belavados.emergencycrisis.sounding_an_alarm",
+      "canonicalCoreReactionId": "emergency_safety.sounding_an_alarm"
+    },
+    "reactions/emergencycrisis__treating_injuries.svg": {
+      "target": "expansions/belavados/original_icons/emergencycrisis__treating_injuries.svg",
+      "reactionId": "belavados.emergencycrisis.treating_injuries",
+      "canonicalCoreReactionId": "emergency_safety.treating_injuries"
+    },
+    "reactions/eveningroutine__attending_a_lecture_or_performance.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__attending_a_lecture_or_performance.svg",
+      "reactionId": "belavados.eveningroutine.attending_a_lecture_or_performance",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__attending_dinner_gatherings.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__attending_dinner_gatherings.svg",
+      "reactionId": "belavados.eveningroutine.attending_dinner_gatherings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__attending_social_events.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__attending_social_events.svg",
+      "reactionId": "belavados.eveningroutine.attending_social_events",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__checking_on_livestock.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__checking_on_livestock.svg",
+      "reactionId": "belavados.eveningroutine.checking_on_livestock",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__closing_stalls.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__closing_stalls.svg",
+      "reactionId": "belavados.eveningroutine.closing_stalls",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__cooking_dinner.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__cooking_dinner.svg",
+      "reactionId": "belavados.eveningroutine.cooking_dinner",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__dancing.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__dancing.svg",
+      "reactionId": "belavados.eveningroutine.dancing",
+      "canonicalCoreReactionId": "arts_entertainment.dancing"
+    },
+    "reactions/eveningroutine__drinking.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__drinking.svg",
+      "reactionId": "belavados.eveningroutine.drinking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__eating_dinner.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__eating_dinner.svg",
+      "reactionId": "belavados.eveningroutine.eating_dinner",
+      "canonicalCoreReactionId": "food_dining.eating_dinner"
+    },
+    "reactions/eveningroutine__gambling.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__gambling.svg",
+      "reactionId": "belavados.eveningroutine.gambling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__going_to_church_or_temple.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__going_to_church_or_temple.svg",
+      "reactionId": "belavados.eveningroutine.going_to_church_or_temple",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__locking_up_shops.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__locking_up_shops.svg",
+      "reactionId": "belavados.eveningroutine.locking_up_shops",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__patrolling_streets.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__patrolling_streets.svg",
+      "reactionId": "belavados.eveningroutine.patrolling_streets",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__playing_games.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__playing_games.svg",
+      "reactionId": "belavados.eveningroutine.playing_games",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__preparing_for_bed.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__preparing_for_bed.svg",
+      "reactionId": "belavados.eveningroutine.preparing_for_bed",
+      "canonicalCoreReactionId": "personal_care.preparing_for_bed"
+    },
+    "reactions/eveningroutine__reading.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__reading.svg",
+      "reactionId": "belavados.eveningroutine.reading",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__relaxing.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__relaxing.svg",
+      "reactionId": "belavados.eveningroutine.relaxing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__returning_home.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__returning_home.svg",
+      "reactionId": "belavados.eveningroutine.returning_home",
+      "canonicalCoreReactionId": "home_domestic.returning_home"
+    },
+    "reactions/eveningroutine__singing.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__singing.svg",
+      "reactionId": "belavados.eveningroutine.singing",
+      "canonicalCoreReactionId": "arts_entertainment.singing"
+    },
+    "reactions/eveningroutine__spending_time_with_family.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__spending_time_with_family.svg",
+      "reactionId": "belavados.eveningroutine.spending_time_with_family",
+      "canonicalCoreReactionId": "family_care.spending_time_with_family"
+    },
+    "reactions/eveningroutine__starting_night_shift.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__starting_night_shift.svg",
+      "reactionId": "belavados.eveningroutine.starting_night_shift",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__talking_with_neighbors.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__talking_with_neighbors.svg",
+      "reactionId": "belavados.eveningroutine.talking_with_neighbors",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__visiting_the_tavern.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__visiting_the_tavern.svg",
+      "reactionId": "belavados.eveningroutine.visiting_the_tavern",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/eveningroutine__walking_pets.svg": {
+      "target": "expansions/belavados/original_icons/eveningroutine__walking_pets.svg",
+      "reactionId": "belavados.eveningroutine.walking_pets",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__attending_meetings.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__attending_meetings.svg",
+      "reactionId": "belavados.factionpoliticalactivities.attending_meetings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__collecting_bribes.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__collecting_bribes.svg",
+      "reactionId": "belavados.factionpoliticalactivities.collecting_bribes",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__covering_up_crimes.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__covering_up_crimes.svg",
+      "reactionId": "belavados.factionpoliticalactivities.covering_up_crimes",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__debating_policy.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__debating_policy.svg",
+      "reactionId": "belavados.factionpoliticalactivities.debating_policy",
+      "canonicalCoreReactionId": "civic_governance.debating_policy"
+    },
+    "reactions/factionpoliticalactivities__delivering_speeches.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__delivering_speeches.svg",
+      "reactionId": "belavados.factionpoliticalactivities.delivering_speeches",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__enforcing_laws.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__enforcing_laws.svg",
+      "reactionId": "belavados.factionpoliticalactivities.enforcing_laws",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__forming_alliances.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__forming_alliances.svg",
+      "reactionId": "belavados.factionpoliticalactivities.forming_alliances",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__holding_court.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__holding_court.svg",
+      "reactionId": "belavados.factionpoliticalactivities.holding_court",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__investigating_crimes.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__investigating_crimes.svg",
+      "reactionId": "belavados.factionpoliticalactivities.investigating_crimes",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__issuing_orders.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__issuing_orders.svg",
+      "reactionId": "belavados.factionpoliticalactivities.issuing_orders",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__lobbying_support.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__lobbying_support.svg",
+      "reactionId": "belavados.factionpoliticalactivities.lobbying_support",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__making_threats.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__making_threats.svg",
+      "reactionId": "belavados.factionpoliticalactivities.making_threats",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__negotiating_treaties.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__negotiating_treaties.svg",
+      "reactionId": "belavados.factionpoliticalactivities.negotiating_treaties",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__organizing_protests.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__organizing_protests.svg",
+      "reactionId": "belavados.factionpoliticalactivities.organizing_protests",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__planning_raids.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__planning_raids.svg",
+      "reactionId": "belavados.factionpoliticalactivities.planning_raids",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__recruiting_members.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__recruiting_members.svg",
+      "reactionId": "belavados.factionpoliticalactivities.recruiting_members",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__spreading_propaganda.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__spreading_propaganda.svg",
+      "reactionId": "belavados.factionpoliticalactivities.spreading_propaganda",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__spying.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__spying.svg",
+      "reactionId": "belavados.factionpoliticalactivities.spying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/factionpoliticalactivities__voting.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__voting.svg",
+      "reactionId": "belavados.factionpoliticalactivities.voting",
+      "canonicalCoreReactionId": "civic_governance.voting"
+    },
+    "reactions/factionpoliticalactivities__writing_decrees.svg": {
+      "target": "expansions/belavados/original_icons/factionpoliticalactivities__writing_decrees.svg",
+      "reactionId": "belavados.factionpoliticalactivities.writing_decrees",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__attending_a_chapel.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__attending_a_chapel.svg",
+      "reactionId": "belavados.magicreligiousactivities.attending_a_chapel",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__attending_ceremonies.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__attending_ceremonies.svg",
+      "reactionId": "belavados.magicreligiousactivities.attending_ceremonies",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__blessing_others.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__blessing_others.svg",
+      "reactionId": "belavados.magicreligiousactivities.blessing_others",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__brewing_potions.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__brewing_potions.svg",
+      "reactionId": "belavados.magicreligiousactivities.brewing_potions",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__casting_spells.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__casting_spells.svg",
+      "reactionId": "belavados.magicreligiousactivities.casting_spells",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__consulting_prophecy.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__consulting_prophecy.svg",
+      "reactionId": "belavados.magicreligiousactivities.consulting_prophecy",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__divining_omens.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__divining_omens.svg",
+      "reactionId": "belavados.magicreligiousactivities.divining_omens",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__enchanting_items.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__enchanting_items.svg",
+      "reactionId": "belavados.magicreligiousactivities.enchanting_items",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__exorcising_spirits.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__exorcising_spirits.svg",
+      "reactionId": "belavados.magicreligiousactivities.exorcising_spirits",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__leading_worship.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__leading_worship.svg",
+      "reactionId": "belavados.magicreligiousactivities.leading_worship",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__making_offerings.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__making_offerings.svg",
+      "reactionId": "belavados.magicreligiousactivities.making_offerings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__performing_rituals.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__performing_rituals.svg",
+      "reactionId": "belavados.magicreligiousactivities.performing_rituals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__praying.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__praying.svg",
+      "reactionId": "belavados.magicreligiousactivities.praying",
+      "canonicalCoreReactionId": "spiritual_ceremonial.praying"
+    },
+    "reactions/magicreligiousactivities__protecting_sacred_spaces.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__protecting_sacred_spaces.svg",
+      "reactionId": "belavados.magicreligiousactivities.protecting_sacred_spaces",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__studying_spellbooks.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__studying_spellbooks.svg",
+      "reactionId": "belavados.magicreligiousactivities.studying_spellbooks",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__training_apprentices.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__training_apprentices.svg",
+      "reactionId": "belavados.magicreligiousactivities.training_apprentices",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/magicreligiousactivities__visiting_their_deity.svg": {
+      "target": "expansions/belavados/original_icons/magicreligiousactivities__visiting_their_deity.svg",
+      "reactionId": "belavados.magicreligiousactivities.visiting_their_deity",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__caring_for_animals.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__caring_for_animals.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.caring_for_animals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__cleaning.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__cleaning.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.cleaning",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__collecting_firewood.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__collecting_firewood.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.collecting_firewood",
+      "canonicalCoreReactionId": "resource_production.collecting_firewood"
+    },
+    "reactions/maintenancedomesticactivities__cooking.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__cooking.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.cooking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__fetching_water.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__fetching_water.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.fetching_water",
+      "canonicalCoreReactionId": "home_domestic.fetching_water"
+    },
+    "reactions/maintenancedomesticactivities__fixing_furniture.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__fixing_furniture.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.fixing_furniture",
+      "canonicalCoreReactionId": "home_domestic.fixing_furniture"
+    },
+    "reactions/maintenancedomesticactivities__gardening.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__gardening.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.gardening",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__laundry.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__laundry.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.laundry",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__mending_tools.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__mending_tools.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.mending_tools",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__organizing_storage.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__organizing_storage.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.organizing_storage",
+      "canonicalCoreReactionId": "home_domestic.organizing_storage"
+    },
+    "reactions/maintenancedomesticactivities__painting_walls.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__painting_walls.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.painting_walls",
+      "canonicalCoreReactionId": "home_domestic.painting_walls"
+    },
+    "reactions/maintenancedomesticactivities__renovating_rooms.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__renovating_rooms.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.renovating_rooms",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__repairing_clothing.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__repairing_clothing.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.repairing_clothing",
+      "canonicalCoreReactionId": "craft_construction.repairing_clothing"
+    },
+    "reactions/maintenancedomesticactivities__restocking_supplies.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__restocking_supplies.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.restocking_supplies",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__sweeping.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__sweeping.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.sweeping",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/maintenancedomesticactivities__tending_the_hearth.svg": {
+      "target": "expansions/belavados/original_icons/maintenancedomesticactivities__tending_the_hearth.svg",
+      "reactionId": "belavados.maintenancedomesticactivities.tending_the_hearth",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__attending_appointments.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__attending_appointments.svg",
+      "reactionId": "belavados.middayactivehours.attending_appointments",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__attending_school.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__attending_school.svg",
+      "reactionId": "belavados.middayactivehours.attending_school",
+      "canonicalCoreReactionId": "education_learning.attending_school"
+    },
+    "reactions/middayactivehours__checking_on_animals.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__checking_on_animals.svg",
+      "reactionId": "belavados.middayactivehours.checking_on_animals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__collecting_supplies.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__collecting_supplies.svg",
+      "reactionId": "belavados.middayactivehours.collecting_supplies",
+      "canonicalCoreReactionId": "work_professional.collecting_supplies"
+    },
+    "reactions/middayactivehours__delivering_messages.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__delivering_messages.svg",
+      "reactionId": "belavados.middayactivehours.delivering_messages",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__eating_lunch.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__eating_lunch.svg",
+      "reactionId": "belavados.middayactivehours.eating_lunch",
+      "canonicalCoreReactionId": "food_dining.eating_lunch"
+    },
+    "reactions/middayactivehours__gambling.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__gambling.svg",
+      "reactionId": "belavados.middayactivehours.gambling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__gossiping.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__gossiping.svg",
+      "reactionId": "belavados.middayactivehours.gossiping",
+      "canonicalCoreReactionId": "social_relationships.gossiping"
+    },
+    "reactions/middayactivehours__inspecting_property.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__inspecting_property.svg",
+      "reactionId": "belavados.middayactivehours.inspecting_property",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__meeting_friends.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__meeting_friends.svg",
+      "reactionId": "belavados.middayactivehours.meeting_friends",
+      "canonicalCoreReactionId": "social_relationships.meeting_friends"
+    },
+    "reactions/middayactivehours__negotiating_deals.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__negotiating_deals.svg",
+      "reactionId": "belavados.middayactivehours.negotiating_deals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__people_watching.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__people_watching.svg",
+      "reactionId": "belavados.middayactivehours.people_watching",
+      "canonicalCoreReactionId": "social_relationships.people_watching"
+    },
+    "reactions/middayactivehours__performing_street_work.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__performing_street_work.svg",
+      "reactionId": "belavados.middayactivehours.performing_street_work",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__practicing_a_trade.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__practicing_a_trade.svg",
+      "reactionId": "belavados.middayactivehours.practicing_a_trade",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__practicing_combat.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__practicing_combat.svg",
+      "reactionId": "belavados.middayactivehours.practicing_combat",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__practicing_magic.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__practicing_magic.svg",
+      "reactionId": "belavados.middayactivehours.practicing_magic",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__practicing_music.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__practicing_music.svg",
+      "reactionId": "belavados.middayactivehours.practicing_music",
+      "canonicalCoreReactionId": "arts_entertainment.practicing_music"
+    },
+    "reactions/middayactivehours__praying.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__praying.svg",
+      "reactionId": "belavados.middayactivehours.praying",
+      "canonicalCoreReactionId": "spiritual_ceremonial.praying"
+    },
+    "reactions/middayactivehours__running_errands.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__running_errands.svg",
+      "reactionId": "belavados.middayactivehours.running_errands",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__shopping.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__shopping.svg",
+      "reactionId": "belavados.middayactivehours.shopping",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__socializing.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__socializing.svg",
+      "reactionId": "belavados.middayactivehours.socializing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__taking_a_break.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__taking_a_break.svg",
+      "reactionId": "belavados.middayactivehours.taking_a_break",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/middayactivehours__visiting_family.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__visiting_family.svg",
+      "reactionId": "belavados.middayactivehours.visiting_family",
+      "canonicalCoreReactionId": "family_care.visiting_family"
+    },
+    "reactions/middayactivehours__visiting_public_places.svg": {
+      "target": "expansions/belavados/original_icons/middayactivehours__visiting_public_places.svg",
+      "reactionId": "belavados.middayactivehours.visiting_public_places",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__bathing.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__bathing.svg",
+      "reactionId": "belavados.morningroutine.bathing",
+      "canonicalCoreReactionId": "personal_care.bathing"
+    },
+    "reactions/morningroutine__brushing_hair.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__brushing_hair.svg",
+      "reactionId": "belavados.morningroutine.brushing_hair",
+      "canonicalCoreReactionId": "personal_care.brushing_hair"
+    },
+    "reactions/morningroutine__checking_messages.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__checking_messages.svg",
+      "reactionId": "belavados.morningroutine.checking_messages",
+      "canonicalCoreReactionId": "special_states.checking_messages"
+    },
+    "reactions/morningroutine__dressing.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__dressing.svg",
+      "reactionId": "belavados.morningroutine.dressing",
+      "canonicalCoreReactionId": "personal_care.dressing"
+    },
+    "reactions/morningroutine__feeding_pets.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__feeding_pets.svg",
+      "reactionId": "belavados.morningroutine.feeding_pets",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__leaving_home.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__leaving_home.svg",
+      "reactionId": "belavados.morningroutine.leaving_home",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__locking_or_unlocking_doors.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__locking_or_unlocking_doors.svg",
+      "reactionId": "belavados.morningroutine.locking_or_unlocking_doors",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__making_breakfast.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__making_breakfast.svg",
+      "reactionId": "belavados.morningroutine.making_breakfast",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__opening_a_shop.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__opening_a_shop.svg",
+      "reactionId": "belavados.morningroutine.opening_a_shop",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__preparing_tools_or_supplies.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__preparing_tools_or_supplies.svg",
+      "reactionId": "belavados.morningroutine.preparing_tools_or_supplies",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__shaving.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__shaving.svg",
+      "reactionId": "belavados.morningroutine.shaving",
+      "canonicalCoreReactionId": "personal_care.shaving"
+    },
+    "reactions/morningroutine__taking_a_morning_walk.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__taking_a_morning_walk.svg",
+      "reactionId": "belavados.morningroutine.taking_a_morning_walk",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__waking_late_or_early.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__waking_late_or_early.svg",
+      "reactionId": "belavados.morningroutine.waking_late_or_early",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/morningroutine__washing_up.svg": {
+      "target": "expansions/belavados/original_icons/morningroutine__washing_up.svg",
+      "reactionId": "belavados.morningroutine.washing_up",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__guard_duty.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__guard_duty.svg",
+      "reactionId": "belavados.nightroutine.guard_duty",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__hunting.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__hunting.svg",
+      "reactionId": "belavados.nightroutine.hunting",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__illegal_dealings.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__illegal_dealings.svg",
+      "reactionId": "belavados.nightroutine.illegal_dealings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__keeping_watch.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__keeping_watch.svg",
+      "reactionId": "belavados.nightroutine.keeping_watch",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__night_patrol.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__night_patrol.svg",
+      "reactionId": "belavados.nightroutine.night_patrol",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__performing_rituals.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__performing_rituals.svg",
+      "reactionId": "belavados.nightroutine.performing_rituals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__researching.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__researching.svg",
+      "reactionId": "belavados.nightroutine.researching",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__restless_wandering.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__restless_wandering.svg",
+      "reactionId": "belavados.nightroutine.restless_wandering",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__secret_meetings.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__secret_meetings.svg",
+      "reactionId": "belavados.nightroutine.secret_meetings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__shadowing_someone.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__shadowing_someone.svg",
+      "reactionId": "belavados.nightroutine.shadowing_someone",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__sleeping.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__sleeping.svg",
+      "reactionId": "belavados.nightroutine.sleeping",
+      "canonicalCoreReactionId": "personal_care.sleeping"
+    },
+    "reactions/nightroutine__smuggling.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__smuggling.svg",
+      "reactionId": "belavados.nightroutine.smuggling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__sneaking_around.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__sneaking_around.svg",
+      "reactionId": "belavados.nightroutine.sneaking_around",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__spying.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__spying.svg",
+      "reactionId": "belavados.nightroutine.spying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__stargazing.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__stargazing.svg",
+      "reactionId": "belavados.nightroutine.stargazing",
+      "canonicalCoreReactionId": "leisure_tourism.stargazing"
+    },
+    "reactions/nightroutine__stealing.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__stealing.svg",
+      "reactionId": "belavados.nightroutine.stealing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__tending_a_sick_person.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__tending_a_sick_person.svg",
+      "reactionId": "belavados.nightroutine.tending_a_sick_person",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__traveling_under_cover_of_darkness.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__traveling_under_cover_of_darkness.svg",
+      "reactionId": "belavados.nightroutine.traveling_under_cover_of_darkness",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__visiting_hidden_contacts.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__visiting_hidden_contacts.svg",
+      "reactionId": "belavados.nightroutine.visiting_hidden_contacts",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__watching_over_property.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__watching_over_property.svg",
+      "reactionId": "belavados.nightroutine.watching_over_property",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/nightroutine__working_late.svg": {
+      "target": "expansions/belavados/original_icons/nightroutine__working_late.svg",
+      "reactionId": "belavados.nightroutine.working_late",
+      "canonicalCoreReactionId": "work_professional.working_late"
+    },
+    "reactions/sleeprest__daydreaming.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__daydreaming.svg",
+      "reactionId": "belavados.sleeprest.daydreaming",
+      "canonicalCoreReactionId": "special_states.daydreaming"
+    },
+    "reactions/sleeprest__going_to_sleep.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__going_to_sleep.svg",
+      "reactionId": "belavados.sleeprest.going_to_sleep",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__meditating.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__meditating.svg",
+      "reactionId": "belavados.sleeprest.meditating",
+      "canonicalCoreReactionId": "spiritual_ceremonial.meditating"
+    },
+    "reactions/sleeprest__napping.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__napping.svg",
+      "reactionId": "belavados.sleeprest.napping",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__reading_before_bed.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__reading_before_bed.svg",
+      "reactionId": "belavados.sleeprest.reading_before_bed",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__recovering_from_illness.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__recovering_from_illness.svg",
+      "reactionId": "belavados.sleeprest.recovering_from_illness",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__recuperating_from_injury.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__recuperating_from_injury.svg",
+      "reactionId": "belavados.sleeprest.recuperating_from_injury",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__resting_in_bed.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__resting_in_bed.svg",
+      "reactionId": "belavados.sleeprest.resting_in_bed",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__sitting_quietly.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__sitting_quietly.svg",
+      "reactionId": "belavados.sleeprest.sitting_quietly",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/sleeprest__sleeping.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__sleeping.svg",
+      "reactionId": "belavados.sleeprest.sleeping",
+      "canonicalCoreReactionId": "personal_care.sleeping"
+    },
+    "reactions/sleeprest__waking_up.svg": {
+      "target": "expansions/belavados/original_icons/sleeprest__waking_up.svg",
+      "reactionId": "belavados.sleeprest.waking_up",
+      "canonicalCoreReactionId": "personal_care.waking_up"
+    },
+    "reactions/socialrelationshipactivities__apprenticing.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__apprenticing.svg",
+      "reactionId": "belavados.socialrelationshipactivities.apprenticing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__arguing.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__arguing.svg",
+      "reactionId": "belavados.socialrelationshipactivities.arguing",
+      "canonicalCoreReactionId": "social_relationships.arguing"
+    },
+    "reactions/socialrelationshipactivities__attending_funerals.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__attending_funerals.svg",
+      "reactionId": "belavados.socialrelationshipactivities.attending_funerals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__attending_weddings.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__attending_weddings.svg",
+      "reactionId": "belavados.socialrelationshipactivities.attending_weddings",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__babysitting.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__babysitting.svg",
+      "reactionId": "belavados.socialrelationshipactivities.babysitting",
+      "canonicalCoreReactionId": "family_care.babysitting"
+    },
+    "reactions/socialrelationshipactivities__breaking_up.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__breaking_up.svg",
+      "reactionId": "belavados.socialrelationshipactivities.breaking_up",
+      "canonicalCoreReactionId": "social_relationships.breaking_up"
+    },
+    "reactions/socialrelationshipactivities__caring_for_children.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__caring_for_children.svg",
+      "reactionId": "belavados.socialrelationshipactivities.caring_for_children",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__celebrating_birthdays.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__celebrating_birthdays.svg",
+      "reactionId": "belavados.socialrelationshipactivities.celebrating_birthdays",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__courting.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__courting.svg",
+      "reactionId": "belavados.socialrelationshipactivities.courting",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__dating.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__dating.svg",
+      "reactionId": "belavados.socialrelationshipactivities.dating",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__exchanging_gifts.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__exchanging_gifts.svg",
+      "reactionId": "belavados.socialrelationshipactivities.exchanging_gifts",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__having_meals_together.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__having_meals_together.svg",
+      "reactionId": "belavados.socialrelationshipactivities.having_meals_together",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__hosting_guests.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__hosting_guests.svg",
+      "reactionId": "belavados.socialrelationshipactivities.hosting_guests",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__making_apologies.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__making_apologies.svg",
+      "reactionId": "belavados.socialrelationshipactivities.making_apologies",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__meeting_a_partner.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__meeting_a_partner.svg",
+      "reactionId": "belavados.socialrelationshipactivities.meeting_a_partner",
+      "canonicalCoreReactionId": "social_relationships.meeting_a_partner"
+    },
+    "reactions/socialrelationshipactivities__mentoring.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__mentoring.svg",
+      "reactionId": "belavados.socialrelationshipactivities.mentoring",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__reconciliation.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__reconciliation.svg",
+      "reactionId": "belavados.socialrelationshipactivities.reconciliation",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__secret_affairs.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__secret_affairs.svg",
+      "reactionId": "belavados.socialrelationshipactivities.secret_affairs",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__sending_letters.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__sending_letters.svg",
+      "reactionId": "belavados.socialrelationshipactivities.sending_letters",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__settling_disputes.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__settling_disputes.svg",
+      "reactionId": "belavados.socialrelationshipactivities.settling_disputes",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__spending_time_with_spouse.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__spending_time_with_spouse.svg",
+      "reactionId": "belavados.socialrelationshipactivities.spending_time_with_spouse",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__supporting_a_friend.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__supporting_a_friend.svg",
+      "reactionId": "belavados.socialrelationshipactivities.supporting_a_friend",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/socialrelationshipactivities__visiting_family.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__visiting_family.svg",
+      "reactionId": "belavados.socialrelationshipactivities.visiting_family",
+      "canonicalCoreReactionId": "family_care.visiting_family"
+    },
+    "reactions/socialrelationshipactivities__visiting_the_sick.svg": {
+      "target": "expansions/belavados/original_icons/socialrelationshipactivities__visiting_the_sick.svg",
+      "reactionId": "belavados.socialrelationshipactivities.visiting_the_sick",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__angry.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__angry.svg",
+      "reactionId": "belavados.specialstates.angry",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__celebrating.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__celebrating.svg",
+      "reactionId": "belavados.specialstates.celebrating",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__confused.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__confused.svg",
+      "reactionId": "belavados.specialstates.confused",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__distracted.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__distracted.svg",
+      "reactionId": "belavados.specialstates.distracted",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__exhausted.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__exhausted.svg",
+      "reactionId": "belavados.specialstates.exhausted",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__grieving.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__grieving.svg",
+      "reactionId": "belavados.specialstates.grieving",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__hungover.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__hungover.svg",
+      "reactionId": "belavados.specialstates.hungover",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__imprisoned.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__imprisoned.svg",
+      "reactionId": "belavados.specialstates.imprisoned",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__injured.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__injured.svg",
+      "reactionId": "belavados.specialstates.injured",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__injured_but_working.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__injured_but_working.svg",
+      "reactionId": "belavados.specialstates.injured_but_working",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__lost.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__lost.svg",
+      "reactionId": "belavados.specialstates.lost",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__missing.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__missing.svg",
+      "reactionId": "belavados.specialstates.missing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__missing_work.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__missing_work.svg",
+      "reactionId": "belavados.specialstates.missing_work",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__on_leave.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__on_leave.svg",
+      "reactionId": "belavados.specialstates.on_leave",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__overworked.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__overworked.svg",
+      "reactionId": "belavados.specialstates.overworked",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__scared.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__scared.svg",
+      "reactionId": "belavados.specialstates.scared",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__sick.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__sick.svg",
+      "reactionId": "belavados.specialstates.sick",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__suspicious.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__suspicious.svg",
+      "reactionId": "belavados.specialstates.suspicious",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__undercover.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__undercover.svg",
+      "reactionId": "belavados.specialstates.undercover",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/specialstates__waiting.svg": {
+      "target": "expansions/belavados/original_icons/specialstates__waiting.svg",
+      "reactionId": "belavados.specialstates.waiting",
+      "canonicalCoreReactionId": "special_states.waiting"
+    },
+    "reactions/traveltransit_Arriving_at_portal_station.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_Arriving_at_portal_station.svg",
+      "reactionId": "belavados.traveltransit.arriving_at_portal_station",
+      "canonicalCoreReactionId": "transportation.arriving_at_a_destination"
+    },
+    "reactions/traveltransit_Leaving_portal_station.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_Leaving_portal_station.svg",
+      "reactionId": "belavados.traveltransit.leaving_portal_station",
+      "canonicalCoreReactionId": "transportation.disembarking_transportation"
+    },
+    "reactions/traveltransit_Waiting_at_portal_station.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_Waiting_at_portal_station.svg",
+      "reactionId": "belavados.traveltransit.waiting_at_portal_station",
+      "canonicalCoreReactionId": "transportation.waiting_for_transportation"
+    },
+    "reactions/traveltransit__arriving_in_town.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__arriving_in_town.svg",
+      "reactionId": "belavados.traveltransit.arriving_in_town",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__boarding_a_train.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__boarding_a_train.svg",
+      "reactionId": "belavados.traveltransit.boarding_a_train",
+      "canonicalCoreReactionId": "transportation.boarding_transportation"
+    },
+    "reactions/traveltransit__camping.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__camping.svg",
+      "reactionId": "belavados.traveltransit.camping",
+      "canonicalCoreReactionId": "leisure_tourism.camping"
+    },
+    "reactions/traveltransit__crossing_a_river.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__crossing_a_river.svg",
+      "reactionId": "belavados.traveltransit.crossing_a_river",
+      "canonicalCoreReactionId": "transportation.crossing_a_river"
+    },
+    "reactions/traveltransit__delivering_cargo.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__delivering_cargo.svg",
+      "reactionId": "belavados.traveltransit.delivering_cargo",
+      "canonicalCoreReactionId": "transportation.delivering_cargo"
+    },
+    "reactions/traveltransit__departing_town.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__departing_town.svg",
+      "reactionId": "belavados.traveltransit.departing_town",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__driving_a_cart.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__driving_a_cart.svg",
+      "reactionId": "belavados.traveltransit.driving_a_cart",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__entering_a_port.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__entering_a_port.svg",
+      "reactionId": "belavados.traveltransit.entering_a_port",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__escorting_travelers.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__escorting_travelers.svg",
+      "reactionId": "belavados.traveltransit.escorting_travelers",
+      "canonicalCoreReactionId": "transportation.escorting_travelers"
+    },
+    "reactions/traveltransit__flying.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__flying.svg",
+      "reactionId": "belavados.traveltransit.flying",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__navigating_roads.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__navigating_roads.svg",
+      "reactionId": "belavados.traveltransit.navigating_roads",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__riding_horseback.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__riding_horseback.svg",
+      "reactionId": "belavados.traveltransit.riding_horseback",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__sailing.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__sailing.svg",
+      "reactionId": "belavados.traveltransit.sailing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__searching_for_a_route.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__searching_for_a_route.svg",
+      "reactionId": "belavados.traveltransit.searching_for_a_route",
+      "canonicalCoreReactionId": "transportation.searching_for_a_route"
+    },
+    "reactions/traveltransit__taking_a_caravan.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__taking_a_caravan.svg",
+      "reactionId": "belavados.traveltransit.taking_a_caravan",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__waiting_for_transport.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__waiting_for_transport.svg",
+      "reactionId": "belavados.traveltransit.waiting_for_transport",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit__walking.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit__walking.svg",
+      "reactionId": "belavados.traveltransit.walking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/traveltransit_boarding_Submarine.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_boarding_Submarine.svg",
+      "reactionId": "belavados.traveltransit.boarding_submarine",
+      "canonicalCoreReactionId": "transportation.boarding_transportation"
+    },
+    "reactions/traveltransit_boarding_skyship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_boarding_skyship.svg",
+      "reactionId": "belavados.traveltransit.boarding_skyship",
+      "canonicalCoreReactionId": "transportation.boarding_transportation"
+    },
+    "reactions/traveltransit_boarding_steamship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_boarding_steamship.svg",
+      "reactionId": "belavados.traveltransit.boarding_steamship",
+      "canonicalCoreReactionId": "transportation.boarding_transportation"
+    },
+    "reactions/traveltransit_boarding_train.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_boarding_train.svg",
+      "reactionId": "belavados.traveltransit.boarding_train",
+      "canonicalCoreReactionId": "transportation.boarding_transportation"
+    },
+    "reactions/traveltransit_flying_in_skyship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_flying_in_skyship.svg",
+      "reactionId": "belavados.traveltransit.flying_in_skyship",
+      "canonicalCoreReactionId": "transportation.watching_the_route"
+    },
+    "reactions/traveltransit_leaving_Submarine.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_leaving_Submarine.svg",
+      "reactionId": "belavados.traveltransit.leaving_submarine",
+      "canonicalCoreReactionId": "transportation.disembarking_transportation"
+    },
+    "reactions/traveltransit_leaving_skyship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_leaving_skyship.svg",
+      "reactionId": "belavados.traveltransit.leaving_skyship",
+      "canonicalCoreReactionId": "transportation.disembarking_transportation"
+    },
+    "reactions/traveltransit_leaving_steamship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_leaving_steamship.svg",
+      "reactionId": "belavados.traveltransit.leaving_steamship",
+      "canonicalCoreReactionId": "transportation.disembarking_transportation"
+    },
+    "reactions/traveltransit_leaving_train.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_leaving_train.svg",
+      "reactionId": "belavados.traveltransit.leaving_train",
+      "canonicalCoreReactionId": "transportation.disembarking_transportation"
+    },
+    "reactions/traveltransit_passenger_on_Submarine.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_passenger_on_Submarine.svg",
+      "reactionId": "belavados.traveltransit.passenger_on_submarine",
+      "canonicalCoreReactionId": "transportation.watching_the_route"
+    },
+    "reactions/traveltransit_passenger_on_steamship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_passenger_on_steamship.svg",
+      "reactionId": "belavados.traveltransit.passenger_on_steamship",
+      "canonicalCoreReactionId": "transportation.watching_the_route"
+    },
+    "reactions/traveltransit_riding_train.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_riding_train.svg",
+      "reactionId": "belavados.traveltransit.riding_train",
+      "canonicalCoreReactionId": "transportation.watching_the_route"
+    },
+    "reactions/traveltransit_traveling_portal.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_traveling_portal.svg",
+      "reactionId": "belavados.traveltransit.traveling_portal",
+      "canonicalCoreReactionId": "transportation.watching_the_route"
+    },
+    "reactions/traveltransit_waiting_Submarine.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_waiting_Submarine.svg",
+      "reactionId": "belavados.traveltransit.waiting_submarine",
+      "canonicalCoreReactionId": "transportation.waiting_for_transportation"
+    },
+    "reactions/traveltransit_waiting_skyship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_waiting_skyship.svg",
+      "reactionId": "belavados.traveltransit.waiting_skyship",
+      "canonicalCoreReactionId": "transportation.waiting_for_transportation"
+    },
+    "reactions/traveltransit_waiting_steamship.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_waiting_steamship.svg",
+      "reactionId": "belavados.traveltransit.waiting_steamship",
+      "canonicalCoreReactionId": "transportation.waiting_for_transportation"
+    },
+    "reactions/traveltransit_waiting_train.svg": {
+      "target": "expansions/belavados/original_icons/traveltransit_waiting_train.svg",
+      "reactionId": "belavados.traveltransit.waiting_train",
+      "canonicalCoreReactionId": "transportation.waiting_for_transportation"
+    },
+    "reactions/unmapped_imported_activity.svg": {
+      "target": "expansions/belavados/original_icons/unmapped_imported_activity.svg",
+      "reactionId": "belavados.unmapped.imported_activity",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/wants__market.svg": {
+      "target": "expansions/belavados/original_icons/wants__market.svg",
+      "reactionId": "belavados.wants.market",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__bargaining.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__bargaining.svg",
+      "reactionId": "belavados.workprofessionalduties.bargaining",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__building.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__building.svg",
+      "reactionId": "belavados.workprofessionalduties.building",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__cleaning.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__cleaning.svg",
+      "reactionId": "belavados.workprofessionalduties.cleaning",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__collecting_taxes.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__collecting_taxes.svg",
+      "reactionId": "belavados.workprofessionalduties.collecting_taxes",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__cooking.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__cooking.svg",
+      "reactionId": "belavados.workprofessionalduties.cooking",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__counting_inventory.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__counting_inventory.svg",
+      "reactionId": "belavados.workprofessionalduties.counting_inventory",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__crafting.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__crafting.svg",
+      "reactionId": "belavados.workprofessionalduties.crafting",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__delivering_goods.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__delivering_goods.svg",
+      "reactionId": "belavados.workprofessionalduties.delivering_goods",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__escorting_someone.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__escorting_someone.svg",
+      "reactionId": "belavados.workprofessionalduties.escorting_someone",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__farming.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__farming.svg",
+      "reactionId": "belavados.workprofessionalduties.farming",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__filing_paperwork.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__filing_paperwork.svg",
+      "reactionId": "belavados.workprofessionalduties.filing_paperwork",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__fishing.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__fishing.svg",
+      "reactionId": "belavados.workprofessionalduties.fishing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__guard_duty.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__guard_duty.svg",
+      "reactionId": "belavados.workprofessionalduties.guard_duty",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__guarding_a_location.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__guarding_a_location.svg",
+      "reactionId": "belavados.workprofessionalduties.guarding_a_location",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__healing_patients.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__healing_patients.svg",
+      "reactionId": "belavados.workprofessionalduties.healing_patients",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__hosting_patrons.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__hosting_patrons.svg",
+      "reactionId": "belavados.workprofessionalduties.hosting_patrons",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__loading_cargo.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__loading_cargo.svg",
+      "reactionId": "belavados.workprofessionalduties.loading_cargo",
+      "canonicalCoreReactionId": "transportation.loading_cargo"
+    },
+    "reactions/workprofessionalduties__maintaining_machinery.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__maintaining_machinery.svg",
+      "reactionId": "belavados.workprofessionalduties.maintaining_machinery",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__managing_staff.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__managing_staff.svg",
+      "reactionId": "belavados.workprofessionalduties.managing_staff",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__meeting_clients.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__meeting_clients.svg",
+      "reactionId": "belavados.workprofessionalduties.meeting_clients",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__mining.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__mining.svg",
+      "reactionId": "belavados.workprofessionalduties.mining",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__patrolling.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__patrolling.svg",
+      "reactionId": "belavados.workprofessionalduties.patrolling",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__performing_inspections.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__performing_inspections.svg",
+      "reactionId": "belavados.workprofessionalduties.performing_inspections",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__performing_rituals.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__performing_rituals.svg",
+      "reactionId": "belavados.workprofessionalduties.performing_rituals",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__repairing_equipment.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__repairing_equipment.svg",
+      "reactionId": "belavados.workprofessionalduties.repairing_equipment",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__researching.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__researching.svg",
+      "reactionId": "belavados.workprofessionalduties.researching",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__serving_customers.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__serving_customers.svg",
+      "reactionId": "belavados.workprofessionalduties.serving_customers",
+      "canonicalCoreReactionId": "food_dining.serving_customers"
+    },
+    "reactions/workprofessionalduties__sewing.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__sewing.svg",
+      "reactionId": "belavados.workprofessionalduties.sewing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__smithing.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__smithing.svg",
+      "reactionId": "belavados.workprofessionalduties.smithing",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__studying_magical_texts.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__studying_magical_texts.svg",
+      "reactionId": "belavados.workprofessionalduties.studying_magical_texts",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__supervising_workers.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__supervising_workers.svg",
+      "reactionId": "belavados.workprofessionalduties.supervising_workers",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__taking_orders.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__taking_orders.svg",
+      "reactionId": "belavados.workprofessionalduties.taking_orders",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__teaching.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__teaching.svg",
+      "reactionId": "belavados.workprofessionalduties.teaching",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__trading.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__trading.svg",
+      "reactionId": "belavados.workprofessionalduties.trading",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__training_apprentices.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__training_apprentices.svg",
+      "reactionId": "belavados.workprofessionalduties.training_apprentices",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__traveling_for_business.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__traveling_for_business.svg",
+      "reactionId": "belavados.workprofessionalduties.traveling_for_business",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__unloading_cargo.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__unloading_cargo.svg",
+      "reactionId": "belavados.workprofessionalduties.unloading_cargo",
+      "canonicalCoreReactionId": "transportation.unloading_cargo"
+    },
+    "reactions/workprofessionalduties__working_at_a_desk.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__working_at_a_desk.svg",
+      "reactionId": "belavados.workprofessionalduties.working_at_a_desk",
+      "canonicalCoreReactionId": null
+    },
+    "reactions/workprofessionalduties__writing_reports.svg": {
+      "target": "expansions/belavados/original_icons/workprofessionalduties__writing_reports.svg",
+      "reactionId": "belavados.workprofessionalduties.writing_reports",
+      "canonicalCoreReactionId": null
+    }
+  }
+}
