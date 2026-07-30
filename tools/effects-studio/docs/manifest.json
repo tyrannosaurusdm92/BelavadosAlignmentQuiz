@@ -1,0 +1,34 @@
+{
+  "name": "Effects Studio",
+  "version": "2026.07.30-map-effects",
+  "entry": "index.html",
+  "files": 377,
+  "bundledAssets": 278,
+  "curatedAddedTextures": 15,
+  "excluded": [
+    "3D model/runtime files",
+    "live effect modules",
+    "bulk legacy overlays/backgrounds/stickers"
+  ],
+  "paintByNumber": {
+    "entry": "features/paint-by-number/index.html?embedded=1",
+    "assets": "features/paint-by-number/assets",
+    "integration": "Effects Studio workspace mode",
+    "backendConfig": "data/backend-config.json"
+  },
+  "proceduralMap": {
+    "terrainPresets": 59,
+    "gridPresets": 6,
+    "sourceTextureFilesCopied": 0,
+    "sourceGridFilesCopied": 0,
+    "engine": "js/procedural-map-engine.js",
+    "styles": "css/procedural-map.css",
+    "features": [
+      "terrain drawing",
+      "uploaded assets",
+      "lighting",
+      "sound zones",
+      "interactive HTML export"
+    ]
+  }
+}
