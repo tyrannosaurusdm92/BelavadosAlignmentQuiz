@@ -1,0 +1,116 @@
+{
+  "version": "2.0.0",
+  "testedAt": "2026-07-29T23:10:50.872665+00:00",
+  "tests": [
+    {
+      "file": "01_fate_core_campaign_storyboard.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "fate"
+    },
+    {
+      "file": "02_gurps_tactical_dossier.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "gurps"
+    },
+    {
+      "file": "03_call_of_cthulhu_evidence_board.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "coc"
+    },
+    {
+      "file": "04_daggerheart_domain_card_atelier.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "daggerheart"
+    },
+    {
+      "file": "05_pathfinder_remastered_hero_workshop.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "pathfinder"
+    },
+    {
+      "file": "06_pbta_move_workshop.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "pbta"
+    },
+    {
+      "file": "07_swade_wild_card_command_deck.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "swade"
+    },
+    {
+      "file": "08_blades_in_the_dark_score_command_board.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "blades"
+    },
+    {
+      "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "load": true,
+      "panel": true,
+      "api": true,
+      "award": true,
+      "wizard": true,
+      "apply": true,
+      "mobile": true,
+      "errors": [],
+      "system": "dnd"
+    }
+  ],
+  "passed": 9,
+  "total": 9
+}

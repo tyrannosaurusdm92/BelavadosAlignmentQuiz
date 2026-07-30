@@ -1,0 +1,478 @@
+{
+  "generated": "2026-07-29",
+  "tests": [
+    {
+      "file": "01_fate_core_campaign_storyboard.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 154,
+        "category_options": 4,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "01_fate_core_campaign_storyboard.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 154,
+        "category_options": 4,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "02_gurps_tactical_dossier.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 26,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "02_gurps_tactical_dossier.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 26,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "03_call_of_cthulhu_evidence_board.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 149,
+        "category_options": 14,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "03_call_of_cthulhu_evidence_board.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 149,
+        "category_options": 14,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "04_daggerheart_domain_card_atelier.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 17,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "04_daggerheart_domain_card_atelier.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 17,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "05_pathfinder_remastered_hero_workshop.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 155,
+        "category_options": 13,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "05_pathfinder_remastered_hero_workshop.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 155,
+        "category_options": 13,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "06_pbta_move_workshop.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 23,
+        "category_options": 19,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "06_pbta_move_workshop.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 23,
+        "category_options": 19,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "07_swade_wild_card_command_deck.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 18,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "07_swade_wild_card_command_deck.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 18,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "08_blades_in_the_dark_score_command_board.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 207,
+        "category_options": 21,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "08_blades_in_the_dark_score_command_board.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 207,
+        "category_options": 21,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 29,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 1436,
+          "client": 1424,
+          "rect": 1424
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    },
+    {
+      "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "engine_present": true,
+        "catalog_rows_initial": 250,
+        "category_options": 29,
+        "detected_field_options": 0,
+        "manual_effect_final_12": true,
+        "formula_final_3": true,
+        "inactive_effect_final_10": true,
+        "responsive_dimensions": {
+          "scroll": 463,
+          "client": 374,
+          "rect": 374
+        },
+        "no_horizontal_overflow": false,
+        "hamburger_candidates": 0
+      },
+      "errors": [],
+      "console_errors": [],
+      "passed": true
+    }
+  ],
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0
+  }
+}

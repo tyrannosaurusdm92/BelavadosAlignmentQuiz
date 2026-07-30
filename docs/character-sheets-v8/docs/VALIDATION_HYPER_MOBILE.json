@@ -1,0 +1,101 @@
+[
+  {
+    "file": "01_fate_core_campaign_storyboard.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "55px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "02_gurps_tactical_dossier.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "40px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "03_call_of_cthulhu_evidence_board.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "84.6562px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "04_daggerheart_domain_card_atelier.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "626px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "05_pathfinder_remastered_hero_workshop.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "330px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "06_pbta_move_workshop.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "146px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "07_swade_wild_card_command_deck.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "146px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "08_blades_in_the_dark_score_command_board.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "61.3281px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  },
+  {
+    "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+    "passed": true,
+    "errors": [],
+    "bodyWidth": 390,
+    "view": 390,
+    "columns": "330px",
+    "frameColumns": "308px",
+    "frames": 2,
+    "menu": true
+  }
+]

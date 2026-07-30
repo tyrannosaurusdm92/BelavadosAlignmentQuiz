@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tablegate.character-sheet.v1",
+  "title": "TableGate Character Sheet Snapshot v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "system",
+    "character",
+    "progression",
+    "currency",
+    "roll_contract",
+    "capabilities"
+  ],
+  "properties": {
+    "schema": {
+      "const": "tablegate.character-sheet.v1"
+    },
+    "system": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "character": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "object"
+        }
+      }
+    },
+    "derived": {
+      "type": "object"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "progression": {
+      "type": "object"
+    },
+    "currency": {
+      "type": "object",
+      "required": [
+        "summary",
+        "wallet"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "wallet": {
+          "type": "object"
+        },
+        "history": {
+          "type": "array"
+        }
+      }
+    },
+    "roll_contract": {
+      "type": "object",
+      "required": [
+        "kind"
+      ]
+    },
+    "state": {
+      "type": "object"
+    },
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "generates_dice",
+        "accepts_external_roll_results",
+        "automatic_math"
+      ],
+      "properties": {
+        "generates_dice": {
+          "const": false
+        },
+        "accepts_external_roll_results": {
+          "const": true
+        },
+        "automatic_math": {
+          "const": true
+        },
+        "progression_popups": {
+          "type": "boolean"
+        },
+        "currency_math": {
+          "type": "boolean"
+        },
+        "circle_crop_art": {
+          "type": "boolean"
+        },
+        "border_textures": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
