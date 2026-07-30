@@ -1,0 +1,7 @@
+/* Token System visual contract. Companion to js/lifesimulator/token-system.js. */
+:root{--wf-token-system-surface:var(--panel,rgba(13,24,38,.92));--wf-token-system-gap:.75rem;}
+[data-module="token-system"], .module-token-system{position:relative;display:grid;gap:var(--wf-token-system-gap);min-width:0;}
+[data-module="token-system"] .module-status, .module-token-system .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
+[data-module="token-system"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-token-system-surface);}
+@media (max-width:760px){[data-module="token-system"],.module-token-system{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){[data-module="token-system"] *, .module-token-system *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

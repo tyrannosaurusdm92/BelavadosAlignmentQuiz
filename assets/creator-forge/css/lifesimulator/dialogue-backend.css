@@ -1,0 +1,7 @@
+/* Dialogue Backend visual contract. Companion to js/lifesimulator/dialogue-backend.js. */
+:root{--wf-dialogue-backend-surface:var(--panel,rgba(13,24,38,.92));--wf-dialogue-backend-gap:.75rem;}
+[data-module="dialogue-backend"], .module-dialogue-backend{position:relative;display:grid;gap:var(--wf-dialogue-backend-gap);min-width:0;}
+[data-module="dialogue-backend"] .module-status, .module-dialogue-backend .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
+[data-module="dialogue-backend"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-dialogue-backend-surface);}
+@media (max-width:760px){[data-module="dialogue-backend"],.module-dialogue-backend{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){[data-module="dialogue-backend"] *, .module-dialogue-backend *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
