@@ -1,9 +1,0 @@
-{
-  "site": "Belavad\u00f6s multi-file character sheet",
-  "entry": "charactersheet.html",
-  "assetFolder": "charactersheet_assets",
-  "rules": [
-    "single asset folder",
-    "chatbot routes dice through existing 3D swipe tray only"
-  ]
-}
