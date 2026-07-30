@@ -1,0 +1,12 @@
+{
+  "system": "Daggerheart",
+  "files": [
+    {
+      "file": "90_user_supplied_how_to_play_daggerheart_complete_reference_v2.json",
+      "bytes": 997612,
+      "sha256": "91a84a7c4b95ccb8d710c1da067254912066a1ee735206fbfef9a648ec04c32c",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}
