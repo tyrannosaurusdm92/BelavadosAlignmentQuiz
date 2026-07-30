@@ -1,8 +1,0 @@
-{
-  "app": "Emperor Onyx Map Request Packager",
-  "mode": "chunked-static-catalog",
-  "generatedAt": "2026-06-11T20:13:01.679Z",
-  "count": 0,
-  "manifest": "json/map_assets_catalog_manifest.json",
-  "index": "json/map_assets_catalog_index.json"
-}
