@@ -1,0 +1,162 @@
+{
+  "schema": "ttrpg.complete_character_sheet_collection.manifest.v1",
+  "created": "2026-07-28",
+  "new_sheet_count": 8,
+  "preserved_sheet_count": 1,
+  "total_sheet_count": 9,
+  "concise_variants_included": false,
+  "generated": [
+    {
+      "index": 1,
+      "system": "fate",
+      "systemName": "Fate Core",
+      "variant": "complete",
+      "layout": "storyboard",
+      "file": "01_fate_core_campaign_storyboard.html",
+      "source": "fate_core_complete_how_to_play_reference_v2.json",
+      "bytes": 696270,
+      "sha256": "50c5e1ca72cc950f9622224a9a81f6aada4fb1aa5ce9164aeafe422483668c6f"
+    },
+    {
+      "index": 2,
+      "system": "gurps",
+      "systemName": "GURPS Fourth Edition",
+      "variant": "complete",
+      "layout": "dossier",
+      "file": "02_gurps_tactical_dossier.html",
+      "source": "gurps_4e_revised_complete_character_reference_v2.json",
+      "bytes": 491513,
+      "sha256": "ed5cee013e7d7ce4865d97f8083a248bd74e498218fe26febfcbb2712ef25219"
+    },
+    {
+      "index": 3,
+      "system": "coc",
+      "systemName": "Call of Cthulhu Seventh Edition",
+      "variant": "complete",
+      "layout": "evidence",
+      "file": "03_call_of_cthulhu_evidence_board.html",
+      "source": "how_to_play_coc_7e_complete_reference_v2.json",
+      "bytes": 274240,
+      "sha256": "90e0b8d273ed045505ce6039dec47aa19934de241d8abb30a475ed27e5e7afc8"
+    },
+    {
+      "index": 4,
+      "system": "daggerheart",
+      "systemName": "Daggerheart",
+      "variant": "complete",
+      "layout": "atelier",
+      "file": "04_daggerheart_domain_card_atelier.html",
+      "source": "how_to_play_daggerheart_complete_reference_v2.json",
+      "bytes": 848385,
+      "sha256": "1178e061c045a9e6a219e3dfd7e3a876fa302a67459083f8f0ce4858ea930a09"
+    },
+    {
+      "index": 5,
+      "system": "pf2",
+      "systemName": "Pathfinder Second Edition Remastered",
+      "variant": "complete",
+      "layout": "workshop",
+      "file": "05_pathfinder_remastered_hero_workshop.html",
+      "source": "how_to_play_pathfinder_2e_remastered_complete_reference_v2.json",
+      "bytes": 488916,
+      "sha256": "f50589331107d6f5087569e6b7ed96c818ff1750b4db807f40cc07df36ae9f95"
+    },
+    {
+      "index": 6,
+      "system": "pbta",
+      "systemName": "Powered by the Apocalypse",
+      "variant": "complete",
+      "layout": "kanban",
+      "file": "06_pbta_move_workshop.html",
+      "source": "how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+      "bytes": 955631,
+      "sha256": "6ffc078aa8fba1b89b28848abbd7937d3fc5bb0800210edf453349f9099f564e"
+    },
+    {
+      "index": 7,
+      "system": "swade",
+      "systemName": "Savage Worlds Adventure Edition",
+      "variant": "complete",
+      "layout": "deck",
+      "file": "07_swade_wild_card_command_deck.html",
+      "source": "savage_worlds_swade_complete_reference_v2.json",
+      "bytes": 430617,
+      "sha256": "13a4c858a52514727c9511da483e76c1ebdac1f86d1318eb7cd689618a7cb2a0"
+    },
+    {
+      "index": 8,
+      "system": "blades",
+      "systemName": "Blades in the Dark",
+      "variant": "complete",
+      "layout": "scoreboard",
+      "file": "08_blades_in_the_dark_score_command_board.html",
+      "source": "how_to_play_blades_in_the_dark_latest.json",
+      "bytes": 151977,
+      "sha256": "80ca0d21d0981f5dbaec575a387d12be4cd0ac317d9521dee77a034583e2c0b3"
+    }
+  ],
+  "dnd_original": {
+    "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+    "output_sha256": "ab1a60bf1227e326d6b7070077a94643c889229021514dc0f2dab2041a658756",
+    "byte_identical": false,
+    "bytes": 1279934,
+    "original_input_sha256": "5e33b080f6524fdd497caecfda12332be15c7676d48e5373df8c429d329121d8",
+    "modified_for_shared_customization": true
+  },
+  "source_json": [
+    {
+      "file": "dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+      "sha256": "ca4b07516e2c9da832c4b2d3a478d08ecc93521fb18b006a2a38b29053928405",
+      "bytes": 1629808
+    },
+    {
+      "file": "fate_core_complete_how_to_play_reference_v2.json",
+      "sha256": "fed00c11f50c26ba98201542294fe01ffc8ece9e5f81c2ded42604bd885e7029",
+      "bytes": 917972
+    },
+    {
+      "file": "gurps_4e_revised_complete_character_reference_v2.json",
+      "sha256": "e90ad9647f67076fe24d9db557b1305aa58acb516724dc8f268d6fa4005fff88",
+      "bytes": 566514
+    },
+    {
+      "file": "how_to_play_blades_in_the_dark_latest.json",
+      "sha256": "b1502bfb2e480f788bcced323dbe03b13de7d6ac2743a6f52479a8e308a5aa00",
+      "bytes": 89042
+    },
+    {
+      "file": "how_to_play_coc_7e_complete_reference_v2.json",
+      "sha256": "1993f99b314d29f5374f28fcaa0f7ede1964b420dc23cbbb128a47699219510d",
+      "bytes": 271196
+    },
+    {
+      "file": "how_to_play_daggerheart_complete_reference_v2.json",
+      "sha256": "91a84a7c4b95ccb8d710c1da067254912066a1ee735206fbfef9a648ec04c32c",
+      "bytes": 997612
+    },
+    {
+      "file": "how_to_play_pathfinder_2e_remastered_complete_reference_v2.json",
+      "sha256": "f98e83f8040d748201e7c89e00452f0d4e3f973d60c30ea2fdcca2102c5d9734",
+      "bytes": 548561
+    },
+    {
+      "file": "how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+      "sha256": "07897ea312410ff103c954e49495dc07153c2156d67c9a049dde5eae9bcfc62d",
+      "bytes": 1141734
+    },
+    {
+      "file": "savage_worlds_swade_complete_reference_v2.json",
+      "sha256": "bd1d7d8eb6b1db53028e81a52492e9f6ce2c8107d3faf388bf0192d40e18f3de",
+      "bytes": 477779
+    }
+  ],
+  "revised": "2026-07-29",
+  "shared_customization": {
+    "sheet_count": 9,
+    "generic_style_presets": 6,
+    "background_image_controls": true,
+    "custom_color_controls": true,
+    "draggable_jump_bubble": true,
+    "homebrew_world_terms_added": false
+  }
+}
