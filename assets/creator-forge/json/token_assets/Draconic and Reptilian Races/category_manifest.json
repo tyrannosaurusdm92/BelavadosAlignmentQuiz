@@ -1,0 +1,47 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 7,
+  "category": "Draconic and Reptilian Races",
+  "expectedFolder": "Draconic and Reptilian Races",
+  "raceCount": 5,
+  "tokenCount": 182,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Dragonborn",
+      "lineagesOrBloodlines": [
+        "Noitzideq",
+        "Saelftum",
+        "Jazwed",
+        "Khoalaros",
+        "Gauksneth",
+        "Tuorszom",
+        "Taudinax",
+        "Gouxelq",
+        "Vautaces"
+      ],
+      "tokenCount": 126
+    },
+    {
+      "race": "Kobold",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Lizardfolk",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Yuan-Ti",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Tortle",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

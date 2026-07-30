@@ -1,0 +1,32 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 18,
+  "category": "Plantfolk and Nature-Bound Races",
+  "expectedFolder": "Plantfolk and Nature-Bound Races",
+  "raceCount": 4,
+  "tokenCount": 56,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Mandrake",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Mycelian",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Gnarlborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Harvestborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

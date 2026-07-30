@@ -1,0 +1,17 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 20,
+  "category": "Experimental and Bio-Engineered Races",
+  "expectedFolder": "Experimental and Bio-Engineered Races",
+  "raceCount": 1,
+  "tokenCount": 14,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Simic Hybrid",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

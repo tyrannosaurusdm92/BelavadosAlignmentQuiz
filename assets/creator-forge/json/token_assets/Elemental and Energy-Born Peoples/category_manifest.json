@@ -1,0 +1,53 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 11,
+  "category": "Elemental and Energy-Born Peoples",
+  "expectedFolder": "Elemental and Energy-Born Peoples",
+  "raceCount": 4,
+  "tokenCount": 238,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Genasi",
+      "lineagesOrBloodlines": [
+        "Air Genasi",
+        "Earth Genasi",
+        "Fire Genasi",
+        "Water Genasi"
+      ],
+      "tokenCount": 56
+    },
+    {
+      "race": "Elemental Kin",
+      "lineagesOrBloodlines": [
+        "Flamekin",
+        "Rimekin"
+      ],
+      "tokenCount": 28
+    },
+    {
+      "race": "Elementborn",
+      "lineagesOrBloodlines": [
+        "Ashborn",
+        "Azureborn",
+        "Bogborn",
+        "Deepborn",
+        "Snowborn",
+        "Stoneborn"
+      ],
+      "tokenCount": 84
+    },
+    {
+      "race": "Panolima",
+      "lineagesOrBloodlines": [
+        "Earth Bloodline",
+        "Fire Bloodline",
+        "Water Bloodline",
+        "Air Bloodline",
+        "Aether Bloodline"
+      ],
+      "tokenCount": 70
+    }
+  ]
+}

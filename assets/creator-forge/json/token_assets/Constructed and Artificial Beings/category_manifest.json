@@ -1,0 +1,37 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 13,
+  "category": "Constructed and Artificial Beings",
+  "expectedFolder": "Constructed and Artificial Beings",
+  "raceCount": 5,
+  "tokenCount": 70,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Warforged",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Geppettin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Relicborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Wechselkind",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Autognome",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

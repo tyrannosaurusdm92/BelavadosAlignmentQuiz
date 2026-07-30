@@ -1,0 +1,27 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 6,
+  "category": "Giantkin and Powerful Humanoids",
+  "expectedFolder": "Giantkin and Powerful Humanoids",
+  "raceCount": 3,
+  "tokenCount": 42,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Goliath",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Firbolg",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Cyclopian",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

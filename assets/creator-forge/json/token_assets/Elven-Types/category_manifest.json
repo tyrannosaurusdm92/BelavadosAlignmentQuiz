@@ -1,0 +1,45 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 2,
+  "category": "Elven-Types",
+  "expectedFolder": "Elven-Types",
+  "raceCount": 2,
+  "tokenCount": 294,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Elf",
+      "lineagesOrBloodlines": [
+        "High Elf",
+        "Wood Elf",
+        "Drow (Underdark Elf)",
+        "Eladrin",
+        "Astral Elf",
+        "Sea Elf",
+        "Shadar-Kai",
+        "Pallid Elf",
+        "Star Elf (Lunar/Heavenly)",
+        "Avariel (Winged Elf)",
+        "Snow Elf (Frostbound)",
+        "Sun Elf",
+        "Moon Elf",
+        "Shadowmoor Elf",
+        "Celestial Elf"
+      ],
+      "tokenCount": 210
+    },
+    {
+      "race": "Kaluseban",
+      "lineagesOrBloodlines": [
+        "Psionic Bloodline",
+        "Swamp Bloodline",
+        "Arcane Bloodline",
+        "Dark Bloodline",
+        "Stone Bloodline",
+        "Oceanic Bloodline"
+      ],
+      "tokenCount": 84
+    }
+  ]
+}

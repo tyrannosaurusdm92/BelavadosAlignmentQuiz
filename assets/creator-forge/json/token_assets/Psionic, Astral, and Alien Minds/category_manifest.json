@@ -1,0 +1,37 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 12,
+  "category": "Psionic, Astral, and Alien Minds",
+  "expectedFolder": "Psionic, Astral, and Alien Minds",
+  "raceCount": 5,
+  "tokenCount": 70,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "../../../js/data/lifesimulator/race_token_index.json",
+  "races": [
+    {
+      "race": "Kalashtar",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Githyanki",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Githzerai",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Disembodied",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Gwynis",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}
