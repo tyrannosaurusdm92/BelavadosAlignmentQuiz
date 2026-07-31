@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="512" height="512" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" data-crop-format="tablegate-frame-512-v1" data-frame-center="256,256" data-frame-canvas="512x512" data-reaction-slot-version="2" data-reaction-slot-position="top-center" data-default-reaction="" data-reaction-autofill="npc-action"><defs>
+    <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9080e0"/>
+      <stop offset="100%" stop-color="#4a3a8a"/>
+    </linearGradient>
+  </defs>
+  <g id="frameArtwork" data-standardized-crop="true" transform="matrix(1 0 0 1 0 0)"><!-- Outer arcane circle -->
+  <circle cx="256" cy="256" r="248" stroke="#6e5cbf" stroke-width="2" stroke-dasharray="2 6" opacity="0.5"/>
+  <!-- Main ring -->
+  <circle cx="256" cy="256" r="238" stroke="url(#ag)" stroke-width="10"/>
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="226" stroke="#6e5cbf" stroke-width="2"/>
+  <!-- Rune marks — 8 arcane symbols at cardinal and intercardinal points -->
+  <g stroke="#9080e0" stroke-width="2" stroke-linecap="round" fill="none">
+    <!-- N: triangle rune -->
+    <path d="M256 6 l-8 16 16 0z" transform="rotate(0 256 256)"/>
+    <!-- NE: cross rune -->
+    <g transform="rotate(45 256 256)"><line x1="256" y1="6" x2="256" y2="20"/><line x1="250" y1="13" x2="262" y2="13"/></g>
+    <!-- E: diamond -->
+    <path d="M256 6 l6 10 -6 10 -6-10z" transform="rotate(90 256 256)"/>
+    <!-- SE: dot circle -->
+    <g transform="rotate(135 256 256)"><circle cx="256" cy="13" r="5"/><circle cx="256" cy="13" r="2" fill="#9080e0" fill-opacity="0.4"/></g>
+    <!-- S: inverse triangle -->
+    <path d="M256 22 l-8-16 16 0z" transform="rotate(180 256 256)"/>
+    <!-- SW: zigzag -->
+    <path d="M250 6 l4 8 -4 8 4 4" transform="rotate(225 256 256)"/>
+    <!-- W: parallel lines -->
+    <g transform="rotate(270 256 256)"><line x1="252" y1="6" x2="252" y2="22"/><line x1="260" y1="6" x2="260" y2="22"/></g>
+    <!-- NW: star -->
+    <g transform="rotate(315 256 256)"><line x1="256" y1="4" x2="256" y2="22"/><line x1="247" y1="13" x2="265" y2="13"/><line x1="250" y1="6" x2="262" y2="20"/><line x1="262" y1="6" x2="250" y2="20"/></g>
+  </g>
+  <!-- Inner spell circle -->
+  <circle cx="256" cy="256" r="220" stroke="#6e5cbf" stroke-width="1" stroke-dasharray="12 4 2 4" opacity="0.4"/>
+  <!-- Faint inner glow ring -->
+  <circle cx="256" cy="256" r="214" stroke="#9080e0" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- TableGate NPC reaction slot: empty by default. The town-meeting asset is only a matching-action example. -->
+  </g><metadata data-frame-format="true">{"format":"tablegate-frame-512-v1","canvas":[512,512],"center":[256,256],"sourceViewBox":[0.0,0.0,512.0,512.0],"reactionSlot":{"position":"top-center","defaultReaction":null}}</metadata><metadata data-reaction-slot-config="true">{"version":2,"position":"top-center","defaultReaction":null,"actionParameter":"npcAction","reactionParameter":"reaction","reactionBaseParameter":"reactionBase"}</metadata><defs><clipPath id="reactionClip_arcane"><rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883"/></clipPath></defs><g id="reactionSlot_arcane" data-reaction-slot="top-center" data-reaction-state="empty" pointer-events="none"><rect data-reaction-slot-backplate="true" x="195.0720" y="3.0720" width="121.8560" height="121.8560" rx="26.8083" fill="#08131d" fill-opacity="0.94" stroke="#e5eef5" stroke-opacity="0.72" stroke-width="4.0960"/><rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883" fill="none" stroke="#7dd8e8" stroke-opacity="0.34" stroke-width="2.1299"/><image data-reaction-image="true" x="200.1920" y="8.1920" width="111.6160" height="111.6160" preserveAspectRatio="xMidYMid meet" clip-path="url(#reactionClip_arcane)" visibility="hidden"/></g><script type="application/ecmascript"><![CDATA[(function () {
+  var svg = document.documentElement;
+  var slot = svg.querySelector('[data-reaction-slot]');
+  var image = svg.querySelector('[data-reaction-image]');
+  if (!slot || !image) return;
+
+  function clean(value) { return (value || '').trim(); }
+  function slugify(value) {
+    return clean(value)
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/['’]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+  function clearReaction() {
+    image.removeAttribute('href');
+    image.removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
+    image.setAttribute('visibility', 'hidden');
+    image.removeAttribute('aria-label');
+    slot.setAttribute('data-reaction-state', 'empty');
+    slot.removeAttribute('data-reaction-action');
+  }
+  function showReaction(source, action) {
+    if (!source) return clearReaction();
+    slot.setAttribute('data-reaction-state', 'loading');
+    if (action) slot.setAttribute('data-reaction-action', action);
+    image.setAttribute('href', source);
+    image.setAttribute('aria-label', action ? action + ' reaction' : 'NPC reaction');
+    image.setAttribute('visibility', 'visible');
+  }
+  image.addEventListener('load', function () {
+    if (image.getAttribute('href')) slot.setAttribute('data-reaction-state', 'filled');
+  });
+  image.addEventListener('error', clearReaction);
+
+  var params;
+  try { params = new URLSearchParams(window.location.search); }
+  catch (_) { clearReaction(); return; }
+  var direct = clean(params.get('reaction'));
+  var action = clean(params.get('npcAction') || params.get('action'));
+  var base = clean(params.get('reactionBase')) || '../reactions/';
+  if (direct) {
+    showReaction(direct, action);
+  } else if (action) {
+    showReaction(base.replace(/\/?$/, '/') + slugify(action) + '.svg', action);
+  } else {
+    clearReaction();
+  }
+
+  svg.setReaction = function (source, actionLabel) {
+    showReaction(clean(source), clean(actionLabel));
+  };
+  svg.setReactionForAction = function (actionLabel, basePath) {
+    var label = clean(actionLabel);
+    if (!label) return clearReaction();
+    var root = clean(basePath) || '../reactions/';
+    showReaction(root.replace(/\/?$/, '/') + slugify(label) + '.svg', label);
+  };
+  svg.clearReaction = clearReaction;
+}());]]></script></svg>
