@@ -1,0 +1,37 @@
+{
+  "dataset": "Nine-System TTRPG JSON Knowledge Pack",
+  "system": "Call of Cthulhu",
+  "folder": "05_call_of_cthulhu",
+  "build_time_utc": "2026-07-30T06:48:30.732084+00:00",
+  "minimum_folder_size_bytes": 12288000,
+  "content_policy": "Original investigative-horror compatibility material plus user-supplied reference data. Published scenarios, Mythos prose, and spell text are not reproduced.",
+  "coverage_categories": [
+    "how to play",
+    "edition orientation",
+    "character creation",
+    "advancement",
+    "attacks",
+    "magic/powers",
+    "classes/archetypes/playbooks",
+    "ancestries/species/races",
+    "subclasses/specializations",
+    "backgrounds",
+    "skills",
+    "feats/edges/stunts/quirks",
+    "weapons",
+    "armor",
+    "equipment",
+    "conditions",
+    "NPCs/adversaries",
+    "locations/factions",
+    "adventure modules",
+    "encounters/rewards",
+    "facilitator tools",
+    "indexes",
+    "user-supplied reference imports"
+  ],
+  "important_limit": "This is not a verbatim archive of every commercial publication. It combines original compatibility material, openly licensed orientation, and reference files supplied by the user.",
+  "official_reference_urls": [
+    "https://www.chaosium.com/fan-material-policy/"
+  ]
+}
