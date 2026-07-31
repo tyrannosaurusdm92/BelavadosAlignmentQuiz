@@ -1,0 +1,12 @@
+{
+  "system": "Savage Worlds Adventure Edition",
+  "files": [
+    {
+      "file": "90_user_supplied_savage_worlds_swade_complete_reference_v2.json",
+      "bytes": 477779,
+      "sha256": "bd1d7d8eb6b1db53028e81a52492e9f6ce2c8107d3faf388bf0192d40e18f3de",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}

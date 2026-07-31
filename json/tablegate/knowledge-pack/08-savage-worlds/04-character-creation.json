@@ -1,0 +1,114 @@
+{
+  "system": "Savage Worlds Adventure Edition",
+  "procedure": [
+    "Choose campaign premise, power scale, tone, and allowed sources.",
+    "Choose a concept and party function without treating roles as mandatory.",
+    "Assign core statistics using the edition-appropriate method.",
+    "Select archetype, class, playbook, profession, or point-built capabilities.",
+    "Select lineage, ancestry, species, culture, background, or origin only where the system uses them.",
+    "Choose skills, abilities, feats, edges, stunts, moves, powers, spells, gear, and relationships.",
+    "Calculate derived values and starting resources.",
+    "Write motivations, boundaries, connections, and advancement triggers.",
+    "Review overlap and gaps with the group, then make final adjustments."
+  ],
+  "worksheets": [
+    {
+      "step": 1,
+      "prompt": "Choose campaign premise, power scale, tone, and allowed sources.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 2,
+      "prompt": "Choose a concept and party function without treating roles as mandatory.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 3,
+      "prompt": "Assign core statistics using the edition-appropriate method.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 4,
+      "prompt": "Select archetype, class, playbook, profession, or point-built capabilities.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 5,
+      "prompt": "Select lineage, ancestry, species, culture, background, or origin only where the system uses them.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 6,
+      "prompt": "Choose skills, abilities, feats, edges, stunts, moves, powers, spells, gear, and relationships.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 7,
+      "prompt": "Calculate derived values and starting resources.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 8,
+      "prompt": "Write motivations, boundaries, connections, and advancement triggers.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    },
+    {
+      "step": 9,
+      "prompt": "Review overlap and gaps with the group, then make final adjustments.",
+      "validation": [
+        "choice is permitted",
+        "numbers are within edition bounds",
+        "derived values recalculate",
+        "resource maximums are recorded"
+      ]
+    }
+  ],
+  "party_review": [
+    "shared premise",
+    "spotlight balance",
+    "overlapping specialties",
+    "missing campaign capabilities",
+    "inter-character ties",
+    "safety boundaries"
+  ]
+}
