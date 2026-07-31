@@ -1,0 +1,13 @@
+{
+  "runner_secret_button": true,
+  "runner_original_edit_removed": true,
+  "art_button": true,
+  "pending_created": true,
+  "deadline_72_hours": true,
+  "player_approval_visible": true,
+  "approved": true,
+  "private_entry_added": true,
+  "revealed_to_original": true,
+  "expired_removed": true,
+  "revealed_visible_to_player": true
+}

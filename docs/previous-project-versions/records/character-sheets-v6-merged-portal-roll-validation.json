@@ -1,0 +1,56 @@
+[
+  {
+    "file": "01_fate_core_campaign_storyboard.html",
+    "action": "fateRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "02_gurps_tactical_dossier.html",
+    "action": "gurpsRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "03_call_of_cthulhu_evidence_board.html",
+    "action": "cocRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "04_daggerheart_domain_card_atelier.html",
+    "action": "dhRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "05_pathfinder_remastered_hero_workshop.html",
+    "action": "pfRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "06_pbta_move_workshop.html",
+    "action": "pbtaRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "07_swade_wild_card_command_deck.html",
+    "action": "swTraitRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "08_blades_in_the_dark_score_command_board.html",
+    "action": "bitdActionRoll",
+    "intercepted_to_portal_popup": true,
+    "errors": []
+  },
+  {
+    "file": "09_dnd_5e_5_5e_complete_character_sheet_original.html",
+    "action": null,
+    "intercepted_to_portal_popup": null,
+    "errors": []
+  }
+]

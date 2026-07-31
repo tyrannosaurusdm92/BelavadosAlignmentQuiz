@@ -1,0 +1,13 @@
+{
+  "release": "TableGate 10.0.0",
+  "format": "five non-overlapping standard ZIP archives",
+  "archiveNamePattern": "TableGate_10.0.0_Release_PartN_of_5.zip",
+  "partCount": 5,
+  "extractionRoot": "TableGate/",
+  "nestedArchivesInsideProject": false,
+  "duplicateProjectPathsAcrossParts": false,
+  "checksumFile": "TableGate_10.0.0_SHA256SUMS.txt",
+  "instructions": "Download all five parts and extract them into the same destination so the TableGate folders merge. Verify archives with the checksum file before publishing.",
+  "minimumArchiveBytesPerPart": 81920000,
+  "zipCompressionMethod": "stored (standard ZIP method 0; no content padding)"
+}

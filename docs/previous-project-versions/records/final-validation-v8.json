@@ -1,0 +1,31 @@
+{
+  "version": "8.0.0",
+  "checks": {
+    "one_html": true,
+    "no_batch": true,
+    "top_folders": true,
+    "json_valid": true,
+    "js_valid": true,
+    "github_file_limit": true,
+    "replacement_backend_only": true,
+    "nine_sheets": true,
+    "xp_wizards_all": true,
+    "art_downloads_all": true,
+    "responsive_all": true,
+    "embedded_context_all": true,
+    "consent_workflow": true,
+    "responsive_browser_45": true,
+    "consent_browser": true,
+    "config_v8": true
+  },
+  "passed": 16,
+  "total": 16,
+  "badJson": [],
+  "badJs": [],
+  "fileCount": 2202,
+  "totalBytes": 501644428,
+  "maxFile": [
+    20000000,
+    "docs/source-archives/multisystem_ttrpg_portal.zip.part002"
+  ]
+}
