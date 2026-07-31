@@ -1,0 +1,14 @@
+{
+  "systems": [
+    {"name":"Pathfinder 2e","defaultRoll":"1d20","tags":["d20","fantasy"]},
+    {"name":"Pathfinder 1e","defaultRoll":"1d20","tags":["d20","fantasy"]},
+    {"name":"Call of Cthulhu 7e","defaultRoll":"1d100","tags":["percentile","horror","sanity"]},
+    {"name":"GURPS 4e","defaultRoll":"3d6","tags":["3d6","generic"]},
+    {"name":"Dungeons & Dragons 5e","defaultRoll":"1d20","tags":["d20","fantasy"]},
+    {"name":"Savage Worlds","defaultRoll":"1d6","tags":["step-dice","generic"]},
+    {"name":"Fate Core","defaultRoll":"4dF","tags":["fudge","narrative"]},
+    {"name":"Powered by the Apocalypse","defaultRoll":"2d6","tags":["narrative"]},
+    {"name":"Blades in the Dark","defaultRoll":"1d6","tags":["dice-pool","narrative"]},
+    {"name":"Other / Custom","defaultRoll":"","tags":[]}
+  ]
+}

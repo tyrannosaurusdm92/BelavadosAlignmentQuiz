@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tablegate Calendar Item",
+  "type": "object",
+  "required": ["title", "itemType", "startAt"],
+  "properties": {
+    "title": {"type":"string","maxLength":180},
+    "description": {"type":"string","maxLength":4000},
+    "itemType": {"enum":["SESSION","AVAILABILITY","DOCTOR","BIRTHDAY","PERSONAL","DEADLINE","OTHER"]},
+    "startAt": {"type":"string","format":"date-time"},
+    "endAt": {"type":"string","format":"date-time"},
+    "allDay": {"type":"boolean"},
+    "visibility": {"enum":["SERVER","RUNNER_ONLY","PRIVATE"]},
+    "approvalStatus": {"enum":["PENDING","APPROVED","REJECTED"]}
+  }
+}
