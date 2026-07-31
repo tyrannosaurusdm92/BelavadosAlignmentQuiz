@@ -1,0 +1,7 @@
+/* Importers visual contract. Companion to js/admins/creator-forge/lifesimulator/importers.js. */
+:root{--wf-importers-surface:var(--panel,rgba(13,24,38,.92));--wf-importers-gap:.75rem;}
+[data-module="importers"], .module-importers{position:relative;display:grid;gap:var(--wf-importers-gap);min-width:0;}
+[data-module="importers"] .module-status, .module-importers .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
+[data-module="importers"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-importers-surface);}
+@media (max-width:760px){[data-module="importers"],.module-importers{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){[data-module="importers"] *, .module-importers *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

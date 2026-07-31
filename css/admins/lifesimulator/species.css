@@ -1,0 +1,7 @@
+/* Species visual contract. Companion to js/admins/creator-forge/lifesimulator/species.js. */
+:root{--wf-species-surface:var(--panel,rgba(13,24,38,.92));--wf-species-gap:.75rem;}
+[data-module="species"], .module-species{position:relative;display:grid;gap:var(--wf-species-gap);min-width:0;}
+[data-module="species"] .module-status, .module-species .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
+[data-module="species"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-species-surface);}
+@media (max-width:760px){[data-module="species"],.module-species{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){[data-module="species"] *, .module-species *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}

@@ -1,0 +1,7 @@
+/* Simulation visual contract. Companion to js/admins/creator-forge/lifesimulator/simulation.js. */
+:root{--wf-simulation-surface:var(--panel,rgba(13,24,38,.92));--wf-simulation-gap:.75rem;}
+[data-module="simulation"], .module-simulation{position:relative;display:grid;gap:var(--wf-simulation-gap);min-width:0;}
+[data-module="simulation"] .module-status, .module-simulation .module-status{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.78;}
+[data-module="simulation"][data-state="busy"]::after{content:"Working…";position:absolute;inset:.35rem .35rem auto auto;padding:.25rem .45rem;border-radius:999px;background:var(--wf-simulation-surface);}
+@media (max-width:760px){[data-module="simulation"],.module-simulation{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){[data-module="simulation"] *, .module-simulation *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
