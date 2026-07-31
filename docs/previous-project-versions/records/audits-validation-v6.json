@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "testedAt": "2026-07-29",
+  "project": "TableGate Campaign Studio v6",
+  "checks": {
+    "exactly_one_html": true,
+    "no_windows_batch_files": true,
+    "only_allowed_top_level_folders": true,
+    "only_expected_root_files": true,
+    "all_javascript_parses": true,
+    "all_json_parses": true,
+    "all_files_under_24000000_bytes": true,
+    "active_backend_is_exact_replacement": true,
+    "active_library_is_version_5": true,
+    "all_tablegate_resource_references_exist": true,
+    "all_service_worker_core_references_exist": true,
+    "nine_upgraded_character_sheets": true,
+    "all_sheets_have_homebrew_engine": true,
+    "all_sheets_have_true_menu": true,
+    "all_sheets_have_campaign_and_session_bridges": true,
+    "all_sheets_keep_stat_generation_local": true,
+    "menu_browser_cases_18_of_18": true,
+    "v6_browser_smoke_all_passed": true,
+    "all_new_helper_sources_documented": true,
+    "encounter_lab_integrated": true,
+    "campaign_helpers_integrated": true,
+    "v6_css_integrated": true
+  },
+  "summary": {
+    "passed": 22,
+    "failed": 0,
+    "total": 22
+  },
+  "details": {
+    "html_files": [
+      "tablegate.html"
+    ],
+    "batch_files": [],
+    "top_level_folders": [
+      "assets",
+      "css",
+      "docs",
+      "js",
+      "json"
+    ],
+    "root_files": [
+      "manifest.webmanifest",
+      "service-worker.js",
+      "tablegate.html"
+    ],
+    "javascript_count": 18,
+    "javascript_failures": [],
+    "json_count": 69,
+    "json_failures": [],
+    "oversized_files": [],
+    "largest_files": [
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part3_Character_Portal.zip.part001",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/multisystem_ttrpg_portal.zip.part002",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/multisystem_ttrpg_portal.zip.part001",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part3_Character_Portal.zip.part002",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part2_Creator_Forge.zip.part001",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part2_Creator_Forge.zip.part002",
+        "bytes": 20000000
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part3_Character_Portal.zip.part003",
+        "bytes": 19996318
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part2_Creator_Forge.zip.part003",
+        "bytes": 17421807
+      },
+      {
+        "file": "docs/source-archives/TableGate_Campaign_Isolated_v4_Part1_Core.zip.part001",
+        "bytes": 17330602
+      },
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-3.js",
+        "bytes": 16391619
+      },
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-2.js",
+        "bytes": 16385165
+      },
+      {
+        "file": "assets/creator-forge/js/bot/intelligence-corpus-part-1.js",
+        "bytes": 16380824
+      },
+      {
+        "file": "docs/source-archives/TableGate_Worldbuilder_VTT_v3.0.0.zip.part001",
+        "bytes": 15802680
+      },
+      {
+        "file": "js/character-sheet-library.js",
+        "bytes": 8336890
+      },
+      {
+        "file": "assets/unified-portal/js/session-system-bundles.js",
+        "bytes": 7920293
+      },
+      {
+        "file": "assets/unified-portal/js/system-bundles.js",
+        "bytes": 7894255
+      },
+      {
+        "file": "assets/unified-portal/js/ttrpg_system_bundle.js",
+        "bytes": 5102092
+      },
+      {
+        "file": "assets/creator-forge/js/data/legacy-dnd/visitable_locations.json",
+        "bytes": 4359016
+      },
+      {
+        "file": "assets/creator-forge/js/data/lifesimulator/mixed_heritage.json",
+        "bytes": 3444694
+      },
+      {
+        "file": "assets/dice-session/assets/dnd-token-library/dnd_npc_token_14.png",
+        "bytes": 3304963
+      }
+    ],
+    "active_backend_urls": [
+      "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec"
+    ],
+    "active_library_urls": [
+      "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6"
+    ],
+    "html_local_reference_count": 27,
+    "missing_html_references": [],
+    "service_worker_reference_count": 38,
+    "missing_service_worker_references": [],
+    "character_sheets": {
+      "count": 9,
+      "sheets": [
+        {
+          "id": "01_fate_core_campaign_storyboard",
+          "name": "Complete Fate Core Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "02_gurps_tactical_dossier",
+          "name": "Complete GURPS Fourth Edition Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "03_call_of_cthulhu_evidence_board",
+          "name": "Complete Call of Cthulhu Seventh Edition Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "04_daggerheart_domain_card_atelier",
+          "name": "Complete Daggerheart Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "05_pathfinder_remastered_hero_workshop",
+          "name": "Complete Pathfinder Second Edition Remastered Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "06_pbta_move_workshop",
+          "name": "Complete Powered by the Apocalypse Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "07_swade_wild_card_command_deck",
+          "name": "Complete Savage Worlds Adventure Edition Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "08_blades_in_the_dark_score_command_board",
+          "name": "Complete Blades in the Dark Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        },
+        {
+          "id": "09_dnd_5e_5_5e_complete_character_sheet_original",
+          "name": "D&amp;D 5e / 5.5e Complete Character Studio",
+          "version": "complete-options-homebrew-engine-2026-07-29",
+          "homebrew": true,
+          "trueMenu": true,
+          "identityBridge": true,
+          "sessionBridge": true,
+          "statGenerationExcluded": true
+        }
+      ]
+    },
+    "source_count": 28,
+    "new_source_ids_present": [
+      "autorolltables",
+      "chartopia",
+      "donjon-dungeon-conversion",
+      "family-echo",
+      "fantasy-name-generators",
+      "gamblingnews-dnd-games",
+      "garbata-random-table",
+      "simplijessi-encounter",
+      "tetra-cube-tools"
+    ]
+  },
+  "fileCount": 2122,
+  "uncompressedBytes": 480211713
+}

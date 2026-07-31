@@ -1,0 +1,727 @@
+{
+  "tests": 45,
+  "passed": 45,
+  "failed": 0,
+  "results": [
+    {
+      "sheet": "01_fate_core_campaign_storyboard",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "01_fate_core_campaign_storyboard",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "01_fate_core_campaign_storyboard",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "01_fate_core_campaign_storyboard",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "01_fate_core_campaign_storyboard",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "02_gurps_tactical_dossier",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "02_gurps_tactical_dossier",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "02_gurps_tactical_dossier",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "02_gurps_tactical_dossier",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "02_gurps_tactical_dossier",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "03_call_of_cthulhu_evidence_board",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "03_call_of_cthulhu_evidence_board",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "03_call_of_cthulhu_evidence_board",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "03_call_of_cthulhu_evidence_board",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "03_call_of_cthulhu_evidence_board",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "04_daggerheart_domain_card_atelier",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "04_daggerheart_domain_card_atelier",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "04_daggerheart_domain_card_atelier",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "04_daggerheart_domain_card_atelier",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "04_daggerheart_domain_card_atelier",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "05_pathfinder_remastered_hero_workshop",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "05_pathfinder_remastered_hero_workshop",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "05_pathfinder_remastered_hero_workshop",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "05_pathfinder_remastered_hero_workshop",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "05_pathfinder_remastered_hero_workshop",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "06_pbta_move_workshop",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "06_pbta_move_workshop",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "06_pbta_move_workshop",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "06_pbta_move_workshop",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "06_pbta_move_workshop",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "07_swade_wild_card_command_deck",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "07_swade_wild_card_command_deck",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "07_swade_wild_card_command_deck",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "07_swade_wild_card_command_deck",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "07_swade_wild_card_command_deck",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "08_blades_in_the_dark_score_command_board",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "08_blades_in_the_dark_score_command_board",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "08_blades_in_the_dark_score_command_board",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "08_blades_in_the_dark_score_command_board",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "08_blades_in_the_dark_score_command_board",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    },
+    {
+      "sheet": "09_dnd_5e_5_5e_complete_character_sheet_original",
+      "view": "mobile-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 390,
+        "cw": 390,
+        "bw": 390,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 390
+      }
+    },
+    {
+      "sheet": "09_dnd_5e_5_5e_complete_character_sheet_original",
+      "view": "mobile-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 844,
+        "cw": 844,
+        "bw": 844,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 844
+      }
+    },
+    {
+      "sheet": "09_dnd_5e_5_5e_complete_character_sheet_original",
+      "view": "tablet-portrait",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 768,
+        "cw": 768,
+        "bw": 768,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 768
+      }
+    },
+    {
+      "sheet": "09_dnd_5e_5_5e_complete_character_sheet_original",
+      "view": "tablet-landscape",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1024,
+        "cw": 1024,
+        "bw": 1024,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 1008
+      }
+    },
+    {
+      "sheet": "09_dnd_5e_5_5e_complete_character_sheet_original",
+      "view": "desktop",
+      "ok": true,
+      "errors": [],
+      "overflow": 0,
+      "metrics": {
+        "sw": 1440,
+        "cw": 1440,
+        "bw": 1440,
+        "buttons": 4,
+        "menu": true,
+        "artbar": true,
+        "shell": 960
+      }
+    }
+  ]
+}

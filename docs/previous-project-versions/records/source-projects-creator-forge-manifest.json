@@ -1,0 +1,104 @@
+{
+  "name": "TableGate",
+  "release": "8.0.0",
+  "projectSchema": "tablegate.project.v8",
+  "generated": "2026-07-28",
+  "entryPoint": "tablegate.html",
+  "serviceWorker": "service-worker.js",
+  "rootContract": {
+    "files": [
+      "tablegate.html",
+      "service-worker.js"
+    ],
+    "folders": [
+      "css",
+      "js",
+      "json",
+      "assets",
+      "docs"
+    ],
+    "singleHtml": true,
+    "launcherScripts": false
+  },
+  "distributionParts": [
+    {
+      "file": "TableGate_v8_Core_and_Intelligence_Part1.zip",
+      "contains": [
+        "TableGate/tablegate.html",
+        "TableGate/service-worker.js",
+        "TableGate/css",
+        "TableGate/js",
+        "TableGate/json",
+        "TableGate/docs"
+      ]
+    },
+    {
+      "file": "TableGate_v8_Assets_Part2.zip",
+      "contains": [
+        "TableGate/assets"
+      ]
+    }
+  ],
+  "backend": {
+    "deployment": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
+    "library": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6",
+    "libraryId": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
+    "libraryVersion": 5
+  },
+  "features": {
+    "rulesSystems": 9,
+    "protectedGenderIdentities": 14,
+    "editablePronouns": true,
+    "customIdentities": true,
+    "assistant": true,
+    "assistantReviewFirstActions": true,
+    "assistantImageGeneration": true,
+    "lifeSimulation": true,
+    "hierarchicalMapViewer": true,
+    "generatedNpcLocationMapBridge": true,
+    "transitNetwork": true,
+    "tripPlanningWithTransfers": true,
+    "activityStops": true,
+    "neonMapRoutes": true,
+    "simulationVehicleTracking": true,
+    "projectZipExport": true
+  },
+  "components": {
+    "css": {
+      "files": 24,
+      "bytes": 76276
+    },
+    "js": {
+      "files": 59,
+      "bytes": 66752773
+    },
+    "json": {
+      "files": 47,
+      "bytes": 7642258
+    },
+    "assets": {
+      "files": 1590,
+      "bytes": 54225077
+    },
+    "docs": {
+      "files": 25,
+      "bytes": 339164
+    }
+  },
+  "documentation": [
+    "README.md",
+    "PARTS_README.md",
+    "GITHUB_MANIFEST.md",
+    "GITHUB_DEPLOYMENT.md",
+    "BUILD_AUDIT.md",
+    "TEST_REPORT.md",
+    "RELEASE_NOTES.md",
+    "ASSISTANT_BACKEND_GUIDE.md",
+    "TRANSIT_ENGINE_GUIDE.md",
+    "MAP_AND_TRANSIT_INTEGRATION.md",
+    "MAP_VIEWER_GUIDE.md",
+    "GENDER_IDENTITY_AND_PRONOUNS.md",
+    "SYSTEM_SWITCHING_GUIDE.md",
+    "THIRD_PARTY_LICENSES.md"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "builtAt": "2026-07-29T23:05:04.408139+00:00",
+  "dndThresholds": [
+    0,
+    300,
+    900,
+    2700,
+    6500,
+    14000,
+    23000,
+    34000,
+    48000,
+    64000,
+    85000,
+    100000,
+    120000,
+    140000,
+    165000,
+    195000,
+    225000,
+    265000,
+    305000,
+    355000
+  ],
+  "sheets": [
+    {
+      "file": "character_sheets/01_fate_core_campaign_storyboard.html",
+      "system": "fate-core",
+      "bytes": 1138458,
+      "sha256": "b186ba28fa7aa906c9bd052a4e2a9734362308bdb13ea47429ce5474f74959a4"
+    },
+    {
+      "file": "character_sheets/02_gurps_tactical_dossier.html",
+      "system": "gurps-4e",
+      "bytes": 1107977,
+      "sha256": "5b05a1fde3417f77cd51c31592b402eab4e4ed7dc662cf61230126b4ec2ee1e9"
+    },
+    {
+      "file": "character_sheets/03_call_of_cthulhu_evidence_board.html",
+      "system": "coc-7e",
+      "bytes": 729608,
+      "sha256": "5248b96f4aa06196c21b86355890b85fc843b10cdd3b0ca1eb797913fe204b78"
+    },
+    {
+      "file": "character_sheets/04_daggerheart_domain_card_atelier.html",
+      "system": "daggerheart",
+      "bytes": 1316231,
+      "sha256": "6795c337d9b9d4188a186f43fd7421410cfe077f9132c3953cc874966396bb3d"
+    },
+    {
+      "file": "character_sheets/05_pathfinder_remastered_hero_workshop.html",
+      "system": "pathfinder-2e-remastered",
+      "bytes": 935710,
+      "sha256": "297fb86c1f0ba8fb0ef83e09c566cb527eea045f0c3e2da1ee5288ae0a1231d2"
+    },
+    {
+      "file": "character_sheets/06_pbta_move_workshop.html",
+      "system": "pbta-adapter",
+      "bytes": 1373324,
+      "sha256": "86f439501c73892328c376434a306ba096d22c90cb5b830a98224dff89610d54"
+    },
+    {
+      "file": "character_sheets/07_swade_wild_card_command_deck.html",
+      "system": "swade",
+      "bytes": 906365,
+      "sha256": "86efba48e6a8e7eff642306a762ac8b8dc82e07791dde1cd0c840a31aea9b552"
+    },
+    {
+      "file": "character_sheets/08_blades_in_the_dark_score_command_board.html",
+      "system": "blades-in-the-dark",
+      "bytes": 612464,
+      "sha256": "90e49478d5e204402971970eaed296d28a917c055a924eb2b14942e5f92db8cf"
+    },
+    {
+      "file": "character_sheets/09_dnd_5e_5_5e_complete_character_sheet_original.html",
+      "system": "dnd-5e-5.5e",
+      "bytes": 1836318,
+      "sha256": "cbb2a4845223a6aaf5dd21e7a133f2d48514188aee97742f7b9936b003af1a4d"
+    }
+  ]
+}
