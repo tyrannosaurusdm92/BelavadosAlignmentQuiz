@@ -1,0 +1,174 @@
+{
+  "system": "Dungeons & Dragons",
+  "folder_bytes": 24048722,
+  "folder_kib": 23485.08,
+  "minimum_required_bytes": 12288000,
+  "meets_minimum": true,
+  "largest_file_bytes": 4358843,
+  "under_23_000_kib_per_file": true,
+  "file_count": 27,
+  "files": [
+    {
+      "file": "00_manifest.json",
+      "bytes": 1254,
+      "valid_json": true,
+      "sha256": "7f70894c7848eb6971315cf54a1d3cc83b8aff6ce7b1bda3900237c4b56bfe5b"
+    },
+    {
+      "file": "01_licensing_and_scope.json",
+      "bytes": 834,
+      "valid_json": true,
+      "sha256": "db51f8ef08676ccf70bc2ca5f58a0702cb083f6b38c971fb759ea756bdc9ebe6"
+    },
+    {
+      "file": "02_edition_timeline_and_conversion.json",
+      "bytes": 8277,
+      "valid_json": true,
+      "sha256": "5657eee899b7a5a5cffe12916cb1156ce03181e67d3e6a62792b8e82815794cb"
+    },
+    {
+      "file": "03_complete_how_to_play.json",
+      "bytes": 7508,
+      "valid_json": true,
+      "sha256": "bfc5732df17cce860451bdddc70bdef303e3e0a2798b0bf7bc1c60478dbc9978"
+    },
+    {
+      "file": "04_character_creation.json",
+      "bytes": 3757,
+      "valid_json": true,
+      "sha256": "e9326e646054e5971a6a01b9fbb92a00f37399701494a2992dca4b9ca2fd8d51"
+    },
+    {
+      "file": "05_advancement_and_leveling.json",
+      "bytes": 6922,
+      "valid_json": true,
+      "sha256": "cc57a3887cbd932a9744cd38378e5df06d6248317179c82bbf6efd33881671cb"
+    },
+    {
+      "file": "06_combat_attacks_actions.json",
+      "bytes": 1828234,
+      "valid_json": true,
+      "sha256": "e54a2a5a1911eb910ed96fdc62e78fadf6ef7abc628a25c990fc3710afb1067b"
+    },
+    {
+      "file": "07_magic_spells_powers_rituals.json",
+      "bytes": 2290916,
+      "valid_json": true,
+      "sha256": "489a2fa34facddae8ae1bd855edc721aa380107a85abcc5a00b1a1cc9052bfd6"
+    },
+    {
+      "file": "08_classes_archetypes_playbooks.json",
+      "bytes": 841939,
+      "valid_json": true,
+      "sha256": "e90c5ce34a25b898408ad24f15c245c9b1915ec2c4f31f3f655c367b05eaa4e7"
+    },
+    {
+      "file": "09_ancestries_races_species_lineages.json",
+      "bytes": 520013,
+      "valid_json": true,
+      "sha256": "a0e98f09f908750f1d871cf47c0c480998090b0f5c3faf0db623c0515906611a"
+    },
+    {
+      "file": "10_subclasses_specializations_paths.json",
+      "bytes": 983197,
+      "valid_json": true,
+      "sha256": "24fed6c9a2b5f9b50604486391d4a851e8a669053635c606877c746e4ff9fa10"
+    },
+    {
+      "file": "11_backgrounds_origins_professions.json",
+      "bytes": 612834,
+      "valid_json": true,
+      "sha256": "764870de4ee9baf04a2aea5083dc7d3fa618643229ef83b77d3c677d30f98ebf"
+    },
+    {
+      "file": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1660961,
+      "valid_json": true,
+      "sha256": "d6c71a7bc2ca27f3d792142989061d423d531a79e867d5de67ca0c27d5963008"
+    },
+    {
+      "file": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1213672,
+      "valid_json": true,
+      "sha256": "d25b97e49dd48344664610193ebe5f8103f71d2ecd6e1a5aca0970aae4784af5"
+    },
+    {
+      "file": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 981518,
+      "valid_json": true,
+      "sha256": "3c852b4cd2356049a5d1caaf27d234eeb642fc820a08fd45256e33806f271fd9"
+    },
+    {
+      "file": "15_armor_shields_protective_gear.json",
+      "bytes": 545314,
+      "valid_json": true,
+      "sha256": "07765150dfcab788fc1cf698fb799d44cd57e311664eca37ac1abe7a1b334a5b"
+    },
+    {
+      "file": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 760646,
+      "valid_json": true,
+      "sha256": "c618ce35ff5fb9cf90f2bb5f6713be6f8882c02ed86789604be74488a1b06f05"
+    },
+    {
+      "file": "17_conditions_damage_healing_recovery.json",
+      "bytes": 586218,
+      "valid_json": true,
+      "sha256": "652197d82176914b8c52cae1b71be24cbf62fa275aee74f826dd30dfc8a4b5ba"
+    },
+    {
+      "file": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4358843,
+      "valid_json": true,
+      "sha256": "68646be4d6f649d5c7446893b93b620d51e41364a532bf448431e048977c1b8c"
+    },
+    {
+      "file": "19_locations_factions_worldbuilding.json",
+      "bytes": 1486506,
+      "valid_json": true,
+      "sha256": "3ad46c797e46c00455a9a6eb834d50d5860840cf439f088b7ce7bf259b4fc2c4"
+    },
+    {
+      "file": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2272442,
+      "valid_json": true,
+      "sha256": "066b2948c2e17e3b8885da9c04083b020fa1a2a054ef52369534ded4e13543aa"
+    },
+    {
+      "file": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1432381,
+      "valid_json": true,
+      "sha256": "b504574b189baa9ce3fdfd6108d48a8bea03e46ad9140592c06a81deca884bf6"
+    },
+    {
+      "file": "22_facilitator_tools.json",
+      "bytes": 1364,
+      "valid_json": true,
+      "sha256": "4704e98a351798ef3e2ef19aa5c6da0fe0a806650974b240bfb7629b9281aa56"
+    },
+    {
+      "file": "23_rules_lookup_file_index.json",
+      "bytes": 4615,
+      "valid_json": true,
+      "sha256": "084177d02e4a9cb882d7ee78ed6b663520081566420c1e34ad43f3efe5ebc1c1"
+    },
+    {
+      "file": "89_user_supplied_import_manifest.json",
+      "bytes": 662,
+      "valid_json": true,
+      "sha256": "39f4c890e57f97699a3338aaf5e4c5a02663311177076a4925b90e4b83a28e0b"
+    },
+    {
+      "file": "90_user_supplied_dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+      "bytes": 1629808,
+      "valid_json": true,
+      "sha256": "ca4b07516e2c9da832c4b2d3a478d08ecc93521fb18b006a2a38b29053928405"
+    },
+    {
+      "file": "90_user_supplied_dnd_5e_5_5e_xp_progression_calculator.json",
+      "bytes": 8087,
+      "valid_json": true,
+      "sha256": "4bb64b9ec115ed5b6ed1b76ad75b6a6ef7097abfd177c99abfd375c16dfd2af0"
+    }
+  ]
+}
