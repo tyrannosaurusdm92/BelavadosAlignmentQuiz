@@ -1,0 +1,136 @@
+{
+  "system": "GURPS",
+  "editions": [
+    {
+      "id": "gurps-edition-00001",
+      "edition": "First Edition",
+      "sequence": 1,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "gurps-edition-00002",
+      "edition": "Second Edition",
+      "sequence": 2,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "gurps-edition-00003",
+      "edition": "Third Edition",
+      "sequence": 3,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "gurps-edition-00004",
+      "edition": "Fourth Edition",
+      "sequence": 4,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "gurps-edition-00005",
+      "edition": "Fourth Edition revised printings",
+      "sequence": 5,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    }
+  ],
+  "content_origin": "original historical index"
+}

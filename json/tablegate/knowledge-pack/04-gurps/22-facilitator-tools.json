@@ -1,0 +1,59 @@
+{
+  "system": "GURPS",
+  "principles": [
+    "be a fan of the characters without protecting them from consequences",
+    "telegraph danger",
+    "make stakes clear",
+    "use failure to change the situation",
+    "prepare situations, not fixed outcomes",
+    "share spotlight",
+    "ask useful questions and use answers",
+    "honor safety tools"
+  ],
+  "prep_templates": {
+    "situation": [
+      "location",
+      "factions",
+      "what each wants",
+      "what happens without intervention",
+      "three clues",
+      "two obstacles",
+      "one irreversible choice"
+    ],
+    "npc": [
+      "name",
+      "role",
+      "drive",
+      "fear",
+      "leverage",
+      "tell",
+      "capabilities",
+      "what changes their mind"
+    ],
+    "encounter": [
+      "objective",
+      "opposition",
+      "environment",
+      "interactive features",
+      "escalation",
+      "exit routes",
+      "rewards"
+    ],
+    "campaign_front": [
+      "threat",
+      "impulse",
+      "clock",
+      "signs",
+      "stakes questions",
+      "possible consequences"
+    ]
+  },
+  "adjudication_checklist": [
+    "Is a rule actually needed?",
+    "What is the player’s intent?",
+    "What happens on failure?",
+    "What statistic best matches the approach?",
+    "Are stakes and costs understood?",
+    "Can a ruling be temporary and reviewed later?"
+  ]
+}

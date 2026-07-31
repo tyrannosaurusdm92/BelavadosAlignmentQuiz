@@ -1,0 +1,12 @@
+{
+  "system": "GURPS",
+  "files": [
+    {
+      "file": "90_user_supplied_gurps_4e_revised_complete_character_reference_v2.json",
+      "bytes": 566514,
+      "sha256": "e90ad9647f67076fe24d9db557b1305aa58acb516724dc8f268d6fa4005fff88",
+      "origin": "user_supplied_archive"
+    }
+  ],
+  "note": "Copied from the archive supplied in this conversation; not independently relicensed or verified."
+}
