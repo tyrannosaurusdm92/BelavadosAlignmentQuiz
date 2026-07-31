@@ -1,0 +1,47 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 9,
+  "category": "Undead and Death-Touched Races",
+  "expectedFolder": "Undead and Death-Touched Races",
+  "raceCount": 7,
+  "tokenCount": 98,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Dhampir",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Darakhul",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Reborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Arisen",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Graveborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Shade",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Downcast",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

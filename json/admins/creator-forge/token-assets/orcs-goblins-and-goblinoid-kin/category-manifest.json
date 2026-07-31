@@ -1,0 +1,52 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 5,
+  "category": "Orcs, Goblins, and Goblinoid Kin",
+  "expectedFolder": "Orcs, Goblins, and Goblinoid Kin",
+  "raceCount": 8,
+  "tokenCount": 112,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Orc",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Goblin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Hobgoblin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Bugbear",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Gobboc",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Shadow Goblin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Boggart",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Verdan",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

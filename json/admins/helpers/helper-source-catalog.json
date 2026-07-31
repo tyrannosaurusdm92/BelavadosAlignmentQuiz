@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29",
+  "project": "TableGate Campaign Studio v6",
+  "policy": "Reference classification does not imply code incorporation. See json/tablegate/provenance/source-provenance.json and docs/github/licenses/audits-v6-source-and-license-audit.md.",
+  "sources": [
+    {
+      "id": "tetra-cube-tools",
+      "name": "Tetra-cube D&D browser tools",
+      "url": "https://github.com/Tetra-cube/Tetra-cube.github.io",
+      "license": "No clear top-level redistribution license found in the attached archive",
+      "status": "reference",
+      "use": "Interface and workflow reference for optional character, item, and statblock helper concepts.",
+      "files": "No upstream code or data copied",
+      "notes": "Reference only. The attached archive is documented but excluded from runtime because a clear blanket redistribution license was not present."
+    },
+    {
+      "id": "donjon-dungeon-conversion",
+      "name": "Attached donjon Random Dungeon Generator conversion",
+      "url": "https://donjon.bin.sh/code/dungeon/",
+      "license": "CC BY-NC 3.0 stated by the attached conversion README",
+      "status": "reference",
+      "use": "Reference for random-generator composition and dungeon workflow.",
+      "files": "No attached conversion code copied",
+      "notes": "Reference only due to the noncommercial license and because TableGate uses an original browser-native helper architecture."
+    },
+    {
+      "id": "autorolltables",
+      "name": "Auto Roll Tables",
+      "url": "https://autorolltables.github.io/",
+      "license": "Mixed/community-authored content; attached repository points to OGL and Reddit contributors",
+      "status": "reference",
+      "use": "Workflow reference for one-click random tables and grouping tables by campaign purpose.",
+      "files": "No upstream table content copied",
+      "notes": "TableGate ships original system-neutral starter entries. Community-authored Reddit/OGL table text is not redistributed."
+    },
+    {
+      "id": "family-echo",
+      "name": "Family Echo",
+      "url": "https://www.familyecho.com/",
+      "license": "Proprietary website; external reference only",
+      "status": "reference",
+      "use": "Reference for relationship-tree usability, explicit links, import/export, and private sharing expectations.",
+      "files": "No site code, graphics, or data copied; js/admins/campaign/campaign-helpers.js is independent",
+      "notes": "TableGate extends the idea into a campaign relationship web that supports family, chosen-family, professional, romantic, queerplatonic, polyamorous, and custom relationships."
+    },
+    {
+      "id": "fantasy-name-generators",
+      "name": "Fantasy Name Generators",
+      "url": "https://www.fantasynamegenerators.com/",
+      "license": "Proprietary website content; external link only",
+      "status": "reference",
+      "use": "Optional external name inspiration linked from Name Lab.",
+      "files": "No generator data or site content copied; js/admins/campaign/campaign-helpers.js contains original editable syllable logic",
+      "notes": "Users can open the original site directly. TableGate does not redistribute its lists or code."
+    },
+    {
+      "id": "gamblingnews-dnd-games",
+      "name": "GamblingNews — D&D Gambling Games article",
+      "url": "https://www.gamblingnews.com/blog/dnd-gambling-games/",
+      "license": "Copyrighted article; external reference only",
+      "status": "reference",
+      "use": "General inspiration for fictional tavern-game scenes.",
+      "files": "No article text copied; js/admins/campaign/campaign-helpers.js contains original simplified dice helpers",
+      "notes": "TableGate tools are explicitly for fictional roleplay and do not implement real-money wagering."
+    },
+    {
+      "id": "garbata-random-table",
+      "name": "Garbata Random Table Generator",
+      "url": "https://github.com/garbata/random-table-generator",
+      "license": "MIT",
+      "status": "reference",
+      "use": "Reference for lightweight weighted-table editing, local operation, and portable data.",
+      "files": "No upstream code copied; js/admins/encounters/encounter-lab.js is independent",
+      "notes": "The upstream project is linked because its permissive license and compact design make it useful for users building their own table tools."
+    },
+    {
+      "id": "simplijessi-encounter",
+      "name": "SimpliJessi RandomEncounterGenerator",
+      "url": "https://github.com/SimpliJessi/RandomEncounterGenerator",
+      "license": "Repository README permits game use but no standard license file was identified",
+      "status": "reference",
+      "use": "Reference for encounter parameters such as party profile, environment, danger, and narrative complications.",
+      "files": "No monster database or source copied; js/admins/encounters/encounter-lab.js is independent",
+      "notes": "Reference only because no standard redistribution license was verified."
+    },
+    {
+      "id": "chartopia",
+      "name": "Chartopia",
+      "url": "https://chartopia.d12dev.com/",
+      "license": "External service; reference/link only",
+      "status": "reference",
+      "use": "Reference for user-authored roll-table organization and sharing.",
+      "files": "No service code or tables copied",
+      "notes": "Linked as an external destination for users who want a dedicated community table platform."
+    }
+  ]
+}

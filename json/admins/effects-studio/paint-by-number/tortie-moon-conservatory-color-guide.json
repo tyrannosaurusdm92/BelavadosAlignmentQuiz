@@ -1,0 +1,272 @@
+{
+  "title": "Tortie Moon Conservatory",
+  "file": "tortie-moon-conservatory.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Warm paper",
+      "hex": "#F1E1C5",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Wood trim",
+      "hex": "#D0B084",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Night terracotta",
+      "hex": "#B9785D",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Window umber",
+      "hex": "#725047",
+      "region_count": 1,
+      "regions": [
+        "region-004"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Moon ring",
+      "hex": "#4A403D",
+      "region_count": 2,
+      "regions": [
+        "region-005",
+        "region-050"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Moon glow",
+      "hex": "#C7D0B9",
+      "region_count": 3,
+      "regions": [
+        "region-006",
+        "region-043",
+        "region-051"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Star jade",
+      "hex": "#6E8D7D",
+      "region_count": 5,
+      "regions": [
+        "region-007",
+        "region-010",
+        "region-044",
+        "region-052",
+        "region-055"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Leaf olive",
+      "hex": "#718267",
+      "region_count": 7,
+      "regions": [
+        "region-008",
+        "region-011",
+        "region-045",
+        "region-047",
+        "region-049",
+        "region-053",
+        "region-056"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Leaf moss",
+      "hex": "#506353",
+      "region_count": 5,
+      "regions": [
+        "region-009",
+        "region-012",
+        "region-046",
+        "region-048",
+        "region-054"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Floor ochre",
+      "hex": "#A9874D",
+      "region_count": 1,
+      "regions": [
+        "region-013"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Rug rust",
+      "hex": "#B86F5D",
+      "region_count": 1,
+      "regions": [
+        "region-014"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Tortie base",
+      "hex": "#332F2E",
+      "region_count": 3,
+      "regions": [
+        "region-015",
+        "region-017",
+        "region-018"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Head umber",
+      "hex": "#5A4339",
+      "region_count": 1,
+      "regions": [
+        "region-016"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Near-black patch",
+      "hex": "#1E2222",
+      "region_count": 2,
+      "regions": [
+        "region-019",
+        "region-023"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Deep umber patch",
+      "hex": "#4B352D",
+      "region_count": 3,
+      "regions": [
+        "region-020",
+        "region-026",
+        "region-059"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Copper patch",
+      "hex": "#B76535",
+      "region_count": 4,
+      "regions": [
+        "region-021",
+        "region-024",
+        "region-057",
+        "region-060"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "Amber patch",
+      "hex": "#D78A3D",
+      "region_count": 4,
+      "regions": [
+        "region-022",
+        "region-025",
+        "region-027",
+        "region-058"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Cream fleck",
+      "hex": "#E8C28B",
+      "region_count": 4,
+      "regions": [
+        "region-028",
+        "region-030",
+        "region-032",
+        "region-034"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Gold fleck",
+      "hex": "#C99A4D",
+      "region_count": 4,
+      "regions": [
+        "region-029",
+        "region-031",
+        "region-033",
+        "region-035"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Cream blaze",
+      "hex": "#E9D8B8",
+      "region_count": 2,
+      "regions": [
+        "region-036",
+        "region-042"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Green eyes",
+      "hex": "#91A873",
+      "region_count": 2,
+      "regions": [
+        "region-037",
+        "region-038"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Pupils",
+      "hex": "#191D1C",
+      "region_count": 2,
+      "regions": [
+        "region-039",
+        "region-040"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "Rose-brown nose",
+      "hex": "#A56561",
+      "region_count": 1,
+      "regions": [
+        "region-041"
+      ]
+    },
+    {
+      "number": 24,
+      "name": "Pot stone",
+      "hex": "#A8AE9A",
+      "region_count": 0,
+      "regions": []
+    }
+  ],
+  "region_count": 60,
+  "tags": [
+    "Tortie Cat",
+    "Botanical",
+    "Mosaic",
+    "OurSpace Original"
+  ],
+  "complexity": "Detailed"
+}

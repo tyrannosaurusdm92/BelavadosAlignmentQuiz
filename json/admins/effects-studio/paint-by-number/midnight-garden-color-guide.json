@@ -1,0 +1,278 @@
+{
+  "title": "Midnight Garden",
+  "file": "midnight-garden.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Cream",
+      "hex": "#F3D7B5",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Coral",
+      "hex": "#E85D75",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Sage",
+      "hex": "#F28C8C",
+      "region_count": 2,
+      "regions": [
+        "region-003",
+        "region-006"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Pine",
+      "hex": "#F4B942",
+      "region_count": 4,
+      "regions": [
+        "region-004",
+        "region-007",
+        "region-009",
+        "region-067"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Ochre",
+      "hex": "#7EBC89",
+      "region_count": 4,
+      "regions": [
+        "region-005",
+        "region-008",
+        "region-010",
+        "region-068"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Clay",
+      "hex": "#3D7A5C",
+      "region_count": 1,
+      "regions": [
+        "region-011"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Mist",
+      "hex": "#5D4A8C",
+      "region_count": 1,
+      "regions": [
+        "region-012"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Blush",
+      "hex": "#9B6BC6",
+      "region_count": 1,
+      "regions": [
+        "region-013"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Espresso",
+      "hex": "#3F8FC7",
+      "region_count": 2,
+      "regions": [
+        "region-014",
+        "region-015"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Sand",
+      "hex": "#E978A9",
+      "region_count": 2,
+      "regions": [
+        "region-016",
+        "region-017"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Sea Glass",
+      "hex": "#8ECBC0",
+      "region_count": 2,
+      "regions": [
+        "region-018",
+        "region-019"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ember",
+      "hex": "#D05F44",
+      "region_count": 1,
+      "regions": [
+        "region-020"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Porcelain",
+      "hex": "#F6E5D8",
+      "region_count": 1,
+      "regions": [
+        "region-021"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Moss",
+      "hex": "#557A45",
+      "region_count": 5,
+      "regions": [
+        "region-022",
+        "region-024",
+        "region-026",
+        "region-028",
+        "region-069"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Berry",
+      "hex": "#B83B5E",
+      "region_count": 6,
+      "regions": [
+        "region-023",
+        "region-025",
+        "region-027",
+        "region-029",
+        "region-030",
+        "region-070"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Marigold",
+      "hex": "#E7A43A",
+      "region_count": 5,
+      "regions": [
+        "region-031",
+        "region-033",
+        "region-035",
+        "region-037",
+        "region-071"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "Violet",
+      "hex": "#6A4C93",
+      "region_count": 6,
+      "regions": [
+        "region-032",
+        "region-034",
+        "region-036",
+        "region-038",
+        "region-039",
+        "region-072"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Lagoon",
+      "hex": "#2E7D75",
+      "region_count": 5,
+      "regions": [
+        "region-040",
+        "region-042",
+        "region-044",
+        "region-046",
+        "region-073"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Honey",
+      "hex": "#F0C987",
+      "region_count": 5,
+      "regions": [
+        "region-041",
+        "region-043",
+        "region-045",
+        "region-047",
+        "region-048"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Mauve",
+      "hex": "#A05C7B",
+      "region_count": 4,
+      "regions": [
+        "region-049",
+        "region-051",
+        "region-053",
+        "region-055"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Leaf",
+      "hex": "#6BAE75",
+      "region_count": 5,
+      "regions": [
+        "region-050",
+        "region-052",
+        "region-054",
+        "region-056",
+        "region-057"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Poppy",
+      "hex": "#D94F70",
+      "region_count": 4,
+      "regions": [
+        "region-058",
+        "region-060",
+        "region-062",
+        "region-064"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "Sky",
+      "hex": "#4F6B9C",
+      "region_count": 5,
+      "regions": [
+        "region-059",
+        "region-061",
+        "region-063",
+        "region-065",
+        "region-066"
+      ]
+    }
+  ],
+  "region_count": 73,
+  "tags": [
+    "Animal",
+    "Floral",
+    "Cozy",
+    "OurSpace Original"
+  ],
+  "complexity": "Detailed"
+}

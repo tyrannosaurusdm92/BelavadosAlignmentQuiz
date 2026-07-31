@@ -1,0 +1,1729 @@
+{
+  "title": "Ichor Skyship",
+  "file": "skyship.svg",
+  "primary_reference_image": "traveltransit_flying_in_skyship.svg",
+  "related_reference_images_used_for_art_direction": [
+    "traveltransit_boarding_skyship.svg",
+    "traveltransit_flying_in_skyship.svg",
+    "traveltransit_leaving_skyship.svg",
+    "traveltransit_waiting_skyship.svg"
+  ],
+  "method": "Direct reference-based vector paint-cell conversion: the embedded source artwork was segmented into simplified SVG paths; no generated replacement image was used.",
+  "interaction": {
+    "click": "Paint or unpaint one cell with its suggested numbered color.",
+    "shift_click": "Paint or unpaint all cells assigned the same number.",
+    "palette_swatch_click": "Paint all cells assigned that palette number.",
+    "keyboard": "Focus any cell and press Enter or Space; Shift+Enter/Space paints the full number group."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Saintglass cream",
+      "hex": "#F2E6C8",
+      "region_count": 30,
+      "regions": [
+        "skyship-cell-015",
+        "skyship-cell-028",
+        "skyship-cell-029",
+        "skyship-cell-032",
+        "skyship-cell-049",
+        "skyship-cell-055",
+        "skyship-cell-073",
+        "skyship-cell-090",
+        "skyship-cell-095",
+        "skyship-cell-140",
+        "skyship-cell-144",
+        "skyship-cell-145",
+        "skyship-cell-146",
+        "skyship-cell-152",
+        "skyship-cell-154",
+        "skyship-cell-158",
+        "skyship-cell-166",
+        "skyship-cell-173",
+        "skyship-cell-174",
+        "skyship-cell-177",
+        "skyship-cell-181",
+        "skyship-cell-200",
+        "skyship-cell-201",
+        "skyship-cell-204",
+        "skyship-cell-210",
+        "skyship-cell-211",
+        "skyship-cell-213",
+        "skyship-cell-214",
+        "skyship-cell-219",
+        "skyship-cell-227"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Steam white",
+      "hex": "#E9F0EF",
+      "region_count": 9,
+      "regions": [
+        "skyship-cell-001",
+        "skyship-cell-043",
+        "skyship-cell-054",
+        "skyship-cell-084",
+        "skyship-cell-089",
+        "skyship-cell-110",
+        "skyship-cell-131",
+        "skyship-cell-148",
+        "skyship-cell-185"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Ichor cyan glow",
+      "hex": "#58E7F5",
+      "region_count": 4,
+      "regions": [
+        "region-ring",
+        "skyship-cell-006",
+        "skyship-cell-102",
+        "skyship-cell-132"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Deep cyan glass",
+      "hex": "#1387A8",
+      "region_count": 7,
+      "regions": [
+        "skyship-cell-023",
+        "skyship-cell-122",
+        "skyship-cell-182",
+        "skyship-cell-193",
+        "skyship-cell-196",
+        "skyship-cell-215",
+        "skyship-cell-224"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Polished brass",
+      "hex": "#D5962E",
+      "region_count": 31,
+      "regions": [
+        "skyship-cell-012",
+        "skyship-cell-041",
+        "skyship-cell-052",
+        "skyship-cell-057",
+        "skyship-cell-064",
+        "skyship-cell-079",
+        "skyship-cell-083",
+        "skyship-cell-091",
+        "skyship-cell-094",
+        "skyship-cell-097",
+        "skyship-cell-108",
+        "skyship-cell-116",
+        "skyship-cell-120",
+        "skyship-cell-134",
+        "skyship-cell-160",
+        "skyship-cell-167",
+        "skyship-cell-169",
+        "skyship-cell-170",
+        "skyship-cell-172",
+        "skyship-cell-175",
+        "skyship-cell-178",
+        "skyship-cell-180",
+        "skyship-cell-183",
+        "skyship-cell-187",
+        "skyship-cell-190",
+        "skyship-cell-191",
+        "skyship-cell-199",
+        "skyship-cell-202",
+        "skyship-cell-209",
+        "skyship-cell-221",
+        "skyship-cell-225"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Burnished copper",
+      "hex": "#A85D21",
+      "region_count": 41,
+      "regions": [
+        "skyship-cell-007",
+        "skyship-cell-021",
+        "skyship-cell-025",
+        "skyship-cell-026",
+        "skyship-cell-027",
+        "skyship-cell-034",
+        "skyship-cell-035",
+        "skyship-cell-037",
+        "skyship-cell-056",
+        "skyship-cell-066",
+        "skyship-cell-070",
+        "skyship-cell-076",
+        "skyship-cell-078",
+        "skyship-cell-086",
+        "skyship-cell-092",
+        "skyship-cell-099",
+        "skyship-cell-109",
+        "skyship-cell-111",
+        "skyship-cell-114",
+        "skyship-cell-115",
+        "skyship-cell-118",
+        "skyship-cell-133",
+        "skyship-cell-136",
+        "skyship-cell-138",
+        "skyship-cell-139",
+        "skyship-cell-141",
+        "skyship-cell-143",
+        "skyship-cell-150",
+        "skyship-cell-151",
+        "skyship-cell-153",
+        "skyship-cell-156",
+        "skyship-cell-157",
+        "skyship-cell-159",
+        "skyship-cell-161",
+        "skyship-cell-197",
+        "skyship-cell-198",
+        "skyship-cell-205",
+        "skyship-cell-216",
+        "skyship-cell-218",
+        "skyship-cell-220",
+        "skyship-cell-226"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Dark bronze",
+      "hex": "#6A371B",
+      "region_count": 49,
+      "regions": [
+        "skyship-cell-002",
+        "skyship-cell-004",
+        "skyship-cell-005",
+        "skyship-cell-008",
+        "skyship-cell-009",
+        "skyship-cell-010",
+        "skyship-cell-011",
+        "skyship-cell-013",
+        "skyship-cell-014",
+        "skyship-cell-016",
+        "skyship-cell-017",
+        "skyship-cell-024",
+        "skyship-cell-031",
+        "skyship-cell-033",
+        "skyship-cell-036",
+        "skyship-cell-038",
+        "skyship-cell-039",
+        "skyship-cell-044",
+        "skyship-cell-046",
+        "skyship-cell-047",
+        "skyship-cell-048",
+        "skyship-cell-059",
+        "skyship-cell-060",
+        "skyship-cell-068",
+        "skyship-cell-072",
+        "skyship-cell-075",
+        "skyship-cell-081",
+        "skyship-cell-088",
+        "skyship-cell-104",
+        "skyship-cell-113",
+        "skyship-cell-124",
+        "skyship-cell-126",
+        "skyship-cell-128",
+        "skyship-cell-130",
+        "skyship-cell-135",
+        "skyship-cell-149",
+        "skyship-cell-155",
+        "skyship-cell-162",
+        "skyship-cell-165",
+        "skyship-cell-168",
+        "skyship-cell-171",
+        "skyship-cell-176",
+        "skyship-cell-189",
+        "skyship-cell-192",
+        "skyship-cell-194",
+        "skyship-cell-203",
+        "skyship-cell-207",
+        "skyship-cell-208",
+        "skyship-cell-212"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Walnut brown",
+      "hex": "#38231D",
+      "region_count": 49,
+      "regions": [
+        "skyship-cell-003",
+        "skyship-cell-018",
+        "skyship-cell-019",
+        "skyship-cell-020",
+        "skyship-cell-022",
+        "skyship-cell-030",
+        "skyship-cell-040",
+        "skyship-cell-042",
+        "skyship-cell-045",
+        "skyship-cell-050",
+        "skyship-cell-051",
+        "skyship-cell-053",
+        "skyship-cell-058",
+        "skyship-cell-061",
+        "skyship-cell-062",
+        "skyship-cell-063",
+        "skyship-cell-065",
+        "skyship-cell-067",
+        "skyship-cell-071",
+        "skyship-cell-074",
+        "skyship-cell-077",
+        "skyship-cell-080",
+        "skyship-cell-082",
+        "skyship-cell-096",
+        "skyship-cell-098",
+        "skyship-cell-100",
+        "skyship-cell-101",
+        "skyship-cell-103",
+        "skyship-cell-105",
+        "skyship-cell-106",
+        "skyship-cell-112",
+        "skyship-cell-117",
+        "skyship-cell-119",
+        "skyship-cell-121",
+        "skyship-cell-123",
+        "skyship-cell-125",
+        "skyship-cell-127",
+        "skyship-cell-129",
+        "skyship-cell-142",
+        "skyship-cell-163",
+        "skyship-cell-164",
+        "skyship-cell-179",
+        "skyship-cell-186",
+        "skyship-cell-188",
+        "skyship-cell-195",
+        "skyship-cell-206",
+        "skyship-cell-217",
+        "skyship-cell-222",
+        "skyship-cell-223"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Forged iron",
+      "hex": "#657078",
+      "region_count": 5,
+      "regions": [
+        "skyship-cell-069",
+        "skyship-cell-093",
+        "skyship-cell-137",
+        "skyship-cell-147",
+        "skyship-cell-184"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Slate navy",
+      "hex": "#193548",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 11,
+      "name": "Midnight blue",
+      "hex": "#0C2130",
+      "region_count": 1,
+      "regions": [
+        "region-field"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ichor black",
+      "hex": "#080D12",
+      "region_count": 4,
+      "regions": [
+        "region-bg",
+        "skyship-cell-085",
+        "skyship-cell-087",
+        "skyship-cell-107"
+      ]
+    }
+  ],
+  "region_count": 230,
+  "numbered_visible_cell_count": 182,
+  "regions": [
+    {
+      "id": "region-bg",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": null
+    },
+    {
+      "id": "region-field",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": null
+    },
+    {
+      "id": "region-ring",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": null
+    },
+    {
+      "id": "skyship-cell-001",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 749
+    },
+    {
+      "id": "skyship-cell-002",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 714
+    },
+    {
+      "id": "skyship-cell-003",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 707
+    },
+    {
+      "id": "skyship-cell-004",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 698
+    },
+    {
+      "id": "skyship-cell-005",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 697
+    },
+    {
+      "id": "skyship-cell-006",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 696
+    },
+    {
+      "id": "skyship-cell-007",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 651
+    },
+    {
+      "id": "skyship-cell-008",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 648
+    },
+    {
+      "id": "skyship-cell-009",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 634
+    },
+    {
+      "id": "skyship-cell-010",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 628
+    },
+    {
+      "id": "skyship-cell-011",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 619
+    },
+    {
+      "id": "skyship-cell-012",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 614
+    },
+    {
+      "id": "skyship-cell-013",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 596
+    },
+    {
+      "id": "skyship-cell-014",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 574
+    },
+    {
+      "id": "skyship-cell-015",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 562
+    },
+    {
+      "id": "skyship-cell-016",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 560
+    },
+    {
+      "id": "skyship-cell-017",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 555
+    },
+    {
+      "id": "skyship-cell-018",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 547
+    },
+    {
+      "id": "skyship-cell-019",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 544
+    },
+    {
+      "id": "skyship-cell-020",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 543
+    },
+    {
+      "id": "skyship-cell-021",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 539
+    },
+    {
+      "id": "skyship-cell-022",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 536
+    },
+    {
+      "id": "skyship-cell-023",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 533
+    },
+    {
+      "id": "skyship-cell-024",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 533
+    },
+    {
+      "id": "skyship-cell-025",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 527
+    },
+    {
+      "id": "skyship-cell-026",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 526
+    },
+    {
+      "id": "skyship-cell-027",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 525
+    },
+    {
+      "id": "skyship-cell-028",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 518
+    },
+    {
+      "id": "skyship-cell-029",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 516
+    },
+    {
+      "id": "skyship-cell-030",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 506
+    },
+    {
+      "id": "skyship-cell-031",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 503
+    },
+    {
+      "id": "skyship-cell-032",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 500
+    },
+    {
+      "id": "skyship-cell-033",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 499
+    },
+    {
+      "id": "skyship-cell-034",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 498
+    },
+    {
+      "id": "skyship-cell-035",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 497
+    },
+    {
+      "id": "skyship-cell-036",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 497
+    },
+    {
+      "id": "skyship-cell-037",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 494
+    },
+    {
+      "id": "skyship-cell-038",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 494
+    },
+    {
+      "id": "skyship-cell-039",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 492
+    },
+    {
+      "id": "skyship-cell-040",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 491
+    },
+    {
+      "id": "skyship-cell-041",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 485
+    },
+    {
+      "id": "skyship-cell-042",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 477
+    },
+    {
+      "id": "skyship-cell-043",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 476
+    },
+    {
+      "id": "skyship-cell-044",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 467
+    },
+    {
+      "id": "skyship-cell-045",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 467
+    },
+    {
+      "id": "skyship-cell-046",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 465
+    },
+    {
+      "id": "skyship-cell-047",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 461
+    },
+    {
+      "id": "skyship-cell-048",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 459
+    },
+    {
+      "id": "skyship-cell-049",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 455
+    },
+    {
+      "id": "skyship-cell-050",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 455
+    },
+    {
+      "id": "skyship-cell-051",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 454
+    },
+    {
+      "id": "skyship-cell-052",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 450
+    },
+    {
+      "id": "skyship-cell-053",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 447
+    },
+    {
+      "id": "skyship-cell-054",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 444
+    },
+    {
+      "id": "skyship-cell-055",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 442
+    },
+    {
+      "id": "skyship-cell-056",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 441
+    },
+    {
+      "id": "skyship-cell-057",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 439
+    },
+    {
+      "id": "skyship-cell-058",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 433
+    },
+    {
+      "id": "skyship-cell-059",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 433
+    },
+    {
+      "id": "skyship-cell-060",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 432
+    },
+    {
+      "id": "skyship-cell-061",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 424
+    },
+    {
+      "id": "skyship-cell-062",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 423
+    },
+    {
+      "id": "skyship-cell-063",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 421
+    },
+    {
+      "id": "skyship-cell-064",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 421
+    },
+    {
+      "id": "skyship-cell-065",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 419
+    },
+    {
+      "id": "skyship-cell-066",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 419
+    },
+    {
+      "id": "skyship-cell-067",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 418
+    },
+    {
+      "id": "skyship-cell-068",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 418
+    },
+    {
+      "id": "skyship-cell-069",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 416
+    },
+    {
+      "id": "skyship-cell-070",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 415
+    },
+    {
+      "id": "skyship-cell-071",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 415
+    },
+    {
+      "id": "skyship-cell-072",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 412
+    },
+    {
+      "id": "skyship-cell-073",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 410
+    },
+    {
+      "id": "skyship-cell-074",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 410
+    },
+    {
+      "id": "skyship-cell-075",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 408
+    },
+    {
+      "id": "skyship-cell-076",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 405
+    },
+    {
+      "id": "skyship-cell-077",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 405
+    },
+    {
+      "id": "skyship-cell-078",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 405
+    },
+    {
+      "id": "skyship-cell-079",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 404
+    },
+    {
+      "id": "skyship-cell-080",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 402
+    },
+    {
+      "id": "skyship-cell-081",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 397
+    },
+    {
+      "id": "skyship-cell-082",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 397
+    },
+    {
+      "id": "skyship-cell-083",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 396
+    },
+    {
+      "id": "skyship-cell-084",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 392
+    },
+    {
+      "id": "skyship-cell-085",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 388
+    },
+    {
+      "id": "skyship-cell-086",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 384
+    },
+    {
+      "id": "skyship-cell-087",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 384
+    },
+    {
+      "id": "skyship-cell-088",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 383
+    },
+    {
+      "id": "skyship-cell-089",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 381
+    },
+    {
+      "id": "skyship-cell-090",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 380
+    },
+    {
+      "id": "skyship-cell-091",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 380
+    },
+    {
+      "id": "skyship-cell-092",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 378
+    },
+    {
+      "id": "skyship-cell-093",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 374
+    },
+    {
+      "id": "skyship-cell-094",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 374
+    },
+    {
+      "id": "skyship-cell-095",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 373
+    },
+    {
+      "id": "skyship-cell-096",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 373
+    },
+    {
+      "id": "skyship-cell-097",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 370
+    },
+    {
+      "id": "skyship-cell-098",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 366
+    },
+    {
+      "id": "skyship-cell-099",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 364
+    },
+    {
+      "id": "skyship-cell-100",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 361
+    },
+    {
+      "id": "skyship-cell-101",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 359
+    },
+    {
+      "id": "skyship-cell-102",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 357
+    },
+    {
+      "id": "skyship-cell-103",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 357
+    },
+    {
+      "id": "skyship-cell-104",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 357
+    },
+    {
+      "id": "skyship-cell-105",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 356
+    },
+    {
+      "id": "skyship-cell-106",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 356
+    },
+    {
+      "id": "skyship-cell-107",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 355
+    },
+    {
+      "id": "skyship-cell-108",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 354
+    },
+    {
+      "id": "skyship-cell-109",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 353
+    },
+    {
+      "id": "skyship-cell-110",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 352
+    },
+    {
+      "id": "skyship-cell-111",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 351
+    },
+    {
+      "id": "skyship-cell-112",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 351
+    },
+    {
+      "id": "skyship-cell-113",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 351
+    },
+    {
+      "id": "skyship-cell-114",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 351
+    },
+    {
+      "id": "skyship-cell-115",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 346
+    },
+    {
+      "id": "skyship-cell-116",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 345
+    },
+    {
+      "id": "skyship-cell-117",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 345
+    },
+    {
+      "id": "skyship-cell-118",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 344
+    },
+    {
+      "id": "skyship-cell-119",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 343
+    },
+    {
+      "id": "skyship-cell-120",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 342
+    },
+    {
+      "id": "skyship-cell-121",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 340
+    },
+    {
+      "id": "skyship-cell-122",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 340
+    },
+    {
+      "id": "skyship-cell-123",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 339
+    },
+    {
+      "id": "skyship-cell-124",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 338
+    },
+    {
+      "id": "skyship-cell-125",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 338
+    },
+    {
+      "id": "skyship-cell-126",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 336
+    },
+    {
+      "id": "skyship-cell-127",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 335
+    },
+    {
+      "id": "skyship-cell-128",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 330
+    },
+    {
+      "id": "skyship-cell-129",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 329
+    },
+    {
+      "id": "skyship-cell-130",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 329
+    },
+    {
+      "id": "skyship-cell-131",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 328
+    },
+    {
+      "id": "skyship-cell-132",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 327
+    },
+    {
+      "id": "skyship-cell-133",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 326
+    },
+    {
+      "id": "skyship-cell-134",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 325
+    },
+    {
+      "id": "skyship-cell-135",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 323
+    },
+    {
+      "id": "skyship-cell-136",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 322
+    },
+    {
+      "id": "skyship-cell-137",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 321
+    },
+    {
+      "id": "skyship-cell-138",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 320
+    },
+    {
+      "id": "skyship-cell-139",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 318
+    },
+    {
+      "id": "skyship-cell-140",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 316
+    },
+    {
+      "id": "skyship-cell-141",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 314
+    },
+    {
+      "id": "skyship-cell-142",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 314
+    },
+    {
+      "id": "skyship-cell-143",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 311
+    },
+    {
+      "id": "skyship-cell-144",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 311
+    },
+    {
+      "id": "skyship-cell-145",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 309
+    },
+    {
+      "id": "skyship-cell-146",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 309
+    },
+    {
+      "id": "skyship-cell-147",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 308
+    },
+    {
+      "id": "skyship-cell-148",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 306
+    },
+    {
+      "id": "skyship-cell-149",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 306
+    },
+    {
+      "id": "skyship-cell-150",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 303
+    },
+    {
+      "id": "skyship-cell-151",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 303
+    },
+    {
+      "id": "skyship-cell-152",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 302
+    },
+    {
+      "id": "skyship-cell-153",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 302
+    },
+    {
+      "id": "skyship-cell-154",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 298
+    },
+    {
+      "id": "skyship-cell-155",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 297
+    },
+    {
+      "id": "skyship-cell-156",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 297
+    },
+    {
+      "id": "skyship-cell-157",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 296
+    },
+    {
+      "id": "skyship-cell-158",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 296
+    },
+    {
+      "id": "skyship-cell-159",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 296
+    },
+    {
+      "id": "skyship-cell-160",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 293
+    },
+    {
+      "id": "skyship-cell-161",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 292
+    },
+    {
+      "id": "skyship-cell-162",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 281
+    },
+    {
+      "id": "skyship-cell-163",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 280
+    },
+    {
+      "id": "skyship-cell-164",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 278
+    },
+    {
+      "id": "skyship-cell-165",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 275
+    },
+    {
+      "id": "skyship-cell-166",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 272
+    },
+    {
+      "id": "skyship-cell-167",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 272
+    },
+    {
+      "id": "skyship-cell-168",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 271
+    },
+    {
+      "id": "skyship-cell-169",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 270
+    },
+    {
+      "id": "skyship-cell-170",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 267
+    },
+    {
+      "id": "skyship-cell-171",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 266
+    },
+    {
+      "id": "skyship-cell-172",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 265
+    },
+    {
+      "id": "skyship-cell-173",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 264
+    },
+    {
+      "id": "skyship-cell-174",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 258
+    },
+    {
+      "id": "skyship-cell-175",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 258
+    },
+    {
+      "id": "skyship-cell-176",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 257
+    },
+    {
+      "id": "skyship-cell-177",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 253
+    },
+    {
+      "id": "skyship-cell-178",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 252
+    },
+    {
+      "id": "skyship-cell-179",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 252
+    },
+    {
+      "id": "skyship-cell-180",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 242
+    },
+    {
+      "id": "skyship-cell-181",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 239
+    },
+    {
+      "id": "skyship-cell-182",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 238
+    },
+    {
+      "id": "skyship-cell-183",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 233
+    },
+    {
+      "id": "skyship-cell-184",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 233
+    },
+    {
+      "id": "skyship-cell-185",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 232
+    },
+    {
+      "id": "skyship-cell-186",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 232
+    },
+    {
+      "id": "skyship-cell-187",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 232
+    },
+    {
+      "id": "skyship-cell-188",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 232
+    },
+    {
+      "id": "skyship-cell-189",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 230
+    },
+    {
+      "id": "skyship-cell-190",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 229
+    },
+    {
+      "id": "skyship-cell-191",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 229
+    },
+    {
+      "id": "skyship-cell-192",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 228
+    },
+    {
+      "id": "skyship-cell-193",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 224
+    },
+    {
+      "id": "skyship-cell-194",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 223
+    },
+    {
+      "id": "skyship-cell-195",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 223
+    },
+    {
+      "id": "skyship-cell-196",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 217
+    },
+    {
+      "id": "skyship-cell-197",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 215
+    },
+    {
+      "id": "skyship-cell-198",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 215
+    },
+    {
+      "id": "skyship-cell-199",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 212
+    },
+    {
+      "id": "skyship-cell-200",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 211
+    },
+    {
+      "id": "skyship-cell-201",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 211
+    },
+    {
+      "id": "skyship-cell-202",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 211
+    },
+    {
+      "id": "skyship-cell-203",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 211
+    },
+    {
+      "id": "skyship-cell-204",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 210
+    },
+    {
+      "id": "skyship-cell-205",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 210
+    },
+    {
+      "id": "skyship-cell-206",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 210
+    },
+    {
+      "id": "skyship-cell-207",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 209
+    },
+    {
+      "id": "skyship-cell-208",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 209
+    },
+    {
+      "id": "skyship-cell-209",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 207
+    },
+    {
+      "id": "skyship-cell-210",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 207
+    },
+    {
+      "id": "skyship-cell-211",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 206
+    },
+    {
+      "id": "skyship-cell-212",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 205
+    },
+    {
+      "id": "skyship-cell-213",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 202
+    },
+    {
+      "id": "skyship-cell-214",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 201
+    },
+    {
+      "id": "skyship-cell-215",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 198
+    },
+    {
+      "id": "skyship-cell-216",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 198
+    },
+    {
+      "id": "skyship-cell-217",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 198
+    },
+    {
+      "id": "skyship-cell-218",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 196
+    },
+    {
+      "id": "skyship-cell-219",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 195
+    },
+    {
+      "id": "skyship-cell-220",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 194
+    },
+    {
+      "id": "skyship-cell-221",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 186
+    },
+    {
+      "id": "skyship-cell-222",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 185
+    },
+    {
+      "id": "skyship-cell-223",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 184
+    },
+    {
+      "id": "skyship-cell-224",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 182
+    },
+    {
+      "id": "skyship-cell-225",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 181
+    },
+    {
+      "id": "skyship-cell-226",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 178
+    },
+    {
+      "id": "skyship-cell-227",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 169
+    }
+  ]
+}

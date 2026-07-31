@@ -1,0 +1,164 @@
+{
+  "title": "Witchcore Potion Cabinet",
+  "file": "witchcore-potion-cabinet.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Ink",
+      "hex": "#2d2930",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Parchment",
+      "hex": "#f3e7d2",
+      "region_count": 2,
+      "regions": [
+        "region-001",
+        "region-004"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Deep plum",
+      "hex": "#4b314f",
+      "region_count": 3,
+      "regions": [
+        "region-009",
+        "region-027",
+        "region-042"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Moon violet",
+      "hex": "#76507d",
+      "region_count": 3,
+      "regions": [
+        "region-018",
+        "region-033",
+        "region-045"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Sage",
+      "hex": "#7f946f",
+      "region_count": 2,
+      "regions": [
+        "region-002",
+        "region-021"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Forest",
+      "hex": "#3f604e",
+      "region_count": 5,
+      "regions": [
+        "region-008",
+        "region-020",
+        "region-024",
+        "region-035",
+        "region-048"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Amber",
+      "hex": "#d49a43",
+      "region_count": 3,
+      "regions": [
+        "region-011",
+        "region-029",
+        "region-041"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Copper",
+      "hex": "#aa653a",
+      "region_count": 5,
+      "regions": [
+        "region-005",
+        "region-006",
+        "region-007",
+        "region-017",
+        "region-044"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Rose",
+      "hex": "#b86d78",
+      "region_count": 3,
+      "regions": [
+        "region-012",
+        "region-030",
+        "region-039"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Teal",
+      "hex": "#3c8290",
+      "region_count": 5,
+      "regions": [
+        "region-015",
+        "region-023",
+        "region-032",
+        "region-036",
+        "region-047"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Glow",
+      "hex": "#d8e9ac",
+      "region_count": 17,
+      "regions": [
+        "region-010",
+        "region-013",
+        "region-014",
+        "region-016",
+        "region-019",
+        "region-022",
+        "region-025",
+        "region-026",
+        "region-028",
+        "region-031",
+        "region-034",
+        "region-037",
+        "region-038",
+        "region-040",
+        "region-043",
+        "region-046",
+        "region-049"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Bone",
+      "hex": "#e8d8bd",
+      "region_count": 0,
+      "regions": []
+    }
+  ],
+  "region_count": 49,
+  "tags": [
+    "Witchcore",
+    "Potions",
+    "Apothecary"
+  ],
+  "complexity": "Detailed"
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 16,
+  "category": "Amphibious and Aquatic Peoples",
+  "expectedFolder": "Amphibious and Aquatic Peoples",
+  "raceCount": 9,
+  "tokenCount": 196,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Triton",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Locathah",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Grung",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Merfolk",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Sahuagin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Lotol",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Nakudama",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Dril'thar",
+      "lineagesOrBloodlines": [
+        "Grassland Bloodline",
+        "Lush Forest Bloodline",
+        "Marsh Bloodline",
+        "Rainforest Bloodline",
+        "Ocean Bloodline",
+        "Reef Bloodline"
+      ],
+      "tokenCount": 84
+    },
+    {
+      "race": "Tamhiogal",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

@@ -1,0 +1,2232 @@
+{
+  "name": "Effects Studio",
+  "version": "2026.07.25-merged",
+  "entry": "index.html",
+  "assetCount": 278,
+  "assets": [
+    {
+      "id": "a0000",
+      "label": "Alchemist's Cave nogrid [34x16]",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/alchemists-cave-nogrid-34x16.jpg",
+      "size": 5243523
+    },
+    {
+      "id": "a0001",
+      "label": "AngelPalece",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/angelpalece.jpg",
+      "size": 235756
+    },
+    {
+      "id": "a0002",
+      "label": "assets2-vuforia-freepack assets2 Tree Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets2-vuforia-freepack-assets2-tree-textures-diffuse.png",
+      "size": 2487
+    },
+    {
+      "id": "a0003",
+      "label": "assets2-vuforia-freepack assets2 Tree Textures normal specular",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets2-vuforia-freepack-assets2-tree-textures-normal-specular.png",
+      "size": 1757
+    },
+    {
+      "id": "a0004",
+      "label": "assets2-vuforia-freepack assets2 Tree Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets2-vuforia-freepack-assets2-tree-textures-shadow.png",
+      "size": 2333
+    },
+    {
+      "id": "a0005",
+      "label": "assets2-vuforia-freepack assets2 Tree Textures translucency gloss",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets2-vuforia-freepack-assets2-tree-textures-translucency-gloss.png",
+      "size": 1755
+    },
+    {
+      "id": "a0006",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush01 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-diffuse.png",
+      "size": 364485
+    },
+    {
+      "id": "a0007",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush01 Textures normal specular",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-normal-specular.png",
+      "size": 21934
+    },
+    {
+      "id": "a0008",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush01 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0009",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush01 Textures translucency gloss",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-translucency-gloss.png",
+      "size": 21924
+    },
+    {
+      "id": "a0010",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush02 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush02-textures-diffuse.png",
+      "size": 388248
+    },
+    {
+      "id": "a0011",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush02 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0012",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush03 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush03-textures-diffuse.png",
+      "size": 375553
+    },
+    {
+      "id": "a0013",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush03 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0014",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush04 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush04-textures-diffuse.png",
+      "size": 367008
+    },
+    {
+      "id": "a0015",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush04 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0016",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush05 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush05-textures-diffuse.png",
+      "size": 377938
+    },
+    {
+      "id": "a0017",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush05 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0018",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush06 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush04-textures-diffuse.png",
+      "size": 367008
+    },
+    {
+      "id": "a0019",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature bush06 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "size": 154769
+    },
+    {
+      "id": "a0020",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree01 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "size": 473147
+    },
+    {
+      "id": "a0021",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree01 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "size": 140632
+    },
+    {
+      "id": "a0022",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree02 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "size": 473147
+    },
+    {
+      "id": "a0023",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree02 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "size": 140632
+    },
+    {
+      "id": "a0024",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree03 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "size": 473147
+    },
+    {
+      "id": "a0025",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree03 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "size": 140632
+    },
+    {
+      "id": "a0026",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree04 Textures diffuse",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "size": 473147
+    },
+    {
+      "id": "a0027",
+      "label": "assets3-frame-markers-nature assets3 NatureStarterKit2 Nature tree04 Textures shadow",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "size": 140632
+    },
+    {
+      "id": "a0028",
+      "label": "assets4-bookshelf-ngui-unitychan assets4 NGUI Examples Textures brick",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets4-bookshelf-ngui-unitychan-assets4-ngui-examples-textures-brick.jpg",
+      "size": 232621
+    },
+    {
+      "id": "a0029",
+      "label": "assets4-bookshelf-ngui-unitychan assets4 NGUI Examples Textures burlap",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets4-bookshelf-ngui-unitychan-assets4-ngui-examples-textures-burlap.jpg",
+      "size": 37375
+    },
+    {
+      "id": "a0030",
+      "label": "assets4-bookshelf-ngui-unitychan assets4 NGUI Examples Textures sand",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets4-bookshelf-ngui-unitychan-assets4-ngui-examples-textures-sand.png",
+      "size": 527130
+    },
+    {
+      "id": "a0031",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Backgrounds FYP",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-images-backgrounds-fyp.png",
+      "size": 200567
+    },
+    {
+      "id": "a0032",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Backgrounds Open Book 2 26",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-images-backgrounds-open-book-2-26.jpg",
+      "size": 67786
+    },
+    {
+      "id": "a0033",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures 005135 16321 L -90150 0 01 01 73",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-005135-16321-l-90150-0-01-01-73.png",
+      "size": 24824
+    },
+    {
+      "id": "a0034",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures 005135 16321 L -90153 0 01 01 10",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-005135-16321-l-90153-0-01-01-10.png",
+      "size": 29563
+    },
+    {
+      "id": "a0035",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures s 03",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-s-03.png",
+      "size": 9590
+    },
+    {
+      "id": "a0036",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures s 05",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-s-05.png",
+      "size": 4664
+    },
+    {
+      "id": "a0037",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures s 06",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-s-06.png",
+      "size": 4918
+    },
+    {
+      "id": "a0038",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures s saku001 Gakkou 0000 TransP",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-s-saku001-gakkou-0000-transp.png",
+      "size": 9449
+    },
+    {
+      "id": "a0039",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets 005135 16321 1 1 Textures tex PQ Road",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-005135-16321-1-1-textures-tex-pq-road.png",
+      "size": 43415
+    },
+    {
+      "id": "a0040",
+      "label": "assets5-icons-backgrounds-roadblock assets5 ZRNAssets PQAssets Models skydoom Textures sky bg1",
+      "category": "background textures",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/assets5-icons-backgrounds-roadblock-assets5-zrnassets-pqassets-models-skydoom-textures-sky-bg1.png",
+      "size": 180627
+    },
+    {
+      "id": "a0041",
+      "label": "astral plane 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/astral-plane-24x16.jpg",
+      "size": 52242
+    },
+    {
+      "id": "a0042",
+      "label": "city of brass 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/city-of-brass-24x16.jpg",
+      "size": 120211
+    },
+    {
+      "id": "a0043",
+      "label": "concordant domain of the outlands 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/concordant-domain-of-the-outlands-24x16.jpg",
+      "size": 40467
+    },
+    {
+      "id": "a0044",
+      "label": "crystal20x26",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/crystal20x26.jpg",
+      "size": 2054415
+    },
+    {
+      "id": "a0045",
+      "label": "Destroyed 7 Example Map nogrid VTT [17x22]",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/destroyed-7-example-map-nogrid-vtt-17x22.jpg",
+      "size": 1234898
+    },
+    {
+      "id": "a0046",
+      "label": "Dingy Dungeons VTT",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/dingy-dungeons-vtt.jpg",
+      "size": 2535596
+    },
+    {
+      "id": "a0047",
+      "label": "elemental chaos 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/elemental-chaos-24x16.jpg",
+      "size": 127821
+    },
+    {
+      "id": "a0048",
+      "label": "elemental plane of air 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/elemental-plane-of-air-24x16.jpg",
+      "size": 37537
+    },
+    {
+      "id": "a0049",
+      "label": "elemental plane of earth 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/elemental-plane-of-earth-24x16.jpg",
+      "size": 55338
+    },
+    {
+      "id": "a0050",
+      "label": "elemental plane of fire 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/elemental-plane-of-fire-24x16.jpg",
+      "size": 91559
+    },
+    {
+      "id": "a0051",
+      "label": "elemental plane of water 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/elemental-plane-of-water-24x16.jpg",
+      "size": 41752
+    },
+    {
+      "id": "a0052",
+      "label": "ethereal plane 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/ethereal-plane-24x16.jpg",
+      "size": 36806
+    },
+    {
+      "id": "a0053",
+      "label": "ever changing chaos of limbo 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/ever-changing-chaos-of-limbo-24x16.jpg",
+      "size": 82574
+    },
+    {
+      "id": "a0054",
+      "label": "Example 1",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-1.jpg",
+      "size": 3491874
+    },
+    {
+      "id": "a0055",
+      "label": "Example 1 nogrid",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-1-nogrid.jpg",
+      "size": 5141108
+    },
+    {
+      "id": "a0056",
+      "label": "Example 2 night nogrid",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-2-night-nogrid.jpg",
+      "size": 6517681
+    },
+    {
+      "id": "a0057",
+      "label": "Example 3 - Myconid Village",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-3-myconid-village.jpg",
+      "size": 11392722
+    },
+    {
+      "id": "a0058",
+      "label": "Example 5",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-5.jpg",
+      "size": 4955431
+    },
+    {
+      "id": "a0059",
+      "label": "Example 7",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-7.jpg",
+      "size": 4310548
+    },
+    {
+      "id": "a0060",
+      "label": "Example 9",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/example-9.jpg",
+      "size": 4046178
+    },
+    {
+      "id": "a0061",
+      "label": "far realm 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/far-realm-24x16.jpg",
+      "size": 62538
+    },
+    {
+      "id": "a0062",
+      "label": "feywild 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/feywild-24x16.jpg",
+      "size": 144025
+    },
+    {
+      "id": "a0063",
+      "label": "Forested Trail VTT",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/forested-trail-vtt.jpg",
+      "size": 4230813
+    },
+    {
+      "id": "a0064",
+      "label": "Forge FullFlume",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/forge-fullflume.jpg",
+      "size": 5358804
+    },
+    {
+      "id": "a0065",
+      "label": "fugue plane city of judgment 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/fugue-plane-city-of-judgment-24x16.jpg",
+      "size": 72442
+    },
+    {
+      "id": "a0066",
+      "label": "fugue plane crystal spire 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/fugue-plane-crystal-spire-24x16.jpg",
+      "size": 83357
+    },
+    {
+      "id": "a0067",
+      "label": "fugue plane wastelands 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/fugue-plane-wastelands-24x16.jpg",
+      "size": 63134
+    },
+    {
+      "id": "a0068",
+      "label": "GOLDENCITY 3 (underground)",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/goldencity-3-underground.jpg",
+      "size": 6167388
+    },
+    {
+      "id": "a0069",
+      "label": "gray waste of hades 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/gray-waste-of-hades-24x16.jpg",
+      "size": 57638
+    },
+    {
+      "id": "a0070",
+      "label": "happy hunting grounds of the beastlands 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/happy-hunting-grounds-of-the-beastlands-24x16.jpg",
+      "size": 106770
+    },
+    {
+      "id": "a0071",
+      "label": "heroic domains of ysgard 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/heroic-domains-of-ysgard-24x16.jpg",
+      "size": 79782
+    },
+    {
+      "id": "a0072",
+      "label": "infinite battlefield of acheron 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/infinite-battlefield-of-acheron-24x16.jpg",
+      "size": 53999
+    },
+    {
+      "id": "a0073",
+      "label": "infinite layers of the abyss 001 pazunia 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/infinite-layers-of-the-abyss-001-pazunia-24x16.jpg",
+      "size": 38030
+    },
+    {
+      "id": "a0074",
+      "label": "infinite layers of the abyss 004 grand abyss 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/infinite-layers-of-the-abyss-004-grand-abyss-24x16.jpg",
+      "size": 48365
+    },
+    {
+      "id": "a0075",
+      "label": "infinite layers of the abyss 113 thanatos 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/infinite-layers-of-the-abyss-113-thanatos-24x16.jpg",
+      "size": 76480
+    },
+    {
+      "id": "a0076",
+      "label": "jungle 6",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/jungle-6.jpg",
+      "size": 1426401
+    },
+    {
+      "id": "a0077",
+      "label": "Lava Forge",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/lava-forge.jpg",
+      "size": 5351557
+    },
+    {
+      "id": "a0078",
+      "label": "Marketplace Skirmish emptygridless",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/marketplace-skirmish-emptygridless.jpg",
+      "size": 5072267
+    },
+    {
+      "id": "a0079",
+      "label": "negative energy plane 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/negative-energy-plane-24x16.jpg",
+      "size": 63175
+    },
+    {
+      "id": "a0080",
+      "label": "nine hells of baator 1 avernus wastelands 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-1-avernus-wastelands-24x16.jpg",
+      "size": 85642
+    },
+    {
+      "id": "a0081",
+      "label": "nine hells of baator 2 dis 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-2-dis-24x16.jpg",
+      "size": 114723
+    },
+    {
+      "id": "a0082",
+      "label": "nine hells of baator 3 minauros 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-3-minauros-24x16.jpg",
+      "size": 84756
+    },
+    {
+      "id": "a0083",
+      "label": "nine hells of baator 4 phlegethos 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-4-phlegethos-24x16.jpg",
+      "size": 75151
+    },
+    {
+      "id": "a0084",
+      "label": "nine hells of baator 5 stygia river 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-5-stygia-river-24x16.jpg",
+      "size": 63726
+    },
+    {
+      "id": "a0085",
+      "label": "nine hells of baator 5 stygia tantlin 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-5-stygia-tantlin-24x16.jpg",
+      "size": 124517
+    },
+    {
+      "id": "a0086",
+      "label": "nine hells of baator 6 malbolge field 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-6-malbolge-field-24x16.jpg",
+      "size": 113266
+    },
+    {
+      "id": "a0087",
+      "label": "nine hells of baator 6 malbolge osseia 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-6-malbolge-osseia-24x16.jpg",
+      "size": 122790
+    },
+    {
+      "id": "a0088",
+      "label": "nine hells of baator 6 malbolge river 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-6-malbolge-river-24x16.jpg",
+      "size": 137075
+    },
+    {
+      "id": "a0089",
+      "label": "nine hells of baator 7 maladomini 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-7-maladomini-24x16.jpg",
+      "size": 60278
+    },
+    {
+      "id": "a0090",
+      "label": "nine hells of baator 8 cania 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-8-cania-24x16.jpg",
+      "size": 109529
+    },
+    {
+      "id": "a0091",
+      "label": "nine hells of baator 9 nessus 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/nine-hells-of-baator-9-nessus-24x16.jpg",
+      "size": 94269
+    },
+    {
+      "id": "a0092",
+      "label": "olympian glades of arborea 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/olympian-glades-of-arborea-24x16.jpg",
+      "size": 127559
+    },
+    {
+      "id": "a0093",
+      "label": "river styx 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/river-styx-24x16.jpg",
+      "size": 66455
+    },
+    {
+      "id": "a0094",
+      "label": "Rockmount nolabels",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/rockmount-nolabels.jpg",
+      "size": 7366204
+    },
+    {
+      "id": "a0095",
+      "label": "seven heavens of mount celestia 1 lunia 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-1-lunia-24x16.jpg",
+      "size": 85000
+    },
+    {
+      "id": "a0096",
+      "label": "seven heavens of mount celestia 2 mercuria 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-2-mercuria-24x16.jpg",
+      "size": 68068
+    },
+    {
+      "id": "a0097",
+      "label": "seven heavens of mount celestia 3 venya 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-3-venya-24x16.jpg",
+      "size": 67167
+    },
+    {
+      "id": "a0098",
+      "label": "seven heavens of mount celestia 4 solania 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-4-solania-24x16.jpg",
+      "size": 71357
+    },
+    {
+      "id": "a0099",
+      "label": "seven heavens of mount celestia 5 mertion 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-5-mertion-24x16.jpg",
+      "size": 102132
+    },
+    {
+      "id": "a0100",
+      "label": "seven heavens of mount celestia 6 jovar 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-6-jovar-24x16.jpg",
+      "size": 72146
+    },
+    {
+      "id": "a0101",
+      "label": "seven heavens of mount celestia 7 chronias 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/seven-heavens-of-mount-celestia-7-chronias-24x16.jpg",
+      "size": 82434
+    },
+    {
+      "id": "a0102",
+      "label": "Shaded Alleyway VTT",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/shaded-alleyway-vtt.jpg",
+      "size": 2956798
+    },
+    {
+      "id": "a0103",
+      "label": "shadowfell 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/shadowfell-24x16.jpg",
+      "size": 49501
+    },
+    {
+      "id": "a0104",
+      "label": "sigil the city of doors 12x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/sigil-the-city-of-doors-12x16.jpg",
+      "size": 50778
+    },
+    {
+      "id": "a0105",
+      "label": "tarterian depths of carceri 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tarterian-depths-of-carceri-24x16.jpg",
+      "size": 97607
+    },
+    {
+      "id": "a0106",
+      "label": "Tile 1",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-1.jpg",
+      "size": 813551
+    },
+    {
+      "id": "a0107",
+      "label": "Tile 11E",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-11e.jpg",
+      "size": 853250
+    },
+    {
+      "id": "a0108",
+      "label": "Tile 16E",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-16e.jpg",
+      "size": 856216
+    },
+    {
+      "id": "a0109",
+      "label": "Tile 24",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-24.jpg",
+      "size": 846418
+    },
+    {
+      "id": "a0110",
+      "label": "Tile 27",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-27.jpg",
+      "size": 2978213
+    },
+    {
+      "id": "a0111",
+      "label": "Tile 30",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-30.jpg",
+      "size": 2960182
+    },
+    {
+      "id": "a0112",
+      "label": "Tile 38E",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-38e.jpg",
+      "size": 948901
+    },
+    {
+      "id": "a0113",
+      "label": "Tile 45",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-45.jpg",
+      "size": 747928
+    },
+    {
+      "id": "a0114",
+      "label": "Tile 4E",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-4e.jpg",
+      "size": 874815
+    },
+    {
+      "id": "a0115",
+      "label": "Tile 55",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-55.jpg",
+      "size": 1561518
+    },
+    {
+      "id": "a0116",
+      "label": "Tile 60",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-60.jpg",
+      "size": 3802006
+    },
+    {
+      "id": "a0117",
+      "label": "Tile 7",
+      "category": "map tiles",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tile-7.jpg",
+      "size": 509743
+    },
+    {
+      "id": "a0118",
+      "label": "twin paradises of bytopia 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/twin-paradises-of-bytopia-24x16.jpg",
+      "size": 133327
+    },
+    {
+      "id": "a0119",
+      "label": "Underdark2 tower",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/underdark2-tower.jpg",
+      "size": 4716949
+    },
+    {
+      "id": "a0120",
+      "label": "Underdark7",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/underdark7.jpg",
+      "size": 3625137
+    },
+    {
+      "id": "a0121",
+      "label": "Waterfall Campsite VTT",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/waterfall-campsite-vtt.jpg",
+      "size": 4514989
+    },
+    {
+      "id": "a0122",
+      "label": "windswept depths of pandemonium 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/windswept-depths-of-pandemonium-24x16.jpg",
+      "size": 54883
+    },
+    {
+      "id": "a0123",
+      "label": "Woodland Assets 4 Example Map nogrid VTT [17x22]",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/woodland-assets-4-example-map-nogrid-vtt-17x22.jpg",
+      "size": 1453664
+    },
+    {
+      "id": "a0124",
+      "label": "Wooster - no labels",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/wooster-no-labels.jpg",
+      "size": 7039538
+    },
+    {
+      "id": "a0125",
+      "label": "yggdrasil the world ash 24x16",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/yggdrasil-the-world-ash-24x16.jpg",
+      "size": 65664
+    },
+    {
+      "id": "a0126",
+      "label": "Аренаjpg",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/arena.jpg",
+      "size": 7202941
+    },
+    {
+      "id": "a0127",
+      "label": "Бастион а1",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/bastion-a1.jpg",
+      "size": 4173905
+    },
+    {
+      "id": "a0128",
+      "label": "Башня",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/tower.jpg",
+      "size": 892742
+    },
+    {
+      "id": "a0129",
+      "label": "Корабль 2",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/ship-2.jpeg",
+      "size": 2822950
+    },
+    {
+      "id": "a0130",
+      "label": "Рифемист",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/rifemist.jpeg",
+      "size": 394967
+    },
+    {
+      "id": "a0131",
+      "label": "Руины 2",
+      "category": "backgrounds",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/backgrounds/ruins-2.jpg",
+      "size": 5316112
+    },
+    {
+      "id": "a0132",
+      "label": "alien hand",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/alien-hand.png",
+      "size": 19190
+    },
+    {
+      "id": "a0133",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images ",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images.png",
+      "size": 5412
+    },
+    {
+      "id": "a0134",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Backgrounds Blood Splatter",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-backgrounds-blood-splatter.png",
+      "size": 1359740
+    },
+    {
+      "id": "a0135",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons blank",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-blank.png",
+      "size": 18145
+    },
+    {
+      "id": "a0136",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons Book",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-book.png",
+      "size": 56408
+    },
+    {
+      "id": "a0137",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons Camera",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-camera.png",
+      "size": 98735
+    },
+    {
+      "id": "a0138",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons cameraUp",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-cameraup.png",
+      "size": 129753
+    },
+    {
+      "id": "a0139",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons Focus",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-focus.png",
+      "size": 99677
+    },
+    {
+      "id": "a0140",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons MonsterIcon A Aerogin 1",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-monstericon-a-aerogin-1.png",
+      "size": 2019463
+    },
+    {
+      "id": "a0141",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons MonsterIcon A Dekrobats 1",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-monstericon-a-dekrobats-1.png",
+      "size": 98146
+    },
+    {
+      "id": "a0142",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons MonsterIcon H Skeleti 1",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-monstericon-h-skeleti-1.png",
+      "size": 2147106
+    },
+    {
+      "id": "a0143",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons MonsterIcon H Spirat 1",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-monstericon-h-spirat-1.png",
+      "size": 214936
+    },
+    {
+      "id": "a0144",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons MonsterIcon H Wytch 1",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-monstericon-h-wytch-1.png",
+      "size": 548573
+    },
+    {
+      "id": "a0145",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons play",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-play.png",
+      "size": 43853
+    },
+    {
+      "id": "a0146",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons replay",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-replay.png",
+      "size": 33567
+    },
+    {
+      "id": "a0147",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons Setting",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-setting.png",
+      "size": 134738
+    },
+    {
+      "id": "a0148",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons sk auto focused",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-sk-auto-focused.png",
+      "size": 1240
+    },
+    {
+      "id": "a0149",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons SoundOff",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-soundoff.png",
+      "size": 29648
+    },
+    {
+      "id": "a0150",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images Icons SoundOn",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-icons-soundon.png",
+      "size": 43403
+    },
+    {
+      "id": "a0151",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images monsters Aim A Cazador",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-monsters-aim-a-cazador.png",
+      "size": 272270
+    },
+    {
+      "id": "a0152",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images monsters Tap T Kraydar",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-monsters-tap-t-kraydar.png",
+      "size": 1052708
+    },
+    {
+      "id": "a0153",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Images monsters Tap T Tyarr",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-images-monsters-tap-t-tyarr.png",
+      "size": 47843
+    },
+    {
+      "id": "a0154",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Material lock img",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-material-lock-img.png",
+      "size": 14114
+    },
+    {
+      "id": "a0155",
+      "label": "assets5-icons-backgrounds-roadblock assets5 Material Warning sign",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/assets5-icons-backgrounds-roadblock-assets5-material-warning-sign.png",
+      "size": 310334
+    },
+    {
+      "id": "a0156",
+      "label": "bear",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/bear.png",
+      "size": 14490
+    },
+    {
+      "id": "a0157",
+      "label": "Ben-2inX2in-SQ",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ben-2inx2in-sq.jpg",
+      "size": 930691
+    },
+    {
+      "id": "a0158",
+      "label": "biting lip",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/biting-lip.png",
+      "size": 13614
+    },
+    {
+      "id": "a0159",
+      "label": "bloodshot eyes",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/bloodshot-eyes.png",
+      "size": 13654
+    },
+    {
+      "id": "a0160",
+      "label": "blow kiss wink",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/blow-kiss-wink.png",
+      "size": 13938
+    },
+    {
+      "id": "a0161",
+      "label": "camera flash",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/camera-flash.png",
+      "size": 13920
+    },
+    {
+      "id": "a0162",
+      "label": "cat",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/cat.png",
+      "size": 14319
+    },
+    {
+      "id": "a0163",
+      "label": "cat blep",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/cat-blep.png",
+      "size": 14512
+    },
+    {
+      "id": "a0164",
+      "label": "cat smirk",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/cat-smirk.png",
+      "size": 14380
+    },
+    {
+      "id": "a0165",
+      "label": "chicken",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/chicken.png",
+      "size": 16661
+    },
+    {
+      "id": "a0166",
+      "label": "clown",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/clown.png",
+      "size": 19667
+    },
+    {
+      "id": "a0167",
+      "label": "cold sweat",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/cold-sweat.png",
+      "size": 13605
+    },
+    {
+      "id": "a0168",
+      "label": "cookie",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/cookie.png",
+      "size": 15059
+    },
+    {
+      "id": "a0169",
+      "label": "dead",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dead.png",
+      "size": 13501
+    },
+    {
+      "id": "a0170",
+      "label": "desolate",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/desolate.png",
+      "size": 13062
+    },
+    {
+      "id": "a0171",
+      "label": "dog angry",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dog-angry.png",
+      "size": 15693
+    },
+    {
+      "id": "a0172",
+      "label": "dog love",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dog-love.png",
+      "size": 15918
+    },
+    {
+      "id": "a0173",
+      "label": "dog sad",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dog-sad.png",
+      "size": 15654
+    },
+    {
+      "id": "a0174",
+      "label": "dog shocked",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dog-shocked.png",
+      "size": 15957
+    },
+    {
+      "id": "a0175",
+      "label": "dog wink",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/dog-wink.png",
+      "size": 15787
+    },
+    {
+      "id": "a0176",
+      "label": "earth face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/earth-face.png",
+      "size": 13856
+    },
+    {
+      "id": "a0177",
+      "label": "evil imp",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/evil-imp.png",
+      "size": 14164
+    },
+    {
+      "id": "a0178",
+      "label": "exploding head",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/exploding-head.png",
+      "size": 18523
+    },
+    {
+      "id": "a0179",
+      "label": "eyebrow raised",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/eyebrow-raised.png",
+      "size": 13299
+    },
+    {
+      "id": "a0180",
+      "label": "face mask",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/face-mask.png",
+      "size": 13666
+    },
+    {
+      "id": "a0181",
+      "label": "facepalm",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/facepalm.png",
+      "size": 12864
+    },
+    {
+      "id": "a0182",
+      "label": "flushed",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/flushed.png",
+      "size": 12575
+    },
+    {
+      "id": "a0183",
+      "label": "frog",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/frog.png",
+      "size": 13443
+    },
+    {
+      "id": "a0184",
+      "label": "full-steak-developer",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/full-steak-developer.png",
+      "size": 337978
+    },
+    {
+      "id": "a0185",
+      "label": "gayjs",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/gayjs.png",
+      "size": 418597
+    },
+    {
+      "id": "a0186",
+      "label": "ghost",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ghost.png",
+      "size": 19810
+    },
+    {
+      "id": "a0187",
+      "label": "heart eyes smile",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/heart-eyes-smile.png",
+      "size": 12781
+    },
+    {
+      "id": "a0188",
+      "label": "hogchamp",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/hogchamp.png",
+      "size": 17136
+    },
+    {
+      "id": "a0189",
+      "label": "hot face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/hot-face.png",
+      "size": 15652
+    },
+    {
+      "id": "a0190",
+      "label": "iddof",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/iddof.png",
+      "size": 39356
+    },
+    {
+      "id": "a0191",
+      "label": "imposter hush",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/imposter-hush.png",
+      "size": 13910
+    },
+    {
+      "id": "a0192",
+      "label": "jack o lantern",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/jack-o-lantern.png",
+      "size": 13734
+    },
+    {
+      "id": "a0193",
+      "label": "joy",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/joy.png",
+      "size": 15754
+    },
+    {
+      "id": "a0194",
+      "label": "kiss left",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/kiss-left.png",
+      "size": 13547
+    },
+    {
+      "id": "a0195",
+      "label": "kiss right",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/kiss-right.png",
+      "size": 13446
+    },
+    {
+      "id": "a0196",
+      "label": "Lillie-2inX2in-CIRCLE",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/lillie-2inx2in-circle.jpg",
+      "size": 704247
+    },
+    {
+      "id": "a0197",
+      "label": "money tongue",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/money-tongue.png",
+      "size": 13609
+    },
+    {
+      "id": "a0198",
+      "label": "monkey",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/monkey.png",
+      "size": 15720
+    },
+    {
+      "id": "a0199",
+      "label": "monocle",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/monocle.png",
+      "size": 13664
+    },
+    {
+      "id": "a0200",
+      "label": "moon face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/moon-face.png",
+      "size": 13387
+    },
+    {
+      "id": "a0201",
+      "label": "nausea",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/nausea.png",
+      "size": 13365
+    },
+    {
+      "id": "a0202",
+      "label": "neutral",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/neutral.png",
+      "size": 13171
+    },
+    {
+      "id": "a0203",
+      "label": "Nina-2inX2in-SQUARE",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/nina-2inx2in-square.jpg",
+      "size": 929415
+    },
+    {
+      "id": "a0204",
+      "label": "octopus",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/octopus.png",
+      "size": 20428
+    },
+    {
+      "id": "a0205",
+      "label": "octopus gentleman",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/octopus-gentleman.png",
+      "size": 24284
+    },
+    {
+      "id": "a0206",
+      "label": "panda",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/panda.png",
+      "size": 14305
+    },
+    {
+      "id": "a0207",
+      "label": "party",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/party.png",
+      "size": 17805
+    },
+    {
+      "id": "a0208",
+      "label": "pensive",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/pensive.png",
+      "size": 13353
+    },
+    {
+      "id": "a0209",
+      "label": "pig",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/pig.png",
+      "size": 17076
+    },
+    {
+      "id": "a0210",
+      "label": "pleading",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/pleading.png",
+      "size": 13507
+    },
+    {
+      "id": "a0211",
+      "label": "pogchamp",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/pogchamp.png",
+      "size": 13224
+    },
+    {
+      "id": "a0212",
+      "label": "poo face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/poo-face.png",
+      "size": 15614
+    },
+    {
+      "id": "a0213",
+      "label": "powercry",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/powercry.png",
+      "size": 13579
+    },
+    {
+      "id": "a0214",
+      "label": "powercry bow",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/powercry-bow.png",
+      "size": 14529
+    },
+    {
+      "id": "a0215",
+      "label": "rage",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/rage.png",
+      "size": 13227
+    },
+    {
+      "id": "a0216",
+      "label": "rainbow face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/rainbow-face.png",
+      "size": 15574
+    },
+    {
+      "id": "a0217",
+      "label": "relaxed",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/relaxed.png",
+      "size": 13467
+    },
+    {
+      "id": "a0218",
+      "label": "relieved",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/relieved.png",
+      "size": 13323
+    },
+    {
+      "id": "a0219",
+      "label": "robot",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/robot.png",
+      "size": 16989
+    },
+    {
+      "id": "a0220",
+      "label": "rolling eyes",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/rolling-eyes.png",
+      "size": 13411
+    },
+    {
+      "id": "a0221",
+      "label": "Sam-2inX2in-SQ",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sam-2inx2in-sq.jpg",
+      "size": 1141868
+    },
+    {
+      "id": "a0222",
+      "label": "santa",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/santa.png",
+      "size": 20213
+    },
+    {
+      "id": "a0223",
+      "label": "see no evil",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/see-no-evil.png",
+      "size": 20835
+    },
+    {
+      "id": "a0224",
+      "label": "sick",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sick.png",
+      "size": 13768
+    },
+    {
+      "id": "a0225",
+      "label": "skull",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/skull.png",
+      "size": 14942
+    },
+    {
+      "id": "a0226",
+      "label": "sleeping",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sleeping.png",
+      "size": 18283
+    },
+    {
+      "id": "a0227",
+      "label": "slight meh",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/slight-meh.png",
+      "size": 13199
+    },
+    {
+      "id": "a0228",
+      "label": "smirk",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/smirk.png",
+      "size": 13288
+    },
+    {
+      "id": "a0229",
+      "label": "sob",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sob.png",
+      "size": 14075
+    },
+    {
+      "id": "a0230",
+      "label": "speak no evil",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/speak-no-evil.png",
+      "size": 17076
+    },
+    {
+      "id": "a0231",
+      "label": "star eyes",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/star-eyes.png",
+      "size": 13739
+    },
+    {
+      "id": "a0232",
+      "label": "sun face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sun-face.png",
+      "size": 22109
+    },
+    {
+      "id": "a0233",
+      "label": "sunglasses",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/sunglasses.png",
+      "size": 13235
+    },
+    {
+      "id": "a0234",
+      "label": "thanks",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/thanks.png",
+      "size": 17376
+    },
+    {
+      "id": "a0235",
+      "label": "thumbs down",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/thumbs-down.png",
+      "size": 18610
+    },
+    {
+      "id": "a0236",
+      "label": "thumbs up",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/thumbs-up.png",
+      "size": 19043
+    },
+    {
+      "id": "a0237",
+      "label": "troll face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/troll-face.png",
+      "size": 13684
+    },
+    {
+      "id": "a0238",
+      "label": "ui assets7 0629 ButtonAcceleratorOverSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0629-buttonacceleratoroversprite.png",
+      "size": 10618
+    },
+    {
+      "id": "a0239",
+      "label": "ui assets7 0630 ButtonAcceleratorUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0630-buttonacceleratorupsprite.png",
+      "size": 10747
+    },
+    {
+      "id": "a0240",
+      "label": "ui assets7 0631 ButtonArrowOverSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0631-buttonarrowoversprite.png",
+      "size": 8229
+    },
+    {
+      "id": "a0241",
+      "label": "ui assets7 0632 ButtonArrowUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0632-buttonarrowupsprite.png",
+      "size": 8376
+    },
+    {
+      "id": "a0242",
+      "label": "ui assets7 0633 ButtonBrakeOverSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0633-buttonbrakeoversprite.png",
+      "size": 5818
+    },
+    {
+      "id": "a0243",
+      "label": "ui assets7 0634 ButtonBrakeUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0634-buttonbrakeupsprite.png",
+      "size": 5873
+    },
+    {
+      "id": "a0244",
+      "label": "ui assets7 0635 ButtonCameraCycleUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0635-buttoncameracycleupsprite.png",
+      "size": 5764
+    },
+    {
+      "id": "a0245",
+      "label": "ui assets7 0636 ButtonResetSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0636-buttonresetsprite.png",
+      "size": 8412
+    },
+    {
+      "id": "a0246",
+      "label": "ui assets7 0637 ButtonSpacebarSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0637-buttonspacebarsprite.png",
+      "size": 3471
+    },
+    {
+      "id": "a0247",
+      "label": "ui assets7 0638 ButtonThumbstickOverSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0638-buttonthumbstickoversprite.png",
+      "size": 8099
+    },
+    {
+      "id": "a0248",
+      "label": "ui assets7 0639 ButtonThumbstickUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0639-buttonthumbstickupsprite.png",
+      "size": 8278
+    },
+    {
+      "id": "a0249",
+      "label": "ui assets7 0640 ButtonTimescaleFullUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0640-buttontimescalefullupsprite.png",
+      "size": 8409
+    },
+    {
+      "id": "a0250",
+      "label": "ui assets7 0641 ButtonTimescaleSlowUpSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0641-buttontimescaleslowupsprite.png",
+      "size": 9144
+    },
+    {
+      "id": "a0251",
+      "label": "ui assets7 0642 SliderBackgroundSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0642-sliderbackgroundsprite.png",
+      "size": 2309
+    },
+    {
+      "id": "a0252",
+      "label": "ui assets7 0643 SliderHandleSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0643-sliderhandlesprite.png",
+      "size": 1671
+    },
+    {
+      "id": "a0253",
+      "label": "ui assets7 0644 TouchpadSprite",
+      "category": "ui stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/ui-assets7-0644-touchpadsprite.png",
+      "size": 3828
+    },
+    {
+      "id": "a0254",
+      "label": "unicorn",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/unicorn.png",
+      "size": 204084
+    },
+    {
+      "id": "a0255",
+      "label": "vomiting",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/vomiting.png",
+      "size": 15706
+    },
+    {
+      "id": "a0256",
+      "label": "waning crescent moon face",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/waning-crescent-moon-face.png",
+      "size": 13190
+    },
+    {
+      "id": "a0257",
+      "label": "weary",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/weary.png",
+      "size": 13398
+    },
+    {
+      "id": "a0258",
+      "label": "wink",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/wink.png",
+      "size": 13349
+    },
+    {
+      "id": "a0259",
+      "label": "wolf",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/wolf.png",
+      "size": 17496
+    },
+    {
+      "id": "a0260",
+      "label": "woozy",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/woozy.png",
+      "size": 13505
+    },
+    {
+      "id": "a0261",
+      "label": "xok",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/xok.png",
+      "size": 14359
+    },
+    {
+      "id": "a0262",
+      "label": "yum",
+      "category": "stickers",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/stickers/yum.png",
+      "size": 13333
+    },
+    {
+      "id": "a0263",
+      "label": "Brick normal texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/brick-normal.png",
+      "size": 377537
+    },
+    {
+      "id": "a0264",
+      "label": "Stone tile 3",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/stone-tile-3.png",
+      "size": 317354
+    },
+    {
+      "id": "a0265",
+      "label": "Stone tile 4",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/stone-tile-4.png",
+      "size": 333138
+    },
+    {
+      "id": "a0266",
+      "label": "Stone tile 5",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/stone-tile-5.png",
+      "size": 351575
+    },
+    {
+      "id": "a0267",
+      "label": "Stone tile 6",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/stone-tile-6.png",
+      "size": 248784
+    },
+    {
+      "id": "a0268",
+      "label": "Fine noise grain",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/fine-noise-grain.png",
+      "size": 5734
+    },
+    {
+      "id": "a0269",
+      "label": "Film grain",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/film-grain.png",
+      "size": 128100
+    },
+    {
+      "id": "a0270",
+      "label": "Scratch texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/scratch-texture.png",
+      "size": 2996
+    },
+    {
+      "id": "a0271",
+      "label": "Vignette mask",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/vignette-mask.png",
+      "size": 6381
+    },
+    {
+      "id": "a0272",
+      "label": "Scan lines fine",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/scan-lines-fine.jpg",
+      "size": 29182
+    },
+    {
+      "id": "a0273",
+      "label": "Scan lines soft",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/scan-lines-soft.jpg",
+      "size": 5132
+    },
+    {
+      "id": "a0274",
+      "label": "Water normal texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/water-bump.jpg",
+      "size": 138555
+    },
+    {
+      "id": "a0275",
+      "label": "Water bump texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/water-bump.jpg",
+      "size": 138555
+    },
+    {
+      "id": "a0276",
+      "label": "Foam texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/foam.png",
+      "size": 248374
+    },
+    {
+      "id": "a0277",
+      "label": "Small waves texture",
+      "category": "texture resources",
+      "type": "image",
+      "src": "assets/images/admins/effects-studio/textures/curated/small-waves.png",
+      "size": 7943
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 10,
+  "category": "Fey-Folk",
+  "expectedFolder": "Fey-Folk",
+  "raceCount": 7,
+  "tokenCount": 98,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Faerie",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Fairy",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Gandirosha",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Changeling",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Lorwyn Changeling",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Satyr",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Dreamer",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "title": "Cascading Dice Table",
+  "file": "cascading-dice-table.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Ink",
+      "hex": "#2d2930",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 2,
+      "name": "Cream",
+      "hex": "#f3eadb",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Console charcoal",
+      "hex": "#393c45",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 4,
+      "name": "Steel",
+      "hex": "#6c7480",
+      "region_count": 0,
+      "regions": []
+    },
+    {
+      "number": 5,
+      "name": "Xbox green",
+      "hex": "#55a84f",
+      "region_count": 4,
+      "regions": [
+        "region-012",
+        "region-017",
+        "region-018",
+        "region-023"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Neon cyan",
+      "hex": "#35c8d7",
+      "region_count": 11,
+      "regions": [
+        "region-004",
+        "region-005",
+        "region-006",
+        "region-007",
+        "region-008",
+        "region-013",
+        "region-016",
+        "region-020",
+        "region-022",
+        "region-024",
+        "region-027"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Electric violet",
+      "hex": "#8155b6",
+      "region_count": 7,
+      "regions": [
+        "region-011",
+        "region-014",
+        "region-015",
+        "region-019",
+        "region-021",
+        "region-025",
+        "region-028"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Hot coral",
+      "hex": "#d96363",
+      "region_count": 2,
+      "regions": [
+        "region-009",
+        "region-026"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Gold",
+      "hex": "#d6a43e",
+      "region_count": 1,
+      "regions": [
+        "region-010"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Wood",
+      "hex": "#7d533b",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Shadow navy",
+      "hex": "#26384d",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "White",
+      "hex": "#fffaf1",
+      "region_count": 7,
+      "regions": [
+        "region-029",
+        "region-030",
+        "region-031",
+        "region-032",
+        "region-033",
+        "region-034",
+        "region-035"
+      ]
+    }
+  ],
+  "region_count": 35,
+  "tags": [
+    "Gamer",
+    "Dice",
+    "TTRPG"
+  ],
+  "complexity": "Detailed"
+}

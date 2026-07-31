@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "licenseNote": "Original TableGate system-neutral starter prompts. Campaign runners may edit, replace, import, or export them.",
+  "format": {
+    "id": "string",
+    "name": "string",
+    "category": "string",
+    "die": "display label",
+    "entries": [
+      {
+        "weight": 1,
+        "text": "result text"
+      }
+    ]
+  },
+  "starterTableIds": [
+    "actors",
+    "motives",
+    "complications",
+    "locations",
+    "rewards",
+    "twists"
+  ],
+  "storageNamespace": "tablegate.encounterLab.v6.<campaignServerId>"
+}

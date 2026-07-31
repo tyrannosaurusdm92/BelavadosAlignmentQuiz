@@ -1,0 +1,235 @@
+{
+  "title": "Rest Is Productive",
+  "file": "rest-mandala.svg",
+  "method": "Original hand-authored vector regions merged into the offline cozy paint-by-number library. No image-generation system was used.",
+  "interaction": {
+    "click": "Toggle one region between paper and its suggested color.",
+    "shift_click": "Toggle all regions carrying the same number.",
+    "palette_swatch_click": "Paint every region assigned to that number.",
+    "keyboard": "Focus a region or swatch and press Enter or Space."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Cream",
+      "hex": "#E7F2EF",
+      "region_count": 1,
+      "regions": [
+        "region-001"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Coral",
+      "hex": "#B8D8D8",
+      "region_count": 1,
+      "regions": [
+        "region-002"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Sage",
+      "hex": "#7FB7BE",
+      "region_count": 1,
+      "regions": [
+        "region-003"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Pine",
+      "hex": "#4C8C99",
+      "region_count": 2,
+      "regions": [
+        "region-004",
+        "region-010"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Ochre",
+      "hex": "#2F6572",
+      "region_count": 2,
+      "regions": [
+        "region-005",
+        "region-011"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Clay",
+      "hex": "#173F4F",
+      "region_count": 2,
+      "regions": [
+        "region-006",
+        "region-012"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Mist",
+      "hex": "#D6E6D5",
+      "region_count": 2,
+      "regions": [
+        "region-007",
+        "region-013"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Blush",
+      "hex": "#9CC5A1",
+      "region_count": 2,
+      "regions": [
+        "region-008",
+        "region-014"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Espresso",
+      "hex": "#6AAE9B",
+      "region_count": 2,
+      "regions": [
+        "region-009",
+        "region-015"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Sand",
+      "hex": "#3E7D73",
+      "region_count": 2,
+      "regions": [
+        "region-016",
+        "region-022"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Sea Glass",
+      "hex": "#F1D3A7",
+      "region_count": 2,
+      "regions": [
+        "region-017",
+        "region-023"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ember",
+      "hex": "#D79B71",
+      "region_count": 2,
+      "regions": [
+        "region-018",
+        "region-024"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Porcelain",
+      "hex": "#A7C7D9",
+      "region_count": 2,
+      "regions": [
+        "region-019",
+        "region-025"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Moss",
+      "hex": "#6F9DB3",
+      "region_count": 2,
+      "regions": [
+        "region-020",
+        "region-026"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Berry",
+      "hex": "#395D73",
+      "region_count": 2,
+      "regions": [
+        "region-021",
+        "region-027"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Marigold",
+      "hex": "#DDEBE7",
+      "region_count": 2,
+      "regions": [
+        "region-028",
+        "region-032"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "Violet",
+      "hex": "#86C6C0",
+      "region_count": 2,
+      "regions": [
+        "region-029",
+        "region-033"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Lagoon",
+      "hex": "#5CA3A6",
+      "region_count": 2,
+      "regions": [
+        "region-030",
+        "region-034"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Honey",
+      "hex": "#2E6A70",
+      "region_count": 2,
+      "regions": [
+        "region-031",
+        "region-035"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Mauve",
+      "hex": "#B8CCB7",
+      "region_count": 1,
+      "regions": [
+        "region-036"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Leaf",
+      "hex": "#7FA68E",
+      "region_count": 1,
+      "regions": [
+        "region-037"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Poppy",
+      "hex": "#52735F",
+      "region_count": 1,
+      "regions": [
+        "region-038"
+      ]
+    }
+  ],
+  "region_count": 38,
+  "tags": [
+    "Mandala",
+    "Self-Care",
+    "Geometric",
+    "OurSpace Original"
+  ],
+  "complexity": "Moderate"
+}

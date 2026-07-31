@@ -1,0 +1,169 @@
+{
+  "schema": "lifesimulator.external-token-assets.v1",
+  "basePath": "token_assets",
+  "categoryCount": 23,
+  "tokenCount": 3486,
+  "categories": [
+    {
+      "categoryNumber": 1,
+      "category": "Humans, Near-Humans, and Mixed Heritage",
+      "relativePath": "token_assets/Humans, Near-Humans, and Mixed Heritage/",
+      "raceCount": 5,
+      "tokenCount": 686
+    },
+    {
+      "categoryNumber": 2,
+      "category": "Elven-Types",
+      "relativePath": "token_assets/Elven-Types/",
+      "raceCount": 2,
+      "tokenCount": 294
+    },
+    {
+      "categoryNumber": 3,
+      "category": "Dwarven and Gnomish Kin",
+      "relativePath": "token_assets/Dwarven and Gnomish Kin/",
+      "raceCount": 3,
+      "tokenCount": 42
+    },
+    {
+      "categoryNumber": 4,
+      "category": "Halfling and Smallfolk",
+      "relativePath": "token_assets/Halfling and Smallfolk/",
+      "raceCount": 6,
+      "tokenCount": 84
+    },
+    {
+      "categoryNumber": 5,
+      "category": "Orcs, Goblins, and Goblinoid Kin",
+      "relativePath": "token_assets/Orcs, Goblins, and Goblinoid Kin/",
+      "raceCount": 8,
+      "tokenCount": 112
+    },
+    {
+      "categoryNumber": 6,
+      "category": "Giantkin and Powerful Humanoids",
+      "relativePath": "token_assets/Giantkin and Powerful Humanoids/",
+      "raceCount": 3,
+      "tokenCount": 42
+    },
+    {
+      "categoryNumber": 7,
+      "category": "Draconic and Reptilian Races",
+      "relativePath": "token_assets/Draconic and Reptilian Races/",
+      "raceCount": 5,
+      "tokenCount": 182
+    },
+    {
+      "categoryNumber": 8,
+      "category": "Celestial, Fiendish, and Planar Peoples",
+      "relativePath": "token_assets/Celestial, Fiendish, and Planar Peoples/",
+      "raceCount": 5,
+      "tokenCount": 70
+    },
+    {
+      "categoryNumber": 9,
+      "category": "Undead and Death-Touched Races",
+      "relativePath": "token_assets/Undead and Death-Touched Races/",
+      "raceCount": 7,
+      "tokenCount": 98
+    },
+    {
+      "categoryNumber": 10,
+      "category": "Fey-Folk",
+      "relativePath": "token_assets/Fey-Folk/",
+      "raceCount": 7,
+      "tokenCount": 98
+    },
+    {
+      "categoryNumber": 11,
+      "category": "Elemental and Energy-Born Peoples",
+      "relativePath": "token_assets/Elemental and Energy-Born Peoples/",
+      "raceCount": 4,
+      "tokenCount": 238
+    },
+    {
+      "categoryNumber": 12,
+      "category": "Psionic, Astral, and Alien Minds",
+      "relativePath": "token_assets/Psionic, Astral, and Alien Minds/",
+      "raceCount": 5,
+      "tokenCount": 70
+    },
+    {
+      "categoryNumber": 13,
+      "category": "Constructed and Artificial Beings",
+      "relativePath": "token_assets/Constructed and Artificial Beings/",
+      "raceCount": 5,
+      "tokenCount": 70
+    },
+    {
+      "categoryNumber": 14,
+      "category": "Birdfolk and Avian Races",
+      "relativePath": "token_assets/Birdfolk and Avian Races/",
+      "raceCount": 10,
+      "tokenCount": 140
+    },
+    {
+      "categoryNumber": 15,
+      "category": "Animalfolk and Mammalian Anthropomorphs",
+      "relativePath": "token_assets/Animalfolk and Mammalian Anthropomorphs/",
+      "raceCount": 20,
+      "tokenCount": 280
+    },
+    {
+      "categoryNumber": 16,
+      "category": "Amphibious and Aquatic Peoples",
+      "relativePath": "token_assets/Amphibious and Aquatic Peoples/",
+      "raceCount": 9,
+      "tokenCount": 196
+    },
+    {
+      "categoryNumber": 17,
+      "category": "Insectoid, Ooze, and Aberrant Creatures",
+      "relativePath": "token_assets/Insectoid, Ooze, and Aberrant Creatures/",
+      "raceCount": 6,
+      "tokenCount": 84
+    },
+    {
+      "categoryNumber": 18,
+      "category": "Plantfolk and Nature-Bound Races",
+      "relativePath": "token_assets/Plantfolk and Nature-Bound Races/",
+      "raceCount": 4,
+      "tokenCount": 56
+    },
+    {
+      "categoryNumber": 19,
+      "category": "Shadow, Umbral, and Darkness-Aligned Peoples",
+      "relativePath": "token_assets/Shadow, Umbral, and Darkness-Aligned Peoples/",
+      "raceCount": 4,
+      "tokenCount": 56
+    },
+    {
+      "categoryNumber": 20,
+      "category": "Experimental and Bio-Engineered Races",
+      "relativePath": "token_assets/Experimental and Bio-Engineered Races/",
+      "raceCount": 1,
+      "tokenCount": 14
+    },
+    {
+      "categoryNumber": 21,
+      "category": "Primitive, Tribal, and Wilderness Humanoids",
+      "relativePath": "token_assets/Primitive, Tribal, and Wilderness Humanoids/",
+      "raceCount": 4,
+      "tokenCount": 56
+    },
+    {
+      "categoryNumber": 22,
+      "category": "Miscellaneous and Hard-to-Classify Races",
+      "relativePath": "token_assets/Miscellaneous and Hard-to-Classify Races/",
+      "raceCount": 7,
+      "tokenCount": 84
+    },
+    {
+      "categoryNumber": 23,
+      "category": "Alien-Folk",
+      "relativePath": "token_assets/Alien-Folk/",
+      "raceCount": 31,
+      "tokenCount": 434
+    }
+  ]
+}

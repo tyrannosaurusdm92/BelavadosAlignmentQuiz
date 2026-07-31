@@ -1,0 +1,28 @@
+{
+  "schema": "lifesimulator.scope.v5",
+  "application": "LifeSimulator",
+  "owns": [
+    "NPC identity and simulation state",
+    "semantic locations",
+    "race and species creation",
+    "bloodlines and lineages",
+    "ordered mixed heritage",
+    "conversations",
+    "schedules and reactions",
+    "relationships and consequences",
+    "project import and export"
+  ],
+  "does_not_own": [
+    "terrain",
+    "maps",
+    "physical coordinates",
+    "planetary geometry",
+    "viewer state",
+    "pin geometry",
+    "environment texture systems"
+  ],
+  "eraRange": {"min": 0, "max": 10, "labels": ["Stone Age", "Early Metallurgy", "Iron / Classical", "Medieval", "Renaissance / Early Modern", "Industrial / Steam", "Electrified / Modern", "Digital / Atomic", "Planetary / Orbital", "Interplanetary", "Spacefaring / Interstellar"]},
+  "frontFacingAuthoring": true,
+  "separateAlienApplication": false,
+  "externalTokenAssetRoot": "token_assets"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 17,
+  "category": "Insectoid, Ooze, and Aberrant Creatures",
+  "expectedFolder": "Insectoid, Ooze, and Aberrant Creatures",
+  "raceCount": 6,
+  "tokenCount": 84,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Thri-Kreen",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Cnidarin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Oozekin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Opteran",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Silkborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Plasmoid",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

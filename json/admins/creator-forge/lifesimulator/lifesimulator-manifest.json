@@ -1,0 +1,143 @@
+{
+  "schema": "tablegate.lifesimulator.manifest.v6",
+  "name": "TableGate LifeSimulator — Setting and System Agnostic",
+  "version": "6.0.0",
+  "entry": "lifesimulator.html",
+  "alternateEntry": "index.html",
+  "offlineStandalone": true,
+  "requiresBatchFiles": false,
+  "branding": "TableGate",
+  "rulesSystems": [
+    {
+      "id": "dnd",
+      "name": "Dungeons & Dragons",
+      "defaultEdition": "5.5e",
+      "editions": [
+        "5e",
+        "5.5e"
+      ],
+      "source": "json/tablegate/systems/references/dnd-5e-5-5e-complete-character-reference-v3-all-official-races.json"
+    },
+    {
+      "id": "daggerheart",
+      "name": "Daggerheart",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/tablegate/systems/references/how-to-play-daggerheart-complete-reference-v2.json"
+    },
+    {
+      "id": "pathfinder2e",
+      "name": "Pathfinder Second Edition Remastered",
+      "defaultEdition": "remastered",
+      "editions": [
+        "remastered"
+      ],
+      "source": "json/tablegate/systems/references/how-to-play-pathfinder-2e-remastered-complete-reference-v2.json"
+    },
+    {
+      "id": "blades",
+      "name": "Blades in the Dark",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/tablegate/systems/references/how-to-play-blades-in-the-dark-complete-reference-v2.json"
+    },
+    {
+      "id": "coc7e",
+      "name": "Call of Cthulhu Seventh Edition",
+      "defaultEdition": "7e",
+      "editions": [
+        "7e"
+      ],
+      "source": "json/tablegate/systems/references/how-to-play-coc-7e-complete-reference-v2.json"
+    },
+    {
+      "id": "fate",
+      "name": "Fate Core",
+      "defaultEdition": "core",
+      "editions": [
+        "core"
+      ],
+      "source": "json/tablegate/systems/references/fate-core-complete-how-to-play-reference-v2.json"
+    },
+    {
+      "id": "gurps",
+      "name": "GURPS Fourth Edition Revised",
+      "defaultEdition": "4e-revised",
+      "editions": [
+        "4e-revised"
+      ],
+      "source": "json/tablegate/systems/references/gurps-4e-revised-complete-character-reference-v2.json"
+    },
+    {
+      "id": "pbta",
+      "name": "Powered by the Apocalypse",
+      "defaultEdition": "framework",
+      "editions": [
+        "framework"
+      ],
+      "source": "json/tablegate/systems/references/how-to-play-powered-by-the-apocalypse-complete-reference-v2.json"
+    },
+    {
+      "id": "swade",
+      "name": "Savage Worlds Adventure Edition",
+      "defaultEdition": "swade",
+      "editions": [
+        "swade"
+      ],
+      "source": "json/tablegate/systems/references/savage-worlds-swade-complete-reference-v2.json"
+    }
+  ],
+  "capabilities": [
+    "hierarchical map viewer",
+    "project-level and per-entity rules switching",
+    "protected and custom body forms",
+    "system-aware entity generation",
+    "semantic locations",
+    "NPC dialogue and memory",
+    "schedules and reactions",
+    "simulation branches and save points",
+    "import/export and validation"
+  ],
+  "registryCounts": {
+    "rulesSystems": 9,
+    "rulesEditions": 10,
+    "bodyFormCategories": 23,
+    "protectedBodyForms": 161,
+    "orderedMixedHeritageRecords": 7664,
+    "genderIdentities": 14,
+    "tokenBorders": 285,
+    "coreReactions": 968,
+    "biomeCategories": 5,
+    "biomePaths": 18
+  },
+  "package": {
+    "files": 1371,
+    "bytes": 74757392,
+    "fileTypes": {
+      ".css": 20,
+      ".html": 2,
+      ".js": 32,
+      ".json": 59,
+      ".md": 5,
+      ".svg": 1253
+    }
+  },
+  "keyFiles": [
+    "lifesimulator.html",
+    "index.html",
+    "css/admins/creator-forge/tablegate.css",
+    "js/admins/creator-forge/tablegate/system-catalog.js",
+    "js/admins/creator-forge/tablegate/system-adapter.js",
+    "js/admins/creator-forge/tablegate/map-viewer.js",
+    "json/admins/creator-forge/lifesimulator/lifesimulator-manifest.json",
+    "README.md",
+    "docs/SYSTEM_SWITCHING_GUIDE.md",
+    "docs/MAP_VIEWER_GUIDE.md",
+    "docs/MIGRATION_NOTES.md",
+    "docs/BUILD_AUDIT.md"
+  ]
+}

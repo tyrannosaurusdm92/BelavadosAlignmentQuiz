@@ -1,0 +1,124 @@
+{
+  "templates": [
+    {
+      "id": "location",
+      "name": "Location",
+      "fields": [
+        "Geography",
+        "Climate",
+        "History",
+        "People",
+        "Sites",
+        "Secrets"
+      ]
+    },
+    {
+      "id": "settlement",
+      "name": "Settlement",
+      "fields": [
+        "Government",
+        "Districts",
+        "Population",
+        "Economy",
+        "Defenses",
+        "Factions"
+      ]
+    },
+    {
+      "id": "character",
+      "name": "Character",
+      "fields": [
+        "Appearance",
+        "Personality",
+        "History",
+        "Goals",
+        "Relationships",
+        "Secrets"
+      ]
+    },
+    {
+      "id": "organization",
+      "name": "Organization",
+      "fields": [
+        "Purpose",
+        "Structure",
+        "Resources",
+        "Members",
+        "Allies",
+        "Rivals"
+      ]
+    },
+    {
+      "id": "species",
+      "name": "Species or Ancestry",
+      "fields": [
+        "Physiology",
+        "Culture",
+        "Homelands",
+        "Languages",
+        "Traits",
+        "History"
+      ]
+    },
+    {
+      "id": "item",
+      "name": "Item or Artifact",
+      "fields": [
+        "Appearance",
+        "Properties",
+        "History",
+        "Owners",
+        "Powers",
+        "Complications"
+      ]
+    },
+    {
+      "id": "deity",
+      "name": "Deity or Faith",
+      "fields": [
+        "Domains",
+        "Doctrine",
+        "Worship",
+        "Clergy",
+        "Holy Sites",
+        "Myths"
+      ]
+    },
+    {
+      "id": "event",
+      "name": "Historical Event",
+      "fields": [
+        "Date",
+        "Causes",
+        "Participants",
+        "Course",
+        "Outcome",
+        "Legacy"
+      ]
+    },
+    {
+      "id": "adventure",
+      "name": "Adventure",
+      "fields": [
+        "Premise",
+        "Hooks",
+        "Scenes",
+        "NPCs",
+        "Locations",
+        "Rewards"
+      ]
+    },
+    {
+      "id": "rules",
+      "name": "House Rule",
+      "fields": [
+        "Purpose",
+        "Rule Text",
+        "Examples",
+        "Exceptions",
+        "Rulings",
+        "Revision Notes"
+      ]
+    }
+  ]
+}

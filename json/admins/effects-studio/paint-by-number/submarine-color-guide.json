@@ -1,0 +1,1583 @@
+{
+  "title": "Ichor Submarine",
+  "file": "submarine.svg",
+  "primary_reference_image": "traveltransit_passenger_on_Submarine.svg",
+  "related_reference_images_used_for_art_direction": [
+    "traveltransit_boarding_Submarine.svg",
+    "traveltransit_leaving_Submarine.svg",
+    "traveltransit_passenger_on_Submarine.svg",
+    "traveltransit_waiting_Submarine.svg"
+  ],
+  "method": "Direct reference-based vector paint-cell conversion: the embedded source artwork was segmented into simplified SVG paths; no generated replacement image was used.",
+  "interaction": {
+    "click": "Paint or unpaint one cell with its suggested numbered color.",
+    "shift_click": "Paint or unpaint all cells assigned the same number.",
+    "palette_swatch_click": "Paint all cells assigned that palette number.",
+    "keyboard": "Focus any cell and press Enter or Space; Shift+Enter/Space paints the full number group."
+  },
+  "palette": [
+    {
+      "number": 1,
+      "name": "Saintglass cream",
+      "hex": "#F2E6C8",
+      "region_count": 4,
+      "regions": [
+        "submarine-cell-073",
+        "submarine-cell-078",
+        "submarine-cell-122",
+        "submarine-cell-181"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Steam white",
+      "hex": "#E9F0EF",
+      "region_count": 1,
+      "regions": [
+        "submarine-cell-084"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Ichor cyan glow",
+      "hex": "#58E7F5",
+      "region_count": 16,
+      "regions": [
+        "region-ring",
+        "submarine-cell-004",
+        "submarine-cell-012",
+        "submarine-cell-017",
+        "submarine-cell-019",
+        "submarine-cell-026",
+        "submarine-cell-038",
+        "submarine-cell-045",
+        "submarine-cell-051",
+        "submarine-cell-063",
+        "submarine-cell-107",
+        "submarine-cell-139",
+        "submarine-cell-147",
+        "submarine-cell-177",
+        "submarine-cell-199",
+        "submarine-cell-202"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Deep cyan glass",
+      "hex": "#1387A8",
+      "region_count": 12,
+      "regions": [
+        "submarine-cell-070",
+        "submarine-cell-083",
+        "submarine-cell-104",
+        "submarine-cell-113",
+        "submarine-cell-129",
+        "submarine-cell-135",
+        "submarine-cell-146",
+        "submarine-cell-148",
+        "submarine-cell-153",
+        "submarine-cell-154",
+        "submarine-cell-175",
+        "submarine-cell-195"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Polished brass",
+      "hex": "#D5962E",
+      "region_count": 22,
+      "regions": [
+        "submarine-cell-029",
+        "submarine-cell-031",
+        "submarine-cell-075",
+        "submarine-cell-090",
+        "submarine-cell-093",
+        "submarine-cell-103",
+        "submarine-cell-106",
+        "submarine-cell-114",
+        "submarine-cell-117",
+        "submarine-cell-121",
+        "submarine-cell-124",
+        "submarine-cell-130",
+        "submarine-cell-145",
+        "submarine-cell-166",
+        "submarine-cell-170",
+        "submarine-cell-178",
+        "submarine-cell-179",
+        "submarine-cell-188",
+        "submarine-cell-196",
+        "submarine-cell-201",
+        "submarine-cell-203",
+        "submarine-cell-206"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Burnished copper",
+      "hex": "#A85D21",
+      "region_count": 45,
+      "regions": [
+        "submarine-cell-001",
+        "submarine-cell-005",
+        "submarine-cell-016",
+        "submarine-cell-024",
+        "submarine-cell-040",
+        "submarine-cell-048",
+        "submarine-cell-049",
+        "submarine-cell-050",
+        "submarine-cell-058",
+        "submarine-cell-064",
+        "submarine-cell-066",
+        "submarine-cell-067",
+        "submarine-cell-074",
+        "submarine-cell-077",
+        "submarine-cell-080",
+        "submarine-cell-087",
+        "submarine-cell-088",
+        "submarine-cell-094",
+        "submarine-cell-095",
+        "submarine-cell-100",
+        "submarine-cell-101",
+        "submarine-cell-126",
+        "submarine-cell-128",
+        "submarine-cell-133",
+        "submarine-cell-141",
+        "submarine-cell-143",
+        "submarine-cell-150",
+        "submarine-cell-151",
+        "submarine-cell-156",
+        "submarine-cell-157",
+        "submarine-cell-159",
+        "submarine-cell-162",
+        "submarine-cell-164",
+        "submarine-cell-167",
+        "submarine-cell-169",
+        "submarine-cell-172",
+        "submarine-cell-173",
+        "submarine-cell-174",
+        "submarine-cell-180",
+        "submarine-cell-192",
+        "submarine-cell-193",
+        "submarine-cell-194",
+        "submarine-cell-198",
+        "submarine-cell-200",
+        "submarine-cell-204"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Dark bronze",
+      "hex": "#6A371B",
+      "region_count": 47,
+      "regions": [
+        "submarine-cell-002",
+        "submarine-cell-003",
+        "submarine-cell-008",
+        "submarine-cell-009",
+        "submarine-cell-013",
+        "submarine-cell-023",
+        "submarine-cell-025",
+        "submarine-cell-027",
+        "submarine-cell-030",
+        "submarine-cell-033",
+        "submarine-cell-035",
+        "submarine-cell-042",
+        "submarine-cell-043",
+        "submarine-cell-054",
+        "submarine-cell-057",
+        "submarine-cell-061",
+        "submarine-cell-065",
+        "submarine-cell-068",
+        "submarine-cell-069",
+        "submarine-cell-071",
+        "submarine-cell-072",
+        "submarine-cell-081",
+        "submarine-cell-085",
+        "submarine-cell-097",
+        "submarine-cell-105",
+        "submarine-cell-112",
+        "submarine-cell-115",
+        "submarine-cell-118",
+        "submarine-cell-123",
+        "submarine-cell-125",
+        "submarine-cell-127",
+        "submarine-cell-131",
+        "submarine-cell-134",
+        "submarine-cell-138",
+        "submarine-cell-140",
+        "submarine-cell-149",
+        "submarine-cell-158",
+        "submarine-cell-160",
+        "submarine-cell-161",
+        "submarine-cell-163",
+        "submarine-cell-168",
+        "submarine-cell-176",
+        "submarine-cell-183",
+        "submarine-cell-185",
+        "submarine-cell-186",
+        "submarine-cell-187",
+        "submarine-cell-205"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Walnut brown",
+      "hex": "#38231D",
+      "region_count": 35,
+      "regions": [
+        "submarine-cell-006",
+        "submarine-cell-007",
+        "submarine-cell-010",
+        "submarine-cell-014",
+        "submarine-cell-015",
+        "submarine-cell-018",
+        "submarine-cell-020",
+        "submarine-cell-021",
+        "submarine-cell-022",
+        "submarine-cell-028",
+        "submarine-cell-032",
+        "submarine-cell-034",
+        "submarine-cell-036",
+        "submarine-cell-039",
+        "submarine-cell-041",
+        "submarine-cell-044",
+        "submarine-cell-046",
+        "submarine-cell-047",
+        "submarine-cell-055",
+        "submarine-cell-076",
+        "submarine-cell-086",
+        "submarine-cell-089",
+        "submarine-cell-096",
+        "submarine-cell-099",
+        "submarine-cell-102",
+        "submarine-cell-108",
+        "submarine-cell-110",
+        "submarine-cell-116",
+        "submarine-cell-132",
+        "submarine-cell-137",
+        "submarine-cell-142",
+        "submarine-cell-155",
+        "submarine-cell-165",
+        "submarine-cell-184",
+        "submarine-cell-197"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Forged iron",
+      "hex": "#657078",
+      "region_count": 13,
+      "regions": [
+        "submarine-cell-011",
+        "submarine-cell-037",
+        "submarine-cell-056",
+        "submarine-cell-062",
+        "submarine-cell-079",
+        "submarine-cell-091",
+        "submarine-cell-092",
+        "submarine-cell-109",
+        "submarine-cell-111",
+        "submarine-cell-119",
+        "submarine-cell-120",
+        "submarine-cell-171",
+        "submarine-cell-191"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Slate navy",
+      "hex": "#193548",
+      "region_count": 9,
+      "regions": [
+        "submarine-cell-053",
+        "submarine-cell-059",
+        "submarine-cell-060",
+        "submarine-cell-082",
+        "submarine-cell-098",
+        "submarine-cell-152",
+        "submarine-cell-182",
+        "submarine-cell-189",
+        "submarine-cell-190"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Midnight blue",
+      "hex": "#0C2130",
+      "region_count": 1,
+      "regions": [
+        "region-field"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Ichor black",
+      "hex": "#080D12",
+      "region_count": 4,
+      "regions": [
+        "region-bg",
+        "submarine-cell-052",
+        "submarine-cell-136",
+        "submarine-cell-144"
+      ]
+    }
+  ],
+  "region_count": 209,
+  "numbered_visible_cell_count": 171,
+  "regions": [
+    {
+      "id": "region-bg",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": null
+    },
+    {
+      "id": "region-field",
+      "number": 11,
+      "suggested_color": "#0C2130",
+      "area_pixels": null
+    },
+    {
+      "id": "region-ring",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": null
+    },
+    {
+      "id": "submarine-cell-001",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 1061
+    },
+    {
+      "id": "submarine-cell-002",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 936
+    },
+    {
+      "id": "submarine-cell-003",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 925
+    },
+    {
+      "id": "submarine-cell-004",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 897
+    },
+    {
+      "id": "submarine-cell-005",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 830
+    },
+    {
+      "id": "submarine-cell-006",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 821
+    },
+    {
+      "id": "submarine-cell-007",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 812
+    },
+    {
+      "id": "submarine-cell-008",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 808
+    },
+    {
+      "id": "submarine-cell-009",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 728
+    },
+    {
+      "id": "submarine-cell-010",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 669
+    },
+    {
+      "id": "submarine-cell-011",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 669
+    },
+    {
+      "id": "submarine-cell-012",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 658
+    },
+    {
+      "id": "submarine-cell-013",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 656
+    },
+    {
+      "id": "submarine-cell-014",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 652
+    },
+    {
+      "id": "submarine-cell-015",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 648
+    },
+    {
+      "id": "submarine-cell-016",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 647
+    },
+    {
+      "id": "submarine-cell-017",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 645
+    },
+    {
+      "id": "submarine-cell-018",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 638
+    },
+    {
+      "id": "submarine-cell-019",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 632
+    },
+    {
+      "id": "submarine-cell-020",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 627
+    },
+    {
+      "id": "submarine-cell-021",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 625
+    },
+    {
+      "id": "submarine-cell-022",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 624
+    },
+    {
+      "id": "submarine-cell-023",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 620
+    },
+    {
+      "id": "submarine-cell-024",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 619
+    },
+    {
+      "id": "submarine-cell-025",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 607
+    },
+    {
+      "id": "submarine-cell-026",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 597
+    },
+    {
+      "id": "submarine-cell-027",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 592
+    },
+    {
+      "id": "submarine-cell-028",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 589
+    },
+    {
+      "id": "submarine-cell-029",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 587
+    },
+    {
+      "id": "submarine-cell-030",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 579
+    },
+    {
+      "id": "submarine-cell-031",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 564
+    },
+    {
+      "id": "submarine-cell-032",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 559
+    },
+    {
+      "id": "submarine-cell-033",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 553
+    },
+    {
+      "id": "submarine-cell-034",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 552
+    },
+    {
+      "id": "submarine-cell-035",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 516
+    },
+    {
+      "id": "submarine-cell-036",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 513
+    },
+    {
+      "id": "submarine-cell-037",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 511
+    },
+    {
+      "id": "submarine-cell-038",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 501
+    },
+    {
+      "id": "submarine-cell-039",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 498
+    },
+    {
+      "id": "submarine-cell-040",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 493
+    },
+    {
+      "id": "submarine-cell-041",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 489
+    },
+    {
+      "id": "submarine-cell-042",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 488
+    },
+    {
+      "id": "submarine-cell-043",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 488
+    },
+    {
+      "id": "submarine-cell-044",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 482
+    },
+    {
+      "id": "submarine-cell-045",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 478
+    },
+    {
+      "id": "submarine-cell-046",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 478
+    },
+    {
+      "id": "submarine-cell-047",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 476
+    },
+    {
+      "id": "submarine-cell-048",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 471
+    },
+    {
+      "id": "submarine-cell-049",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 469
+    },
+    {
+      "id": "submarine-cell-050",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 467
+    },
+    {
+      "id": "submarine-cell-051",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 464
+    },
+    {
+      "id": "submarine-cell-052",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 458
+    },
+    {
+      "id": "submarine-cell-053",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 455
+    },
+    {
+      "id": "submarine-cell-054",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 452
+    },
+    {
+      "id": "submarine-cell-055",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 451
+    },
+    {
+      "id": "submarine-cell-056",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 447
+    },
+    {
+      "id": "submarine-cell-057",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 442
+    },
+    {
+      "id": "submarine-cell-058",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 436
+    },
+    {
+      "id": "submarine-cell-059",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 436
+    },
+    {
+      "id": "submarine-cell-060",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 430
+    },
+    {
+      "id": "submarine-cell-061",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 429
+    },
+    {
+      "id": "submarine-cell-062",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 415
+    },
+    {
+      "id": "submarine-cell-063",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 415
+    },
+    {
+      "id": "submarine-cell-064",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 414
+    },
+    {
+      "id": "submarine-cell-065",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 411
+    },
+    {
+      "id": "submarine-cell-066",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 409
+    },
+    {
+      "id": "submarine-cell-067",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 408
+    },
+    {
+      "id": "submarine-cell-068",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 407
+    },
+    {
+      "id": "submarine-cell-069",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 406
+    },
+    {
+      "id": "submarine-cell-070",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 405
+    },
+    {
+      "id": "submarine-cell-071",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 403
+    },
+    {
+      "id": "submarine-cell-072",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 399
+    },
+    {
+      "id": "submarine-cell-073",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 393
+    },
+    {
+      "id": "submarine-cell-074",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 388
+    },
+    {
+      "id": "submarine-cell-075",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 388
+    },
+    {
+      "id": "submarine-cell-076",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 387
+    },
+    {
+      "id": "submarine-cell-077",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 385
+    },
+    {
+      "id": "submarine-cell-078",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 384
+    },
+    {
+      "id": "submarine-cell-079",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 384
+    },
+    {
+      "id": "submarine-cell-080",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 379
+    },
+    {
+      "id": "submarine-cell-081",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 379
+    },
+    {
+      "id": "submarine-cell-082",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 377
+    },
+    {
+      "id": "submarine-cell-083",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 375
+    },
+    {
+      "id": "submarine-cell-084",
+      "number": 2,
+      "suggested_color": "#E9F0EF",
+      "area_pixels": 373
+    },
+    {
+      "id": "submarine-cell-085",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 372
+    },
+    {
+      "id": "submarine-cell-086",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 369
+    },
+    {
+      "id": "submarine-cell-087",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 365
+    },
+    {
+      "id": "submarine-cell-088",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 365
+    },
+    {
+      "id": "submarine-cell-089",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 364
+    },
+    {
+      "id": "submarine-cell-090",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 363
+    },
+    {
+      "id": "submarine-cell-091",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 361
+    },
+    {
+      "id": "submarine-cell-092",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 359
+    },
+    {
+      "id": "submarine-cell-093",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 357
+    },
+    {
+      "id": "submarine-cell-094",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 355
+    },
+    {
+      "id": "submarine-cell-095",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 354
+    },
+    {
+      "id": "submarine-cell-096",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 354
+    },
+    {
+      "id": "submarine-cell-097",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 353
+    },
+    {
+      "id": "submarine-cell-098",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 353
+    },
+    {
+      "id": "submarine-cell-099",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 352
+    },
+    {
+      "id": "submarine-cell-100",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 350
+    },
+    {
+      "id": "submarine-cell-101",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 348
+    },
+    {
+      "id": "submarine-cell-102",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 347
+    },
+    {
+      "id": "submarine-cell-103",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 346
+    },
+    {
+      "id": "submarine-cell-104",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 344
+    },
+    {
+      "id": "submarine-cell-105",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 340
+    },
+    {
+      "id": "submarine-cell-106",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 338
+    },
+    {
+      "id": "submarine-cell-107",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 336
+    },
+    {
+      "id": "submarine-cell-108",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 336
+    },
+    {
+      "id": "submarine-cell-109",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 335
+    },
+    {
+      "id": "submarine-cell-110",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 334
+    },
+    {
+      "id": "submarine-cell-111",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 329
+    },
+    {
+      "id": "submarine-cell-112",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 326
+    },
+    {
+      "id": "submarine-cell-113",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 325
+    },
+    {
+      "id": "submarine-cell-114",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 325
+    },
+    {
+      "id": "submarine-cell-115",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 324
+    },
+    {
+      "id": "submarine-cell-116",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 324
+    },
+    {
+      "id": "submarine-cell-117",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 321
+    },
+    {
+      "id": "submarine-cell-118",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 321
+    },
+    {
+      "id": "submarine-cell-119",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 319
+    },
+    {
+      "id": "submarine-cell-120",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 317
+    },
+    {
+      "id": "submarine-cell-121",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 317
+    },
+    {
+      "id": "submarine-cell-122",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 316
+    },
+    {
+      "id": "submarine-cell-123",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 315
+    },
+    {
+      "id": "submarine-cell-124",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 315
+    },
+    {
+      "id": "submarine-cell-125",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 311
+    },
+    {
+      "id": "submarine-cell-126",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 310
+    },
+    {
+      "id": "submarine-cell-127",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 306
+    },
+    {
+      "id": "submarine-cell-128",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 304
+    },
+    {
+      "id": "submarine-cell-129",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 301
+    },
+    {
+      "id": "submarine-cell-130",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 300
+    },
+    {
+      "id": "submarine-cell-131",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 300
+    },
+    {
+      "id": "submarine-cell-132",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 298
+    },
+    {
+      "id": "submarine-cell-133",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 298
+    },
+    {
+      "id": "submarine-cell-134",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 298
+    },
+    {
+      "id": "submarine-cell-135",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 298
+    },
+    {
+      "id": "submarine-cell-136",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 297
+    },
+    {
+      "id": "submarine-cell-137",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 297
+    },
+    {
+      "id": "submarine-cell-138",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 293
+    },
+    {
+      "id": "submarine-cell-139",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 289
+    },
+    {
+      "id": "submarine-cell-140",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 289
+    },
+    {
+      "id": "submarine-cell-141",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 288
+    },
+    {
+      "id": "submarine-cell-142",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 287
+    },
+    {
+      "id": "submarine-cell-143",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 286
+    },
+    {
+      "id": "submarine-cell-144",
+      "number": 12,
+      "suggested_color": "#080D12",
+      "area_pixels": 282
+    },
+    {
+      "id": "submarine-cell-145",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 281
+    },
+    {
+      "id": "submarine-cell-146",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 280
+    },
+    {
+      "id": "submarine-cell-147",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 279
+    },
+    {
+      "id": "submarine-cell-148",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 279
+    },
+    {
+      "id": "submarine-cell-149",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 277
+    },
+    {
+      "id": "submarine-cell-150",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 276
+    },
+    {
+      "id": "submarine-cell-151",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 276
+    },
+    {
+      "id": "submarine-cell-152",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 274
+    },
+    {
+      "id": "submarine-cell-153",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 274
+    },
+    {
+      "id": "submarine-cell-154",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 273
+    },
+    {
+      "id": "submarine-cell-155",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 273
+    },
+    {
+      "id": "submarine-cell-156",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 272
+    },
+    {
+      "id": "submarine-cell-157",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 265
+    },
+    {
+      "id": "submarine-cell-158",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 265
+    },
+    {
+      "id": "submarine-cell-159",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 259
+    },
+    {
+      "id": "submarine-cell-160",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 256
+    },
+    {
+      "id": "submarine-cell-161",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 254
+    },
+    {
+      "id": "submarine-cell-162",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 252
+    },
+    {
+      "id": "submarine-cell-163",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 252
+    },
+    {
+      "id": "submarine-cell-164",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 250
+    },
+    {
+      "id": "submarine-cell-165",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 250
+    },
+    {
+      "id": "submarine-cell-166",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 248
+    },
+    {
+      "id": "submarine-cell-167",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 247
+    },
+    {
+      "id": "submarine-cell-168",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 245
+    },
+    {
+      "id": "submarine-cell-169",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 240
+    },
+    {
+      "id": "submarine-cell-170",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 234
+    },
+    {
+      "id": "submarine-cell-171",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 231
+    },
+    {
+      "id": "submarine-cell-172",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 231
+    },
+    {
+      "id": "submarine-cell-173",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 231
+    },
+    {
+      "id": "submarine-cell-174",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 231
+    },
+    {
+      "id": "submarine-cell-175",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 230
+    },
+    {
+      "id": "submarine-cell-176",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 230
+    },
+    {
+      "id": "submarine-cell-177",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 230
+    },
+    {
+      "id": "submarine-cell-178",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 228
+    },
+    {
+      "id": "submarine-cell-179",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 226
+    },
+    {
+      "id": "submarine-cell-180",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 226
+    },
+    {
+      "id": "submarine-cell-181",
+      "number": 1,
+      "suggested_color": "#F2E6C8",
+      "area_pixels": 225
+    },
+    {
+      "id": "submarine-cell-182",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 222
+    },
+    {
+      "id": "submarine-cell-183",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 220
+    },
+    {
+      "id": "submarine-cell-184",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 219
+    },
+    {
+      "id": "submarine-cell-185",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 217
+    },
+    {
+      "id": "submarine-cell-186",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 214
+    },
+    {
+      "id": "submarine-cell-187",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 214
+    },
+    {
+      "id": "submarine-cell-188",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 210
+    },
+    {
+      "id": "submarine-cell-189",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 210
+    },
+    {
+      "id": "submarine-cell-190",
+      "number": 10,
+      "suggested_color": "#193548",
+      "area_pixels": 205
+    },
+    {
+      "id": "submarine-cell-191",
+      "number": 9,
+      "suggested_color": "#657078",
+      "area_pixels": 204
+    },
+    {
+      "id": "submarine-cell-192",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 200
+    },
+    {
+      "id": "submarine-cell-193",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 194
+    },
+    {
+      "id": "submarine-cell-194",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 194
+    },
+    {
+      "id": "submarine-cell-195",
+      "number": 4,
+      "suggested_color": "#1387A8",
+      "area_pixels": 194
+    },
+    {
+      "id": "submarine-cell-196",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 185
+    },
+    {
+      "id": "submarine-cell-197",
+      "number": 8,
+      "suggested_color": "#38231D",
+      "area_pixels": 180
+    },
+    {
+      "id": "submarine-cell-198",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 178
+    },
+    {
+      "id": "submarine-cell-199",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 178
+    },
+    {
+      "id": "submarine-cell-200",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 170
+    },
+    {
+      "id": "submarine-cell-201",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 169
+    },
+    {
+      "id": "submarine-cell-202",
+      "number": 3,
+      "suggested_color": "#58E7F5",
+      "area_pixels": 166
+    },
+    {
+      "id": "submarine-cell-203",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 165
+    },
+    {
+      "id": "submarine-cell-204",
+      "number": 6,
+      "suggested_color": "#A85D21",
+      "area_pixels": 164
+    },
+    {
+      "id": "submarine-cell-205",
+      "number": 7,
+      "suggested_color": "#6A371B",
+      "area_pixels": 164
+    },
+    {
+      "id": "submarine-cell-206",
+      "number": 5,
+      "suggested_color": "#D5962E",
+      "area_pixels": 162
+    }
+  ]
+}

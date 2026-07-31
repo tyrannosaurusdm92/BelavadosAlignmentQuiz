@@ -1,0 +1,644 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "Effects Studio",
+  "disclaimer": "Hex values are practical screen approximations for digital projects, not official manufacturer colorimetry.",
+  "mixingGuidance": [
+    "Use warm and cool versions of each primary to widen the range of clean mixtures.",
+    "Complementary colors can neutralize one another and create chromatic grays.",
+    "Build color charts by mixing each palette color with every other palette color to learn interaction and value shifts."
+  ],
+  "palettes": [
+    {
+      "id": "split-primary-6",
+      "name": "Split Primary 6",
+      "medium": "universal",
+      "description": "Warm and cool red, yellow, and blue for broad mixing coverage.",
+      "colors": [
+        {
+          "name": "Cool Yellow",
+          "hex": "#F2E44C",
+          "role": "cool yellow"
+        },
+        {
+          "name": "Warm Yellow",
+          "hex": "#E8A72F",
+          "role": "warm yellow"
+        },
+        {
+          "name": "Warm Red",
+          "hex": "#DA3B31",
+          "role": "warm red"
+        },
+        {
+          "name": "Cool Red",
+          "hex": "#C62E6C",
+          "role": "cool red"
+        },
+        {
+          "name": "Warm Blue",
+          "hex": "#3856A3",
+          "role": "warm blue"
+        },
+        {
+          "name": "Cool Blue",
+          "hex": "#006C91",
+          "role": "cool blue"
+        }
+      ]
+    },
+    {
+      "id": "earth-and-shadow-8",
+      "name": "Earth and Shadow 8",
+      "medium": "universal",
+      "description": "Natural landscape, skin, architecture, weathering, and neutral mixes.",
+      "colors": [
+        {
+          "name": "Yellow Ochre",
+          "hex": "#C7973E"
+        },
+        {
+          "name": "Raw Sienna",
+          "hex": "#B47F3D"
+        },
+        {
+          "name": "Burnt Sienna",
+          "hex": "#99502F"
+        },
+        {
+          "name": "Burnt Umber",
+          "hex": "#5B3B2C"
+        },
+        {
+          "name": "Prussian Blue",
+          "hex": "#173A5B"
+        },
+        {
+          "name": "Phthalo Green",
+          "hex": "#00745D"
+        },
+        {
+          "name": "Payne's Gray",
+          "hex": "#40515C"
+        },
+        {
+          "name": "Titanium White",
+          "hex": "#F5F3EA"
+        }
+      ]
+    },
+    {
+      "id": "design-marker-12",
+      "name": "Design Marker 12",
+      "medium": "marker",
+      "description": "A balanced marker-oriented set with warm, cool, neutral, and accent colors.",
+      "colors": [
+        {
+          "name": "Primary Yellow",
+          "hex": "#F1D935"
+        },
+        {
+          "name": "Vivid Red Orange",
+          "hex": "#ED4A26"
+        },
+        {
+          "name": "Primary Red",
+          "hex": "#CE2E46"
+        },
+        {
+          "name": "Quinacridone Magenta",
+          "hex": "#B52D7A"
+        },
+        {
+          "name": "Deep Violet",
+          "hex": "#4C2A72"
+        },
+        {
+          "name": "Primary Blue",
+          "hex": "#156BA5"
+        },
+        {
+          "name": "Turquoise Blue",
+          "hex": "#1595A8"
+        },
+        {
+          "name": "Phthalocyanine Green",
+          "hex": "#007B64"
+        },
+        {
+          "name": "Brilliant Yellow Green",
+          "hex": "#A8C83B"
+        },
+        {
+          "name": "Raw Sienna",
+          "hex": "#B58445"
+        },
+        {
+          "name": "Neutral Gray 5",
+          "hex": "#7A7B7B"
+        },
+        {
+          "name": "Ivory Black",
+          "hex": "#1F2020"
+        }
+      ]
+    },
+    {
+      "id": "watercolor-recommended-16",
+      "name": "Recommended Watercolor 16",
+      "medium": "watercolor",
+      "description": "A transparent-leaning palette with split primaries, greens, violets, and earths.",
+      "colors": [
+        {
+          "name": "Lemon Yellow",
+          "hex": "#F2E44C",
+          "pigment": "PY175",
+          "transparency": "transparent",
+          "role": "cool yellow"
+        },
+        {
+          "name": "New Gamboge",
+          "hex": "#E8A72F",
+          "pigment": "PY97 + PY110",
+          "transparency": "transparent",
+          "role": "warm yellow"
+        },
+        {
+          "name": "Transparent Pyrrol Orange",
+          "hex": "#F06B2D",
+          "pigment": "PO71",
+          "transparency": "transparent",
+          "role": "orange"
+        },
+        {
+          "name": "Pyrrol Scarlet",
+          "hex": "#DA3B31",
+          "pigment": "PR255",
+          "transparency": "semi-transparent",
+          "role": "warm red"
+        },
+        {
+          "name": "Quinacridone Rose",
+          "hex": "#C62E6C",
+          "pigment": "PV19",
+          "transparency": "transparent",
+          "role": "cool red"
+        },
+        {
+          "name": "Pyrrol Crimson",
+          "hex": "#A91E3A",
+          "pigment": "PR264",
+          "transparency": "semi-transparent",
+          "role": "deep red"
+        },
+        {
+          "name": "Quinacridone Violet",
+          "hex": "#783F8C",
+          "pigment": "PV19",
+          "transparency": "transparent",
+          "role": "violet"
+        },
+        {
+          "name": "French Ultramarine",
+          "hex": "#3856A3",
+          "pigment": "PB29",
+          "transparency": "transparent",
+          "role": "warm blue"
+        },
+        {
+          "name": "Phthalo Blue (Green Shade)",
+          "hex": "#006C91",
+          "pigment": "PB15:3",
+          "transparency": "transparent",
+          "role": "cool blue"
+        },
+        {
+          "name": "Prussian Blue",
+          "hex": "#173A5B",
+          "pigment": "PB27",
+          "transparency": "transparent",
+          "role": "deep blue"
+        },
+        {
+          "name": "Phthalo Green (Blue Shade)",
+          "hex": "#00745D",
+          "pigment": "PG7",
+          "transparency": "transparent",
+          "role": "cool green"
+        },
+        {
+          "name": "Yellow Ochre",
+          "hex": "#C7973E",
+          "pigment": "PY43",
+          "transparency": "transparent",
+          "role": "earth yellow"
+        },
+        {
+          "name": "Raw Sienna",
+          "hex": "#B47F3D",
+          "pigment": "PBr7",
+          "transparency": "semi-transparent",
+          "role": "earth yellow"
+        },
+        {
+          "name": "Quinacridone Burnt Orange",
+          "hex": "#B84F32",
+          "pigment": "PO48",
+          "transparency": "transparent",
+          "role": "earth orange"
+        },
+        {
+          "name": "Burnt Sienna",
+          "hex": "#99502F",
+          "pigment": "PBr7",
+          "transparency": "semi-transparent",
+          "role": "earth red"
+        },
+        {
+          "name": "Burnt Umber",
+          "hex": "#5B3B2C",
+          "pigment": "PBr7",
+          "transparency": "semi-transparent",
+          "role": "earth brown"
+        }
+      ]
+    },
+    {
+      "id": "acrylic-catalog-74",
+      "name": "Acrylic Spectrum 74",
+      "medium": "acrylic",
+      "description": "Screen approximations of the 74 color names recoverable from the supplied acrylic catalog PDFs.",
+      "colors": [
+        {
+          "name": "Blue Gray",
+          "hex": "#7892A6",
+          "sourceLabel": "BLUE GRAY"
+        },
+        {
+          "name": "Bright Aqua Green",
+          "hex": "#22B9A8",
+          "sourceLabel": "BRIGHT AQUA GREEN"
+        },
+        {
+          "name": "Brilliant Blue",
+          "hex": "#2E83C7",
+          "sourceLabel": "BRILLIANT BLUE"
+        },
+        {
+          "name": "Brilliant Purple",
+          "hex": "#9952B9",
+          "sourceLabel": "BRILLIANT PURPLE"
+        },
+        {
+          "name": "Brilliant Yellow Green",
+          "hex": "#A8C83B",
+          "sourceLabel": "BRILLIANT YELLOW GREEN"
+        },
+        {
+          "name": "Bronze",
+          "hex": "#8A6334",
+          "sourceLabel": "BRONZE"
+        },
+        {
+          "name": "Bronze Yellow",
+          "hex": "#B38D32",
+          "sourceLabel": "BRONZE YELLOW"
+        },
+        {
+          "name": "Burnt Sienna",
+          "hex": "#9C4E2F",
+          "sourceLabel": "BURNT SIENNA"
+        },
+        {
+          "name": "Burnt Umber",
+          "hex": "#5B392B",
+          "sourceLabel": "BURNT UMBER"
+        },
+        {
+          "name": "Cadmium Orange Hue",
+          "hex": "#F06C22",
+          "sourceLabel": "CADMIUM ORANGE HUE"
+        },
+        {
+          "name": "Cadmium Red Deep Hue",
+          "hex": "#A8282D",
+          "sourceLabel": "CADMIUM RED DEEP HUE"
+        },
+        {
+          "name": "Cadmium Red Light Hue",
+          "hex": "#E24032",
+          "sourceLabel": "CADMIUM RED LIGHT HUE"
+        },
+        {
+          "name": "Cadmium Red Medium Hue",
+          "hex": "#C9332E",
+          "sourceLabel": "CADMIUM RED MEDIUM HUE"
+        },
+        {
+          "name": "Cerulean Blue Hue",
+          "hex": "#2B93C6",
+          "sourceLabel": "CERULEAN BLUE HUE"
+        },
+        {
+          "name": "Cobalt Blue Hue",
+          "hex": "#3157A4",
+          "sourceLabel": "COBALT BLUE HUE"
+        },
+        {
+          "name": "Copper",
+          "hex": "#B26A42",
+          "sourceLabel": "COPPER"
+        },
+        {
+          "name": "Deep Violet",
+          "hex": "#4C2A72",
+          "sourceLabel": "DEEP VIOLET"
+        },
+        {
+          "name": "Dioxazine Purple",
+          "hex": "#3E245F",
+          "sourceLabel": "DIOXAZINE PURPLE"
+        },
+        {
+          "name": "Fluorescent Blue",
+          "hex": "#1FA8FF",
+          "sourceLabel": "FLUORESCENT BLUE"
+        },
+        {
+          "name": "Fluorescent Green",
+          "hex": "#52E243",
+          "sourceLabel": "FLUORESCENT GREEN"
+        },
+        {
+          "name": "Fluorescent Orange",
+          "hex": "#FF6A19",
+          "sourceLabel": "FLUORESCENT ORANGE"
+        },
+        {
+          "name": "Fluorescent Pink",
+          "hex": "#FF3EA5",
+          "sourceLabel": "FLUORESCENT PINK"
+        },
+        {
+          "name": "Fluorescent Red",
+          "hex": "#FF334E",
+          "sourceLabel": "FLUORESCENT RED"
+        },
+        {
+          "name": "Fluorescent Yellow",
+          "hex": "#EFFF2F",
+          "sourceLabel": "FLUORESCENT YELLOW"
+        },
+        {
+          "name": "Gold",
+          "hex": "#C79A35",
+          "sourceLabel": "GOLD"
+        },
+        {
+          "name": "Green Deep Permanent",
+          "hex": "#185D3B",
+          "sourceLabel": "GREEN DEEP PERMANENT"
+        },
+        {
+          "name": "Green Gray",
+          "hex": "#63766A",
+          "sourceLabel": "GREEN GRAY"
+        },
+        {
+          "name": "Iridescent Graphite",
+          "hex": "#4B4E55",
+          "sourceLabel": "IRIDESCENT GRAPHITE"
+        },
+        {
+          "name": "Iridescent White",
+          "hex": "#E9E8E2",
+          "sourceLabel": "IRIDESCENT WHITE"
+        },
+        {
+          "name": "Ivory Black",
+          "hex": "#1F2020",
+          "sourceLabel": "IVORY BLACK"
+        },
+        {
+          "name": "Light Blue Permanent",
+          "hex": "#6AB7D7",
+          "sourceLabel": "LIGHT BLUE PERMANENT"
+        },
+        {
+          "name": "Light Blue Violet",
+          "hex": "#8A8DD1",
+          "sourceLabel": "LIGHT BLUE VIOLET"
+        },
+        {
+          "name": "Light Green Permanent",
+          "hex": "#72BE7B",
+          "sourceLabel": "LIGHT GREEN PERMANENT"
+        },
+        {
+          "name": "Light Olive Green",
+          "hex": "#8C9C4A",
+          "sourceLabel": "LIGHT OLIVE GREEN"
+        },
+        {
+          "name": "Light Pink",
+          "hex": "#F1A0B7",
+          "sourceLabel": "LIGHT PINK"
+        },
+        {
+          "name": "Lime Green",
+          "hex": "#A6C73D",
+          "sourceLabel": "LIME GREEN"
+        },
+        {
+          "name": "Mars Black",
+          "hex": "#151719",
+          "sourceLabel": "MARS BLACK"
+        },
+        {
+          "name": "Medium Magenta",
+          "hex": "#C1468F",
+          "sourceLabel": "MEDIUM MAGENTA"
+        },
+        {
+          "name": "Metallic Aqua Green",
+          "hex": "#4F9F96",
+          "sourceLabel": "METALLIC AQUA GREEN"
+        },
+        {
+          "name": "Metallic Blue",
+          "hex": "#456E99",
+          "sourceLabel": "METALLIC BLUE"
+        },
+        {
+          "name": "Metallic Burnt Orange",
+          "hex": "#A65E3E",
+          "sourceLabel": "METALLIC BURNT ORANGE"
+        },
+        {
+          "name": "Metallic Green",
+          "hex": "#557C56",
+          "sourceLabel": "METALLIC GREEN"
+        },
+        {
+          "name": "Metallic Magenta",
+          "hex": "#8D4C78",
+          "sourceLabel": "METALLIC MAGENTA"
+        },
+        {
+          "name": "Metallic Purple",
+          "hex": "#66517D",
+          "sourceLabel": "METALLIC PURPLE"
+        },
+        {
+          "name": "Metallic Red",
+          "hex": "#8E4249",
+          "sourceLabel": "METALLIC RED"
+        },
+        {
+          "name": "Metallic Yellow Gold",
+          "hex": "#B89A43",
+          "sourceLabel": "METALLIC YELLOW GOLD"
+        },
+        {
+          "name": "Naphthol Crimson",
+          "hex": "#BC2339",
+          "sourceLabel": "NAPHTHOL CRIMSON"
+        },
+        {
+          "name": "Naples Yellow Hue",
+          "hex": "#E2C779",
+          "sourceLabel": "NAPLES YELLOW HUE"
+        },
+        {
+          "name": "Neutral Gray 5",
+          "hex": "#7A7B7B",
+          "sourceLabel": "NEUTRAL GRAY 5"
+        },
+        {
+          "name": "Parchment",
+          "hex": "#D8CDB4",
+          "sourceLabel": "PARCHMENT"
+        },
+        {
+          "name": "Payne's Gray",
+          "hex": "#40515C",
+          "sourceLabel": "PAYNE S GRAY"
+        },
+        {
+          "name": "Phthalocyanine Blue",
+          "hex": "#075B88",
+          "sourceLabel": "PHTHALOCYANINE BLUE"
+        },
+        {
+          "name": "Phthalocyanine Green",
+          "hex": "#007B64",
+          "sourceLabel": "PHTHALOCYANINE GREEN"
+        },
+        {
+          "name": "Primary Blue",
+          "hex": "#156BA5",
+          "sourceLabel": "PRIMARY BLUE"
+        },
+        {
+          "name": "Primary Red",
+          "hex": "#CE2E46",
+          "sourceLabel": "PRIMARY RED"
+        },
+        {
+          "name": "Primary Yellow",
+          "hex": "#F1D935",
+          "sourceLabel": "PRIMARY YELLOW"
+        },
+        {
+          "name": "Prism Violet",
+          "hex": "#7C4F9D",
+          "sourceLabel": "PRISM VIOLET"
+        },
+        {
+          "name": "Prussian Blue Hue",
+          "hex": "#173B5F",
+          "sourceLabel": "PRUSSIAN BLUE HUE"
+        },
+        {
+          "name": "Purple Gray",
+          "hex": "#746A7D",
+          "sourceLabel": "PURPLE GRAY"
+        },
+        {
+          "name": "Pyrrole Red",
+          "hex": "#D82C2E",
+          "sourceLabel": "PYRROLE RED"
+        },
+        {
+          "name": "Quinacridone Magenta",
+          "hex": "#B52D7A",
+          "sourceLabel": "QUINACRIDONE MAGENTA"
+        },
+        {
+          "name": "Raw Sienna",
+          "hex": "#B58445",
+          "sourceLabel": "RAW SIENNA"
+        },
+        {
+          "name": "Raw Umber",
+          "hex": "#65513D",
+          "sourceLabel": "RAW UMBER"
+        },
+        {
+          "name": "Red Oxide",
+          "hex": "#8D3E32",
+          "sourceLabel": "RED OXIDE"
+        },
+        {
+          "name": "Rose Pink",
+          "hex": "#D66591",
+          "sourceLabel": "ROSE PINK"
+        },
+        {
+          "name": "Silver",
+          "hex": "#B9BDC1",
+          "sourceLabel": "SILVER"
+        },
+        {
+          "name": "Titanium White",
+          "hex": "#F5F3EA",
+          "sourceLabel": "TITANIUM WHITE"
+        },
+        {
+          "name": "Transparent Red",
+          "hex": "#C13A43",
+          "sourceLabel": "TRANSPARENT RED"
+        },
+        {
+          "name": "Transparent Yellow",
+          "hex": "#EACF3B",
+          "sourceLabel": "TRANSPARENT YELLOW"
+        },
+        {
+          "name": "Turquoise Blue",
+          "hex": "#1595A8",
+          "sourceLabel": "TURQUOISE BLUE"
+        },
+        {
+          "name": "Ultramarine Blue",
+          "hex": "#344AA1",
+          "sourceLabel": "ULTRAMARINE BLUE"
+        },
+        {
+          "name": "Unbleached Titanium",
+          "hex": "#D6C4A2",
+          "sourceLabel": "UNBLEACHED TITANIUM"
+        },
+        {
+          "name": "Vivid Red Orange",
+          "hex": "#ED4A26",
+          "sourceLabel": "VIVID RED ORANGE"
+        },
+        {
+          "name": "Yellow Oxide",
+          "hex": "#C7952F",
+          "sourceLabel": "YELLOW OXIDE"
+        }
+      ]
+    }
+  ]
+}

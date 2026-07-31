@@ -1,0 +1,32 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 21,
+  "category": "Primitive, Tribal, and Wilderness Humanoids",
+  "expectedFolder": "Primitive, Tribal, and Wilderness Humanoids",
+  "raceCount": 4,
+  "tokenCount": 56,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Grudgel",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Hederan",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Laneshi",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Terandus",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

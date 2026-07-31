@@ -1,0 +1,42 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 4,
+  "category": "Halfling and Smallfolk",
+  "expectedFolder": "Halfling and Smallfolk",
+  "raceCount": 6,
+  "tokenCount": 84,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Halfling",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Kender",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Kithkin",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Qickstep",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Hedge",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Jerbeen",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 3,
+  "category": "Dwarven and Gnomish Kin",
+  "expectedFolder": "Dwarven and Gnomish Kin",
+  "raceCount": 3,
+  "tokenCount": 42,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Dwarf",
+      "lineagesOrBloodlines": [
+        "Duergar"
+      ],
+      "tokenCount": 14
+    },
+    {
+      "race": "Gnome",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Deep Gnome",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

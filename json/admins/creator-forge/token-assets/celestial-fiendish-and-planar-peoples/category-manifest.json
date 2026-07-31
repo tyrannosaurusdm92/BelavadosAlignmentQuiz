@@ -1,0 +1,39 @@
+{
+  "schema": "lifesimulator.external-token-category.v1",
+  "categoryNumber": 8,
+  "category": "Celestial, Fiendish, and Planar Peoples",
+  "expectedFolder": "Celestial, Fiendish, and Planar Peoples",
+  "raceCount": 5,
+  "tokenCount": 70,
+  "assetsIncludedInThisPackage": false,
+  "registryFile": "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+  "races": [
+    {
+      "race": "Aasimar",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Tiefling",
+      "lineagesOrBloodlines": [
+        "Feral"
+      ],
+      "tokenCount": 14
+    },
+    {
+      "race": "Hexblood",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Accursed",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    },
+    {
+      "race": "Curseborn",
+      "lineagesOrBloodlines": [],
+      "tokenCount": 14
+    }
+  ]
+}

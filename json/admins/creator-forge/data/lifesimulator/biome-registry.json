@@ -1,0 +1,509 @@
+{
+  "schema": "lifesimulator.biomes.v2",
+  "categoryCount": 5,
+  "biomeCount": 18,
+  "categories": [
+    {
+      "id": "ocean",
+      "label": "Ocean",
+      "biomes": [
+        {
+          "id": "ocean.ocean-surface-floating-settlement",
+          "label": "Ocean Surface floating settlement",
+          "categoryId": "ocean",
+          "categoryLabel": "Ocean",
+          "path": "biomes/Ocean/Ocean Surface floating settlement/",
+          "medium": "surface-water",
+          "tags": [
+            "ocean",
+            "ocean-surface-floating-settlement"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "ocean.underwater-with-reefs",
+          "label": "Underwater with reefs",
+          "categoryId": "ocean",
+          "categoryLabel": "Ocean",
+          "path": "biomes/Ocean/Underwater with reefs/",
+          "medium": "underwater",
+          "tags": [
+            "ocean",
+            "underwater-with-reefs"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "ocean.underwater-without-reefs",
+          "label": "Underwater without reefs",
+          "categoryId": "ocean",
+          "categoryLabel": "Ocean",
+          "path": "biomes/Ocean/Underwater without reefs/",
+          "medium": "underwater",
+          "tags": [
+            "ocean",
+            "underwater-without-reefs"
+          ],
+          "requirements": []
+        }
+      ]
+    },
+    {
+      "id": "plains",
+      "label": "Plains",
+      "biomes": [
+        {
+          "id": "plains.grassland",
+          "label": "Grassland",
+          "categoryId": "plains",
+          "categoryLabel": "Plains",
+          "path": "biomes/Plains/Grassland/",
+          "medium": "land",
+          "tags": [
+            "plains",
+            "grassland"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "plains.prairie",
+          "label": "Prairie",
+          "categoryId": "plains",
+          "categoryLabel": "Plains",
+          "path": "biomes/Plains/Prairie/",
+          "medium": "land",
+          "tags": [
+            "plains",
+            "prairie"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "plains.farming",
+          "label": "Farming",
+          "categoryId": "plains",
+          "categoryLabel": "Plains",
+          "path": "biomes/Plains/Farming/",
+          "medium": "land",
+          "tags": [
+            "plains",
+            "farming"
+          ],
+          "requirements": []
+        }
+      ]
+    },
+    {
+      "id": "mountains",
+      "label": "Mountains",
+      "biomes": [
+        {
+          "id": "mountains.mountain-range",
+          "label": "Mountain range",
+          "categoryId": "mountains",
+          "categoryLabel": "Mountains",
+          "path": "biomes/Mountains/Mountain range/",
+          "medium": "land",
+          "tags": [
+            "mountains",
+            "mountain-range"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "mountains.valley",
+          "label": "Valley",
+          "categoryId": "mountains",
+          "categoryLabel": "Mountains",
+          "path": "biomes/Mountains/Valley/",
+          "medium": "land",
+          "tags": [
+            "mountains",
+            "valley"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "mountains.deep-cavern",
+          "label": "Deep cavern",
+          "categoryId": "mountains",
+          "categoryLabel": "Mountains",
+          "path": "biomes/Mountains/Deep cavern/",
+          "medium": "subterranean",
+          "tags": [
+            "mountains",
+            "deep-cavern"
+          ],
+          "requirements": []
+        }
+      ]
+    },
+    {
+      "id": "forest",
+      "label": "Forest",
+      "biomes": [
+        {
+          "id": "forest.deep-lush-forest",
+          "label": "Deep & lush forest",
+          "categoryId": "forest",
+          "categoryLabel": "Forest",
+          "path": "biomes/Forest/Deep & lush forest/",
+          "medium": "land",
+          "tags": [
+            "forest",
+            "deep-lush-forest"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "forest.rainforest",
+          "label": "Rainforest",
+          "categoryId": "forest",
+          "categoryLabel": "Forest",
+          "path": "biomes/Forest/Rainforest/",
+          "medium": "land",
+          "tags": [
+            "forest",
+            "rainforest"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "forest.partial-forest",
+          "label": "Partial forest",
+          "categoryId": "forest",
+          "categoryLabel": "Forest",
+          "path": "biomes/Forest/Partial forest/",
+          "medium": "land",
+          "tags": [
+            "forest",
+            "partial-forest"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "forest.treetops-treehouses",
+          "label": "Treetops - treehouses",
+          "categoryId": "forest",
+          "categoryLabel": "Forest",
+          "path": "biomes/Forest/Treetops - treehouses/",
+          "medium": "canopy",
+          "tags": [
+            "forest",
+            "treetops-treehouses"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "forest.marshes-and-swamps",
+          "label": "Marshes and swamps",
+          "categoryId": "forest",
+          "categoryLabel": "Forest",
+          "path": "biomes/Forest/Marshes and swamps/",
+          "medium": "wetland",
+          "tags": [
+            "forest",
+            "marshes-and-swamps"
+          ],
+          "requirements": []
+        }
+      ]
+    },
+    {
+      "id": "hybrid",
+      "label": "Hybrid",
+      "biomes": [
+        {
+          "id": "hybrid.beach-and-grass-with-water",
+          "label": "Beach and grass with water",
+          "categoryId": "hybrid",
+          "categoryLabel": "Hybrid",
+          "path": "biomes/Hybrid/Beach and grass with water/",
+          "medium": "land",
+          "tags": [
+            "hybrid",
+            "beach-and-grass-with-water"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "hybrid.beach-and-reefs-with-water",
+          "label": "Beach and reefs with water",
+          "categoryId": "hybrid",
+          "categoryLabel": "Hybrid",
+          "path": "biomes/Hybrid/Beach and reefs with water/",
+          "medium": "land",
+          "tags": [
+            "hybrid",
+            "beach-and-reefs-with-water"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "hybrid.hybrid-tree-and-forest-floor",
+          "label": "Hybrid tree and forest floor",
+          "categoryId": "hybrid",
+          "categoryLabel": "Hybrid",
+          "path": "biomes/Hybrid/Hybrid tree and forest floor/",
+          "medium": "land",
+          "tags": [
+            "hybrid",
+            "hybrid-tree-and-forest-floor"
+          ],
+          "requirements": []
+        },
+        {
+          "id": "hybrid.hybrid-farming-forest-grassland",
+          "label": "Hybrid farming forest grassland",
+          "categoryId": "hybrid",
+          "categoryLabel": "Hybrid",
+          "path": "biomes/Hybrid/Hybrid farming forest grassland/",
+          "medium": "land",
+          "tags": [
+            "hybrid",
+            "hybrid-farming-forest-grassland"
+          ],
+          "requirements": []
+        }
+      ]
+    }
+  ],
+  "biomes": [
+    {
+      "id": "ocean.ocean-surface-floating-settlement",
+      "label": "Ocean Surface floating settlement",
+      "categoryId": "ocean",
+      "categoryLabel": "Ocean",
+      "path": "biomes/Ocean/Ocean Surface floating settlement/",
+      "medium": "surface-water",
+      "tags": [
+        "ocean",
+        "ocean-surface-floating-settlement"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "ocean.underwater-with-reefs",
+      "label": "Underwater with reefs",
+      "categoryId": "ocean",
+      "categoryLabel": "Ocean",
+      "path": "biomes/Ocean/Underwater with reefs/",
+      "medium": "underwater",
+      "tags": [
+        "ocean",
+        "underwater-with-reefs"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "ocean.underwater-without-reefs",
+      "label": "Underwater without reefs",
+      "categoryId": "ocean",
+      "categoryLabel": "Ocean",
+      "path": "biomes/Ocean/Underwater without reefs/",
+      "medium": "underwater",
+      "tags": [
+        "ocean",
+        "underwater-without-reefs"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "plains.grassland",
+      "label": "Grassland",
+      "categoryId": "plains",
+      "categoryLabel": "Plains",
+      "path": "biomes/Plains/Grassland/",
+      "medium": "land",
+      "tags": [
+        "plains",
+        "grassland"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "plains.prairie",
+      "label": "Prairie",
+      "categoryId": "plains",
+      "categoryLabel": "Plains",
+      "path": "biomes/Plains/Prairie/",
+      "medium": "land",
+      "tags": [
+        "plains",
+        "prairie"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "plains.farming",
+      "label": "Farming",
+      "categoryId": "plains",
+      "categoryLabel": "Plains",
+      "path": "biomes/Plains/Farming/",
+      "medium": "land",
+      "tags": [
+        "plains",
+        "farming"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "mountains.mountain-range",
+      "label": "Mountain range",
+      "categoryId": "mountains",
+      "categoryLabel": "Mountains",
+      "path": "biomes/Mountains/Mountain range/",
+      "medium": "land",
+      "tags": [
+        "mountains",
+        "mountain-range"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "mountains.valley",
+      "label": "Valley",
+      "categoryId": "mountains",
+      "categoryLabel": "Mountains",
+      "path": "biomes/Mountains/Valley/",
+      "medium": "land",
+      "tags": [
+        "mountains",
+        "valley"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "mountains.deep-cavern",
+      "label": "Deep cavern",
+      "categoryId": "mountains",
+      "categoryLabel": "Mountains",
+      "path": "biomes/Mountains/Deep cavern/",
+      "medium": "subterranean",
+      "tags": [
+        "mountains",
+        "deep-cavern"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "forest.deep-lush-forest",
+      "label": "Deep & lush forest",
+      "categoryId": "forest",
+      "categoryLabel": "Forest",
+      "path": "biomes/Forest/Deep & lush forest/",
+      "medium": "land",
+      "tags": [
+        "forest",
+        "deep-lush-forest"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "forest.rainforest",
+      "label": "Rainforest",
+      "categoryId": "forest",
+      "categoryLabel": "Forest",
+      "path": "biomes/Forest/Rainforest/",
+      "medium": "land",
+      "tags": [
+        "forest",
+        "rainforest"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "forest.partial-forest",
+      "label": "Partial forest",
+      "categoryId": "forest",
+      "categoryLabel": "Forest",
+      "path": "biomes/Forest/Partial forest/",
+      "medium": "land",
+      "tags": [
+        "forest",
+        "partial-forest"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "forest.treetops-treehouses",
+      "label": "Treetops - treehouses",
+      "categoryId": "forest",
+      "categoryLabel": "Forest",
+      "path": "biomes/Forest/Treetops - treehouses/",
+      "medium": "canopy",
+      "tags": [
+        "forest",
+        "treetops-treehouses"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "forest.marshes-and-swamps",
+      "label": "Marshes and swamps",
+      "categoryId": "forest",
+      "categoryLabel": "Forest",
+      "path": "biomes/Forest/Marshes and swamps/",
+      "medium": "wetland",
+      "tags": [
+        "forest",
+        "marshes-and-swamps"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "hybrid.beach-and-grass-with-water",
+      "label": "Beach and grass with water",
+      "categoryId": "hybrid",
+      "categoryLabel": "Hybrid",
+      "path": "biomes/Hybrid/Beach and grass with water/",
+      "medium": "land",
+      "tags": [
+        "hybrid",
+        "beach-and-grass-with-water"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "hybrid.beach-and-reefs-with-water",
+      "label": "Beach and reefs with water",
+      "categoryId": "hybrid",
+      "categoryLabel": "Hybrid",
+      "path": "biomes/Hybrid/Beach and reefs with water/",
+      "medium": "land",
+      "tags": [
+        "hybrid",
+        "beach-and-reefs-with-water"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "hybrid.hybrid-tree-and-forest-floor",
+      "label": "Hybrid tree and forest floor",
+      "categoryId": "hybrid",
+      "categoryLabel": "Hybrid",
+      "path": "biomes/Hybrid/Hybrid tree and forest floor/",
+      "medium": "land",
+      "tags": [
+        "hybrid",
+        "hybrid-tree-and-forest-floor"
+      ],
+      "requirements": []
+    },
+    {
+      "id": "hybrid.hybrid-farming-forest-grassland",
+      "label": "Hybrid farming forest grassland",
+      "categoryId": "hybrid",
+      "categoryLabel": "Hybrid",
+      "path": "biomes/Hybrid/Hybrid farming forest grassland/",
+      "medium": "land",
+      "tags": [
+        "hybrid",
+        "hybrid-farming-forest-grassland"
+      ],
+      "requirements": []
+    }
+  ],
+  "protectedLabels": true,
+  "textureAssets": false
+}
