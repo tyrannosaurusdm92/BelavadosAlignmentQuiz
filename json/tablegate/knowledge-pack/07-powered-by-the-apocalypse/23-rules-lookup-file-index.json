@@ -1,0 +1,130 @@
+{
+  "system": "Powered by the Apocalypse",
+  "files": [
+    {
+      "name": "00_manifest.json",
+      "bytes": 1342,
+      "sha256": "3520158dd63f4a085fd1c7e614a6e7a3bf7d8fbac40d750fbb304cf168d960a4"
+    },
+    {
+      "name": "01_licensing_and_scope.json",
+      "bytes": 852,
+      "sha256": "23f0e89943e2a4f5059175e9145699af5dc8afa5c87edae1dc00ac4002032ccd"
+    },
+    {
+      "name": "02_edition_timeline_and_conversion.json",
+      "bytes": 3809,
+      "sha256": "587b4c07e1038731d6b12fa8bb86e0e2d40fdf8a7969e6652ecc1225772a91d0"
+    },
+    {
+      "name": "03_complete_how_to_play.json",
+      "bytes": 7564,
+      "sha256": "5a9dd2d89aed9c2058bf043ad3bdb4149404815ae8e779c9e6c50e1085fa4491"
+    },
+    {
+      "name": "04_character_creation.json",
+      "bytes": 3764,
+      "sha256": "310bf9040bfc3cc74e225f153acc7fac2ba1268b0bd05e04b5a76faa21fc9b77"
+    },
+    {
+      "name": "05_advancement_and_leveling.json",
+      "bytes": 6962,
+      "sha256": "9bf8eaf8fddc8492b2672b38aca14e9d966e7c31ae203f4bc717c0649f4cffa6"
+    },
+    {
+      "name": "06_combat_attacks_actions.json",
+      "bytes": 1828826,
+      "sha256": "5a734712d224efe395cf87bfee492aa8fc27c15ffdcbf0bca1d4559f18905a5d"
+    },
+    {
+      "name": "07_magic_spells_powers_rituals.json",
+      "bytes": 2303882,
+      "sha256": "4214572b2174ea10e6f7b4752717b640ec88f1f329406f1b5aabb0af9c27cd08"
+    },
+    {
+      "name": "08_classes_archetypes_playbooks.json",
+      "bytes": 827885,
+      "sha256": "622f17ae536e77396d2c89103d9bbd9d5e7d1788a6fd0f90eff6895d3e6897f2"
+    },
+    {
+      "name": "09_ancestries_races_species_lineages.json",
+      "bytes": 520520,
+      "sha256": "5f21af90ef3208fa7ad00dadff70b0c53e9350d478f5b7823142c94b47465e5a"
+    },
+    {
+      "name": "10_subclasses_specializations_paths.json",
+      "bytes": 977390,
+      "sha256": "2d60b8f88a1292c1084fc55db3e035645dbb2ee1db9c710f5fb8f100edcd9612"
+    },
+    {
+      "name": "11_backgrounds_origins_professions.json",
+      "bytes": 613691,
+      "sha256": "1bf63a1443931810fdbfce3ed4c413ddce01577644a349d408578ed474eb4c9f"
+    },
+    {
+      "name": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1659108,
+      "sha256": "c97587eaca4bd8f00cfbf455abf6fe356035789aaaa9f768118e9432fbf47e1e"
+    },
+    {
+      "name": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1257079,
+      "sha256": "7bc54e20685341a69f3206b2996b8be659ea0c85f7ce8d16f6422c4048b7bf5f"
+    },
+    {
+      "name": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 979820,
+      "sha256": "d3299b2b4819eef9f8956021eaa48dd5c4252e47e33ecda4ec9f9e8c5481f249"
+    },
+    {
+      "name": "15_armor_shields_protective_gear.json",
+      "bytes": 546121,
+      "sha256": "ff9dd5b05fd6a12205e04e84e2d12376bf2eca3a8fe459a08e3efc250efd1fc2"
+    },
+    {
+      "name": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 761753,
+      "sha256": "36d572b163d0eb884b03b59ee93f51a5813c77d7c112a404bf1a49f4cc0dcc4a"
+    },
+    {
+      "name": "17_conditions_damage_healing_recovery.json",
+      "bytes": 586925,
+      "sha256": "dbee5d6cc485f0d90c523f664241a8c78c2f2b950ee94df6d644fd0745fe3e8b"
+    },
+    {
+      "name": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4348628,
+      "sha256": "c13d1edb743a299c4b941312a50cf75006c1513bcdee0adea7a15a6341c58267"
+    },
+    {
+      "name": "19_locations_factions_worldbuilding.json",
+      "bytes": 1487913,
+      "sha256": "b8210e7ee298418c63720e569e932179057675498e42588b1a1c99dd50c9d274"
+    },
+    {
+      "name": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2344449,
+      "sha256": "8e7a8a918a37f8f7098da028b3e00d488edb6623ce707ed7672110543cdbd20d"
+    },
+    {
+      "name": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1433688,
+      "sha256": "87c1702a1fa2d703b85ddb477170c18ed91b50eec369d18ee6ea3b656b7bcd64"
+    },
+    {
+      "name": "22_facilitator_tools.json",
+      "bytes": 1371,
+      "sha256": "0254bc5251c0d94610c19ef28c1f31ae176d5a140fc07648ac32ad44bc1d2d2e"
+    },
+    {
+      "name": "89_user_supplied_import_manifest.json",
+      "bytes": 431,
+      "sha256": "f64e8fa07af9d34ad37b8aefa853bb766f22bfbf8e1a102810f1e8ec63372fce"
+    },
+    {
+      "name": "90_user_supplied_how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+      "bytes": 1141734,
+      "sha256": "07897ea312410ff103c954e49495dc07153c2156d67c9a049dde5eae9bcfc62d"
+    }
+  ]
+}

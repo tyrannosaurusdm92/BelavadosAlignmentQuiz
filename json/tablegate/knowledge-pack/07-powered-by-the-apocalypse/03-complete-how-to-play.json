@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0.0",
+  "system": "Powered by the Apocalypse",
+  "content_origin": "original_summary_and_user_supplied_reference",
+  "build_time": "2026-07-30T06:48:30.732084+00:00",
+  "start_here": {
+    "one_sentence": "When a move is triggered by the fiction, roll 2d6 plus a stat: typically 10+ is a strong hit, 7–9 a mixed hit, and 6- invites facilitator response and often marks experience.",
+    "table_roles": [
+      {
+        "role": "players",
+        "duties": [
+          "describe intent and approach",
+          "use character abilities",
+          "track resources and consequences",
+          "support shared spotlight",
+          "respect safety tools"
+        ]
+      },
+      {
+        "role": "facilitator",
+        "aliases": [
+          "DM",
+          "GM",
+          "Keeper",
+          "Storyteller",
+          "Referee",
+          "Master of Lore",
+          "campaign runner"
+        ],
+        "duties": [
+          "present situations and consequences",
+          "adjudicate uncertainty consistently",
+          "portray the world and opposition",
+          "manage pacing and spotlight",
+          "prepare only what supports play"
+        ]
+      },
+      {
+        "role": "group",
+        "duties": [
+          "choose tone and boundaries",
+          "agree on optional rules",
+          "maintain a shared fiction",
+          "pause or revise unsafe content",
+          "record campaign decisions"
+        ]
+      }
+    ],
+    "required_materials": [
+      "character records",
+      "randomizer or dice appropriate to the system",
+      "shared notes",
+      "tokens or maps when desired",
+      "rules reference",
+      "consent and safety agreement"
+    ]
+  },
+  "core_loop": [
+    {
+      "step": 1,
+      "name": "Establish fiction",
+      "details": "The facilitator describes the situation, stakes, sensory information, and immediately relevant constraints."
+    },
+    {
+      "step": 2,
+      "name": "Declare intent",
+      "details": "A player states what the character wants and how they attempt it. Clarify target, method, tools, and desired effect."
+    },
+    {
+      "step": 3,
+      "name": "Decide whether rules engage",
+      "details": "Do not roll when success is certain and uninteresting. Roll or trigger a move only when uncertainty and consequences matter."
+    },
+    {
+      "step": 4,
+      "name": "Set stakes and modifiers",
+      "details": "Identify the governing statistic, difficulty, position, effect, opposition, advantage, or cost before randomization whenever possible."
+    },
+    {
+      "step": 5,
+      "name": "Resolve",
+      "details": "When a move is triggered by the fiction, roll 2d6 plus a stat: typically 10+ is a strong hit, 7–9 a mixed hit, and 6- invites facilitator response and often marks experience."
+    },
+    {
+      "step": 6,
+      "name": "Apply outcome",
+      "details": "Change the fiction, resources, clocks, positioning, harm, opportunities, and future choices. Avoid outcomes that leave the situation unchanged."
+    },
+    {
+      "step": 7,
+      "name": "Pass spotlight",
+      "details": "Move attention to the character most affected, least recently active, or best positioned to respond."
+    }
+  ],
+  "character_creation": [
+    "Choose campaign premise, power scale, tone, and allowed sources.",
+    "Choose a concept and party function without treating roles as mandatory.",
+    "Assign core statistics using the edition-appropriate method.",
+    "Select archetype, class, playbook, profession, or point-built capabilities.",
+    "Select lineage, ancestry, species, culture, background, or origin only where the system uses them.",
+    "Choose skills, abilities, feats, edges, stunts, moves, powers, spells, gear, and relationships.",
+    "Calculate derived values and starting resources.",
+    "Write motivations, boundaries, connections, and advancement triggers.",
+    "Review overlap and gaps with the group, then make final adjustments."
+  ],
+  "advancement": "Mark experience from playbook triggers, misses, highlighted stats, drives, or end-of-session questions; spend marks on advancements.",
+  "resources": "Moves, playbooks, harm or conditions, bonds or history, hold, forward/ongoing modifiers, clocks, threats, and fictional positioning.",
+  "combat_and_conflict": {
+    "principles": [
+      "establish distance and positioning",
+      "state target and intent",
+      "apply action economy",
+      "resolve attack or action",
+      "determine damage/effect",
+      "apply defenses and mitigation",
+      "update conditions and fiction",
+      "check retreat, surrender, morale, or scene end"
+    ],
+    "attack_procedure": [
+      "confirm a valid target",
+      "select weapon, power, move, or maneuver",
+      "pay action/resource costs",
+      "build the roll using the system method",
+      "compare to defense or outcome band",
+      "apply damage/effect and tags",
+      "resolve reactions, resistance, armor, or consequences",
+      "record ammunition, stress, slots, durability, or other expenditure"
+    ],
+    "nonlethal_options": [
+      "capture",
+      "disarm",
+      "drive off",
+      "force surrender",
+      "disable equipment",
+      "separate combatants",
+      "create an escape route",
+      "change the objective"
+    ]
+  },
+  "magic_and_special_abilities": {
+    "applicability": "Use only if the campaign and character options permit supernatural, psychic, technological, or extraordinary effects.",
+    "casting_procedure": [
+      "verify access and prerequisites",
+      "select targets, range, and area",
+      "pay actions and resource costs",
+      "make required roll or impose required defense",
+      "resolve effect and duration",
+      "apply concentration, sustain, backlash, or consequence rules",
+      "record spent resources"
+    ],
+    "design_checks": [
+      "Does the effect bypass an entire challenge without cost?",
+      "Does it duplicate another niche more efficiently?",
+      "Are targets and duration explicit?",
+      "Can opposition interact with it?",
+      "Does scaling match the campaign tier?"
+    ]
+  },
+  "campaign_procedures": {
+    "session_zero": [
+      "premise",
+      "tone",
+      "schedule",
+      "attendance",
+      "safety tools",
+      "content boundaries",
+      "character ties",
+      "rules options",
+      "advancement pace",
+      "recordkeeping"
+    ],
+    "session_start": [
+      "recap",
+      "character goals",
+      "open clocks and threats",
+      "resource refresh",
+      "spotlight plan"
+    ],
+    "session_end": [
+      "resolve end-of-session moves or rewards",
+      "mark advancement",
+      "update factions and clocks",
+      "record unresolved hooks",
+      "confirm next-session direction"
+    ],
+    "downtime": [
+      "recover",
+      "train",
+      "research",
+      "craft",
+      "maintain relationships",
+      "manage organizations",
+      "pursue long projects",
+      "handle consequences"
+    ]
+  },
+  "edition_policy": {
+    "editions_covered_as_index_and_original_summary": [
+      "Apocalypse World First Edition inspiration",
+      "Apocalypse World Second Edition inspiration",
+      "Burned Over approaches",
+      "Contemporary PbtA design families"
+    ],
+    "mixing_editions": "Do not combine numbers directly. Convert intent, expected success rate, action economy, durability, and resource cadence separately.",
+    "closed_content_boundary": "This pack does not reproduce complete commercial rulebooks, adventure text, setting chapters, proprietary stat blocks, or closed spell descriptions."
+  }
+}
