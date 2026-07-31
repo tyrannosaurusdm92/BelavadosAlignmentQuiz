@@ -1,0 +1,38 @@
+{
+  "schema": "tablegate.character-conversion-map.v1",
+  "version": "7.0.0",
+  "policy": {
+    "same_system": "Preserve the complete imported native state.",
+    "cross_system": "Translate through a canonical character record, validate target-specific choices, preserve unmapped source data, and require review.",
+    "no_silent_loss": true
+  },
+  "pathfinder_examples": {
+    "ancestry": {
+      "Harengon": "Human + Beastkin versatile heritage",
+      "Aasimar": "Human + Nephilim versatile heritage",
+      "Tiefling": "Human + Nephilim versatile heritage",
+      "Changeling": "Human + Changeling versatile heritage",
+      "Warforged": "Automaton"
+    },
+    "class": {
+      "Artificer": "Inventor",
+      "Warlock": "Witch",
+      "Paladin": "Champion",
+      "Blood Hunter": "Thaumaturge"
+    },
+    "feat": {
+      "Tough": "Toughness",
+      "Alert": "Incredible Initiative",
+      "Skilled": "Skill Training",
+      "Mobile": "Fleet",
+      "Musician": "Virtuosic Performer",
+      "Actor": "Virtuosic Performer",
+      "War Caster": "Canny Acumen (review)"
+    }
+  },
+  "reviewNotes": [
+    "Target-system legality is checked against the reference catalogs bundled with TableGate.",
+    "A suggested match does not override campaign-runner rulings, source ownership, rarity, prerequisites, or variant rules.",
+    "Unsupported features remain visible in the import audit so the runner can select a better legal replacement."
+  ]
+}
