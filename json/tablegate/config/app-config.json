@@ -1,0 +1,119 @@
+{
+  "appName": "TableGate",
+  "version": "10.0.0",
+  "entryFile": "tablegate.html",
+  "htmlFileCount": 1,
+  "installable": true,
+  "backend": {
+    "webApp": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
+    "libraryId": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
+    "libraryVersion": "6",
+    "libraryUrl": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6",
+    "locked": true
+  },
+  "topLevelFolders": [
+    "css",
+    "js",
+    "json",
+    "assets",
+    "backend",
+    "docs"
+  ],
+  "rootFiles": [
+    "tablegate.html",
+    "service-worker.js"
+  ],
+  "hosting": {
+    "mode": "portable-current-folder",
+    "requiresBatchFiles": false,
+    "inviteLinks": "generated from the currently opened tablegate.html URL"
+  },
+  "studios": {
+    "worldbuilding": "local-first with optional Apps Script sync",
+    "virtualTabletop": "local-first with optional Apps Script sync"
+  },
+  "acceptedSystemFiles": [
+    "json",
+    "pdf",
+    "docx",
+    "txt"
+  ],
+  "campaignIsolation": {
+    "creatorArea": "DM, GM, MOL, Master of Lore, Storyteller, Keeper, Referee, and equivalent permission-gated workspace",
+    "playerArea": "published snapshots only",
+    "publicationTarget": "active server ID only",
+    "selectionClearsOnServerSwitch": true
+  },
+  "embeddedProjects": {
+    "creatorForge": "js/admins/creator-forge + css/admins/creator-forge + json/admins/creator-forge + assets/*/admins/creator-forge",
+    "standaloneCharacterSheets": 9,
+    "characterSheetEdition": "Auto XP + Advancement Wizards + Complete Options + Homebrew + Universal Import v8"
+  },
+  "integratedTools": {
+    "campaignHub": "single-page srcdoc workspace with runner editing and player read-only access",
+    "effectsStudio": "single-page srcdoc workspace inside campaign-runner creation tools",
+    "sessionDice": "single-page srcdoc multi-system 3D dice workspace",
+    "chatDice": "campaign runners and moderators only",
+    "toolDocuments": "js/tablegate/components/tool-documents.js"
+  },
+  "tutorials": {
+    "runnerOnboarding": true,
+    "toolSpecific": true,
+    "canDisable": true
+  },
+  "credit": "Created By William Saville AKA The Transgender T-Rex #TheTransgenderTrex developer of Belavadös Galaxy TTRPG System",
+  "creatorHelpers": {
+    "encounterLab": "campaign-scoped weighted roll tables and system-neutral encounter prompts",
+    "lineageGraph": "campaign-scoped people and relationship web with public/private notes",
+    "nameLab": "editable local syllable generator plus external helper links",
+    "tavernGames": "fictional roleplay dice helpers; no real-money wagering"
+  },
+  "acceptedCharacterFiles": [
+    "json",
+    "txt",
+    "docx",
+    "pdf"
+  ],
+  "characterPorting": {
+    "canonicalSchema": "tablegate.canonical-character.v2",
+    "sameSystemFullStatePreservation": true,
+    "crossSystemReviewRequired": true,
+    "pathfinderLegalSubstitutions": true,
+    "sourceDataPreservedInImportAudit": true,
+    "imageOnlyPdfFallback": "manual review or optional backend extractor"
+  },
+  "characterArtwork": {
+    "downloadFullArt": true,
+    "downloadSecondaryArt": true,
+    "downloadRenderedToken": true,
+    "vaultDownloads": true
+  },
+  "runnerCharacterCopies": {
+    "requiresOwnerApproval": true,
+    "approvalWindowHours": 72,
+    "unapprovedCopiesAutoDelete": true,
+    "ownerCanRevoke": true,
+    "runnerOnlySecretsAndRumors": true,
+    "explicitRevealRequired": true
+  },
+  "responsiveCharacterSheets": {
+    "mobilePortrait": true,
+    "mobileLandscape": true,
+    "tabletPortrait": true,
+    "tabletLandscape": true,
+    "desktop": true
+  },
+  "backendParity": {
+    "suppliedBackendSource": "backend/api/tablegate-backend-v3.gs",
+    "routeCount": 223,
+    "advancedFrontend": "Backend Center",
+    "legacyVocabularyAdapter": "server-to-tablegate only; backend unchanged"
+  },
+  "knowledgePack": {
+    "systems": 9,
+    "jsonFiles": 244,
+    "root": "json/tablegate/knowledge-pack",
+    "catalog": "json/tablegate/knowledge-pack/catalog.json",
+    "frontend": "Knowledge Pack"
+  }
+}

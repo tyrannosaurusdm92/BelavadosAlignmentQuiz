@@ -1,0 +1,110 @@
+{
+  "worldbuilding": [
+    "linked Markdown articles",
+    "categories and tags",
+    "backlinks",
+    "world templates",
+    "interactive image maps with pins",
+    "timeline",
+    "relationship graph",
+    "campaign ZIP/JSON import and export"
+  ],
+  "virtualTabletop": [
+    "multiple scenes",
+    "map uploads",
+    "square grid and snapping",
+    "token uploads and dragging",
+    "drawing tools",
+    "measurement",
+    "fog and reveal rectangles",
+    "initiative rounds and turns",
+    "characters and NPCs",
+    "handouts",
+    "dice log"
+  ],
+  "campaign": [
+    "invite-only servers",
+    "channels and direct messages",
+    "roles and permissions",
+    "attachments and reactions",
+    "WebRTC voice/video and screen sharing",
+    "tasks",
+    "calendar and availability",
+    "system rules library",
+    "PWA service worker"
+  ],
+  "storage": [
+    "browser autosave",
+    "portable campaign packages",
+    "optional Apps Script studio sync actions"
+  ],
+  "campaign_isolated_creator_player": {
+    "creator_inventory_checkboxes": true,
+    "send_to_players_button": true,
+    "locked_active_server_destination": true,
+    "publish_audit": true,
+    "private_by_default": true,
+    "dm_gm_mol_equal": true
+  },
+  "embedded_creator_forge": true,
+  "embedded_unified_portal": true,
+  "complete_character_sheets": 9,
+  "character_sheet_upgrade": {
+    "edition": "Complete Options + Homebrew Engine",
+    "official_option_catalogs": true,
+    "runner_homebrew_entries": true,
+    "responsive_true_menu": true,
+    "session_dice_bridge": true,
+    "stat_generation_remains_on_sheet": true,
+    "universal_import_formats": [
+      "json",
+      "txt",
+      "docx",
+      "pdf"
+    ],
+    "cross_system_porting": true,
+    "same_system_exact_state_import": true,
+    "conversion_audit": true,
+    "dependent_selection_state_repair": true
+  },
+  "encounter_lab": {
+    "weighted_roll_tables": true,
+    "runner_editable": true,
+    "campaign_scoped": true,
+    "json_import_export": true,
+    "publishable_results": true,
+    "system_neutral_defaults": true
+  },
+  "campaign_helpers": {
+    "relationship_graph": true,
+    "polyamory_and_queerness_normalized": true,
+    "public_and_private_notes": true,
+    "local_name_generator": true,
+    "fictional_tavern_games": true,
+    "external_source_links": true
+  },
+  "character_import_v8": {
+    "canonical_intermediate_schema": "tablegate.canonical-character.v2",
+    "all_nine_targets": true,
+    "dnd_to_pathfinder_helpers": {
+      "ancestry_validation": true,
+      "class_validation": true,
+      "feat_replacement_review": true,
+      "ability_score_to_modifier_conversion": true,
+      "multiclass_archetype_suggestions": true
+    },
+    "preserves_unmapped_source": true,
+    "scanned_pdf_manual_review_warning": true
+  },
+  "version": "8.0.0",
+  "characterSheetRevision": "Auto XP and Advancement Wizards",
+  "characterArtDownloads": true,
+  "runnerCopyConsentHours": 72,
+  "responsiveSheetOrientations": [
+    "mobile portrait",
+    "mobile landscape",
+    "tablet portrait",
+    "tablet landscape",
+    "desktop"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "project": "TableGate Campaign Studio",
+  "version": "8.0.0",
+  "entryPoint": "tablegate.html",
+  "htmlFileCount": 1,
+  "batchFiles": 0,
+  "sourceArchives": [
+    "Tablegate_TTRPG_Messenger_Organizer_Locked_Backend_v3.zip",
+    "ttrpg.zip",
+    "fantasia-archive-v1-master.zip",
+    "fantasia-archive-master.zip",
+    "ObsidianTTRPGShare-main.zip",
+    "obsidian-plugin-watcher-main.zip",
+    "Obsidian-WWN-Markdown-main.zip",
+    "Obsidian-SWN-Markdown-main.zip",
+    "mythkeeper-master.zip",
+    "docs-master pt 1.zip",
+    "docs-master pt 2.zip",
+    "Template-Share-main.zip",
+    "TTRPG_Character_Sheet_Collection_Auto_XP_Advancement_Wizards.zip",
+    "TableGate_Campaign_Studio_v7_Part1_of_4.zip through Part4_of_4.zip"
+  ],
+  "integrationPolicy": "Functional concepts and compatible browser-native assets were integrated. Build chains, Electron runtime, proprietary/noncommercial compendium text, and unlicensed source code were not redistributed.",
+  "systemReferenceFiles": [
+    "dnd_5e_5_5e_complete_character_reference_v3_all_official_races.json",
+    "fate_core_complete_how_to_play_reference_v2.json",
+    "gurps_4e_revised_complete_character_reference_v2.json",
+    "how_to_play_blades_in_the_dark_complete_reference_v2.json",
+    "how_to_play_coc_7e_complete_reference_v2.json",
+    "how_to_play_daggerheart_complete_reference_v2.json",
+    "how_to_play_pathfinder_2e_remastered_complete_reference_v2.json",
+    "how_to_play_powered_by_the_apocalypse_complete_reference_v2.json",
+    "savage_worlds_swade_complete_reference_v2.json"
+  ]
+}

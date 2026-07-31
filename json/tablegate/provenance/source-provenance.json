@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-07-30",
+  "project": "TableGate Campaign Studio v8",
+  "sources": [
+    {
+      "id": "tablegate-core",
+      "name": "TableGate campaign messenger / organizer / worldbuilder base",
+      "url": "User-supplied project archive",
+      "license": "Project-specific; see supplied documentation",
+      "status": "integrated",
+      "use": "Authoritative shell, campaign servers, messaging, organizer, world encyclopedia, VTT, publication controls.",
+      "files": "tablegate.html; js/tablegate/messaging/messenger-core.js; js/tablegate/organizer/organizer.js; js/admins/studio/studio.js; js/tablegate/workspaces/creator-player.js",
+      "notes": "User-provided source. William Saville is credited for the assembled TableGate product."
+    },
+    {
+      "id": "character-sheets",
+      "name": "TTRPG Character Sheet Collection \u2014 Auto XP & Advancement Wizards",
+      "url": "User-supplied upgraded project archive",
+      "license": "Mixed system/fan-content notices; see docs/source-character-sheets and upstream notices",
+      "status": "integrated",
+      "use": "Nine upgraded browser character-sheet interfaces with automated system-specific XP/advancement wizards, official-option helpers, runner-defined homebrew entries, universal document import, cross-system porting, downloadable artwork, and responsive orientation support.",
+      "files": "js/players/character-sheets/character-sheet-library.js; js/players/character-import/universal-character-import.js; js/players/character-import/character-import-defaults.js; js/players/character-consent/character-consent.js; css/players/character-consent/character-consent.css; docs/character-sheets-v8/**",
+      "notes": "The user-supplied Auto XP & Advancement Wizards archive replaces the prior embedded sheet edition. TableGate v8 adds player-approved runner copies with a 72-hour expiry and shared art-download controls."
+    },
+    {
+      "id": "multi-system-portal",
+      "name": "Multi-System TTRPG Portal and 3D Dice Renderer",
+      "url": "User-supplied project archive",
+      "license": "Project license plus retained third-party notices",
+      "status": "integrated",
+      "use": "Reusable 3D dice rendering surface and multi-system dice bridge.",
+      "files": "assets/dice-session/**; js/sessions/live/session-play.js",
+      "notes": "Three.js, cannon.js, teal.js and the dice engine retain their own notices. TableGate supplies rules interpretation and campaign routing."
+    },
+    {
+      "id": "town-generator-os",
+      "name": "TownGeneratorOS",
+      "url": "https://github.com/watabou/TownGeneratorOS",
+      "license": "GPL-3.0",
+      "status": "integrated",
+      "use": "Markov-style name-chain and settlement-topology approach adapted and rewritten for the hierarchical Map Foundry.",
+      "files": "js/admins/maps/map-foundry.js; docs/source-code/TownGeneratorOS/Source/**",
+      "notes": "Because adapted GPL code is distributed, the combined source distribution carries GPL-3.0-or-later obligations. Full upstream source snapshot and license are included."
+    },
+    {
+      "id": "azgaar-fmg",
+      "name": "Azgaar Fantasy Map Generator",
+      "url": "https://github.com/Azgaar/Fantasy-Map-Generator",
+      "license": "MIT",
+      "status": "reference",
+      "use": "Reference for world/continent/country map-layer concepts and user-facing map workflow.",
+      "files": "No upstream code copied",
+      "notes": "TableGate's SVG generator is original code. Repository and license are linked for users who need a mature dedicated map generator."
+    },
+    {
+      "id": "redblob-mapgen2",
+      "name": "Red Blob Games mapgen2",
+      "url": "https://github.com/redblobgames/mapgen2",
+      "license": "Apache-2.0",
+      "status": "reference",
+      "use": "Reference for procedural terrain concepts, seeded generation, and map-generation explanations.",
+      "files": "No upstream code copied",
+      "notes": "Conceptual reference only."
+    },
+    {
+      "id": "neighborly",
+      "name": "Neighborly",
+      "url": "https://github.com/ShiJbey/neighborly",
+      "license": "MIT",
+      "status": "reference",
+      "use": "Reference for settlement simulation involving traits, occupations, relationships, status and life events.",
+      "files": "No upstream code copied",
+      "notes": "TableGate NPC Lives is an independent browser-native implementation. Upstream repository is archived but remains useful research."
+    },
+    {
+      "id": "fantasia-archive",
+      "name": "Fantasia Archive / Fantasia Archive v1",
+      "url": "https://github.com/Elvanos/fantasia-archive",
+      "license": "GPL-3.0",
+      "status": "excluded",
+      "use": "Reviewed for worldbuilding information architecture.",
+      "files": "No source code copied",
+      "notes": "Excluded from runtime to avoid importing its desktop/build chain and duplicating the single-page architecture."
+    },
+    {
+      "id": "obsidian-ttrpg-share",
+      "name": "Obsidian TTRPG Share",
+      "url": "https://github.com/Obsidian-TTRPG-Community/ObsidianTTRPGShare",
+      "license": "MPL-2.0",
+      "status": "excluded",
+      "use": "Reviewed for campaign-sharing and markdown organization ideas.",
+      "files": "No source code copied",
+      "notes": "Not embedded; TableGate remains browser-native and campaign-server scoped."
+    },
+    {
+      "id": "obsidian-wwn",
+      "name": "Obsidian WWN Markdown",
+      "url": "User-supplied repository archive",
+      "license": "Mixed copyright / content notices",
+      "status": "excluded",
+      "use": "Reviewed as a structured game-reference example.",
+      "files": "No game text copied",
+      "notes": "Excluded to avoid redistributing protected game content."
+    },
+    {
+      "id": "obsidian-swn",
+      "name": "Obsidian SWN Markdown",
+      "url": "User-supplied repository archive",
+      "license": "Mixed copyright / content notices",
+      "status": "excluded",
+      "use": "Reviewed as a structured game-reference example.",
+      "files": "No game text copied",
+      "notes": "Excluded to avoid redistributing protected game content."
+    },
+    {
+      "id": "mythkeeper",
+      "name": "MythKeeper",
+      "url": "User-supplied repository archive",
+      "license": "No clear top-level license found during audit",
+      "status": "excluded",
+      "use": "Reviewed for worldbuilding workflow ideas.",
+      "files": "No source code copied",
+      "notes": "Excluded because redistribution permission was not clear."
+    },
+    {
+      "id": "template-share",
+      "name": "Template Share",
+      "url": "User-supplied repository archive",
+      "license": "No clear top-level license found during audit",
+      "status": "excluded",
+      "use": "Reviewed for template exchange concepts.",
+      "files": "No source code copied",
+      "notes": "Excluded because redistribution permission was not clear."
+    },
+    {
+      "id": "obsidian-watcher",
+      "name": "Obsidian Plugin Watcher",
+      "url": "User-supplied repository archive",
+      "license": "No clear top-level license found during audit",
+      "status": "excluded",
+      "use": "Reviewed for file-watching concepts.",
+      "files": "No source code copied",
+      "notes": "Excluded because it is not needed in a browser-only runtime and redistribution permission was unclear."
+    },
+    {
+      "id": "logseq-docs",
+      "name": "Logseq documentation",
+      "url": "https://github.com/logseq/docs",
+      "license": "MIT",
+      "status": "reference",
+      "use": "Reference for linked-document and knowledge-base organization.",
+      "files": "No upstream code copied",
+      "notes": "Documentation structure reference only."
+    },
+    {
+      "id": "jszip",
+      "name": "JSZip 3.10.1",
+      "url": "https://github.com/Stuk/jszip",
+      "license": "MIT or GPL-3.0",
+      "status": "integrated",
+      "use": "Campaign import/export ZIP handling.",
+      "files": "js/tablegate/vendor/jszip-min.js",
+      "notes": "Distributed under its MIT licensing option."
+    },
+    {
+      "id": "threejs",
+      "name": "three.js",
+      "url": "https://github.com/mrdoob/three.js",
+      "license": "MIT",
+      "status": "integrated",
+      "use": "3D dice rendering dependency.",
+      "files": "assets/dice-session/libs/three.min.js",
+      "notes": "Retained from the supplied dice project."
+    },
+    {
+      "id": "cannonjs",
+      "name": "cannon.js",
+      "url": "https://github.com/schteppe/cannon.js",
+      "license": "MIT",
+      "status": "integrated",
+      "use": "3D dice physics dependency.",
+      "files": "assets/dice-session/libs/cannon.min.js",
+      "notes": "Retained from the supplied dice project."
+    },
+    {
+      "id": "teal-dice",
+      "name": "Teal 3D Dice Roller lineage",
+      "url": "https://github.com/3d-dice/dice-box",
+      "license": "Review upstream/project notices",
+      "status": "integrated",
+      "use": "Polyhedral geometry and rolling presentation lineage in the supplied dice engine.",
+      "files": "assets/dice-session/libs/teal.js; assets/dice-session/dice.js",
+      "notes": "Original-author and refactor credits are retained in source headers."
+    },
+    {
+      "id": "tetra-cube-tools",
+      "name": "Tetra-cube D&D browser tools",
+      "url": "https://github.com/Tetra-cube/Tetra-cube.github.io",
+      "license": "No clear top-level redistribution license found in the attached archive",
+      "status": "reference",
+      "use": "Interface and workflow reference for optional character, item, and statblock helper concepts.",
+      "files": "No upstream code or data copied",
+      "notes": "Reference only. The attached archive is documented but excluded from runtime because a clear blanket redistribution license was not present."
+    },
+    {
+      "id": "donjon-dungeon-conversion",
+      "name": "Attached donjon Random Dungeon Generator conversion",
+      "url": "https://donjon.bin.sh/code/dungeon/",
+      "license": "CC BY-NC 3.0 stated by the attached conversion README",
+      "status": "reference",
+      "use": "Reference for random-generator composition and dungeon workflow.",
+      "files": "No attached conversion code copied",
+      "notes": "Reference only due to the noncommercial license and because TableGate uses an original browser-native helper architecture."
+    },
+    {
+      "id": "autorolltables",
+      "name": "Auto Roll Tables",
+      "url": "https://autorolltables.github.io/",
+      "license": "Mixed/community-authored content; attached repository points to OGL and Reddit contributors",
+      "status": "reference",
+      "use": "Workflow reference for one-click random tables and grouping tables by campaign purpose.",
+      "files": "No upstream table content copied",
+      "notes": "TableGate ships original system-neutral starter entries. Community-authored Reddit/OGL table text is not redistributed."
+    },
+    {
+      "id": "family-echo",
+      "name": "Family Echo",
+      "url": "https://www.familyecho.com/",
+      "license": "Proprietary website; external reference only",
+      "status": "reference",
+      "use": "Reference for relationship-tree usability, explicit links, import/export, and private sharing expectations.",
+      "files": "No site code, graphics, or data copied; js/admins/campaign/campaign-helpers.js is independent",
+      "notes": "TableGate extends the idea into a campaign relationship web that supports family, chosen-family, professional, romantic, queerplatonic, polyamorous, and custom relationships."
+    },
+    {
+      "id": "fantasy-name-generators",
+      "name": "Fantasy Name Generators",
+      "url": "https://www.fantasynamegenerators.com/",
+      "license": "Proprietary website content; external link only",
+      "status": "reference",
+      "use": "Optional external name inspiration linked from Name Lab.",
+      "files": "No generator data or site content copied; js/admins/campaign/campaign-helpers.js contains original editable syllable logic",
+      "notes": "Users can open the original site directly. TableGate does not redistribute its lists or code."
+    },
+    {
+      "id": "gamblingnews-dnd-games",
+      "name": "GamblingNews \u2014 D&D Gambling Games article",
+      "url": "https://www.gamblingnews.com/blog/dnd-gambling-games/",
+      "license": "Copyrighted article; external reference only",
+      "status": "reference",
+      "use": "General inspiration for fictional tavern-game scenes.",
+      "files": "No article text copied; js/admins/campaign/campaign-helpers.js contains original simplified dice helpers",
+      "notes": "TableGate tools are explicitly for fictional roleplay and do not implement real-money wagering."
+    },
+    {
+      "id": "garbata-random-table",
+      "name": "Garbata Random Table Generator",
+      "url": "https://github.com/garbata/random-table-generator",
+      "license": "MIT",
+      "status": "reference",
+      "use": "Reference for lightweight weighted-table editing, local operation, and portable data.",
+      "files": "No upstream code copied; js/admins/encounters/encounter-lab.js is independent",
+      "notes": "The upstream project is linked because its permissive license and compact design make it useful for users building their own table tools."
+    },
+    {
+      "id": "simplijessi-encounter",
+      "name": "SimpliJessi RandomEncounterGenerator",
+      "url": "https://github.com/SimpliJessi/RandomEncounterGenerator",
+      "license": "Repository README permits game use but no standard license file was identified",
+      "status": "reference",
+      "use": "Reference for encounter parameters such as party profile, environment, danger, and narrative complications.",
+      "files": "No monster database or source copied; js/admins/encounters/encounter-lab.js is independent",
+      "notes": "Reference only because no standard redistribution license was verified."
+    },
+    {
+      "id": "chartopia",
+      "name": "Chartopia",
+      "url": "https://chartopia.d12dev.com/",
+      "license": "External service; reference/link only",
+      "status": "reference",
+      "use": "Reference for user-authored roll-table organization and sharing.",
+      "files": "No service code or tables copied",
+      "notes": "Linked as an external destination for users who want a dedicated community table platform."
+    },
+    {
+      "id": "mammoth-docx",
+      "name": "Mammoth browser DOCX text extraction library",
+      "url": "Bundled through the user-supplied Creator Forge / LifeSimulator archive",
+      "license": "Retain upstream Mammoth license and notices; see docs/source-projects/creator-forge/THIRD_PARTY_LICENSES.md",
+      "status": "integrated",
+      "use": "Local browser extraction of textual content from uploaded DOCX character files.",
+      "files": "js/tablegate/vendor/mammoth-browser-min.js; assets/creator-forge/js/lifesimulator/vendor/mammoth.browser.min.js",
+      "notes": "The v7 copy is byte-identical to the already supplied project dependency. TableGate supplies the canonical parsing and system conversion layer."
+    }
+  ]
+}

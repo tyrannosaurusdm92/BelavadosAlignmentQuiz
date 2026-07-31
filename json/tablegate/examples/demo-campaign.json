@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {"title":"Prepare next-session recap","status":"TODO","priority":"HIGH","tags":["session prep"]},
+    {"title":"Confirm player availability","status":"IN_PROGRESS","priority":"MEDIUM","tags":["scheduling"]}
+  ],
+  "calendar": [
+    {"title":"Session proposal","itemType":"SESSION","approvalStatus":"PENDING","visibility":"SERVER"},
+    {"title":"Unavailable","itemType":"DOCTOR","approvalStatus":"APPROVED","visibility":"RUNNER_ONLY"}
+  ],
+  "systemDocuments": [
+    {"systemName":"Pathfinder 2e","title":"Core rules reference.pdf","extractionStatus":"STORED_ONLY"},
+    {"systemName":"GURPS 4e","title":"Campaign rules.txt","extractionStatus":"INDEXED"}
+  ]
+}
