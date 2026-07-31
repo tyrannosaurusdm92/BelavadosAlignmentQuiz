@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="512" height="512" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" data-crop-format="tablegate-frame-512-v1" data-frame-center="256,256" data-frame-canvas="512x512" data-reaction-slot-version="2" data-reaction-slot-position="top-center" data-default-reaction="" data-reaction-autofill="npc-action">
+  <g id="frameArtwork" data-standardized-crop="true">
+    <image data-embedded-frame-artwork="true" x="0.000000" y="0.000000" width="512.000000" height="512.000000" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAABg2lDQ1BJQ0MgUHJvZmlsZQAAeJx9kT1Iw0AcxV9TpSKVInYQcchQnSyISnHUKhShQqgVWnUwufQLmhiSFBdHwbXg4Mdi1cHFWVcHV0EQ/ABxc3NSdJES/5cUWsR4cNyPd/ced+8AoVFlmtU1Dmi6bWZSSTGXXxFDrwhCQAQJ9MvMMmYlKQ3f8XWPAF/v4jzL/9yfo08tWAwIiMQzzDBt4nXixKZtcN4njrKyrBKfE4+ZdEHiR64rHr9xLrks8Myomc3MEUeJxVIHKx3MyqZGPEUcUzWd8oWcxyrnLc5atcZa9+QvDBf05SWu0xxGCgtYhAQRCmqooAobcVp1UixkaD/p4x9y/RK5FHJVwMgxjw1okF0/+B/87tYqTk54SeEk0P3iOB8jQGgXaNYd5/vYcZonQPAZuNLb/o0GMP1Jer2txY6AyDZwcd3WlD3gcgcYfDJkU3alIE2hWATez+ib8sDALdC76vXW2sfpA5ClrtI3wMEhMFqi7DWfd/d09vbvmVZ/P0/hcpmHKtNyAAADfUlEQVR42u3ZzU4qSRiA4a+pLrrVAP4sdMEVcFvepPdhYnRDwkK3GhdqAt01ixmMkzM4jMfFgM+TsCCd1OJLv1RVqC4vL8tqtYrX19cA/vT8/BxXV1cxeHx8jJxzHBwcmAp8iCMion54eIiqquLk5CQiwk6COP6KIyKijoi4v7+PiBAJ4vgQx3sgIkEcv8bxt0A+RnJ6ehp935saP8Y/xfFLIOtIXl5eYrFYxM3Njcmx92az2cZng00PxMFPcXd3998DgZ9gPB7HdDrd+LzedqGjo6NIKUVVVVFVlcmyU0opUUqJvu+jlBJ1XUfbtjEej+Pw8DAWi8XXA5lMJjEajSLnHDnn91BgF3RdF8vlMpbLZXRdF33fR0opmqaJtm0j5/x7O0hKKXLOMZ/PVcFemE6nZX0a+uzHfus7SErJVNkb2/6NsVUg7h3s47Hr2wIBO8g3LQi7oJRiB4HfJRAQCAgEBAICAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEEAgIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBgEAAgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAYEAAgGBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBBAICAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgcAOB1JKib7vTQuBbApktVqZFgLZFMhyuTQt9ufFHwy+N5Cu60wVgWxSVZWpsjfquo7BYBBVVX36btfbLDYcDmM4HMZ0Oi1d18X6U0qJUopp87+2jiClFHVdR0opmqZ5f69zzl8PZDwex2g0irZtTZq9OV7lnKNpmmjbNuq6/logOec4Pz+Ps7OzaJrGZNmbQFJKkXOOnPPXjliz2Sze3t7i4uIiJpPJvy4Eu3bkWt9Brq+vtw/k9vY2np6e3r/P53MT5efuNp/FAQIRB3weiDhgw33l+Pi4iAM2BBIR/umDDf4AlJbPHdlNc3YAAAAASUVORK5CYII="/>
+  </g>
+  <metadata data-frame-format="true">{&quot;format&quot;:&quot;tablegate-frame-512-v1&quot;,&quot;canvas&quot;:[512,512],&quot;center&quot;:[256,256],&quot;sourceArchive&quot;:&quot;token_frames-master.zip&quot;,&quot;sourcePath&quot;:&quot;Sourced_From_TokenTool/token_frames/Square_Black.png&quot;,&quot;sourceOriginalSize&quot;:[200,200],&quot;sourceAlphaBounds&quot;:[0,0,200,200],&quot;croppedRasterSize&quot;:[200,200],&quot;artworkPlacement&quot;:{&quot;x&quot;:0.0,&quot;y&quot;:0.0,&quot;width&quot;:512.0,&quot;height&quot;:512.0},&quot;reactionSlot&quot;:{&quot;position&quot;:&quot;top-center&quot;,&quot;defaultReaction&quot;:null}}</metadata>
+  <metadata data-reaction-slot-config="true">{&quot;version&quot;:2,&quot;position&quot;:&quot;top-center&quot;,&quot;defaultReaction&quot;:null,&quot;actionParameter&quot;:&quot;npcAction&quot;,&quot;reactionParameter&quot;:&quot;reaction&quot;,&quot;reactionBaseParameter&quot;:&quot;reactionBase&quot;}</metadata>
+  <defs>
+    <clipPath id="reactionClip_square_black"><rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883"/></clipPath>
+  </defs>
+  <g id="reactionSlot_square_black" data-reaction-slot="top-center" data-reaction-state="empty" pointer-events="none">
+    <rect data-reaction-slot-backplate="true" x="195.0720" y="3.0720" width="121.8560" height="121.8560" rx="26.8083" fill="#08131d" fill-opacity="0.94" stroke="#e5eef5" stroke-opacity="0.72" stroke-width="4.0960"/>
+    <rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883" fill="none" stroke="#7dd8e8" stroke-opacity="0.34" stroke-width="2.1299"/>
+    <image data-reaction-image="true" x="200.1920" y="8.1920" width="111.6160" height="111.6160" preserveAspectRatio="xMidYMid meet" clip-path="url(#reactionClip_square_black)" visibility="hidden"/>
+  </g>
+  <script type="application/ecmascript"><![CDATA[(function () {
+  var svg = document.documentElement;
+  var slot = svg.querySelector('[data-reaction-slot]');
+  var image = svg.querySelector('[data-reaction-image]');
+  if (!slot || !image) return;
+
+  function clean(value) { return (value || '').trim(); }
+  function slugify(value) {
+    return clean(value)
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/['’]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+  function clearReaction() {
+    image.removeAttribute('href');
+    image.removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
+    image.setAttribute('visibility', 'hidden');
+    image.removeAttribute('aria-label');
+    slot.setAttribute('data-reaction-state', 'empty');
+    slot.removeAttribute('data-reaction-action');
+  }
+  function showReaction(source, action) {
+    if (!source) return clearReaction();
+    slot.setAttribute('data-reaction-state', 'loading');
+    if (action) slot.setAttribute('data-reaction-action', action);
+    image.setAttribute('href', source);
+    image.setAttribute('aria-label', action ? action + ' reaction' : 'NPC reaction');
+    image.setAttribute('visibility', 'visible');
+  }
+  image.addEventListener('load', function () {
+    if (image.getAttribute('href')) slot.setAttribute('data-reaction-state', 'filled');
+  });
+  image.addEventListener('error', clearReaction);
+
+  var params;
+  try { params = new URLSearchParams(window.location.search); }
+  catch (_) { clearReaction(); return; }
+  var direct = clean(params.get('reaction'));
+  var action = clean(params.get('npcAction') || params.get('action'));
+  var base = clean(params.get('reactionBase')) || '../reactions/';
+  if (direct) {
+    showReaction(direct, action);
+  } else if (action) {
+    showReaction(base.replace(/\/?$/, '/') + slugify(action) + '.svg', action);
+  } else {
+    clearReaction();
+  }
+
+  svg.setReaction = function (source, actionLabel) {
+    showReaction(clean(source), clean(actionLabel));
+  };
+  svg.setReactionForAction = function (actionLabel, basePath) {
+    var label = clean(actionLabel);
+    if (!label) return clearReaction();
+    var root = clean(basePath) || '../reactions/';
+    showReaction(root.replace(/\/?$/, '/') + slugify(label) + '.svg', label);
+  };
+  svg.clearReaction = clearReaction;
+}());]]></script>
+</svg>

@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="512" height="512" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" data-crop-format="tablegate-frame-512-v1" data-frame-center="256,256" data-frame-canvas="512x512" data-reaction-slot-version="2" data-reaction-slot-position="top-center" data-default-reaction="" data-reaction-autofill="npc-action">
+  <g id="frameArtwork" data-standardized-crop="true" transform="matrix(1 0 0 1 0 0)"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Primary vine (thick, main structure) -->
+    <path d="M256 38 C290 36 328 46 360 68 C392 90 418 120 436 158              C454 196 464 236 462 272 C460 310 448 348 428 380              C408 412 378 438 344 454 C310 470 276 478 244 476              C212 474 178 464 150 444 C122 424 98 396 80 362              C62 328 50 290 48 254 C46 218 54 180 70 148              C86 116 110 90 140 72 C170 54 206 42 256 38Z" stroke="#8b5e3c" stroke-width="10"/>
+
+    <!-- Secondary vine (thinner, weaves around primary) -->
+    <path d="M270 42 C310 44 346 58 376 82 C406 106 428 138 442 176              C456 214 460 250 454 286 C448 322 432 356 408 384              C384 412 354 432 320 446 C286 460 252 468 222 466              C192 464 162 452 136 432 C110 412 88 384 74 350              C60 316 54 280 56 244 C58 208 68 174 88 146              C108 118 134 96 166 78 C198 60 234 46 270 42Z" stroke="#8b5e3c" stroke-width="5" opacity="0.5"/>
+
+    <!-- Tertiary vine (thinnest, inner weave) -->
+    <path d="M248 50 C280 48 316 56 348 74 C380 92 404 118 422 150              C440 182 450 218 452 254 C454 290 446 324 430 354              C414 384 390 408 360 426 C330 444 296 454 264 456              C232 458 200 450 172 434 C144 418 120 394 104 364              C88 334 78 300 76 264 C74 228 82 194 98 164              C114 134 138 110 168 92 C198 74 224 56 248 50Z" stroke="#8b5e3c" stroke-width="3" opacity="0.3"/>
+
+    <!-- Thorns — sharp spikes from main vine -->
+    <g stroke="#8b5e3c" fill="#8b5e3c">
+      <path d="M252 38 L244 18 L248 36Z" stroke-width="0"/>
+      <path d="M264 38 L272 14 L266 36Z" stroke-width="0"/>
+      <path d="M340 60 L356 40 L344 58Z" stroke-width="0"/>
+      <path d="M362 72 L382 56 L366 72Z" stroke-width="0"/>
+      <path d="M424 140 L446 124 L428 142Z" stroke-width="0"/>
+      <path d="M436 162 L460 150 L440 164Z" stroke-width="0"/>
+      <path d="M462 248 L484 240 L464 252Z" stroke-width="0"/>
+      <path d="M464 272 L488 278 L466 274Z" stroke-width="0"/>
+      <path d="M440 348 L462 360 L442 352Z" stroke-width="0"/>
+      <path d="M424 376 L444 392 L426 378Z" stroke-width="0"/>
+      <path d="M356 434 L370 456 L358 438Z" stroke-width="0"/>
+      <path d="M332 450 L342 474 L334 452Z" stroke-width="0"/>
+      <path d="M264 476 L270 498 L266 478Z" stroke-width="0"/>
+      <path d="M248 476 L240 496 L250 478Z" stroke-width="0"/>
+      <path d="M180 454 L166 476 L182 458Z" stroke-width="0"/>
+      <path d="M156 440 L138 460 L158 442Z" stroke-width="0"/>
+      <path d="M88 372 L66 388 L90 374Z" stroke-width="0"/>
+      <path d="M76 344 L52 354 L78 346Z" stroke-width="0"/>
+      <path d="M48 268 L24 274 L50 270Z" stroke-width="0"/>
+      <path d="M48 244 L26 236 L50 246Z" stroke-width="0"/>
+      <path d="M76 164 L54 150 L78 166Z" stroke-width="0"/>
+      <path d="M88 138 L68 120 L90 140Z" stroke-width="0"/>
+      <path d="M156 72 L138 52 L158 74Z" stroke-width="0"/>
+      <path d="M180 58 L168 36 L182 60Z" stroke-width="0"/>
+    </g>
+
+    <!-- Cardinal thorn clusters -->
+    <g fill="#8b5e3c" stroke="none">
+      <path d="M248 40 L238 8 L254 32 L256 2 L258 32 L274 8 L264 40Z" opacity="0.85"/>
+      <path d="M248 472 L238 504 L254 480 L256 510 L258 480 L274 504 L264 472Z" opacity="0.85"/>
+      <path d="M40 248 L8 238 L32 254 L2 256 L32 258 L8 274 L40 264Z" opacity="0.85"/>
+      <path d="M472 248 L504 238 L480 254 L510 256 L480 258 L504 274 L472 264Z" opacity="0.85"/>
+    </g>
+
+    <!-- Winding tendrils between vine layers -->
+    <g stroke="#8b5e3c" stroke-width="2" opacity="0.6">
+      <path d="M140 80 C128 92 120 108 126 120 C130 112 138 106 148 104"/>
+      <path d="M100 140 C92 156 90 168 98 178 C100 168 108 160 118 156"/>
+      <path d="M372 80 C384 92 392 108 386 120 C382 112 374 106 364 104"/>
+      <path d="M412 140 C420 156 422 168 414 178 C412 168 404 160 394 156"/>
+      <path d="M140 432 C128 420 120 404 126 392 C130 400 138 406 148 408"/>
+      <path d="M100 372 C92 356 90 344 98 334 C100 344 108 352 118 356"/>
+      <path d="M372 432 C384 420 392 404 386 392 C382 400 374 406 364 408"/>
+      <path d="M412 372 C420 356 422 344 414 334 C412 344 404 352 394 356"/>
+    </g>
+
+    <!-- Small curl details -->
+    <g stroke="#8b5e3c" stroke-width="1.5" opacity="0.45">
+      <path d="M196 48 C192 56 194 64 200 68 C198 60 200 54 206 52"/>
+      <path d="M316 48 C320 56 318 64 312 68 C314 60 312 54 306 52"/>
+      <path d="M48 196 C56 192 64 194 68 200 C60 198 54 200 52 206"/>
+      <path d="M48 316 C56 320 64 318 68 312 C60 314 54 312 52 306"/>
+      <path d="M464 196 C456 192 448 194 444 200 C452 198 458 200 460 206"/>
+      <path d="M464 316 C456 320 448 318 444 312 C452 314 458 312 460 306"/>
+      <path d="M196 464 C192 456 194 448 200 444 C198 452 200 458 206 460"/>
+      <path d="M316 464 C320 456 318 448 312 444 C314 452 312 458 306 460"/>
+    </g>
+
+    <!-- Inner organic ring -->
+    <path d="M256 96 C290 94 322 104 348 122 C374 140 394 166 406 196              C418 226 422 258 418 288 C414 318 402 346 382 368              C362 390 336 406 308 414 C280 422 250 424 222 418              C194 412 168 400 146 380 C124 360 108 334 100 304              C92 274 90 242 96 214 C102 186 116 160 136 140              C156 120 182 106 212 100 C232 96 244 96 256 96Z" stroke="#8b5e3c" stroke-width="6" opacity="0.75"/>
+
+    <!-- Inner ring thorns -->
+    <g fill="#8b5e3c" stroke="none" opacity="0.6">
+      <path d="M254 96 L250 82 L256 94 L262 82 L258 96Z"/>
+      <path d="M254 418 L250 432 L256 420 L262 432 L258 418Z"/>
+      <path d="M96 254 L82 250 L94 256 L82 262 L96 258Z"/>
+      <path d="M418 254 L432 250 L420 256 L432 262 L418 258Z"/>
+    </g>
+
+    <!-- Knot joints at diagonal positions -->
+    <g stroke="#8b5e3c" fill="none">
+      <circle cx="120" cy="120" r="8" stroke-width="3" opacity="0.7"/>
+      <circle cx="120" cy="120" r="3" fill="#8b5e3c" stroke="none" opacity="0.5"/>
+      <circle cx="392" cy="120" r="8" stroke-width="3" opacity="0.7"/>
+      <circle cx="392" cy="120" r="3" fill="#8b5e3c" stroke="none" opacity="0.5"/>
+      <circle cx="120" cy="392" r="8" stroke-width="3" opacity="0.7"/>
+      <circle cx="120" cy="392" r="3" fill="#8b5e3c" stroke="none" opacity="0.5"/>
+      <circle cx="392" cy="392" r="8" stroke-width="3" opacity="0.7"/>
+      <circle cx="392" cy="392" r="3" fill="#8b5e3c" stroke="none" opacity="0.5"/>
+    </g>
+
+  </g>
+
+  <!-- Transparent center for character art -->
+  <circle cx="256" cy="256" r="150" fill="transparent"/>
+
+  <!-- TableGate NPC reaction slot: empty by default. The town-meeting asset is only a matching-action example. -->
+  </g>
+  <metadata data-frame-format="true">{"format":"tablegate-frame-512-v1","canvas":[512,512],"center":[256,256],"sourceViewBox":[0.0,0.0,512.0,512.0],"reactionSlot":{"position":"top-center","defaultReaction":null}}</metadata>
+  <metadata data-reaction-slot-config="true">{"version":2,"position":"top-center","defaultReaction":null,"actionParameter":"npcAction","reactionParameter":"reaction","reactionBaseParameter":"reactionBase"}</metadata>
+  <defs>
+    <clipPath id="reactionClip_thorns">
+      <rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883"/>
+    </clipPath>
+  </defs>
+  <g id="reactionSlot_thorns" data-reaction-slot="top-center" data-reaction-state="empty" pointer-events="none">
+    <rect data-reaction-slot-backplate="true" x="195.0720" y="3.0720" width="121.8560" height="121.8560" rx="26.8083" fill="#08131d" fill-opacity="0.94" stroke="#e5eef5" stroke-opacity="0.72" stroke-width="4.0960"/>
+    <rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883" fill="none" stroke="#7dd8e8" stroke-opacity="0.34" stroke-width="2.1299"/>
+    <image data-reaction-image="true" x="200.1920" y="8.1920" width="111.6160" height="111.6160" preserveAspectRatio="xMidYMid meet" clip-path="url(#reactionClip_thorns)" visibility="hidden"/>
+  </g>
+  <script type="application/ecmascript"><![CDATA[(function () {
+  var svg = document.documentElement;
+  var slot = svg.querySelector('[data-reaction-slot]');
+  var image = svg.querySelector('[data-reaction-image]');
+  if (!slot || !image) return;
+
+  function clean(value) { return (value || '').trim(); }
+  function slugify(value) {
+    return clean(value)
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/['’]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+  function clearReaction() {
+    image.removeAttribute('href');
+    image.removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
+    image.setAttribute('visibility', 'hidden');
+    image.removeAttribute('aria-label');
+    slot.setAttribute('data-reaction-state', 'empty');
+    slot.removeAttribute('data-reaction-action');
+  }
+  function showReaction(source, action) {
+    if (!source) return clearReaction();
+    slot.setAttribute('data-reaction-state', 'loading');
+    if (action) slot.setAttribute('data-reaction-action', action);
+    image.setAttribute('href', source);
+    image.setAttribute('aria-label', action ? action + ' reaction' : 'NPC reaction');
+    image.setAttribute('visibility', 'visible');
+  }
+  image.addEventListener('load', function () {
+    if (image.getAttribute('href')) slot.setAttribute('data-reaction-state', 'filled');
+  });
+  image.addEventListener('error', clearReaction);
+
+  var params;
+  try { params = new URLSearchParams(window.location.search); }
+  catch (_) { clearReaction(); return; }
+  var direct = clean(params.get('reaction'));
+  var action = clean(params.get('npcAction') || params.get('action'));
+  var base = clean(params.get('reactionBase')) || '../reactions/';
+  if (direct) {
+    showReaction(direct, action);
+  } else if (action) {
+    showReaction(base.replace(/\/?$/, '/') + slugify(action) + '.svg', action);
+  } else {
+    clearReaction();
+  }
+
+  svg.setReaction = function (source, actionLabel) {
+    showReaction(clean(source), clean(actionLabel));
+  };
+  svg.setReactionForAction = function (actionLabel, basePath) {
+    var label = clean(actionLabel);
+    if (!label) return clearReaction();
+    var root = clean(basePath) || '../reactions/';
+    showReaction(root.replace(/\/?$/, '/') + slugify(label) + '.svg', label);
+  };
+  svg.clearReaction = clearReaction;
+}());]]></script>
+</svg>
