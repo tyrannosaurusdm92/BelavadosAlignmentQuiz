@@ -1,0 +1,168 @@
+{
+  "system": "Daggerheart",
+  "folder_bytes": 23333486,
+  "folder_kib": 22786.61,
+  "minimum_required_bytes": 12288000,
+  "meets_minimum": true,
+  "largest_file_bytes": 4313764,
+  "under_23_000_kib_per_file": true,
+  "file_count": 26,
+  "files": [
+    {
+      "file": "00_manifest.json",
+      "bytes": 1248,
+      "valid_json": true,
+      "sha256": "47409ca513d7f482a8cd96d8ea890d2d64107628b711326d75b45e8dacb0616d"
+    },
+    {
+      "file": "01_licensing_and_scope.json",
+      "bytes": 834,
+      "valid_json": true,
+      "sha256": "de8103677584498483984e2b0673f5846e50f8386bb44341208fb85fa0629883"
+    },
+    {
+      "file": "02_edition_timeline_and_conversion.json",
+      "bytes": 2858,
+      "valid_json": true,
+      "sha256": "97d3fe5d94eb103e719e444e36c31c0ceafa4b2ea409846076864dfd60641134"
+    },
+    {
+      "file": "03_complete_how_to_play.json",
+      "bytes": 7354,
+      "valid_json": true,
+      "sha256": "a57494dcc7e57d17bb0e8580a588875d244dcdab691c0808976ef3864676d5ac"
+    },
+    {
+      "file": "04_character_creation.json",
+      "bytes": 3750,
+      "valid_json": true,
+      "sha256": "6407ad52a0a1d21851bd24fc6e3097971df6e69eca2a40f241404a3166764ed0"
+    },
+    {
+      "file": "05_advancement_and_leveling.json",
+      "bytes": 6888,
+      "valid_json": true,
+      "sha256": "2c8e9b14ef207c191542f651e279a2bc8893f36cb3671ce9cf11321cb3faea7f"
+    },
+    {
+      "file": "06_combat_attacks_actions.json",
+      "bytes": 1812302,
+      "valid_json": true,
+      "sha256": "9c11a0d1abd96c23dc9e1fb057e590806e41172c7ccbf1fe7dbf40088ecf3e22"
+    },
+    {
+      "file": "07_magic_spells_powers_rituals.json",
+      "bytes": 2288199,
+      "valid_json": true,
+      "sha256": "37a8089ffa5ea143d128772c14d4bed6382f17de6e0cbb8b0068da57b8815c6d"
+    },
+    {
+      "file": "08_classes_archetypes_playbooks.json",
+      "bytes": 811816,
+      "valid_json": true,
+      "sha256": "84f52c0e73279323f872f97ddf927563dcb9c89f8452df4a73d02f82a29b8de7"
+    },
+    {
+      "file": "09_ancestries_races_species_lineages.json",
+      "bytes": 519506,
+      "valid_json": true,
+      "sha256": "490e6f0dd2333575f67e0c4abf3ea5bee4a20b9f2574b76892ad4095b2b80ad8"
+    },
+    {
+      "file": "10_subclasses_specializations_paths.json",
+      "bytes": 975603,
+      "valid_json": true,
+      "sha256": "ae9194b03c92177e137e6835e9b29f3708970cf41e0400d2450d6c0adeea15a9"
+    },
+    {
+      "file": "11_backgrounds_origins_professions.json",
+      "bytes": 611977,
+      "valid_json": true,
+      "sha256": "45644d79d8a616f73e5079c918a2da8b6990b8ff6ef4447ba2366e28a02e1be0"
+    },
+    {
+      "file": "12_skills_proficiencies_approaches_actions.json",
+      "bytes": 1649854,
+      "valid_json": true,
+      "sha256": "5726e399b012c0f810df6ea34fe7d621cbe4b0195ed5dc70be725ed9c9e37ea7"
+    },
+    {
+      "file": "13_feats_edges_stunts_moves_quirks.json",
+      "bytes": 1268265,
+      "valid_json": true,
+      "sha256": "12c3237e8611b8b56c88ffc1a72e4279b5f11b8bbff5afecbdb5df6cfe234ec8"
+    },
+    {
+      "file": "14_weapons_ammunition_attack_gear.json",
+      "bytes": 971336,
+      "valid_json": true,
+      "sha256": "4915050db26dde9d13e639be8926cb2c2a508581e4e8b8ba4cdfa22de332091a"
+    },
+    {
+      "file": "15_armor_shields_protective_gear.json",
+      "bytes": 544507,
+      "valid_json": true,
+      "sha256": "134db4ac0eb3359b52883da9235b1764501beccdf2382f588ec649d9c51d71fd"
+    },
+    {
+      "file": "16_equipment_consumables_services_vehicles.json",
+      "bytes": 759539,
+      "valid_json": true,
+      "sha256": "103bda7536a2933f871380de794b521039ed2cd3ae5e46e19ca14409992eca9a"
+    },
+    {
+      "file": "17_conditions_damage_healing_recovery.json",
+      "bytes": 585511,
+      "valid_json": true,
+      "sha256": "1104b9a3e271d60a455120b004123b1283705b2d4c800ab97810f0328328dc56"
+    },
+    {
+      "file": "18_npcs_adversaries_monsters_allies.json",
+      "bytes": 4313764,
+      "valid_json": true,
+      "sha256": "003d3fcbc00e919d5c5568055dc8c94196a88c3df8f7d02b28f4e77aada34b4b"
+    },
+    {
+      "file": "19_locations_factions_worldbuilding.json",
+      "bytes": 1485099,
+      "valid_json": true,
+      "sha256": "bbf20b50cc44f230e2c80cb4ee5f08714763d5f65245a17ee02a7aedb2ee7444"
+    },
+    {
+      "file": "20_modules_adventures_scenarios_campaigns.json",
+      "bytes": 2278435,
+      "valid_json": true,
+      "sha256": "f30eab443c5457280ad502776c555852b7bedb3660dd2c25a9f2269d77d1ff1c"
+    },
+    {
+      "file": "21_encounters_rewards_loot_treasure.json",
+      "bytes": 1431074,
+      "valid_json": true,
+      "sha256": "d1e14bf71d17513315cdc952abfa467cee80f3436dcd9e7c2d13948bfaa19361"
+    },
+    {
+      "file": "22_facilitator_tools.json",
+      "bytes": 1357,
+      "valid_json": true,
+      "sha256": "e3a6aa6a3b9d5be0d89fd3424a0149be1dad569ef8fa3052f7ed739186be138a"
+    },
+    {
+      "file": "23_rules_lookup_file_index.json",
+      "bytes": 4396,
+      "valid_json": true,
+      "sha256": "fcba89178b19df4dca072689224ce850b7b8c57aa9bd2c8b57544d43b3732742"
+    },
+    {
+      "file": "89_user_supplied_import_manifest.json",
+      "bytes": 402,
+      "valid_json": true,
+      "sha256": "e67193a35c348354dd83332fdd488525d2853e03757d5a17bc3c912f13ee98e9"
+    },
+    {
+      "file": "90_user_supplied_how_to_play_daggerheart_complete_reference_v2.json",
+      "bytes": 997612,
+      "valid_json": true,
+      "sha256": "91a84a7c4b95ccb8d710c1da067254912066a1ee735206fbfef9a648ec04c32c"
+    }
+  ]
+}

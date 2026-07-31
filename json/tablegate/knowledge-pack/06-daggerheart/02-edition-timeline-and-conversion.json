@@ -1,0 +1,84 @@
+{
+  "system": "Daggerheart",
+  "editions": [
+    {
+      "id": "dh-edition-00001",
+      "edition": "Open beta playtest lineage",
+      "sequence": 1,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "dh-edition-00002",
+      "edition": "Daggerheart First Edition (2025)",
+      "sequence": 2,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    },
+    {
+      "id": "dh-edition-00003",
+      "edition": "Current SRD revisions through build date",
+      "sequence": 3,
+      "coverage": "historical orientation, conversion tags, and original explanatory summary",
+      "core_continuities": [
+        "shared identity of the game line",
+        "characters face uncertain situations",
+        "facilitator adjudicates and portrays opposition",
+        "campaign play changes characters and world"
+      ],
+      "conversion_questions": [
+        "What is the normal success probability?",
+        "How many meaningful actions occur per round?",
+        "How quickly are resources recovered?",
+        "How lethal are ordinary attacks?",
+        "What choices define advancement?"
+      ],
+      "not_included": [
+        "verbatim book chapters",
+        "closed tables",
+        "proprietary adventure text",
+        "artwork",
+        "publisher trade dress"
+      ]
+    }
+  ],
+  "content_origin": "original historical index"
+}
