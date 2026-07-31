@@ -1,0 +1,24 @@
+
+/* TableGate v10 backend parity and embedded knowledge workspaces. */
+.backend-center,.knowledge-browser{align-items:start}
+.backend-hero,.knowledge-hero{display:flex;justify-content:space-between;align-items:center;gap:24px;overflow:hidden}
+.backend-hero>div:first-child,.knowledge-hero>div:first-child{max-width:900px}
+.backend-metrics{min-width:150px;padding:18px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(145deg,rgba(0,255,255,.12),rgba(0,35,45,.48));text-align:center}
+.backend-metrics strong{display:block;font-size:2rem;line-height:1;color:var(--accent,#00ffff)}
+.backend-metrics small{display:block;margin-top:7px;color:var(--muted)}
+.backend-route-panel,.knowledge-index{min-height:620px}
+.backend-route-list{display:flex;flex-direction:column;gap:7px;max-height:66vh;overflow:auto;padding-right:4px}
+.backend-route{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:var(--panel-2,rgba(0,20,24,.72));text-align:left;color:inherit}
+.backend-route:hover,.backend-route.active{border-color:var(--accent,#00ffff);box-shadow:0 0 0 1px rgba(0,255,255,.15)}
+.backend-route small{color:var(--muted);overflow-wrap:anywhere}
+.backend-request-panel{min-width:0}
+.backend-flags,.backend-context-row{display:flex;gap:8px;flex-wrap:wrap}
+.backend-json-editor{min-height:300px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre;tab-size:2}
+.backend-result pre,.knowledge-preview{max-height:56vh;overflow:auto;margin:8px 0 0;padding:14px;border:1px solid var(--border);border-radius:10px;background:#000b0d;white-space:pre-wrap;overflow-wrap:anywhere;color:#d8ffff}
+.knowledge-file-summary dl{display:grid;grid-template-columns:minmax(90px,auto) minmax(0,1fr);gap:8px 14px}
+.knowledge-file-summary dt{font-weight:700;color:var(--muted)}
+.knowledge-file-summary dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.knowledge-file-summary code{font-size:.78rem}
+.knowledge-index .docs-toolbar,.backend-route-panel .docs-toolbar{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:10px}
+@media(max-width:980px){.backend-route-panel,.knowledge-index,.backend-request-panel,.knowledge-detail{grid-column:span 12!important;min-height:0}.backend-route-list{max-height:340px}.backend-hero,.knowledge-hero{align-items:flex-start;flex-direction:column}.backend-metrics{min-width:0;width:100%}}
+@media(max-width:600px){.backend-json-editor{min-height:240px}.backend-context-row button{flex:1 1 45%}.knowledge-file-summary dl{grid-template-columns:1fr}.knowledge-file-summary dt{margin-top:6px}}
