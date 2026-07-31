@@ -42,7 +42,7 @@
 <div id="auth" class="hidden">
   <section class="auth-panel">
     <div class="brand"><div class="brand-mark"><img src="assets/images/tablegate/icons/tablegate-icon-48.png" width="48" height="48" alt=""></div><div><h1>TableGate</h1><small>Campaign workspace and live table</small></div></div>
-    <h2 id="auth-title">Return to the table</h2><p id="auth-subtitle">Sign in to your campaign servers, messages, and voice rooms.</p>
+    <h2 id="auth-title">Welcome to TableGate</h2><p id="auth-subtitle">Sign in or create an account. Every account can create campaigns, invite people, and build games.</p>
     <div class="auth-tabs"><button id="tab-login" class="active">Sign in</button><button id="tab-register">Create account</button></div>
     <div id="auth-error" class="error-box hidden"></div><div id="invite-preview" class="info-box hidden"></div>
     <form id="login-form">
@@ -56,8 +56,9 @@
       <div class="field"><label for="register-email">Email</label><input id="register-email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="register-password">Password</label><input id="register-password" type="password" minlength="10" maxlength="128" autocomplete="new-password" required><small>10–128 characters.</small></div>
       <label class="list-row compact-control"><input type="checkbox" data-see-password="register-password"> Show password</label>
-      <div class="field"><label for="register-invite">Campaign invite code</label><input id="register-invite" autocomplete="off"><small>Required after the first account unless registration was opened by the backend owner.</small></div>
-      <button class="primary wide" type="submit">Create account</button>
+      <input id="register-invite" type="hidden" autocomplete="off">
+      <div class="info-box">No invitation is required to create a TableGate account. Campaign invite links are optional shortcuts for joining a specific campaign.</div>
+      <button class="primary wide" type="submit">Create TableGate account</button>
     </form>
     <p class="auth-credit">Created By William Saville AKA The Transgender T-Rex #TheTransgenderTrex · developer of Belavadös Galaxy TTRPG System</p>
   </section>

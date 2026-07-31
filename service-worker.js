@@ -1,5 +1,5 @@
 'use strict';
-const CACHE_VERSION='tablegate-v10.0.0-reorganized-20260730';
+const CACHE_VERSION='tablegate-v10.0.0-public-access-20260731';
 const CORE=[
   "./",
   "./tablegate.html",

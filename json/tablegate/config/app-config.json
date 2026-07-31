@@ -115,5 +115,13 @@
     "root": "json/tablegate/knowledge-pack",
     "catalog": "json/tablegate/knowledge-pack/catalog.json",
     "frontend": "Knowledge Pack"
+  },
+  "accessPolicy": {
+    "accountRegistration": "OPEN",
+    "accountInviteRequired": false,
+    "campaignInvites": "optional links used to join a specific campaign",
+    "anyRegisteredUserCanCreateCampaigns": true,
+    "anyCampaignCreatorCanCreateInviteLinks": true,
+    "anyRegisteredUserCanCreateGameSystems": true
   }
 }
