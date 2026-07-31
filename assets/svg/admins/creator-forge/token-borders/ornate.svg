@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="512" height="512" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" data-crop-format="tablegate-frame-512-v1" data-frame-center="256,256" data-frame-canvas="512x512" data-reaction-slot-version="2" data-reaction-slot-position="top-center" data-default-reaction="" data-reaction-autofill="npc-action">
+  <g id="frameArtwork" data-standardized-crop="true" transform="matrix(1 0 0 1 0 0)"><g stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" fill="none">
+
+    <!-- Outer ring system -->
+    <circle cx="256" cy="256" r="246" stroke-width="3" opacity="0.3"/>
+    <circle cx="256" cy="256" r="238" stroke-width="6"/>
+    <circle cx="256" cy="256" r="230" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Outer decorative dots -->
+    <g fill="#C9A84C" stroke="none">
+      <circle cx="256" cy="14" r="3"/><circle cx="256" cy="498" r="3"/>
+      <circle cx="14" cy="256" r="3"/><circle cx="498" cy="256" r="3"/>
+      <circle cx="84" cy="84" r="2.5"/><circle cx="428" cy="84" r="2.5"/>
+      <circle cx="84" cy="428" r="2.5"/><circle cx="428" cy="428" r="2.5"/>
+      <circle cx="44" cy="162" r="2"/><circle cx="44" cy="350" r="2"/>
+      <circle cx="468" cy="162" r="2"/><circle cx="468" cy="350" r="2"/>
+      <circle cx="162" cy="44" r="2"/><circle cx="350" cy="44" r="2"/>
+      <circle cx="162" cy="468" r="2"/><circle cx="350" cy="468" r="2"/>
+    </g>
+
+    <!-- Middle ring system -->
+    <circle cx="256" cy="256" r="208" stroke-width="2" opacity="0.4"/>
+    <circle cx="256" cy="256" r="198" stroke-width="8"/>
+    <circle cx="256" cy="256" r="188" stroke-width="2" opacity="0.4"/>
+
+    <!-- Tick marks between outer and middle rings -->
+    <g stroke-width="2" opacity="0.5">
+      <line x1="256" y1="20" x2="256" y2="50"/>
+      <line x1="256" y1="462" x2="256" y2="492"/>
+      <line x1="20" y1="256" x2="50" y2="256"/>
+      <line x1="462" y1="256" x2="492" y2="256"/>
+      <line x1="90" y1="90" x2="106" y2="106"/>
+      <line x1="422" y1="90" x2="406" y2="106"/>
+      <line x1="90" y1="422" x2="106" y2="406"/>
+      <line x1="422" y1="422" x2="406" y2="406"/>
+    </g>
+
+    <!-- Inner border ring -->
+    <circle cx="256" cy="256" r="160" stroke-width="4" opacity="0.8"/>
+    <circle cx="256" cy="256" r="152" stroke-width="1.5" opacity="0.35"/>
+
+    <!-- Diamond accents on middle ring -->
+    <g fill="#C9A84C" stroke="none">
+      <polygon points="256,48 260,58 256,68 252,58" opacity="0.7"/>
+      <polygon points="256,444 260,454 256,464 252,454" opacity="0.7"/>
+      <polygon points="48,256 58,260 68,256 58,252" opacity="0.7"/>
+      <polygon points="444,256 454,260 464,256 454,252" opacity="0.7"/>
+      <polygon points="109,109 112,115 109,121 106,115" opacity="0.5" transform="rotate(-45 109 115)"/>
+      <polygon points="403,109 406,115 403,121 400,115" opacity="0.5" transform="rotate(45 403 115)"/>
+      <polygon points="109,403 112,409 109,415 106,409" opacity="0.5" transform="rotate(45 109 409)"/>
+      <polygon points="403,403 406,409 403,415 400,409" opacity="0.5" transform="rotate(-45 403 409)"/>
+    </g>
+
+    <!-- TOP ORNAMENT (fleur-de-lis) -->
+    <g fill="#C9A84C" stroke="#C9A84C">
+      <path d="M256 12 C254 30 250 44 248 54 C250 52 254 48 256 40 C258 48 262 52 264 54 C262 44 258 30 256 12Z" stroke-width="0"/>
+      <path d="M248 54 C240 46 228 42 218 44 C226 50 232 58 236 68 C238 62 242 56 248 54Z" stroke-width="0"/>
+      <path d="M264 54 C272 46 284 42 294 44 C286 50 280 58 276 68 C274 62 270 56 264 54Z" stroke-width="0"/>
+      <path d="M218 44 C208 50 200 60 198 72 C204 64 214 60 224 60" stroke-width="2.5" fill="none"/>
+      <path d="M294 44 C304 50 312 60 314 72 C308 64 298 60 288 60" stroke-width="2.5" fill="none"/>
+      <path d="M236 68 C240 60 248 52 256 40 C264 52 272 60 276 68" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M198 72 C196 80 198 86 204 88 C202 82 204 76 210 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M314 72 C316 80 314 86 308 88 C310 82 308 76 302 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <circle cx="256" cy="28" r="4" fill="#C9A84C" stroke="none"/>
+    </g>
+
+    <!-- BOTTOM ORNAMENT -->
+    <g fill="#C9A84C" stroke="#C9A84C" transform="rotate(180 256 256)">
+      <path d="M256 12 C254 30 250 44 248 54 C250 52 254 48 256 40 C258 48 262 52 264 54 C262 44 258 30 256 12Z" stroke-width="0"/>
+      <path d="M248 54 C240 46 228 42 218 44 C226 50 232 58 236 68 C238 62 242 56 248 54Z" stroke-width="0"/>
+      <path d="M264 54 C272 46 284 42 294 44 C286 50 280 58 276 68 C274 62 270 56 264 54Z" stroke-width="0"/>
+      <path d="M218 44 C208 50 200 60 198 72 C204 64 214 60 224 60" stroke-width="2.5" fill="none"/>
+      <path d="M294 44 C304 50 312 60 314 72 C308 64 298 60 288 60" stroke-width="2.5" fill="none"/>
+      <path d="M236 68 C240 60 248 52 256 40 C264 52 272 60 276 68" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M198 72 C196 80 198 86 204 88 C202 82 204 76 210 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M314 72 C316 80 314 86 308 88 C310 82 308 76 302 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <circle cx="256" cy="28" r="4" fill="#C9A84C" stroke="none"/>
+    </g>
+
+    <!-- LEFT ORNAMENT -->
+    <g fill="#C9A84C" stroke="#C9A84C" transform="rotate(-90 256 256)">
+      <path d="M256 12 C254 30 250 44 248 54 C250 52 254 48 256 40 C258 48 262 52 264 54 C262 44 258 30 256 12Z" stroke-width="0"/>
+      <path d="M248 54 C240 46 228 42 218 44 C226 50 232 58 236 68 C238 62 242 56 248 54Z" stroke-width="0"/>
+      <path d="M264 54 C272 46 284 42 294 44 C286 50 280 58 276 68 C274 62 270 56 264 54Z" stroke-width="0"/>
+      <path d="M218 44 C208 50 200 60 198 72 C204 64 214 60 224 60" stroke-width="2.5" fill="none"/>
+      <path d="M294 44 C304 50 312 60 314 72 C308 64 298 60 288 60" stroke-width="2.5" fill="none"/>
+      <path d="M236 68 C240 60 248 52 256 40 C264 52 272 60 276 68" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M198 72 C196 80 198 86 204 88 C202 82 204 76 210 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M314 72 C316 80 314 86 308 88 C310 82 308 76 302 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <circle cx="256" cy="28" r="4" fill="#C9A84C" stroke="none"/>
+    </g>
+
+    <!-- RIGHT ORNAMENT -->
+    <g fill="#C9A84C" stroke="#C9A84C" transform="rotate(90 256 256)">
+      <path d="M256 12 C254 30 250 44 248 54 C250 52 254 48 256 40 C258 48 262 52 264 54 C262 44 258 30 256 12Z" stroke-width="0"/>
+      <path d="M248 54 C240 46 228 42 218 44 C226 50 232 58 236 68 C238 62 242 56 248 54Z" stroke-width="0"/>
+      <path d="M264 54 C272 46 284 42 294 44 C286 50 280 58 276 68 C274 62 270 56 264 54Z" stroke-width="0"/>
+      <path d="M218 44 C208 50 200 60 198 72 C204 64 214 60 224 60" stroke-width="2.5" fill="none"/>
+      <path d="M294 44 C304 50 312 60 314 72 C308 64 298 60 288 60" stroke-width="2.5" fill="none"/>
+      <path d="M236 68 C240 60 248 52 256 40 C264 52 272 60 276 68" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M198 72 C196 80 198 86 204 88 C202 82 204 76 210 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <path d="M314 72 C316 80 314 86 308 88 C310 82 308 76 302 74" stroke-width="2" fill="none" opacity="0.7"/>
+      <circle cx="256" cy="28" r="4" fill="#C9A84C" stroke="none"/>
+    </g>
+
+    <!-- CORNER FILIGREE — Top-left -->
+    <g opacity="0.85">
+      <path d="M108 80 C120 74 132 72 146 62 C140 78 142 90 150 100" stroke-width="3"/>
+      <path d="M100 108 C94 96 88 84 80 72 C94 80 106 82 118 86" stroke-width="2.5"/>
+      <path d="M92 92 C100 86 108 82 118 76" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="86" cy="86" r="3.5" fill="#C9A84C" stroke="none"/>
+      <path d="M146 62 C152 56 156 52 154 46 C150 52 144 56 140 58" stroke-width="1.5" opacity="0.6"/>
+      <path d="M150 100 C156 106 160 110 166 108 C160 104 154 100 152 96" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    <!-- Top-right -->
+    <g opacity="0.85" transform="translate(512 0) scale(-1 1)">
+      <path d="M108 80 C120 74 132 72 146 62 C140 78 142 90 150 100" stroke-width="3"/>
+      <path d="M100 108 C94 96 88 84 80 72 C94 80 106 82 118 86" stroke-width="2.5"/>
+      <path d="M92 92 C100 86 108 82 118 76" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="86" cy="86" r="3.5" fill="#C9A84C" stroke="none"/>
+      <path d="M146 62 C152 56 156 52 154 46 C150 52 144 56 140 58" stroke-width="1.5" opacity="0.6"/>
+      <path d="M150 100 C156 106 160 110 166 108 C160 104 154 100 152 96" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    <!-- Bottom-left -->
+    <g opacity="0.85" transform="translate(0 512) scale(1 -1)">
+      <path d="M108 80 C120 74 132 72 146 62 C140 78 142 90 150 100" stroke-width="3"/>
+      <path d="M100 108 C94 96 88 84 80 72 C94 80 106 82 118 86" stroke-width="2.5"/>
+      <path d="M92 92 C100 86 108 82 118 76" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="86" cy="86" r="3.5" fill="#C9A84C" stroke="none"/>
+      <path d="M146 62 C152 56 156 52 154 46 C150 52 144 56 140 58" stroke-width="1.5" opacity="0.6"/>
+      <path d="M150 100 C156 106 160 110 166 108 C160 104 154 100 152 96" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    <!-- Bottom-right -->
+    <g opacity="0.85" transform="translate(512 512) scale(-1 -1)">
+      <path d="M108 80 C120 74 132 72 146 62 C140 78 142 90 150 100" stroke-width="3"/>
+      <path d="M100 108 C94 96 88 84 80 72 C94 80 106 82 118 86" stroke-width="2.5"/>
+      <path d="M92 92 C100 86 108 82 118 76" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="86" cy="86" r="3.5" fill="#C9A84C" stroke="none"/>
+      <path d="M146 62 C152 56 156 52 154 46 C150 52 144 56 140 58" stroke-width="1.5" opacity="0.6"/>
+      <path d="M150 100 C156 106 160 110 166 108 C160 104 154 100 152 96" stroke-width="1.5" opacity="0.6"/>
+    </g>
+
+    <!-- Inter-ring scrollwork -->
+    <g stroke-width="1.5" opacity="0.55">
+      <path d="M240 170 C236 176 232 180 228 178 C234 174 236 168 234 162"/>
+      <path d="M272 170 C276 176 280 180 284 178 C278 174 276 168 278 162"/>
+      <path d="M240 342 C236 336 232 332 228 334 C234 338 236 344 234 350"/>
+      <path d="M272 342 C276 336 280 332 284 334 C278 338 276 344 278 350"/>
+      <path d="M170 240 C176 236 180 232 178 228 C174 234 168 236 162 234"/>
+      <path d="M170 272 C176 276 180 280 178 284 C174 278 168 276 162 278"/>
+      <path d="M342 240 C336 236 332 232 334 228 C338 234 344 236 350 234"/>
+      <path d="M342 272 C336 276 332 280 334 284 C338 278 344 276 350 278"/>
+    </g>
+
+  </g>
+
+  <!-- Transparent center for character art -->
+  <circle cx="256" cy="256" r="142" fill="transparent"/>
+
+  <!-- TableGate NPC reaction slot: empty by default. The town-meeting asset is only a matching-action example. -->
+  </g>
+  <metadata data-frame-format="true">{"format":"tablegate-frame-512-v1","canvas":[512,512],"center":[256,256],"sourceViewBox":[0.0,0.0,512.0,512.0],"reactionSlot":{"position":"top-center","defaultReaction":null}}</metadata>
+  <metadata data-reaction-slot-config="true">{"version":2,"position":"top-center","defaultReaction":null,"actionParameter":"npcAction","reactionParameter":"reaction","reactionBaseParameter":"reactionBase"}</metadata>
+  <defs>
+    <clipPath id="reactionClip_ornate">
+      <rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883"/>
+    </clipPath>
+  </defs>
+  <g id="reactionSlot_ornate" data-reaction-slot="top-center" data-reaction-state="empty" pointer-events="none">
+    <rect data-reaction-slot-backplate="true" x="195.0720" y="3.0720" width="121.8560" height="121.8560" rx="26.8083" fill="#08131d" fill-opacity="0.94" stroke="#e5eef5" stroke-opacity="0.72" stroke-width="4.0960"/>
+    <rect x="200.1920" y="8.1920" width="111.6160" height="111.6160" rx="21.6883" fill="none" stroke="#7dd8e8" stroke-opacity="0.34" stroke-width="2.1299"/>
+    <image data-reaction-image="true" x="200.1920" y="8.1920" width="111.6160" height="111.6160" preserveAspectRatio="xMidYMid meet" clip-path="url(#reactionClip_ornate)" visibility="hidden"/>
+  </g>
+  <script type="application/ecmascript"><![CDATA[(function () {
+  var svg = document.documentElement;
+  var slot = svg.querySelector('[data-reaction-slot]');
+  var image = svg.querySelector('[data-reaction-image]');
+  if (!slot || !image) return;
+
+  function clean(value) { return (value || '').trim(); }
+  function slugify(value) {
+    return clean(value)
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/['’]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+  function clearReaction() {
+    image.removeAttribute('href');
+    image.removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
+    image.setAttribute('visibility', 'hidden');
+    image.removeAttribute('aria-label');
+    slot.setAttribute('data-reaction-state', 'empty');
+    slot.removeAttribute('data-reaction-action');
+  }
+  function showReaction(source, action) {
+    if (!source) return clearReaction();
+    slot.setAttribute('data-reaction-state', 'loading');
+    if (action) slot.setAttribute('data-reaction-action', action);
+    image.setAttribute('href', source);
+    image.setAttribute('aria-label', action ? action + ' reaction' : 'NPC reaction');
+    image.setAttribute('visibility', 'visible');
+  }
+  image.addEventListener('load', function () {
+    if (image.getAttribute('href')) slot.setAttribute('data-reaction-state', 'filled');
+  });
+  image.addEventListener('error', clearReaction);
+
+  var params;
+  try { params = new URLSearchParams(window.location.search); }
+  catch (_) { clearReaction(); return; }
+  var direct = clean(params.get('reaction'));
+  var action = clean(params.get('npcAction') || params.get('action'));
+  var base = clean(params.get('reactionBase')) || '../reactions/';
+  if (direct) {
+    showReaction(direct, action);
+  } else if (action) {
+    showReaction(base.replace(/\/?$/, '/') + slugify(action) + '.svg', action);
+  } else {
+    clearReaction();
+  }
+
+  svg.setReaction = function (source, actionLabel) {
+    showReaction(clean(source), clean(actionLabel));
+  };
+  svg.setReactionForAction = function (actionLabel, basePath) {
+    var label = clean(actionLabel);
+    if (!label) return clearReaction();
+    var root = clean(basePath) || '../reactions/';
+    showReaction(root.replace(/\/?$/, '/') + slugify(label) + '.svg', label);
+  };
+  svg.clearReaction = clearReaction;
+}());]]></script>
+</svg>
