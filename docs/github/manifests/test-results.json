@@ -1,0 +1,403 @@
+{
+  "schema": "tablegate.test-results.v1",
+  "generatedAt": "2026-07-30T23:59:00-04:00",
+  "staticValidation": {
+    "passed": true,
+    "failureCount": 0,
+    "failures": []
+  },
+  "authenticationBrowserSmoke": {
+    "checks": {
+      "authVisible": true,
+      "bootVisible": false,
+      "appVisible": false,
+      "authTitle": "Return to the table",
+      "authError": "",
+      "passwordInitialType": "password",
+      "passwordShownType": "text",
+      "passwordHiddenType": "password",
+      "registerVisible": true,
+      "forgotModalVisible": true,
+      "forgotModalTitle": "Reset your password"
+    },
+    "consoleErrors": [],
+    "pageErrors": []
+  },
+  "integratedWorkspaceBrowserSmoke": {
+    "campaignHub": {
+      "externalScripts": [
+        "js/admins/campaign-hub/campaign-hub.js",
+        "js/admins/campaign-hub/tablegate-integration.js"
+      ],
+      "externalStyles": [
+        "css/admins/campaign-hub/campaign-hub.css",
+        "css/admins/campaign-hub/tablegate-integrated-theme.css"
+      ],
+      "mappedJsonFiles": 9,
+      "selectorAttached": true,
+      "bodyTextLength": 8712,
+      "title": "TableGate Campaign Hub",
+      "systemSelectOptions": 9,
+      "mapViewerVisible": true,
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    "effectsStudio": {
+      "externalScripts": [
+        "js/admins/effects-studio/backend-config.js?v=20260725-pbn",
+        "js/admins/effects-studio/preset-bundle.js?v=20260725-merged",
+        "js/admins/effects-studio/asset-library.js?v=20260725-merged",
+        "js/admins/effects-studio/procedural-map-engine.js?v=20260730-map",
+        "js/admins/effects-studio/app.js?v=20260730-map",
+        "js/admins/effects-studio/paint-by-number-host.js?v=20260725-pbn"
+      ],
+      "externalStyles": [
+        "assets/images/admins/effects-studio/icons/icon-180.png",
+        "css/admins/effects-studio/colors.css?v=20260725-merged",
+        "css/admins/effects-studio/textures.css?v=20260725-merged",
+        "css/admins/effects-studio/styles.css?v=20260725-merged",
+        "css/admins/studio/studio.css?v=20260725-merged",
+        "css/admins/effects-studio/procedural-map.css?v=20260730-map"
+      ],
+      "mappedJsonFiles": 1,
+      "selectorAttached": true,
+      "bodyTextLength": 1257,
+      "title": "Untitled Project — Effects Studio",
+      "canvasCount": 9,
+      "buttonCount": 410,
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    "paintByNumber": {
+      "externalScripts": [
+        "js/admins/effects-studio/paint-by-number/effects-studio-bridge.js"
+      ],
+      "externalStyles": [
+        "css/admins/effects-studio/paint-by-number/embedded-overrides.css"
+      ],
+      "mappedJsonFiles": 0,
+      "selectorAttached": true,
+      "bodyTextLength": 652,
+      "title": "Effects Studio — Paint by Number",
+      "svgCount": 0,
+      "buttonCount": 85,
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    "sessionDice": {
+      "externalScripts": [
+        "js/tablegate/systems/tablegate-nine-systems.js",
+        "js/sessions/dice-roller/tablegate-session-bridge.js"
+      ],
+      "externalStyles": [],
+      "mappedJsonFiles": 0,
+      "selectorAttached": true,
+      "bodyTextLength": 6042,
+      "title": "roleplaying_board",
+      "diceButtons": 20,
+      "boardVisible": true,
+      "consoleErrors": [],
+      "pageErrors": [
+        "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+        "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+        "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+        "main is not defined"
+      ]
+    },
+    "forge": {
+      "externalScripts": [
+        "js/admins/creator-forge/data/lifesimulator/bootstrap-data.js",
+        "js/admins/creator-forge/data/lifesimulator/race-token-registry.js",
+        "js/admins/creator-forge/data/lifesimulator/biome-registry.js",
+        "js/admins/creator-forge/data/lifesimulator/token-border-registry.js",
+        "js/admins/creator-forge/data/lifesimulator/reactions-bootstrap.js",
+        "js/admins/creator-forge/data/lifesimulator/alien-trait-sets.js",
+        "js/admins/creator-forge/lifesimulator/alien-name-generator.js",
+        "js/tablegate/vendor/jszip-min.js",
+        "js/tablegate/vendor/mammoth-browser-min.js",
+        "js/admins/creator-forge/lifesimulator/config.js",
+        "js/admins/creator-forge/lifesimulator/identity-registry.js",
+        "js/admins/creator-forge/lifesimulator/storage.js",
+        "js/admins/creator-forge/tablegate/system-catalog.js",
+        "js/admins/creator-forge/tablegate/system-adapter.js",
+        "js/admins/creator-forge/lifesimulator/biomes.js",
+        "js/admins/creator-forge/lifesimulator/species.js",
+        "js/admins/creator-forge/lifesimulator/token-system.js",
+        "js/admins/creator-forge/lifesimulator/era-engine.js",
+        "js/admins/creator-forge/lifesimulator/reactions.js",
+        "js/admins/creator-forge/lifesimulator/dialogue-context.js",
+        "js/admins/creator-forge/lifesimulator/dialogue-backend.js",
+        "js/admins/creator-forge/lifesimulator/dialogue-engine.js",
+        "js/admins/creator-forge/lifesimulator/importers.js",
+        "js/admins/creator-forge/lifesimulator/exporters.js",
+        "js/admins/creator-forge/lifesimulator/legacy-enrichment.js",
+        "js/admins/creator-forge/lifesimulator/simulation.js",
+        "js/admins/creator-forge/tablegate/town-npc-location-adapter.js",
+        "js/admins/creator-forge/lifesimulator/race-creator.js",
+        "js/admins/creator-forge/lifesimulator/conversations-ui.js",
+        "js/admins/creator-forge/tablegate/map-viewer.js",
+        "js/admins/creator-forge/tablegate/asset-store.js",
+        "js/admins/creator-forge/tablegate/transit-engine.js",
+        "js/admins/creator-forge/bot/config.js",
+        "js/admins/creator-forge/bot/utils.js",
+        "js/admins/creator-forge/bot/storage.js",
+        "js/admins/creator-forge/bot/corpus-loader.js",
+        "js/admins/creator-forge/bot/retrieval.js",
+        "js/admins/creator-forge/bot/memory.js",
+        "js/admins/creator-forge/bot/tools.js",
+        "js/admins/creator-forge/bot/llm-client.js",
+        "js/admins/creator-forge/bot/tablegate-orchestrator.js",
+        "js/admins/creator-forge/tablegate/transit-map.js",
+        "js/admins/creator-forge/tablegate/transit-ui.js",
+        "js/admins/creator-forge/bot/tablegate-bot-ui.js",
+        "js/admins/creator-forge/lifesimulator/app.js"
+      ],
+      "externalStyles": [
+        "css/admins/creator-forge/lifesimulator/app.css",
+        "css/admins/creator-forge/lifesimulator/conversations-ui.css",
+        "css/admins/creator-forge/lifesimulator/race-creator.css",
+        "css/admins/creator-forge/lifesimulator/token-system.css",
+        "css/admins/creator-forge/lifesimulator/simulation.css",
+        "css/admins/creator-forge/lifesimulator/reactions.css",
+        "css/admins/creator-forge/tablegate.css",
+        "css/admins/creator-forge/lifesimulator/legacy-dnd-theme.css",
+        "css/admins/creator-forge/tablegate/map-semantic-tools.css",
+        "css/admins/creator-forge/tablegate/transit.css",
+        "css/admins/creator-forge/bot/assistant.css"
+      ],
+      "mappedJsonFiles": 0,
+      "selectorAttached": true,
+      "bodyTextLength": 3561,
+      "title": "TableGate",
+      "lifeSimulatorGlobal": true,
+      "buttonCount": 431,
+      "consoleErrors": [],
+      "pageErrors": [
+        "__TABLEGATE_CAMPAIGN_ID_JSON__ is not defined"
+      ]
+    }
+  },
+  "nestedDiceRendererSmoke": {
+    "scriptRefs": [
+      "js/sessions/dice-roller/vendor/three-min.js",
+      "js/sessions/dice-roller/vendor/cannon-min.js",
+      "js/sessions/dice-roller/vendor/teal.js",
+      "js/sessions/dice-roller/dice.js",
+      "js/sessions/dice-roller/dice-main-bot.js"
+    ],
+    "allRefsExist": true,
+    "mainReady": true,
+    "rendererReady": true,
+    "canvasCount": 0,
+    "resultText": "",
+    "pageErrors": [
+      "Cannot read properties of null (reading 'getExtension')"
+    ],
+    "consoleErrors": [
+      "THREE.WebGLRenderer: Error creating WebGL context."
+    ]
+  },
+  "reproducibleStaticReleaseAudit": {
+    "release": "TableGate 10.0.0",
+    "generatedAt": "2026-07-31T01:30:48Z",
+    "scope": "Static release integrity, syntax, local reference, backend contract, knowledge catalog, and GitHub packaging readiness.",
+    "liveDeploymentTested": false,
+    "liveDeploymentNote": "The isolated build environment could not reach the supplied Google Apps Script deployment. Browser contract tests use backend-shaped fixtures and do not replace the supplied backend.",
+    "tests": [
+      {
+        "name": "exactly one HTML application entry point",
+        "passed": true,
+        "details": [
+          "tablegate.html"
+        ]
+      },
+      {
+        "name": "all local HTML asset references resolve",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "all local CSS url() references resolve",
+        "passed": true,
+        "details": {
+          "checked": 2,
+          "missing": []
+        }
+      },
+      {
+        "name": "all service worker core assets resolve",
+        "passed": true,
+        "details": {
+          "coreEntries": 62,
+          "missing": []
+        }
+      },
+      {
+        "name": "no nested source or legacy archives",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "no project file exceeds 23 MiB GitHub limit",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "supplied backend copy is byte-identical",
+        "passed": true,
+        "details": {
+          "sha256": "8a439d64e740e7f5e8eaf3cdcaa018b2966e7a999cd232742986c3be91accc67",
+          "expected": "8a439d64e740e7f5e8eaf3cdcaa018b2966e7a999cd232742986c3be91accc67",
+          "bytes": 314145
+        }
+      },
+      {
+        "name": "frontend uses requested backend deployment URL",
+        "passed": true,
+        "details": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec"
+      },
+      {
+        "name": "frontend records requested Apps Script library URL/version",
+        "passed": true,
+        "details": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6"
+      },
+      {
+        "name": "all JavaScript modules pass node syntax check",
+        "passed": true,
+        "details": {
+          "checked": 97,
+          "failures": []
+        }
+      },
+      {
+        "name": "supplied Apps Script backend passes JavaScript syntax check",
+        "passed": true,
+        "details": ""
+      },
+      {
+        "name": "all JSON files parse",
+        "passed": true,
+        "details": {
+          "checked": 424,
+          "failures": []
+        }
+      },
+      {
+        "name": "backend route catalog contains 223 unique supplied actions",
+        "passed": true,
+        "details": {
+          "routeCount": 223,
+          "uniqueActions": 223,
+          "duplicates": []
+        }
+      },
+      {
+        "name": "every cataloged route handler exists in supplied backend",
+        "passed": true,
+        "details": []
+      },
+      {
+        "name": "all compatibility aliases target supplied backend actions",
+        "passed": true,
+        "details": {
+          "aliases": {
+            "listServers": "listTablegates",
+            "createServer": "createTablegate",
+            "getServer": "getTablegate",
+            "updateServer": "updateTablegate",
+            "deleteServer": "deleteTablegate",
+            "leaveServer": "leaveTablegate",
+            "requestPasswordReset": "forgotPassword",
+            "listOwnedCharacters": "listCharacters"
+          },
+          "invalid": {}
+        }
+      },
+      {
+        "name": "all active frontend API calls resolve to supplied, aliased, or composed routes",
+        "passed": true,
+        "details": {
+          "literalCalls": 133,
+          "uniqueActions": 113,
+          "unresolved": [],
+          "retainedReferenceOnly": []
+        }
+      },
+      {
+        "name": "backend capability and knowledge browser assets are loaded",
+        "passed": true,
+        "details": {
+          "required": [
+            "css/admins/backend-center/backend-center.css",
+            "js/admins/backend-center/backend-capability-center.js",
+            "js/tablegate/backend/backend-route-catalog.js",
+            "js/tablegate/knowledge/knowledge-pack-browser.js",
+            "js/tablegate/knowledge/knowledge-pack-catalog.js"
+          ],
+          "loaded": [
+            "css/admins/backend-center/backend-center.css",
+            "js/admins/backend-center/backend-capability-center.js",
+            "js/tablegate/backend/backend-route-catalog.js",
+            "js/tablegate/knowledge/knowledge-pack-browser.js",
+            "js/tablegate/knowledge/knowledge-pack-catalog.js"
+          ],
+          "missing": []
+        }
+      },
+      {
+        "name": "knowledge catalog resolves 244 unique logical JSON references across nine systems",
+        "passed": true,
+        "details": {
+          "catalogFiles": 244,
+          "physicalKnowledgeFiles": 235,
+          "sharedCanonicalReferences": 9,
+          "systems": {
+            "01-dungeons-and-dragons": 28,
+            "02-pathfinder": 27,
+            "03-fate-core": 27,
+            "04-gurps": 27,
+            "05-call-of-cthulhu": 27,
+            "06-daggerheart": 27,
+            "07-powered-by-the-apocalypse": 27,
+            "08-savage-worlds": 27,
+            "09-blades-in-the-dark": 27
+          },
+          "catalogBytes": 208836941,
+          "actualLogicalBytes": 208836941,
+          "failures": [],
+          "unlisted": [],
+          "missingFromDisk": []
+        }
+      }
+    ],
+    "passed": 18,
+    "failed": 0,
+    "metrics": {
+      "releaseFilesScanned": 2617,
+      "releaseBytesScanned": 590151130,
+      "javascriptFilesChecked": 97,
+      "jsonFilesChecked": 424,
+      "backendRoutes": 223,
+      "knowledgeFiles": 244,
+      "knowledgeBytes": 208836941,
+      "htmlReferences": 52,
+      "serviceWorkerCoreReferences": 62
+    },
+    "reports": {
+      "backendCoverage": "docs/previous-project-versions/records/audits-backend-route-coverage-v10.json",
+      "knowledgeAudit": "docs/previous-project-versions/records/audits-knowledge-pack-audit-v10.json",
+      "fileManifest": "docs/previous-project-versions/records/manifests-file-manifest-v10.json",
+      "codeUsageManifest": "docs/previous-project-versions/records/manifests-code-usage-manifest-v10.json",
+      "browserContract": "docs/previous-project-versions/records/audits-browser-contract-test-v10.json"
+    }
+  },
+  "exactDuplicateHashAudit": {
+    "groups": 0,
+    "redundantCopies": 0
+  },
+  "environmentLimitations": [
+    "The local Chromium runtime blocks direct file:// and localhost navigation by administrator policy, so the host and workspaces were exercised through equivalent in-memory documents.",
+    "The headless Chromium build did not provide a WebGL context. The nested dice scripts and renderer bridge initialized, but a live 3D throw could not be rendered in this environment.",
+    "Remote credential-backed Apps Script actions were not executed. The deployment URL redirects to the deployed googleusercontent service; the library inspection page requires Google sign-in."
+  ]
+}

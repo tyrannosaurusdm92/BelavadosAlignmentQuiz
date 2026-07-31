@@ -1,0 +1,194 @@
+{
+  "release": "TableGate 10.0.0",
+  "generatedAt": "2026-07-31T01:30:48Z",
+  "scope": "Static release integrity, syntax, local reference, backend contract, knowledge catalog, and GitHub packaging readiness.",
+  "liveDeploymentTested": false,
+  "liveDeploymentNote": "The isolated build environment could not reach the supplied Google Apps Script deployment. Browser contract tests use backend-shaped fixtures and do not replace the supplied backend.",
+  "tests": [
+    {
+      "name": "exactly one HTML application entry point",
+      "passed": true,
+      "details": [
+        "tablegate.html"
+      ]
+    },
+    {
+      "name": "all local HTML asset references resolve",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "all local CSS url() references resolve",
+      "passed": true,
+      "details": {
+        "checked": 2,
+        "missing": []
+      }
+    },
+    {
+      "name": "all service worker core assets resolve",
+      "passed": true,
+      "details": {
+        "coreEntries": 62,
+        "missing": []
+      }
+    },
+    {
+      "name": "no nested source or legacy archives",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no project file exceeds 23 MiB GitHub limit",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "supplied backend copy is byte-identical",
+      "passed": true,
+      "details": {
+        "sha256": "8a439d64e740e7f5e8eaf3cdcaa018b2966e7a999cd232742986c3be91accc67",
+        "expected": "8a439d64e740e7f5e8eaf3cdcaa018b2966e7a999cd232742986c3be91accc67",
+        "bytes": 314145
+      }
+    },
+    {
+      "name": "frontend uses requested backend deployment URL",
+      "passed": true,
+      "details": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec"
+    },
+    {
+      "name": "frontend records requested Apps Script library URL/version",
+      "passed": true,
+      "details": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6"
+    },
+    {
+      "name": "all JavaScript modules pass node syntax check",
+      "passed": true,
+      "details": {
+        "checked": 97,
+        "failures": []
+      }
+    },
+    {
+      "name": "supplied Apps Script backend passes JavaScript syntax check",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "all JSON files parse",
+      "passed": true,
+      "details": {
+        "checked": 424,
+        "failures": []
+      }
+    },
+    {
+      "name": "backend route catalog contains 223 unique supplied actions",
+      "passed": true,
+      "details": {
+        "routeCount": 223,
+        "uniqueActions": 223,
+        "duplicates": []
+      }
+    },
+    {
+      "name": "every cataloged route handler exists in supplied backend",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "all compatibility aliases target supplied backend actions",
+      "passed": true,
+      "details": {
+        "aliases": {
+          "listServers": "listTablegates",
+          "createServer": "createTablegate",
+          "getServer": "getTablegate",
+          "updateServer": "updateTablegate",
+          "deleteServer": "deleteTablegate",
+          "leaveServer": "leaveTablegate",
+          "requestPasswordReset": "forgotPassword",
+          "listOwnedCharacters": "listCharacters"
+        },
+        "invalid": {}
+      }
+    },
+    {
+      "name": "all active frontend API calls resolve to supplied, aliased, or composed routes",
+      "passed": true,
+      "details": {
+        "literalCalls": 133,
+        "uniqueActions": 113,
+        "unresolved": [],
+        "retainedReferenceOnly": []
+      }
+    },
+    {
+      "name": "backend capability and knowledge browser assets are loaded",
+      "passed": true,
+      "details": {
+        "required": [
+          "css/admins/backend-center/backend-center.css",
+          "js/admins/backend-center/backend-capability-center.js",
+          "js/tablegate/backend/backend-route-catalog.js",
+          "js/tablegate/knowledge/knowledge-pack-browser.js",
+          "js/tablegate/knowledge/knowledge-pack-catalog.js"
+        ],
+        "loaded": [
+          "css/admins/backend-center/backend-center.css",
+          "js/admins/backend-center/backend-capability-center.js",
+          "js/tablegate/backend/backend-route-catalog.js",
+          "js/tablegate/knowledge/knowledge-pack-browser.js",
+          "js/tablegate/knowledge/knowledge-pack-catalog.js"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "name": "knowledge catalog resolves 244 unique logical JSON references across nine systems",
+      "passed": true,
+      "details": {
+        "catalogFiles": 244,
+        "physicalKnowledgeFiles": 235,
+        "sharedCanonicalReferences": 9,
+        "systems": {
+          "01-dungeons-and-dragons": 28,
+          "02-pathfinder": 27,
+          "03-fate-core": 27,
+          "04-gurps": 27,
+          "05-call-of-cthulhu": 27,
+          "06-daggerheart": 27,
+          "07-powered-by-the-apocalypse": 27,
+          "08-savage-worlds": 27,
+          "09-blades-in-the-dark": 27
+        },
+        "catalogBytes": 208836941,
+        "actualLogicalBytes": 208836941,
+        "failures": [],
+        "unlisted": [],
+        "missingFromDisk": []
+      }
+    }
+  ],
+  "passed": 18,
+  "failed": 0,
+  "metrics": {
+    "releaseFilesScanned": 2617,
+    "releaseBytesScanned": 590151130,
+    "javascriptFilesChecked": 97,
+    "jsonFilesChecked": 424,
+    "backendRoutes": 223,
+    "knowledgeFiles": 244,
+    "knowledgeBytes": 208836941,
+    "htmlReferences": 52,
+    "serviceWorkerCoreReferences": 62
+  },
+  "reports": {
+    "backendCoverage": "docs/previous-project-versions/records/audits-backend-route-coverage-v10.json",
+    "knowledgeAudit": "docs/previous-project-versions/records/audits-knowledge-pack-audit-v10.json",
+    "fileManifest": "docs/previous-project-versions/records/manifests-file-manifest-v10.json",
+    "codeUsageManifest": "docs/previous-project-versions/records/manifests-code-usage-manifest-v10.json",
+    "browserContract": "docs/previous-project-versions/records/audits-browser-contract-test-v10.json"
+  }
+}

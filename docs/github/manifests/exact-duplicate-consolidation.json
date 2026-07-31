@@ -1,0 +1,257 @@
+{
+  "schema": "tablegate.exact-duplicate-consolidation.v1",
+  "records": [
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree02-textures-diffuse.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "sha256": "6013f2a4ad03a054d9cc4efd56c1caf9329001a66f6cfa3075afff772b110c2e",
+      "bytes": 473147
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree04-textures-diffuse.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "sha256": "6013f2a4ad03a054d9cc4efd56c1caf9329001a66f6cfa3075afff772b110c2e",
+      "bytes": 473147
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree03-textures-diffuse.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-diffuse.png",
+      "sha256": "6013f2a4ad03a054d9cc4efd56c1caf9329001a66f6cfa3075afff772b110c2e",
+      "bytes": 473147
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush05-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "sha256": "36868a5c5ab7528b4815fbc80bebe0d1694c80b2f13ea677e544f70986c881c0",
+      "bytes": 154769
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush04-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "sha256": "36868a5c5ab7528b4815fbc80bebe0d1694c80b2f13ea677e544f70986c881c0",
+      "bytes": 154769
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush02-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "sha256": "36868a5c5ab7528b4815fbc80bebe0d1694c80b2f13ea677e544f70986c881c0",
+      "bytes": 154769
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush06-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "sha256": "36868a5c5ab7528b4815fbc80bebe0d1694c80b2f13ea677e544f70986c881c0",
+      "bytes": 154769
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush03-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush01-textures-shadow.png",
+      "sha256": "36868a5c5ab7528b4815fbc80bebe0d1694c80b2f13ea677e544f70986c881c0",
+      "bytes": 154769
+    },
+    {
+      "removed": "js/admins/creator-forge/lifesimulator/vendor/mammoth-browser-min.js",
+      "canonical": "js/tablegate/vendor/mammoth-browser-min.js",
+      "sha256": "5d4c0e7c9165d70b78f789c5274a2c7846d9e1c06ec19b69afa6ef45f789a3b9",
+      "bytes": 635882
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree02-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "sha256": "bdb4470048632ae2f946a344be7e2b8ece7d0fe9b6406b9e0b797491dbfc47ed",
+      "bytes": 140632
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree04-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "sha256": "bdb4470048632ae2f946a344be7e2b8ece7d0fe9b6406b9e0b797491dbfc47ed",
+      "bytes": 140632
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree03-textures-shadow.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-tree01-textures-shadow.png",
+      "sha256": "bdb4470048632ae2f946a344be7e2b8ece7d0fe9b6406b9e0b797491dbfc47ed",
+      "bytes": 140632
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush06-textures-diffuse.png",
+      "canonical": "assets/images/admins/effects-studio/backgrounds/assets3-frame-markers-nature-assets3-naturestarterkit2-nature-bush04-textures-diffuse.png",
+      "sha256": "4ac7ccba661bc60da0081bb3e34058c072e85a13433108ce0486b4ad3f2a4547",
+      "bytes": 367008
+    },
+    {
+      "removed": "assets/images/admins/effects-studio/textures/curated/water-normal.jpg",
+      "canonical": "assets/images/admins/effects-studio/textures/curated/water-bump.jpg",
+      "sha256": "c6def5f82067a88489e56459dc10cba7124ccc09f650e1fc47dad6277319f78a",
+      "bytes": 138555
+    },
+    {
+      "removed": "js/admins/creator-forge/lifesimulator/vendor/jszip-min.js",
+      "canonical": "js/tablegate/vendor/jszip-min.js",
+      "sha256": "acc7e41455a80765b5fd9c7ee1b8078a6d160bbbca455aeae854de65c947d59e",
+      "bytes": 97630
+    },
+    {
+      "removed": "json/admins/creator-forge/tablegate/examples/map-manifest-example.json",
+      "canonical": "json/admins/campaign-hub/map-manifest-example.json",
+      "sha256": "d974a7f1c331f5ece085ae1b25571d944fbca0d491f3ffcc448dc57e6ac5a93b",
+      "bytes": 1593
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/socialrelationshipactivities-visiting-family.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-visiting-family.svg",
+      "sha256": "3d63320ee1f9c502a49cf5f0af68f4ca964b18d2395da6be7f87cec1e77a0ec6",
+      "bytes": 460
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/middayactivehours-visiting-family.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-visiting-family.svg",
+      "sha256": "3d63320ee1f9c502a49cf5f0af68f4ca964b18d2395da6be7f87cec1e77a0ec6",
+      "bytes": 460
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-performing-rituals.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/magicreligiousactivities-performing-rituals.svg",
+      "sha256": "a0c51c91f38f4f48be0897d412b881783f37d03012a1818a17221c0dc4b84699",
+      "bytes": 445
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-performing-rituals.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/magicreligiousactivities-performing-rituals.svg",
+      "sha256": "a0c51c91f38f4f48be0897d412b881783f37d03012a1818a17221c0dc4b84699",
+      "bytes": 445
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-spying.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/criminalsecretactivities-spying.svg",
+      "sha256": "33db0d348e7db9e72bbbb484947c0cd71be3f8cb6f5a47f5f5c9541dfd8d24e2",
+      "bytes": 436
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/factionpoliticalactivities-spying.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/criminalsecretactivities-spying.svg",
+      "sha256": "33db0d348e7db9e72bbbb484947c0cd71be3f8cb6f5a47f5f5c9541dfd8d24e2",
+      "bytes": 436
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/middayactivehours-gambling.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-gambling.svg",
+      "sha256": "44f4e93cf071bc085a439ef97c660a7036744ffd856318bcac0fdec4a6916938",
+      "bytes": 428
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/eveningroutine-gambling.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-gambling.svg",
+      "sha256": "44f4e93cf071bc085a439ef97c660a7036744ffd856318bcac0fdec4a6916938",
+      "bytes": 428
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/reactions/core/icons/work-professional/training-an-apprentice.svg",
+      "canonical": "assets/svg/admins/creator-forge/reactions/core/icons/education-learning/training-an-apprentice.svg",
+      "sha256": "7f128e167324903e3e38bce6c94787e98cb0efb6e832c22472aa2a8485f39ae5",
+      "bytes": 727
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/reactions/core/icons/home-domestic/repairing-clothing.svg",
+      "canonical": "assets/svg/admins/creator-forge/reactions/core/icons/craft-construction/repairing-clothing.svg",
+      "sha256": "bec75a79d8704eb05538976ce412feed2b3533d90d4ea71cbb7a07776371beaf",
+      "bytes": 719
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/eveningroutine-playing-games.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-playing-games.svg",
+      "sha256": "771912603455ce640ebf81cbaf96b2fd032e966525a0711355186d95f7c47a4f",
+      "bytes": 439
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-patrolling.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/afternoonroutine-patrolling.svg",
+      "sha256": "50f744fdf2c18bcd6c997292b8a45c83eaebaf8f42ad55b7a77e4d3571e8d9cf",
+      "bytes": 437
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-smuggling.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/criminalsecretactivities-smuggling.svg",
+      "sha256": "7acf5efeeafc3ff0586c5eee66571e066aef94c63b79b0de0a1604500b1cfaa2",
+      "bytes": 436
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-researching.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-researching.svg",
+      "sha256": "afe13d1269a15f554a99b3c0a1ce2b8d55e88d45ea411bf80131aea25b1a7c23",
+      "bytes": 435
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/sleeprest-sleeping.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-sleeping.svg",
+      "sha256": "5d364de58b372dd86b87e577d6f57533662cb8e126d63d2d1f3bc4eacc33204b",
+      "bytes": 435
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-guard-duty.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/nightroutine-guard-duty.svg",
+      "sha256": "c567511a55fcd72f1481abf58509cc52af11630e45cc08c07975d1993b543342",
+      "bytes": 433
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/middayactivehours-shopping.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-shopping.svg",
+      "sha256": "802684f8814d5b2fb10ba87e0ee52ed5a0e0e38728b9f3a4c92db3815e1e58a6",
+      "bytes": 431
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-exercising.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/afternoonroutine-exercising.svg",
+      "sha256": "721594c82eaaacbb5aebb80903c052e52678adcff4aeec572f64b05801799a82",
+      "bytes": 430
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/maintenancedomesticactivities-gardening.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-gardening.svg",
+      "sha256": "3b48fd5e0264237411d3047b4dba4bf480a11e8d6aee85d0c171e2e002e736cb",
+      "bytes": 429
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/eveningroutine-drinking.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-drinking.svg",
+      "sha256": "e4f18ce5fc95d73c6a0d60c48e3f49b310749f6ef6c1c4a85d5f2fbeefbaf5c1",
+      "bytes": 428
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-studying.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/afternoonroutine-studying.svg",
+      "sha256": "0ff949f08b16359af98eb067504ceee4a87d703745d3ba54e8433bcd5a3a7d46",
+      "bytes": 428
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-cleaning.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/maintenancedomesticactivities-cleaning.svg",
+      "sha256": "114dc95c45a780607e46defab33f2af5b10ff7b1a88293d9eb280060d1b9dee7",
+      "bytes": 428
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/middayactivehours-praying.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/magicreligiousactivities-praying.svg",
+      "sha256": "16af26de4db2dc397b186075c01cdeca022676c9b1e98027606d6f53701a2b87",
+      "bytes": 427
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/traveltransit-walking.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-walking.svg",
+      "sha256": "26d9cdb3031d4cb51ccf84b04aaf1a849b508723fb23ab7127a29e1c61f6a57a",
+      "bytes": 427
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/eveningroutine-reading.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/daysoffleisure-reading.svg",
+      "sha256": "912a2c69fb50b7dcb77edb90457d1644cc4ff423d9cfa3255238dd1eefeaf115",
+      "bytes": 427
+    },
+    {
+      "removed": "assets/svg/admins/creator-forge/legacy-activities/workprofessionalduties-cooking.svg",
+      "canonical": "assets/svg/admins/creator-forge/legacy-activities/maintenancedomesticactivities-cooking.svg",
+      "sha256": "c2d2f25e816f23df7b128c3c2d9d99ece3e219cfb8d2f5aee9910bf8656add72",
+      "bytes": 427
+    }
+  ]
+}

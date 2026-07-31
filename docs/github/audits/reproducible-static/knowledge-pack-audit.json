@@ -1,0 +1,23 @@
+{
+  "release": "TableGate 10.0.0",
+  "generatedAt": "2026-07-31T01:30:48Z",
+  "passed": true,
+  "systemCount": 9,
+  "fileCount": 244,
+  "totalBytes": 208836941,
+  "systems": {
+    "01-dungeons-and-dragons": 28,
+    "02-pathfinder": 27,
+    "03-fate-core": 27,
+    "04-gurps": 27,
+    "05-call-of-cthulhu": 27,
+    "06-daggerheart": 27,
+    "07-powered-by-the-apocalypse": 27,
+    "08-savage-worlds": 27,
+    "09-blades-in-the-dark": 27
+  },
+  "catalogPath": "json/tablegate/knowledge-pack/catalog.json",
+  "failures": [],
+  "unlisted": [],
+  "missingFromDisk": []
+}
