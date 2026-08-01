@@ -15,9 +15,9 @@
     backend: lock.deployment || "https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec",
     backendLibrary: lock.library || "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/8",
     backendLibraryId: "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
-    backendLibraryVersion: 6,
+    backendLibraryVersion: 8,
     dialogueLimits: Object.freeze({ maxMessageChars: 8000, maxContextChars: 120000, maxTurnsPerNpc: 500, maxPlayers: 24, timeoutMs: 30000 }),
-    acceptedExtensions: Object.freeze(["json", "csv", "tsv", "txt", "md", "svg", "png", "jpg", "jpeg", "webp", "zip", "lifesim"]),
+    acceptedExtensions: Object.freeze(["json", "csv", "tsv", "txt", "md", "html", "docx", "svg", "png", "jpg", "jpeg", "webp", "zip", "lifesim"]),
     precedence: Object.freeze({ generated: 10, project: 30, scoped: 50, manual: 70, locked: 100 }),
     genderIdentities: genders,
     eraLabels: Object.freeze([
