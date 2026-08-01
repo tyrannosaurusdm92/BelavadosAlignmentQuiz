@@ -47,6 +47,8 @@ function genericModuleSrcdoc(kind, context, rootUrl) {
     const root=document.getElementById('toolRoot');
     window.State=${json({user:context.user,server:context.server,members:context.members||[],channel:null})};
     window.$=(s,r=document)=>r.querySelector(s); window.$$=(s,r=document)=>[...r.querySelectorAll(s)];
+    window.esc=value=>String(value==null?'':value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    window.uid=()=>globalThis.crypto?.randomUUID?.()||('tg_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10));
     window.Store={get:(k,d=null)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(_){return d}},set:(k,v)=>{localStorage.setItem(k,JSON.stringify(v));return v},remove:k=>localStorage.removeItem(k)};
     window.CampaignIsolation={serverId:()=>State.server.id,canCreate:()=>true};
     window.API={call:async()=>({ok:true,localOnly:true})};

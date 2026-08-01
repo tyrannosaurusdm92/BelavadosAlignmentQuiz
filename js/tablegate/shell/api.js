@@ -50,7 +50,10 @@ export class TableGateApi {
   }
   async health() {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), Math.min(this.timeout, 8000));
+    // Apps Script health checks commonly redirect to googleusercontent.com and
+    // can take longer than eight seconds on a cold start. The old limit caused
+    // a false connection failure before a healthy backend could answer.
+    const timer = setTimeout(() => controller.abort(), Math.min(this.timeout, 20000));
     try {
       const join = this.url.includes('?') ? '&' : '?';
       const response = await fetch(`${this.url}${join}action=health&_=${Date.now()}`, {

@@ -159,6 +159,9 @@ function render(reason = '') {
     roots.composer.hidden = composer.hidden;
     roots.composer.innerHTML = composer.html;
 
+    // Mobile navigation is a two-column drawer: the narrow TableGate/server
+    // rail and its contextual section rail must move together.
+    roots.rail.classList.toggle('open', Boolean(state.navOpen));
     roots.context.classList.toggle('open', Boolean(state.navOpen));
     roots.detail.classList.toggle('open', Boolean(state.detailOpen));
     roots.backdrop.hidden = !(state.navOpen || state.detailOpen);
@@ -191,6 +194,17 @@ function closeModal() {
   modalMode = '';
 }
 
+function setConnectionFromError(error) {
+  if (!navigator.onLine) {
+    state.connection = 'offline';
+    return;
+  }
+  const transportCodes = new Set(['NETWORK_ERROR', 'TIMEOUT', 'INVALID_RESPONSE']);
+  // A permission, validation, or bad-credentials response proves the backend
+  // answered. It must not be mislabeled as a connection failure.
+  state.connection = error instanceof ApiError && !transportCodes.has(error.code) ? 'online' : 'error';
+}
+
 async function run(label, fn, { quiet = false, success = '', rerender = true } = {}) {
   try {
     const result = await fn();
@@ -200,7 +214,7 @@ async function run(label, fn, { quiet = false, success = '', rerender = true } =
     return result;
   } catch (error) {
     const message = error instanceof ApiError ? error.message : (error?.message || 'Something went wrong.');
-    state.connection = navigator.onLine ? 'error' : 'offline';
+    setConnectionFromError(error);
     if (!quiet) toast(message, 'danger', 6500);
     console.error(`[TableGate:${label}]`, error);
     emit(`${label}-error`);
@@ -445,7 +459,7 @@ async function pollEvents() {
     if (hasMessages && (state.activeChannelId || state.activeDmId)) await loadMessages({ quiet: true });
     if (hasSideData) await refreshSideData();
   } catch (error) {
-    state.connection = navigator.onLine ? 'error' : 'offline';
+    setConnectionFromError(error);
     emit('poll-error');
   }
 }
@@ -636,7 +650,7 @@ async function handleAuthForm(form, name) {
     }
   } catch (error) {
     const message = error instanceof ApiError ? error.message : (error?.message || 'The account request failed.');
-    state.connection = navigator.onLine ? 'error' : 'offline';
+    setConnectionFromError(error);
     if (error?.code === 'EMAIL_NOT_VERIFIED') {
       state.authTab = 'verify';
       state.pendingAuthEmail = data.email || state.pendingAuthEmail;
@@ -1003,14 +1017,27 @@ async function handleAction(button, action) {
     }
     case 'open-demo': {
       stopPolling();
-      setMode('demo');
+      setMode('demo', { persist: false });
       api = createApi();
-      setApiToken('demo_token');
+      state.token = 'demo_token';
       state.authenticated = true;
       state.authMessage = '';
       setView('profile');
       await hydrateSession();
       toast('Interface preview opened. Sample data stays in this browser.', 'info');
+      return;
+    }
+    case 'use-backend': {
+      stopPolling();
+      setToken('');
+      setMode('backend');
+      api = createApi();
+      state.authenticated = false;
+      state.me = null;
+      state.authMessage = '';
+      state.connection = 'checking';
+      emit('use-backend');
+      testConnection({ quiet: true });
       return;
     }
     case 'navigate': {
@@ -1265,9 +1292,15 @@ async function handleAction(button, action) {
       return;
     }
     case 'logout': {
-      await run('logout', () => api.request('logout'), { quiet: true, rerender: false });
+      const wasDemo = state.mode === 'demo';
+      if (!wasDemo) await run('logout', () => api.request('logout'), { quiet: true, rerender: false });
       stopPolling();
       setApiToken('');
+      if (wasDemo) {
+        setMode('backend');
+        api = createApi();
+        state.connection = 'checking';
+      }
       state.authenticated = false;
       state.me = null;
       state.activeTablegate = null;
@@ -1277,6 +1310,7 @@ async function handleAction(button, action) {
       state.messages = [];
       state.authMessage = '';
       emit('logout');
+      if (wasDemo) testConnection({ quiet: true });
       return;
     }
     default: console.debug('Unhandled TableGate action:', action, d);
@@ -1429,6 +1463,7 @@ handleAction = async function patchedHandleAction(button, action) {
 async function bootstrap() {
   setDocumentTheme(state.theme);
   render('bootstrap');
+  globalThis.TableGateBoot?.ready?.();
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     navigator.serviceWorker.register('./service-worker.js').catch(error => console.warn('Service worker registration failed:', error));
   }
@@ -1436,7 +1471,9 @@ async function bootstrap() {
   if (state.mode === 'demo') api = new DemoApi();
   else api = new TableGateApi({ token: state.token, url: CONFIG.BACKEND_URL });
 
-  await testConnection({ quiet: true });
+  // Connection status must never hold the login screen or a saved session
+  // hostage. Let it settle in parallel while auth and invite state hydrate.
+  testConnection({ quiet: true });
   await processAuthFromUrl();
   if (state.token && !state.authenticated) {
     state.authenticated = true;

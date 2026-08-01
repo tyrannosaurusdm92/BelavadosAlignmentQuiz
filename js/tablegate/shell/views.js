@@ -42,7 +42,7 @@ function cardLogo(tablegate) {
 
 export function renderAuth(state) {
   const modeText = state.mode === 'demo'
-    ? 'Interface preview mode'
+    ? 'Interface preview mode — sample data only'
     : state.connection === 'online' ? 'Backend connected'
       : state.connection === 'error' ? 'Backend connection failed'
         : 'Checking backend connection';
@@ -105,9 +105,10 @@ export function renderAuth(state) {
         ${connectionNotice}
         ${state.authMessage ? `<div class="notice ${state.authMessage.startsWith('Error:') ? 'danger' : 'info'} auth-status">${escapeHtml(state.authMessage)}</div>` : ''}
         ${form}
+        ${state.mode === 'demo' ? `<button class="btn primary" type="button" data-action="use-backend">Return to live TableGate sign-in</button>` : ''}
         <button class="btn danger" type="button" data-action="open-anonymous-safety-report">${icon('shield')} Report a safety concern without signing in</button>
         <button class="btn demo-button" data-action="open-demo">Open interface preview</button>
-        <p class="helper">Preview mode stores sample data only in this browser. Normal sign-in uses the supplied TableGate V8 Apps Script deployment.</p>
+        <p class="helper">Preview mode is temporary and stores sample data only in this browser. Signing out always returns to the live TableGate V8 account system.</p>
       </div>
     </section>`;
 }
