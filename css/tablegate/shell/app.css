@@ -1,0 +1,140 @@
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+html { background: var(--bg); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--cyan-40) 36%, transparent), transparent 36rem),
+    radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--blue-40) 24%, transparent), transparent 34rem),
+    var(--bg);
+  color: var(--text);
+  font: 15px/1.45 var(--font-ui);
+}
+button, input, select, textarea { font: inherit; }
+button { color: inherit; }
+a { color: var(--cyan-112); }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 2px solid var(--cyan-100); outline-offset: 2px; }
+.skip-link {
+  position: fixed; top: -80px; left: 12px; z-index: 9999;
+  padding: 10px 14px; border-radius: var(--radius-sm);
+  background: var(--cyan-100); color: var(--cyan-void); font-weight: 800;
+}
+.skip-link:focus { top: 12px; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--app-rail-width) var(--context-width) minmax(0, 1fr) var(--detail-width);
+  height: 100dvh;
+  width: 100%;
+  isolation: isolate;
+}
+.app-rail, .context-rail, .detail-rail, .workspace { min-height: 0; }
+.app-rail {
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  padding: 10px 8px max(10px, env(safe-area-inset-bottom));
+  background: #000b0b;
+  border-right: 1px solid var(--line);
+  overflow: hidden auto;
+  scrollbar-width: none;
+}
+.app-rail::-webkit-scrollbar { display: none; }
+.context-rail {
+  background: color-mix(in srgb, var(--surface) 84%, #000 16%);
+  border-right: 1px solid var(--line);
+  overflow: hidden auto;
+}
+.detail-rail {
+  background: color-mix(in srgb, var(--surface) 74%, #000 26%);
+  border-left: 1px solid var(--line);
+  overflow: hidden auto;
+}
+.workspace {
+  display: grid;
+  grid-template-rows: var(--topbar-height) minmax(0, 1fr) auto;
+  min-width: 0;
+  background: color-mix(in srgb, var(--bg-elevated) 92%, transparent);
+}
+.topbar {
+  display: flex; align-items: center; gap: 12px;
+  min-width: 0; padding: 8px 16px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-elevated) 92%, transparent);
+  backdrop-filter: blur(16px);
+  z-index: 20;
+}
+.main-content { min-height: 0; overflow: auto; padding: 22px; scroll-padding-bottom: 110px; }
+.composer-root { padding: 0 18px 18px; background: linear-gradient(transparent, var(--bg-elevated) 38%); }
+.mobile-nav { display: none; }
+
+/* Signed-in profile is the social home. The existing shell remains the TTRPG workspace. */
+.app-shell[data-view="profile"] { grid-template-columns: var(--app-rail-width) var(--context-width) minmax(0, 1fr); }
+.app-shell[data-view="profile"] .detail-rail { display: none; }
+.app-shell[data-view="profile"] .workspace { grid-template-rows: minmax(0, 1fr); background: #00080c; }
+.app-shell[data-view="profile"] .topbar,
+.app-shell[data-view="profile"] .composer-root { display: none !important; }
+.app-shell[data-view="profile"] .main-content { padding: 0; overflow: hidden; scroll-padding-bottom: 0; background: #00080c; }
+.profile-frame-shell { width: 100%; height: 100%; min-height: 0; background: #00080c; }
+.profile-frame { display: block; width: 100%; height: 100%; border: 0; background: #00080c; }
+
+.drawer-backdrop { position: fixed; inset: 0; z-index: 70; background: var(--overlay); backdrop-filter: blur(3px); }
+
+.auth-shell {
+  min-height: 100dvh;
+  display: grid; grid-template-columns: minmax(320px, .85fr) minmax(420px, 1.15fr);
+  overflow: auto;
+}
+.auth-brand {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(28px, 5vw, 72px);
+  background:
+    linear-gradient(160deg, rgba(0, 255, 255, .13), transparent 50%),
+    linear-gradient(330deg, rgba(30, 144, 255, .16), transparent 45%),
+    #000b0b;
+  border-right: 1px solid var(--line);
+}
+.auth-brand::after {
+  content: ""; position: absolute; inset: auto -18% -26% 8%; aspect-ratio: 1;
+  border-radius: 50%; border: 1px solid rgba(0,255,255,.16);
+  box-shadow: 0 0 0 50px rgba(0,255,255,.025), 0 0 0 100px rgba(0,255,255,.018);
+  pointer-events: none;
+}
+.auth-logo { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+.auth-logo img { width: 82px; height: 82px; border-radius: 50%; box-shadow: 0 0 0 3px var(--cyan-100), var(--shadow); }
+.auth-logo h1 { margin: 0; font: 800 clamp(2rem, 4vw, 3.4rem)/1 var(--font-display); letter-spacing: .02em; }
+.auth-tagline { max-width: 660px; position: relative; z-index: 1; }
+.auth-tagline h2 { margin: 0 0 14px; font-size: clamp(1.55rem, 3vw, 2.6rem); }
+.auth-tagline p { max-width: 55ch; color: var(--muted); font-size: 1.04rem; }
+.auth-credit { position: relative; z-index: 1; max-width: 78ch; color: var(--muted); font-size: .84rem; }
+.auth-panel { display: grid; place-items: center; padding: clamp(22px, 5vw, 64px); }
+.auth-card { width: min(500px, 100%); }
+.noscript { margin: 30px; padding: 20px; background: var(--surface); border: 1px solid var(--line); }
+
+.page { width: min(1180px, 100%); margin: 0 auto; }
+.page-wide { width: 100%; }
+.page-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
+.page-header h1 { margin: 0; font: 750 clamp(1.6rem, 3vw, 2.4rem)/1.1 var(--font-display); }
+.page-header p { margin: 7px 0 0; color: var(--muted); }
+.page-actions { display: flex; gap: 9px; flex-wrap: wrap; justify-content: flex-end; }
+.section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 26px 0 12px; }
+.section-title h2, .section-title h3 { margin: 0; font-size: 1.05rem; }
+.empty-state { display: grid; place-items: center; min-height: 230px; text-align: center; padding: 34px; color: var(--muted); }
+.empty-state .icon { font-size: 2.6rem; margin-bottom: 10px; }
+.loading-state { display: grid; place-items: center; min-height: 220px; color: var(--muted); }
+
+.credit-line { color: var(--muted); font-size: .78rem; line-height: 1.35; }
+
+/* Mobile drawers must sit above the sibling backdrop. Avoid trapping their
+   z-index inside a separate app-shell stacking context. */
+.app-shell { isolation: auto; }
+
+/* Cohesive embedded workspaces */
+.embedded-tool-shell{width:100%;height:100%;min-height:calc(100vh - 58px);overflow:hidden;background:var(--bg)}
+.embedded-tool-frame{display:block;width:100%;height:100%;min-height:calc(100vh - 58px);border:0;background:#001010}
+.app-shell[data-view="systems"] .main-content,.app-shell[data-view="organizer"] .main-content{padding:0;overflow:hidden}
+.app-shell[data-view="systems"] .detail-rail,.app-shell[data-view="organizer"] .detail-rail{display:none}

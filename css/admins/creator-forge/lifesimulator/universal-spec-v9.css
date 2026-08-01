@@ -1,0 +1,50 @@
+#universalV9Panel .universal-biome-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 16px 0;
+}
+
+#universalV9Panel .universal-biome-row {
+  background: color-mix(in srgb, var(--panel, #071d24) 88%, #00ffff 12%);
+  border: 1px solid rgba(0, 255, 255, .24);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  padding: 12px;
+}
+
+#universalV9Panel .universal-preview {
+  max-height: 540px;
+  overflow: auto;
+}
+
+#universalV9Panel .universal-preview table {
+  border-collapse: collapse;
+  font-size: 13px;
+  width: 100%;
+}
+
+#universalV9Panel .universal-preview th,
+#universalV9Panel .universal-preview td {
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  padding: 9px;
+  text-align: left;
+  vertical-align: top;
+}
+
+#universalV9Panel .universal-errors,
+#universalV9Panel [data-status="error"] {
+  border-color: #ff6d7a;
+  color: #ffd8dc;
+}
+
+#universalV9Panel [data-status="success"] {
+  border-color: #54e6a7;
+  color: #cffff0;
+}
+
+@media (max-width: 980px) {
+  #universalV9Panel .universal-biome-grid { grid-template-columns: 1fr; }
+}
