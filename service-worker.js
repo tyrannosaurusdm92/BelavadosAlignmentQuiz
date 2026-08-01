@@ -1,73 +1,35 @@
-const CACHE = 'tablegate-frontend-recovery-v9-20260801-1';
-const REQUIRED_SHELL = [
-  './tablegate.html',
-  './manifest.webmanifest',
-  './css/tablegate/shell/tokens.css',
-  './css/tablegate/shell/app.css',
-  './css/tablegate/shell/components.css',
-  './css/tablegate/shell/responsive.css',
+const CACHE = 'tablegate-repair-v10-20260801';
+const CORE = [
+  './tablegate.html', './manifest.webmanifest',
+  './css/tablegate/shell/tokens.css', './css/tablegate/shell/app.css',
+  './css/tablegate/shell/components.css', './css/tablegate/shell/responsive.css',
   './css/tablegate/shell/workspaces.css',
-  './js/tablegate/shell/tablegate-shell.bundle.js',
+  './js/tablegate/shell/config.js', './js/tablegate/shell/profile-template.js',
+  './js/tablegate/shell/utils.js', './js/tablegate/shell/demo-data.js',
+  './js/tablegate/shell/api.js', './js/tablegate/shell/state.js',
+  './js/tablegate/shell/views.js', './js/tablegate/shell/workspaces.js',
+  './js/tablegate/shell/workspace-templates.js', './js/tablegate/shell/app.js',
+  './json/tablegate/knowledge-pack/catalog.json',
+  './json/admins/lifesimulator/universal-spec-v9.json',
   './assets/images/tablegate/icons/tablegate-icon-192.png',
   './assets/images/tablegate/icons/tablegate-icon-512.png',
   './assets/images/tablegate/icons/favicon.ico'
 ];
 
 self.addEventListener('install', event => event.waitUntil(
-  caches.open(CACHE)
-    .then(cache => cache.addAll(REQUIRED_SHELL))
-    .then(() => self.skipWaiting())
+  caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())
 ));
 
 self.addEventListener('activate', event => event.waitUntil(
-  caches.keys()
-    .then(keys => Promise.all(keys.filter(key => key.startsWith('tablegate-') && key !== CACHE).map(key => caches.delete(key))))
-    .then(() => self.clients.claim())
+  caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())
 ));
-
-function shouldUseNetworkFirst(request, url) {
-  return request.mode === 'navigate' || /\.(?:html?|js|css|webmanifest)$/.test(url.pathname) || url.pathname.endsWith('/service-worker.js');
-}
-
-async function networkFirst(request) {
-  try {
-    const response = await fetch(request);
-    if (response.ok) {
-      const cache = await caches.open(CACHE);
-      await cache.put(request, response.clone());
-    }
-    return response;
-  } catch (_) {
-    const cached = await caches.match(request);
-    if (cached) return cached;
-    if (request.mode === 'navigate') return caches.match('./tablegate.html');
-    return Response.error();
-  }
-}
-
-async function cacheFirst(request) {
-  const cached = await caches.match(request);
-  if (cached) return cached;
-  const response = await fetch(request);
-  if (response.ok) {
-    const cache = await caches.open(CACHE);
-    await cache.put(request, response.clone());
-  }
-  return response;
-}
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
-  event.respondWith(shouldUseNetworkFirst(event.request, url) ? networkFirst(event.request) : cacheFirst(event.request));
-});
-
-self.addEventListener('message', event => {
-  if (event.data?.type !== 'CLEAR_TABLEGATE_CACHES') return;
-  event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key.startsWith('tablegate-')).map(key => caches.delete(key))))
-      .then(() => self.skipWaiting())
-  );
+  event.respondWith(caches.match(event.request).then(hit => hit || fetch(event.request).then(response => {
+    if (response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+    return response;
+  }).catch(() => event.request.mode === 'navigate' ? caches.match('./tablegate.html') : Response.error())));
 });

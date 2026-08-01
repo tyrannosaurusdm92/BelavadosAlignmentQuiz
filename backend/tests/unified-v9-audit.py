@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MAX_FILE = 24_000_000
 MAX_FILES_PER_DIR = 900
-BACKEND = "https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec"
+BACKEND = "https://script.google.com/macros/s/AKfycbyqw2pg_-I8i8jP-nIVq4ATC_bw0fRNFi_yhM044TnbRtbuiEt98Btg1Q0ZnQRsIpItag/exec"
 LIBRARY_ID = "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr"
 
 
@@ -78,8 +78,8 @@ def main() -> int:
             fail(errors, f"{name} does not contain authoritative backend URL")
         if LIBRARY_ID not in text:
             fail(errors, f"{name} does not contain authoritative library ID")
-    if not re.search(r"BACKEND_LIBRARY_VERSION:\s*['\"]8['\"]", config):
-        fail(errors, "shell library version is not 8")
+    if not re.search(r"BACKEND_LIBRARY_VERSION:\s*['\"]10['\"]", config):
+        fail(errors, "shell library version is not 10")
     if not re.search(r"backendLibraryVersion:\s*8", life_config):
         fail(errors, "Life Simulator library version is not 8")
 

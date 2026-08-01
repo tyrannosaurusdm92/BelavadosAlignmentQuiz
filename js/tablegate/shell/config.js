@@ -1,10 +1,10 @@
 export const CONFIG = Object.freeze({
   APP_NAME: 'TableGate',
-  VERSION: '9.0.1-frontend-recovery',
+  VERSION: '9.0.0-unified-rebuild',
   API_VERSION: '8.0.0-final',
-  BACKEND_URL: 'https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec',
+  BACKEND_URL: 'https://script.google.com/macros/s/AKfycbyqw2pg_-I8i8jP-nIVq4ATC_bw0fRNFi_yhM044TnbRtbuiEt98Btg1Q0ZnQRsIpItag/exec',
   BACKEND_LIBRARY_ID: '18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr',
-  BACKEND_LIBRARY_VERSION: '8',
+  BACKEND_LIBRARY_VERSION: '10',
   CREDIT: 'Created By William Saville AKA The Transgender T-Rex #TheTransgenderTrex · developer of Belavadös Galaxy TTRPG System',
   REQUEST_TIMEOUT_MS: 30000,
   EVENT_POLL_MS: 4500,

@@ -2,7 +2,7 @@
 
 The browser uses the supplied V8 Apps Script deployment and does not replace backend routes with local imitations outside preview mode.
 
-- Deployment URL: `https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec`
+- Deployment URL: `https://script.google.com/macros/s/AKfycbyqw2pg_-I8i8jP-nIVq4ATC_bw0fRNFi_yhM044TnbRtbuiEt98Btg1Q0ZnQRsIpItag/exec`
 - Library ID: `18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr`
 - Library version: `8`
 - API target: `8.0.0-final`

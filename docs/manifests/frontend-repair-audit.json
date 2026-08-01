@@ -1,0 +1,165 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "authoritative backend URL",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend library version 10",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "demo mode session scoped",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "logout returns to backend mode",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "login supports optional 2FA challenge",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "registration does not require verification",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "community verification gate exists",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeCreateTablegate_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeJoinPublicTablegate_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeRequestTablegateJoin_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeJoinInvite_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeCreateGroupFinderPost_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeExpressGroupFinderInterest_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeSendMessage_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeCreateDm_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "routeCreateGroupDm_ email gate",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action followUser",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action unfollowUser",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action listFollowers",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action listFollowing",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action setFollowNotificationPreference",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action getUserProfile",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action verifyTwoFactor",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action requestPhoneVerification",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action verifyPhone",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action getTwoFactor",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action setTwoFactor",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action resendTwoFactor",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action listSharedLibrary",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "backend action getSharedLibraryFile",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "public profile UI",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "profile URL UI",
+      "passed": true,
+      "details": ""
+    }
+  ]
+}

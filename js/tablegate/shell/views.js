@@ -42,7 +42,7 @@ function cardLogo(tablegate) {
 
 export function renderAuth(state) {
   const modeText = state.mode === 'demo'
-    ? 'Interface preview mode — sample data only'
+    ? 'Interface preview mode'
     : state.connection === 'online' ? 'Backend connected'
       : state.connection === 'error' ? 'Backend connection failed'
         : 'Checking backend connection';
@@ -57,6 +57,13 @@ export function renderAuth(state) {
       <label class="field"><span>Invite code <small>(optional)</small></span><input name="inviteCode" autocomplete="off"></label>
       <label class="checkbox"><input type="checkbox" required><span>I understand that group roles do not override personal boundaries or TableGate safety rules.</span></label>
       <button class="btn primary" type="submit">Create free account</button>
+    </form>` : tab === 'twofactor' ? `
+    <form class="auth-form" data-form="verify-two-factor">
+      <label class="field"><span>Email</span><input name="email" type="email" autocomplete="username" value="${savedEmail}" required></label>
+      <label class="field"><span>Two-factor code</span><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="12" required></label>
+      <button class="btn primary" type="submit">Verify and sign in</button>
+      <button class="btn ghost" type="button" data-action="resend-two-factor" data-email="${savedEmail}">Send a new code</button>
+      <button class="btn ghost" type="button" data-action="auth-tab" data-tab="login">Back to sign in</button>
     </form>` : tab === 'forgot' ? `
     <form class="auth-form" data-form="forgot-password">
       <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" value="${savedEmail}" required></label>
@@ -84,7 +91,7 @@ export function renderAuth(state) {
       <button class="btn primary" type="submit">Sign in</button>
       <button class="btn ghost" type="button" data-action="auth-tab" data-tab="forgot">Forgot password</button>
     </form>`;
-  const titles = {register:'Create your account',forgot:'Request a reset code',reset:'Choose a new password',verify:'Verify your email',login:'Welcome back'};
+  const titles = {register:'Create your account',forgot:'Request a reset code',reset:'Choose a new password',verify:'Verify your email',twofactor:'Two-factor verification',login:'Welcome back'};
   const connectionNotice = state.mode !== 'demo' && state.connection === 'error'
     ? `<div class="notice danger auth-status"><strong>The shell loaded, but the backend did not answer.</strong><br>Confirm that <code>setupTablegate()</code> was run and that the Apps Script web app is deployed as <strong>Execute as me</strong> with access set to <strong>Anyone</strong>.<div class="form-actions" style="justify-content:flex-start;margin-top:10px"><button class="btn" data-action="test-connection">Retry connection</button></div></div>`
     : '';
@@ -105,10 +112,9 @@ export function renderAuth(state) {
         ${connectionNotice}
         ${state.authMessage ? `<div class="notice ${state.authMessage.startsWith('Error:') ? 'danger' : 'info'} auth-status">${escapeHtml(state.authMessage)}</div>` : ''}
         ${form}
-        ${state.mode === 'demo' ? `<button class="btn primary" type="button" data-action="use-backend">Return to live TableGate sign-in</button>` : ''}
         <button class="btn danger" type="button" data-action="open-anonymous-safety-report">${icon('shield')} Report a safety concern without signing in</button>
         <button class="btn demo-button" data-action="open-demo">Open interface preview</button>
-        <p class="helper">Preview mode is temporary and stores sample data only in this browser. Signing out always returns to the live TableGate V8 account system.</p>
+        <p class="helper">Preview mode stores sample data only in this browser. Normal sign-in uses the supplied TableGate V8 Apps Script deployment.</p>
       </div>
     </section>`;
 }
@@ -228,7 +234,7 @@ export function renderTopbar(state) {
 
 function renderProfile(state) {
   const name=state.me?.displayTag||state.me?.username||'TableGate User';
-  return `<div class="profile-frame-shell"><iframe id="tablegateProfileFrame" class="profile-frame" title="${escapeAttr(name)} profile" data-profile-user-id="${escapeAttr(state.me?.id||state.me?.email||state.me?.username||'local')}" data-profile-name="${escapeAttr(state.me?.username||name)}" data-profile-handle="${escapeAttr('@'+String(state.me?.username||'tablegate-user').replace(/^@/,''))}"></iframe></div>`;
+  const profileUrl=state.me?.profileUrl||('/'+encodeURIComponent(state.me?.profileSlug||state.me?.username||'tablegater')); const verified=Boolean(state.me?.emailVerified); return `<div class="page page-wide"><div class="card card-pad profile-public-link"><div><strong>Public profile</strong><div class="helper">${escapeHtml(profileUrl)}</div></div><div class="form-actions"><a class="btn" href="${escapeAttr(profileUrl)}" target="_blank" rel="noopener">Open profile link</a></div></div>${verified?'':`<div class="notice warning"><strong>Email verification required for community actions.</strong> You can keep your account and profile, but verify your email before creating or joining a TableGate, posting in Group Finder, or using messaging.</div>`}<div class="profile-frame-shell"><iframe id="tablegateProfileFrame" class="profile-frame" title="${escapeAttr(name)} profile" data-profile-user-id="${escapeAttr(state.me?.id||state.me?.email||state.me?.username||'local')}" data-profile-name="${escapeAttr(state.me?.username||name)}" data-profile-handle="${escapeAttr('@'+String(state.me?.username||'tablegate-user').replace(/^@/,''))}"></iframe></div></div>`;
 }
 
 function renderHome(state) {
@@ -346,17 +352,30 @@ function renderSafety(state) {
 function renderSettings(state) {
   return `<div class="page">${pageHeader('Settings','Appearance, profile, presence, and backend connection.')}
     <div class="grid-2"><section class="card card-pad"><h2>Appearance</h2><form class="auth-form" data-form="settings-theme"><label class="field"><span>Theme</span><select name="theme"><option value="dark" ${state.theme==='dark'?'selected':''}>Dark</option><option value="light" ${state.theme==='light'?'selected':''}>Light</option><option value="system" ${state.theme==='system'?'selected':''}>System</option></select></label><button class="btn primary" type="submit">Save appearance</button></form></section>
-    <section class="card card-pad"><h2>Profile & presence</h2><form class="auth-form" data-form="settings-profile"><label class="field"><span>Bio</span><textarea name="bio">${escapeHtml(state.me?.bio||'')}</textarea></label><label class="field"><span>Status</span><select name="status">${['ONLINE','IDLE','DO_NOT_DISTURB','OFFLINE'].map(s=>`<option ${state.me?.status===s?'selected':''}>${s}</option>`).join('')}</select></label><label class="field"><span>Custom status</span><input name="customStatus" value="${escapeAttr(state.me?.customStatus||'')}"></label><button class="btn primary" type="submit">Update profile</button></form></section>
+    <section class="card card-pad"><h2>Profile & presence</h2><form class="auth-form" data-form="settings-profile"><label class="field"><span>Profile URL</span><input name="profileSlug" value="${escapeAttr(state.me?.profileSlug||state.me?.username||'')}" minlength="2" maxlength="48" pattern="[a-z0-9][a-z0-9-]{1,47}" required><small class="helper">Your public link is /${escapeHtml(state.me?.profileSlug||state.me?.username||'tablegater')}</small></label><label class="field"><span>Bio</span><textarea name="bio">${escapeHtml(state.me?.bio||'')}</textarea></label><label class="field"><span>Status</span><select name="status">${['ONLINE','IDLE','DO_NOT_DISTURB','OFFLINE'].map(s=>`<option ${state.me?.status===s?'selected':''}>${s}</option>`).join('')}</select></label><label class="field"><span>Custom status</span><input name="customStatus" value="${escapeAttr(state.me?.customStatus||'')}"></label><button class="btn primary" type="submit">Update profile</button></form></section>
+    <section class="card card-pad"><h2>Two-factor verification</h2><form class="auth-form" data-form="settings-2fa"><label class="checkbox"><input name="enabled" type="checkbox" ${state.me?.twoFactorEnabled?'checked':''}><span>Require a verification code when signing in</span></label><label class="field"><span>Delivery method</span><select name="method"><option value="EMAIL" ${state.me?.twoFactorMethod==='EMAIL'||!state.me?.twoFactorMethod?'selected':''}>Email</option><option value="PHONE" ${state.me?.twoFactorMethod==='PHONE'?'selected':''}>Phone</option></select></label><label class="field"><span>Phone number</span><input name="phone" value="${escapeAttr(state.me?.phone||'')}" placeholder="+1 555 555 5555"></label><p class="helper">Email 2FA is available after email verification. Phone 2FA requires the configured SMS provider and verified phone number.</p><button class="btn primary" type="submit">Save two-factor settings</button></form></section>
     <section class="card card-pad"><h2>Connection</h2><p><strong>Mode:</strong> ${escapeHtml(state.mode)}</p><p><strong>Backend:</strong> <code>${escapeHtml(CONFIG.BACKEND_URL)}</code></p><p><strong>API target:</strong> ${escapeHtml(CONFIG.API_VERSION)}</p><div class="form-actions" style="justify-content:flex-start"><button class="btn" data-action="test-connection">Test connection</button>${state.mode==='demo'?`<button class="btn" data-action="reset-demo">Reset preview data</button>`:''}</div></section>
     <section class="card card-pad"><h2>Account</h2><p>${escapeHtml(userName(state.me))}</p><p class="helper">Signing out clears the local session token. It does not delete your TableGate account.</p><button class="btn danger" data-action="logout">Sign out</button></section></div>
     <p class="credit-line" style="margin-top:24px">${escapeHtml(CONFIG.CREDIT)}</p>
   </div>`;
 }
 function renderTablegate(state) { return renderMessages(state); }
+
+function renderPublicProfile(state) {
+  const p=state.publicProfile?.user||state.publicProfile||{}; const rel=state.publicProfile?.relationship||{};
+  const slug=p.profileSlug||p.username||''; const url=p.profileUrl||('/'+encodeURIComponent(slug));
+  return `<div class="page page-wide">${pageHeader(escapeHtml(p.displayTag||p.username||'TableGate profile'),p.bio||'Public TableGate social profile',`<a class="btn" href="${escapeAttr(url)}">Profile link</a>`)}
+    <div class="stat-grid"><div class="card stat-card"><strong>${Number(p.followerCount||0)}</strong><span>followers</span></div><div class="card stat-card"><strong>${Number(p.followingCount||0)}</strong><span>following</span></div><div class="card stat-card"><strong>${Number(p.friendCount||0)}</strong><span>friends</span></div></div>
+    <section class="card card-pad"><div class="finder-owner">${avatar(p)}<div><h2>${escapeHtml(p.displayTag||p.username||'User')}</h2><p class="helper">/${escapeHtml(slug)}</p><p>${escapeHtml(p.bio||'')}</p></div></div><div class="form-actions">${p.id!==state.me?.id?(rel.following?`<button class="btn" data-action="unfollow-public-profile" data-user-id="${escapeAttr(p.id)}">Unfollow</button>`:`<button class="btn primary" data-action="follow-public-profile" data-user-id="${escapeAttr(p.id)}">Follow</button>`):'<span class="helper">This is your public profile.</span>'}</div></section>
+    <div class="grid-2"><section class="card card-pad"><h2>Followers</h2>${state.publicProfileFollowers.slice(0,20).map(x=>`<div class="member-button">${avatar(x.user)}<span><strong>${escapeHtml(userName(x.user))}</strong></span></div>`).join('')||'<p class="helper">No followers yet.</p>'}</section><section class="card card-pad"><h2>Following</h2>${state.publicProfileFollowing.slice(0,20).map(x=>`<div class="member-button">${avatar(x.user)}<span><strong>${escapeHtml(userName(x.user))}</strong></span></div>`).join('')||'<p class="helper">Not following anyone yet.</p>'}</section></div>
+  </div>`;
+}
+
 export function renderMain(state) {
   if (state.loading && !state.me) return loadingState();
   switch(state.view) {
     case 'profile': return renderProfile(state);
+    case 'public-profile': return renderPublicProfile(state);
     case 'discover': return renderDiscover(state);
     case 'finder': return renderFinder(state);
     case 'systems': return renderSystemLibrary();
@@ -373,7 +392,7 @@ export function renderMain(state) {
 }
 
 export function renderDetailRail(state) {
-  if(['profile','systems','organizer','studio'].includes(state.view)) return '';
+  if(['profile','public-profile','systems','organizer','studio'].includes(state.view)) return '';
   if(state.view!=='tablegate'||!state.activeTablegate) return `<div class="detail-head"><h2>TableGate details</h2></div><div class="detail-body"><p class="helper">Open a TableGate to see members and roles.</p></div>`;
   const groups=Object.fromEntries(ROLE_ORDER.map(role=>[role,[]]));
   (state.activeTablegate.members||[]).forEach(member=>groups[getRoleClass(state,member)].push(member));

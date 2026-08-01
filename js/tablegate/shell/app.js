@@ -159,9 +159,6 @@ function render(reason = '') {
     roots.composer.hidden = composer.hidden;
     roots.composer.innerHTML = composer.html;
 
-    // Mobile navigation is a two-column drawer: the narrow TableGate/server
-    // rail and its contextual section rail must move together.
-    roots.rail.classList.toggle('open', Boolean(state.navOpen));
     roots.context.classList.toggle('open', Boolean(state.navOpen));
     roots.detail.classList.toggle('open', Boolean(state.detailOpen));
     roots.backdrop.hidden = !(state.navOpen || state.detailOpen);
@@ -194,17 +191,6 @@ function closeModal() {
   modalMode = '';
 }
 
-function setConnectionFromError(error) {
-  if (!navigator.onLine) {
-    state.connection = 'offline';
-    return;
-  }
-  const transportCodes = new Set(['NETWORK_ERROR', 'TIMEOUT', 'INVALID_RESPONSE']);
-  // A permission, validation, or bad-credentials response proves the backend
-  // answered. It must not be mislabeled as a connection failure.
-  state.connection = error instanceof ApiError && !transportCodes.has(error.code) ? 'online' : 'error';
-}
-
 async function run(label, fn, { quiet = false, success = '', rerender = true } = {}) {
   try {
     const result = await fn();
@@ -214,7 +200,7 @@ async function run(label, fn, { quiet = false, success = '', rerender = true } =
     return result;
   } catch (error) {
     const message = error instanceof ApiError ? error.message : (error?.message || 'Something went wrong.');
-    setConnectionFromError(error);
+    state.connection = navigator.onLine ? 'error' : 'offline';
     if (!quiet) toast(message, 'danger', 6500);
     console.error(`[TableGate:${label}]`, error);
     emit(`${label}-error`);
@@ -240,6 +226,8 @@ async function hydrateSession() {
     state.loading = false;
     if (state.mode !== 'demo') {
       setApiToken('');
+      setMode('backend');
+      api = createApi();
       state.authenticated = false;
       state.authMessage = 'Error: Your session could not be restored. Please sign in again.';
     }
@@ -459,7 +447,7 @@ async function pollEvents() {
     if (hasMessages && (state.activeChannelId || state.activeDmId)) await loadMessages({ quiet: true });
     if (hasSideData) await refreshSideData();
   } catch (error) {
-    setConnectionFromError(error);
+    state.connection = navigator.onLine ? 'error' : 'offline';
     emit('poll-error');
   }
 }
@@ -576,6 +564,15 @@ async function handleAuthForm(form, name) {
     if (name === 'login') {
       const result = await api.request('login', { email: data.email, password: data.password, userAgent: navigator.userAgent });
       state.connection = 'online';
+      if (result.twoFactorRequired && !result.token) {
+        state.authenticated = false;
+        state.authTab = 'twofactor';
+        state.pendingAuthEmail = data.email;
+        state.pendingAuthToken = result.twoFactorChallengeId || '';
+        state.authMessage = `A ${result.twoFactorMethod === 'PHONE' ? 'phone' : 'email'} verification code was sent. Enter it to finish signing in.`;
+        emit('two-factor-required');
+        return;
+      }
       setApiToken(result.token || result.sessionToken || '');
       state.authenticated = true;
       state.me = result.user;
@@ -624,6 +621,25 @@ async function handleAuthForm(form, name) {
       await hydrateSession();
       return;
     }
+    if (name === 'verify-two-factor') {
+      const result = await api.request('verifyTwoFactor', { email: data.email || state.pendingAuthEmail, challengeId: state.pendingAuthToken, code: data.code, userAgent: navigator.userAgent }, {auth:false});
+      state.connection = 'online';
+      state.pendingAuthToken = '';
+      setApiToken(result.token || result.sessionToken || '');
+      state.authenticated = true;
+      state.me = result.user;
+      state.authMessage = '';
+      setView('profile');
+      await hydrateSession();
+      return;
+    }
+    if (name === 'resend-two-factor') {
+      const result = await api.request('resendTwoFactor', { email: data.email || state.pendingAuthEmail }, {auth:false});
+      if (result?.challengeId) state.pendingAuthToken = result.challengeId;
+      state.authMessage = 'A new two-factor code was sent. Older codes may expire or be invalidated for security.';
+      emit('two-factor-resend');
+      return;
+    }
     if (name === 'forgot-password') {
       await api.request('forgotPassword', { email: data.email }, {auth:false});
       state.connection = 'online';
@@ -650,7 +666,7 @@ async function handleAuthForm(form, name) {
     }
   } catch (error) {
     const message = error instanceof ApiError ? error.message : (error?.message || 'The account request failed.');
-    setConnectionFromError(error);
+    state.connection = navigator.onLine ? 'error' : 'offline';
     if (error?.code === 'EMAIL_NOT_VERIFIED') {
       state.authTab = 'verify';
       state.pendingAuthEmail = data.email || state.pendingAuthEmail;
@@ -665,8 +681,14 @@ async function handleAuthForm(form, name) {
 
 async function handleForm(form) {
   const name = form.dataset.form;
-  if (['login', 'register', 'forgot-password', 'verify-email', 'reset-password'].includes(name)) return handleAuthForm(form, name);
+  if (['login', 'register', 'forgot-password', 'verify-email', 'reset-password', 'verify-two-factor'].includes(name)) return handleAuthForm(form, name);
   const data = readForm(form);
+
+  if (name === 'settings-2fa') {
+    const result=await run('settings-2fa',()=>api.request('setTwoFactor',{enabled:data.enabled==='on'||data.enabled==='true',method:data.method||'EMAIL',phone:data.phone||''}),{rerender:false,success:'Two-factor settings saved.'});
+    if(result){state.me=result;emit('settings-2fa');}
+    return;
+  }
 
   if (name === 'global-search') {
     const query = String(data.query || '').trim();
@@ -898,11 +920,11 @@ async function handleForm(form) {
 
   if (name === 'settings-profile') {
     const result = await run('profile', async () => {
-      const profile = await api.request('updateProfile', { bio: data.bio, customStatus: data.customStatus });
+      const profile = await api.request('updateProfile', { bio: data.bio, customStatus: data.customStatus, profileSlug: data.profileSlug });
       await api.request('setPresence', { status: data.status, customStatus: data.customStatus, lastSeenAt: new Date().toISOString() });
       return profile;
     }, { success: 'Profile and presence updated.' });
-    if (result) state.me = result.user || { ...state.me, bio: data.bio, customStatus: data.customStatus, status: data.status };
+    if (result) state.me = result.user || { ...state.me, bio: data.bio, customStatus: data.customStatus, profileSlug:data.profileSlug, status: data.status };
   }
 }
 
@@ -1007,6 +1029,15 @@ async function handleAction(button, action) {
       if (input) input.type = input.type === 'password' ? 'text' : 'password';
       return;
     }
+    case 'resend-two-factor': {
+      const email = state.pendingAuthEmail || button.dataset.email;
+      if (!email) return toast('Enter your email address first.', 'danger');
+      const result = await run('resend-two-factor', () => api.request('resendTwoFactor', { email }, {auth:false}), { rerender:false });
+      if (result?.challengeId) state.pendingAuthToken = result.challengeId;
+      state.authMessage = result ? 'A new two-factor code was sent.' : 'Error: A new two-factor code could not be requested.';
+      emit('resend-two-factor');
+      return;
+    }
     case 'resend-verification': {
       const email = state.pendingAuthEmail;
       if (!email) return toast('Enter your email address first.', 'danger');
@@ -1017,9 +1048,9 @@ async function handleAction(button, action) {
     }
     case 'open-demo': {
       stopPolling();
-      setMode('demo', { persist: false });
+      setMode('demo');
+      setApiToken('demo_token');
       api = createApi();
-      state.token = 'demo_token';
       state.authenticated = true;
       state.authMessage = '';
       setView('profile');
@@ -1027,17 +1058,14 @@ async function handleAction(button, action) {
       toast('Interface preview opened. Sample data stays in this browser.', 'info');
       return;
     }
-    case 'use-backend': {
-      stopPolling();
-      setToken('');
-      setMode('backend');
-      api = createApi();
-      state.authenticated = false;
-      state.me = null;
-      state.authMessage = '';
-      state.connection = 'checking';
-      emit('use-backend');
-      testConnection({ quiet: true });
+    case 'follow-public-profile': {
+      const result=await run('follow-profile',()=>api.request('followUser',{userId:d.userId}),{rerender:false,success:'Following this profile.'});
+      if(result&&state.publicProfile?.user?.id===d.userId){state.publicProfile.relationship={...(state.publicProfile.relationship||{}),following:true};state.publicProfile.user.followerCount=Number(state.publicProfile.user.followerCount||0)+1;emit('follow-profile');}
+      return;
+    }
+    case 'unfollow-public-profile': {
+      const result=await run('unfollow-profile',()=>api.request('unfollowUser',{userId:d.userId}),{rerender:false,success:'Unfollowed.'});
+      if(result&&state.publicProfile?.user?.id===d.userId){state.publicProfile.relationship={...(state.publicProfile.relationship||{}),following:false};state.publicProfile.user.followerCount=Math.max(0,Number(state.publicProfile.user.followerCount||0)-1);emit('unfollow-profile');}
       return;
     }
     case 'navigate': {
@@ -1292,15 +1320,11 @@ async function handleAction(button, action) {
       return;
     }
     case 'logout': {
-      const wasDemo = state.mode === 'demo';
-      if (!wasDemo) await run('logout', () => api.request('logout'), { quiet: true, rerender: false });
+      await run('logout', () => api.request('logout'), { quiet: true, rerender: false });
       stopPolling();
       setApiToken('');
-      if (wasDemo) {
-        setMode('backend');
-        api = createApi();
-        state.connection = 'checking';
-      }
+      setMode('backend');
+      api = createApi();
       state.authenticated = false;
       state.me = null;
       state.activeTablegate = null;
@@ -1310,7 +1334,6 @@ async function handleAction(button, action) {
       state.messages = [];
       state.authMessage = '';
       emit('logout');
-      if (wasDemo) testConnection({ quiet: true });
       return;
     }
     default: console.debug('Unhandled TableGate action:', action, d);
@@ -1425,6 +1448,17 @@ async function processAuthFromUrl() {
   return true;
 }
 
+async function processPublicProfileFromUrl() {
+  const params=new URLSearchParams(location.search); let slug=params.get('profile')||'';
+  if(!slug){const path=location.pathname.split('/').filter(Boolean);const last=path[path.length-1]||'';if(last&&!/^(tablegate(?:\.html)?|index(?:\.html)?)$/i.test(last)&&!/[.]/.test(last))slug=decodeURIComponent(last);}
+  if(!slug) return false;
+  if(!state.authenticated){state.authMessage='Sign in to view this TableGate profile.';state.authTab='login';emit('public-profile-login-required');return false;}
+  const result=await run('public-profile',()=>api.request('getUserProfile',{slug}),{rerender:false});
+  if(!result) return false;
+  state.publicProfile=result; state.publicProfileFollowers=normalizeList(await api.request('listFollowers',{userId:result.user.id})); state.publicProfileFollowing=normalizeList(await api.request('listFollowing',{userId:result.user.id})); setView('public-profile');
+  return true;
+}
+
 async function processInviteFromUrl() {
   const inviteCode = new URLSearchParams(location.search).get('invite');
   if (!inviteCode) return;
@@ -1463,7 +1497,6 @@ handleAction = async function patchedHandleAction(button, action) {
 async function bootstrap() {
   setDocumentTheme(state.theme);
   render('bootstrap');
-  globalThis.TableGateBoot?.ready?.();
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     navigator.serviceWorker.register('./service-worker.js').catch(error => console.warn('Service worker registration failed:', error));
   }
@@ -1471,14 +1504,13 @@ async function bootstrap() {
   if (state.mode === 'demo') api = new DemoApi();
   else api = new TableGateApi({ token: state.token, url: CONFIG.BACKEND_URL });
 
-  // Connection status must never hold the login screen or a saved session
-  // hostage. Let it settle in parallel while auth and invite state hydrate.
-  testConnection({ quiet: true });
+  await testConnection({ quiet: true });
   await processAuthFromUrl();
   if (state.token && !state.authenticated) {
     state.authenticated = true;
     await hydrateSession();
   }
+  await processPublicProfileFromUrl();
   await processInviteFromUrl();
   bootstrapComplete = true;
   render('bootstrap-complete');

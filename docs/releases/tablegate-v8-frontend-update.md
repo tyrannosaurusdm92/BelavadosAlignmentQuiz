@@ -2,7 +2,7 @@
 
 ## Backend lock
 
-- Web app: `https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec`
+- Web app: `https://script.google.com/macros/s/AKfycbyqw2pg_-I8i8jP-nIVq4ATC_bw0fRNFi_yhM044TnbRtbuiEt98Btg1Q0ZnQRsIpItag/exec`
 - Apps Script library: `18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr`, version `8`
 - Frontend route catalog: 354 routes from the attached V8 source, including 37 storage/document/sync/accessibility routes
 - The backend source is intentionally not included in the update archives.
