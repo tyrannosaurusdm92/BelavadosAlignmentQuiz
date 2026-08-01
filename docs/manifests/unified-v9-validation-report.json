@@ -1,0 +1,47 @@
+{
+  "schema": "tablegate.unified-release.validation.v9",
+  "generatedAt": "2026-08-01T10:11:46.670455+00:00",
+  "checks": {
+    "singleHtmlEntry": true,
+    "corruptedLegacyShellExcluded": true,
+    "exactDuplicateGroups": 0,
+    "maxFileBytes": 21433292,
+    "maxDirectFiles": 301,
+    "frontendBackendActionsResolved": 77,
+    "lifeSimulatorProtectedBaselines": 22,
+    "lifeSimulatorBiomeMappings": 61,
+    "archivePathOverlap": 0
+  },
+  "estimatedParts": [
+    {
+      "part": 1,
+      "estimatedCompressedBytes": 109542971,
+      "memberBytes": 156813715
+    },
+    {
+      "part": 2,
+      "estimatedCompressedBytes": 109542996,
+      "memberBytes": 144660159
+    },
+    {
+      "part": 3,
+      "estimatedCompressedBytes": 109542998,
+      "memberBytes": 172888110
+    },
+    {
+      "part": 4,
+      "estimatedCompressedBytes": 109543124,
+      "memberBytes": 151004703
+    },
+    {
+      "part": 5,
+      "estimatedCompressedBytes": 109542989,
+      "memberBytes": 160480718
+    },
+    {
+      "part": 6,
+      "estimatedCompressedBytes": 109543003,
+      "memberBytes": 168405589
+    }
+  ]
+}
