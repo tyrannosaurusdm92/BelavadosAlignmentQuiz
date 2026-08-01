@@ -1,0 +1,46 @@
+{
+  "product": "TableGate",
+  "policy": "COMPLETELY_FREE",
+  "core_features_always_free": true,
+  "prohibited": [
+    "subscriptions",
+    "premium tiers",
+    "paid boosts",
+    "paid ranking",
+    "paid introductions",
+    "paid messages",
+    "paid Right Now reach",
+    "booking fees",
+    "paid seats charged by TableGate",
+    "paywalled safety controls",
+    "paywalled accessibility controls",
+    "paywalled age or content filters",
+    "revenue-based moderation exceptions"
+  ],
+  "free_actions": [
+    "register",
+    "search",
+    "discover",
+    "create TableGate",
+    "join TableGate",
+    "own or administer TableGate",
+    "create channels",
+    "message under contact rules",
+    "create Group Finder posts",
+    "send Interests and applications",
+    "block",
+    "report",
+    "appeal",
+    "use accessibility controls",
+    "use privacy controls",
+    "use age and content filters"
+  ],
+  "data_not_sold": [
+    "precise location",
+    "safety report data",
+    "minor data",
+    "disability data",
+    "identity data",
+    "behavioral data"
+  ]
+}

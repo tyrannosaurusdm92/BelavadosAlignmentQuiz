@@ -1,0 +1,87 @@
+{
+  "backend_version": "8.0.0-final",
+  "permission_bits": {
+    "ADMIN": 1,
+    "MANAGE_TABLEGATE": 2,
+    "MANAGE_CHANNELS": 4,
+    "MANAGE_MESSAGES": 8,
+    "KICK_MEMBERS": 16,
+    "BAN_MEMBERS": 32,
+    "SEND_MESSAGES": 64,
+    "READ_MESSAGES": 128,
+    "CONNECT_VOICE": 256,
+    "SPEAK": 512,
+    "CREATE_INVITE": 1024,
+    "MANAGE_ROLES": 2048,
+    "ATTACH_FILES": 4096,
+    "MENTION_EVERYONE": 8192,
+    "MANAGE_NICKNAMES": 16384,
+    "VIEW_AUDIT_LOG": 32768,
+    "STREAM": 65536,
+    "USE_PERSONAS": 131072,
+    "ROLL_DICE": 262144,
+    "MANAGE_HANDOUTS": 524288,
+    "MANAGE_SYSTEMS": 1048576,
+    "MANAGE_CHARACTERS": 2097152,
+    "USE_MECHANICS": 4194304,
+    "ALL": 8388607
+  },
+  "managed_roles": {
+    "OWNER": {
+      "mask": 8388607,
+      "protected": true,
+      "description": "Protected creator/owner role with all permissions."
+    },
+    "ADMIN": {
+      "mask": 8388607,
+      "protected": false,
+      "description": "Full administration with a configurable TTRPG host title."
+    },
+    "MODERATOR": {
+      "mask": 8378364,
+      "permissions": [
+        "SEND_MESSAGES",
+        "READ_MESSAGES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "ATTACH_FILES",
+        "STREAM",
+        "USE_PERSONAS",
+        "ROLL_DICE",
+        "USE_MECHANICS",
+        "MANAGE_CHANNELS",
+        "MANAGE_MESSAGES",
+        "KICK_MEMBERS",
+        "BAN_MEMBERS",
+        "CREATE_INVITE",
+        "MANAGE_NICKNAMES",
+        "VIEW_AUDIT_LOG",
+        "MANAGE_HANDOUTS",
+        "MANAGE_SYSTEMS",
+        "MANAGE_CHARACTERS"
+      ]
+    },
+    "PLAYER": {
+      "mask": 4658112,
+      "permissions": [
+        "SEND_MESSAGES",
+        "READ_MESSAGES",
+        "CONNECT_VOICE",
+        "SPEAK",
+        "ATTACH_FILES",
+        "STREAM",
+        "USE_PERSONAS",
+        "ROLL_DICE",
+        "USE_MECHANICS"
+      ]
+    },
+    "VISITOR": {
+      "mask": 384,
+      "permissions": [
+        "READ_MESSAGES",
+        "CONNECT_VOICE"
+      ],
+      "channel_modes": ["CHAT", "READ", "OBSERVE", "NONE"]
+    }
+  }
+}

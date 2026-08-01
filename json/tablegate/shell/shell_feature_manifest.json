@@ -1,0 +1,60 @@
+{
+  "name": "TableGate TTRPG Group Finder, Creator, Profiles, Community & Messenger Shell",
+  "version": "3.1.0-dossier-social-group-finder-merged",
+  "scope": "Completely free TTRPG social media, group discovery, group creation, applications, profile, organizer, messaging, role separation, and centralized safety shell.",
+  "in_scope": [
+    "account registration and sign-in",
+    "persistent social profiles with owner/friend/public modes",
+    "posts, media, comments, reactions, friends and direct messages",
+    "TableGate group creation and joining",
+    "Visitor-to-Player approval",
+    "channels and community role permissions",
+    "Group Finder classified posts",
+    "explainable compatibility and hard dealbreakers",
+    "Right Now posts",
+    "public-place radius, venues, and events",
+    "pre-game Interests and applications",
+    "organizer, schedules, reminders, attendance and time zones",
+    "read-only multi-system reference library",
+    "blocking, reporting, private incident journals, evidence-aware safety workflows"
+  ],
+  "not_in_scope": [
+    "campaign or world authoring suite",
+    "map builder or virtual tabletop editor",
+    "Effects Studio or image creator",
+    "AI generation or AI brain management",
+    "homebrew system builder or system-registration studio",
+    "NPC, encounter, handout, item, spell, class, race, rules, or module creation suite",
+    "replacement or modified Apps Script backend",
+    "paid features, subscriptions, boosts, promoted ranking, or premium safety"
+  ],
+  "views": [
+    "profile",
+    "TTRPG hub",
+    "discover TableGates",
+    "Group Finder",
+    "Right Now",
+    "local public events and venues",
+    "TableGate group workspace",
+    "direct messages",
+    "friends and people",
+    "notifications",
+    "organizer",
+    "read-only system reference",
+    "Safety Center",
+    "settings"
+  ],
+  "role_classes": [
+    "OWNER",
+    "ADMIN",
+    "MODERATOR",
+    "PLAYER",
+    "VISITOR"
+  ],
+  "installable": true,
+  "offline_shell_cache": true,
+  "payment_code_present": false,
+  "analytics_or_ad_tracking_present": false,
+  "backend_modified": false,
+  "backend_source_included": false
+}

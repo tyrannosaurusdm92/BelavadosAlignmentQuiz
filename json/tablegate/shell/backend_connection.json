@@ -1,0 +1,38 @@
+{
+  "app": "TableGate",
+  "frontend_version": "3.1.0-dossier-social-group-finder-merged",
+  "backend_api_version": "8.0.0-final",
+  "web_app_url": "https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec",
+  "library_id": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
+  "library_version": "8",
+  "method": "POST",
+  "content_type": "text/plain;charset=utf-8",
+  "request_shape": {
+    "action": "route action name",
+    "token": "session token when authenticated",
+    "parameters": "route-specific fields"
+  },
+  "response_shape": {
+    "success": {
+      "ok": true,
+      "data": "route result"
+    },
+    "failure": {
+      "ok": false,
+      "error": {
+        "code": "string",
+        "message": "string",
+        "details": "optional"
+      }
+    }
+  },
+  "health_check": {
+    "primary": "GET ?action=health",
+    "fallback": "POST {\"action\":\"health\"}"
+  },
+  "primary_entry": "tablegate.html",
+  "hosted_source_entry": "tablegate_hosted.html",
+  "backend_modified": false,
+  "backend_source_included": false,
+  "note": "Frontend-only package. Uses the existing Apps Script deployment and library; no backend code is included or modified."
+}
