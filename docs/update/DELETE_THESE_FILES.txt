@@ -1,0 +1,32 @@
+Delete these obsolete Paint by Number files from the repository after uploading both update archives:
+
+json/admins/effects-studio/paint-by-number/calico-tea-garden-color-guide.json
+json/admins/effects-studio/paint-by-number/cascading-dice-table-color-guide.json
+json/admins/effects-studio/paint-by-number/cozy-window-color-guide.json
+json/admins/effects-studio/paint-by-number/dice-witch-circle-color-guide.json
+json/admins/effects-studio/paint-by-number/emerald-clockwork-dragon-color-guide.json
+json/admins/effects-studio/paint-by-number/gamer-dungeon-desk-color-guide.json
+json/admins/effects-studio/paint-by-number/library-index.json
+json/admins/effects-studio/paint-by-number/loud-bloom-color-guide.json
+json/admins/effects-studio/paint-by-number/manifest.json
+json/admins/effects-studio/paint-by-number/midnight-garden-color-guide.json
+json/admins/effects-studio/paint-by-number/mushroom-cauldron-color-guide.json
+json/admins/effects-studio/paint-by-number/nap-raccoon-color-guide.json
+json/admins/effects-studio/paint-by-number/paused-game-controller-color-guide.json
+json/admins/effects-studio/paint-by-number/permanently-exhausted-pigeon-color-guide.json
+json/admins/effects-studio/paint-by-number/portal-color-guide.json
+json/admins/effects-studio/paint-by-number/rest-mandala-color-guide.json
+json/admins/effects-studio/paint-by-number/skyship-color-guide.json
+json/admins/effects-studio/paint-by-number/steampunk-clockwork-owl-color-guide.json
+json/admins/effects-studio/paint-by-number/steampunk-moth-lantern-color-guide.json
+json/admins/effects-studio/paint-by-number/steamship-color-guide.json
+json/admins/effects-studio/paint-by-number/submarine-color-guide.json
+json/admins/effects-studio/paint-by-number/tortie-moon-conservatory-color-guide.json
+json/admins/effects-studio/paint-by-number/train-color-guide.json
+json/admins/effects-studio/paint-by-number/witchcore-potion-cabinet-color-guide.json
+json/admins/effects-studio/paint-by-number/xbox-controller-color-guide.json
+js/admins/effects-studio/paint-by-number-host.js
+js/admins/effects-studio/paint-by-number/effects-studio-bridge.js
+css/admins/effects-studio/paint-by-number/embedded-overrides.css
+
+These files are intentionally absent from the two update ZIPs. Removing them is required for a complete repository cleanup because extracting/dragging replacement files cannot delete existing paths.

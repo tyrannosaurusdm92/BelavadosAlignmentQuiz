@@ -3,8 +3,8 @@
 
   const BACKEND_CONFIG = window.EffectsStudioBackendConfig || {};
   const MAP_ENGINE = window.EffectsStudioMapEngine || null;
-  const BACKEND_URL = BACKEND_CONFIG.serviceBackend?.exec || 'https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec';
-  const BACKEND_LIBRARY_URL = BACKEND_CONFIG.serviceBackend?.library || 'https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6';
+  const BACKEND_URL = BACKEND_CONFIG.serviceBackend?.exec || 'https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec';
+  const BACKEND_LIBRARY_URL = BACKEND_CONFIG.serviceBackend?.library || 'https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/8';
   const APP_NAME = 'Effects Studio';
   const STORAGE_KEY = 'effectsStudioProject';
   const PROJECT_DB_NAME = 'EffectsStudioProjects';

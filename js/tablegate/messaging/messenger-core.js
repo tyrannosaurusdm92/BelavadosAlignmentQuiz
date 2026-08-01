@@ -1,10 +1,10 @@
 'use strict';
 const CONFIG=Object.freeze({
-  backendUrl:'https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec',
-  libraryUrl:'https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6',
-  libraryId:'18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr',libraryVersion:'6',
+  backendUrl:'https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec',
+  libraryUrl:'https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/8',
+  libraryId:'18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr',libraryVersion:'8',
   hostingMode:'portable-current-folder',deploymentLocked:true,
-  storagePrefix:'tablegate.v3',defaultPollMs:1500,defaultRtcPollMs:800
+  storagePrefix:'tablegate.v8',defaultPollMs:1500,defaultRtcPollMs:800
 });
 const PERM={ADMIN:1,MANAGE_TABLEGATE:2,MANAGE_SERVER:2,MANAGE_CHANNELS:4,MANAGE_MESSAGES:8,KICK_MEMBERS:16,BAN_MEMBERS:32,SEND_MESSAGES:64,READ_MESSAGES:128,CONNECT_VOICE:256,SPEAK:512,CREATE_INVITE:1024,MANAGE_ROLES:2048,ATTACH_FILES:4096,MENTION_EVERYONE:8192,MANAGE_NICKNAMES:16384,VIEW_AUDIT_LOG:32768,STREAM:65536,USE_PERSONAS:131072,ROLL_DICE:262144,MANAGE_HANDOUTS:524288,MANAGE_SYSTEMS:1048576,MANAGE_ORGANIZER:1048576,MANAGE_CHARACTERS:2097152,APPROVE_CALENDAR:2097152,USE_MECHANICS:4194304,UPLOAD_SYSTEM_FILES:4194304,MANAGE_SYSTEM_LIBRARY:1048576,VIEW_PRIVATE_AVAILABILITY:2,USE_RULES_ASSISTANT:4194304};
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
@@ -20,7 +20,7 @@ const BACKEND_ACTION_ALIASES=Object.freeze({
   listServers:'listTablegates',createServer:'createTablegate',getServer:'getTablegate',updateServer:'updateTablegate',
   deleteServer:'deleteTablegate',leaveServer:'leaveTablegate',requestPasswordReset:'forgotPassword',listOwnedCharacters:'listCharacters'
 });
-const BACKEND_PUBLIC_ACTIONS=new Set(['health','capabilities','previewInvite','register','login','requestEmailVerification','verifyEmail','forgotPassword','resetPassword']);
+const BACKEND_PUBLIC_ACTIONS=new Set(['health','capabilities','previewInvite','register','login','requestEmailVerification','verifyEmail','forgotPassword','resetPassword','getTablegatePlatformPolicy','getSafetyTransparency','reportSafetyAnonymous','getPwaManifest','getInstallConfig','browsePublicTablegates','browseGroupFinderPosts','getAgeAssuranceOptions','ageAssuranceCallback','getSafetyReportingInfo','listPublicVenues','listPublicEvents','tablegate.storage.health','tablegate.storage.actions']);
 const BACKEND_VIRTUAL_ACTIONS=new Set([
   'getTablegateStudio','saveTablegateStudio','saveMapFoundry','saveNpcLives','saveCampaignCharacterVault',
   'getCampaignHubState','saveCampaignHubState','listCampaignAssets','createCampaignAsset','deleteCampaignAsset','broadcastDiceRoll',

@@ -4,8 +4,8 @@
   SB.VERSION = "2.0.0-tablegate";
   SB.CONFIG = Object.freeze({
     appName: "TableGate Assistant",
-    backendUrl: "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
-    backendLibrary: "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6",
+    backendUrl: "https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec",
+    backendLibrary: "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/8",
     defaultProjectId: "tablegate-project", defaultRepository: "", defaultUserId: "local-user",
     requestTimeoutMs: 120000, healthTimeoutMs: 20000, maxHistoryMessages: 30, maxContextChars: 90000,
     maxAttachmentChars: 100000, maxImageBytes: 8*1024*1024, maxLocalMemories: 2000, maxCorpusResults: 8,

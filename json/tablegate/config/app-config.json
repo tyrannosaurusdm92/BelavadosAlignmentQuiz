@@ -1,14 +1,14 @@
 {
   "appName": "TableGate",
-  "version": "10.0.0",
+  "version": "10.1.0-v8-frontend",
   "entryFile": "tablegate.html",
   "htmlFileCount": 1,
   "installable": true,
   "backend": {
-    "webApp": "https://script.google.com/macros/s/AKfycbylmceRVx5UcgMvMDkwym_9h0wv8gM5B9Msuui7-7Z6lqoYlqZBR6Y47hmsauQgoGXY/exec",
+    "webApp": "https://script.google.com/macros/s/AKfycbyTmuPyMg0ueiWAJSEpcrvXlkykD5g4Qo1cb0ybM1WDoTLAW43QG-6mvElxsWFVjx-vpg/exec",
     "libraryId": "18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr",
-    "libraryVersion": "6",
-    "libraryUrl": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/6",
+    "libraryVersion": "8",
+    "libraryUrl": "https://script.google.com/macros/library/d/18ET55A9uVNx3IUzoAM_eRj8v7jqagPgjVdxil3P1SoUqrFnnAJp6CjVr/8",
     "locked": true
   },
   "topLevelFolders": [
@@ -30,7 +30,7 @@
   },
   "studios": {
     "worldbuilding": "local-first with optional Apps Script sync",
-    "virtualTabletop": "local-first with optional Apps Script sync"
+    "virtualTabletop": "native Canvas/Web Audio worldbuilder with walls, doors, lighting, fog, ambience, semantic buildings, NPC assignment, and optional Apps Script map sync"
   },
   "acceptedSystemFiles": [
     "json",
@@ -54,7 +54,9 @@
     "effectsStudio": "single-page srcdoc workspace inside campaign-runner creation tools",
     "sessionDice": "single-page srcdoc multi-system 3D dice workspace",
     "chatDice": "campaign runners and moderators only",
-    "toolDocuments": "js/tablegate/components/tool-documents.js"
+    "toolDocuments": "js/tablegate/components/tool-documents.js",
+    "discoverySafety": "public campaign browsing, group finder, Right Now posts, public-location radius safety, join/player approvals, trusted contacts, check-ins, and reports",
+    "adminAudio": "99 deduplicated supplied tracks under assets/audio/admin; all disabled by default until license verification"
   },
   "tutorials": {
     "runnerOnboarding": true,
@@ -104,10 +106,13 @@
     "desktop": true
   },
   "backendParity": {
-    "suppliedBackendSource": "backend/api/tablegate-backend-v3.gs",
-    "routeCount": 223,
+    "suppliedBackendSource": "attached tablegate_backend_v8(2).gs (not redistributed)",
+    "backendVersion": "8.0.0",
+    "routeCount": 354,
     "advancedFrontend": "Backend Center",
-    "legacyVocabularyAdapter": "server-to-tablegate only; backend unchanged"
+    "routeCatalog": "js/tablegate/backend/backend-route-catalog.js",
+    "legacyVocabularyAdapter": "server-to-tablegate only; backend unchanged",
+    "routeCatalogJson": "json/tablegate/backend/backend-route-catalog.json"
   },
   "knowledgePack": {
     "systems": 9,
@@ -123,5 +128,14 @@
     "anyRegisteredUserCanCreateCampaigns": true,
     "anyCampaignCreatorCanCreateInviteLinks": true,
     "anyRegisteredUserCanCreateGameSystems": true
+  },
+  "storageAccessibility": {
+    "frontend": "js/tablegate/backend/v8-storage-accessibility.js",
+    "backendRoutes": 37,
+    "crossDeviceSync": true,
+    "documents": true,
+    "readAloud": true,
+    "readingProgress": true,
+    "accessibilityPreferences": true
   }
 }

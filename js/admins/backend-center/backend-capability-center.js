@@ -1,5 +1,5 @@
 'use strict';
-/* Complete frontend access to every HTTP route exposed by the supplied TableGate Backend V3. */
+/* Complete frontend access to every HTTP route exposed by the supplied TableGate Backend V8 and its integrated storage/accessibility module. */
 (()=>{
   const catalog=window.TableGateBackendRouteCatalog||{routes:[]};
   const StateUI={query:'',category:'all',selected:'health',payload:'{}',result:null,busy:false};
@@ -28,11 +28,11 @@
     const item=route(),list=visibleRoutes();
     if(!StateUI.payload||StateUI.payload==='{}')StateUI.payload=json(resolvedSample(item));
     return `<div class="workspace-grid backend-center">
-      <section class="workspace-card span-12 backend-hero"><div><span class="eyebrow">SUPPLIED BACKEND V3</span><h2>Backend Capability Center</h2><p>Every one of the backend's ${catalog.routeCount||catalog.routes.length} HTTP routes is callable here. Existing friendly TableGate screens remain the normal workflow; this center guarantees complete route coverage for advanced and administrative operations.</p></div><div class="backend-metrics"><strong>${catalog.routeCount||catalog.routes.length}</strong><small>routes exposed</small></div></section>
+      <section class="workspace-card span-12 backend-hero"><div><span class="eyebrow">SUPPLIED BACKEND V8</span><h2>Backend Capability Center</h2><p>Every one of the backend's ${catalog.routeCount||catalog.routes.length} HTTP and integrated storage routes is callable here. Existing friendly TableGate screens remain the normal workflow; this center guarantees complete route coverage for advanced and administrative operations.</p></div><div class="backend-metrics"><strong>${catalog.routeCount||catalog.routes.length}</strong><small>routes exposed</small></div></section>
       <section class="workspace-card span-4 backend-route-panel"><div class="docs-toolbar"><input data-backend-search type="search" value="${esc(StateUI.query)}" placeholder="Search routes or parameters"><select data-backend-category><option value="all">All categories</option>${routeCategories().map(cat=>`<option ${StateUI.category===cat?'selected':''}>${esc(cat)}</option>`).join('')}</select></div><div class="backend-route-list">${list.map(routeButton).join('')||'<div class="empty-workspace">No matching routes.</div>'}</div></section>
       <section class="workspace-card span-8 backend-request-panel">
         <div class="card-head"><div><span class="eyebrow">${esc(item.category)}</span><h2>${esc(item.action)}</h2></div><div class="backend-flags"><span class="status-pill">${item.auth?'AUTH':'PUBLIC'}</span><span class="status-pill ${item.write?'pending':'approved'}">${item.write?'WRITE':'READ'}</span>${item.destructive?'<span class="status-pill danger">DESTRUCTIVE</span>':''}</div></div>
-        <p><code>${esc(item.handler)}</code> · <a href="backend/api/tablegate-backend-v3.gs" target="_blank" rel="noopener">backend source line ${item.source.line}</a></p>
+        <p><code>${esc(item.handler)}</code> · attached Backend V8 source line ${item.source.line}</p>
         <div class="backend-context-row"><button data-backend-fill>Reset sample</button><button data-backend-context="tablegateId">Use active campaign</button><button data-backend-context="channelId">Use active channel</button><button data-backend-context="userId">Use my user ID</button></div>
         <div class="field"><label>JSON parameters</label><textarea data-backend-payload class="backend-json-editor" spellcheck="false">${esc(StateUI.payload)}</textarea><small>${item.parameters.length?`Recognized parameters: ${esc(item.parameters.join(', '))}`:'This route takes no explicit parameters.'}</small></div>
         <div class="row between wrap"><button class="primary" data-backend-run ${StateUI.busy?'disabled':''}>${StateUI.busy?'Calling backend…':'Run '+esc(item.action)}</button><button data-backend-copy>Copy request JSON</button></div>

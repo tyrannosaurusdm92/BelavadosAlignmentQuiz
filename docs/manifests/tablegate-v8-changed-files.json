@@ -1,0 +1,843 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-31T21:08:00-04:00",
+  "backendSourceIncluded": false,
+  "backendVersion": "8.0.0",
+  "backendRoutes": 354,
+  "summary": {
+    "newFilesExcludingManifest": 113,
+    "changedFiles": 19,
+    "deletedFiles": 28,
+    "updateBytesExcludingManifest": 388201206
+  },
+  "files": [
+    {
+      "path": "assets/audio/admin/ambience/1-05-rafters.mp3",
+      "status": "new",
+      "sizeBytes": 3381401,
+      "sha256": "cfcef4ab22366ec5a99cfa1cc27538e651b09b1b2c90796c82ecce2ad87aa05a"
+    },
+    {
+      "path": "assets/audio/admin/ambience/1-06-treehouse.mp3",
+      "status": "new",
+      "sizeBytes": 2964883,
+      "sha256": "d99590aafe4db913cc8c00ed84aef79924fd6fe2f3ff46638e60b543d6cb5db2"
+    },
+    {
+      "path": "assets/audio/admin/ambience/1-11-walking-the-streets.mp3",
+      "status": "new",
+      "sizeBytes": 3998391,
+      "sha256": "bf019a93ad51193bfcab7d205edfc585692b568c8806b7e689d711704ee23421"
+    },
+    {
+      "path": "assets/audio/admin/ambience/1-21-air.mp3",
+      "status": "new",
+      "sizeBytes": 3077744,
+      "sha256": "7b6292bf64786ea22168a9b2dde7c06a672ec7dd555c5d5252300e8a60ba7a6e"
+    },
+    {
+      "path": "assets/audio/admin/ambience/1-24-depths-of-the-abyss.mp3",
+      "status": "new",
+      "sizeBytes": 4133360,
+      "sha256": "05d08610a4a72999e9c731ce03adfef32b359a5b376dafd71f7e3973f73b3d59"
+    },
+    {
+      "path": "assets/audio/admin/ambience/2-03-abyss-of-the-sea.mp3",
+      "status": "new",
+      "sizeBytes": 2948406,
+      "sha256": "0e6fc4068ae440adb7d2eede7d5fe4614d4fa71136db24ed795d2db9e6636775"
+    },
+    {
+      "path": "assets/audio/admin/ambience/cozy-night-bonfire-in-the-quiet-forest-sleep-relax-study-ambience-wednesdayzenday-bonfires.mp3",
+      "status": "new",
+      "sizeBytes": 15157635,
+      "sha256": "474a1e1c423b1556680442952118571a0a3077574010dde012143c500c8603b4"
+    },
+    {
+      "path": "assets/audio/admin/ambience/daniel-pemberton-forest-clues.mp3",
+      "status": "new",
+      "sizeBytes": 6712512,
+      "sha256": "aa11ae9d52cc6b6f673ac27efa113dc6f25028153359777d5be7593aa0e85a0b"
+    },
+    {
+      "path": "assets/audio/admin/ambience/fumes-in-the-myconid-caves-unofficial-dragons-of-stormwreck-isle-loop-ttrpgd-and-d-dungeon-music.mp3",
+      "status": "new",
+      "sizeBytes": 14897456,
+      "sha256": "cb6e4a37f89cea4e7b14875107a296001c7f3a199b9b870f608356a8af39713c"
+    },
+    {
+      "path": "assets/audio/admin/ambience/hollow-knight-ost-fungal-wastes.mp3",
+      "status": "new",
+      "sizeBytes": 20298325,
+      "sha256": "ba83bec0f73d36d110e7b87fa0477311e0878cc00da2f62ce9c6b880fa8dd60b"
+    },
+    {
+      "path": "assets/audio/admin/ambience/industrial-harbour-disco-elysium-ost.mp3",
+      "status": "new",
+      "sizeBytes": 4028845,
+      "sha256": "d3764420947dd7e2956804c0f9328c44db8aee0280923988813eb2f626744fe2"
+    },
+    {
+      "path": "assets/audio/admin/ambience/made-in-abyss-ost-the-pit.mp3",
+      "status": "new",
+      "sizeBytes": 1730906,
+      "sha256": "d9ce0d80c218327055de0c0528c5720481238dbf61bb0283b5093bd124addc35"
+    },
+    {
+      "path": "assets/audio/admin/ambience/night-jungle-sounds.mp3",
+      "status": "new",
+      "sizeBytes": 14660614,
+      "sha256": "25d169447bdc249f5f4680dab3d2ffa1b30ac268cda22c5a426e176f7e6c9c06"
+    },
+    {
+      "path": "assets/audio/admin/ambience/passage-through-the-jungle.mp3",
+      "status": "new",
+      "sizeBytes": 3878989,
+      "sha256": "9f8d59d179a83bd40d92f097030fa63ed22345e8c858783fda995dcf8783d6e2"
+    },
+    {
+      "path": "assets/audio/admin/ambience/tabletop-orchestral-arcane-archives-wizards-shop-rpg-music-d-and-d-ambience.mp3",
+      "status": "new",
+      "sizeBytes": 5260153,
+      "sha256": "2cfe9cba8446b9728cad11778339dc3825146a95f858d2b691cff0e17262212f"
+    },
+    {
+      "path": "assets/audio/admin/ambience/the-boundless-ocean.mp3",
+      "status": "new",
+      "sizeBytes": 1282017,
+      "sha256": "4312d8bef66b6131843d55f7d4e87901a2a6eb82fc89f4b2e16141c458994b13"
+    },
+    {
+      "path": "assets/audio/admin/ambience/village-in-the-jungle.mp3",
+      "status": "new",
+      "sizeBytes": 17399639,
+      "sha256": "ca5f461f0c605987516e608d55ba9d7f2b483ee30c331991f711cb00fa01c8b5"
+    },
+    {
+      "path": "assets/audio/admin/music/1-02-roar-of-the-abyss.mp3",
+      "status": "new",
+      "sizeBytes": 3010799,
+      "sha256": "5e20a7f5900e34fea00501e4fbead0fafcd0f0c4810120d55c237df04e380622"
+    },
+    {
+      "path": "assets/audio/admin/music/1-03-beni-kuchi-nawa.mp3",
+      "status": "new",
+      "sizeBytes": 4683132,
+      "sha256": "f675731818d6431deb79a5a6e290bef4831f73b369ef04a9268381995e37bb12"
+    },
+    {
+      "path": "assets/audio/admin/music/1-07-new-world.mp3",
+      "status": "new",
+      "sizeBytes": 4092635,
+      "sha256": "964b14d9035a5410018709f37a048aecc7d62abab95a7ae212746eec42a12207"
+    },
+    {
+      "path": "assets/audio/admin/music/1-10-maul.mp3",
+      "status": "new",
+      "sizeBytes": 4120502,
+      "sha256": "70cb86311917cdbdba7cbe70be16bbf1b3408c6ce266db4a69602830a9ae3c54"
+    },
+    {
+      "path": "assets/audio/admin/music/1-19-swings-and-roundabouts.mp3",
+      "status": "new",
+      "sizeBytes": 3581919,
+      "sha256": "ef26d429404783d73737c0d282725a7446e49ea31cb59f7de0c4276016507ff4"
+    },
+    {
+      "path": "assets/audio/admin/music/1-20-tasukete.mp3",
+      "status": "new",
+      "sizeBytes": 4678847,
+      "sha256": "58cd5f538ff64e43b8feff97899e6f684bf284252eecfae5dc2f3b3cb29e07c1"
+    },
+    {
+      "path": "assets/audio/admin/music/2-05-jungle-run.mp3",
+      "status": "new",
+      "sizeBytes": 5295603,
+      "sha256": "8aacdb0833eb8054e7e6e87191fa8dae522333a9a21db90121f93d5d4cabc7f4"
+    },
+    {
+      "path": "assets/audio/admin/music/2-10-nanachi-in-the-dark.mp3",
+      "status": "new",
+      "sizeBytes": 4667408,
+      "sha256": "78d3e383e4fd51d56c8b7943dcebf537a7f6079cf16c2cc4f7f4b2b1006135db"
+    },
+    {
+      "path": "assets/audio/admin/music/a-gift-from-roxy.mp3",
+      "status": "new",
+      "sizeBytes": 2329841,
+      "sha256": "02db3bef4d191b877a4effde698123b8c558920661758d71b22eda36df45c825"
+    },
+    {
+      "path": "assets/audio/admin/music/a-new-day-on-the-road.mp3",
+      "status": "new",
+      "sizeBytes": 2108133,
+      "sha256": "be2ed0e8a66993a53784c280188bb73693422391677c1b60abbb5f2b0768261b"
+    },
+    {
+      "path": "assets/audio/admin/music/a-private-bath.mp3",
+      "status": "new",
+      "sizeBytes": 20676997,
+      "sha256": "892a06f96825e3cb00c9d7b0601813f88cbcdd9c3124730b23ceb0d1ff65a31a"
+    },
+    {
+      "path": "assets/audio/admin/music/ali-sabah-khanabat.mp3",
+      "status": "new",
+      "sizeBytes": 2298076,
+      "sha256": "20cfe0c7f56620ea89238d7d6186ad3daf4fedd8c978c52f4d15f481e67da233"
+    },
+    {
+      "path": "assets/audio/admin/music/battle.mp3",
+      "status": "new",
+      "sizeBytes": 4143733,
+      "sha256": "837d4cc8f66e363ba892d36eb594edf4e6165904c33175b87d79616206559982"
+    },
+    {
+      "path": "assets/audio/admin/music/best-tavern-music-ckd2.mp3",
+      "status": "new",
+      "sizeBytes": 2936091,
+      "sha256": "1a3d9e7f558bfa50a6cadb3a69c633a5261295518f567a67c321465113b94daa"
+    },
+    {
+      "path": "assets/audio/admin/music/black-mages-iii-or-cloud-of-darknes.mp3",
+      "status": "new",
+      "sizeBytes": 4741466,
+      "sha256": "ff32f5980b753c078df9884c4eb1cdd9206cc07bdc3fa27b7239af8a5a8c337e"
+    },
+    {
+      "path": "assets/audio/admin/music/chorus-tiny-bunny-ost.mp3",
+      "status": "new",
+      "sizeBytes": 3702001,
+      "sha256": "416f66583e4bf090f5663bd59cbb55278309a08b6a96afb973356f6dbb7e5144"
+    },
+    {
+      "path": "assets/audio/admin/music/credits-song-for-my-death-bossfight-remix.mp3",
+      "status": "new",
+      "sizeBytes": 3612558,
+      "sha256": "110f33318496314142002e3bba5a6f506a2a11f7b2236fc43887a10781be6394"
+    },
+    {
+      "path": "assets/audio/admin/music/dance-without-magic.mp3",
+      "status": "new",
+      "sizeBytes": 3362618,
+      "sha256": "201d79067d2c8ade8872aa9311580c25a3d1fd797ed969a2b9c1d57bed004add"
+    },
+    {
+      "path": "assets/audio/admin/music/delicious-in-dungeon-main-theme.mp3",
+      "status": "new",
+      "sizeBytes": 2688450,
+      "sha256": "a395ad76ffdf26576ff1844f026bf50353204abb10be650903201e9f393890fb"
+    },
+    {
+      "path": "assets/audio/admin/music/dordia-tribe.mp3",
+      "status": "new",
+      "sizeBytes": 1811154,
+      "sha256": "11946faa5fb76298f213b2f330b0531a554e77ffe5e8f7fca1e3e9a4555aa95a"
+    },
+    {
+      "path": "assets/audio/admin/music/dwarves-erebor-and-moria-theme-music-the-hobbit-lord-of-the-rings.mp3",
+      "status": "new",
+      "sizeBytes": 21433292,
+      "sha256": "16689114ed47470e220b5069d381f86a34b3db8787ca48f302d9fd27798188ff"
+    },
+    {
+      "path": "assets/audio/admin/music/eriss-smile.mp3",
+      "status": "new",
+      "sizeBytes": 1500192,
+      "sha256": "f04f8196619af46291f466223f0ea54b18235a8fcf3c975725fab37dab42c0ec"
+    },
+    {
+      "path": "assets/audio/admin/music/falins-passion-delicious-in-dungeon-orchestra-cover.mp3",
+      "status": "new",
+      "sizeBytes": 1213054,
+      "sha256": "75621ca6a3155e6d2c8fa32575b02d6fa4c01d39ef062ed935f572c60ecc7d99"
+    },
+    {
+      "path": "assets/audio/admin/music/final-fantasy-iv-ds-ost-cry-in-sorrow.mp3",
+      "status": "new",
+      "sizeBytes": 2000489,
+      "sha256": "c59bda6db4a0e2bb4bd92429fa085ece420c87ed6e2ced0de65e2745cd1d23b7"
+    },
+    {
+      "path": "assets/audio/admin/music/flutie8211-just-look-at-that-with-laugh-451577.mp3",
+      "status": "new",
+      "sizeBytes": 175872,
+      "sha256": "1a62c1994d63cc55789f5c6222e5cb62bbb939ea689e60e12598ad99d94e4be9"
+    },
+    {
+      "path": "assets/audio/admin/music/flutie8211-no-way-thatx27s-not-possible-438544.mp3",
+      "status": "new",
+      "sizeBytes": 172032,
+      "sha256": "7ce6819490ab499ba8e89827c57298899f42aa4a40d3070d125c23b2415a3628"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-i-know-86057.mp3",
+      "status": "new",
+      "sizeBytes": 37632,
+      "sha256": "d4f36b7b1ade934eb3dcf048d5496b73cc6c63e18240e9393ec13065f9b6de3b"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-never-let-you-go-103378.mp3",
+      "status": "new",
+      "sizeBytes": 266880,
+      "sha256": "b1a8305a3f9efa270639cc62ad14b4f8072cd2cc6a20de505ade043dfab760bb"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-oh-my-god-104662.mp3",
+      "status": "new",
+      "sizeBytes": 31488,
+      "sha256": "57ad6f1198cd3712235692bb411a54474ec95e4a08633fb92a00991ab3521579"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-shit-dude-104663.mp3",
+      "status": "new",
+      "sizeBytes": 29952,
+      "sha256": "716b2c73d11ec8de40e97615d469de9f974433792a4436addfce0647095cea8b"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-stop-struggling-86476.mp3",
+      "status": "new",
+      "sizeBytes": 48384,
+      "sha256": "355a03368fafbedf61ac47fdeb13359331995a2f4a794a59956494b36e986b43"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-voxgenius01-36084.mp3",
+      "status": "new",
+      "sizeBytes": 22560,
+      "sha256": "2bf4b0260f98f1f8ce45181cf371c0b1d8a7636836bc3b4e7fdb0174de890013"
+    },
+    {
+      "path": "assets/audio/admin/music/freesound-community-where-are-you-104692.mp3",
+      "status": "new",
+      "sizeBytes": 50688,
+      "sha256": "6bd9e4267c3e8854112da4f98edae2e0751b77ea5c9e23beeb5476fa63d29800"
+    },
+    {
+      "path": "assets/audio/admin/music/frieren-beyond-journeys-end-ost-compilation-to-studyrelax-to.mp3",
+      "status": "new",
+      "sizeBytes": 17476682,
+      "sha256": "a60c28cc30ab9f4adf3e5fbe758579b8adefa8f8c608ab4911fbb5adc74cc0f9"
+    },
+    {
+      "path": "assets/audio/admin/music/god-shattering-star-fire-emblem-three-houses-female-soprano-ver-eili.mp3",
+      "status": "new",
+      "sizeBytes": 4083598,
+      "sha256": "2e7793de6eebdf51ae530bb89b26de95b230fa39cd7dfdbc200fc5c9ca742644"
+    },
+    {
+      "path": "assets/audio/admin/music/hollow-knight-the-white-lady-ost-extended-kissvk-com.mp3",
+      "status": "new",
+      "sizeBytes": 15145719,
+      "sha256": "1d85968b1d315c457a879b6ca3f260755eeaf5c80629cc0815ff0425716e9d4e"
+    },
+    {
+      "path": "assets/audio/admin/music/india-theme-medieval-civilization-6.mp3",
+      "status": "new",
+      "sizeBytes": 3287804,
+      "sha256": "66662f6bc82ee387aedc649253615e3c670ef7a6f3187a810f39ecb154c713a4"
+    },
+    {
+      "path": "assets/audio/admin/music/made-in-abyss-ost-crucifixion.mp3",
+      "status": "new",
+      "sizeBytes": 2101217,
+      "sha256": "2ea8f4aa3d8ad8c9a32324b266d92250b9cb721c1eb2e99e473e548712779e44"
+    },
+    {
+      "path": "assets/audio/admin/music/made-in-abyss-ost-made-in-abyss.mp3",
+      "status": "new",
+      "sizeBytes": 2003415,
+      "sha256": "561a0938c50aa34c5e7c3e9fc16e81653e12744b03b298112935d57f48d32fbd"
+    },
+    {
+      "path": "assets/audio/admin/music/made-in-abyss-ost-old-stories-main-theme.mp3",
+      "status": "new",
+      "sizeBytes": 6803399,
+      "sha256": "2a0f6be696c5e17e2932a122584c176f4d2bc19e8169b10acbee6d0608f29661"
+    },
+    {
+      "path": "assets/audio/admin/music/magic-lesson.mp3",
+      "status": "new",
+      "sizeBytes": 1834977,
+      "sha256": "cd147e3ea1262a435d88b3302456a91789fcd30d6c1e4c84c64c9d21e47d7edd"
+    },
+    {
+      "path": "assets/audio/admin/music/mechanicus-ost-children-of-omnissiah-slow-extended.mp3",
+      "status": "new",
+      "sizeBytes": 11479109,
+      "sha256": "8c5e15de6177f67700b52ddd4da3de96fc5cf53dccb37bf7274c11bfb0df2e93"
+    },
+    {
+      "path": "assets/audio/admin/music/night-dance-tiny-bunny-ost.mp3",
+      "status": "new",
+      "sizeBytes": 2165583,
+      "sha256": "7fcfb19705616c8d5aff6bdd842b0868bff782a88e945aa0cd1e3ebe8ab18699"
+    },
+    {
+      "path": "assets/audio/admin/music/openingbombing-mission-final-fantasy-vii.mp3",
+      "status": "new",
+      "sizeBytes": 3894262,
+      "sha256": "4b6246a51b8c6b2c64bacef5a5eb16fd899f5a41cf6c733368a3c8c48444658f"
+    },
+    {
+      "path": "assets/audio/admin/music/ost-original-soundtrack-you-cant-buy-a-dere-with-money.mp3",
+      "status": "new",
+      "sizeBytes": 7138184,
+      "sha256": "7a3ccc7bda3fa1e36de87f2ab8fc6223b2c42bded6201f3e7cbf3d2d9fd0d053"
+    },
+    {
+      "path": "assets/audio/admin/music/psamathes-the-white-lady-from-hollow-knight.mp3",
+      "status": "new",
+      "sizeBytes": 5564169,
+      "sha256": "0cb5794cecb6aac2723474fa9782e6a87b55d9bb0473b3d01146d5386f827463"
+    },
+    {
+      "path": "assets/audio/admin/music/roxys-little-caretaker.mp3",
+      "status": "new",
+      "sizeBytes": 2863335,
+      "sha256": "5bce1bb02c1d346dddb247c6dd4c6e1017658dfcc7f8373df83dd68b33e569bf"
+    },
+    {
+      "path": "assets/audio/admin/music/senshis-theme-delicious-in-dungeon.mp3",
+      "status": "new",
+      "sizeBytes": 2015536,
+      "sha256": "61a2d473091c4754b6387d28ecb6e67d8a31c123021ce7ceb6f1e153b015a24d"
+    },
+    {
+      "path": "assets/audio/admin/music/sila-zanoby.mp3",
+      "status": "new",
+      "sizeBytes": 2151790,
+      "sha256": "cab3bed1c41e52c039cfab6c0825f0c5fc6670db72088e024bfb8f90f462d961"
+    },
+    {
+      "path": "assets/audio/admin/music/tension-in-the-foliage.mp3",
+      "status": "new",
+      "sizeBytes": 4705988,
+      "sha256": "7662149bb430024c813044b5b45c24a1245e211c84d434bea07e9f4381f8bb25"
+    },
+    {
+      "path": "assets/audio/admin/music/vampire-knight-ost-track-2-main-theme-2.mp3",
+      "status": "new",
+      "sizeBytes": 3158654,
+      "sha256": "fd395fdf951a449d9c110861d07e7c5f691c13652871e5daa4f3a3db8ecff1df"
+    },
+    {
+      "path": "assets/audio/admin/music/yearning-hearts-bianca-ban-yearning-hearts-bianca-ban.mp3",
+      "status": "new",
+      "sizeBytes": 6234994,
+      "sha256": "45449b259adc711890c26dc26bb8b0007a29753453ccbf1ed21eb9733ec69439"
+    },
+    {
+      "path": "assets/audio/admin/sfx/creature-1-default.mp3",
+      "status": "new",
+      "sizeBytes": 68170,
+      "sha256": "b54b697b05e03151530895e792706e0abba30a539b1b0f64d5ddbe30bfc429f6"
+    },
+    {
+      "path": "assets/audio/admin/sfx/creature-2-default.mp3",
+      "status": "new",
+      "sizeBytes": 61901,
+      "sha256": "7721738251123a9a85f20b423087bf109514f0eac23854d28e232b0e80140032"
+    },
+    {
+      "path": "assets/audio/admin/sfx/eldritch-blast-default.mp3",
+      "status": "new",
+      "sizeBytes": 24311,
+      "sha256": "f5f300b372833a00d6a8256014e52290973479a0dfefe7160faef65ed1d36a94"
+    },
+    {
+      "path": "assets/audio/admin/sfx/fire-default.mp3",
+      "status": "new",
+      "sizeBytes": 10727,
+      "sha256": "4aab315d1aa30a44b4bff902033a7b057375b9ff116632326ba8677c45a36ce0"
+    },
+    {
+      "path": "assets/audio/admin/sfx/heal-default.mp3",
+      "status": "new",
+      "sizeBytes": 19296,
+      "sha256": "60a4d31dedece55ecef134a042607f63ea0ee8f6487e535e1e516b838ba787b6"
+    },
+    {
+      "path": "assets/audio/admin/sfx/initiative-1-default.mp3",
+      "status": "new",
+      "sizeBytes": 125012,
+      "sha256": "48f8a762d9f73322af6847269389dbac37846365d1eb83138103592daa88da7f"
+    },
+    {
+      "path": "assets/audio/admin/sfx/interference-crunchy-close.mp3",
+      "status": "new",
+      "sizeBytes": 23005,
+      "sha256": "cfa701c6d56359fdb9ce6f509f77826291cd3a130a7aedfed368fdd041b309e8"
+    },
+    {
+      "path": "assets/audio/admin/sfx/interference-muffled.mp3",
+      "status": "new",
+      "sizeBytes": 58975,
+      "sha256": "1102be45b67bdd0ea23b8cf27f9ea3b3ae9ceca019e55de158f8cdb6d8e295b7"
+    },
+    {
+      "path": "assets/audio/admin/sfx/layered-sound-design-of-a-large-creepy-fan-close-position.mp3",
+      "status": "new",
+      "sizeBytes": 1945920,
+      "sha256": "2e5f23ff258c33336a7b6f6558d01add8e829bd29709434416f2043fe6fd8650"
+    },
+    {
+      "path": "assets/audio/admin/sfx/lock-1-default.mp3",
+      "status": "new",
+      "sizeBytes": 20396,
+      "sha256": "8dd16f149d851c5bae80e32d7d418cd420591d678beb94f7db5eccaa9878eb43"
+    },
+    {
+      "path": "assets/audio/admin/sfx/lock-2-default.mp3",
+      "status": "new",
+      "sizeBytes": 9644,
+      "sha256": "ff231c6d3198c63689717184cde19d7a7e8f0ce8adc889dec845bc0ffd0336d3"
+    },
+    {
+      "path": "assets/audio/admin/sfx/nat-20-default.mp3",
+      "status": "new",
+      "sizeBytes": 27094,
+      "sha256": "e5aa621b15a714d3123701c5daa54145644dff98ea225f7c8b8e85f6f24d744f"
+    },
+    {
+      "path": "assets/audio/admin/sfx/roll-2-default.mp3",
+      "status": "new",
+      "sizeBytes": 11564,
+      "sha256": "f249b271d29a7259c235349b272ea23b2d83435b0dee4de9a6bff00e0e60d5a3"
+    },
+    {
+      "path": "assets/audio/admin/sfx/shepard-tone-1.mp3",
+      "status": "new",
+      "sizeBytes": 17172642,
+      "sha256": "ef7f1b2737336386b8f990caba7a40b8e4fa6bde477c4aa8e5d7e99d2ed198e7"
+    },
+    {
+      "path": "assets/audio/admin/sfx/shot.mp3",
+      "status": "new",
+      "sizeBytes": 65756,
+      "sha256": "644fe3093f1e5594df78528f6bce45de6a3d5ad3de75e9158c2396c0ae740c0f"
+    },
+    {
+      "path": "assets/audio/admin/sfx/sneaky-default.mp3",
+      "status": "new",
+      "sizeBytes": 48344,
+      "sha256": "77c549f7ce90237f9a505bc227821939d7c418199f9bbf9a77b1fa73e6d3c92e"
+    },
+    {
+      "path": "assets/audio/admin/sfx/tense-sound.mp3",
+      "status": "new",
+      "sizeBytes": 313512,
+      "sha256": "c98f8e872b36f0dd8035b9a0ae2ee091b695cce00c5db53f1e510e2f103dd880"
+    },
+    {
+      "path": "assets/audio/admin/sfx/ultrasonic-scanning-sound-and-victim-search.mp3",
+      "status": "new",
+      "sizeBytes": 1396027,
+      "sha256": "8e72d2539308d5cac656d4088b08e4e80b1f84e92fbde092d1506b1b7836469a"
+    },
+    {
+      "path": "assets/audio/admin/sfx/whistlingwindstead54.mp3",
+      "status": "new",
+      "sizeBytes": 1565754,
+      "sha256": "4a4b2319cc9e3d8687e51003a660be00c401e8b2ba9496628ee3be7e49b0fa6e"
+    },
+    {
+      "path": "assets/audio/admin/sfx/write-1-default.mp3",
+      "status": "new",
+      "sizeBytes": 45356,
+      "sha256": "ce61e858ce9bf5460403e939656381018fd287be082e619cbc97f1d1123984ac"
+    },
+    {
+      "path": "assets/audio/admin/voice/freesound-community-014861-wizardry-whispered-voice-ambience-56894.mp3",
+      "status": "new",
+      "sizeBytes": 1956480,
+      "sha256": "51e4605156f5653b9eb4d4d5e2a277f05141daf4bc568467bb62e1ded37b3129"
+    },
+    {
+      "path": "assets/audio/admin/voice/freesound-community-funny-hello-104636.mp3",
+      "status": "new",
+      "sizeBytes": 31488,
+      "sha256": "b70b07c660da2b81ba5a3a4d24ba2b35f2ce8a194d525e9358c2c699b570ce16"
+    },
+    {
+      "path": "assets/audio/admin/voice/freesound-community-requested-female-voice-sample-talking-fighting-noises-54786.mp3",
+      "status": "new",
+      "sizeBytes": 1505280,
+      "sha256": "d92d109a21399fff34bda5b5c0ba2a9f3fbd4e92c343bbf7f882fa500cb0d8af"
+    },
+    {
+      "path": "assets/audio/admin/voice/freesound-community-stop-screaming-83198.mp3",
+      "status": "new",
+      "sizeBytes": 208800,
+      "sha256": "d98043059d5fffe3c73760da2cc95e8a3a765ec2cf5580e42ebdb94773dc008b"
+    },
+    {
+      "path": "assets/audio/admin/voice/martavalentinyi-wow-female-voice-156878.mp3",
+      "status": "new",
+      "sizeBytes": 122112,
+      "sha256": "e67e33bb6b174836137777b8fe6d8605bad818668fe6e23e812877290ee4a416"
+    },
+    {
+      "path": "assets/audio/admin/voice/phatphrogstudio-demon-voice-no-mercy-477827.mp3",
+      "status": "new",
+      "sizeBytes": 55170,
+      "sha256": "b44c22fff11695a921fc6424f5a34e61acd033f4488e13c6a002a6aa4fe8c32d"
+    },
+    {
+      "path": "assets/audio/admin/voice/screamin-38dc25484811804.mp3",
+      "status": "new",
+      "sizeBytes": 49068,
+      "sha256": "872aadc85e4d15d0b9e2986b25ca3e2c1b8e08c733cd656c386f84c592d18846"
+    },
+    {
+      "path": "assets/audio/admin/voice/singing.mp3",
+      "status": "new",
+      "sizeBytes": 2939096,
+      "sha256": "db6479f4f1de04df6e2e857c1041b75221e907483725ff0af69e6b4ed105e41e"
+    },
+    {
+      "path": "assets/audio/admin/voice/talk-tiny-bunny-ost.mp3",
+      "status": "new",
+      "sizeBytes": 3456659,
+      "sha256": "44668e97019f91003ef80647367178db1f10e6189b7298419ef0e255232a63f8"
+    },
+    {
+      "path": "assets/audio/admin/voice/universfield-game-over-deep-male-voice-clip-352695.mp3",
+      "status": "new",
+      "sizeBytes": 67584,
+      "sha256": "ecc55585c679ec406e949557a1fb7cf9cc8f3dfc6711122c7a682cb058d5f870"
+    },
+    {
+      "path": "css/admins/effects-studio/studio.css",
+      "status": "changed",
+      "sizeBytes": 33248,
+      "sha256": "9c4e2300d7020df2fe9c83a1f19d09c83b2cdd4560f2054b6e442b18ee55a10b"
+    },
+    {
+      "path": "css/admins/vtt/vtt-worldbuilder.css",
+      "status": "new",
+      "sizeBytes": 4918,
+      "sha256": "9feb34672e22bd64a41d806c7c66f4795a3acf213f8d92f84440908c4f613f88"
+    },
+    {
+      "path": "css/tablegate/discovery/discovery-safety-center.css",
+      "status": "new",
+      "sizeBytes": 2331,
+      "sha256": "ecc7bb726e08ca108630524bf5e40a8dd51d56f87c5f7fc4ae5ee12084bf6c29"
+    },
+    {
+      "path": "docs/licenses/admin-audio-license-audit.md",
+      "status": "new",
+      "sizeBytes": 2947,
+      "sha256": "04d74fd8c94b924dc3488b2a3f51770b89505a912c17b26f2a970c6e75975ca9"
+    },
+    {
+      "path": "docs/licenses/vtt-open-source-notices.md",
+      "status": "new",
+      "sizeBytes": 2352,
+      "sha256": "bd523b1458ff4f23c435a5574b055b5c50d7784a9fc4864550f4de622fbe31b6"
+    },
+    {
+      "path": "docs/manifests/admin-audio-renames.csv",
+      "status": "new",
+      "sizeBytes": 28021,
+      "sha256": "09a7006f85bad81668fd8e218a77daee970ae62e9d91a2f717a2335df74c9a88"
+    },
+    {
+      "path": "docs/manifests/tablegate-v8-package-boundary.md",
+      "status": "new",
+      "sizeBytes": 600,
+      "sha256": "4105e77fdbaee66a909a386825bcefda881f578a46a88f59d4179951ad780666"
+    },
+    {
+      "path": "docs/manifests/tablegate-v8-test-report.json",
+      "status": "new",
+      "sizeBytes": 2291,
+      "sha256": "d43270bfc2ea35e922b45891c2c8bfe9e738e1cde6e43962e34bf63dc6a234a0"
+    },
+    {
+      "path": "docs/releases/tablegate-v8-frontend-update.md",
+      "status": "new",
+      "sizeBytes": 2710,
+      "sha256": "9d8b5f10d7b9281074ac331dde80d9913ecbfa0430965f619cd95bbf558ae6f6"
+    },
+    {
+      "path": "docs/update/DELETE_THESE_FILES.txt",
+      "status": "new",
+      "sizeBytes": 2371,
+      "sha256": "a752cb09de669b025daf741cf4447bf8c8075229c118247f6321484a6919a250"
+    },
+    {
+      "path": "js/admins/audio/admin-audio-catalog.js",
+      "status": "new",
+      "sizeBytes": 85463,
+      "sha256": "d09e0d4e702263323ff691d08db27755c0d14af1c772d4713cede5143f281321"
+    },
+    {
+      "path": "js/admins/backend-center/backend-capability-center.js",
+      "status": "changed",
+      "sizeBytes": 7056,
+      "sha256": "37fce534fec1748e76f18c5d9f9ae2942fe744ea4482c1e0eb39f21ce7cb09c2"
+    },
+    {
+      "path": "js/admins/creator-forge/bot/config.js",
+      "status": "changed",
+      "sizeBytes": 2530,
+      "sha256": "9030ab832e8d1b012c21b50317c7c43905b9cc5a3016ea8417455bb1932aaa63"
+    },
+    {
+      "path": "js/admins/creator-forge/lifesimulator/config.js",
+      "status": "changed",
+      "sizeBytes": 5343,
+      "sha256": "1a8c2be796d7082d8f5f09f03b79b780579e15c2506b3089d434779336db42a3"
+    },
+    {
+      "path": "js/admins/effects-studio/app.js",
+      "status": "changed",
+      "sizeBytes": 154515,
+      "sha256": "5a2c729cec1e44800f5d6c261c84d89a6dfc4ad4706a1b0467739973f3d2bd94"
+    },
+    {
+      "path": "js/admins/effects-studio/backend-config.js",
+      "status": "changed",
+      "sizeBytes": 608,
+      "sha256": "b803c55012ace48545253a07027078026ce89af303ef621aedaf1756667652b9"
+    },
+    {
+      "path": "js/admins/maps/map-foundry.js",
+      "status": "changed",
+      "sizeBytes": 22905,
+      "sha256": "cb5ff400df05bb21406bd76d51c63aa4249b0ad09654dcec6c6e5c94fabf2a4c"
+    },
+    {
+      "path": "js/admins/npcs/npc-life.js",
+      "status": "changed",
+      "sizeBytes": 17019,
+      "sha256": "b499e141a9fa0e710815d347ef2eb898933d470814b8d1df83bbcb24010237bd"
+    },
+    {
+      "path": "js/admins/tools/integrated-tools.js",
+      "status": "changed",
+      "sizeBytes": 35058,
+      "sha256": "accde38cfda35258aa4c3c48989fc752737b449507be445594e37181d419c562"
+    },
+    {
+      "path": "js/admins/vtt/vtt-worldbuilder.js",
+      "status": "new",
+      "sizeBytes": 56100,
+      "sha256": "b110f62b01f98b15c09e4a4b1c211fe62129666622b97de06d35c2e64066ea9e"
+    },
+    {
+      "path": "js/tablegate/backend/backend-route-catalog.js",
+      "status": "changed",
+      "sizeBytes": 119680,
+      "sha256": "0fc2524c5559824de0858b3adde8965ae5582428e1c0849450de263e186bfdab"
+    },
+    {
+      "path": "js/tablegate/backend/v8-storage-accessibility.js",
+      "status": "new",
+      "sizeBytes": 3491,
+      "sha256": "8e04cc6483cacef7e4914b097a6e5e32e7da5f45f482e3f358fbeff81d19c080"
+    },
+    {
+      "path": "js/tablegate/components/tool-documents.js",
+      "status": "changed",
+      "sizeBytes": 8324716,
+      "sha256": "69a5ff5f7335c0d67a1900c218c5da287c22f95bb02341a75e9dad10c8aea3c3"
+    },
+    {
+      "path": "js/tablegate/discovery/discovery-safety-center.js",
+      "status": "new",
+      "sizeBytes": 35976,
+      "sha256": "83d8ea8ccf733af3a296d82ddc8adc11d8bfb2a04022e5e307f07ab2315aefe0"
+    },
+    {
+      "path": "js/tablegate/messaging/messenger-core.js",
+      "status": "changed",
+      "sizeBytes": 86053,
+      "sha256": "2f7d6f6b682aeb63fcb45c9c926d7c6742c4788afbbce05b20e6d819d9b767c0"
+    },
+    {
+      "path": "json/admins/audio/admin-audio-catalog.json",
+      "status": "new",
+      "sizeBytes": 105934,
+      "sha256": "f4abf19aacb36a82321e4269a2c841150827659fc062b258844ed15a15fc352d"
+    },
+    {
+      "path": "json/admins/creator-forge/lifesimulator/dialogue-backend.json",
+      "status": "changed",
+      "sizeBytes": 757,
+      "sha256": "ce91fbdf748f91e58d5fa58fa0708dd08f47779d407df7f8672eaf66e6b53ef4"
+    },
+    {
+      "path": "json/admins/effects-studio/backend-config.json",
+      "status": "changed",
+      "sizeBytes": 620,
+      "sha256": "13b422c14fc966b01356dac1722e3ffa0050ea7451505f188ef0bdf5e4e36a07"
+    },
+    {
+      "path": "json/tablegate/backend/backend-route-catalog.json",
+      "status": "changed",
+      "sizeBytes": 185615,
+      "sha256": "bb2d9463e4370b5e834e03550f0565b04dca520ec2ebebe5d51e5be3da2f43ac"
+    },
+    {
+      "path": "json/tablegate/config/app-config.json",
+      "status": "changed",
+      "sizeBytes": 5356,
+      "sha256": "4bfe1ea69e3d36dc3aebb5ecb36784819d44618be46de71e82c501aa2a01e8f5"
+    },
+    {
+      "path": "json/tablegate/config/deployment-lock.json",
+      "status": "changed",
+      "sizeBytes": 501,
+      "sha256": "c002d4ec8fbddf0add95771509d09ffbae087c518f7523e5c37b5b9afece9b73"
+    },
+    {
+      "path": "service-worker.js",
+      "status": "changed",
+      "sizeBytes": 4874,
+      "sha256": "b8373b6106888eb6742154c055accd1300b3bc05ad216321eba81c61b1cae12d"
+    },
+    {
+      "path": "tablegate.html",
+      "status": "changed",
+      "sizeBytes": 9935,
+      "sha256": "1f8fac2230ec8cfbe810dfbb187eb83aea1fe4b780ded4cccd65922c10577637"
+    }
+  ],
+  "deletedPaths": [
+    "css/admins/effects-studio/paint-by-number/embedded-overrides.css",
+    "js/admins/effects-studio/paint-by-number-host.js",
+    "js/admins/effects-studio/paint-by-number/effects-studio-bridge.js",
+    "json/admins/effects-studio/paint-by-number/calico-tea-garden-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/cascading-dice-table-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/cozy-window-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/dice-witch-circle-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/emerald-clockwork-dragon-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/gamer-dungeon-desk-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/library-index.json",
+    "json/admins/effects-studio/paint-by-number/loud-bloom-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/manifest.json",
+    "json/admins/effects-studio/paint-by-number/midnight-garden-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/mushroom-cauldron-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/nap-raccoon-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/paused-game-controller-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/permanently-exhausted-pigeon-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/portal-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/rest-mandala-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/skyship-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/steampunk-clockwork-owl-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/steampunk-moth-lantern-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/steamship-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/submarine-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/tortie-moon-conservatory-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/train-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/witchcore-potion-cabinet-color-guide.json",
+    "json/admins/effects-studio/paint-by-number/xbox-controller-color-guide.json"
+  ],
+  "self": {
+    "path": "docs/manifests/tablegate-v8-changed-files.json",
+    "status": "new",
+    "sha256": null,
+    "note": "Self hash omitted to avoid a recursive manifest hash."
+  }
+}

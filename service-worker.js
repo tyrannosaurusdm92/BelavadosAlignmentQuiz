@@ -1,5 +1,5 @@
 'use strict';
-const CACHE_VERSION='tablegate-v10.0.0-public-access-20260731';
+const CACHE_VERSION='tablegate-v10.1.0-v8-frontend-20260731';
 const CORE=[
   "./",
   "./tablegate.html",
@@ -59,11 +59,19 @@ const CORE=[
   "./js/tablegate/vendor/mammoth-browser-min.js",
   "./js/tablegate/workspaces/creator-player.js",
   "./json/tablegate/config/app-config.json",
+  "./json/tablegate/backend/backend-route-catalog.json",
   "./json/tablegate/config/deployment-lock.json",
   "./json/tablegate/knowledge-pack/catalog.json",
   "./json/tablegate/pwa/tablegate.webmanifest",
   "./json/tablegate/security/permissions.json",
-  "./json/tablegate/systems/supported-systems.json"
+  "./json/tablegate/systems/supported-systems.json",
+  "./css/admins/vtt/vtt-worldbuilder.css",
+  "./css/tablegate/discovery/discovery-safety-center.css",
+  "./js/admins/vtt/vtt-worldbuilder.js",
+  "./js/admins/audio/admin-audio-catalog.js",
+  "./js/tablegate/backend/v8-storage-accessibility.js",
+  "./js/tablegate/discovery/discovery-safety-center.js",
+  "./json/admins/audio/admin-audio-catalog.json",
 ];
 const SENSITIVE=/(?:\/api\/|\/auth(?:entication)?\/|messages?|private|token|credential|password|session-data|saved\/|notes\/)/i;
 self.addEventListener('install',event=>event.waitUntil(

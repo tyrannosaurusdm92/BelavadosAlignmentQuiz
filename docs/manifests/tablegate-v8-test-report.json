@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-07-31T21:08:00-04:00",
+  "result": "PASS",
+  "checks": {
+    "changed_and_new_files_identified": true,
+    "node_syntax": true,
+    "json_parse": true,
+    "html_references_exist": true,
+    "backend_route_catalog_354_unique": true,
+    "js_json_route_catalog_match": true,
+    "frontend_action_calls_exist_in_catalog": true,
+    "backend_url_and_library_v8_consistent": true,
+    "old_backend_not_in_active_frontend": true,
+    "paint_by_number_runtime_files_deleted": true,
+    "audio_catalog_hashes_and_files_valid": true,
+    "per_file_size_limit": true,
+    "folder_loose_file_limit": true,
+    "root_file_contract": true,
+    "no_backend_files_in_update": true
+  },
+  "counts": {
+    "new": 114,
+    "changed": 19,
+    "deleted": 28,
+    "updateFiles": 133,
+    "jsChecked": 16,
+    "jsonChecked": 8,
+    "backendRoutes": 354,
+    "audioSourceFiles": 102,
+    "audioUniqueTracks": 99,
+    "audioExactDuplicatesSkipped": 3
+  },
+  "details": {
+    "jsFailures": [],
+    "jsonFailures": [],
+    "missingHtmlReferences": [],
+    "missingBackendActions": {
+      "js/tablegate/discovery/discovery-safety-center.js": [],
+      "js/admins/vtt/vtt-worldbuilder.js": [],
+      "js/tablegate/backend/v8-storage-accessibility.js": []
+    },
+    "oldBackendHits": [],
+    "paintByNumberRemaining": [],
+    "filesOverLimit": [],
+    "foldersOverLooseFileLimit": [],
+    "rootFiles": [
+      "service-worker.js",
+      "tablegate.html"
+    ],
+    "largestFile": {
+      "path": "assets/audio/admin/music/dwarves-erebor-and-moria-theme-music-the-hobbit-lord-of-the-rings.mp3",
+      "sizeBytes": 21433292
+    },
+    "duplicateContentGroupsWithinUpdate": [],
+    "finalPackageProjectFileCount": 133,
+    "finalPackageNote": "The package count includes this test report and the changed-files manifest, which were created after the initial static audit snapshot."
+  },
+  "notRun": [
+    {
+      "test": "Live authenticated backend end-to-end requests",
+      "reason": "The artifact sandbox could not resolve script.google.com; route parity was verified statically against the attached backend source instead."
+    },
+    {
+      "test": "Full signed-in browser workflow",
+      "reason": "Requires a live account, deployed backend connectivity, and campaign data."
+    }
+  ]
+}

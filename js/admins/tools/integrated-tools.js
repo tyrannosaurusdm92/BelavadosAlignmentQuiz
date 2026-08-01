@@ -127,10 +127,10 @@ const TUTORIALS=[
     ['Publish maps','Use Publish maps to attach map files to the active campaign. Players receive read-only access to shared campaign material.'],
     ['Verify the destination','Confirm the campaign name shown in the toolbar before editing or publishing.']
   ]},
-  {id:'effects',icon:'✎',title:'Effects Studio',summary:'Create layered artwork, maps, terrain, lighting, sound zones, animation, and paint-by-number assets.',steps:[
+  {id:'effects',icon:'✎',title:'Effects Studio',summary:'Create layered artwork, maps, terrain, lighting, sound zones, and animation.',steps:[
     ['Start a project','Open Effects Studio and create, import, or continue a named project.'],
     ['Build with layers','Use drawing tools, shapes, assets, procedural terrain, lighting, sound zones, and layers without flattening your editable source.'],
-    ['Use Paint by Number','Switch workspaces to prepare traced or generated paint-by-number pages inside the same project environment.'],
+    ['Prepare map assets','Create or import terrain, location art, overlays, tokens, and ambience zones for Campaign Hub and the Virtual Tabletop.'],
     ['Export and sync','Export PNG, SVG, HTML, or project JSON. Use Sync when you want the configured backend to retain the project.']
   ]},
   {id:'world',icon:'◉',title:'World & Life Studio',summary:'Connect lore, people, locations, timelines, relationships, schedules, and living-world updates.',steps:[
@@ -175,6 +175,12 @@ const TUTORIALS=[
     ['Select exact records','Use the Campaign Runner Creator Area to select the items intended for players.'],
     ['Confirm the campaign','The confirmation step displays the locked destination campaign and clears if the active campaign changes.'],
     ['Withdraw when needed','Select previously published items and use Remove from Players without deleting the private source.']
+  ]},
+  {id:'discovery',icon:'◎',title:'Find Games & Safety',summary:'Find public campaigns and groups, use right-now matching, public-location radius controls, approvals, check-ins, and safety reports.',steps:[
+    ['Build your profile','Choose hard requirements separately from preferences, then list systems, roles, play modes, accessibility needs, and safety expectations.'],
+    ['Choose public or online play','Online matching can be global. In-person posts use a user-chosen public location and a 5–50 mile radius; never publish a home address.'],
+    ['Use the pre-game lobby','Express interest first, review compatibility and boundaries, then move into a protected pre-game lobby before direct contact.'],
+    ['Use safety tools','Trusted contacts, check-ins, private incident journals, reports, evidence exports, and appeals remain available without paid tiers.']
   ]},
   {id:'docs',icon:'§',title:'Documentation & Sources',summary:'Review architecture, licenses, provenance, audits, manifests, source notes, and test evidence.',steps:[
     ['Open Documentation','Choose Docs in the navigation. Every retained project document is indexed there.'],
@@ -221,7 +227,7 @@ function renderHub(){
 }
 function renderEffects(){
   if(!canManage())return '<div class="empty-workspace">Campaign-runner permission is required.</div>';
-  return `<div class="runner-role-note"><strong>Campaign Runner Creation Tool</strong><br>Effects Studio is available equally to ${esc(RUNNER_TITLES)}. Its complete established editor appearance is preserved inside this workspace.</div>${frameView('effectsStudio','Effects Studio','Layered artwork, interactive maps, terrain, lighting, sound zones, animation, and Paint by Number.','<button data-open-tutorial="effects">Tutorial</button>')}`;
+  return `<div class="runner-role-note"><strong>Campaign Runner Creation Tool</strong><br>Effects Studio is available equally to ${esc(RUNNER_TITLES)}. Its complete established editor appearance is preserved inside this workspace.</div>${frameView('effectsStudio','Effects Studio','Layered artwork, interactive maps, terrain, lighting, sound zones, and animation.','<button data-open-tutorial="effects">Tutorial</button>')}`;
 }
 function renderDice(){return frameView('sessionDice','Session Dice','Shared 3D dice, nine-system bots, completed saved sheets, user colors, and live participant roll popups.','<button data-open-tutorial="dice">Tutorial</button>')}
 function renderTutorials(){
@@ -244,7 +250,7 @@ function previewDoc(path){
   modal(doc.path,body,`<a class="secondary" href="${esc(docUrl(doc.path))}" target="_blank" rel="noopener">Open file</a><button data-close-modal>Close</button>`,true);
 }
 const RUNNER_TOOLS=[
-  ['effects','✎','Effects Studio','Create layered artwork, maps, terrain, lighting, sound zones, animation, and Paint by Number.'],
+  ['effects','✎','Effects Studio','Create layered artwork, maps, terrain, lighting, sound zones, and animation.'],
   ['hub','▦','Campaign Hub','Build map hierarchies, campaign areas, handouts, links, and shared map assets.'],
   ['world','◉','World Studio','Write linked lore, locations, timelines, people, factions, and campaign references.'],
   ['maps','⌖','Map Foundry','Prepare map records, regions, scenes, travel data, and tabletop-ready assets.'],
@@ -259,7 +265,7 @@ function runnerToolsMarkup(){
   return `<section class="workspace-card campaign-runner-tools"><div class="card-head"><div><span class="eyebrow">CAMPAIGN RUNNER CREATION</span><h2>Campaign Runner Creation Tools</h2><p>Available equally to ${esc(RUNNER_TITLES)}.</p></div></div><div class="runner-tool-grid">${RUNNER_TOOLS.map(([view,icon,title,summary])=>`<article class="runner-tool-card"><div class="tool-icon">${icon}</div><h3>${esc(title)}</h3><p>${esc(summary)}</p><div class="runner-tool-actions"><button class="primary" data-runner-tool="${esc(view)}">Open</button>${TUTORIALS.some(t=>t.id===view)?`<button data-open-tutorial="${esc(view)}">Tutorial</button>`:''}</div></article>`).join('')}</div></section>`;
 }
 
-Object.assign(WORKSPACE_VIEWS,{hub:'Campaign Hub',sessionDice:'Session Dice',effects:'Effects Studio',tutorials:'Tutorials',docs:'Docs',knowledge:'Knowledge Pack',backend:'Backend Center'});
+Object.assign(WORKSPACE_VIEWS,{hub:'Campaign Hub',sessionDice:'Session Dice',effects:'Effects Studio',tutorials:'Tutorials',docs:'Docs',knowledge:'Knowledge Pack',backend:'Backend Center',discovery:'Find Games & Safety'});
 const previousCreatorRender=CreatorArea.render.bind(CreatorArea);
 CreatorArea.render=function(){
   const html=previousCreatorRender();
@@ -287,6 +293,7 @@ Workspace.renderView=function(view){
   if(view==='docs')return renderDocs();
   if(view==='knowledge')return window.TableGateKnowledgeBrowser?.render()||'<div class="empty-workspace">Knowledge catalog is unavailable.</div>';
   if(view==='backend')return window.TableGateBackendCenter?.render()||'<div class="empty-workspace">Backend route catalog is unavailable.</div>';
+  if(view==='discovery')return window.TableGateDiscoverySafety?.render()||'<div class="empty-workspace">Discovery and safety tools are unavailable.</div>';
   return previousView(view);
 };
 function bindIntegratedView(view,shell){
@@ -316,6 +323,7 @@ function bindIntegratedView(view,shell){
   shell.querySelectorAll('[data-open-tutorial]').forEach(button=>button.onclick=()=>openTutorial(button.dataset.openTutorial));
   if(view==='knowledge')window.TableGateKnowledgeBrowser?.bind(shell);
   if(view==='backend')window.TableGateBackendCenter?.bind(shell);
+  if(view==='discovery')window.TableGateDiscoverySafety?.bind(shell);
   if(view==='docs'){
     const search=shell.querySelector('[data-docs-search]'),category=shell.querySelector('[data-docs-category]');
     if(search)search.oninput=()=>{docsQuery=search.value;clearTimeout(search._timer);search._timer=setTimeout(()=>Workspace.render(),180)};
@@ -326,7 +334,7 @@ function bindIntegratedView(view,shell){
 Workspace.render=function(){
   const shell=$('#workspace-shell');if(!shell||!State.server)return;
   const view=this.current==='messenger'?'dashboard':this.current,creator=canManage();
-  const playerViews=['dashboard','player','session','sessionDice','characters','table','hub','tasks','calendar','availability','library','knowledge','data','docs','backend','blog'];
+  const playerViews=['dashboard','player','discovery','session','sessionDice','characters','table','hub','tasks','calendar','availability','library','knowledge','data','docs','backend','blog'];
   const creatorViews=['creator','effects','tutorials','forge','maps','npcLives','encounters','helpers','world','privateDice','admin'];
   const visible=[...playerViews,...(creator?creatorViews:[])];
   if(!visible.includes(view)){this.current='player';return this.render()}
@@ -352,7 +360,7 @@ renderRail=function(){
   const creator=!!State.server&&canManage();
   const serverButtons=(State.servers||[]).map(server=>`<button class="rail-btn server-initial ${State.server?.id===server.id?'active':''}" data-server="${esc(server.id)}" title="${esc(server.name)}"><span>${esc(initials(server.name))}</span></button>`).join('');
   const modules=State.server?[
-    ['messenger','💬','Messenger'],['dashboard','⌂','Organizer'],['player','👥','Player Area'],
+    ['messenger','💬','Messenger'],['dashboard','⌂','Organizer'],['player','👥','Player Area'],['discovery','◎','Find Games & Safety'],
     ['sessionDice','◆','Session Dice'],['characters','♙','Character Sheets'],['table','♟','Virtual Tabletop'],['hub','▦','Campaign Hub'],
     ...(creator?[['creator','🔒','Campaign Runner Creator Area'],['effects','✎','Effects Studio'],['tutorials','?','Tutorials'],['forge','⚒','Creator Forge'],['maps','⌖','Map Foundry'],['npcLives','♙','NPC Lives'],['encounters','⚡','Encounter Lab'],['helpers','⌘','Campaign Helpers'],['world','◉','World Studio'],['privateDice','◈','Private Dice']]:[]),
     ['calendar','▣','Calendar'],['library','▤','TTRPG System'],['knowledge','📖','Knowledge Pack'],['docs','§','Docs'],['backend','⇄','Backend Center'],['blog','🦖','Developer Blog']
